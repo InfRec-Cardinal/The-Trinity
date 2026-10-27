@@ -1,0 +1,15 @@
+# Python environments and caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local environment settings
+.env
+.env.*
+!.env.example
+
+# Operating system files
+.DS_Store
+Thumbs.db
