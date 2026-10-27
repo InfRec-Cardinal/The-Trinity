@@ -18,7 +18,7 @@
 
 ## News
 
-- **2026-10-27:** Code release is scheduled for **November 15, 2026**. Stay tuned!
+- **2026-10-27:** The Trinity code will be released on **November 15, 2026**. Stay tuned!
 
 ## Overview
 
