@@ -18,7 +18,7 @@
 
 ## News
 
-- **2026-10-27:** The Trinity code will be released on **November 15, 2026**. Stay tuned!
+- **2026-10-28:** The Trinity code will be released **within one week**. Stay tuned!
 
 ## Overview
 
@@ -38,7 +38,7 @@ The technical report reports mean performance gains of **34 points across 28 tra
 
 ## Code Release
 
-**Coming Soon — November 15, 2026.**
+**Coming Soon — within one week of October 28, 2026.**
 
 This repository currently contains the technical report and project overview. Code and usage instructions will be added with the release.
 
