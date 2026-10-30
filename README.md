@@ -16,12 +16,20 @@
   <a href="README.zh-CN.md">简体中文</a>
 </p>
 
-## News
+## 🔥 Updates!!
 
 - **2026-10-30:** The integrated source code is released with English and Chinese documentation under the MIT License.
 - **2026-10-28:** The Trinity code release was announced.
 
-## Overview
+## 📑 Open-Source Plan
+
+- [x] Technical report and project overview.
+- [x] Stage 1 task discovery and train/unseen split.
+- [x] Stage 2 trajectory analysis and capability induction.
+- [x] Creator–Explorer training and Harness routing.
+- [x] English and Chinese documentation with the MIT License.
+
+## 📖 Introduction
 
 **The Trinity** is a recursive self-improvement framework that couples world generation with agent Harness evolution. It organizes heterogeneous multimodal tasks by shared capability requirements and connects three roles through verified execution feedback:
 
@@ -33,7 +41,7 @@
 
 ![Overview of The Trinity: Creator, Explorer, and Evolver connect multimodal task-space expansion with capability-driven Harness evolution.](assets/overview.png)
 
-## Release scope
+## 🗂️ Code Structure and Release Scope
 
 This release contains the integrated command-line entry point, task discovery and splitting, trajectory analysis and capability induction, Creator–Explorer training, Harness routing, prompts, and accounting utilities.
 
@@ -48,7 +56,7 @@ This release contains the integrated command-line entry point, task discovery an
 
 Benchmark datasets, runnable benchmark drivers, adapter configurations, experiment snapshots, and routing plans are not bundled. Running the complete workflow requires implementing an environment adapter and obtaining the relevant benchmark resources. The release does not include example or test scripts, and cloning it alone does not reproduce the paper's experiments.
 
-## Requirements
+## 🛠️ Requirements
 
 - **Node.js 22 or later.** The JavaScript packages use built-in Node APIs and declare no npm dependencies.
 - **Python 3.10 or later.** Stage 2 declares `anthropic>=1.0`; install its package as shown below.
@@ -57,7 +65,7 @@ Benchmark datasets, runnable benchmark drivers, adapter configurations, experime
 - **For PDF source extraction:** `pdftotext` or Python with `pypdf`. Scanned PDFs require an external OCR workflow.
 - Benchmark-specific software, data, and execution access required by your adapter.
 
-## Setup
+## 🚀 Installation
 
 The commands below use Bash and run from the repository root:
 
@@ -86,7 +94,7 @@ export PIPELINE_EXPORT_DIR="$PWD/runs/stage1/exports"
 
 The code does not automatically load `.env` files. Keep credentials in your environment. The built-in transport uses the Anthropic Messages protocol, streaming, adaptive thinking, and tools; an arbitrary chat-completions endpoint is not interchangeable. Provider presets are configuration defaults, not a guarantee that a service or model is available.
 
-## Workflow
+## 🧭 Usage
 
 Complete the [environment adapter](#environment-adapter) before running exploration or training. Commands that invoke models, search, or benchmarks consume the corresponding resources. Use a new output directory for each `explore`, `train`, and `route` run.
 
@@ -182,7 +190,9 @@ node cli.mjs explore \
 
 The completion record must match the handoff and unseen cohort. These records support post-training analysis and evaluation; they are not additional training inputs. Unseen routing uses a plan with `split: "unseen"` and the completed training run. See [protocol-state.mjs](harness/src/protocol-state.mjs) for the enforced bindings.
 
-## Environment adapter
+<a id="environment-adapter"></a>
+
+## 🔌 Environment Adapter
 
 Create your own `local/adapter.json` and `local/driver.mjs`. A minimal configuration shape is:
 
@@ -215,7 +225,7 @@ The first seven members cover exploration and environment execution; full traini
 
 The default agent backend uses the configured provider. Advanced integrations can set `agentCommand` and `agentOptions` in the adapter to use the [command-agent protocol](harness/src/agent.mjs).
 
-## Configuration and outputs
+## ⚙️ Configuration and Outputs
 
 | Setting | Meaning |
 | --- | --- |
@@ -243,7 +253,7 @@ Training settings such as iterations, action budget, build attempts, and screeni
 
 Preserve the complete run directories: later stages verify source ledgers and artifact hashes, not just copied summary files.
 
-## Paper and citation
+## 📝 Paper and Citation
 
 **The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents**
 
@@ -264,6 +274,6 @@ The Trinity Research Team, 2026.
 }
 ```
 
-## License
+## 📄 License
 
 The source code is released under the [MIT License](LICENSE). External benchmark resources and dependencies remain subject to their respective licenses.

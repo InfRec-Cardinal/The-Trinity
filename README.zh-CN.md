@@ -16,11 +16,19 @@
   <a href="paper/The-Trinity.pdf">论文 PDF</a>
 </p>
 
-## 动态
+## 🔥 最新动态!!
 
 - **2026-10-30：** 发布 The Trinity 框架代码及中英文使用说明。
 
-## 概览
+## 📑 开源计划
+
+- [x] 技术报告与项目概览
+- [x] Stage 1 任务发现与训练/未见划分
+- [x] Stage 2 轨迹分析与能力归纳
+- [x] Creator–Explorer 训练与 Harness 路由
+- [x] 中英文文档与 MIT 许可
+
+## 📖 项目介绍
 
 **The Trinity** 是面向多模态智能体的递归自我改进框架，将世界生成与智能体 Harness（运行框架）演化相结合。它按照共享能力需求组织任务，通过可验证的执行反馈连接三个角色：
 
@@ -32,7 +40,7 @@
 
 ![The Trinity 概览：Creator、Explorer 与 Evolver 连接多模态任务空间扩展和能力驱动的 Harness 演化。](assets/overview.png)
 
-## 发布范围
+## 🗂️ 代码结构与发布范围
 
 本仓库包含任务发现与划分、轨迹分析与能力归纳、Creator–Explorer–Evolver 演化、Harness 路由，以及相关提示词和配置。
 
@@ -49,7 +57,7 @@ paper/                 技术报告
 
 运行实际实验还需要自行接入环境驱动、适配器配置和基准数据，并准备评估用的路由计划。本仓库未附带这些资源，也未附带论文实验快照，因此以下说明是框架接入流程，不能直接一键复现论文结果。
 
-## 环境要求
+## 🛠️ 环境要求
 
 - **Node.js 22 或更新版本**。JavaScript 部分仅使用 Node.js 内置模块，无需安装 npm 第三方依赖。
 - **Python 3.10 或更新版本**。Stage 2 声明依赖 `anthropic>=1.0`，使用 setuptools 构建。
@@ -60,7 +68,7 @@ paper/                 技术报告
 
 仓库没有提供 demo 或测试脚本。下面的 `--help` 命令只检查 CLI 是否可以加载；它不验证模型服务、环境驱动或完整训练。
 
-## 安装
+## 🚀 安装
 
 以下命令在仓库根目录运行，使用 Bash：
 
@@ -96,7 +104,7 @@ node cli.mjs stage2 --help
 
 完整 Creator 训练仍需要满足上面的 Linux 运行条件。
 
-## 工作流
+## 🧭 使用流程
 
 ### 1. 发现任务并导出划分
 
@@ -170,7 +178,7 @@ node cli.mjs metrics runs/explore-train runs/train runs/route
 
 这一分析沿用训练时固定的能力目录。训练绑定的任务划分、能力目录及训练分配必须保持不变；旧的未见任务轨迹不能绕过训练完成验证。实现见 [Stage 2 CLI](stage2/trinity_stage2/cli.py) 和 [训练协议验证](harness/src/protocol-state.mjs)。
 
-## 环境适配器
+## 🔌 环境适配器
 
 自行创建 `local/adapter.json`，最小配置如下。该 JSON 只负责连接你实现的驱动，不能独立提供运行环境：
 
@@ -200,7 +208,7 @@ node cli.mjs metrics runs/explore-train runs/train runs/route
 
 接入时请结合 [集成入口](src/integration.mjs)、[探索器](harness/src/explorer.mjs)、[实例固定](harness/src/exploration-plan.mjs)、[Creator 构建](harness/src/creator-coding.mjs) 和 [Creator 审核](harness/src/creator-audits.mjs) 实现完整约定。
 
-## 配置与产物
+## ⚙️ 配置与产物
 
 模型服务预设位于 [config/providers.json](config/providers.json)。支持的配置标识为 `anthropic`、`packy`、`openrouter`、`geili`、`custom`，对应的密钥变量分别为 `ANTHROPIC_API_KEY`、`PACKY_API_KEY`、`OPENROUTER_API_KEY`、`GEILI_API_KEY`、`TRINITY_API_KEY`。
 
@@ -232,7 +240,7 @@ Harness 默认参数见 [harness/config/defaults.json](harness/config/defaults.j
 
 请保留相互关联的运行目录。后续阶段会校验来源记录和训练产物，而不仅是读取最终 JSON。
 
-## 论文与引用
+## 📝 论文与引用
 
 **The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents**
 
@@ -253,6 +261,6 @@ The Trinity Research Team, 2026.
 }
 ```
 
-## 许可证
+## 📄 许可证
 
 本项目源代码采用 [MIT 许可证](LICENSE)。外部基准、数据集与模型服务的使用须遵循各自的许可和条款。
