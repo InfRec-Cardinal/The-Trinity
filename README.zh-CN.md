@@ -46,6 +46,10 @@
 
 ![The Trinity 概览：Creator、Explorer 与 Evolver 连接多模态任务空间扩展和能力驱动的 Harness 演化。](assets/overview.png)
 
+## 🕹️ 体验 The Trinity！
+
+我们正在准备交互式 Demo，用于阶段性测试，帮助大家通过实际体验更好地理解 The Trinity 的工作方式。
+
 ## 🗂️ 代码结构与发布范围
 
 本仓库包含任务发现与划分、轨迹分析与能力归纳、Creator–Explorer–Evolver 演化、Harness 路由，以及相关提示词和配置。

@@ -46,6 +46,10 @@
 
 ![Overview of The Trinity: Creator, Explorer, and Evolver connect multimodal task-space expansion with capability-driven Harness evolution.](assets/overview.png)
 
+## 🕹️ Try and Play with The Trinity!
+
+We are preparing an interactive demo for phased testing to help you explore The Trinity and better understand how it works.
+
 ## 🗂️ Code Structure and Release Scope
 
 This release contains the integrated command-line entry point, task discovery and splitting, trajectory analysis and capability induction, Creator–Explorer training, Harness routing, prompts, and accounting utilities.
