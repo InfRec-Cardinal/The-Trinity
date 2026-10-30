@@ -32,6 +32,7 @@
 1. [x] Release code.
 2. [ ] Release simulation environments.
 3. [ ] Release Harness.
+4. [ ] Release Router.
 
 ## 📖 Introduction
 
