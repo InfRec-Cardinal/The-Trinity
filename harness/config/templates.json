@@ -1,0 +1,2173 @@
+[
+  {
+    "templateId": "observation_normalizer",
+    "protocolClass": "perception",
+    "name": "Observation and Evidence Normalization",
+    "prompt": "Convert delivered public observations into facts with sources. Extract visible fields, identify conflicting observations, and report missing values as unknown.",
+    "interface": {
+      "required": [
+        "observations"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const facts=input.observations.filter(x=>x.source&&x.visible===true);return {facts,status:facts.length?'observed':'unknown'};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "observations": [
+            {
+              "source": "f",
+              "visible": true,
+              "value": 1
+            }
+          ]
+        },
+        "expected": {
+          "facts": [
+            {
+              "source": "f",
+              "visible": true,
+              "value": 1
+            }
+          ],
+          "status": "observed"
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "observations": [
+            {
+              "value": 1
+            }
+          ]
+        },
+        "expected": {
+          "facts": [],
+          "status": "unknown"
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "identity_binding",
+    "protocolClass": "perception",
+    "name": "Object Identity and Cross-View Association",
+    "prompt": "Associate objects using explicit identities, public mappings, timing, and motion constraints. Preserve ambiguity; proximity alone does not establish that two observations refer to the same object.",
+    "interface": {
+      "required": [
+        "observations"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const groups={};for(const o of input.observations)if(o.entity&&o.source)(groups[o.entity]??=[]).push(o);return {groups,status:Object.keys(groups).length?'linked':'unknown'};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "observations": [
+            {
+              "entity": "x",
+              "source": "f"
+            }
+          ]
+        },
+        "expected": {
+          "groups": {
+            "x": [
+              {
+                "entity": "x",
+                "source": "f"
+              }
+            ]
+          },
+          "status": "linked"
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "observations": [
+            {
+              "entity": "x"
+            }
+          ]
+        },
+        "expected": {
+          "groups": {},
+          "status": "unknown"
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "evidence_coverage",
+    "protocolClass": "perception",
+    "name": "Evidence Coverage and Readability Check",
+    "prompt": "Check requirements against the coverage, sources, and readability of evidence actually delivered. Track relevant time, region, and modality limits. Requesting evidence does not mean it has been received.",
+    "interface": {
+      "required": [
+        "requirements",
+        "delivered"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const covered=input.requirements.filter(k=>input.delivered.some(x=>x.key===k&&x.source&&x.readable===true));return {covered,missing:input.requirements.filter(k=>!covered.includes(k))};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "requirements": [
+            "a"
+          ],
+          "delivered": [
+            {
+              "key": "a",
+              "source": "f",
+              "readable": true
+            }
+          ]
+        },
+        "expected": {
+          "covered": [
+            "a"
+          ],
+          "missing": []
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "requirements": [
+            "a"
+          ],
+          "delivered": []
+        },
+        "expected": {
+          "covered": [],
+          "missing": [
+            "a"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "entity_state_ledger",
+    "protocolClass": "memory",
+    "name": "Object State and Transaction Ledger",
+    "prompt": "Maintain observed states, changes, and report transactions by stable identity. Distinguish intentions and predictions from actual readings; explicitly return any state that must be carried forward.",
+    "interface": {
+      "required": [
+        "history"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const state={};for(const r of input.history)if(r.entity&&r.source)state[r.entity]=r.value;return {state};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "history": [
+            {
+              "entity": "x",
+              "source": "f",
+              "value": 1
+            },
+            {
+              "entity": "x",
+              "source": "g",
+              "value": 2
+            }
+          ]
+        },
+        "expected": {
+          "state": {
+            "x": 2
+          }
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "history": [
+            {
+              "entity": "x",
+              "value": 2
+            }
+          ]
+        },
+        "expected": {
+          "state": {}
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "temporal_event_ledger",
+    "protocolClass": "memory",
+    "name": "Temporal Events and Cumulative Progress",
+    "prompt": "Deduplicate by actual event identity and maintain event order, counts, and progress. The same recipient does not imply the same event. Do not fill history with unobserved events.",
+    "interface": {
+      "required": [
+        "events"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const seen=new Set();const events=input.events.filter(e=>e.id&&e.source&&!seen.has(e.id)&&seen.add(e.id)).sort((a,b)=>a.time-b.time);return {events,count:events.length};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "events": [
+            {
+              "id": "e",
+              "source": "f",
+              "time": 1
+            },
+            {
+              "id": "e",
+              "source": "f",
+              "time": 1
+            }
+          ]
+        },
+        "expected": {
+          "events": [
+            {
+              "id": "e",
+              "source": "f",
+              "time": 1
+            }
+          ],
+          "count": 1
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "events": []
+        },
+        "expected": {
+          "events": [],
+          "count": 0
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "revision_dependency_memory",
+    "protocolClass": "memory",
+    "name": "Version Dependencies and Conclusion Retraction",
+    "prompt": "Maintain phases, constraint versions, and inference dependencies. Retract outdated conclusions and conclusions that depend on them while preserving actual state.",
+    "interface": {
+      "required": [
+        "activeIds",
+        "conclusions"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const kept=[],revoked=[];for(const c of input.conclusions)(c.dependsOn.every(k=>input.activeIds.includes(k))?kept:revoked).push(c.id);return {kept,revoked};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "activeIds": [
+            "a"
+          ],
+          "conclusions": [
+            {
+              "id": "x",
+              "dependsOn": [
+                "a"
+              ]
+            }
+          ]
+        },
+        "expected": {
+          "kept": [
+            "x"
+          ],
+          "revoked": []
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "activeIds": [],
+          "conclusions": [
+            {
+              "id": "x",
+              "dependsOn": [
+                "a"
+              ]
+            }
+          ]
+        },
+        "expected": {
+          "kept": [],
+          "revoked": [
+            "x"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "constraint_solver",
+    "protocolClass": "inference",
+    "name": "Constraint Propagation and Candidate Solving",
+    "prompt": "Filter candidates, propagate domains, or perform bounded search using public constraints. Distinguish no solution, multiple solutions, a unique solution, and search cutoff; a cutoff is not a proof.",
+    "interface": {
+      "required": [
+        "candidates"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const survivors=input.candidates.filter(c=>Array.isArray(c.violations)&&c.violations.length===0);return {survivors,status:survivors.length===1?'unique':survivors.length?'multiple':'none'};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "candidates": [
+            {
+              "id": "x",
+              "violations": []
+            },
+            {
+              "id": "y",
+              "violations": [
+                "c"
+              ]
+            }
+          ]
+        },
+        "expected": {
+          "survivors": [
+            {
+              "id": "x",
+              "violations": []
+            }
+          ],
+          "status": "unique"
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "candidates": []
+        },
+        "expected": {
+          "survivors": [],
+          "status": "none"
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "hypothesis_model",
+    "protocolClass": "inference",
+    "name": "Hypothesis Updates and Interaction Modeling",
+    "prompt": "Use observed feedback to maintain compatible models. Derive predictions and information partitions only from supported model inputs. An unevaluated hypothesis is not a refuted hypothesis.",
+    "interface": {
+      "required": [
+        "hypotheses",
+        "refutedIds"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const survivors=input.hypotheses.filter(h=>!input.refutedIds.includes(h.id));return {survivors};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "hypotheses": [
+            {
+              "id": "a"
+            },
+            {
+              "id": "b"
+            }
+          ],
+          "refutedIds": [
+            "a"
+          ]
+        },
+        "expected": {
+          "survivors": [
+            {
+              "id": "b"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "hypotheses": [
+            {
+              "id": "a"
+            }
+          ],
+          "refutedIds": []
+        },
+        "expected": {
+          "survivors": [
+            {
+              "id": "a"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "relation_consistency",
+    "protocolClass": "inference",
+    "name": "Relational Joins and Consistency Inference",
+    "prompt": "Check object identity, coordinate frames, and relational constraints. Perform joins supported by sources and explicitly identify missing information and contradictions.",
+    "interface": {
+      "required": [
+        "requirements",
+        "facts"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const missing=[],conflicts=[];for(const r of input.requirements){const f=input.facts.filter(x=>x.key===r.key&&x.source);if(!f.length)missing.push(r.key);else if(f.some(x=>x.value!==r.value))conflicts.push(r.key);}return {missing,conflicts,consistent:!missing.length&&!conflicts.length};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "requirements": [
+            {
+              "key": "a",
+              "value": 1
+            }
+          ],
+          "facts": [
+            {
+              "key": "a",
+              "value": 1,
+              "source": "f"
+            }
+          ]
+        },
+        "expected": {
+          "missing": [],
+          "conflicts": [],
+          "consistent": true
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "requirements": [
+            {
+              "key": "a",
+              "value": 1
+            }
+          ],
+          "facts": []
+        },
+        "expected": {
+          "missing": [
+            "a"
+          ],
+          "conflicts": [],
+          "consistent": false
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "bounded_path_search",
+    "protocolClass": "planning",
+    "name": "Bounded Path and Subgoal Search",
+    "prompt": "Search public state transitions, maps, or prerequisite relations. Account for joint actions, return paths, ordered goals, and capacity constraints when provided. Unknown edges must not be treated as open.",
+    "interface": {
+      "required": [
+        "graph",
+        "start",
+        "goal"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const q=[[input.start]],seen=new Set([input.start]);while(q.length){const p=q.shift(),v=p.at(-1);if(v===input.goal)return {status:'found',path:p};for(const w of input.graph[v]??[])if(!seen.has(w)){seen.add(w);q.push([...p,w]);}}return {status:'unreachable',path:[]};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "graph": {
+            "a": [
+              "b"
+            ]
+          },
+          "start": "a",
+          "goal": "b"
+        },
+        "expected": {
+          "status": "found",
+          "path": [
+            "a",
+            "b"
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "graph": {},
+          "start": "a",
+          "goal": "b"
+        },
+        "expected": {
+          "status": "unreachable",
+          "path": []
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "resource_schedule",
+    "protocolClass": "planning",
+    "name": "Resource Budgets and Timing",
+    "prompt": "Compare feasible plans using public costs, resources, and benefits. Account for production, deadlines, inventories, and opponent responses when supported by the inputs. A feasible plan is not a completed plan.",
+    "interface": {
+      "required": [
+        "candidates",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const ranked=input.candidates.filter(c=>Number.isFinite(c.cost)&&c.cost<=input.budget&&Number.isFinite(c.value)).sort((a,b)=>b.value-a.value||a.cost-b.cost);return {ranked,recommendation:ranked[0]??null};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "candidates": [
+            {
+              "id": "a",
+              "cost": 2,
+              "value": 3
+            },
+            {
+              "id": "b",
+              "cost": 1,
+              "value": 4
+            }
+          ],
+          "budget": 2
+        },
+        "expected": {
+          "ranked": [
+            {
+              "id": "b",
+              "cost": 1,
+              "value": 4
+            },
+            {
+              "id": "a",
+              "cost": 2,
+              "value": 3
+            }
+          ],
+          "recommendation": {
+            "id": "b",
+            "cost": 1,
+            "value": 4
+          }
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "candidates": [
+            {
+              "id": "a",
+              "cost": 2,
+              "value": 3
+            }
+          ],
+          "budget": 1
+        },
+        "expected": {
+          "ranked": [],
+          "recommendation": null
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "information_acquisition",
+    "protocolClass": "planning",
+    "name": "Information Probes and Evidence Acquisition",
+    "prompt": "Choose publicly available probes or segments for remaining evidence gaps. Compare information value and cost, and reserve the submission budget. A recommendation does not itself acquire evidence.",
+    "interface": {
+      "required": [
+        "offers",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const ranked=input.offers.filter(o=>o.available===true&&o.cost<=input.budget&&o.gain>0).sort((a,b)=>b.gain-a.gain||a.cost-b.cost);return {next:ranked[0]??null};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "offers": [
+            {
+              "id": "a",
+              "available": true,
+              "cost": 1,
+              "gain": 2
+            }
+          ],
+          "budget": 1
+        },
+        "expected": {
+          "next": {
+            "id": "a",
+            "available": true,
+            "cost": 1,
+            "gain": 2
+          }
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "offers": [],
+          "budget": 1
+        },
+        "expected": {
+          "next": null
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "evidence_commit_gate",
+    "protocolClass": "loop",
+    "name": "Evidence Support and Commit Gate",
+    "prompt": "Evaluate positive support, counterevidence, and unknown status separately. Permit commitment only when the stated evidence requirements are satisfied and sufficient budget remains. Missing evidence is not a negative finding.",
+    "interface": {
+      "required": [
+        "requirements",
+        "evidence",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const missing=input.requirements.filter(k=>!input.evidence.some(e=>e.key===k&&e.source&&e.supported===true));return {missing,canCommit:!missing.length&&input.budget>=1};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "requirements": [
+            "a"
+          ],
+          "evidence": [
+            {
+              "key": "a",
+              "source": "f",
+              "supported": true
+            }
+          ],
+          "budget": 1
+        },
+        "expected": {
+          "missing": [],
+          "canCommit": true
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "requirements": [
+            "a"
+          ],
+          "evidence": [],
+          "budget": 1
+        },
+        "expected": {
+          "missing": [
+            "a"
+          ],
+          "canCommit": false
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "budget_progress_gate",
+    "protocolClass": "loop",
+    "name": "Budget, Progress, and Stop Control",
+    "prompt": "Choose continuation, retry, stop, or commitment using the current budget and verified progress. Predicted progress must not be treated as actual progress.",
+    "interface": {
+      "required": [
+        "budget",
+        "goalObserved",
+        "progressObserved"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){return {decision:input.goalObserved===true&&input.budget>=1?'commit':input.budget<1?'abort':input.progressObserved===true?'continue':'retry'};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "budget": 2,
+          "goalObserved": true,
+          "progressObserved": true
+        },
+        "expected": {
+          "decision": "commit"
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "budget": 0,
+          "goalObserved": false,
+          "progressObserved": false
+        },
+        "expected": {
+          "decision": "abort"
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "frozen_obligation_gate",
+    "protocolClass": "loop",
+    "name": "Frozen Goals and Action Commitment Check",
+    "prompt": "Check current evidence and action roles against the goal contract frozen by the host. The function only reviews its input; the host maintains contract freezing and observation registration.",
+    "interface": {
+      "required": [
+        "contract",
+        "evidence"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){if(!input.contract)return {status:'block',missing:['contract']};const missing=input.contract.requirements.filter(k=>!input.evidence.some(e=>e.key===k&&e.source&&e.supported===true));return {status:missing.length?'block':'allow',missing};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "contract": {
+            "requirements": [
+              "a"
+            ]
+          },
+          "evidence": [
+            {
+              "key": "a",
+              "source": "f",
+              "supported": true
+            }
+          ]
+        },
+        "expected": {
+          "status": "allow",
+          "missing": []
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "contract": null,
+          "evidence": []
+        },
+        "expected": {
+          "status": "block",
+          "missing": [
+            "contract"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "observed_relation_extractor",
+    "protocolClass": "perception",
+    "name": "Visible Relations and Coordinate Frames",
+    "prompt": "Extract subjects, objects, relations, and coordinate frames from supplied public relational observations. Do not guess relations from proximity or identical names.",
+    "interface": {
+      "required": [
+        "observations"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const relations=input.observations.filter(o=>o.source&&o.visible===true&&o.subject&&o.object&&o.relation&&o.frame).map(({subject,object,relation,frame,source})=>({subject,object,relation,frame,source}));return {relations};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "observations": [
+            {
+              "subject": "a",
+              "object": "b",
+              "relation": "left",
+              "frame": "camera",
+              "source": "f",
+              "visible": true
+            }
+          ]
+        },
+        "expected": {
+          "relations": [
+            {
+              "subject": "a",
+              "object": "b",
+              "relation": "left",
+              "frame": "camera",
+              "source": "f"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "observations": [
+            {
+              "subject": "a",
+              "object": "b",
+              "relation": "left"
+            }
+          ]
+        },
+        "expected": {
+          "relations": []
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "motion_candidate_association",
+    "protocolClass": "perception",
+    "name": "Motion Constraints and Target Association",
+    "prompt": "Filter identity candidates using sourced positions in two frames and public motion limits. Preserve ambiguity when several candidates remain. Report unknown when frames are missing or timing is invalid.",
+    "interface": {
+      "required": [
+        "previous",
+        "detections",
+        "elapsed",
+        "maxSpeed"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){if(!input.previous.source||!Number.isFinite(input.elapsed)||input.elapsed<=0||!Number.isFinite(input.maxSpeed)||input.maxSpeed<0)return {status:'unknown',candidates:[]};const candidates=input.detections.filter(d=>d.source&&d.position.length===input.previous.position.length&&Math.hypot(...d.position.map((v,i)=>v-input.previous.position[i]))<=input.maxSpeed*input.elapsed).map(d=>d.id);return {status:candidates.length===1?'unique':candidates.length?'ambiguous':'lost',candidates};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "previous": {
+            "position": [
+              0,
+              0
+            ],
+            "source": "f0"
+          },
+          "detections": [
+            {
+              "id": "a",
+              "position": [
+                1,
+                0
+              ],
+              "source": "f1"
+            },
+            {
+              "id": "b",
+              "position": [
+                3,
+                0
+              ],
+              "source": "f1"
+            }
+          ],
+          "elapsed": 1,
+          "maxSpeed": 2
+        },
+        "expected": {
+          "status": "unique",
+          "candidates": [
+            "a"
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "previous": {
+            "position": [
+              0,
+              0
+            ]
+          },
+          "detections": [],
+          "elapsed": 1,
+          "maxSpeed": 2
+        },
+        "expected": {
+          "status": "unknown",
+          "candidates": []
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "temporal_coverage_auditor",
+    "protocolClass": "perception",
+    "name": "Temporal Coverage and Frame Density Audit",
+    "prompt": "Check temporal boundaries and gaps using frames actually delivered and readable. Temporal coverage measures evidence acquisition sufficiency, not whether the video answer is correct.",
+    "interface": {
+      "required": [
+        "frames",
+        "start",
+        "end",
+        "maxGap"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const times=[...new Set(input.frames.filter(f=>f.source&&f.readable===true&&Number.isFinite(f.time)&&f.time>=input.start&&f.time<=input.end).map(f=>f.time))].sort((a,b)=>a-b);if(!times.length)return {covered:false,gaps:[[input.start,input.end]]};const gaps=[];if(times[0]>input.start)gaps.push([input.start,times[0]]);for(let i=1;i<times.length;i++)if(times[i]-times[i-1]>input.maxGap)gaps.push([times[i-1],times[i]]);if(times.at(-1)<input.end)gaps.push([times.at(-1),input.end]);return {covered:gaps.length===0,gaps};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "frames": [
+            {
+              "time": 0,
+              "source": "a",
+              "readable": true
+            },
+            {
+              "time": 1,
+              "source": "b",
+              "readable": true
+            }
+          ],
+          "start": 0,
+          "end": 1,
+          "maxGap": 1
+        },
+        "expected": {
+          "covered": true,
+          "gaps": []
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "frames": [],
+          "start": 0,
+          "end": 2,
+          "maxGap": 1
+        },
+        "expected": {
+          "covered": false,
+          "gaps": [
+            [
+              0,
+              2
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "report_reconciliation",
+    "protocolClass": "memory",
+    "name": "Report Additions, Corrections, and Retractions",
+    "prompt": "Compare recorded reports with the current evidence-supported report set to generate transaction differences. An omitted observation must not automatically mean a healthy condition or a report retraction.",
+    "interface": {
+      "required": [
+        "previous",
+        "current",
+        "complete"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){if(input.complete!==true)return {status:'incomplete',edits:[]};const edits=[];for(const [key,value]of Object.entries(input.current)){if(!Object.hasOwn(input.previous,key))edits.push({kind:'add',key,value});else if(JSON.stringify(input.previous[key])!==JSON.stringify(value))edits.push({kind:'correct',key,value});}for(const key of Object.keys(input.previous))if(!Object.hasOwn(input.current,key))edits.push({kind:'retract',key});return {status:'reconciled',edits};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "previous": {
+            "a": 1,
+            "b": 2
+          },
+          "current": {
+            "a": 3,
+            "c": 4
+          },
+          "complete": true
+        },
+        "expected": {
+          "status": "reconciled",
+          "edits": [
+            {
+              "kind": "correct",
+              "key": "a",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "key": "c",
+              "value": 4
+            },
+            {
+              "kind": "retract",
+              "key": "b"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "previous": {
+            "a": 1
+          },
+          "current": {},
+          "complete": false
+        },
+        "expected": {
+          "status": "incomplete",
+          "edits": []
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "ordered_progress_memory",
+    "protocolClass": "memory",
+    "name": "Ordered Prefix and Completion Receipt Memory",
+    "prompt": "Maintain the completed prefix of an ordered task using sourced receipts for executed actions. Completing a later goal early does not skip prerequisites.",
+    "interface": {
+      "required": [
+        "order",
+        "receipts"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){let completed=0;for(const r of input.receipts)if(r.source&&r.completed===true&&r.id===input.order[completed])completed++;return {completed,next:input.order[completed]??null};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "order": [
+            "a",
+            "b"
+          ],
+          "receipts": [
+            {
+              "id": "b",
+              "source": "x",
+              "completed": true
+            },
+            {
+              "id": "a",
+              "source": "y",
+              "completed": true
+            }
+          ]
+        },
+        "expected": {
+          "completed": 1,
+          "next": "b"
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "order": [
+            "a"
+          ],
+          "receipts": [
+            {
+              "id": "a",
+              "completed": true
+            }
+          ]
+        },
+        "expected": {
+          "completed": 0,
+          "next": "a"
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "cyclic_residue_memory",
+    "protocolClass": "memory",
+    "name": "Event Counts and Cycle Residues",
+    "prompt": "Accumulate observed valid class-entry events. Compute residues only for publicly confirmed positive integer cycles. Invalid actions must not count as entries.",
+    "interface": {
+      "required": [
+        "events",
+        "cycles"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const counts=Object.create(null);for(const e of input.events)if(e.source&&e.entered===true&&typeof e.class==='string')counts[e.class]=(counts[e.class]??0)+1;const residues=Object.create(null);for(const [key,n]of Object.entries(counts)){const c=input.cycles[key];residues[key]=Number.isInteger(c)&&c>0?n%c:null;}return {counts,residues};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "events": [
+            {
+              "class": "a",
+              "source": "f",
+              "entered": true
+            },
+            {
+              "class": "a",
+              "source": "g",
+              "entered": true
+            }
+          ],
+          "cycles": {
+            "a": 3
+          }
+        },
+        "expected": {
+          "counts": {
+            "a": 2
+          },
+          "residues": {
+            "a": 2
+          }
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "events": [
+            {
+              "class": "a",
+              "source": "f",
+              "entered": true
+            }
+          ],
+          "cycles": {}
+        },
+        "expected": {
+          "counts": {
+            "a": 1
+          },
+          "residues": {
+            "a": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "attribute_rule_classifier",
+    "protocolClass": "inference",
+    "name": "Attribute Rules and Evidence Classification",
+    "prompt": "Classify using public attribute rules. Preserve uncertainty when attributes are missing, contradictory, or match several rules. Missing information does not establish that a rule is false.",
+    "interface": {
+      "required": [
+        "facts",
+        "required",
+        "rules"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const missing=input.required.filter(k=>!Object.hasOwn(input.facts,k));if(missing.length)return {status:'unknown',labels:[],missing};const labels=input.rules.filter(r=>Object.entries(r.when).every(([k,v])=>Object.hasOwn(input.facts,k)&&JSON.stringify(input.facts[k])===JSON.stringify(v))).map(r=>r.label);return {status:labels.length===1?'classified':labels.length?'ambiguous':'unclassified',labels,missing};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "facts": {
+            "a": 1
+          },
+          "required": [
+            "a"
+          ],
+          "rules": [
+            {
+              "when": {
+                "a": 1
+              },
+              "label": "x"
+            }
+          ]
+        },
+        "expected": {
+          "status": "classified",
+          "labels": [
+            "x"
+          ],
+          "missing": []
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "facts": {},
+          "required": [
+            "a"
+          ],
+          "rules": [
+            {
+              "when": {
+                "a": 1
+              },
+              "label": "x"
+            }
+          ]
+        },
+        "expected": {
+          "status": "unknown",
+          "labels": [],
+          "missing": [
+            "a"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "feedback_partition_model",
+    "protocolClass": "inference",
+    "name": "Predicted Feedback Partitions and Ambiguity",
+    "prompt": "Partition candidate hypotheses by their predicted feedback for a public probe and estimate remaining ambiguity. Retain hypotheses with missing predictions. The planning layer separately ranks probes.",
+    "interface": {
+      "required": [
+        "hypotheses",
+        "probeId"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const groups=Object.create(null),unknown=[];for(const h of input.hypotheses){if(!Object.hasOwn(h.predictions??{},input.probeId)){unknown.push(h.id);continue;}const key=JSON.stringify(h.predictions[input.probeId]);(groups[key]??=[]).push(h.id);}return {groups,unknown,worstKnownPartition:Math.max(0,...Object.values(groups).map(g=>g.length))};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "hypotheses": [
+            {
+              "id": "a",
+              "predictions": {
+                "p": 1
+              }
+            },
+            {
+              "id": "b",
+              "predictions": {
+                "p": 1
+              }
+            },
+            {
+              "id": "c",
+              "predictions": {
+                "p": 2
+              }
+            }
+          ],
+          "probeId": "p"
+        },
+        "expected": {
+          "groups": {
+            "1": [
+              "a",
+              "b"
+            ],
+            "2": [
+              "c"
+            ]
+          },
+          "unknown": [],
+          "worstKnownPartition": 2
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "hypotheses": [
+            {
+              "id": "a",
+              "predictions": {}
+            }
+          ],
+          "probeId": "p"
+        },
+        "expected": {
+          "groups": {},
+          "unknown": [
+            "a"
+          ],
+          "worstKnownPartition": 0
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "domain_support_propagation",
+    "protocolClass": "inference",
+    "name": "Domain Support and Constraint Propagation",
+    "prompt": "Remove unsupported domain values using a complete enumeration of legal tuples. Without a complete relation table, missing tuples must not justify deletion.",
+    "interface": {
+      "required": [
+        "domains",
+        "tuples",
+        "complete"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){if(input.complete!==true)return {status:'unknown',domains:input.domains};const keys=Object.keys(input.domains);const valid=input.tuples.filter(t=>keys.every(k=>Object.hasOwn(t,k)&&input.domains[k].includes(t[k])));const domains=Object.fromEntries(keys.map(k=>[k,input.domains[k].filter(v=>valid.some(t=>t[k]===v))]));return {status:valid.length?'supported':'inconsistent',domains};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "domains": {
+            "a": [
+              1,
+              2
+            ],
+            "b": [
+              1,
+              2
+            ]
+          },
+          "tuples": [
+            {
+              "a": 1,
+              "b": 2
+            }
+          ],
+          "complete": true
+        },
+        "expected": {
+          "status": "supported",
+          "domains": {
+            "a": [
+              1
+            ],
+            "b": [
+              2
+            ]
+          }
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "domains": {
+            "a": [
+              1,
+              2
+            ]
+          },
+          "tuples": [],
+          "complete": false
+        },
+        "expected": {
+          "status": "unknown",
+          "domains": {
+            "a": [
+              1,
+              2
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "joint_transition_scheduler",
+    "protocolClass": "planning",
+    "name": "Joint Actions and Synchronized Gates",
+    "prompt": "Select synchronized steps using public gates, prerequisites, and joint-action legality. Individually feasible actions may be infeasible together. Unknown legality is not approval.",
+    "interface": {
+      "required": [
+        "jointActions",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const feasible=input.jointActions.filter(a=>a.legal===true&&a.preconditionsMet===true&&Number.isFinite(a.cost)&&a.cost>=0&&a.cost<=input.budget).sort((a,b)=>a.cost-b.cost);return {feasible,next:feasible[0]??null};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "jointActions": [
+            {
+              "id": "a",
+              "legal": true,
+              "preconditionsMet": true,
+              "cost": 1
+            },
+            {
+              "id": "b",
+              "legal": false,
+              "preconditionsMet": true,
+              "cost": 0
+            }
+          ],
+          "budget": 1
+        },
+        "expected": {
+          "feasible": [
+            {
+              "id": "a",
+              "legal": true,
+              "preconditionsMet": true,
+              "cost": 1
+            }
+          ],
+          "next": {
+            "id": "a",
+            "legal": true,
+            "preconditionsMet": true,
+            "cost": 1
+          }
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "jointActions": [
+            {
+              "id": "a",
+              "preconditionsMet": true,
+              "cost": 1
+            }
+          ],
+          "budget": 1
+        },
+        "expected": {
+          "feasible": [],
+          "next": null
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "ordered_capacity_planner",
+    "protocolClass": "planning",
+    "name": "Order, Capacity, and Batch Planning",
+    "prompt": "Split targets into batches under public capacity constraints while preserving their specified order. A batch plan cannot update actual completion progress.",
+    "interface": {
+      "required": [
+        "targets",
+        "capacity"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){if(!Number.isInteger(input.capacity)||input.capacity<1)return {status:'invalid_capacity',batches:[]};const batches=[];for(let i=0;i<input.targets.length;i+=input.capacity)batches.push(input.targets.slice(i,i+input.capacity));return {status:'planned',batches};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "targets": [
+            "a",
+            "b",
+            "c"
+          ],
+          "capacity": 2
+        },
+        "expected": {
+          "status": "planned",
+          "batches": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "targets": [
+            "a"
+          ],
+          "capacity": 0
+        },
+        "expected": {
+          "status": "invalid_capacity",
+          "batches": []
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "reserve_deadline_planner",
+    "protocolClass": "planning",
+    "name": "Reserves, Deadlines, and Investment Timing",
+    "prompt": "Compare candidate plan values under required reserves, deadlines, and budget constraints. Exclude plans lacking public grounds for their costs or completion times.",
+    "interface": {
+      "required": [
+        "candidates",
+        "budget",
+        "reserve",
+        "deadline"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const ranked=input.candidates.filter(c=>Number.isFinite(c.cost)&&c.cost>=0&&input.budget-c.cost>=input.reserve&&Number.isFinite(c.finish)&&c.finish<=input.deadline&&Number.isFinite(c.value)).sort((a,b)=>b.value-a.value||a.finish-b.finish);return {ranked,recommendation:ranked[0]??null};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "candidates": [
+            {
+              "id": "a",
+              "cost": 3,
+              "finish": 2,
+              "value": 5
+            },
+            {
+              "id": "b",
+              "cost": 5,
+              "finish": 2,
+              "value": 8
+            }
+          ],
+          "budget": 5,
+          "reserve": 1,
+          "deadline": 3
+        },
+        "expected": {
+          "ranked": [
+            {
+              "id": "a",
+              "cost": 3,
+              "finish": 2,
+              "value": 5
+            }
+          ],
+          "recommendation": {
+            "id": "a",
+            "cost": 3,
+            "finish": 2,
+            "value": 5
+          }
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "candidates": [
+            {
+              "id": "a",
+              "cost": 3,
+              "finish": 4,
+              "value": 5
+            }
+          ],
+          "budget": 5,
+          "reserve": 1,
+          "deadline": 3
+        },
+        "expected": {
+          "ranked": [],
+          "recommendation": null
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "unique_survivor_gate",
+    "protocolClass": "loop",
+    "name": "Unique Candidate and Final Answer Gate",
+    "prompt": "Authorize submission only after complete search leaves exactly one candidate not refuted by evidence. Truncated search cannot establish uniqueness.",
+    "interface": {
+      "required": [
+        "candidates",
+        "searchComplete"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const alive=input.candidates.filter(c=>c.refuted!==true);return {canCommit:input.searchComplete===true&&alive.length===1,answer:input.searchComplete===true&&alive.length===1?alive[0]:null};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "candidates": [
+            {
+              "id": "a"
+            },
+            {
+              "id": "b",
+              "refuted": true
+            }
+          ],
+          "searchComplete": true
+        },
+        "expected": {
+          "canCommit": true,
+          "answer": {
+            "id": "a"
+          }
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "candidates": [
+            {
+              "id": "a"
+            }
+          ],
+          "searchComplete": false
+        },
+        "expected": {
+          "canCommit": false,
+          "answer": null
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "checkpoint_recovery_gate",
+    "protocolClass": "loop",
+    "name": "Reversible Checkpoints and Recovery Gate",
+    "prompt": "Recovery requires observed progress, explicit reversibility, and an affordable cost. Withhold rollback permission when no reliable checkpoint exists.",
+    "interface": {
+      "required": [
+        "checkpoints",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const eligible=input.checkpoints.filter(c=>c.source&&c.progressObserved===true&&c.reversible===true&&Number.isFinite(c.cost)&&c.cost>=0&&c.cost<=input.budget&&Number.isFinite(c.step)).sort((a,b)=>b.step-a.step);return {canRecover:eligible.length>0,checkpoint:eligible[0]??null};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "checkpoints": [
+            {
+              "id": "a",
+              "source": "f",
+              "progressObserved": true,
+              "reversible": true,
+              "cost": 1,
+              "step": 2
+            }
+          ],
+          "budget": 1
+        },
+        "expected": {
+          "canRecover": true,
+          "checkpoint": {
+            "id": "a",
+            "source": "f",
+            "progressObserved": true,
+            "reversible": true,
+            "cost": 1,
+            "step": 2
+          }
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "checkpoints": [
+            {
+              "id": "a",
+              "source": "f",
+              "progressObserved": true,
+              "cost": 1,
+              "step": 2
+            }
+          ],
+          "budget": 1
+        },
+        "expected": {
+          "canRecover": false,
+          "checkpoint": null
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "repeated_attempt_gate",
+    "protocolClass": "loop",
+    "name": "State-Action Combinations and Retry Permission",
+    "prompt": "Withhold a repeated attempt when the host has already rejected the same full state and action. Reevaluate after an actual state change and preserve the execution budget.",
+    "interface": {
+      "required": [
+        "state",
+        "action",
+        "history",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);const repeated=input.history.some(h=>h.source&&h.rejected===true&&same(h.state,input.state)&&same(h.action,input.action));return {attemptAllowed:!repeated&&input.budget>=1,repeated};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "state": [
+            1,
+            2
+          ],
+          "action": "enter",
+          "history": [
+            {
+              "state": [
+                1,
+                1
+              ],
+              "action": "enter",
+              "source": "host",
+              "rejected": true
+            }
+          ],
+          "budget": 1
+        },
+        "expected": {
+          "attemptAllowed": true,
+          "repeated": false
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "state": [
+            1,
+            2
+          ],
+          "action": "enter",
+          "history": [
+            {
+              "state": [
+                1,
+                2
+              ],
+              "action": "enter",
+              "source": "host",
+              "rejected": true
+            }
+          ],
+          "budget": 1
+        },
+        "expected": {
+          "attemptAllowed": false,
+          "repeated": true
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "resource_applicability",
+    "protocolClass": "orchestration",
+    "name": "Resource Applicability",
+    "prompt": "Select host-exposed resources whose declared capabilities and availability satisfy the request. Unknown availability does not authorize use.",
+    "interface": {
+      "required": [
+        "resources",
+        "required"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const eligible=input.resources.filter(r=>r.available===true&&Array.isArray(r.capabilities)&&input.required.every(k=>r.capabilities.includes(k)));return {eligible};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [
+            {
+              "id": "scan",
+              "available": true,
+              "capabilities": [
+                "image"
+              ]
+            }
+          ],
+          "required": [
+            "image"
+          ]
+        },
+        "expected": {
+          "eligible": [
+            {
+              "id": "scan",
+              "available": true,
+              "capabilities": [
+                "image"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [],
+          "required": [
+            "image"
+          ]
+        },
+        "expected": {
+          "eligible": []
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "evidence_relevance",
+    "protocolClass": "orchestration",
+    "name": "Evidence Resource Relevance",
+    "prompt": "Select resources addressing current evidence gaps. Do not treat a resource description as evidence already obtained.",
+    "interface": {
+      "required": [
+        "offers",
+        "missing"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){return {relevant:input.offers.filter(o=>o.available===true&&Array.isArray(o.addresses)&&input.missing.some(k=>o.addresses.includes(k)))};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "offers": [
+            {
+              "id": "camera",
+              "available": true,
+              "addresses": [
+                "identity"
+              ]
+            }
+          ],
+          "missing": [
+            "identity"
+          ]
+        },
+        "expected": {
+          "relevant": [
+            {
+              "id": "camera",
+              "available": true,
+              "addresses": [
+                "identity"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "offers": [],
+          "missing": [
+            "identity"
+          ]
+        },
+        "expected": {
+          "relevant": []
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "resource_trust",
+    "protocolClass": "orchestration",
+    "name": "Resource Trust Withdrawal",
+    "prompt": "Withdraw reliance on resources whose executed advice was refuted by sourced host feedback. Unexecuted advice is not refuted.",
+    "interface": {
+      "required": [
+        "resources",
+        "history"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const withdrawn=input.resources.filter(id=>input.history.some(h=>h.resource===id&&h.source&&h.executed===true&&h.refuted===true));return {trusted:input.resources.filter(id=>!withdrawn.includes(id)),withdrawn};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [
+            "tool"
+          ],
+          "history": []
+        },
+        "expected": {
+          "trusted": [
+            "tool"
+          ],
+          "withdrawn": []
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [
+            "tool"
+          ],
+          "history": [
+            {
+              "resource": "tool",
+              "source": "receipt",
+              "executed": true,
+              "refuted": true
+            }
+          ]
+        },
+        "expected": {
+          "trusted": [],
+          "withdrawn": [
+            "tool"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "resource_freshness",
+    "protocolClass": "orchestration",
+    "name": "Resource State Freshness",
+    "prompt": "Use resources bound to the current state version or explicitly guaranteed static. Do not silently reuse stale state-sensitive resources.",
+    "interface": {
+      "required": [
+        "resources",
+        "stateVersion"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){return {eligible:input.resources.filter(r=>r.stateVersion===input.stateVersion||r.staticGuaranteed===true)};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [
+            {
+              "id": "map",
+              "stateVersion": 1
+            }
+          ],
+          "stateVersion": 1
+        },
+        "expected": {
+          "eligible": [
+            {
+              "id": "map",
+              "stateVersion": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [
+            {
+              "id": "map",
+              "stateVersion": 1
+            }
+          ],
+          "stateVersion": 2
+        },
+        "expected": {
+          "eligible": []
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "resource_input_readiness",
+    "protocolClass": "orchestration",
+    "name": "Resource Input Readiness",
+    "prompt": "Check declared public input requirements before resource invocation. Missing inputs block applicability rather than creating fabricated defaults.",
+    "interface": {
+      "required": [
+        "resources",
+        "availableFields"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){return {resources:input.resources.map(r=>({id:r.id,missing:r.required.filter(k=>!input.availableFields.includes(k)),ready:r.required.every(k=>input.availableFields.includes(k))}))};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [
+            {
+              "id": "check",
+              "required": [
+                "facts"
+              ]
+            }
+          ],
+          "availableFields": [
+            "facts"
+          ]
+        },
+        "expected": {
+          "resources": [
+            {
+              "id": "check",
+              "missing": [],
+              "ready": true
+            }
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [
+            {
+              "id": "check",
+              "required": [
+                "facts"
+              ]
+            }
+          ],
+          "availableFields": []
+        },
+        "expected": {
+          "resources": [
+            {
+              "id": "check",
+              "missing": [
+                "facts"
+              ],
+              "ready": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "templateId": "resource_compatibility",
+    "protocolClass": "orchestration",
+    "name": "Resource Interface Compatibility",
+    "prompt": "Restrict resource choices to host-exposed IDs with compatible public interfaces. Do not expand the tool set.",
+    "interface": {
+      "required": [
+        "resources",
+        "hostIds",
+        "interfaceVersion"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){return {compatible:input.resources.filter(r=>input.hostIds.includes(r.id)&&r.interfaceVersion===input.interfaceVersion)};}"
+    },
+    "examples": [
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [
+            {
+              "id": "scan",
+              "interfaceVersion": 1
+            }
+          ],
+          "hostIds": [
+            "scan"
+          ],
+          "interfaceVersion": 1
+        },
+        "expected": {
+          "compatible": [
+            {
+              "id": "scan",
+              "interfaceVersion": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "synthetic",
+        "input": {
+          "resources": [
+            {
+              "id": "scan",
+              "interfaceVersion": 1
+            }
+          ],
+          "hostIds": [],
+          "interfaceVersion": 1
+        },
+        "expected": {
+          "compatible": []
+        }
+      }
+    ]
+  }
+]

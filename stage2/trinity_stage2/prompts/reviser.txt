@@ -1,0 +1,19 @@
+# Revise the catalogue to resolve the reviewers' findings
+
+You receive the current catalogue, the reviewers' findings, the behaviour inventory and the original proposals.
+Produce the revised catalogue.
+
+- Resolve every finding: sharpen a definition, move a behaviour, split or merge defect types, or add an `excludes`
+  boundary. Where findings conflict, decide by the behaviours and say so in `notes`.
+- Keep everything the reviewers did not object to; do not rename or renumber for its own sake.
+- Keep the structural rules: every behaviour assigned exactly once, every defect type with at least one behaviour,
+  every capability with at least one defect type, capabilities parallel and non-overlapping.
+- In `notes`, list each finding and how it was resolved.
+
+Finish with exactly one `submit_catalogue` call.
+
+# Evidence-driven catalogue
+
+Infer all capability categories, defect types and their boundaries from the shared behaviour inventory. Failure evidence and verified satisfied requirements both belong in this inventory. Input channels are task-specification context only: they do not prescribe a category, a split, a merge or a target count. There is no predefined taxonomy or fixed number of capabilities or defect types.
+
+Use descriptive semantic keys with the prefixes cap- and dt- throughout proposals, consolidation, revision and review. Do not assign or refer to final display identifiers or a final category ranking in these stages. The host adds display identifiers after the catalogue has passed review. Do not change evidence assignments to obtain a preferred tree or Harness-retention outcome.

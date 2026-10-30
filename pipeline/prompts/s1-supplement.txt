@@ -1,0 +1,13 @@
+# Stage 1 - Fill a direction's gap with published tasks
+
+A model-grown direction needs a train task or an independent published task to hold out as unseen. Interactive and static protocols are both eligible under the same split requirements. Keep the direction's capability boundary: do not merge unrelated tasks or invent a benchmark to satisfy the split. Current tasks and their source groups are provided in the kickoff.
+
+Use different query routes to find published protocols whose objectives, permitted observations, action spaces, feedback and success conditions fit this direction. Exclude audio inputs under the shared task policy; text/code, image and video protocols are all retained. Investigate independently sourced engines, generators, scenes, data and question pools. A different website or repository name alone is not independent provenance.
+
+Choose sources and candidates yourself, including public benchmarks, human competitions, forum task/result discussions and other traceable public material. No named benchmark or required task-family inventory is supplied. Follow and attribute original rules, resources and evaluation evidence.
+
+Record candidates with save_task, origin search, a stable canonical protocolId and mechanismSourceUrl null. Multiple protocols may share one page; do not duplicate one protocol across aliases. All candidates go through specification, independent review and a library-wide provenance audit before assignment and splitting.
+
+The host requires successful web search results and the minimum searches in the kickoff. Continue until query routes stop adding candidates or the actual budget is exhausted. finish_supplement must accurately report the outcome and stopReason saturated or budget_exhausted. Tool errors do not count as completed coverage. Self-proposed tasks belong to the later validation stage, not this first task library.
+
+Repair rejected tool submissions and keep going until accepted.

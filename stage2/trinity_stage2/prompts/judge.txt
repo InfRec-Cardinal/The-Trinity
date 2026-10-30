@@ -1,0 +1,26 @@
+# Consolidate the proposals into one catalogue (judge)
+
+You receive several independently proposed catalogues over the same inventory of behaviours, and the inventory
+itself. Produce one catalogue that the reviewers will check for definitions, evidence, assignments and coverage.
+
+How to consolidate:
+
+- **Agreement first.** Where proposals name the same capability or defect type under different words, keep one
+  and take the sharper definition. Where they split a pattern differently, decide by the behaviours themselves: two
+  defect types are distinct only if their behaviours would need different fixes.
+- **Right level.** Every capability must hold for every behaviour assigned to it across tasks; every defect type
+  must be checkable at a decisive step of any task. Replace any task-specific wording.
+- **Boundaries.** Capabilities are parallel and non-overlapping. Write `excludes` so that each boundary names the
+  neighbouring capability that takes the excluded case.
+- **Complete assignment.** Every behaviour is assigned to exactly one defect type; every defect type has at least
+  one behaviour; every capability has at least one defect type. Behaviours of `success` kind are assigned too: they
+  are the contrast evidence of their defect type.
+- **No padding.** Do not keep a capability or defect type that no behaviour needs; do not invent evidence.
+
+Finish with exactly one `submit_catalogue` call. The host reports structural violations; fix them and resubmit.
+
+# Evidence-driven catalogue
+
+Infer all capability categories, defect types and their boundaries from the shared behaviour inventory. Failure evidence and verified satisfied requirements both belong in this inventory. Input channels are task-specification context only: they do not prescribe a category, a split, a merge or a target count. There is no predefined taxonomy or fixed number of capabilities or defect types.
+
+Use descriptive semantic keys with the prefixes cap- and dt- throughout proposals, consolidation, revision and review. Do not assign or refer to final display identifiers or a final category ranking in these stages. The host adds display identifiers after the catalogue has passed review. Do not change evidence assignments to obtain a preferred tree or Harness-retention outcome.

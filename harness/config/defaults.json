@@ -1,0 +1,220 @@
+{
+  "iterations": 4,
+  "actionBudget": 4,
+  "maxBuildAttempts": 5,
+  "screening": {
+    "trials": 3,
+    "minSuccesses": 1,
+    "maxSuccesses": 2
+  },
+  "creatorBase": {
+    "modules": [
+      {
+        "id": "commitment_cost",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "commitment_cost",
+            "left": "commitmentCost",
+            "operator": "gte",
+            "right": {
+              "value": 0
+            },
+            "message": "Verify commitment cost"
+          }
+        ]
+      },
+      {
+        "id": "witness_ceiling",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "witness_ceiling",
+            "left": "witnessValid",
+            "operator": "eq",
+            "right": {
+              "value": true
+            },
+            "message": "Verify witness ceiling"
+          },
+          {
+            "id": "witness_action_ceiling",
+            "left": "maxWitnessActions",
+            "operator": "lte",
+            "right": {
+              "field": "actionBudget"
+            },
+            "message": "Replayed successful witnesses must fit the frozen action budget"
+          }
+        ]
+      },
+      {
+        "id": "difficulty_range",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "difficulty_range",
+            "left": "axisValid",
+            "operator": "eq",
+            "right": {
+              "value": true
+            },
+            "message": "Verify difficulty range"
+          }
+        ]
+      },
+      {
+        "id": "screening_direction",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "screening_direction",
+            "left": "directionValid",
+            "operator": "eq",
+            "right": {
+              "value": true
+            },
+            "message": "Verify screening direction"
+          }
+        ]
+      },
+      {
+        "id": "layout_novelty",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "layout_novelty",
+            "left": "layoutTracked",
+            "operator": "eq",
+            "right": {
+              "value": true
+            },
+            "message": "Verify layout novelty"
+          }
+        ]
+      },
+      {
+        "id": "effective_change",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "effective_change",
+            "left": "effectiveChange",
+            "operator": "eq",
+            "right": {
+              "value": true
+            },
+            "message": "Verify effective change"
+          }
+        ]
+      },
+      {
+        "id": "single_change",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "single_change",
+            "left": "singleChange",
+            "operator": "eq",
+            "right": {
+              "value": true
+            },
+            "message": "Verify single change"
+          }
+        ]
+      },
+      {
+        "id": "repair_scope",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "repair_scope",
+            "left": "repairScopeValid",
+            "operator": "eq",
+            "right": {
+              "value": true
+            },
+            "message": "Verify repair scope"
+          }
+        ]
+      },
+      {
+        "id": "claim_evidence",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "claim_evidence",
+            "left": "evidenceComplete",
+            "operator": "eq",
+            "right": {
+              "value": true
+            },
+            "message": "Verify claim evidence"
+          }
+        ]
+      },
+      {
+        "id": "bounded_search",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "bounded_search",
+            "left": "searchBounded",
+            "operator": "eq",
+            "right": {
+              "value": true
+            },
+            "message": "Verify bounded search"
+          },
+          {
+            "id": "bounded_witness_search",
+            "left": "actionBudget",
+            "operator": "gte",
+            "right": {
+              "field": "maxWitnessActions"
+            },
+            "message": "Host witness replay must respect its action ceiling"
+          }
+        ]
+      },
+      {
+        "id": "submission_budget",
+        "version": 1,
+        "node": "root",
+        "measurementKind": "core",
+        "rules": [
+          {
+            "id": "submission_budget",
+            "left": "submissionRemaining",
+            "operator": "gt",
+            "right": {
+              "value": 0
+            },
+            "message": "Verify submission budget"
+          }
+        ]
+      }
+    ],
+    "skills": []
+  }
+}

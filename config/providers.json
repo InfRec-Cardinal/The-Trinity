@@ -1,0 +1,56 @@
+{
+  "default": "anthropic",
+  "effort": "low",
+  "providers": {
+    "anthropic": {
+      "label": "Anthropic API",
+      "baseUrl": "https://api.anthropic.com",
+      "auth": "x-api-key",
+      "keyEnv": "ANTHROPIC_API_KEY",
+      "model": "claude-opus-5",
+      "apiVersion": "2026-10-21",
+      "webSearch": "dynamic",
+      "sessionAffinity": false
+    },
+    "packy": {
+      "label": "PackyAPI",
+      "baseUrl": "https://cf.api.fan",
+      "auth": "bearer",
+      "keyEnv": "PACKY_API_KEY",
+      "model": "claude-opus-5",
+      "apiVersion": "2023-06-01",
+      "webSearch": "direct",
+      "sessionAffinity": true
+    },
+    "openrouter": {
+      "label": "OpenRouter",
+      "baseUrl": "https://openrouter.ai/api",
+      "auth": "bearer",
+      "keyEnv": "OPENROUTER_API_KEY",
+      "model": "anthropic/claude-opus-5",
+      "apiVersion": "2023-06-01",
+      "webSearch": "openrouter",
+      "sessionAffinity": false
+    },
+    "geili": {
+      "label": "Geili API",
+      "baseUrl": "https://sub.geiliapi.com",
+      "auth": "x-api-key",
+      "keyEnv": "GEILI_API_KEY",
+      "model": "claude-opus-5",
+      "apiVersion": "2023-06-01",
+      "webSearch": "direct",
+      "sessionAffinity": true
+    },
+    "custom": {
+      "label": "Anthropic-compatible relay",
+      "baseUrl": null,
+      "auth": "x-api-key",
+      "keyEnv": "TRINITY_API_KEY",
+      "model": "claude-opus-5",
+      "apiVersion": "2023-06-01",
+      "webSearch": "direct",
+      "sessionAffinity": false
+    }
+  }
+}

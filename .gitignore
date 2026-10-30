@@ -4,11 +4,24 @@ __pycache__/
 .venv/
 venv/
 .pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Node.js dependencies and package caches
+node_modules/
+*.tsbuildinfo
 
 # Local environment settings
 .env
 .env.*
 !.env.example
+
+# Local adapters, credentials, and generated experiment artifacts
+/local/
+/runs/
+/pipeline/data/
+/pipeline/exports/
 
 # Operating system files
 .DS_Store

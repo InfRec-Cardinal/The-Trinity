@@ -1,0 +1,31 @@
+# Propose capability categories (independent proposer)
+
+You receive every decisive behaviour found in the training tasks (each with its proposed defect label and
+definition, confidence, kind and task), together with the task specifications. Propose a catalogue of capability
+categories and defect types that organises all of them. You work alone; other proposers work on the same input
+without seeing you.
+
+Rules:
+
+- **A capability is something a Harness can lack.** Name it in 2-8 plain words by what the agent must be able to do.
+  Never name one task's objects, actions or rules. Give a one-sentence definition that lets a reader decide whether
+  a new task requires it, two to four groups that partition its defect types, and an explicit `excludes` list naming
+  the nearest neighbouring capability for each boundary.
+- **A defect type is an observable failure pattern** with a pass / fail definition that can be checked at a decisive
+  step of any task. Merge behaviours from different tasks into one defect type whenever the same pattern recurs;
+  never merge two behaviours that need different fixes. Keep a defect type only when at least one behaviour
+  supports it.
+- **Parallel, non-overlapping capabilities.** No capability contains or depends on another. Where two
+  definitions could both claim a behaviour, sharpen the boundary and record it in `excludes`.
+- **Assign every behaviour to exactly one defect type.** Use the behaviour ids exactly as given.
+- **Let the evidence decide the counts.** The number of capabilities and defect types is what the behaviours
+  support; do not pad and do not collapse distinct patterns to reach a round number.
+- Use stable descriptive semantic keys with the required prefixes.
+
+Finish with exactly one `submit_catalogue` call. The host reports structural violations; fix them and resubmit.
+
+# Evidence-driven catalogue
+
+Infer all capability categories, defect types and their boundaries from the shared behaviour inventory. Failure evidence and verified satisfied requirements both belong in this inventory. Input channels are task-specification context only: they do not prescribe a category, a split, a merge or a target count. There is no predefined taxonomy or fixed number of capabilities or defect types.
+
+Use descriptive semantic keys with the prefixes cap- and dt- throughout proposals, consolidation, revision and review. Do not assign or refer to final display identifiers or a final category ranking in these stages. The host adds display identifiers after the catalogue has passed review. Do not change evidence assignments to obtain a preferred tree or Harness-retention outcome.

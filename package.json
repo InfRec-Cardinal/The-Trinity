@@ -1,0 +1,12 @@
+{
+  "name": "trinity-integrated-code",
+  "version": "1.13.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "cli": "node cli.mjs"
+  }
+}

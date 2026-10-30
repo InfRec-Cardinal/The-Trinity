@@ -1,0 +1,12 @@
+{
+  "name": "trinity-framework-en",
+  "version": "2.3.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "cli": "node src/cli.mjs run"
+  }
+}
