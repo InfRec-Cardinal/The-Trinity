@@ -22,22 +22,13 @@
   <strong>English</strong> · <a href="README.zh-CN.md">简体中文</a>
 </p>
 
-<table>
-  <tr>
-    <th align="center">Overview</th>
-    <th align="center">Examples</th>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <a href="assets/videos/the-trinity-en.mp4"><img src="assets/videos/the-trinity-en.jpg" alt="Overview" width="480"></a>
-      <br><a href="assets/videos/the-trinity-en.mp4">▶ Watch · 1:46</a>
-    </td>
-    <td width="50%" align="center">
-      <a href="assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/the-trinity-explainer.jpg" alt="Examples" width="480"></a>
-      <br><a href="assets/videos/the-trinity-explainer.mp4">▶ Watch · 1:57</a>
-    </td>
-  </tr>
-</table>
+### Overview
+
+https://github.com/user-attachments/assets/0d1db0d1-ada7-4972-948d-f77db8509ec0
+
+### Examples
+
+https://github.com/user-attachments/assets/25c4f8e8-d749-48e1-a5e4-f5b80fc4fab9
 
 ## 🔥 Updates!!
 
