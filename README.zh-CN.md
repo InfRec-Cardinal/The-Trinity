@@ -22,6 +22,23 @@
   <a href="README.md">English</a> · <strong>简体中文</strong>
 </p>
 
+<table>
+  <tr>
+    <th align="center">项目介绍</th>
+    <th align="center">任务演示</th>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <a href="assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/the-trinity-explainer.jpg" alt="项目介绍" width="480"></a>
+      <br><a href="assets/videos/the-trinity-explainer.mp4">▶ 播放 · 1:57</a>
+    </td>
+    <td width="50%" align="center">
+      <a href="assets/videos/the-trinity-en.mp4"><img src="assets/videos/the-trinity-en.jpg" alt="任务演示" width="480"></a>
+      <br><a href="assets/videos/the-trinity-en.mp4">▶ 播放 · 1:46</a>
+    </td>
+  </tr>
+</table>
+
 ## 🔥 最新动态!!
 
 - **2026-10-30：** 🔥 代码已发布！
@@ -68,8 +85,6 @@ assets/                项目标识与概览图
 paper/                 技术报告
 ```
 
-运行实际实验还需要自行接入环境驱动、适配器配置和基准数据，并准备评估用的路由计划。本仓库未附带这些资源，也未附带论文实验快照，因此以下说明是框架接入流程，不能直接一键复现论文结果。
-
 ## 🛠️ 环境要求
 
 - **Node.js 22 或更新版本**。JavaScript 部分仅使用 Node.js 内置模块，无需安装 npm 第三方依赖。
@@ -78,8 +93,6 @@ paper/                 技术报告
 - 完整 Creator 训练需要 **Linux、`/bin/bash`、位于 `/usr/bin/bwrap` 的 Bubblewrap 及可用的用户命名空间**。WSL 环境同样需要满足这些条件。
 - 提取 PDF 来源证据需要 `pdftotext`，或安装了 `pypdf` 的 Python；扫描版 PDF 需要另行进行 OCR。
 - 与目标任务匹配的环境驱动及其运行依赖。
-
-仓库没有提供 demo 或测试脚本。下面的 `--help` 命令只检查 CLI 是否可以加载；它不验证模型服务、环境驱动或完整训练。
 
 ## 🚀 安装
 

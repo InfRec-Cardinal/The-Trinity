@@ -22,6 +22,23 @@
   <strong>English</strong> · <a href="README.zh-CN.md">简体中文</a>
 </p>
 
+<table>
+  <tr>
+    <th align="center">Overview</th>
+    <th align="center">Demos</th>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <a href="assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/the-trinity-explainer.jpg" alt="Overview" width="480"></a>
+      <br><a href="assets/videos/the-trinity-explainer.mp4">▶ Watch · 1:57</a>
+    </td>
+    <td width="50%" align="center">
+      <a href="assets/videos/the-trinity-en.mp4"><img src="assets/videos/the-trinity-en.jpg" alt="Demos" width="480"></a>
+      <br><a href="assets/videos/the-trinity-en.mp4">▶ Watch · 1:46</a>
+    </td>
+  </tr>
+</table>
+
 ## 🔥 Updates!!
 
 - **Oct 30, 2026:** 🔥 Codes released!
@@ -65,8 +82,6 @@ This release contains the integrated command-line entry point, task discovery an
 | [harness/](harness/) | Environment generation, module evolution, evaluation, and routing |
 | [config/providers.json](config/providers.json) | Model-provider presets |
 | [paper/](paper/), [assets/](assets/) | Technical report and project figures |
-
-Benchmark datasets, runnable benchmark drivers, adapter configurations, experiment snapshots, and routing plans are not bundled. Running the complete workflow requires implementing an environment adapter and obtaining the relevant benchmark resources. The release does not include example or test scripts, and cloning it alone does not reproduce the paper's experiments.
 
 ## 🛠️ Requirements
 
