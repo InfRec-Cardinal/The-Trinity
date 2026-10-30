@@ -241,11 +241,15 @@ The Trinity Research Team, 2026.
 [阅读技术报告](paper/The-Trinity.pdf) · [访问项目主页](https://trinity-rsi.github.io/)
 
 ```bibtex
-@techreport{trinity2026,
-  title = {The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents},
-  author = {{The Trinity Research Team}},
-  year = {2026},
-  url = {https://github.com/InfRec-Cardinal/The-Trinity/blob/main/paper/The-Trinity.pdf}
+@misc{tang2026trinity,
+  title={The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents},
+  author={Tang, Weidong and Wang, Ruiheng and Zhang, Jingxuan and others},
+  year={2026},
+  eprint={2610.36077},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  doi={10.48550/arXiv.2610.36077},
+  url={https://arxiv.org/abs/2610.36077}
 }
 ```
 
