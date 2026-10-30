@@ -33,6 +33,7 @@
 2. [ ] Release simulation environments.
 3. [ ] Release Harness.
 4. [ ] Release Router.
+5. [ ] Prepare the [demo website](#try-and-play).
 
 ## 📖 Introduction
 
@@ -46,9 +47,11 @@
 
 ![Overview of The Trinity: Creator, Explorer, and Evolver connect multimodal task-space expansion with capability-driven Harness evolution.](assets/overview.png)
 
+<a id="try-and-play"></a>
+
 ## 🕹️ Try and Play with The Trinity!
 
-We are preparing an interactive demo for phased testing to help you explore The Trinity and better understand how it works.
+We are preparing an interactive demo website for phased testing to help you explore The Trinity and better understand how it works.
 
 ## 🗂️ Code Structure and Release Scope
 

@@ -33,6 +33,7 @@
 2. [ ] 发布仿真环境。
 3. [ ] 发布 Harness。
 4. [ ] 发布 Router。
+5. [ ] 准备 [Demo 网站](#try-and-play)。
 
 ## 📖 项目介绍
 
@@ -46,9 +47,11 @@
 
 ![The Trinity 概览：Creator、Explorer 与 Evolver 连接多模态任务空间扩展和能力驱动的 Harness 演化。](assets/overview.png)
 
+<a id="try-and-play"></a>
+
 ## 🕹️ 体验 The Trinity！
 
-我们正在准备交互式 Demo，用于阶段性测试，帮助大家通过实际体验更好地理解 The Trinity 的工作方式。
+我们正在准备交互式 Demo 网站，用于阶段性测试，帮助大家通过实际体验更好地理解 The Trinity 的工作方式。
 
 ## 🗂️ 代码结构与发布范围
 
