@@ -18,6 +18,7 @@
 
 ## 🔥 Updates!!
 
+- **Oct 30, 2026:** 🔥 Codes released!
 - **Oct 26, 2026:** 🤗 Paper release! The Trinity reached **#1** on [Hugging Face Daily Papers](https://huggingface.co/papers/2610.36077).
 
 ## 📑 Open-Source Plan
