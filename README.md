@@ -22,11 +22,8 @@
 
 ## 📑 Open-Source Plan
 
-- [x] Technical report and project overview.
-- [x] Stage 1 task discovery and train/unseen split.
-- [x] Stage 2 trajectory analysis and capability induction.
-- [x] Creator–Explorer training and Harness routing.
-- [x] English and Chinese documentation with the MIT License.
+1. [x] Release code.
+2. [ ] Release simulation environments.
 
 ## 📖 Introduction
 
