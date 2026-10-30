@@ -18,8 +18,7 @@
 
 ## 🔥 Updates!!
 
-- **2026-10-30:** The integrated source code is released with English and Chinese documentation under the MIT License.
-- **2026-10-28:** The Trinity code release was announced.
+- **Oct 26, 2026:** 🤗 Paper release! The Trinity reached **#1** on [Hugging Face Daily Papers](https://huggingface.co/papers/2610.36077).
 
 ## 📑 Open-Source Plan
 

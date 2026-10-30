@@ -18,7 +18,7 @@
 
 ## 🔥 最新动态!!
 
-- **2026-10-30：** 发布 The Trinity 框架代码及中英文使用说明。
+- **2026-10-26：** 🤗 论文发布！The Trinity 曾登顶 [Hugging Face Daily Papers](https://huggingface.co/papers/2610.36077)（**#1**）。
 
 ## 📑 开源计划
 
