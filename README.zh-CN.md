@@ -243,7 +243,7 @@ The Trinity Research Team, 2026.
 ```bibtex
 @misc{tang2026trinity,
   title={The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents},
-  author={Tang, Weidong and Wang, Ruiheng and Zhang, Jingxuan and others},
+  author={Tang, Weidong and Wang, Ruiheng and Zhang, Jingxuan and Wang, Hexin and Chen, Haoyuan and Zhang, Zhengfeiyang and Ma, Yixing and Jiang, Zichen and Guo, Ziyu and Li, Haodong and Jiao, Zhengbo and Cui, Zhiqing and Yin, Xinxiang and Liang, Shuo and Wan, Zhenglin and Lin, Hongzhan and Zhao, Wangbo and Zhang, Kaipeng and Zhou, Pengfei and Zhang, Odin and You, Yang},
   year={2026},
   eprint={2610.36077},
   archivePrefix={arXiv},
