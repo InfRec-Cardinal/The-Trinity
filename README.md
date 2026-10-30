@@ -11,9 +11,15 @@
 <p align="center">The Trinity Research Team</p>
 
 <p align="center">
-  <a href="https://trinity-rsi.github.io/">Project Page</a> ·
-  <a href="paper/The-Trinity.pdf">Paper (PDF)</a> ·
-  <a href="README.zh-CN.md">简体中文</a>
+  <a href="paper/The-Trinity.pdf"><img src="https://img.shields.io/badge/Paper-PDF-B31B1B?style=flat-square" alt="Paper PDF"></a>
+  <a href="https://arxiv.org/abs/2610.36077"><img src="https://img.shields.io/badge/arXiv-2610.36077-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv 2610.36077"></a>
+  <a href="https://github.com/InfRec-Cardinal/The-Trinity"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
+  <a href="https://trinity-rsi.github.io/"><img src="https://img.shields.io/badge/Project%20Page-2088A2?style=flat-square&amp;logo=googlechrome&amp;logoColor=white" alt="Project Page"></a>
+  <a href="#citation"><img src="https://img.shields.io/badge/Citation-BibTeX-7042C1?style=flat-square&amp;logo=bookstack&amp;logoColor=white" alt="Citation BibTeX"></a>
+</p>
+
+<p align="center">
+  <strong>English</strong> · <a href="README.zh-CN.md">简体中文</a>
 </p>
 
 ## 🔥 Updates!!
@@ -249,6 +255,8 @@ Training settings such as iterations, action budget, build attempts, and screeni
 | `runs/route` | Frozen plan, evaluation skills, execution ledger, and hashed routing predictions |
 
 Preserve the complete run directories: later stages verify source ledgers and artifact hashes, not just copied summary files.
+
+<a id="citation"></a>
 
 ## 📝 Paper and Citation
 

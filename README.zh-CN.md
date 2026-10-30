@@ -11,9 +11,15 @@
 <p align="center">The Trinity Research Team</p>
 
 <p align="center">
-  <a href="README.md">English</a> · 简体中文 ·
-  <a href="https://trinity-rsi.github.io/">项目主页</a> ·
-  <a href="paper/The-Trinity.pdf">论文 PDF</a>
+  <a href="paper/The-Trinity.pdf"><img src="https://img.shields.io/badge/Paper-PDF-B31B1B?style=flat-square" alt="Paper PDF"></a>
+  <a href="https://arxiv.org/abs/2610.36077"><img src="https://img.shields.io/badge/arXiv-2610.36077-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv 2610.36077"></a>
+  <a href="https://github.com/InfRec-Cardinal/The-Trinity"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
+  <a href="https://trinity-rsi.github.io/"><img src="https://img.shields.io/badge/Project%20Page-2088A2?style=flat-square&amp;logo=googlechrome&amp;logoColor=white" alt="Project Page"></a>
+  <a href="#citation"><img src="https://img.shields.io/badge/Citation-BibTeX-7042C1?style=flat-square&amp;logo=bookstack&amp;logoColor=white" alt="Citation BibTeX"></a>
+</p>
+
+<p align="center">
+  <a href="README.md">English</a> · <strong>简体中文</strong>
 </p>
 
 ## 🔥 最新动态!!
@@ -237,6 +243,8 @@ Harness 默认参数见 [harness/config/defaults.json](harness/config/defaults.j
 | 路由 | 路由预测、执行记录及用量统计；预测文件路径由命令输出给出 |
 
 请保留相互关联的运行目录。后续阶段会校验来源记录和训练产物，而不仅是读取最终 JSON。
+
+<a id="citation"></a>
 
 ## 📝 论文与引用
 
