@@ -25,16 +25,16 @@
 <table>
   <tr>
     <th align="center">项目介绍</th>
-    <th align="center">任务演示</th>
+    <th align="center">任务示例</th>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <a href="assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/the-trinity-explainer.jpg" alt="项目介绍" width="480"></a>
-      <br><a href="assets/videos/the-trinity-explainer.mp4">▶ 播放 · 1:57</a>
+      <a href="assets/videos/the-trinity-en.mp4"><img src="assets/videos/the-trinity-en.jpg" alt="项目介绍" width="480"></a>
+      <br><a href="assets/videos/the-trinity-en.mp4">▶ 播放 · 1:46</a>
     </td>
     <td width="50%" align="center">
-      <a href="assets/videos/the-trinity-en.mp4"><img src="assets/videos/the-trinity-en.jpg" alt="任务演示" width="480"></a>
-      <br><a href="assets/videos/the-trinity-en.mp4">▶ 播放 · 1:46</a>
+      <a href="assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/the-trinity-explainer.jpg" alt="任务示例" width="480"></a>
+      <br><a href="assets/videos/the-trinity-explainer.mp4">▶ 播放 · 1:57</a>
     </td>
   </tr>
 </table>

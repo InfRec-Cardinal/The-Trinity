@@ -25,16 +25,16 @@
 <table>
   <tr>
     <th align="center">Overview</th>
-    <th align="center">Demos</th>
+    <th align="center">Examples</th>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <a href="assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/the-trinity-explainer.jpg" alt="Overview" width="480"></a>
-      <br><a href="assets/videos/the-trinity-explainer.mp4">▶ Watch · 1:57</a>
+      <a href="assets/videos/the-trinity-en.mp4"><img src="assets/videos/the-trinity-en.jpg" alt="Overview" width="480"></a>
+      <br><a href="assets/videos/the-trinity-en.mp4">▶ Watch · 1:46</a>
     </td>
     <td width="50%" align="center">
-      <a href="assets/videos/the-trinity-en.mp4"><img src="assets/videos/the-trinity-en.jpg" alt="Demos" width="480"></a>
-      <br><a href="assets/videos/the-trinity-en.mp4">▶ Watch · 1:46</a>
+      <a href="assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/the-trinity-explainer.jpg" alt="Examples" width="480"></a>
+      <br><a href="assets/videos/the-trinity-explainer.mp4">▶ Watch · 1:57</a>
     </td>
   </tr>
 </table>
