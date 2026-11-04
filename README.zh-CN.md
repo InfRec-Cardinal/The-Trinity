@@ -15,6 +15,7 @@
   <a href="https://arxiv.org/abs/2610.36077"><img src="https://img.shields.io/badge/arXiv-2610.36077-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv 2610.36077"></a>
   <a href="https://github.com/InfRec-Cardinal/The-Trinity"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
   <a href="https://trinity-rsi.github.io/"><img src="https://img.shields.io/badge/Project%20Page-2088A2?style=flat-square&amp;logo=googlechrome&amp;logoColor=white" alt="Project Page"></a>
+  <a href="https://mp.weixin.qq.com/s/bAj8nOQ46RlNU9BWouPjmA"><img src="https://img.shields.io/badge/%E4%B8%AD%E6%96%87%E8%A7%A3%E8%AF%BB-07C160?style=flat-square&amp;logo=wechat&amp;logoColor=white" alt="微信公众号中文解读"></a>
   <a href="#citation"><img src="https://img.shields.io/badge/Citation-BibTeX-7042C1?style=flat-square&amp;logo=bookstack&amp;logoColor=white" alt="Citation BibTeX"></a>
 </p>
 
