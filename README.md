@@ -298,3 +298,13 @@ The Trinity Research Team, 2026.
 ## 📄 License
 
 The source code is released under the [MIT License](LICENSE). External benchmark resources and dependencies remain subject to their respective licenses.
+
+## ⭐ Star History
+
+<a href="https://www.star-history.com/?repos=InfRec-Cardinal%2FThe-Trinity&amp;type=date&amp;legend=top-left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=InfRec-Cardinal/The-Trinity&amp;type=date&amp;legend=top-left&amp;theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=InfRec-Cardinal/The-Trinity&amp;type=date&amp;legend=top-left&amp;theme=light" />
+    <img alt="GitHub star history for The Trinity" src="https://api.star-history.com/chart?repos=InfRec-Cardinal/The-Trinity&amp;type=date&amp;legend=top-left&amp;theme=light" />
+  </picture>
+</a>

@@ -284,3 +284,13 @@ The Trinity Research Team, 2026.
 ## 📄 许可证
 
 本项目源代码采用 [MIT 许可证](LICENSE)。外部基准、数据集与模型服务的使用须遵循各自的许可和条款。
+
+## ⭐ Star 增长曲线
+
+<a href="https://www.star-history.com/?repos=InfRec-Cardinal%2FThe-Trinity&amp;type=date&amp;legend=top-left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=InfRec-Cardinal/The-Trinity&amp;type=date&amp;legend=top-left&amp;theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=InfRec-Cardinal/The-Trinity&amp;type=date&amp;legend=top-left&amp;theme=light" />
+    <img alt="The Trinity 的 GitHub Star 增长曲线" src="https://api.star-history.com/chart?repos=InfRec-Cardinal/The-Trinity&amp;type=date&amp;legend=top-left&amp;theme=light" />
+  </picture>
+</a>
