@@ -51,9 +51,9 @@
 - **Oct 30, 2026:** 🔥 Codes released!
 - **Oct 26, 2026:** 🤗 Paper release! The Trinity reached **#1** on [Hugging Face Daily Papers](https://huggingface.co/papers/2610.36077).
 
-![The Trinity workflow from original tasks to verified simulated worlds, the capability and Harness trees, and transfer evaluation on the original tasks.](assets/teaser.png)
-
 ## Abstract
+
+![The Trinity workflow from original tasks to verified simulated worlds, the capability and Harness trees, and transfer evaluation on the original tasks.](assets/teaser.png)
 
 Extending recursive self-improvement (RSI) to long-horizon multimodal agents faces two bottlenecks: constructing heterogeneous, verifiable environments is costly, and manual Harness iteration cannot keep pace with task complexity. Yet automating per-task refinement does not guarantee cumulative improvement. How should experience be organized? Task-specific refinement overfits and limits transfer, while a unified Harness suffers interference across heterogeneous demands. How should improvements evolve? Existing gains must be retained, inherited, and refined across iterations rather than diluted by increasing task volume. We argue that scalable RSI requires **agent–environment co-evolution**, coupling adaptive worlds with Harness updates, and **shared capability requirements**, organizing dispersed feedback into transferable learning signals.
 
