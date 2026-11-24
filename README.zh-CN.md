@@ -23,13 +23,27 @@
   <a href="README.md">English</a> · <strong>简体中文</strong>
 </p>
 
-### 项目介绍
+### 演示视频
 
-https://github.com/user-attachments/assets/0d1db0d1-ada7-4972-948d-f77db8509ec0
-
-### 任务示例
-
-https://github.com/user-attachments/assets/25c4f8e8-d749-48e1-a5e4-f5b80fc4fab9
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-en.mp4"><img src="assets/videos/previews/overview.gif" alt="Creator、Explorer 和 Evolver 的协作流程" width="300"></a><br>
+      <strong>项目介绍</strong><br>
+      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-en.mp4">完整视频 (1:46)</a> · <a href="assets/videos/the-trinity-en.mp4?raw=true">下载</a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/previews/examples.gif" alt="CaP-X 机器人操作的并排对比" width="300"></a><br>
+      <strong>任务示例</strong><br>
+      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-explainer.mp4">完整视频 (1:57)</a> · <a href="assets/videos/the-trinity-explainer.mp4?raw=true">下载</a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/trinity-studio.mp4"><img src="assets/videos/previews/trinity-studio.gif" alt="在 Trinity Studio 中逐帧回放关卡" width="300"></a><br>
+      <strong>Trinity Studio</strong><br>
+      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/trinity-studio.mp4">完整视频 (1:43)</a> · <a href="assets/videos/trinity-studio.mp4?raw=true">下载</a>
+    </td>
+  </tr>
+</table>
 
 ## 🔥 最新动态!!
 
