@@ -47,16 +47,9 @@
 
 ## 🔥 Updates!!
 
+- **Nov 24, 2026** · 🔥 [v2 full open-source release](https://github.com/InfRec-Cardinal/The-Trinity/releases/tag/v2) includes Trinity Studio, the runnable iter4 Harness, the Capability-Aware Harness Router, 34 benchmark integrations, and 44 built-in simulation instances. The earlier code release is available as [v1](https://github.com/InfRec-Cardinal/The-Trinity/releases/tag/v1).
 - **Oct 30, 2026:** 🔥 Codes released!
 - **Oct 26, 2026:** 🤗 Paper release! The Trinity reached **#1** on [Hugging Face Daily Papers](https://huggingface.co/papers/2610.36077).
-
-## 📑 Open-Source Plan
-
-1. [x] Release code.
-2. [ ] Release simulation environments.
-3. [ ] Release Harness.
-4. [ ] Release Router.
-5. [ ] Prepare the [demo website](#try-and-play).
 
 ## 📖 Introduction
 
@@ -74,11 +67,11 @@
 
 ## 🕹️ Try and Play with The Trinity!
 
-We are preparing an interactive demo website for phased testing to help you explore The Trinity and better understand how it works.
+Run Trinity Studio locally to create and preview worlds, inspect capability trees, and replay runs. [Quick start](START-HERE.md)
 
 ## 🗂️ Code Structure and Release Scope
 
-This release contains the integrated command-line entry point, task discovery and splitting, trajectory analysis and capability induction, Creator–Explorer training, Harness routing, prompts, and accounting utilities.
+The release includes task discovery and splitting, trajectory analysis and capability induction, Creator–Explorer training, Harness routing, and accounting. Benchmark-specific dependencies and external resources are installed as needed.
 
 | Path | Purpose |
 | --- | --- |
@@ -86,17 +79,21 @@ This release contains the integrated command-line entry point, task discovery an
 | [pipeline/](pipeline/) | Stage 1: evidence-backed task discovery, taxonomy, and train/unseen split |
 | [stage2/](stage2/) | Stage 2: trajectory analysis, capability induction, and training export |
 | [harness/](harness/) | Environment generation, module evolution, evaluation, and routing |
-| [config/providers.json](config/providers.json) | Model-provider presets |
+| [environments/](environments/) | Task definitions, drivers, scoring, and resource manifests for 34 benchmark integrations |
+| [iter4-harness/](iter4-harness/) | Runnable iter4 Harness built from the included source |
+| [level-api-44/](level-api-44/) | 44 built-in curriculum instances and their local rendering API |
+| [trinity-studio/](trinity-studio/) | Local web interface for design, learning, and replay |
+| [stage2/trinity_stage2/providers.json](stage2/trinity_stage2/providers.json) | Default model-provider presets for v2 |
 | [paper/](paper/), [assets/](assets/) | Technical report and project figures |
 
 ## 🛠️ Requirements
 
-- **Node.js 22 or later.** The JavaScript packages use built-in Node APIs and declare no npm dependencies.
-- **Python 3.10 or later.** Stage 2 declares `anthropic>=1.0`; install its package as shown below.
+- **Node.js 22 or later.** The core CLI uses built-in Node APIs. Studio and the Level API use Playwright and Chromium. [Browser setup](START-HERE.md)
+- **Python 3.10 or later.** Stage 2 declares `anthropic>=2.0,<3`. Install its package as shown below.
 - **Model access** compatible with the configured provider transport. Stage 1 additionally needs working web search. Model names and API versions in the presets must be supported by your account.
 - **For full training:** Linux with `/usr/bin/bwrap` (Bubblewrap), usable user namespaces, and `/bin/bash`. The Creator sandbox requires these facilities; WSL must satisfy the same requirements. See [creator-sandbox.mjs](harness/src/creator-sandbox.mjs).
 - **For PDF source extraction:** `pdftotext` or Python with `pypdf`. Scanned PDFs require an external OCR workflow.
-- Benchmark-specific software, data, and execution access required by your adapter.
+- Task-specific software, data, and access for the benchmarks you run. The [runtime manifest](environments/runtime-dependencies.json) records the tested Linux x86-64 dependencies.
 
 ## 🚀 Installation
 
@@ -112,7 +109,7 @@ export TRINITY_PYTHON="$PWD/.venv/bin/python"
 node cli.mjs stage2 --help
 ```
 
-No `npm install` is needed. `TRINITY_PYTHON` defaults to `python3`; on Windows it can point to `.venv\Scripts\python.exe`. Native Windows does not provide the Linux Creator sandbox required for full training.
+The core CLI is ready after the steps above. `TRINITY_PYTHON` defaults to `python3` and can point to `.venv\Scripts\python.exe` on Windows. Full Creator training requires the Linux sandbox described above. [Studio and benchmark setup](START-HERE.md)
 
 Configure a provider through environment variables. Replace the placeholders with values supported by your account:
 
@@ -129,7 +126,7 @@ The code does not automatically load `.env` files. Keep credentials in your envi
 
 ## 🧭 Usage
 
-Complete the [environment adapter](#environment-adapter) before running exploration or training. Commands that invoke models, search, or benchmarks consume the corresponding resources. Use a new output directory for each `explore`, `train`, and `route` run.
+To run a bundled benchmark, list the tasks with `node iter4-harness/run.mjs --list-tasks` and see the [quick start](START-HERE.md) for dependencies. The pipeline walkthrough below uses a custom [environment adapter](#environment-adapter) for exploration and training. Commands that invoke models, search, or benchmarks consume the corresponding resources. Use a new output directory for each `explore`, `train`, and `route` run.
 
 ### 1. Discover tasks and export the split
 
@@ -262,12 +259,12 @@ The default agent backend uses the configured provider. Advanced integrations ca
 
 | Setting | Meaning |
 | --- | --- |
-| `TRINITY_PROVIDER` | Provider preset from [providers.json](config/providers.json). |
+| `TRINITY_PROVIDER` | Provider preset from the [v2 configuration](stage2/trinity_stage2/providers.json), which includes `anthropic` and `custom`. |
 | `TRINITY_API_KEY` | Fallback API key; provider-specific key variables take precedence. |
 | `TRINITY_MODEL`, `TRINITY_API_VERSION` | Override the model and API version for the active provider. |
 | `TRINITY_BASE_URL`, `TRINITY_AUTH` | Override endpoint and authentication (`x-api-key` or `bearer`). |
 | `TRINITY_WEB_SEARCH`, `TRINITY_EFFORT` | Search mode and reasoning effort supported by the provider. |
-| `TRINITY_PROVIDERS_FILE` | Use an external provider configuration file. |
+| `TRINITY_PROVIDERS_FILE` | Load an alternate provider configuration. The [v1 presets](config/providers.json) remain available as an explicit override. Use a transport and search mode supported by both v2 and your provider. |
 | `TRINITY_PYTHON`, `TRINITY_NODE` | Python executable used by the integrated Stage 2 command, and Node executable used for Stage 2 protocol verification. |
 | `PIPELINE_DATA_DIR`, `PIPELINE_EXPORT_DIR` | Stage 1 state and export locations; defaults are `pipeline/data` and `pipeline/exports`. |
 | `PIPELINE_PDFTOTEXT`, `PIPELINE_PDF_PYTHON` | Optional executable overrides for PDF extraction. |
@@ -311,7 +308,7 @@ The Trinity Research Team, 2026.
 
 ## 📄 License
 
-The source code is released under the [MIT License](LICENSE). External benchmark resources and dependencies remain subject to their respective licenses.
+The Trinity’s own source code is released under the [MIT License](LICENSE). Third-party code, benchmark materials, data, and dependencies remain subject to their respective licenses and terms. [Third-party licenses and notices](THIRD-PARTY.md)
 
 ## ⭐ Star History
 

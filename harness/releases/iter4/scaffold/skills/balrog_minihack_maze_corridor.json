@@ -1,0 +1,83 @@
+{
+  "taskId": "balrog_minihack_maze_corridor",
+  "proposals": [
+    {
+      "id": "frontier-commit-no-refuted-replay",
+      "title": "Never replay a refuted direction; commit to the nearest unexplored frontier",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "A move returns a blocking message ('solid stone'/wall) or leaves position unchanged, or the current tile has already been visited this episode and its map neighbourhood shows no new cells.",
+      "procedure": [
+        "Maintain, per tile, the set of directions already refuted (blocking message or no position change) and the set already traversed.",
+        "From the current tile, select only among directions that are neither refuted nor already traversed; among those prefer the one pointing toward the largest unseen region of the map (the side with blank cells / 'dark area' and no known wall).",
+        "Commit: keep stepping that direction until it is refuted or a junction with new unexplored branches appears — do not alternate directions step by step.",
+        "If every direction at the current tile is refuted or traversed, treat the tile as exhausted and backtrack along the shortest known path to the nearest tile that still has an untried direction, without re-probing anything en route.",
+        "Only when a tile is a true dead end (all 8 directions refuted and no untried branch remains anywhere reachable) use the hidden-passage search action there, repeating it a few times before moving on — do this as soon as the dead end is proven, not near the step limit.",
+        "When the goal glyph (stairs down) is visible anywhere on the map, abandon exploration and move straight toward it by the known passable cells."
+      ],
+      "successSignals": [
+        "Each step reveals new map cells or advances along an untried branch.",
+        "The same direction is never issued twice from the same tile after a blocking message.",
+        "Downstairs reached in well under half the step budget."
+      ],
+      "failureSignals": [
+        "Position unchanged for two or more consecutive steps.",
+        "Re-walking corridor already drawn on the map without an untried branch as the destination.",
+        "Dead-end search attempted only in the final steps of the episode."
+      ],
+      "recovery": [
+        "On detecting a repeat of a refuted direction, immediately mark the tile exhausted and backtrack to the nearest untried branch.",
+        "If oscillation is detected, pick the single direction with the most adjacent unknown cells and commit for several steps before reconsidering."
+      ],
+      "invariants": [
+        "No extra observations or probes beyond ordinary movement.",
+        "Refuted directions are recorded from messages already received, not re-tested."
+      ],
+      "sourceGapIds": [
+        "repeats-refuted-hypothesis",
+        "oscillates-in-mapped-space",
+        "late-dead-end-search"
+      ]
+    },
+    {
+      "id": "chokepoint-before-melee",
+      "title": "Fight groups only from a one-wide chokepoint; withdraw on first multi-adjacent contact",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "Two or more hostiles are reported adjacent simultaneously, or HP has dropped by a noticeable fraction while standing in an open cell with more than one open approach.",
+      "procedure": [
+        "Before swinging, count adjacent hostiles from the language observation and count the open approach directions of the current tile.",
+        "If adjacent hostiles exceed one, do not attack: step back along the known corridor behind you until you stand in a cell whose only non-wall neighbours are the corridor itself (one enemy-facing opening).",
+        "Once in the chokepoint, attack the single adjacent hostile repeatedly; stay there while the group feeds in one at a time.",
+        "Keep retreating further down the corridor if more than one hostile is still adjacent after the step, or if HP falls below roughly a third of maximum.",
+        "If the objective can be reached without passing through the group (an untried branch exists), disengage and take that branch instead of fighting at all."
+      ],
+      "successSignals": [
+        "At most one hostile adjacent per turn while fighting.",
+        "HP loss per kill drops sharply after relocating.",
+        "Group cleared or bypassed with HP still comfortably above the danger threshold."
+      ],
+      "failureSignals": [
+        "Three enemies reported adjacent on consecutive turns.",
+        "HP falling several points per turn in the same cell.",
+        "Stepping back only one tile yet still reporting multiple adjacent hostiles."
+      ],
+      "recovery": [
+        "If HP is already critical in the open, retreat multiple tiles in one direction rather than trading further blows.",
+        "If retreat is blocked, fight toward the narrowest adjacent opening rather than into the room."
+      ],
+      "invariants": [
+        "Decision uses only the adjacency list and wall layout already on screen.",
+        "Never trade blows in a cell with more than one enemy-facing opening while a known corridor is behind."
+      ],
+      "sourceGapIds": [
+        "fights-group-in-open",
+        "ignores-hp-threshold"
+      ]
+    }
+  ]
+}

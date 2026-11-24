@@ -1,0 +1,58 @@
+{
+  "taskId": "codenames_ai_competition",
+  "name": "Codenames",
+  "fullName": "Codenames: one-word clue signalling between asymmetric codemaster and guesser under assassin risk",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D4",
+    "domainName": "Multi-Agent Strategy & Social Interaction",
+    "subCategoryId": "D4.2",
+    "subCategoryName": "Cooperative Coordination & Constrained Signalling"
+  },
+  "assignment": {
+    "actions": {
+      "clue": "Submit a single-word English clue plus a non-negative integer count; the clue must not be a substring-derived form of any board word and must not encode board positions. The framework then runs the partner guesser's reveals and returns the resulting board, revealed identities and updated move history."
+    },
+    "evaluation": {
+      "budget": 25,
+      "efficiency": "Rank by mean turn count over the fixed seed set, averaged across the held-out partner guessers, matching the official average-score-per-game criterion; a soft 60-second wall-clock limit applies per clue request.",
+      "failure": "The assassin tile is revealed, all 8 blue words are revealed, an invalid or malformed clue is returned, or the 25-clue budget is exhausted; each of these scores the worst-case 25 points.",
+      "success": "All 9 red words are revealed, i.e. the framework reports a red win; the episode score is the number of clues (turns) taken, lower being better."
+    },
+    "generation": "Instances are produced by the official framework with --single_team True and an explicit integer --seed from a fixed published list (e.g. seeds 1-100), which deterministically shuffles players/cm_wordlist.txt to draw the 25 board words and shuffles the 9/8/7/1 key grid; partner guesser identity is recorded per episode.",
+    "id": "codenames-single-team-codemaster-clue-signalling",
+    "observation": "Before each clue the Player receives the current 25-slot board (unrevealed words in upper case, already-revealed slots replaced by *Red*/*Blue*/*Civilian*/*Assassin* tokens), the private key grid labelling all 25 slots, and the shared move history listing every prior clue with its number and every prior guess with the tile identity it revealed. The Player never sees the guesser's internal reasoning, and the guesser is never shown the key grid.",
+    "reference": "Official CoG Codenames AI Competition framework (stepmat/Codenames_GPT), single-team track: 25-word board of 9 red / 8 blue / 7 civilian / 1 assassin, Codemaster sees the key grid and returns (clue word, number), Guesser sees only board plus clue and reveals words one at a time, score is turns taken with 25 for assassin or all-blue. New design choices: the Player occupies only the red Codemaster seat with a held-out baseline guesser partner, a fixed seed list, a per-episode clue budget, and persistence of the framework move history as the trajectory record.",
+    "task": "Act as the red Codemaster in the single-team Codenames track: on each turn emit one clue word plus an intended count so that a separate guesser agent, which never sees the key grid, reveals all 9 red words in as few turns as possible while never touching the assassin.",
+    "verification": "The framework writes a per-game results record with turn count, revealed-tile counts, winner, seed and agent class names for every episode, win or loss; the per-step move history (each clue with its number, each guess with its revealed tile identity and continue flag) is serialised alongside it so successful and failed episodes can be independently rechecked against the recorded seed and board."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": 3,
+    "totalEpisodes": 27,
+    "actionBudget": 25,
+    "allocationNote": "Original configuration episodes vector repeated three times; all episodes are planned, none executed as H0 runs.",
+    "plannedEpisodes": 27
+  },
+  "otherModels": [],
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "pythonEnv": "agentb-codenames-ai-competition-venv",
+  "notes": [
+    "Partner guesser is the non-LLM guesser_glove baseline (no paid model called). GloVe vectors are read from PKG/data/glove (driver passes that path to the worker); the existing local exact-float64 GloVe assets are copied into data/glove.",
+    "The oracle script is an author control, not a Player policy, and is not part of the driver.",
+    "Implementation: driver.mjs re-exports createDriver from src/h0-codenames-ai-competition.mjs (contract fields taken from the original module src/h0-codenames-ai-competition.mjs); the official Game runs through src/h0-agentb-python-engine.mjs (createPythonReplayEngine; textFrame from lib/text-frame.mjs). Vendored subset (only what the worker imports, plus LICENSE files) at vendor/codenames/. The original source-manifest, journal and receipts are dropped; adapters/codenames-ai-competition-pin.json is informational provenance only and read by no code.",
+    "Deliberate deviation from the original source text: source.recording drops the agent-B 'durable journal and receipts' wording (transport machinery removed); source.limitations and all contract fields are identical to the original.",
+    "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level."
+  ]
+}

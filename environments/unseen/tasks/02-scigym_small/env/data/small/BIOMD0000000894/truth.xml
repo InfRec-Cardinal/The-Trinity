@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_gmv4">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_ywpz">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_mnhu">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_y4km" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_iurz" compartment="id_y4km" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_ye1o" compartment="id_y4km" initialConcentration="1e-06" boundaryCondition="false" constant="false"/>
+      <species id="id_mf02" compartment="id_y4km" initialConcentration="0.01" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_mtmk" value="20" constant="true"/>
+      <parameter id="id_cez4" value="0.3" constant="true"/>
+      <parameter id="id_79gn" value="1" constant="true"/>
+      <parameter id="id_yz4b" value="1.2" constant="true"/>
+      <parameter id="id_rwap" value="0.06" constant="true"/>
+      <parameter id="id_421r" value="0.01" constant="true"/>
+      <parameter id="id_w4gi" value="2.1" constant="true"/>
+      <parameter id="id_vsnf" value="1" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_fxov" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_mf02" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_y4km </ci>
+              <apply>
+                <minus/>
+                <ci> id_rwap </ci>
+                <ci> id_421r </ci>
+              </apply>
+              <ci> id_mf02 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_twoj" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_ye1o" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_mf02"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_y4km </ci>
+              <apply>
+                <plus/>
+                <apply>
+                  <times/>
+                  <ci> id_ye1o </ci>
+                  <ci> id_ye1o </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_ye1o </ci>
+                  <ci> id_mf02 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_gkbz" reversible="false">
+        <listOfProducts>
+          <speciesReference species="id_iurz" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_ye1o"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_y4km </ci>
+              <apply>
+                <plus/>
+                <apply>
+                  <times/>
+                  <ci> id_vsnf </ci>
+                  <apply>
+                    <minus/>
+                    <cn> 1 </cn>
+                    <apply>
+                      <times/>
+                      <ci> id_w4gi </ci>
+                      <ci> id_cez4 </ci>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_w4gi </ci>
+                  <ci> id_yz4b </ci>
+                  <ci> id_cez4 </ci>
+                </apply>
+              </apply>
+              <ci> id_ye1o </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_hb20" reversible="false">
+        <listOfProducts>
+          <speciesReference species="id_mf02" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_iurz"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_y4km </ci>
+              <ci> id_mf02 </ci>
+              <ci> id_iurz </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_yoaj" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_iurz" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_y4km </ci>
+              <apply>
+                <minus/>
+                <ci> id_mtmk </ci>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <times/>
+                    <ci> id_vsnf </ci>
+                    <apply>
+                      <plus/>
+                      <cn> 1 </cn>
+                      <apply>
+                        <times/>
+                        <ci> id_w4gi </ci>
+                        <ci> id_cez4 </ci>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> id_w4gi </ci>
+                    <apply>
+                      <plus/>
+                      <cn> 1 </cn>
+                      <apply>
+                        <times/>
+                        <cn> 0.5 </cn>
+                        <ci> id_yz4b </ci>
+                        <ci> id_cez4 </ci>
+                      </apply>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+              <ci> id_iurz </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_iaeo" reversible="false">
+        <listOfProducts>
+          <speciesReference species="id_ye1o" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_iurz"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_y4km </ci>
+              <apply>
+                <plus/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <plus/>
+                    <cn> 1 </cn>
+                    <apply>
+                      <times/>
+                      <ci> id_vsnf </ci>
+                      <apply>
+                        <minus/>
+                        <cn> 1 </cn>
+                        <apply>
+                          <times/>
+                          <ci> id_w4gi </ci>
+                          <ci> id_cez4 </ci>
+                        </apply>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <times/>
+                      <cn> 0.5 </cn>
+                      <ci> id_w4gi </ci>
+                      <ci> id_yz4b </ci>
+                      <ci> id_cez4 </ci>
+                    </apply>
+                  </apply>
+                  <ci> id_ye1o </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_w4gi </ci>
+                  <apply>
+                    <plus/>
+                    <cn> 1 </cn>
+                    <apply>
+                      <times/>
+                      <ci> id_vsnf </ci>
+                      <ci> id_cez4 </ci>
+                    </apply>
+                  </apply>
+                  <ci> id_iurz </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

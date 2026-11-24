@@ -1,0 +1,61 @@
+{
+  "taskId": "saboteur_card_game",
+  "name": "Saboteur",
+  "fullName": "Saboteur: covert tunnel-blocking in a shared construction race with no vote",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D4",
+    "domainName": "Multi-Agent Strategy & Social Interaction",
+    "subCategoryId": "D4.1",
+    "subCategoryName": "Hidden Identity & Deception"
+  },
+  "assignment": {
+    "actions": {
+      "pass_discard": "Pass by putting one hand card face down on the discard pile, or pass without discarding when the hand is empty.",
+      "place_path": "Play a path card from hand, optionally rotated 180 degrees, at a grid cell adjacent to the existing network; all touching edges must match and the new card must stay connected back to the start card.",
+      "play_broken_tool": "Place a broken pickaxe, lamp or cart card face up in front of any player (including oneself) who does not already have that tool type broken.",
+      "play_map": "Play a map card to look secretly at one of the three face-down goal cards; the identity is added only to the acting agent's private observation.",
+      "play_repair": "Place a matching repair card face up on a player to discard one broken tool card of that type; two-tool repair cards fix exactly one of the shown tools.",
+      "play_rockfall": "Play rockfall in front of oneself and remove one placed path card of choice (never the start or a goal card) to the discard pile."
+    },
+    "evaluation": {
+      "budget": 60,
+      "efficiency": "Among successful episodes, prefer fewer agent turns consumed and zero rejected illegal actions; break remaining ties by the agent's nugget margin over the runner-up.",
+      "failure": "Another player finishes the three rounds with a strictly higher nugget total, or the agent exhausts the action budget before round three ends, or it submits three rejected illegal actions in one episode.",
+      "success": "After the third round the agent's gold-nugget total is the highest among the five players, counting a shared top total as success, as the rulebook awards a tie to the tied players."
+    },
+    "generation": "One integer seed drives the per-round dwarf-card shuffle (fixed at 2 saboteurs and 4 gold miners), the placement order of the three goal cards, the draw-pile shuffle, the six-card deals, the agent's seat index and the opponent policy seeds; replaying the seed reproduces the identical three-round game.",
+    "id": "saboteur-hidden-role-tunnel-build",
+    "observation": "Before each of its own turns the agent receives a structured text state: its own face-down role card, its own hand, the placed tunnel grid with each card's four edge connections and dead-end flag, all face-up action cards (broken tools / repairs) in front of every player, draw-pile size, each player's hand count, discard-pile size, turn order and its own nugget total. The three goal cards stay face down and unidentified unless the agent itself plays Map on one or a connection turns one face up; other players' role cards, hands and face-down discards are never shown, and all roles are revealed only at round end.",
+    "reference": "Real2Sim reconstruction of the published Saboteur rulebook (Frederic Moyersoen, AMIGO), fixed at the rulebook's 5-player configuration over its three rounds. New design choices: text/structured encoding of the card table, scripted seeded opponents, a per-episode action budget, and full step logging.",
+    "task": "The agent occupies one of five dwarf seats for a full three-round game. Each round it is secretly dealt gold miner or saboteur and must either help build an unbroken tunnel from the start card to the treasure goal card or covertly prevent it, playing one card per turn, and finish the game with the most gold nuggets.",
+    "verification": "The scorer independently recomputes start-to-treasure connectivity on the final tunnel graph, applies the rulebook nugget distribution and reports the three-round totals. Every episode, successful and failed alike, logs each step's permitted observation, chosen action, legality verdict, resulting public state, round-end role reveal and terminal outcome, so a replay from the seed plus the action log reproduces the result."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "mode": "fixed_refreshed_configurations",
+    "policy": "preserve_original_episode_vector_repeated_three_times",
+    "configurations": 9,
+    "episodesPerConfiguration": 3,
+    "repetitions": 3,
+    "totalEpisodes": 27,
+    "actionBudget": 60,
+    "plannedEpisodes": 27
+  },
+  "otherModels": [],
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Nine synthetic games from the unchanged generateSaboteur generator, using new seeds, dealt roles, hands, stocks and goals; botSkill alternates 0/1 as supported by the original engine.",
+    "instances.json replaces the three old embedded instances. The five-player/three-round rules, deck composition, opponent policies, scoring, budget and invalid-action policy are unchanged."
+  ]
+}

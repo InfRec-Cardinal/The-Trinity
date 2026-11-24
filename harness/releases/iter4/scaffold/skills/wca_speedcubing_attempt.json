@@ -1,0 +1,38 @@
+{
+  "taskId": "wca_speedcubing_attempt",
+  "proposals": [
+    {
+      "id": "wca-public-plan-and-check",
+      "title": "Use a verified public-state plan, then confirm all faces",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "A cube observation or prerequisite planning advice is available.",
+      "procedure": [
+        "Read all six current face arrays and their centers. Treat center labels as current orientation; do not assume original labels stayed fixed after a cube rotation.",
+        "If prerequisite GateSchedule advice returns status planned and a nonempty path, submit those exact legal moves through the native turn action, splitting only at the native move-count limit. Do not replace a verified plan with an unrelated remembered algorithm.",
+        "Re-read the resulting public faces. If all nine stickers on each of all six faces agree, submit finish. A plan is not terminal evidence; the environment must confirm completion.",
+        "If the helper reports search_limit or not_found_within_depth, it has not proved impossibility. Use concise layer-by-layer progress from the current state or request a larger admissible bounded search; avoid restarting a long full solution derivation in one response.",
+        "If actual feedback contradicts the supplied forward model, stop relying on that plan and diagnose move/orientation semantics before more irreversible actions."
+      ],
+      "invariants": [
+        "Only current public state and public legal moves; no stored scramble, fixed solution or case identifier.",
+        "Do not finish merely because a subset of faces is uniform."
+      ],
+      "successSignals": [
+        "All six public faces are uniform and native finish reports success."
+      ],
+      "failureSignals": [
+        "Output cap before an action",
+        "Forward-model mismatch"
+      ],
+      "recovery": [
+        "Continue from current faces, not an imagined prior arrangement."
+      ],
+      "sourceGapIds": [
+        "policy-wca-public-plan-and-check"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1" level="3" version="1" layout:required="false" render:required="false">
+  <model id="id_v7tm" substanceUnits="id_s0fw" timeUnits="id_k46o" volumeUnits="id_87xo" areaUnits="id_uchk" lengthUnits="id_tkoi" extentUnits="id_s0fw">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_tkoi">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_uchk">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_87xo">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_k46o">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_s0fw">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_gn3t">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="-1" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_0qaw">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="0" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_jx2u" spatialDimensions="3" size="1" units="id_87xo" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_wpw7" compartment="id_jx2u" initialConcentration="0" substanceUnits="id_s0fw" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_uxio" compartment="id_jx2u" initialConcentration="1" substanceUnits="id_s0fw" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_ymts" compartment="id_jx2u" initialConcentration="1000000" substanceUnits="id_s0fw" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

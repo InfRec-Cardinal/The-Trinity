@@ -24,12 +24,13 @@ export async function createWorkspaceSandbox({ cwd, writableRoot, readOnlyRoots 
     if (!Array.isArray(command) || !command.length) throw new Error('Sandbox command required');
     return await new Promise((done, fail) => {
       const child = spawn('/usr/bin/bwrap', [...args, ...command], { env: {}, stdio: ['pipe', 'pipe', 'pipe'] });
+      child.stdout.setEncoding('utf8'); child.stderr.setEncoding('utf8');
       let output = '', error = '', size = 0, settled = false;
-      const stop = err => { if (settled) return; settled = true; clearTimeout(timer); child.kill('SIGKILL'); fail(err); };
+      const stop = err => { if (settled) return; settled = true; clearTimeout(timer); if (child.pid && child.exitCode === null && child.signalCode === null) child.kill('SIGKILL'); fail(err); };
       const timer = setTimeout(() => stop(new Error('Sandbox tool timed out')), timeoutMs);
       child.on('error', stop);
       child.stdin.on('error', err => { if (err.code !== 'EPIPE') stop(err); });
-      const collect = (chunk, stderr) => { size += chunk.length; if (size > 4 * 1024 * 1024) return stop(new Error('Sandbox tool output limit exceeded')); if (stderr) error += chunk; else output += chunk; };
+      const collect = (chunk, stderr) => { size += Buffer.byteLength(chunk); if (size > 4 * 1024 * 1024) return stop(new Error('Sandbox tool output limit exceeded')); if (stderr) error += chunk; else output += chunk; };
       child.stdout.on('data', chunk => collect(chunk, false)); child.stderr.on('data', chunk => collect(chunk, true));
       child.on('close', code => { if (settled) return; settled = true; clearTimeout(timer); code === 0 ? done({ stdout: output, stderr: error }) : fail(new Error(`Sandbox command failed (${code}): ${error || output}`)); });
       child.stdin.end(input);

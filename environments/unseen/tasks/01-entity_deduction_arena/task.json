@@ -1,0 +1,90 @@
+{
+  "taskId": "entity_deduction_arena",
+  "name": "Entity-Deduction Arena: 20-questions identification of a secret entity",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D1",
+    "subCategoryId": "D1.1"
+  },
+  "assignment": {
+    "id": "eda-twenty-questions-entity-deduction",
+    "reference": "Published EDA protocol (Probing the Multi-turn Planning Capabilities of LLMs via 20 Question Games, ACL 2024) with its official release apple/ml-entity-deduction-arena: guesser-judge loop, judge restricted to Yes/No/Maybe (Dunno on Celebrities), exact-substring 'Bingo!' win, 20-turn cap, Eq. (1) score and the shipped eval_result.py / breakdown_stats.py scorers. New design choices: which shipped entity list and session count are swept, the pinned judge/guesser sampling configuration, and the required per-step log contents.",
+    "task": "Play the guesser (G): deduce the entity known only to the judge (J) by posing a series of brief questions answerable Yes/No/Maybe, using as few queries as possible. The episode is won when an utterance contains the target entity as an exact substring and lost if the 20-turn cap is reached first.",
+    "observation": "Text only: the published guesser instruction prompt plus the accumulated dialogue history. After each action the judge returns one verdict - 'Yes. ', 'No. ' or 'Maybe. ' on Things and 'Yes. ', 'No. ' or 'Dunno. ' on Celebrities - replaced by 'Bingo!' when the utterance contains the target as an exact substring, with 'You must guess now, what's it?' appended at the penultimate step. The entity itself is never shown to G.",
+    "actions": {
+      "ask": "Emit one brief single-line question answerable by Yes/No/Maybe (Dunno on Celebrities), with no linebreak and no request for a hint.",
+      "guess": "Emit a single-line guess naming the candidate entity; it is scored by exact substring match against the hidden target on the same text channel as questions."
+    },
+    "evaluation": {
+      "budget": 20,
+      "success": "The judge's response becomes 'Bingo!' because a G utterance contains the hidden entity as an exact substring, within the 20-turn cap.",
+      "failure": "The game reaches 20 turns with no exact substring match, which the official scorer counts as a loss with score 0.",
+      "efficiency": "Published Eq. (1): S = 1 - 0.02 * max(#Turns - 5, 0) on a win and 0 on a loss; also report success rate (primary), average #Turns and average #Yes as diagnostics."
+    },
+    "generation": "Sweep the entity lists shipped in the release exactly as in the README example commands - data/things/list_of_things_eval.txt for Things and data/celebrities/list_of_people_eval.txt for Celebrities (the paper's 100-entity evaluation split, i.e. the Hugging Face 'dev' split, not the testing split) - with --num-sessions 5, --turns 20, judge gpt-3.5-turbo at temperature 0.2 and guesser temperature 0.8. An instance id is (list file, line index, session index).",
+    "verification": "Score with the release's official scorers: eval_result.py per run directory ./data/<model_name> then breakdown_stats.py over ./data, recomputing success rate, #Turns, #Yes and Eq. (1) Score. Every retained session record, for won and lost episodes alike, must contain each turn's guesser utterance and the judge's verbatim verdict in order plus the terminal outcome, so an independent reviewer can replay the episode and recheck the substring win."
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Submit one original EDA Guesser question or final guess.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "ask",
+            "guess"
+          ]
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "text"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "contract": "Use ask or guess, and text containing the next source utterance. Multiline/non-binary questions pass to original judge unchanged and consume a turn. Observe only the Guesser prompt and its dialogue; no hidden entity. Exactly20 submitted source turns maximum.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract)",
+    "contextPolicy": "last65",
+    "imageOrder": null,
+    "structuredOutput": true,
+    "invalidResponses": "H0 used structured output (one schema-valid submit_action per response); a refusal or a response without an action was retried with the same request, without a reprompt."
+  },
+  "evaluation": {
+    "configurations": 200,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 200
+  },
+  "otherModels": [
+    {
+      "role": "judge",
+      "model": "gpt-5.6-luna",
+      "via": "codex exec (reasoning effort low)",
+      "replaces": "gpt-3.5-turbo (retired)"
+    }
+  ],
+  "environment": {
+    "adapter": "eda",
+    "name": "eda",
+    "envDir": "tasks/01-entity_deduction_arena/env",
+    "python": "eda",
+    "bridge": null,
+    "terminal": null,
+    "limits": null
+  },
+  "driverId": "eda-original-native-v2-unseen-luna-judge",
+  "notes": []
+}

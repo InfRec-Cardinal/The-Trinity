@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Giantsos-Adams2013.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="70" numberOfSteps="100">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="10000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task1" name="Time" symbol="urn:sedml:symbol:time" taskReference="task1" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="s1_1_task1" name="[HS surface]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_s1_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_s1_1_task1" name="[HS surface]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;s1&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="s2_2_task1" name="[early endosome]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_s2_2_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_s2_2_task1" name="[early endosome]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;s2&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="s3_3_task1" name="[late endosome]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_s3_3_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_s3_3_task1" name="[late endosome]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;s3&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="s4_4_task1" name="[lysosome]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_s4_4_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_s4_4_task1" name="[lysosome]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;s4&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="release_5_task1" name="[release]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_release_5_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_release_5_task1" name="[release]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;release&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="shedding_6_task1" name="[shedding]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_shedding_6_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_shedding_6_task1" name="[shedding]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;shedding&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_s6">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_s6__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_s6__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;s6&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_default">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_default__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_default__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;default&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k_golgi">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k_golgi__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k_golgi__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;k_golgi&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k_endo">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k_endo__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k_endo__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;k_endo&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k_exo">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k_exo__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k_exo__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;k_exo&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k_le">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k_le__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k_le__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;k_le&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k_lys">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k_lys__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k_lys__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;k_lys&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k_deg">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k_deg__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k_deg__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;k_deg&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k_shed">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k_shed__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k_shed__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;k_shed&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_1_task1" name="Figure 11">
+      <listOfCurves>
+        <curve id="p1_curve_1_task1" name="[HS surface]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="s1_1_task1"/>
+        <curve id="p1_curve_2_task1" name="[early endosome]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="s2_2_task1"/>
+        <curve id="p1_curve_3_task1" name="[late endosome]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="s3_3_task1"/>
+        <curve id="p1_curve_4_task1" name="[lysosome]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="s4_4_task1"/>
+        <curve id="p1_curve_5_task1" name="[release]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="release_5_task1"/>
+        <curve id="p1_curve_6_task1" name="[shedding]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="shedding_6_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="_1_task1"/>
+        <dataSet id="autogen_task1_s1" label="s1" dataReference="s1_1_task1"/>
+        <dataSet id="autogen_task1_s2" label="s2" dataReference="s2_2_task1"/>
+        <dataSet id="autogen_task1_s3" label="s3" dataReference="s3_3_task1"/>
+        <dataSet id="autogen_task1_s4" label="s4" dataReference="s4_4_task1"/>
+        <dataSet id="autogen_task1_release" label="release" dataReference="release_5_task1"/>
+        <dataSet id="autogen_task1_shedding" label="shedding" dataReference="shedding_6_task1"/>
+        <dataSet id="autogen_task1_s6" label="s6" dataReference="auto_dg_for_task1_s6"/>
+        <dataSet id="autogen_task1_default" label="default" dataReference="auto_dg_for_task1_default"/>
+        <dataSet id="autogen_task1_k_golgi" label="k_golgi" dataReference="auto_dg_for_task1_k_golgi"/>
+        <dataSet id="autogen_task1_k_endo" label="k_endo" dataReference="auto_dg_for_task1_k_endo"/>
+        <dataSet id="autogen_task1_k_exo" label="k_exo" dataReference="auto_dg_for_task1_k_exo"/>
+        <dataSet id="autogen_task1_k_le" label="k_le" dataReference="auto_dg_for_task1_k_le"/>
+        <dataSet id="autogen_task1_k_lys" label="k_lys" dataReference="auto_dg_for_task1_k_lys"/>
+        <dataSet id="autogen_task1_k_deg" label="k_deg" dataReference="auto_dg_for_task1_k_deg"/>
+        <dataSet id="autogen_task1_k_shed" label="k_shed" dataReference="auto_dg_for_task1_k_shed"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

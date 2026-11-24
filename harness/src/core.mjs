@@ -1,3 +1,4 @@
+import {validateFreeActionAllowance} from './execution-policy.mjs';
 import {screeningPolicy} from './screening-policy.mjs';
 import fs from 'node:fs';
 import {usageReport, scoreSummary, scoreReport, benchmarkScoreReport, routingBenchmarkScoreReport} from './metrics.mjs';
@@ -53,6 +54,7 @@ export function snapshot(modules) {
 }
 export function buildTree(taxonomy, assignments, taskIds) {
   ensure(Array.isArray(taxonomy) && taxonomy.length > 0 && new Set(taxonomy).size === taxonomy.length && taxonomy.every(identifier), 'Invalid capability order');
+  ensure(taxonomy.every(value => !value.includes('-')), 'Capability identifiers cannot contain the path separator: -');
   ensure(new Set(taskIds).size === taskIds.length && assignments.length === taskIds.length, 'Task assignment coverage mismatch');
   const nodes = new Map(), seen = new Set();
   for (const row of assignments) {
@@ -63,6 +65,7 @@ export function buildTree(taxonomy, assignments, taskIds) {
     let parent = null;
     for (let length = 1; length <= ordered.length; length++) {
       const requirements = ordered.slice(0, length), id = requirements.join('-');
+      ensure(identifier(id), 'Capability path exceeds the supported node identifier length');
       if (!nodes.has(id)) nodes.set(id, {id, parent, requirements, tasks: [], endpointTasks: []});
       nodes.get(id).tasks.push(row.taskId);
       if (length === ordered.length) nodes.get(id).endpointTasks.push(row.taskId);
@@ -76,8 +79,13 @@ export function validateConfig(config) {
   screeningPolicy(config.screening);
   for (const name of ['trainingTrials', 'validationTrials']) ensure(config[name] === 5, 'Five episodes required for ' + name);
   ensure(Number.isInteger(config.maxBuildAttempts) && config.maxBuildAttempts > 0 && Number.isInteger(config.actionBudget) && config.actionBudget > 0, 'Invalid budget');
+  if (config.maxFreeActions !== undefined) validateFreeActionAllowance(config.maxFreeActions);
   const train = config.trainingTasks.map(task => task.id), unseen = config.unseenTasks.map(task => task.id);
   ensure(new Set(train).size === train.length && new Set(unseen).size === unseen.length && !train.some(id => unseen.includes(id)), 'Training and unseen task IDs must be disjoint');
+  for (const task of [...config.trainingTasks, ...(config.baselineTasks ?? []), ...config.unseenTasks]) {
+    if (task.actionBudget !== undefined) ensure(Number.isSafeInteger(task.actionBudget) && task.actionBudget > 0, 'Invalid task actionBudget');
+    if (task.maxFreeActions !== undefined) validateFreeActionAllowance(task.maxFreeActions);
+  }
   return config;
 }
 export class Store {
@@ -116,7 +124,7 @@ export class Store {
     if (type === 'episode_finished') this.lastEpisodeReport = clone(payload);
     if (type === 'routing_finished') this.lastEpisodeReport = null;
     if (type === 'model_usage') this.modelCalls.push(clone(payload));
-    const scored = type === 'routing_finished' || (type === 'episode_finished' && payload.phase !== 'routed_evaluation');
+    const scored = type === 'routing_finished' || (['episode_finished', 'episode_reused'].includes(type) && payload.phase !== 'routed_evaluation');
     if (scored) {const {events, ...row} = payload; this.episodes.push(clone(row));}
     if (type === 'model_usage' || scored) {
       const phases = [...new Set(this.episodes.map(row => row.phase))];

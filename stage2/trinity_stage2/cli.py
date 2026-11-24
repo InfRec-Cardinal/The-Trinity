@@ -10,16 +10,17 @@ from pathlib import Path
 from . import analyst, digests, induction, records as rec, trees, verifier
 from .bridge import export_training
 from .storage import write_json, write_text
+from .runtime import verification_runtime
 
 PROMPTS = Path(__file__).resolve().parent / "prompts"
 
 
 def prompt(name: str) -> str:
-    return (PROMPTS / f"{name}.txt").read_text().strip()
+    return (PROMPTS / f"{name}.txt").read_text(encoding="utf-8").strip()
 
 
 def load_json(p: Path):
-    return json.loads(Path(p).read_text())
+    return json.loads(Path(p).read_text(encoding="utf-8"))
 
 
 def tasks_of(handoff: dict, cohort: str) -> dict[str, dict]:
@@ -35,11 +36,11 @@ def completed_training(a, ledger=None):
     directory = getattr(a, "training_run", None)
     if not directory:
         raise ValueError("Unseen processing requires --training-run from completed Harness training")
-    checker = Path(__file__).resolve().parents[2] / "harness" / "src" / "protocol-state.mjs"
-    command = [os.environ.get("TRINITY_NODE", "node"), str(checker), "verify-unseen" if ledger else "verify", str(Path(directory).resolve()), str(Path(a.out).resolve())]
-    if ledger:
-        command.append(str(ledger))
-    result = subprocess.run(command, text=True, capture_output=True, check=False)
+    with verification_runtime() as checker:
+        command = [os.environ.get("TRINITY_NODE", "node"), str(checker), "verify-unseen" if ledger else "verify", str(Path(directory).resolve()), str(Path(a.out).resolve())]
+        if ledger:
+            command.append(str(ledger))
+        result = subprocess.run(command, text=True, capture_output=True, check=False)
     if result.returncode:
         raise ValueError(result.stderr.strip() or "Training completion verification failed")
     return json.loads(result.stdout)
@@ -118,7 +119,7 @@ def cmd_analyse(a):
             continue
         analyst.analyse_task(task=tasks[task_id], stats=load_json(stats_path), digest_path=out / "digests" / f"{task_id}.txt", mode=mode, catalogue=catalogue,
                              out_dir=out / a.cohort, checkpoint_dir=out / "checkpoints", prompt=prompt("analyst-open" if mode == "open" else "analyst-fixed"),
-                             failure_rule=failure_rule(tasks[task_id]), cohort=a.cohort)
+                             failure_rule=failure_rule(tasks[task_id]), cohort=a.cohort, force=a.force)
         print("analysed", task_id)
 
 
@@ -133,7 +134,7 @@ def review_cohort(out: Path, cohort: str, tasks: dict, catalogue, revise: bool, 
         while True:
             verdict = record.get("review") if record.get("reviewOutcome") else None
             if verdict is None:
-                analysis = (out / cohort / "analyses" / f"{task_id}.txt").read_text()
+                analysis = (out / cohort / "analyses" / f"{task_id}.txt").read_text(encoding="utf-8")
                 verdict = verifier.review_task(record=record, analysis=analysis, stats=load_json(out / "stats" / f"{task_id}.json"), digest_path=out / "digests" / f"{task_id}.txt",
                                                catalogue=catalogue if record.get("mode") == "fixed" else None, checkpoint_dir=out / "checkpoints", prompt=prompt("reviewer"), log=log)
                 record["review"] = verdict
@@ -185,12 +186,12 @@ def place_cohort(out: Path, cohort: str) -> bool:
     for p in sorted((out / cohort / "records").glob("*.json")):
         record = verifier.derive_placement(load_json(p), catalogue, order)
         write_json(p, record)
-        analysis = (out / cohort / "analyses" / f"{record['taskId']}.txt").read_text()
+        analysis = (out / cohort / "analyses" / f"{record['taskId']}.txt").read_text(encoding="utf-8")
         results[record["taskId"]] = verifier.gate(record, load_json(out / "stats" / f"{record['taskId']}.json"), analysis, catalogue, order, work_dir=out)
         placed.append(record)
     ok = verifier.write_gate_report(results, out / cohort / "gate-report.txt")
     write_json(out / cohort / "task-capability-gaps.json", placed)
-    print((out / cohort / "gate-report.txt").read_text())
+    print((out / cohort / "gate-report.txt").read_text(encoding="utf-8"))
     return ok
 
 

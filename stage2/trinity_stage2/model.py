@@ -7,9 +7,11 @@ import re
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from importlib.resources import files
 from pathlib import Path
 from typing import Any, Callable
 from uuid import uuid4
+from urllib.parse import urlsplit, urlunsplit
 
 from .accounting import token_usage, token_summary, model_call
 from .media import split_media, model_content
@@ -17,12 +19,9 @@ from .storage import write_json
 
 MAX_TOKENS = 16000
 RETRY_SLEEP = (2, 4, 8, 16)
-PROVIDERS_FILE = Path(__file__).resolve().parents[2] / "config" / "providers.json"
+PROVIDERS_FILE = files(__package__).joinpath("providers.json")
 AUTH_MODES = ("x-api-key", "bearer")
-SEARCH_MODES = ("dynamic", "direct", "basic", "openrouter", "off")
-LOCALIZED_CREDIT_EXHAUSTION = re.compile(
-    "(?:\u4f59\u989d|\u9918\u984d)\\s*(?:\u4e0d\u8db3|(?:\u5df2)?(?:\u7528\u5b8c|\u7528\u5c3d|\u8017\u5c3d))"
-    "|(?:api\\s*key|\u4ee4\u724c|\u8d26\u6237|\u5e33\u6236)\\s*(?:\u989d\u5ea6|\u984d\u5ea6)\\s*(?:\u4e0d\u8db3|(?:\u5df2)?(?:\u7528\u5b8c|\u7528\u5c3d|\u8017\u5c3d))", re.I)
+SEARCH_MODES = ("dynamic", "direct", "basic", "off")
 
 
 class AgentError(RuntimeError):
@@ -66,22 +65,13 @@ def _setting(env, *names):
     return None
 
 
-def _flag(value, name):
-    if value is None:
-        return None
-    if re.fullmatch(r"on|true|1", value, re.I):
-        return True
-    if re.fullmatch(r"off|false|0", value, re.I):
-        return False
-    raise ProviderConfigError(f"{name} must be on or off")
-
-
 def canonical_model(model) -> str:
-    return re.sub(r"^~", "", str(model or "").split("/")[-1]).replace(".", "-")
+    return str(model or "").strip()
 
 
 def provider_config() -> dict:
-    path = Path(os.environ.get("TRINITY_PROVIDERS_FILE") or PROVIDERS_FILE)
+    override = os.environ.get("TRINITY_PROVIDERS_FILE")
+    path = Path(override) if override else PROVIDERS_FILE
     if not path.is_file():
         raise ProviderConfigError(f"Provider table not found: {path}; set TRINITY_PROVIDERS_FILE")
     return json.loads(path.read_text(encoding="utf-8"))
@@ -95,10 +85,21 @@ def active_provider_id(env=None) -> str:
 def _base_url(value, provider_id):
     if not value:
         raise ProviderConfigError(f"Set TRINITY_BASE_URL for the {provider_id} provider")
-    url = re.sub(r"/v1$", "", str(value).strip().rstrip("/"))
-    if not re.match(r"^https://[^/\s]+", url, re.I) and not re.match(r"^http://(localhost|127\.0\.0\.1|\[::1\])(:\d+)?(/|$)", url, re.I):
+    value = str(value).strip()
+    try:
+        url = urlsplit(value)
+        port = url.port
+    except ValueError as error:
+        raise ProviderConfigError("Invalid provider base URL") from error
+    if not url.hostname or url.username or url.password or url.query or url.fragment or re.search(r"[\s\\]", value):
+        raise ProviderConfigError("Invalid provider base URL")
+    if url.scheme != "https" and not (url.scheme == "http" and url.hostname in ("localhost", "127.0.0.1", "::1")):
         raise ProviderConfigError("The provider base URL must use https")
-    return url
+    host = url.hostname.lower().encode("idna").decode("ascii")
+    if ":" in host:
+        host = f"[{host}]"
+    authority = host if port is None or port == {"https": 443, "http": 80}.get(url.scheme) else f"{host}:{port}"
+    return urlunsplit((url.scheme, authority, re.sub(r"/v1$", "", url.path.rstrip("/")), "", ""))
 
 
 def resolve_profile(provider_id=None, env=None) -> dict:
@@ -114,14 +115,16 @@ def resolve_profile(provider_id=None, env=None) -> dict:
         return _setting(env, *names) if active else None
 
     legacy_search = "off" if override("PIPELINE_WEB_SEARCH") == "off" else None
-    session = _flag(override("TRINITY_SESSION_AFFINITY"), "TRINITY_SESSION_AFFINITY")
     profile = {"id": provider_id, "label": preset["label"], "baseUrl": _base_url(override("TRINITY_BASE_URL") or preset["baseUrl"], provider_id),
                "auth": (override("TRINITY_AUTH") or preset["auth"]).lower(), "keyEnv": preset["keyEnv"],
                "model": override("TRINITY_MODEL", "PIPELINE_MODEL") or preset["model"],
                "effort": override("TRINITY_EFFORT", "PIPELINE_EFFORT") or config["effort"],
                "apiVersion": override("TRINITY_API_VERSION") or preset["apiVersion"],
-               "webSearch": (override("TRINITY_WEB_SEARCH") or legacy_search or preset["webSearch"]).lower(),
-               "sessionAffinity": preset["sessionAffinity"] if session is None else session}
+               "webSearch": (override("TRINITY_WEB_SEARCH") or legacy_search or preset["webSearch"]).lower()}
+    if not isinstance(profile["model"], str) or not profile["model"].strip():
+        raise ProviderConfigError("Set TRINITY_MODEL for the selected provider")
+    if profile["effort"] not in ("low", "medium", "high", "xhigh", "max"):
+        raise ProviderConfigError("Invalid TRINITY_EFFORT")
     if profile["auth"] not in AUTH_MODES:
         raise ProviderConfigError("TRINITY_AUTH must be x-api-key or bearer")
     if profile["webSearch"] not in SEARCH_MODES:
@@ -129,6 +132,12 @@ def resolve_profile(provider_id=None, env=None) -> dict:
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", profile["apiVersion"]):
         raise ProviderConfigError("TRINITY_API_VERSION must be a date such as 2023-06-01")
     return profile
+
+
+def execution_profile(profile):
+    pass                                                                      
+    return {key: canonical_model(profile[key]) if key == "model" else profile[key]
+            for key in ("id", "baseUrl", "auth", "apiVersion", "model", "effort", "webSearch")}
 
 
 def provider_key(profile, env=None):
@@ -150,37 +159,21 @@ def client(profile=None):
     key = require_key(profile)
     credential = {"auth_token": key} if profile["auth"] == "bearer" else {"api_key": key}
 
-    def key_header(request):
-        if request.headers.get("Authorization") == f"Bearer {key}":
-            del request.headers["Authorization"]
-            request.headers["X-Api-Key"] = key
-        return request
-
-    transport = anthropic.DefaultHttpxClient(trust_env=False, **({"auth": key_header} if "api_key" in credential else {}))
-    return anthropic.Anthropic(**credential, base_url=profile["baseUrl"], default_headers={"anthropic-version": profile["apiVersion"]},
+    transport = anthropic.DefaultHttpxClient(trust_env=False, follow_redirects=False)
+    headers = {"anthropic-version": profile["apiVersion"]}
+    if profile["auth"] == "x-api-key":
+        headers.update({"Authorization": anthropic.omit, "X-Api-Key": key})
+    return anthropic.Anthropic(**credential, base_url=profile["baseUrl"], default_headers=headers,
                                max_retries=0, http_client=transport)
 
 
-def session_metadata(session_id) -> dict:
-    value = list(hashlib.sha256(str(session_id).encode("utf-8")).hexdigest()[:32])
-    value[12] = "4"
-    value[16] = format((int(value[16], 16) & 3) | 8, "x")
-    value = "".join(value)
-    user = {"device_id": hashlib.sha256(b"trinity").hexdigest(), "account_uuid": "",
-            "session_id": f"{value[:8]}-{value[8:12]}-{value[12:16]}-{value[16:20]}-{value[20:]}"}
-    return {"user_id": json.dumps(user, separators=(",", ":"))}
-
-
-def provider_code(status, detail) -> str:
-    detail = str(detail or "")
-    if status == 402 or LOCALIZED_CREDIT_EXHAUSTION.search(detail) or re.search(r"insufficient.*(?:balance|credit|quota)|(?:balance|credit|quota).*(?:exhaust|deplet|empty)|billing|payment required", detail, re.I):
-        return "provider_quota"
-    if status in (401, 403) or re.search(r"authentication_error|permission_error|invalid.{0,12}(?:api.?key|token)", detail, re.I):
+def provider_code(status) -> str:
+    if status in (401, 403):
         return "provider_auth"
-    if status == 429 or re.search(r"rate_limit_error", detail, re.I):
+    if status == 429:
         return "provider_rate_limit"
-    if status == 400 and re.search(r"organization has been disabled", detail, re.I):
-        return "provider_upstream"
+    if isinstance(status, int) and 500 <= status <= 599:
+        return "provider_server_error"
     return "provider_error"
 
 
@@ -258,6 +251,20 @@ def _message_blocks(content) -> list[dict]:
     return [block.model_dump(exclude_none=True) for block in content]
 
 
+def redact_error(value, api=None):
+    text = str(value)
+    secrets = [getattr(api, name, None) for name in ("api_key", "auth_token")]
+    try:
+        secrets.append(provider_key(resolve_profile()))
+    except (ValueError, KeyError):
+        pass
+    for secret in secrets:
+        if isinstance(secret, str) and secret:
+            text = text.replace(secret, "[redacted]")
+    text = re.sub(r"(?i)\bBearer\s+[A-Za-z0-9._~+/=-]+", "Bearer [redacted]", text)
+    return re.sub(r"\b(?:sk|ak|key)-[A-Za-z0-9_-]{12,}\b", "[redacted]", text)[:1000]
+
+
 def _create(api, **params):
     try:
         import anthropic
@@ -283,16 +290,16 @@ def _create(api, **params):
             usage["partial"] = True
             records.append({"attemptId": str(uuid4()), "startedAt": started, "finishedAt": datetime.now(timezone.utc).isoformat(), "failed": True, "requestId": getattr(error, "request_id", None), "usage": token_usage(usage)})
             status = getattr(error, "status_code", None)
-            code = provider_code(status, getattr(error, "message", error))
+            code = provider_code(status)
             connection = anthropic is not None and isinstance(error, anthropic.APIConnectionError)
-            transient = code not in ("provider_quota", "provider_auth") and (status in (408, 409, 425, 429) or (status or 0) >= 500 or connection or code == "provider_upstream")
+            transient = code != "provider_auth" and (status in (408, 409, 425, 429) or 500 <= (status or 0) <= 599 or connection)
             if transient and sleep is not None:
                 time.sleep(sleep)
                 continue
-            failure = AgentError(f"provider {status}: {getattr(error, 'message', error)}", code) if status is not None else error
+            failure = AgentError(redact_error(f"provider {status}: {getattr(error, 'message', error)}", api), code)
             failure.attemptRecords = records
             failure.attempts = attempt
-            raise failure from (error if failure is not error else None)
+            raise failure from None
 
 
 def _fingerprint(value) -> str:
@@ -300,21 +307,22 @@ def _fingerprint(value) -> str:
 
 
 def run_agent(*, key: str, system: str, kickoff: str, tools: list[Tool], checkpoint_dir: Path, max_turns: int = 40,
-              max_tokens: int = MAX_TOKENS, api=None, log=print) -> RunResult:
+              max_tokens: int = MAX_TOKENS, api=None, force: bool = False, log=print) -> RunResult:
     profile = resolve_profile()
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
     path = checkpoint_dir / (key.replace("/", "__") + ".json")
     definitions = [t.definition() for t in tools]
     opening = model_content(kickoff)
-    contract = _fingerprint({"system": system, "kickoff": opening, "tools": definitions, "model": canonical_model(profile["model"]), "effort": profile["effort"]})
+    contract = _fingerprint({"system": system, "kickoff": opening, "tools": definitions, "executionProfile": execution_profile(profile), "maxTokens": max_tokens, "model": canonical_model(profile["model"]), "effort": profile["effort"]})
     state = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
-    if state is not None and state.get("contract") != contract:
+    if state is not None and (force or state.get("contract") != contract):
         archive = path.with_name(f"{path.stem}.archived-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}-{uuid4().hex[:8]}.json")
         os.replace(path, archive)
-        log(f"{key}: the saved checkpoint was produced from different inputs; archived as {archive.name} and running again")
+        reason = "forced rerun" if force else "different execution inputs"
+        log(f"{key}: {reason}; archived as {archive.name} and running again")
         state = None
     if state is None:
-        state = {"key": key, "contract": contract, "provider": profile["id"], "model": profile["model"], "effort": profile["effort"], "sessionId": uuid4().hex,
+        state = {"key": key, "contract": contract, "executionProfile": execution_profile(profile), "provider": profile["id"], "model": profile["model"], "effort": profile["effort"], "sessionId": uuid4().hex,
                  "status": "running", "turn": 0, "usage": {"input": 0, "output": 0}, "modelCalls": [],
                  "messages": [{"role": "user", "content": opening}], "result": None, "log": []}
     if state.get("status") == "done":
@@ -401,8 +409,6 @@ def run_agent(*, key: str, system: str, kickoff: str, tools: list[Tool], checkpo
             break
         params = dict(model=profile["model"], max_tokens=max_tokens, system=system, thinking={"type": "adaptive"},
                       output_config={"effort": profile["effort"]}, tools=definitions, messages=messages)
-        if profile["sessionAffinity"]:
-            params["metadata"] = session_metadata(state["sessionId"])
         try:
             response, attempts = _create(api, **params)
         except Exception as error:

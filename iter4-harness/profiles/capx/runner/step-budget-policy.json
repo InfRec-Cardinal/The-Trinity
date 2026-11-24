@@ -1,0 +1,66 @@
+{
+  "version": "task-step-budgets-v1",
+  "unit": "submitted environment actions, including rejected actions passed to driver.step; module calls do not advance the world",
+  "comparison": "Compare only identical policy SHA and case set. Budget truncations remain in coverage/attempt denominator, excluded from native terminal win/loss and score aggregates.",
+  "tasks": {
+    "puzzlink_penpa": {
+      "maxSteps": 400,
+      "basis": "H0 successful episode310 actions; ~29% headroom; local synthetic Sudoku, not official puzz.link average."
+    },
+    "puzzlescript": {
+      "maxSteps": 120,
+      "basis": "H0 successful22,80; refreshed successes7..45.50% headroom above observed80."
+    },
+    "master_keying_design": {
+      "maxSteps": 70,
+      "basis": "Refreshed successes10..53; H0 eight-action successes only apply to easy6-key instances.70 leaves17 extra actions above53."
+    },
+    "memory_maze_scavenger_hunt": {
+      "maxSteps": 1000,
+      "basis": "Official fixed horizon1000; human mean26.4 targets, not26.4 steps. Preserve full scoring horizon."
+    },
+    "textquests_infocom_games": {
+      "maxSteps": 500,
+      "basis": "Official upstream default500 commands; no full successes in inspected archives. Retain progress-scoring horizon rather than invent average."
+    },
+    "micromouse_maze_contest": {
+      "maxSteps": 400,
+      "basis": "H0 success mean113.67,max136; refreshed success mean166.57,max378. Retain400 to avoid truncating known legitimate runs."
+    },
+    "arc_agi_3": {
+      "maxSteps": 1000,
+      "independentMin": 80,
+      "baselineMultiplier": 4,
+      "baselineSlack": 20,
+      "basis": "Pinned official baseline_actions per level; host-only budget, not exposed as solving evidence. Independent: min(1000,max(80,4*baseline+20)); whole game uses summed baselines and min200. Missing baseline uses1000."
+    },
+    "pallet_rack_inspection": {
+      "maxSteps": 80,
+      "basis": "Local reconstruction with80 native limit; one refreshed success79, cannot safely shorten."
+    },
+    "eleusis": {
+      "maxSteps": 60,
+      "basis": "Accepted H0 success mean30.625,max54; retain native60."
+    },
+    "the_long_dark_survival": {
+      "maxSteps": 100,
+      "basis": "Local reconstruction native200; H0 success33..63; refreshed success35..65.100 leaves35 extra actions above65."
+    },
+    "balrog_minihack_boxoban": {
+      "maxSteps": 100,
+      "basis": "Vendored BALROG MiniHack official episode horizon100, not average solution length."
+    },
+    "balrog_minihack_maze_corridor": {
+      "maxSteps": 100,
+      "basis": "Vendored BALROG MiniHack official episode horizon100."
+    },
+    "balrog_nethack": {
+      "maxSteps": 500,
+      "basis": "Explicit cost-limited progression budget; official100000, no successful ascension average established. Not a full-game completion guarantee."
+    },
+    "balrog_crafter": {
+      "maxSteps": 500,
+      "basis": "Explicit cost-limited progression budget; official2000."
+    }
+  }
+}

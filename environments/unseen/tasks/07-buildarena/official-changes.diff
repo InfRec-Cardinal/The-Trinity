@@ -1,0 +1,64 @@
+diff --git a/prompt.yaml b/prompt.yaml
+index a3640d4..22c33c5 100644
+--- a/prompt.yaml
++++ b/prompt.yaml
+@@ -189,7 +189,7 @@ agents:
+       - **IMPORTANT**: DO NOT make building related tools calls in your reply, your task is to give detailed step by step text instructions to the builder, the builder will execute the operations.
+     model: null
+ 
+-controller:
++  controller:
+     name: controller
+     system_message: |
+       You are a control engineer. Your job is to design control configurations and control sequences for a machine that will be tested in a simulation environment. 
+@@ -298,3 +298,4 @@ controller:
+       - The control_config and control_sequence are the control configurations and sequences that guide the machine's actions.
+       - The simulation is the simulated motion trajectory of the machine, describing the motion trajectory (x, y, z) of some blocks in the machine.
+       - You should analyze the simulation and the control_config and control_sequence to revise the control_config and control_sequence to optimize the task.
++    model: null
+diff --git a/scheduler/runner.py b/scheduler/runner.py
+index 7c5f2c1..91e5b82 100644
+--- a/scheduler/runner.py
++++ b/scheduler/runner.py
+@@ -97,7 +97,7 @@ async def run_build(task: Task, global_config: dict) -> ProcessContext:
+         return build_context
+ 
+     if not spinful:
+-        mark_machine_completed(machine_id=machine_id, approved=False, db_path=task.db_path)
++        mark_machine_completed(machine_id=machine_id, approved=True, db_path=task.db_path)
+ 
+     else:
+         # Initialize a refining task from machine
+@@ -146,8 +146,8 @@ async def run_refine(task: Task, global_config: dict) -> ProcessContext:
+         return refine_context
+     
+     else:
+-        # The machine has been refined, mark it as unverified
+-        mark_machine_unverified(machine_id=machine_id, approved=True, db_path=task.db_path)
++        # The machine has been refined; scheduler.check_satisfied only counts status=completed
++        mark_machine_completed(machine_id=machine_id, approved=True, db_path=task.db_path)
+ 
+     return refine_context
+ 
+@@ -174,7 +174,7 @@ async def run_assemble(task: Task, global_config: dict) -> ProcessContext:
+     if objection:
+         return assemble_context
+     
+-    mark_machine_unverified(machine_id=machine_id, approved=True, db_path=task.db_path)
++    mark_machine_completed(machine_id=machine_id, approved=True, db_path=task.db_path)
+     return assemble_context
+ 
+ async def run_control(task: Task, global_config: dict) -> ProcessContext:
+diff --git a/spatial/build.py b/spatial/build.py
+index f101b32..5ee6706 100644
+--- a/spatial/build.py
++++ b/spatial/build.py
+@@ -780,7 +780,7 @@ class Machine:
+         """
+         if isinstance(block_id, int):
+             block_id = str(block_id)
+-        if block_id == '0' and not self.assembly:
++        if block_id == '1' and not self.assembly:
+             error_message = 'The Starting Block can not be removed'
+             self.update_prompt(pre_msg=error_message)
+             self.log_failed_operation("remove_block", error_message)

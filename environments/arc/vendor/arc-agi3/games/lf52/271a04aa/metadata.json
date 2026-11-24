@@ -1,0 +1,20 @@
+{
+  "game_id": "lf52-271a04aa",
+  "title": "LF52",
+  "default_fps": 30,
+  "tags": [
+    "click"
+  ],
+  "baseline_actions": [
+    32,
+    81,
+    60,
+    71,
+    205,
+    148,
+    244,
+    109,
+    164,
+    225
+  ]
+}

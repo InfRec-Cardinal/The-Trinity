@@ -1,0 +1,146 @@
+{
+  "taskId": "scigym_small",
+  "proposals": [
+    {
+      "id": "concise-public-output-contract",
+      "title": "Provide the required action with a brief public justification",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Preparing each native response field",
+      "procedure": [
+        "Follow the original native action syntax and required headings exactly. If a field or heading asks for thoughts, reasoning, beliefs or analysis, fill it with a short decision summary based on public task facts, calculations or experiment results.",
+        "Do not emit private internal deliberation, hidden chain of thought, or a reconstruction of another model. The public summary and requested action are sufficient.",
+        "Return the real task action, experiment, code or final submission using the offered schema. Do not replace the task with an explanation."
+      ],
+      "successSignals": [
+        "Native parser accepts the action",
+        "Summary cites only public evidence"
+      ],
+      "failureSignals": [
+        "Narrative replaces the required action",
+        "Detailed internal deliberation is requested or emitted"
+      ],
+      "recovery": [
+        "Use a concise public evidence summary under the same headings, followed by the exact native action."
+      ],
+      "invariants": [
+        "Keep the native rules, budget, opponent and scoring unchanged.",
+        "No hidden target, evaluator state or answer is available."
+      ],
+      "sourceGapIds": [
+        "public-summary-versus-private-reasoning-output"
+      ]
+    },
+    {
+      "id": "one-reaction-per-flux",
+      "title": "Emit one minimal reaction per directed flux; never lump fluxes into an aggregate rate law",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "You are about to write the SBML submission and your candidate model has fewer reactions than the number of distinct directed flux channels implied by the species' derivative balance, or any single rate law contains summed terms of opposite sign / a polynomial basis / multiple mechanisms.",
+      "procedure": [
+        "From the baseline observation, write each dynamic species' net derivative as a sum of signed terms and list every distinct directed channel (source -> sink pair, production, degradation, transport between compartments).",
+        "Create exactly one irreversible reaction per channel, with one reactant and one product where the balance allows; split every reversible interconversion into two opposite irreversible reactions rather than one reversible one.",
+        "Attach constant / boundary / catalytic species as modifiers of the step they accelerate, not as reactants of a lumped source reaction.",
+        "Keep rate laws single-mechanism (mass action or saturable in the reaction's own substrate); if a fit needs a signed sum of terms, that is evidence of two reactions, so split it.",
+        "Prefer unit stoichiometry; do not bake compartment-volume ratios or fitted scale factors into stoichiometric coefficients.",
+        "Before submitting, count reactions against the channel list and confirm every dynamic species appears as both a reactant and a product somewhere unless it is a true terminal sink."
+      ],
+      "successSignals": [
+        "Reaction count equals the enumerated channel count and each law has a single sign",
+        "Every constant species appears only as a modifier",
+        "All stoichiometries are integers"
+      ],
+      "failureSignals": [
+        "A rate law is a fitted polynomial or contains terms of mixed sign",
+        "A boundary species is used as the universal reactant for several species' net dynamics",
+        "Fractional stoichiometries appear"
+      ],
+      "recovery": [
+        "Decompose the offending aggregate law back into its signed terms and re-emit one reaction per term, refitting only the coefficients already estimated."
+      ],
+      "invariants": [
+        "Scoring rewards recovered reaction participants, not trajectory error; a perfectly fitting lumped model scores worse than a slightly worse-fitting decomposed one.",
+        "No extra experiment is needed: the channel list comes from the observation already collected."
+      ],
+      "sourceGapIds": [
+        "lumps-multiple-fluxes-into-one-reaction",
+        "polynomial-rate-law-substitutes-for-topology",
+        "nonunit-stoichiometry-hides-flux"
+      ]
+    },
+    {
+      "id": "stop-fitting-start-discriminating",
+      "title": "Once trajectory error is already small, spend remaining iterations discriminating topology, not refitting parameters",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "A candidate model already reproduces the observed trajectories to within a few percent, and the next planned action is another parameter fit, rate-law variant scan, or optimizer restart.",
+      "procedure": [
+        "Declare the fit adequate and freeze the parameters at their current values.",
+        "Instead, name the structural alternatives still consistent with the data (chain length, which pair is directly connected, whether a third route exists).",
+        "Choose the single initial-condition perturbation that makes those alternatives predict different early-time signs or orderings — typically zeroing one pool while loading another — and run it once.",
+        "Compare only the qualitative discriminator (which species rises first, whether a species responds at all), not the residual.",
+        "Eliminate the refuted topology, re-fit once on the pooled datasets, and submit."
+      ],
+      "successSignals": [
+        "At least one topology was rejected on qualitative grounds (e.g. an intermediate ordering that cannot occur)",
+        "Submission occurs with iterations still unspent"
+      ],
+      "failureSignals": [
+        "Three or more consecutive iterations are parameter fits with marginal residual improvement",
+        "Final submission rests on a topology never tested by a perturbation"
+      ],
+      "recovery": [
+        "If iterations are nearly exhausted and topology is untested, submit the most parsimonious decomposition consistent with the conservation relations rather than the best-fitting elaborate one."
+      ],
+      "invariants": [
+        "Extra parameter fits cost budget but cannot change the participant score; a discriminating perturbation can.",
+        "Never spend budget re-collecting the same kind of reading."
+      ],
+      "sourceGapIds": [
+        "overfits-instead-of-discriminating",
+        "commits-before-discriminating",
+        "burns-budget-on-parameter-scans"
+      ]
+    },
+    {
+      "id": "parsimony-on-unresolved-chain-length",
+      "title": "Do not invent chain steps or intermediates the data has not resolved",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "You are choosing between a longer sequential chain (or extra route) and a shorter one, and the data distinguishing them is only a residual improvement rather than a qualitative feature such as an overshoot, lag, or species that moves only after another.",
+      "procedure": [
+        "For each candidate extra step, name the qualitative signature it must produce: a transient peak in the putative intermediate, a measurable lag before the downstream species moves, or a response to a perturbation that bypasses it.",
+        "Search the observations already collected for that signature.",
+        "If the signature is absent, drop the step and connect the endpoints directly; if present, keep it and assign the intermediate explicitly.",
+        "Apply the same test to extra parallel routes: keep one only if its fitted rate is not near zero and its removal changes a qualitative feature.",
+        "Submit the smallest topology that retains every observed qualitative signature."
+      ],
+      "successSignals": [
+        "Every retained reaction is justified by a named qualitative feature of the data",
+        "Rejected routes are rejected because their fitted rates were negligible or their signature was absent"
+      ],
+      "failureSignals": [
+        "A chain length was chosen because it fit marginally better",
+        "An intermediate is posited whose concentration never shows a transient peak or lag"
+      ],
+      "recovery": [
+        "Collapse unjustified steps into a direct conversion and re-fit the reduced model on existing datasets before submitting."
+      ],
+      "invariants": [
+        "Missing a real reaction and adding a spurious one both cost score; parsimony is the tie-break only when the qualitative evidence is silent."
+      ],
+      "sourceGapIds": [
+        "invents-unresolved-intermediate-steps",
+        "fit-improvement-mistaken-for-structure"
+      ]
+    }
+  ]
+}

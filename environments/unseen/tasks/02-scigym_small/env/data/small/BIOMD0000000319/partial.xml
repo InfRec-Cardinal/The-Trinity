@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" level="2" version="4">
+  <model id="id_nvgg">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_ey1e">
+        <listOfUnits>
+          <unit kind="dimensionless"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_p004">
+        <listOfUnits>
+          <unit kind="dimensionless"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_boyu">
+        <listOfUnits>
+          <unit kind="second" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_26ee" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_hyb1" compartment="id_26ee" initialConcentration="29.19988"/>
+      <species id="id_dkqe" compartment="id_26ee" initialConcentration="188.8"/>
+      <species id="id_j9wr" compartment="id_26ee" initialConcentration="0.3367"/>
+    </listOfSpecies>
+  </model>
+</sbml>

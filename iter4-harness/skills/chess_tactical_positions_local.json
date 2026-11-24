@@ -1,0 +1,75 @@
+{
+  "taskId": "chess_tactical_positions_local",
+  "proposals": [
+    {
+      "id": "build-mate-from-king-flights",
+      "title": "Build the mating move from the enemy king's escape squares, not from the most forcing-looking move",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "A mate-in-N prompt where exactly one move may be submitted, the position is fully visible, and the candidate set is large enough that several moves look forcing at a glance.",
+      "procedure": [
+        "Start at the enemy king rather than at your own pieces: list every square the king can legally step to right now, and for each record which of your units already covers it or whether an enemy unit blocks it.",
+        "Identify the squares still uncovered; the mating move is the one that supplies the missing coverage, removes a defender of a flight square, or blocks the last escape lane, while creating no new escape.",
+        "Check the destination of the piece you would move: if it lands where the enemy king or any enemy unit can take it, the move is viable only if that square is defended by another of your units; if it is not defended, discard it.",
+        "When the horizon is one, commit to the move that closes every escape square using units already on the board. When it is longer, commit to the move after which every reply is mated in the moves that remain. Do not spend the submission on a move whose only merit is check."
+      ],
+      "successSignals": [
+        "the submitted move can be restated as 'the last uncovered escape square got covered'",
+        "the episode terminates on the first submission with a decisive verdict"
+      ],
+      "failureSignals": [
+        "the submitted move gives check but the king still has a legal step afterward",
+        "the chosen move was selected because it attacks the king rather than because it closes the king's squares"
+      ],
+      "recovery": [
+        "If the chosen move is a check that does not close every flight square, re-run the construction from the king's flights and submit the move that does.",
+        "If the intended candidate depends on a piece being defended, verify that defender exists and its line to the square is unobstructed before submitting."
+      ],
+      "invariants": [
+        "In a mate in one the answer is determined by the enemy king's escape squares. In a longer forced mate the first move need only leave every reply mated in the remaining moves, so a move that leaves a flight square open can still be the answer.",
+        "A move's forcing appearance is not evidence that it mates."
+      ],
+      "sourceGapIds": [
+        "selected-by-forcing-look",
+        "mate-not-derived-from-flights"
+      ]
+    },
+    {
+      "id": "enumerate-opponent-replies-before-commit",
+      "title": "Enumerate the opponent's full reply set, including blocker-ignoring attackers, before submitting",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "A candidate mating move has been identified and the episode grants exactly one submission, so there is no opportunity to correct the move after seeing the verdict.",
+      "procedure": [
+        "Play the candidate forward and enumerate the opponent's replies in three buckets: captures of the piece you just moved, interpositions on the checking line, and king moves.",
+        "For the capture bucket, list every enemy unit that attacks the destination square: for sliding units only those whose ray to that square has no piece between, and for jumping units every one of them regardless of what stands in the way.",
+        "Confirm each king move lands on a square still covered by one of your units, and that the king cannot legally capture the checking piece — that square must be defended or out of the king's reach.",
+        "When the position is a mate in one, submit only when all three buckets are empty. When it is a forced mate in N>1, require instead that every reply in the three buckets is itself mated within the remaining N-1 moves; the key move of a mate in two always leaves a legal reply."
+      ],
+      "successSignals": [
+        "the submitted move either has no legal reply, or every legal reply is mated inside the remaining moves of the stated horizon",
+        "the decisive verdict arrives immediately after the first submission"
+      ],
+      "failureSignals": [
+        "the check is answered by a capture of the checking unit by a defender that was never counted",
+        "the reasoning names the check but never lists the opponent's responses to it"
+      ],
+      "recovery": [
+        "Ask which single enemy unit could remove the check; if one exists the move is refuted, and the next candidate must be tested by the same three-bucket enumeration before submission."
+      ],
+      "invariants": [
+        "A check that still has a legal reply is not a mate, but it can be the key move of a longer forced mate.",
+        "Attacks that ignore blockers pass through blockers; any enumeration that skips such units is incomplete.",
+        "Reply enumeration is recomputation on the already-visible position and spends no observation budget."
+      ],
+      "sourceGapIds": [
+        "unverified-forcing-check",
+        "missed-capturing-reply"
+      ]
+    }
+  ]
+}

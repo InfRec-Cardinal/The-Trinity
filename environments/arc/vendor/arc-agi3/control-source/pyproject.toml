@@ -1,0 +1,18 @@
+[project]
+name = "arc-agi-3-schema-router"
+version = "0.1.0"
+description = "ARC Prize 2026 schema-routed specialist agent with a graph-exploration fallback"
+readme = {text = "", content-type = "text/plain"}
+requires-python = ">=3.12"
+license = "MIT-0"
+dependencies = [
+  "arc-agi>=0.9.1",
+  "numpy>=2.3.2",
+  "openai==1.72.0",
+  "pillow>=11.2.1",
+  "pydantic>=2.11.7",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.4", "ruff>=0.11"]

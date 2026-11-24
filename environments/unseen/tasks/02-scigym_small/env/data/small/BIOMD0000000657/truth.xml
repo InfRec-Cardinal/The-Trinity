@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_sjui">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_4g7b">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_pso9">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_srdx">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-9" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_cdkb" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_n533" compartment="id_cdkb" initialConcentration="20" boundaryCondition="false" constant="false"/>
+      <species id="id_63zk" compartment="id_cdkb" initialConcentration="59.9999999999999" boundaryCondition="false" constant="false"/>
+      <species id="id_618c" compartment="id_cdkb" initialConcentration="0" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_ew6h" value="0.001" constant="true"/>
+      <parameter id="id_y71b" value="0.025" constant="true"/>
+      <parameter id="id_rkuq" value="0.1" constant="true"/>
+      <parameter id="id_g4k5" value="5" constant="true"/>
+      <parameter id="id_0x1s" value="30" constant="true"/>
+      <parameter id="id_ufe5" value="0.02" constant="true"/>
+      <parameter id="id_9gc6" value="30" constant="true"/>
+      <parameter id="id_iaow" value="0.18" constant="true"/>
+      <parameter id="id_tqxp" value="0" constant="true"/>
+      <parameter id="id_2u26" value="0.5" constant="true"/>
+      <parameter id="id_0jos" value="1.5" constant="true"/>
+      <parameter id="id_q28t" value="5" constant="true"/>
+      <parameter id="id_4exs" value="10" constant="true"/>
+      <parameter id="id_0y1h" value="10" constant="true"/>
+      <parameter id="id_mgvw" value="0.5" constant="true"/>
+      <parameter id="id_89nu" value="0.5" constant="true"/>
+      <parameter id="id_mnwt" value="0.25" constant="true"/>
+      <parameter id="id_tf8s" value="1" constant="true"/>
+      <parameter id="id_ynq7" value="0.18" constant="true"/>
+      <parameter id="id_tm8l" value="10" constant="true"/>
+      <parameter id="id_co4w" value="0.5" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_h3du" reversible="true">
+        <listOfProducts>
+          <speciesReference species="id_n533" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_618c"/>
+          <modifierSpeciesReference species="id_63zk"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_cdkb </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <minus/>
+                    <apply>
+                      <minus/>
+                      <ci> id_rkuq </ci>
+                      <apply>
+                        <times/>
+                        <ci> id_ew6h </ci>
+                        <ci> id_n533 </ci>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <divide/>
+                      <apply>
+                        <times/>
+                        <ci> id_ufe5 </ci>
+                        <apply>
+                          <power/>
+                          <ci> id_618c </ci>
+                          <ci> id_tm8l </ci>
+                        </apply>
+                        <ci> id_n533 </ci>
+                      </apply>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <power/>
+                          <ci> id_co4w </ci>
+                          <ci> id_tm8l </ci>
+                        </apply>
+                        <apply>
+                          <power/>
+                          <ci> id_618c </ci>
+                          <ci> id_tm8l </ci>
+                        </apply>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <ci> id_mgvw </ci>
+                      <apply>
+                        <divide/>
+                        <apply>
+                          <times/>
+                          <ci> id_0jos </ci>
+                          <apply>
+                            <power/>
+                            <ci> id_n533 </ci>
+                            <ci> id_4exs </ci>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <plus/>
+                          <apply>
+                            <power/>
+                            <ci> id_0x1s </ci>
+                            <ci> id_4exs </ci>
+                          </apply>
+                          <apply>
+                            <power/>
+                            <ci> id_n533 </ci>
+                            <ci> id_4exs </ci>
+                          </apply>
+                        </apply>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <minus/>
+                      <ci> id_63zk </ci>
+                      <ci> id_n533 </ci>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <apply>
+                    <plus/>
+                    <ci> id_2u26 </ci>
+                    <apply>
+                      <divide/>
+                      <apply>
+                        <times/>
+                        <ci> id_tf8s </ci>
+                        <apply>
+                          <power/>
+                          <ci> id_9gc6 </ci>
+                          <ci> id_0y1h </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <power/>
+                          <ci> id_9gc6 </ci>
+                          <ci> id_0y1h </ci>
+                        </apply>
+                        <apply>
+                          <power/>
+                          <ci> id_n533 </ci>
+                          <ci> id_0y1h </ci>
+                        </apply>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <ci> id_n533 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_hx7f" reversible="true">
+        <listOfProducts>
+          <speciesReference species="id_63zk" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_618c"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_cdkb </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <minus/>
+                  <ci> id_rkuq </ci>
+                  <apply>
+                    <times/>
+                    <ci> id_ew6h </ci>
+                    <ci> id_63zk </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <divide/>
+                  <apply>
+                    <times/>
+                    <ci> id_ufe5 </ci>
+                    <apply>
+                      <power/>
+                      <ci> id_618c </ci>
+                      <ci> id_tm8l </ci>
+                    </apply>
+                    <ci> id_63zk </ci>
+                  </apply>
+                  <apply>
+                    <plus/>
+                    <apply>
+                      <power/>
+                      <ci> id_co4w </ci>
+                      <ci> id_tm8l </ci>
+                    </apply>
+                    <apply>
+                      <power/>
+                      <ci> id_618c </ci>
+                      <ci> id_tm8l </ci>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_k205" reversible="true">
+        <listOfProducts>
+          <speciesReference species="id_618c" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_n533"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_cdkb </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <plus/>
+                    <ci> id_tqxp </ci>
+                    <apply>
+                      <divide/>
+                      <apply>
+                        <times/>
+                        <ci> id_mnwt </ci>
+                        <apply>
+                          <power/>
+                          <apply>
+                            <divide/>
+                            <ci> id_n533 </ci>
+                            <cn> 200 </cn>
+                          </apply>
+                          <ci> id_g4k5 </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <power/>
+                          <apply>
+                            <divide/>
+                            <ci> id_n533 </ci>
+                            <cn> 200 </cn>
+                          </apply>
+                          <ci> id_g4k5 </ci>
+                        </apply>
+                        <apply>
+                          <power/>
+                          <ci> id_ynq7 </ci>
+                          <ci> id_g4k5 </ci>
+                        </apply>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <minus/>
+                    <cn> 1 </cn>
+                    <ci> id_618c </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <apply>
+                    <plus/>
+                    <ci> id_y71b </ci>
+                    <apply>
+                      <divide/>
+                      <apply>
+                        <times/>
+                        <ci> id_89nu </ci>
+                        <apply>
+                          <power/>
+                          <ci> id_iaow </ci>
+                          <ci> id_q28t </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <power/>
+                          <ci> id_618c </ci>
+                          <ci> id_q28t </ci>
+                        </apply>
+                        <apply>
+                          <power/>
+                          <ci> id_iaow </ci>
+                          <ci> id_q28t </ci>
+                        </apply>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <ci> id_618c </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

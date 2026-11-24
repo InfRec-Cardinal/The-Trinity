@@ -1,0 +1,2775 @@
+[
+  {
+    "seed": 29,
+    "tier": 0,
+    "topology": "single_master",
+    "chambers": 5,
+    "maxAdjacentDifference": 4,
+    "maxShearPoints": 2,
+    "maxActions": 80,
+    "keys": [
+      {
+        "id": "K08"
+      },
+      {
+        "id": "K05"
+      },
+      {
+        "id": "K04"
+      },
+      {
+        "id": "K01"
+      },
+      {
+        "id": "K07"
+      },
+      {
+        "id": "K06"
+      },
+      {
+        "id": "K02"
+      },
+      {
+        "id": "K09"
+      },
+      {
+        "id": "K03"
+      }
+    ],
+    "locks": [
+      {
+        "id": "L01",
+        "requiredKeys": [
+          "K03",
+          "K05"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L02",
+        "requiredKeys": [
+          "K03",
+          "K06"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L03",
+        "requiredKeys": [
+          "K03",
+          "K07"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L04",
+        "requiredKeys": [
+          "K03",
+          "K09"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L05",
+        "requiredKeys": [
+          "K03",
+          "K01"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L06",
+        "requiredKeys": [
+          "K03",
+          "K04"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L07",
+        "requiredKeys": [
+          "K03",
+          "K08"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L08",
+        "requiredKeys": [
+          "K03",
+          "K02"
+        ],
+        "commonDoor": false
+      }
+    ],
+    "privateWitness": {
+      "K03": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "K01": [
+        0,
+        2,
+        0,
+        0,
+        2
+      ],
+      "K09": [
+        0,
+        0,
+        0,
+        2,
+        2
+      ],
+      "K02": [
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "K07": [
+        2,
+        0,
+        0,
+        0,
+        2
+      ],
+      "K06": [
+        2,
+        0,
+        2,
+        0,
+        0
+      ],
+      "K04": [
+        0,
+        2,
+        2,
+        0,
+        0
+      ],
+      "K08": [
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "K05": [
+        0,
+        2,
+        0,
+        2,
+        0
+      ]
+    }
+  },
+  {
+    "seed": 67,
+    "tier": 0,
+    "topology": "single_master",
+    "chambers": 6,
+    "maxAdjacentDifference": 2,
+    "maxShearPoints": 2,
+    "maxActions": 80,
+    "keys": [
+      {
+        "id": "K02"
+      },
+      {
+        "id": "K06"
+      },
+      {
+        "id": "K03"
+      },
+      {
+        "id": "K04"
+      },
+      {
+        "id": "K07"
+      },
+      {
+        "id": "K09"
+      },
+      {
+        "id": "K08"
+      },
+      {
+        "id": "K11"
+      },
+      {
+        "id": "K10"
+      },
+      {
+        "id": "K05"
+      },
+      {
+        "id": "K01"
+      }
+    ],
+    "locks": [
+      {
+        "id": "L01",
+        "requiredKeys": [
+          "K11",
+          "K09"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L02",
+        "requiredKeys": [
+          "K11",
+          "K04"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L03",
+        "requiredKeys": [
+          "K11",
+          "K06"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L04",
+        "requiredKeys": [
+          "K11",
+          "K03"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L05",
+        "requiredKeys": [
+          "K11",
+          "K08"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L06",
+        "requiredKeys": [
+          "K11",
+          "K07"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L07",
+        "requiredKeys": [
+          "K11",
+          "K10"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L08",
+        "requiredKeys": [
+          "K11",
+          "K02"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L09",
+        "requiredKeys": [
+          "K11",
+          "K01"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L10",
+        "requiredKeys": [
+          "K11",
+          "K05"
+        ],
+        "commonDoor": false
+      }
+    ],
+    "privateWitness": {
+      "K11": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K02": [
+        7,
+        9,
+        9,
+        7,
+        9,
+        7
+      ],
+      "K09": [
+        9,
+        9,
+        7,
+        7,
+        7,
+        9
+      ],
+      "K03": [
+        9,
+        7,
+        7,
+        9,
+        7,
+        9
+      ],
+      "K05": [
+        9,
+        9,
+        7,
+        9,
+        7,
+        7
+      ],
+      "K06": [
+        9,
+        7,
+        9,
+        7,
+        7,
+        9
+      ],
+      "K04": [
+        7,
+        9,
+        9,
+        9,
+        7,
+        7
+      ],
+      "K01": [
+        9,
+        7,
+        9,
+        7,
+        9,
+        7
+      ],
+      "K10": [
+        9,
+        9,
+        7,
+        7,
+        9,
+        7
+      ],
+      "K08": [
+        9,
+        9,
+        9,
+        7,
+        7,
+        7
+      ],
+      "K07": [
+        7,
+        7,
+        9,
+        7,
+        9,
+        9
+      ]
+    }
+  },
+  {
+    "seed": 11,
+    "tier": 1,
+    "topology": "grand_master",
+    "chambers": 5,
+    "maxAdjacentDifference": 2,
+    "maxShearPoints": 2,
+    "maxActions": 80,
+    "keys": [
+      {
+        "id": "K05"
+      },
+      {
+        "id": "K06"
+      },
+      {
+        "id": "K04"
+      },
+      {
+        "id": "K03"
+      },
+      {
+        "id": "K07"
+      },
+      {
+        "id": "K09"
+      },
+      {
+        "id": "K08"
+      },
+      {
+        "id": "K01"
+      },
+      {
+        "id": "K02"
+      }
+    ],
+    "locks": [
+      {
+        "id": "L01",
+        "requiredKeys": [
+          "K06",
+          "K03",
+          "K08"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L02",
+        "requiredKeys": [
+          "K06",
+          "K03",
+          "K07"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L03",
+        "requiredKeys": [
+          "K06",
+          "K02",
+          "K09"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L04",
+        "requiredKeys": [
+          "K06",
+          "K02",
+          "K05"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L05",
+        "requiredKeys": [
+          "K06",
+          "K03",
+          "K01"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L06",
+        "requiredKeys": [
+          "K06",
+          "K02",
+          "K04"
+        ],
+        "commonDoor": false
+      }
+    ],
+    "privateWitness": {
+      "K06": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K02": [
+        7,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K09": [
+        7,
+        9,
+        7,
+        9,
+        9
+      ],
+      "K05": [
+        7,
+        9,
+        9,
+        7,
+        9
+      ],
+      "K04": [
+        7,
+        9,
+        9,
+        9,
+        7
+      ],
+      "K03": [
+        9,
+        7,
+        9,
+        9,
+        9
+      ],
+      "K01": [
+        9,
+        7,
+        7,
+        9,
+        9
+      ],
+      "K07": [
+        9,
+        7,
+        9,
+        7,
+        9
+      ],
+      "K08": [
+        9,
+        7,
+        9,
+        9,
+        7
+      ]
+    }
+  },
+  {
+    "seed": 67,
+    "tier": 1,
+    "topology": "grand_master",
+    "chambers": 6,
+    "maxAdjacentDifference": 6,
+    "maxShearPoints": 3,
+    "maxActions": 80,
+    "keys": [
+      {
+        "id": "K03"
+      },
+      {
+        "id": "K25"
+      },
+      {
+        "id": "K20"
+      },
+      {
+        "id": "K28"
+      },
+      {
+        "id": "K02"
+      },
+      {
+        "id": "K36"
+      },
+      {
+        "id": "K04"
+      },
+      {
+        "id": "K31"
+      },
+      {
+        "id": "K01"
+      },
+      {
+        "id": "K08"
+      },
+      {
+        "id": "K12"
+      },
+      {
+        "id": "K18"
+      },
+      {
+        "id": "K29"
+      },
+      {
+        "id": "K39"
+      },
+      {
+        "id": "K32"
+      },
+      {
+        "id": "K35"
+      },
+      {
+        "id": "K14"
+      },
+      {
+        "id": "K26"
+      },
+      {
+        "id": "K37"
+      },
+      {
+        "id": "K40"
+      },
+      {
+        "id": "K16"
+      },
+      {
+        "id": "K06"
+      },
+      {
+        "id": "K21"
+      },
+      {
+        "id": "K05"
+      },
+      {
+        "id": "K17"
+      },
+      {
+        "id": "K23"
+      },
+      {
+        "id": "K27"
+      },
+      {
+        "id": "K15"
+      },
+      {
+        "id": "K10"
+      },
+      {
+        "id": "K33"
+      },
+      {
+        "id": "K34"
+      },
+      {
+        "id": "K22"
+      },
+      {
+        "id": "K19"
+      },
+      {
+        "id": "K24"
+      },
+      {
+        "id": "K30"
+      },
+      {
+        "id": "K13"
+      },
+      {
+        "id": "K11"
+      },
+      {
+        "id": "K09"
+      },
+      {
+        "id": "K38"
+      },
+      {
+        "id": "K07"
+      }
+    ],
+    "locks": [
+      {
+        "id": "L01",
+        "requiredKeys": [
+          "K33",
+          "K06",
+          "K39"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L02",
+        "requiredKeys": [
+          "K33",
+          "K06",
+          "K07"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L03",
+        "requiredKeys": [
+          "K33",
+          "K36",
+          "K09"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L04",
+        "requiredKeys": [
+          "K33",
+          "K20",
+          "K29"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L05",
+        "requiredKeys": [
+          "K33",
+          "K30",
+          "K03"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L06",
+        "requiredKeys": [
+          "K33",
+          "K27",
+          "K25"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L07",
+        "requiredKeys": [
+          "K33",
+          "K36",
+          "K05"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L08",
+        "requiredKeys": [
+          "K33",
+          "K06",
+          "K16"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L09",
+        "requiredKeys": [
+          "K33",
+          "K02",
+          "K38"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L10",
+        "requiredKeys": [
+          "K33",
+          "K04",
+          "K40"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L11",
+        "requiredKeys": [
+          "K33",
+          "K17",
+          "K28"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L12",
+        "requiredKeys": [
+          "K33",
+          "K04",
+          "K22"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L13",
+        "requiredKeys": [
+          "K33",
+          "K36",
+          "K19"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L14",
+        "requiredKeys": [
+          "K33",
+          "K04",
+          "K08"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L15",
+        "requiredKeys": [
+          "K33",
+          "K20",
+          "K32"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L16",
+        "requiredKeys": [
+          "K33",
+          "K02",
+          "K35"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L17",
+        "requiredKeys": [
+          "K33",
+          "K04",
+          "K34"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L18",
+        "requiredKeys": [
+          "K33",
+          "K14",
+          "K12"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L19",
+        "requiredKeys": [
+          "K33",
+          "K17",
+          "K23"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L20",
+        "requiredKeys": [
+          "K33",
+          "K02",
+          "K21"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L21",
+        "requiredKeys": [
+          "K33",
+          "K14",
+          "K24"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L22",
+        "requiredKeys": [
+          "K33",
+          "K27",
+          "K18"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L23",
+        "requiredKeys": [
+          "K33",
+          "K17",
+          "K26"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L24",
+        "requiredKeys": [
+          "K33",
+          "K14",
+          "K10"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L25",
+        "requiredKeys": [
+          "K33",
+          "K36",
+          "K37"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L26",
+        "requiredKeys": [
+          "K33",
+          "K20",
+          "K13"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L27",
+        "requiredKeys": [
+          "K33",
+          "K30",
+          "K31"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L28",
+        "requiredKeys": [
+          "K33",
+          "K27",
+          "K15"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L29",
+        "requiredKeys": [
+          "K33",
+          "K30",
+          "K11"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L30",
+        "requiredKeys": [
+          "K33",
+          "K06",
+          "K01"
+        ],
+        "commonDoor": false
+      }
+    ],
+    "privateWitness": {
+      "K33": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K36": [
+        8,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K05": [
+        7,
+        9,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K09": [
+        7,
+        9,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K19": [
+        7,
+        9,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K37": [
+        7,
+        9,
+        9,
+        9,
+        8,
+        9
+      ],
+      "K04": [
+        6,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K34": [
+        5,
+        9,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K22": [
+        5,
+        9,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K08": [
+        5,
+        9,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K40": [
+        5,
+        9,
+        9,
+        9,
+        8,
+        9
+      ],
+      "K06": [
+        4,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K07": [
+        3,
+        9,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K39": [
+        3,
+        9,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K16": [
+        3,
+        9,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K01": [
+        3,
+        9,
+        9,
+        9,
+        8,
+        9
+      ],
+      "K20": [
+        9,
+        8,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K29": [
+        9,
+        7,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K32": [
+        9,
+        7,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K13": [
+        9,
+        7,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K14": [
+        9,
+        6,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K12": [
+        9,
+        5,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K10": [
+        9,
+        5,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K24": [
+        9,
+        5,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K02": [
+        9,
+        4,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K35": [
+        9,
+        3,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K38": [
+        9,
+        3,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K21": [
+        9,
+        3,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K27": [
+        9,
+        9,
+        8,
+        9,
+        9,
+        9
+      ],
+      "K18": [
+        9,
+        9,
+        7,
+        8,
+        9,
+        9
+      ],
+      "K15": [
+        9,
+        9,
+        7,
+        6,
+        9,
+        9
+      ],
+      "K25": [
+        9,
+        9,
+        7,
+        4,
+        9,
+        9
+      ],
+      "K17": [
+        9,
+        9,
+        6,
+        9,
+        9,
+        9
+      ],
+      "K26": [
+        9,
+        9,
+        5,
+        8,
+        9,
+        9
+      ],
+      "K23": [
+        9,
+        9,
+        5,
+        6,
+        9,
+        9
+      ],
+      "K28": [
+        9,
+        9,
+        5,
+        4,
+        9,
+        9
+      ],
+      "K30": [
+        9,
+        9,
+        4,
+        9,
+        9,
+        9
+      ],
+      "K11": [
+        9,
+        9,
+        3,
+        8,
+        9,
+        9
+      ],
+      "K31": [
+        9,
+        9,
+        3,
+        6,
+        9,
+        9
+      ],
+      "K03": [
+        9,
+        9,
+        3,
+        4,
+        9,
+        9
+      ]
+    }
+  },
+  {
+    "seed": 11,
+    "tier": 2,
+    "topology": "cross_keyed",
+    "chambers": 5,
+    "maxAdjacentDifference": 2,
+    "maxShearPoints": 2,
+    "maxActions": 80,
+    "keys": [
+      {
+        "id": "K05"
+      },
+      {
+        "id": "K06"
+      },
+      {
+        "id": "K04"
+      },
+      {
+        "id": "K03"
+      },
+      {
+        "id": "K07"
+      },
+      {
+        "id": "K09"
+      },
+      {
+        "id": "K08"
+      },
+      {
+        "id": "K01"
+      },
+      {
+        "id": "K02"
+      }
+    ],
+    "locks": [
+      {
+        "id": "L01",
+        "requiredKeys": [
+          "K06",
+          "K09"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L02",
+        "requiredKeys": [
+          "K06",
+          "K07"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L03",
+        "requiredKeys": [
+          "K06",
+          "K08"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L04",
+        "requiredKeys": [
+          "K06",
+          "K02",
+          "K09"
+        ],
+        "commonDoor": true
+      },
+      {
+        "id": "L05",
+        "requiredKeys": [
+          "K06",
+          "K04"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L06",
+        "requiredKeys": [
+          "K06",
+          "K02"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L07",
+        "requiredKeys": [
+          "K06",
+          "K05"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L08",
+        "requiredKeys": [
+          "K06",
+          "K01"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L09",
+        "requiredKeys": [
+          "K06",
+          "K03"
+        ],
+        "commonDoor": false
+      }
+    ],
+    "privateWitness": {
+      "K06": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K02": [
+        7,
+        7,
+        9,
+        9,
+        9
+      ],
+      "K09": [
+        7,
+        9,
+        7,
+        9,
+        9
+      ],
+      "K05": [
+        7,
+        9,
+        9,
+        7,
+        9
+      ],
+      "K04": [
+        7,
+        9,
+        9,
+        9,
+        7
+      ],
+      "K03": [
+        9,
+        7,
+        9,
+        7,
+        9
+      ],
+      "K01": [
+        9,
+        7,
+        9,
+        9,
+        7
+      ],
+      "K07": [
+        9,
+        9,
+        7,
+        7,
+        9
+      ],
+      "K08": [
+        9,
+        9,
+        7,
+        9,
+        7
+      ]
+    }
+  },
+  {
+    "seed": 29,
+    "tier": 2,
+    "topology": "cross_keyed",
+    "chambers": 6,
+    "maxAdjacentDifference": 4,
+    "maxShearPoints": 3,
+    "maxActions": 80,
+    "keys": [
+      {
+        "id": "K03"
+      },
+      {
+        "id": "K05"
+      },
+      {
+        "id": "K10"
+      },
+      {
+        "id": "K07"
+      },
+      {
+        "id": "K02"
+      },
+      {
+        "id": "K13"
+      },
+      {
+        "id": "K08"
+      },
+      {
+        "id": "K12"
+      },
+      {
+        "id": "K01"
+      },
+      {
+        "id": "K06"
+      },
+      {
+        "id": "K04"
+      },
+      {
+        "id": "K11"
+      },
+      {
+        "id": "K09"
+      }
+    ],
+    "locks": [
+      {
+        "id": "L01",
+        "requiredKeys": [
+          "K04",
+          "K03",
+          "K12"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L02",
+        "requiredKeys": [
+          "K04",
+          "K06",
+          "K07",
+          "K08",
+          "K09"
+        ],
+        "commonDoor": true
+      },
+      {
+        "id": "L03",
+        "requiredKeys": [
+          "K04",
+          "K07",
+          "K11"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L04",
+        "requiredKeys": [
+          "K04",
+          "K06",
+          "K13"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L05",
+        "requiredKeys": [
+          "K04",
+          "K07",
+          "K05"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L06",
+        "requiredKeys": [
+          "K04",
+          "K06",
+          "K02"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L07",
+        "requiredKeys": [
+          "K04",
+          "K07",
+          "K03",
+          "K09",
+          "K12"
+        ],
+        "commonDoor": true
+      },
+      {
+        "id": "L08",
+        "requiredKeys": [
+          "K04",
+          "K03",
+          "K01"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L09",
+        "requiredKeys": [
+          "K04",
+          "K03",
+          "K10"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L10",
+        "requiredKeys": [
+          "K04",
+          "K07",
+          "K09"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L11",
+        "requiredKeys": [
+          "K04",
+          "K06",
+          "K08"
+        ],
+        "commonDoor": false
+      }
+    ],
+    "privateWitness": {
+      "K04": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "K06": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "K08": [
+        2,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "K13": [
+        2,
+        0,
+        0,
+        4,
+        0,
+        0
+      ],
+      "K02": [
+        2,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "K07": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "K09": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        0
+      ],
+      "K11": [
+        0,
+        2,
+        0,
+        4,
+        0,
+        0
+      ],
+      "K05": [
+        0,
+        2,
+        0,
+        0,
+        2,
+        0
+      ],
+      "K03": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "K12": [
+        0,
+        0,
+        2,
+        2,
+        0,
+        0
+      ],
+      "K10": [
+        0,
+        0,
+        2,
+        4,
+        0,
+        0
+      ],
+      "K01": [
+        0,
+        0,
+        2,
+        0,
+        2,
+        0
+      ]
+    }
+  },
+  {
+    "seed": 2026101612,
+    "tier": 0,
+    "topology": "single_master",
+    "chambers": 6,
+    "maxAdjacentDifference": 2,
+    "maxShearPoints": 2,
+    "maxActions": 80,
+    "keys": [
+      {
+        "id": "K04"
+      },
+      {
+        "id": "K07"
+      },
+      {
+        "id": "K09"
+      },
+      {
+        "id": "K08"
+      },
+      {
+        "id": "K11"
+      },
+      {
+        "id": "K10"
+      },
+      {
+        "id": "K05"
+      },
+      {
+        "id": "K01"
+      }
+    ],
+    "locks": [
+      {
+        "id": "L01",
+        "requiredKeys": [
+          "K11",
+          "K09"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L02",
+        "requiredKeys": [
+          "K11",
+          "K04"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L05",
+        "requiredKeys": [
+          "K11",
+          "K08"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L06",
+        "requiredKeys": [
+          "K11",
+          "K07"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L07",
+        "requiredKeys": [
+          "K11",
+          "K10"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L09",
+        "requiredKeys": [
+          "K11",
+          "K01"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L10",
+        "requiredKeys": [
+          "K11",
+          "K05"
+        ],
+        "commonDoor": false
+      }
+    ],
+    "privateWitness": {
+      "K11": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K09": [
+        9,
+        9,
+        7,
+        7,
+        7,
+        9
+      ],
+      "K05": [
+        9,
+        9,
+        7,
+        9,
+        7,
+        7
+      ],
+      "K04": [
+        7,
+        9,
+        9,
+        9,
+        7,
+        7
+      ],
+      "K01": [
+        9,
+        7,
+        9,
+        7,
+        9,
+        7
+      ],
+      "K10": [
+        9,
+        9,
+        7,
+        7,
+        9,
+        7
+      ],
+      "K08": [
+        9,
+        9,
+        9,
+        7,
+        7,
+        7
+      ],
+      "K07": [
+        7,
+        7,
+        9,
+        7,
+        9,
+        9
+      ]
+    }
+  },
+  {
+    "seed": 2026101712,
+    "tier": 1,
+    "topology": "grand_master",
+    "chambers": 6,
+    "maxAdjacentDifference": 6,
+    "maxShearPoints": 3,
+    "maxActions": 80,
+    "keys": [
+      {
+        "id": "K20"
+      },
+      {
+        "id": "K02"
+      },
+      {
+        "id": "K36"
+      },
+      {
+        "id": "K04"
+      },
+      {
+        "id": "K31"
+      },
+      {
+        "id": "K01"
+      },
+      {
+        "id": "K08"
+      },
+      {
+        "id": "K12"
+      },
+      {
+        "id": "K18"
+      },
+      {
+        "id": "K29"
+      },
+      {
+        "id": "K39"
+      },
+      {
+        "id": "K32"
+      },
+      {
+        "id": "K35"
+      },
+      {
+        "id": "K14"
+      },
+      {
+        "id": "K26"
+      },
+      {
+        "id": "K37"
+      },
+      {
+        "id": "K40"
+      },
+      {
+        "id": "K16"
+      },
+      {
+        "id": "K06"
+      },
+      {
+        "id": "K21"
+      },
+      {
+        "id": "K05"
+      },
+      {
+        "id": "K17"
+      },
+      {
+        "id": "K23"
+      },
+      {
+        "id": "K27"
+      },
+      {
+        "id": "K15"
+      },
+      {
+        "id": "K10"
+      },
+      {
+        "id": "K33"
+      },
+      {
+        "id": "K34"
+      },
+      {
+        "id": "K22"
+      },
+      {
+        "id": "K19"
+      },
+      {
+        "id": "K24"
+      },
+      {
+        "id": "K30"
+      },
+      {
+        "id": "K13"
+      },
+      {
+        "id": "K11"
+      },
+      {
+        "id": "K09"
+      },
+      {
+        "id": "K38"
+      },
+      {
+        "id": "K07"
+      }
+    ],
+    "locks": [
+      {
+        "id": "L01",
+        "requiredKeys": [
+          "K33",
+          "K06",
+          "K39"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L02",
+        "requiredKeys": [
+          "K33",
+          "K06",
+          "K07"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L03",
+        "requiredKeys": [
+          "K33",
+          "K36",
+          "K09"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L04",
+        "requiredKeys": [
+          "K33",
+          "K20",
+          "K29"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L07",
+        "requiredKeys": [
+          "K33",
+          "K36",
+          "K05"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L08",
+        "requiredKeys": [
+          "K33",
+          "K06",
+          "K16"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L09",
+        "requiredKeys": [
+          "K33",
+          "K02",
+          "K38"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L10",
+        "requiredKeys": [
+          "K33",
+          "K04",
+          "K40"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L12",
+        "requiredKeys": [
+          "K33",
+          "K04",
+          "K22"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L13",
+        "requiredKeys": [
+          "K33",
+          "K36",
+          "K19"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L14",
+        "requiredKeys": [
+          "K33",
+          "K04",
+          "K08"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L15",
+        "requiredKeys": [
+          "K33",
+          "K20",
+          "K32"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L16",
+        "requiredKeys": [
+          "K33",
+          "K02",
+          "K35"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L17",
+        "requiredKeys": [
+          "K33",
+          "K04",
+          "K34"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L18",
+        "requiredKeys": [
+          "K33",
+          "K14",
+          "K12"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L19",
+        "requiredKeys": [
+          "K33",
+          "K17",
+          "K23"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L20",
+        "requiredKeys": [
+          "K33",
+          "K02",
+          "K21"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L21",
+        "requiredKeys": [
+          "K33",
+          "K14",
+          "K24"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L22",
+        "requiredKeys": [
+          "K33",
+          "K27",
+          "K18"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L23",
+        "requiredKeys": [
+          "K33",
+          "K17",
+          "K26"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L24",
+        "requiredKeys": [
+          "K33",
+          "K14",
+          "K10"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L25",
+        "requiredKeys": [
+          "K33",
+          "K36",
+          "K37"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L26",
+        "requiredKeys": [
+          "K33",
+          "K20",
+          "K13"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L27",
+        "requiredKeys": [
+          "K33",
+          "K30",
+          "K31"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L28",
+        "requiredKeys": [
+          "K33",
+          "K27",
+          "K15"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L29",
+        "requiredKeys": [
+          "K33",
+          "K30",
+          "K11"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L30",
+        "requiredKeys": [
+          "K33",
+          "K06",
+          "K01"
+        ],
+        "commonDoor": false
+      }
+    ],
+    "privateWitness": {
+      "K33": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K36": [
+        8,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K05": [
+        7,
+        9,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K09": [
+        7,
+        9,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K19": [
+        7,
+        9,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K37": [
+        7,
+        9,
+        9,
+        9,
+        8,
+        9
+      ],
+      "K04": [
+        6,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K34": [
+        5,
+        9,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K22": [
+        5,
+        9,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K08": [
+        5,
+        9,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K40": [
+        5,
+        9,
+        9,
+        9,
+        8,
+        9
+      ],
+      "K06": [
+        4,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K07": [
+        3,
+        9,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K39": [
+        3,
+        9,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K16": [
+        3,
+        9,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K01": [
+        3,
+        9,
+        9,
+        9,
+        8,
+        9
+      ],
+      "K20": [
+        9,
+        8,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K29": [
+        9,
+        7,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K32": [
+        9,
+        7,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K13": [
+        9,
+        7,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K14": [
+        9,
+        6,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K12": [
+        9,
+        5,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K10": [
+        9,
+        5,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K24": [
+        9,
+        5,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K02": [
+        9,
+        4,
+        9,
+        9,
+        9,
+        9
+      ],
+      "K35": [
+        9,
+        3,
+        9,
+        8,
+        9,
+        9
+      ],
+      "K38": [
+        9,
+        3,
+        9,
+        6,
+        9,
+        9
+      ],
+      "K21": [
+        9,
+        3,
+        9,
+        4,
+        9,
+        9
+      ],
+      "K27": [
+        9,
+        9,
+        8,
+        9,
+        9,
+        9
+      ],
+      "K18": [
+        9,
+        9,
+        7,
+        8,
+        9,
+        9
+      ],
+      "K15": [
+        9,
+        9,
+        7,
+        6,
+        9,
+        9
+      ],
+      "K17": [
+        9,
+        9,
+        6,
+        9,
+        9,
+        9
+      ],
+      "K26": [
+        9,
+        9,
+        5,
+        8,
+        9,
+        9
+      ],
+      "K23": [
+        9,
+        9,
+        5,
+        6,
+        9,
+        9
+      ],
+      "K30": [
+        9,
+        9,
+        4,
+        9,
+        9,
+        9
+      ],
+      "K11": [
+        9,
+        9,
+        3,
+        8,
+        9,
+        9
+      ],
+      "K31": [
+        9,
+        9,
+        3,
+        6,
+        9,
+        9
+      ]
+    }
+  },
+  {
+    "seed": 2026101812,
+    "tier": 2,
+    "topology": "cross_keyed",
+    "chambers": 6,
+    "maxAdjacentDifference": 4,
+    "maxShearPoints": 3,
+    "maxActions": 80,
+    "keys": [
+      {
+        "id": "K03"
+      },
+      {
+        "id": "K10"
+      },
+      {
+        "id": "K07"
+      },
+      {
+        "id": "K02"
+      },
+      {
+        "id": "K13"
+      },
+      {
+        "id": "K08"
+      },
+      {
+        "id": "K12"
+      },
+      {
+        "id": "K01"
+      },
+      {
+        "id": "K06"
+      },
+      {
+        "id": "K04"
+      },
+      {
+        "id": "K11"
+      },
+      {
+        "id": "K09"
+      }
+    ],
+    "locks": [
+      {
+        "id": "L01",
+        "requiredKeys": [
+          "K04",
+          "K03",
+          "K12"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L02",
+        "requiredKeys": [
+          "K04",
+          "K06",
+          "K07",
+          "K08",
+          "K09"
+        ],
+        "commonDoor": true
+      },
+      {
+        "id": "L03",
+        "requiredKeys": [
+          "K04",
+          "K07",
+          "K11"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L04",
+        "requiredKeys": [
+          "K04",
+          "K06",
+          "K13"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L06",
+        "requiredKeys": [
+          "K04",
+          "K06",
+          "K02"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L07",
+        "requiredKeys": [
+          "K04",
+          "K07",
+          "K03",
+          "K09",
+          "K12"
+        ],
+        "commonDoor": true
+      },
+      {
+        "id": "L08",
+        "requiredKeys": [
+          "K04",
+          "K03",
+          "K01"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L09",
+        "requiredKeys": [
+          "K04",
+          "K03",
+          "K10"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L10",
+        "requiredKeys": [
+          "K04",
+          "K07",
+          "K09"
+        ],
+        "commonDoor": false
+      },
+      {
+        "id": "L11",
+        "requiredKeys": [
+          "K04",
+          "K06",
+          "K08"
+        ],
+        "commonDoor": false
+      }
+    ],
+    "privateWitness": {
+      "K04": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "K06": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "K08": [
+        2,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "K13": [
+        2,
+        0,
+        0,
+        4,
+        0,
+        0
+      ],
+      "K02": [
+        2,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "K07": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "K09": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        0
+      ],
+      "K11": [
+        0,
+        2,
+        0,
+        4,
+        0,
+        0
+      ],
+      "K03": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "K12": [
+        0,
+        0,
+        2,
+        2,
+        0,
+        0
+      ],
+      "K10": [
+        0,
+        0,
+        2,
+        4,
+        0,
+        0
+      ],
+      "K01": [
+        0,
+        0,
+        2,
+        0,
+        2,
+        0
+      ]
+    }
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "default": "anthropic",
+  "effort": "low",
+  "providers": {
+    "anthropic": {
+      "label": "Anthropic API",
+      "baseUrl": "https://api.anthropic.com",
+      "auth": "bearer",
+      "keyEnv": "ANTHROPIC_API_KEY",
+      "model": "claude-opus-5",
+      "apiVersion": "2026-10-21",
+      "webSearch": "dynamic"
+    },
+    "custom": {
+      "label": "Custom Messages API",
+      "baseUrl": null,
+      "auth": "bearer",
+      "keyEnv": "TRINITY_API_KEY",
+      "model": null,
+      "apiVersion": "2026-10-21",
+      "webSearch": "off"
+    }
+  }
+}

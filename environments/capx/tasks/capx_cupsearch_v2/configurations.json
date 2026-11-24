@@ -1,0 +1,532 @@
+{
+ "taskId": "capx_cupsearch_v2",
+ "configurations": [
+  {
+   "id": "C-01",
+   "task": "C",
+   "layout": 1,
+   "ordinal": 0,
+   "label": "C-01",
+   "episodes": 1,
+   "cube_cup": 1,
+   "cube_color": "red",
+   "objects": [
+    {
+     "id": "cube",
+     "type": "cube",
+     "color": "red",
+     "pos": [
+      -0.1281,
+      0.0228,
+      0.0
+     ],
+     "yaw": 1.3165
+    },
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1281,
+      0.0228,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      -0.0566,
+      0.1366,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.0825,
+      0.1595,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  },
+  {
+   "id": "C-02",
+   "task": "C",
+   "layout": 2,
+   "ordinal": 1,
+   "label": "C-02",
+   "episodes": 1,
+   "cube_cup": 2,
+   "cube_color": "green",
+   "objects": [
+    {
+     "id": "cube",
+     "type": "cube",
+     "color": "green",
+     "pos": [
+      0.0156,
+      0.1486,
+      0.0
+     ],
+     "yaw": 1.1919
+    },
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1361,
+      0.0607,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      0.0156,
+      0.1486,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.0163,
+      0.0105,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  },
+  {
+   "id": "C-03",
+   "task": "C",
+   "layout": 3,
+   "ordinal": 2,
+   "label": "C-03",
+   "episodes": 1,
+   "cube_cup": 3,
+   "cube_color": "blue",
+   "objects": [
+    {
+     "id": "cube",
+     "type": "cube",
+     "color": "blue",
+     "pos": [
+      0.0121,
+      0.1543,
+      0.0
+     ],
+     "yaw": 1.5053
+    },
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1066,
+      0.1248,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      -0.0287,
+      0.0076,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.0121,
+      0.1543,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  },
+  {
+   "id": "C-04",
+   "task": "C",
+   "layout": 4,
+   "ordinal": 3,
+   "label": "C-04",
+   "episodes": 1,
+   "cube_cup": null,
+   "cube_color": null,
+   "objects": [
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1207,
+      0.1344,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      0.0021,
+      0.1286,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.0817,
+      0.0043,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  },
+  {
+   "id": "C-05",
+   "task": "C",
+   "layout": 5,
+   "ordinal": 4,
+   "label": "C-05",
+   "episodes": 1,
+   "cube_cup": 3,
+   "cube_color": "green",
+   "objects": [
+    {
+     "id": "cube",
+     "type": "cube",
+     "color": "green",
+     "pos": [
+      0.1331,
+      0.139,
+      0.0
+     ],
+     "yaw": 0.847
+    },
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1284,
+      0.0514,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      0.0066,
+      0.1133,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.1331,
+      0.139,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  },
+  {
+   "id": "C-06",
+   "task": "C",
+   "layout": 6,
+   "ordinal": 5,
+   "label": "C-06",
+   "episodes": 1,
+   "cube_cup": 2,
+   "cube_color": "red",
+   "objects": [
+    {
+     "id": "cube",
+     "type": "cube",
+     "color": "red",
+     "pos": [
+      -0.0789,
+      0.1541,
+      0.0
+     ],
+     "yaw": 0.6998
+    },
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1087,
+      0.0246,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      -0.0789,
+      0.1541,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.0361,
+      0.032,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  },
+  {
+   "id": "C-07",
+   "task": "C",
+   "layout": 7,
+   "ordinal": 6,
+   "label": "C-07",
+   "episodes": 1,
+   "cube_cup": null,
+   "cube_color": null,
+   "objects": [
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1385,
+      0.0598,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      0.061,
+      0.1188,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.1244,
+      0.0084,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  },
+  {
+   "id": "C-08",
+   "task": "C",
+   "layout": 8,
+   "ordinal": 7,
+   "label": "C-08",
+   "episodes": 1,
+   "cube_cup": 1,
+   "cube_color": "blue",
+   "objects": [
+    {
+     "id": "cube",
+     "type": "cube",
+     "color": "blue",
+     "pos": [
+      -0.1055,
+      0.0124,
+      0.0
+     ],
+     "yaw": 0.2303
+    },
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1055,
+      0.0124,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      0.0297,
+      0.0083,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.0412,
+      0.1467,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  },
+  {
+   "id": "C-09",
+   "task": "C",
+   "layout": 9,
+   "ordinal": 8,
+   "label": "C-09",
+   "episodes": 1,
+   "cube_cup": 1,
+   "cube_color": "green",
+   "objects": [
+    {
+     "id": "cube",
+     "type": "cube",
+     "color": "green",
+     "pos": [
+      -0.1252,
+      0.0332,
+      0.0
+     ],
+     "yaw": 0.835
+    },
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1252,
+      0.0332,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      0.1009,
+      0.0207,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.1066,
+      0.1425,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  },
+  {
+   "id": "C-10",
+   "task": "C",
+   "layout": 10,
+   "ordinal": 9,
+   "label": "C-10",
+   "episodes": 1,
+   "cube_cup": null,
+   "cube_color": null,
+   "objects": [
+    {
+     "id": "cup1",
+     "type": "cup",
+     "number": 1,
+     "pos": [
+      -0.1113,
+      0.0378,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup2",
+     "type": "cup",
+     "number": 2,
+     "pos": [
+      -0.0372,
+      0.1473,
+      0.0
+     ],
+     "yaw": 0.0
+    },
+    {
+     "id": "cup3",
+     "type": "cup",
+     "number": 3,
+     "pos": [
+      0.0648,
+      0.033,
+      0.0
+     ],
+     "yaw": 0.0
+    }
+   ]
+  }
+ ]
+}

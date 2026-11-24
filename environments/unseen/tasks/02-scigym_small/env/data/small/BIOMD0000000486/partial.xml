@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_3qjs">
+    <listOfCompartments>
+      <compartment id="id_y55i" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_oc32" compartment="id_y55i" initialAmount="0"/>
+      <species id="id_kx12" compartment="id_y55i" initialAmount="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

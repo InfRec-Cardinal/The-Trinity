@@ -1,0 +1,42 @@
+{
+  "taskId": "adaplanbench",
+  "proposals": [
+    {
+      "id": "adaplan-public-constraint-complete-replan",
+      "title": "Rebuild one physically complete plan against all disclosed constraints",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Initial planning request or any new availability/preference feedback.",
+      "procedure": [
+        "Maintain a cumulative ledger from the actual public instructions: objective, unavailable resource classes, prohibited procedures, user preferences, independence, and exact output format. A ban applies to functional substitutes and synonyms; do not smuggle the same forbidden method back under a new noun. Do not invent undisclosed preferences.",
+        "Before drafting, choose one complete feasible method. Prefer the fewest resource dependencies and steps needed to meet the whole goal. Do not expand the task into unrelated maintenance or cleanup. After a new ban, rebuild the affected mechanism and its prerequisites instead of editing only one word.",
+        "Treat the prerequisite constraint-audit feedback as a concrete repair obligation: it names already disclosed constraints and matched resource classes. A towel remains an absorbent cloth even when renamed, folded or described as a bath towel. Rebuild the mechanism without that forbidden resource class. Do not prefix a proposal with a false claim that the class is absent.",
+        "Audit each step for resource, physical operation, resulting change and where displaced material/energy goes. Merely pushing moisture inward or sideways does not remove it. Solubilizing a stain is not the same as removing dissolved residue. Drying must expose moisture to an actual removal path; returning coverings too early defeats it.",
+        "For cleaning/washing tasks, distinguish washable removable fabric from a fixed absorbent substrate. Use care-label-compatible treatment and a complete removal/rinse/dry chain for each actually affected surface. Do not propose unsafe heat on delicate filling or non-machine detergent in a washer. Choose a coherent safe method using currently permitted resource classes.",
+        "Check the final text against every accumulated ban and initial instruction, including all named tools in the steps. Exactly one plan: no if/then, either/or, optional alternatives, conditional sunlight, or branching fallback. A necessary wait-until-complete endpoint may be stated as an ordered completion condition, not a choice of methods.",
+        "List every actually used entity in the required marked format, then short numbered steps with what/how/order. Avoid extended prefaces and hypothetical additions. Do not assert the task succeeded; submit the plan for native evaluation.",
+        "Target the surfaces actually affected by the described incident; do not add speculative damage that forces extra prohibited resources. A public constraint audit finding no lexical conflict does not prove physical feasibility: still check the entire removal and drying chain before submitting."
+      ],
+      "invariants": [
+        "Use only public task and feedback; no episode-specific answer template or hidden rubric.",
+        "No external help and no alternatives when the public contract forbids them."
+      ],
+      "successSignals": [
+        "Native environment accepts the complete revised plan."
+      ],
+      "failureSignals": [
+        "Reintroducing a banned class",
+        "A new tool dependency with no necessity",
+        "Claimed physical effect without a removal or transport mechanism"
+      ],
+      "recovery": [
+        "Return to the full ledger and construct a complete alternative mechanism using allowed resources."
+      ],
+      "sourceGapIds": [
+        "policy-adaplan-public-constraint-complete-replan"
+      ]
+    }
+  ]
+}

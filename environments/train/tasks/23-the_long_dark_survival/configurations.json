@@ -1,0 +1,142 @@
+{
+  "taskId": "the_long_dark_survival",
+  "configurations": [
+    {
+      "id": "the_long_dark_survival-refresh-01",
+      "ordinal": 0,
+      "label": "The Long Dark: replacement 1",
+      "selector": {
+        "providerId": "the_long_dark_survival-train-refresh-20261016-v1",
+        "ordinal": 0
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "2caf948124ac51249c2a231536357edbd8acd4c98285788913c3fbf8a1228fe0",
+      "substantiveIdentityHash": "42ab086312bf3a709cfde6486799f415a06c6fd1ad80806b1624fa567d482b74",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "111c1fbcb38a633d490e88df42529378242fa4d54df91d888011f9bc1cae1f32"
+    },
+    {
+      "id": "the_long_dark_survival-refresh-02",
+      "ordinal": 1,
+      "label": "The Long Dark: replacement 2",
+      "selector": {
+        "providerId": "the_long_dark_survival-train-refresh-20261016-v1",
+        "ordinal": 1
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "77202b5c515f2381eda786e07feac3ae99cdf5d68f9ce39569f1220d235cb88b",
+      "substantiveIdentityHash": "001808c6da0281b9a1007547e7b2bd9cb6b319bc1371a23825de34ecaa11bf6b",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "92c07b20960295161141659c2bdaaa0a0f8033f378fd9e608d003551b4b91446"
+    },
+    {
+      "id": "the_long_dark_survival-refresh-03",
+      "ordinal": 2,
+      "label": "The Long Dark: replacement 3",
+      "selector": {
+        "providerId": "the_long_dark_survival-train-refresh-20261016-v1",
+        "ordinal": 2
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "7385f7ab8488d5b33fb5b4320ec5bcd44445e8cf25c044f9455427b58eebc301",
+      "substantiveIdentityHash": "6a9714992ae87128efb75b56caf0ee72c20df252beeb75fe11af2c08cd5cb6a8",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "c1ebc1428e676b8f1609e8e6053fde621dd4e75e83a1fd8da9ad3333e9c7679a"
+    },
+    {
+      "id": "the_long_dark_survival-refresh-04",
+      "ordinal": 3,
+      "label": "The Long Dark: replacement 4",
+      "selector": {
+        "providerId": "the_long_dark_survival-train-refresh-20261016-v1",
+        "ordinal": 3
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "d423ba3232367fdb63eeab1eb4b15d06b5c2fad3cf0817839059ec2113e8a165",
+      "substantiveIdentityHash": "4e87f9a3489e6237700c386c04b003f50a95800f7a932053e7df2d53f1abf2c1",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "53dc46be8d973531f594161bdef8e05dc14ae25c5b0c8e14c76216b2a5687402"
+    },
+    {
+      "id": "the_long_dark_survival-refresh-05",
+      "ordinal": 4,
+      "label": "The Long Dark: replacement 5",
+      "selector": {
+        "providerId": "the_long_dark_survival-train-refresh-20261016-v1",
+        "ordinal": 4
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "5a1fd9cb923e40ccf4f48ea59dec25242bf8685c2ea27aba857bbbc1f8494f9f",
+      "substantiveIdentityHash": "0acc00c356273a2f004e8048926a7547f323360fab7ce043cbcede206a9b4d8d",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "5db28a2cfe44646c150d52fcc89c1f1aab5adafebf21ca3d75b7378827791901"
+    },
+    {
+      "id": "the_long_dark_survival-refresh-06",
+      "ordinal": 5,
+      "label": "The Long Dark: replacement 6",
+      "selector": {
+        "providerId": "the_long_dark_survival-train-refresh-20261016-v1",
+        "ordinal": 5
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "d025417b84d02cb3b7e05765d872501d881255c2dc15e2de1a141d6a5d092a50",
+      "substantiveIdentityHash": "899ae6f64410a1ea47cf3580538d2b7ada9f28afe461f99c375a111a496df7c3",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "d288cfb81ca3b5e993301bb508b3131a981547eefe4ea31368090b3db241510c"
+    },
+    {
+      "id": "the_long_dark_survival-refresh-07",
+      "ordinal": 6,
+      "label": "The Long Dark: replacement 7",
+      "selector": {
+        "providerId": "the_long_dark_survival-train-refresh-20261016-v1",
+        "ordinal": 6
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "e9d7f3491f8d568a3729007948452176aa5f6b979ba00da40a1976e91ca58a83",
+      "substantiveIdentityHash": "0ffc1eb7af9794c449f95dc8d404e28edd230bb320c2cf78cd845954c75faa6b",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "72f6157c167c3c882f7c6c260fd5728c604f41f01b642414b8203d15d59ea5d6"
+    },
+    {
+      "id": "the_long_dark_survival-refresh-08",
+      "ordinal": 7,
+      "label": "The Long Dark: replacement 8",
+      "selector": {
+        "providerId": "the_long_dark_survival-train-refresh-20261016-v1",
+        "ordinal": 7
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "3e1aa40b012c891efff9145bbfc4ddfe618a883e57756f95fc18f87dc1e2fa79",
+      "substantiveIdentityHash": "fe45e80a2e559184be4d0ffbba5c2f273ac333e45073f80f79a9638d9ef85a75",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "dae26f3cd73e215868bc00d23b5a474bb3628d7fffb562a4c86587ef53edcaab"
+    },
+    {
+      "id": "the_long_dark_survival-refresh-09",
+      "ordinal": 8,
+      "label": "The Long Dark: replacement 9",
+      "selector": {
+        "providerId": "the_long_dark_survival-train-refresh-20261016-v1",
+        "ordinal": 8
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "1268b56e889d2299ab1367d1935ce1ae373bcc5b7c21d8dfe8b405daf41aea89",
+      "substantiveIdentityHash": "b5e665a34d9d34b9b10d0b9a0f231470a0ec577451952d64135b83ce26358875",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "1f6ad5ed2ed8992d3c7874812652d5362e8112d824afeaecdd7f83b0376c709b"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

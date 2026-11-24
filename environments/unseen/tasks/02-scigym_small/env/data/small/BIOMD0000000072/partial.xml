@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_ke5l">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_nzak">
+        <listOfUnits>
+          <unit kind="item"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_xuzi" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_st6s" compartment="id_xuzi" initialConcentration="3000"/>
+      <species id="id_xbdo" compartment="id_xuzi" initialConcentration="3000"/>
+      <species id="id_5sv8" compartment="id_xuzi" initialConcentration="10000"/>
+      <species id="id_pco5" compartment="id_xuzi" initialConcentration="0"/>
+      <species id="id_kbdu" compartment="id_xuzi" initialConcentration="7000"/>
+      <species id="id_h7kb" compartment="id_xuzi" initialConcentration="6.02e+17"/>
+      <species id="id_k8sn" compartment="id_xuzi" initialConcentration="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

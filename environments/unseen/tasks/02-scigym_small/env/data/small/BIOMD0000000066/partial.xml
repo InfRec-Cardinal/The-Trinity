@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_ru3z">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_m0p4">
+        <listOfUnits>
+          <unit kind="mole" scale="-3" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_au8o">
+        <listOfUnits>
+          <unit kind="second" multiplier="60" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_ojuq">
+        <listOfUnits>
+          <unit kind="mole" scale="-3" multiplier="1" offset="0"/>
+          <unit kind="litre" exponent="-1" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_0ubi">
+        <listOfUnits>
+          <unit kind="mole" scale="-3" multiplier="1" offset="0"/>
+          <unit kind="litre" exponent="-1" multiplier="1" offset="0"/>
+          <unit kind="second" exponent="-1" multiplier="60" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_yd8m">
+        <listOfUnits>
+          <unit kind="litre" multiplier="1" offset="0"/>
+          <unit kind="gram" exponent="-1" scale="-3" multiplier="1" offset="0"/>
+          <unit kind="second" exponent="-1" multiplier="60" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_qifl">
+        <listOfUnits>
+          <unit kind="mole" scale="-3" multiplier="1" offset="0"/>
+          <unit kind="gram" exponent="-1" scale="-3" multiplier="1" offset="0"/>
+          <unit kind="second" exponent="-1" multiplier="60" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_2evy">
+        <listOfUnits>
+          <unit kind="gram" scale="-3" multiplier="1" offset="0"/>
+          <unit kind="litre" exponent="-1" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_pez6" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_i7c2" compartment="id_pez6" initialConcentration="0"/>
+      <species id="id_epud" compartment="id_pez6" initialConcentration="10"/>
+      <species id="id_d53i" compartment="id_pez6" initialConcentration="2"/>
+      <species id="id_wx20" compartment="id_pez6" initialConcentration="0"/>
+      <species id="id_h0xe" compartment="id_pez6" initialConcentration="0"/>
+      <species id="id_rcxi" compartment="id_pez6" initialConcentration="0"/>
+      <species id="id_00sz" compartment="id_pez6" initialConcentration="0"/>
+      <species id="id_202r" compartment="id_pez6" initialConcentration="0"/>
+      <species id="id_nyrm" compartment="id_pez6" initialConcentration="2"/>
+      <species id="id_y1vl" compartment="id_pez6" initialConcentration="0"/>
+      <species id="id_ymzq" compartment="id_pez6" initialConcentration="2"/>
+    </listOfSpecies>
+  </model>
+</sbml>

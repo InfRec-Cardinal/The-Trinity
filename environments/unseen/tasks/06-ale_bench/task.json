@@ -1,0 +1,97 @@
+{
+  "taskId": "ale_bench",
+  "name": "ALE-Bench: AtCoder Heuristic Contest problems, Self-Refine x16 (C++20)",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D2",
+    "subCategoryId": "D2.3"
+  },
+  "assignment": {
+    "task": "Solve one AtCoder Heuristic Contest optimisation problem by writing a C++20 program. Submit the complete program, read the public-evaluation feedback, and revise it; the final submission is scored on the private test cases.",
+    "observation": "The official problem statement (input/output format, constraints, scoring), then after each submission the official public-evaluation result: compile or runtime errors, per-case scores and the total public score.",
+    "actions": {
+      "submit": "Submit exactly one complete C++20 source file as the code field. Each submission uses one of the 16 revision rounds."
+    },
+    "evaluation": {
+      "budget": 16,
+      "success": "Official ALE-Bench evaluation of the final submission on the private test cases (per-problem score and rank-based performance).",
+      "limits": "Per-problem execution limits as set by the problem (typically 2 s CPU, 1,024 MiB)."
+    }
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Submit one complete C++20 (gcc 12.2.0) source file for official public evaluation.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The complete C++20 program (reads stdin, writes stdout)."
+        }
+      }
+    }
+  },
+  "contract": "Submit {\"code\": \"<complete C++20 source>\"}. The code field is the solution code block the official prompt asks for: put the whole program there, without Markdown fences. Each submission is compiled with C++20 (gcc 12.2.0) and judged on the official public test cases; the next observation is the official feedback. There are exactly 16 submissions. After the last one, the official private evaluation scores the submission with the best public score.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract)",
+    "contextPolicy": "train64",
+    "imageOrder": null,
+    "structuredOutput": true,
+    "invalidResponses": "As in the H0 kit runner: a response whose action fails normalizeAction is repeated with the note 'The previous response omitted one complete legal submit_action. Submit exactly one action using the public contract.' appended to the current observation; three in a row interrupt the episode."
+  },
+  "evaluation": {
+    "configurations": 26,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 26,
+    "maxSteps": 16,
+    "protocol": "Leaderboard Self-Refine x16: up to 16 rounds of submit, public-evaluation feedback, revise; final private evaluation. The first-round score is also recorded (x1 point).",
+    "metrics": [
+      "official average performance (rank-based, about 0-3,500)",
+      "per-problem score",
+      "first-round (x1) score"
+    ],
+    "episodeIds": "case-<position in configurations.json>-repeat-1 (the H0 kit runner's naming)",
+    "postRun": "With ALE_DEFER_PRIVATE=1 the private evaluation runs after all episodes (h0-scripts/private_eval_deferred.py), then rule (1) TLE re-evaluation (h0-scripts/reeval_tle.py, apply_reeval_tle.py). Without it, each episode evaluates its private checkpoints itself before it ends."
+  },
+  "otherModels": [],
+  "environment": {
+    "adapter": "own driver (driver.mjs + bridge.py, official ALE-Bench session)",
+    "name": "ale_bench",
+    "envDir": "tasks/06-ale_bench",
+    "external": {
+      "variable": "ALE_BENCH_ROOT",
+      "default": "/opt/ALE-Bench",
+      "check": ".venv/bin/python"
+    },
+    "requires": [
+      "Linux or WSL2 with Docker",
+      "ALE-Bench toolkit at commit 3da9b12 in ALE_BENCH_ROOT (uv sync --no-dev --extra eval)",
+      "judge image ale-bench:cpp20-202301",
+      "problem data downloaded on first use into ~/.cache/ale-bench"
+    ],
+    "variables": {
+      "ALE_BENCH_ROOT": "default /opt/ALE-Bench",
+      "ALE_NUM_WORKERS": "default 6",
+      "ALE_DEFER_PRIVATE": "1 = defer private evaluation"
+    },
+    "source": {
+      "repository": "https://github.com/SakanaAI/ALE-Bench",
+      "commit": "3da9b12fb5d112dabb3af693d1a42031c95142bc",
+      "license": "Apache-2.0",
+      "judge": "official Docker judge images: ale-bench:cpp20-202301 (built from yimjk/ale-bench:cpp20-202301 with the official Dockerfile, UID/GID 0) and rust:1.79.0-buster for the problem tools"
+    }
+  },
+  "driverId": "ale-bench-self-refine-x16",
+  "notes": []
+}

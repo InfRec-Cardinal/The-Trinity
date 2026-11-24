@@ -1,0 +1,76 @@
+{
+  "taskId": "balrog_minihack_boxoban",
+  "name": "BALROG MiniHack Boxoban (Hard + Medium, 5 episodes each)",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D2",
+    "subCategoryId": "D2.2"
+  },
+  "assignment": {
+    "task": "Official BALROG environment (text mode). The first observation contains BALROG's own instruction prompt with the list of valid actions; output exactly one valid action per turn.",
+    "observation": "Text only: BALROG's current-observation text (language description of the surroundings, inventory/status and the map as rendered by BALROG's language wrapper).",
+    "actions": {
+      "action": "One action name from BALROG's action list (an invalid action defaults to BALROG's default action, with BALROG's feedback)."
+    },
+    "evaluation": "Official BALROG episode statistics (progression)."
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Submit one BALROG action.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "contract": "Exactly one action name from the BALROG action list per turn.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract)",
+    "contextPolicy": "first+15",
+    "imageOrder": "after",
+    "structuredOutput": true,
+    "invalidResponses": "H0 used structured output (one schema-valid submit_action per response); a refusal or a response without an action was retried with the same request, without a reprompt."
+  },
+  "evaluation": {
+    "configurations": 10,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 10
+  },
+  "otherModels": [],
+  "environment": {
+    "adapter": "jsonl",
+    "name": "balrog",
+    "envDir": "vendor/balrog",
+    "python": "balrog",
+    "bridge": {
+      "script": "balrog_bridge.py",
+      "args": [
+        "{envName}",
+        "{task}",
+        "{seed}"
+      ],
+      "reply": "args"
+    },
+    "terminal": "balrog",
+    "limits": null
+  },
+  "driverId": "balrog-official-env-bridge-v1",
+  "notes": [
+    "BALROG set boxoban; BALROG step limits per env from balrog/config/config.yaml.",
+    "NetHack reads the system date at game start (phase of the moon, Friday the 13th). H0 started these episodes between 2026-10-10T17:02:26Z and 2026-10-10T23:34:21Z, during a new moon (first message 'Be careful!  New moon tonight.'). For exact reproduction run the bridge with the clock set to that time (e.g. libfaketime); on other dates the first message differs and moon-dependent rules can change. tools/replay_verify.mjs on 2026-10-14 reproduced every step but the first message."
+  ]
+}

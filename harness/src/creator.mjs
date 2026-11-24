@@ -89,7 +89,7 @@ function identity(kind, artifact) {
   if (kind === 'skills') return digest({trigger: artifact.trigger, procedure: artifact.procedure, checks: artifact.checks});
   return moduleSignature(artifact);
 }
-export function consolidateCreator(base, updates, groups = [], {measurements = [], autoMerge = true} = {}) {
+export function consolidateCreator(base, updates, groups = [], {measurements = [], autoMerge = true, checkConsistency = true} = {}) {
   const result = clone(base), provenance = [];
   for (const module of result.modules) validateArtifact('module', module);
   for (const update of updates) {
@@ -148,6 +148,11 @@ export function consolidateCreator(base, updates, groups = [], {measurements = [
         ids.forEach(id => blocked.add(id));
         provenance.push({action: 'reject_conflicting_merge', ids, message: String(error.message)});
       }
+    }
+  }
+  if (checkConsistency) {
+    for (const kind of new Set(result.modules.map(module => module.measurementKind))) {
+      assertConsistentRules(result.modules.filter(module => module.measurementKind === kind).flatMap(module => module.rules));
     }
   }
   return {state: result, provenance};

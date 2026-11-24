@@ -1,0 +1,9 @@
+num_evals: 10
+env_name: hyperbolic_temporal_discount
+goal_name: direct
+com_limit: 200
+env_params:
+  epsilon: 0.01
+  k_mean: -4.25
+  k_std: 0.5
+  alpha_scale: 2

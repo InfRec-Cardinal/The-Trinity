@@ -1,0 +1,74 @@
+{
+  "taskId": "hanabi_hle_unseen",
+  "name": "Hanabi (HLE) with official SimpleAgent partners, 2-5 players",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D4",
+    "subCategoryId": "D4.2"
+  },
+  "assignment": {
+    "task": "Official Hanabi (Hanabi Learning Environment, standard rules: 5 colours, ranks 1-5, 8 information tokens, 3 life tokens). You hold one seat; the other seats are official rule-based partners. Cooperate to play cards in ascending order per colour; the score is the sum of the fireworks (0-25), and 0 if all life tokens are lost.",
+    "observation": "Text only: the official HLE observation for your seat (life and information tokens, fireworks, your hand as card knowledge and the other hands, deck size, discards), the official last moves, and the numbered official legal moves.",
+    "actions": {
+      "move": "The index of one move from the numbered legal-move list."
+    },
+    "evaluation": "Official HLE final score (0-25)."
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Choose one legal Hanabi move by its index.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "move": {
+          "type": "integer",
+          "description": "Index into the numbered legal-move list."
+        }
+      },
+      "required": [
+        "move"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "contract": "Choose exactly one move by its index in the current numbered legal-move list.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract)",
+    "contextPolicy": "last65",
+    "imageOrder": null,
+    "structuredOutput": true,
+    "invalidResponses": "H0 used structured output (one schema-valid submit_action per response); a refusal or a response without an action was retried with the same request, without a reprompt."
+  },
+  "evaluation": {
+    "configurations": 40,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 40
+  },
+  "otherModels": [],
+  "environment": {
+    "adapter": "jsonl",
+    "name": "hanabi",
+    "envDir": "tasks/14-hanabi_hle_unseen/env",
+    "python": "hanabi",
+    "bridge": {
+      "script": "hanabi_bridge.py",
+      "args": [
+        "{players}",
+        "{seed}",
+        "{seat}"
+      ],
+      "reply": "move-int"
+    },
+    "terminal": "hanabi",
+    "limits": null
+  },
+  "driverId": "hle-official-simpleagent-bridge-v1",
+  "notes": []
+}

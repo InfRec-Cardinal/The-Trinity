@@ -1,0 +1,133 @@
+{
+  "taskId": "saboteur_card_game",
+  "configurations": [
+    {
+      "id": "saboteur_card_game-refresh-20261016-1",
+      "ordinal": 0,
+      "selector": {
+        "providerId": "saboteur_card_game-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 0
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "5eb1232c1aee9f164679b02c6402c5e016254a5fe8178daa2847f94aa8f525bb",
+      "configurationHash": "9e4655369bb79ffce89ccadc405f00f0c0fde5c45d0aeecfba00fcc904d860f2",
+      "episodes": 3,
+      "h0Runs": 0
+    },
+    {
+      "id": "saboteur_card_game-refresh-20261016-2",
+      "ordinal": 1,
+      "selector": {
+        "providerId": "saboteur_card_game-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 1
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "5dc7d9a8fa736fb448e33abf7dd6fd5e76dcee3c2f8de9373ab57e620f8c1281",
+      "configurationHash": "1043ea67f4678e8c4da4e0996734a3c983ed2d696c1bf69424cc8bb5f3a03d4c",
+      "episodes": 3,
+      "h0Runs": 0
+    },
+    {
+      "id": "saboteur_card_game-refresh-20261016-3",
+      "ordinal": 2,
+      "selector": {
+        "providerId": "saboteur_card_game-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 2
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "ebc733e73b8662eee62f81b39f2922e8cf2917b2f5a4259d230fd81e3c261660",
+      "configurationHash": "9c08086a932bd5b6f355164c7d93dfe57800f821289dde34a480efb961373ea5",
+      "episodes": 3,
+      "h0Runs": 0
+    },
+    {
+      "id": "saboteur_card_game-refresh-20261016-4",
+      "ordinal": 3,
+      "selector": {
+        "providerId": "saboteur_card_game-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 3
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "fc59502614b6b5ab34f85aaa8bb230af67f5ee3de9bbc65909799cb499b6f595",
+      "configurationHash": "765be35b8aaf2d36d421856a8a2b7caec3c1e2ec3f9cb1685d71f07e5a09edaf",
+      "episodes": 3,
+      "h0Runs": 0
+    },
+    {
+      "id": "saboteur_card_game-refresh-20261016-5",
+      "ordinal": 4,
+      "selector": {
+        "providerId": "saboteur_card_game-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 4
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "99754b0cc0b3a7072f6ff26f5085677530a238144703ac8ad9acb44cd5e6da23",
+      "configurationHash": "df92767984b3143fb8d75a58254a57d55532e43cfd1d5c53f44c6b1c8ea7c3a8",
+      "episodes": 3,
+      "h0Runs": 0
+    },
+    {
+      "id": "saboteur_card_game-refresh-20261016-6",
+      "ordinal": 5,
+      "selector": {
+        "providerId": "saboteur_card_game-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 5
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "df0fa3a1f98547767cc9ac64cd858de8a60e8b080ec74e521d74d881f420ffdd",
+      "configurationHash": "808154aea30c11fbb0c98f57e42b8ec6c6baf13addd06942fd9bf3d8aaf8c028",
+      "episodes": 3,
+      "h0Runs": 0
+    },
+    {
+      "id": "saboteur_card_game-refresh-20261016-7",
+      "ordinal": 6,
+      "selector": {
+        "providerId": "saboteur_card_game-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 6
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "91a2edc9ff8a34df7e3165e12b7e5d1c06e1fa814e5377de129128305f6014fb",
+      "configurationHash": "620b6ccafffa3fc4ebde5df83fa85d0206570fd2d3371fb0e5aa8e331b557c3b",
+      "episodes": 3,
+      "h0Runs": 0
+    },
+    {
+      "id": "saboteur_card_game-refresh-20261016-8",
+      "ordinal": 7,
+      "selector": {
+        "providerId": "saboteur_card_game-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 7
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "5a59555486edad62f24f56200dcca2bd858164450e5286e77e039e02d934f159",
+      "configurationHash": "1a13a588c4ba7ddaefbf73091ce5bb6b8f1e3dd0ae1a1bc515676476169ea45b",
+      "episodes": 3,
+      "h0Runs": 0
+    },
+    {
+      "id": "saboteur_card_game-refresh-20261016-9",
+      "ordinal": 8,
+      "selector": {
+        "providerId": "saboteur_card_game-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 8
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "1744416c8658baeb4f936f6f7f5dfbfb1818bb3134ebe7153d363f3b2213a6f1",
+      "configurationHash": "6bf271fd4155cc6237d2acdfd938e081604f1fa780a2abdd2888450ad18356cf",
+      "episodes": 3,
+      "h0Runs": 0
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

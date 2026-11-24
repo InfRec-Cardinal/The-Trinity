@@ -1,0 +1,27 @@
+name: production_run
+models:
+- claude-opus-4-7
+critic: false
+critic_model: claude-sonnet-4-6
+judge_model: claude-opus-4-6
+max_rounds: 16
+noise_frac: 0.05
+random_experiments: false
+no_mse: false
+worlds:
+- gravity
+- yukawa
+- fractional
+- dark_matter
+- three_species
+- ether
+- hubble
+- coulomb_easy
+- extra_dimensions
+- circle
+- oscillator
+- running_coupling
+- force_geography
+seeds:
+- 0
+- 1

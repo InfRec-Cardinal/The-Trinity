@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_0386">
+    <listOfCompartments>
+      <compartment id="id_zfnz" spatialDimensions="3" size="0.45" constant="true"/>
+      <compartment id="id_bjd6" spatialDimensions="3" size="1.4" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_hwhn" compartment="id_bjd6" initialConcentration="63.7332" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_8y38" compartment="id_zfnz" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_8x11" compartment="id_bjd6" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_hfvx" compartment="id_bjd6" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_2x3a" compartment="id_bjd6" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_8q4h" compartment="id_zfnz" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_5ddf" compartment="id_bjd6" initialConcentration="143.8668" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_h51m" compartment="id_zfnz" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

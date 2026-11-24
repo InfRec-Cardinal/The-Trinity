@@ -1,0 +1,209 @@
+{
+  "releaseId": "iter4-current",
+  "sourceManifestSha256": "58cf17e9808653ca4c1ecdeb6bedcb361e6f88b5d9ed930603a5e38126166547",
+  "modules": [
+    {
+      "moduleId": "evidenceDiagnosis",
+      "version": 1,
+      "templateId": "attribute_rule_classifier",
+      "language": "javascript-module",
+      "sourceSha256": "96fa3d3a47c91a025de18063bb3972068c2a90546258654e349e013d98b80c26"
+    },
+    {
+      "moduleId": "inspectionTransaction",
+      "version": 1,
+      "templateId": "report_reconciliation",
+      "language": "javascript-module",
+      "sourceSha256": "cd8dd921fe2148887269e93f50fc6e81b67d28601165a3f46a2795020cd2a1dc"
+    },
+    {
+      "moduleId": "crossViewBinding",
+      "version": 1,
+      "templateId": "identity_binding",
+      "language": "javascript-module",
+      "sourceSha256": "40badf86e713e79f0082a476b3ad656f246076993ac24a9267a68c2810a375aa"
+    },
+    {
+      "moduleId": "paritySignalChoice",
+      "version": 1,
+      "templateId": "resource_schedule",
+      "language": "javascript-module",
+      "sourceSha256": "7eb29dab2d8efdc9b26cb1a1b2b345064d6b1b57f4472241de8226223cde9bc5"
+    },
+    {
+      "moduleId": "endogenousSignalPolicy",
+      "version": 1,
+      "templateId": "resource_schedule",
+      "language": "javascript-module",
+      "sourceSha256": "b613caa31352b59a97bb4911c0d66bbc1e2d929c1518ca264919bff2104099d2"
+    },
+    {
+      "moduleId": "opponentDecision",
+      "version": 1,
+      "templateId": "hypothesis_model",
+      "language": "javascript-module",
+      "sourceSha256": "2a4dbfa6f9d8f791ea2112e411bcd810be34581a80217178280527e89b51e1e6"
+    },
+    {
+      "moduleId": "gateSchedule",
+      "version": 1,
+      "templateId": "joint_transition_scheduler",
+      "language": "javascript-module",
+      "sourceSha256": "bf5901f4dcbe5d465f29aabb6533fabc94e09fff57e360e8c2ca0fe3658b3356"
+    },
+    {
+      "moduleId": "returnViability",
+      "version": 1,
+      "templateId": "bounded_path_search",
+      "language": "javascript-module",
+      "sourceSha256": "f7ea775bb0f1695ba4232f98da8309b560e953483a9f4e5f4dcb0818aeefae39"
+    },
+    {
+      "moduleId": "identityOrderJoin",
+      "version": 1,
+      "templateId": "relation_consistency",
+      "language": "javascript-module",
+      "sourceSha256": "da084f7cd289518c0e50ca66230726d8776e8de5245f4f8e6f6a88b3c50a4d89"
+    },
+    {
+      "moduleId": "archiveAndUnorderedTour",
+      "version": 1,
+      "templateId": "entity_state_ledger",
+      "language": "javascript-module",
+      "sourceSha256": "4693d2c4ea05f2e333141c76c152cb87ee9c9553bc128330fd86680650186756"
+    },
+    {
+      "moduleId": "orderedBatchPlanner",
+      "version": 1,
+      "templateId": "ordered_capacity_planner",
+      "language": "javascript-module",
+      "sourceSha256": "43fbf0e1da75e5e75d1ff27332cec165b26d8e45ea6f89063a8548feb8481476"
+    },
+    {
+      "moduleId": "investmentValue",
+      "version": 1,
+      "templateId": "reserve_deadline_planner",
+      "language": "javascript-module",
+      "sourceSha256": "ea30645af365696c17e91b2a7eb2a032ff67f93cb19ca536ee8e8b6e114e7de5"
+    },
+    {
+      "moduleId": "reserveTradeoff",
+      "version": 1,
+      "templateId": "reserve_deadline_planner",
+      "language": "javascript-module",
+      "sourceSha256": "1263effb22d02fac2dade5f9bbf2cb1a67f38cdff6e0b5203c436b65078d863a"
+    },
+    {
+      "moduleId": "goalCommitment",
+      "version": 1,
+      "templateId": "budget_progress_gate",
+      "language": "javascript-module",
+      "sourceSha256": "56025626f882ce8ee8cb3686ef6dcb244b49f474c1aed4875fdddde75db0bb83"
+    },
+    {
+      "moduleId": "executionState",
+      "version": 1,
+      "templateId": "transition_reconciliation",
+      "language": "javascript-module",
+      "sourceSha256": "7b49d14fa28cca231c112302502727d0766ca5df5f16c846d69358e901aee7ad"
+    },
+    {
+      "moduleId": "revisionMemory",
+      "version": 1,
+      "templateId": "revision_dependency_memory",
+      "language": "javascript-module",
+      "sourceSha256": "ea121e70f7c459860057e8fb546923e9d965ec4f2cce98088e3a295dfec7f4f9"
+    },
+    {
+      "moduleId": "evidenceCommit",
+      "version": 1,
+      "templateId": "evidence_commit_gate",
+      "language": "javascript-module",
+      "sourceSha256": "d21ebdcb5e3e205fa53159943834a4183b292f05974b55697c092cd502640412"
+    },
+    {
+      "moduleId": "frozenObligations",
+      "version": 7,
+      "templateId": "frozen_obligation_gate",
+      "language": "javascript-module",
+      "sourceSha256": "7aba1841bc0abf85b4d9e9a39af15610a28c332cd599cbf217ca3cac6421df5b"
+    },
+    {
+      "moduleId": "relationalIdentity",
+      "version": 1,
+      "templateId": "relation_consistency",
+      "language": "javascript-module",
+      "sourceSha256": "6868c4a82372ddc64dbbdd8b8ff40fb750059df034772b646720c7bebe422c45"
+    },
+    {
+      "moduleId": "explorationRoute",
+      "version": 7,
+      "templateId": "bounded_path_search",
+      "language": "javascript-module",
+      "sourceSha256": "773797d435613d9282bb77b65800443b75da254a3204d2575545abd54ea239e5"
+    },
+    {
+      "moduleId": "orderedStampRoute",
+      "version": 1,
+      "templateId": "bounded_path_search",
+      "language": "javascript-module",
+      "sourceSha256": "6ae85a7ffe91ec6135fc2b6d689e1c04c8174fa04f51529d303871240aec6858"
+    },
+    {
+      "moduleId": "phaseEdgeRepair",
+      "version": 1,
+      "templateId": "stale_state_repair",
+      "language": "javascript-module",
+      "sourceSha256": "5cf80da40694c9c6d086e6b704c63a3a3eeb0637331d9b66ace880900057d41a"
+    },
+    {
+      "moduleId": "candidateProbe",
+      "version": 1,
+      "templateId": "feedback_partition_model",
+      "language": "javascript-module",
+      "sourceSha256": "0f54a9c28d724c50a5a6b0b55224d811e151505caaf3e96b8d6d43c80aa9755b"
+    },
+    {
+      "moduleId": "multiplicityDecomposition",
+      "version": 1,
+      "templateId": "domain_support_propagation",
+      "language": "javascript-module",
+      "sourceSha256": "20730ddd8ccfbfb817e2caff098943ce83b4f38f78b2e7f0ae812d5f66122c2b"
+    },
+    {
+      "moduleId": "adaptiveAcquisition",
+      "version": 1,
+      "templateId": "information_acquisition",
+      "language": "javascript-module",
+      "sourceSha256": "b8183c51f91daa0a75bcb18ef9f3b5d0c50e696ff0969e399ae5d7c12c9439d4"
+    },
+    {
+      "moduleId": "evidenceCoverage",
+      "version": 1,
+      "templateId": "evidence_coverage",
+      "language": "javascript-module",
+      "sourceSha256": "f41004447eef2255d9d75db1b2a0cb2632386a6388c8f48e8384808ae4a939ff"
+    },
+    {
+      "moduleId": "gapAcquisition",
+      "version": 1,
+      "templateId": "ineffective_probe_filter",
+      "language": "javascript-module",
+      "sourceSha256": "97b902a44761070ef5822f5e8e80fe4ac3e422f5b0de19a7bd9f892211619fa5"
+    },
+    {
+      "moduleId": "eventLedger",
+      "version": 1,
+      "templateId": "temporal_event_ledger",
+      "language": "javascript-module",
+      "sourceSha256": "2bf767e8f868b878c93a2e3d082970be5545130a23c44ff480e9b1675282ae69"
+    },
+    {
+      "moduleId": "frameAssociation",
+      "version": 1,
+      "templateId": "motion_candidate_association",
+      "language": "javascript-module",
+      "sourceSha256": "ffa76f31839a1e3e71d6f58274d53967d2b909222a75e95b880d036f8d424e42"
+    }
+  ]
+}

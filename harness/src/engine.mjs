@@ -1,3 +1,5 @@
+import {consolidateCreatorWithRepair} from './creator-repair.mjs';
+import {benchmarkBudget} from './execution-policy.mjs';
 import {hostVerificationCall} from './host-verification.mjs';
 import {screeningPolicy} from './screening-policy.mjs';
 import {runCreatorCoding, creatorSourceDigest} from './creator-coding.mjs';
@@ -9,14 +11,15 @@ import {verifyTerminalReceipt} from './receipts.mjs';
 import {scoreSummary, usageReport} from './metrics.mjs';
 import {clone, digest, ensure, compose, snapshot, buildTree, validateConfig} from './core.mjs';
 import {runBatch, screeningDecision, chooseInheritance, performanceDecision, completions, matchedInstances} from './explorer.mjs';
-import {emptyCreator, retainCreatorChoice, auditCreator, consolidateCreator, creatorEvolutionChoices, validateArtifact} from './creator.mjs';
+import {emptyCreator, retainCreatorChoice, auditCreator, creatorEvolutionChoices, validateArtifact} from './creator.mjs';
 import {buildNodeModuleGenerationRequest, retainNodeModuleGeneration} from './generation.mjs';
 
 export class Trinity {
-  constructor({config, agent, driver, store}) {
+  constructor({config, agent, driver, store,nativeHost}) {
     this.config = validateConfig(clone(config));
     this.agent = agent;
     this.driver = driver;
+    this.nativeHost=nativeHost;
     this.store = store;
     const initial = clone(config.creatorBase ?? emptyCreator());
     this.creatorBase = {modules: initial.modules, skills: []};
@@ -41,7 +44,7 @@ export class Trinity {
     }
     if (plans.length) this.store.write('initial-instances.json', {schema: 'trinity-exploration-plan-v1', plans: plans.map(({plan}) => plan)});
     for (const {task, world, plan} of plans) {
-      const rows = await runBatch({agent: this.agent, driver: this.driver, store: this.store, world, taskId: task.id, benchmarkId: task.benchmarkId ?? task.id, split: 'train', instances: plan.instances, initialStateHashes: plan.initialStateHashes, instancePlan: plan.event, modules: [], budget: config.actionBudget, phase: 'initial_training_exploration', node: 'root'}, config.validationTrials);
+      const rows = await runBatch({agent: this.agent, driver: this.driver, store: this.store, world, taskId: task.id, benchmarkId: task.benchmarkId ?? task.id, split: 'train', instances: plan.instances, initialStateHashes: plan.initialStateHashes, instancePlan: plan.event, modules: [], ...benchmarkBudget(task,config), phase: 'initial_training_exploration', node: 'root'}, config.validationTrials);
       ensure(!rows.some(row => row.technicalFailure), 'Initial exploration failed; inspect the recorded run');
       this.baseline.push({task: clone(task), rows});
     }
@@ -83,7 +86,7 @@ export class Trinity {
     this.store.record('topology_frozen', {digest: digest(this.tree), nodes: this.tree.length});
   }
   options(world, modules, node, phase) {
-    return {agent: this.agent, driver: this.driver, store: this.store, world, modules, budget: this.config.actionBudget, phase, node};
+    return {nativeHost:this.nativeHost,agent: this.agent, driver: this.driver, store: this.store, world, modules, budget: this.config.actionBudget, maxFreeActions: this.config.maxFreeActions, phase, node};
   }
   checkpoint(iteration, summary) {
     const explorerNodes = {}, intermediateNodes = {};
@@ -103,8 +106,8 @@ export class Trinity {
     for (const taskId of node.tasks) {
       const task = this.config.trainingTasks.find(value => value.id === taskId), world = await hostVerificationCall('benchmark_loading', () => this.driver.loadBenchmark(clone(task)));
       const instances = await matchedInstances(this.driver, world, this.config.validationTrials);
-      oldRows.push(...await runBatch({...this.options(world, compose(state.inherited, state.local), node.id, 'inheritance_previous'), taskId, benchmarkId: taskId, split: 'train', instances}, this.config.validationTrials));
-      newRows.push(...await runBatch({...this.options(world, compose(candidate, state.local), node.id, 'inheritance_candidate'), taskId, benchmarkId: taskId, split: 'train', instances}, this.config.validationTrials));
+      oldRows.push(...await runBatch({...this.options(world, compose(state.inherited, state.local), node.id, 'inheritance_previous'), ...benchmarkBudget(task,this.config), taskId, benchmarkId: taskId, split: 'train', instances}, this.config.validationTrials));
+      newRows.push(...await runBatch({...this.options(world, compose(candidate, state.local), node.id, 'inheritance_candidate'), ...benchmarkBudget(task,this.config), taskId, benchmarkId: taskId, split: 'train', instances}, this.config.validationTrials));
     }
     const decision = chooseInheritance(oldRows, newRows);
     this.store.record('inheritance_decision', {iteration, node: node.id, parent: node.parent, previous: snapshot(state.inherited).id, candidate: snapshot(candidate).id, ...decision});
@@ -213,13 +216,13 @@ export class Trinity {
           ...(state.moduleValidationFeedback ? {hostValidationFeedback: clone(state.moduleValidationFeedback)} : {}),
           trajectories: trajectories.map((row, index) => ({round: index + 1, events: row.events}))
         };
-        const request = buildNodeModuleGenerationRequest(context);
+        const request = buildNodeModuleGenerationRequest(context,{nativeHost:this.nativeHost});
         const proposal = await this.agent.ask('evolver_modules', {...request.packet, iteration, design: admitted.design}, request.schema);
         this.store.record('explorer_proposal_saved', {node: node.id, iteration, proposalDigest: this.store.put(proposal)});
         let hostTests;
         try {hostTests = this.driver.moduleTests ? await this.driver.moduleTests(node.id) : {};}
         catch {throw new Error('Private host test loading failed');}
-        const result = await retainNodeModuleGeneration(context, proposal, {hostTests});
+        const result = await retainNodeModuleGeneration(context, proposal, {hostTests,nativeHost:this.nativeHost});
         const candidateLocal = result.registry.filter(module => module.targetCapabilityNodeId === node.id);
         const candidate = result.accepted ? snapshot(compose(state.inherited, candidateLocal)) : null, candidateAudit = result.audit;
         let decision;
@@ -269,20 +272,10 @@ export class Trinity {
           childNodes: clone(this.retention.get(node.id).children), stateDigest: this.store.put(state)});
       }
       this.agent.scope = {iteration, node: null};
-      const preliminary = consolidateCreator(this.creatorBase, updates, [], {autoMerge: false, measurements: this.creatorMeasurements});
-      const proposal = await this.agent.ask('creator_consolidate', {iteration, registry: preliminary.state, provenance: preliminary.provenance}, {groups: [{kind: 'module', ids: ['Artifact ID'], newId: 'New ID'}]});
-      ensure(Array.isArray(proposal.groups), 'Consolidation groups required');
-      let consolidated;
-      try {
-        ensure(proposal.groups.every(group => group.kind === 'module'), 'Shared Creator consolidation accepts modules only');
-        consolidated = updates.length ? consolidateCreator(preliminary.state, [], proposal.groups, {measurements: this.creatorMeasurements}) : preliminary;
-      }
-      catch (error) {
-        this.store.record('creator_merge_rejected', {iteration, reason: error.message});
-        consolidated = updates.length ? consolidateCreator(preliminary.state, [], [], {measurements: this.creatorMeasurements}) : preliminary;
-      }
+      const consolidated = await consolidateCreatorWithRepair({base: this.creatorBase, updates,
+        measurements: this.creatorMeasurements, agent: this.agent, store: this.store, iteration});
       this.creatorBase = consolidated.state;
-      this.store.record('creator_base_consolidated', {iteration, baseDigest: this.store.put(this.creatorBase), provenance: [...preliminary.provenance, ...consolidated.provenance]});
+      this.store.record('creator_base_consolidated', {iteration, baseDigest: this.store.put(this.creatorBase), provenance: consolidated.provenance});
       this.store.write('checkpoint-' + iteration + '.json', this.checkpoint(iteration, summary));
     }
     const automaticExcluded = [...this.retention.values()].filter(node => !node.retainHarness).map(node => node.node);
@@ -293,7 +286,7 @@ export class Trinity {
         description: capabilityDescription(node.requirements, this.capabilities)};
     }));
     this.store.write('routing-candidates.json', {schema: 'trinity-routing-candidates-v1', excludedNodes: excluded, candidates});
-    const result = {mode: this.config.mode, sourcePaper: 'arXiv:2610.36077v1', screening: this.config.screening, creatorEvolution: [...creatorEvolutionChoices], nodes: this.tree.length, iterations: this.config.iterations, summary, creatorBase: this.creatorBase, creatorNodeSkills: Object.fromEntries(this.creatorNodeSkills), benchmarkPerformanceClaim: false, accounting: usageReport(this.agent.calls ?? [])};
+    const result = {mode: this.config.mode, sourcePaper: 'arXiv:2610.36077v2', screening: this.config.screening, creatorEvolution: [...creatorEvolutionChoices], nodes: this.tree.length, iterations: this.config.iterations, summary, creatorBase: this.creatorBase, creatorNodeSkills: Object.fromEntries(this.creatorNodeSkills), benchmarkPerformanceClaim: false, accounting: usageReport(this.agent.calls ?? [])};
     this.store.write('summary.json', result);
     completeTraining({store: this.store, config: this.config, baseline: this.baseline});
     return result;

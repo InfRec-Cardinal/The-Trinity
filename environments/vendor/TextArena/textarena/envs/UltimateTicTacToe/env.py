@@ -1,0 +1,160 @@
+import re, random
+from typing import Optional, Dict, Tuple, List, Any
+
+import textarena as ta
+from textarena.envs.UltimateTicTacToe.renderer import create_board_str
+
+class UltimateTicTacToeEnv(ta.Env):
+    def __init__(self):
+        super().__init__()
+        self.cell = {i: (i // 3, i % 3) for i in range(9)}                           
+
+    def get_board_str(self):
+        return create_board_str(board=self.state.game_state["board"])
+
+    def reset(self, num_players: int, seed: Optional[int]=None):
+        self.state = ta.TwoPlayerState(num_players=num_players, seed=seed)
+        game_state={"board": [[[' ' for _ in range(3)] for _ in range(3)] for _ in range(9)], "macro_board": [[' ' for _ in range(3)] for _ in range(3)], "next_micro_board": None}
+        self.state.reset(game_state=game_state, player_prompt_function=self._prompt)
+        self.state.add_observation(message=self.m("board", "current_board", board=self._render_board()), observation_type=ta.ObservationType.GAME_BOARD)
+
+    def _prompt(self, player_id: int, game_state: Dict[str, Any]) -> str:
+        symbol = 'X' if player_id==1 else 'O'
+        return self.m("player_prompt", "intro", player_id=player_id, symbol=symbol)
+
+    def _render_board(self) -> str:
+        gs  = self.state.game_state
+        out = []
+        for macro_row in range(3):
+            for micro_row in range(3):
+                cells = []
+                for macro_col in range(3):
+                    macro_idx  = macro_row * 3 + macro_col
+                    board_ij   = gs["board"][macro_idx][micro_row]
+
+                    for micro_col, val in enumerate(board_ij):
+                        if val == ' ':
+                            micro_idx = micro_row * 3 + micro_col
+                            cells.append(f"[{macro_idx},{micro_idx}]")
+                        else:
+                            cells.append(f"  {val}  ")
+
+                    cells.append("|")
+                out.append(" ".join(cells[:-1])) 
+
+                                                                         
+            if macro_row < 2:
+                out.append("-" * len(out[-1]))
+        return "\n".join(out)
+
+
+    def step(self, action: str) -> Tuple[bool, ta.Info]:
+        self.current_player = 'X' if self.state.current_player_id == 1 else 'O'
+        self.state.add_observation(from_id=self.state.current_player_id, message=action, observation_type=ta.ObservationType.PLAYER_ACTION)
+
+        match = re.search(r"\[\s*(\d)\s*,?\s*(\d)\s*\]", action)
+        if match is None:
+            self.state.set_invalid_move(reason=self.m("invalid_move", "wrong_format"))
+            return self.state.step()
+
+        macro_idx, micro_idx = map(int, match.groups())
+
+                     
+        if not (0 <= macro_idx <= 8 and 0 <= micro_idx <= 8):
+            self.state.set_invalid_move(reason=self.m("invalid_move", "out_of_range"))
+            return self.state.step()
+
+                                                                     
+        row, col = divmod(micro_idx, 3)
+
+                                                                             
+        if self._is_valid_move(macro_idx, row, col):
+            self._make_move(macro_idx, row, col)
+
+            nxt = self.state.game_state["next_micro_board"]
+            nxt_txt = self.m("next_board", "any") if nxt is None else self.m("next_board", "specific", nxt=nxt)
+
+            self.state.add_observation(
+                message=self.m(
+                    "game_action", "played",
+                    player_id=self.state.current_player_id,
+                    macro_idx=macro_idx,
+                    micro_idx=micro_idx,
+                    row=row,
+                    col=col,
+                    opponent_id=1 - self.state.current_player_id,
+                    nxt_txt=nxt_txt,
+                ),
+                observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION,
+            )
+            self.state.add_observation(message=self.m("board", "current_board", board=self._render_board()), observation_type=ta.ObservationType.GAME_BOARD)
+
+                                  
+            if self._check_winner(self.state.game_state["macro_board"]):
+                self.state.set_winner(player_id=self.state.current_player_id, reason=self.m("outcome", "win", player_id=self.state.current_player_id))
+            elif self._is_draw():
+                self.state.set_draw(reason=self.m("outcome", "draw"))
+
+        return self.state.step()
+
+    
+    def _make_move(self, macro, row, col):
+        gs = self.state.game_state
+        board = gs["board"][macro]
+        board[row][col] = self.current_player
+
+                                                          
+        if self._check_winner(board):
+            gs["macro_board"][macro // 3][macro % 3] = self.current_player
+                                           
+            for rr in range(3):
+                for cc in range(3):
+                    board[rr][cc] = self.current_player
+
+                                                                                   
+        gs["next_micro_board"] = row * 3 + col
+        nxt = gs["next_micro_board"]
+                                                     
+        if (gs["macro_board"][nxt // 3][nxt % 3] != ' ' or
+            all(cell != ' ' for row_ in gs["board"][nxt] for cell in row_)):
+            gs["next_micro_board"] = None
+
+                  
+    def _check_winner(self, board: List[List[str]]) -> bool:
+        pass                                           
+        for i in range(3):
+            if board[i][0] == board[i][1] == board[i][2] != ' ': return True             
+            if board[0][i] == board[1][i] == board[2][i] != ' ': return True                
+        if board[0][0] == board[1][1] == board[2][2] != ' ': return True            
+        if board[0][2] == board[1][1] == board[2][0] != ' ': return True            
+        return False
+
+    def _is_board_filled(self, board_array: str) -> bool:
+        pass                                      
+        if all(cell != ' ' for row in board_array for cell in row): return True
+        return False
+
+    def _is_draw(self) -> bool:
+                                                   
+        if all(self._is_board_filled(micro_board) for micro_board in self.state.game_state['board']): return True
+                                                   
+        if self._is_board_filled(self.state.game_state['macro_board']): return True
+        return False
+
+    def _is_valid_move(self, micro_board, row, col):
+        pass                           
+        reason = None
+                                                                            
+        if micro_board < 0 or micro_board > 8 or row < 0 or row > 2 or col < 0 or col > 2: reason=self.m("invalid_move", "index_out_of_range")
+                                     
+        elif self.state.game_state["board"][micro_board][row][col] != ' ': reason=self.m("invalid_move", "cell_occupied")
+                                                                                                        
+        elif self.state.game_state['next_micro_board'] is not None and micro_board != self.state.game_state['next_micro_board']: reason=self.m("invalid_move", "wrong_micro_board")
+                                                                                 
+        elif self.state.game_state['macro_board'][micro_board // 3][micro_board % 3] != ' ': reason=self.m("invalid_move", "micro_board_won")
+        if reason: self.state.set_invalid_move(reason=reason); return False
+        else: return self.state.game_state["board"][micro_board][row][col] == ' '
+
+    def _board_is_full(self, board: List[List[str]]) -> bool:
+        pass                                
+        return all(cell != ' ' for row in board for cell in row)

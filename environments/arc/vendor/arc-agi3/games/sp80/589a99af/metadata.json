@@ -1,0 +1,16 @@
+{
+  "game_id": "sp80-589a99af",
+  "title": "SP80",
+  "default_fps": 10,
+  "tags": [
+    "keyboard_click"
+  ],
+  "baseline_actions": [
+    39,
+    58,
+    25,
+    148,
+    96,
+    152
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "taskId": "euro_ncap_aeb_car_to_car",
+  "proposals": [
+    {
+      "id": "sustain-brake-to-standstill",
+      "title": "Once braking for a detected lead has begun, keep demand applied until own speed reaches zero",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "A lead target is present in the range channel, own speed is above zero, and at least one brake command has already been issued for this episode.",
+      "procedure": [
+        "Check own speed, not the gap, as the progress measure: the episode's terminal success is certified by own speed reaching exactly zero with a non-negative gap, so a stable, positive, non-growing gap is not an end state.",
+        "While own speed is above zero, never return to hold; issue the demand that brings own speed to zero inside the current range reading rather than the smallest demand that merely decelerates. Own speed falls monotonically even under a demand too light to avoid contact, so \"raise it if own speed stops falling\" would never fire in time.",
+        "If the previous decision returned zero acceleration and an unchanged own speed while a brake demand was outstanding, that is the normal three-tick actuation lag, not a released command: wait one more decision before changing demand.",
+        "Only stop applying demand once own speed reads exactly zero at the end of a decision; at that point the collision-avoidance predicate is satisfiable."
+      ],
+      "successSignals": [
+        "final decision still issues a brake command while own speed is zero",
+        "brake demand is never reset to hold across the run once deceleration has started",
+        "own speed decreases monotonically to zero with the gap non-negative throughout"
+      ],
+      "failureSignals": [
+        "own speed plateaus at a nonzero constant with zero acceleration and zero brake demand",
+        "gap remains positive and roughly constant while own speed stays above zero",
+        "episode ends by decision_budget_exhausted with no contact recorded"
+      ],
+      "recovery": [
+        "As soon as a plateau in own speed at nonzero is observed, immediately re-apply brake demand rather than holding through further decisions."
+      ],
+      "invariants": [
+        "success requires own speed at or below the target's with the gap never reaching zero; outside CCRb a standstill is not required."
+      ],
+      "sourceGapIds": [
+        "lifts-brake-before-standstill",
+        "coasts-until-budget-exhausted"
+      ]
+    },
+    {
+      "id": "reopen-decision-when-channel-changes",
+      "title": "A newly filled or newly frozen observation reopens the decision instead of repeating hold",
+      "audience": [
+        "playing"
+      ],
+      "capability": "temporal",
+      "trigger": "Either the range/rangeRate channel that read empty on previous decisions has become finite, or the last several decisions have returned identical own speed and identical range while own speed remains above zero.",
+      "procedure": [
+        "Compare the current reading with the previous one before selecting an action; a channel that has just gained a value is a new decision point, not a continuation.",
+        "On the first decision with a finite range and a closing rate, compute the closing geometry from the reading already in hand and issue brake demand at that same decision rather than waiting for a further reading.",
+        "When consecutive decisions show own speed and range unchanged, stop treating the freeze as an absence of threat — the frozen state means your last command is still in force and the decision budget is being spent without progress; act.",
+        "Do not spend decisions accumulating additional identical readings before committing; the reading in hand is sufficient to choose."
+      ],
+      "successSignals": [
+        "brake demand is issued on the first decision after the range channel becomes finite",
+        "no run of identical own-speed and range readings occurs while own speed is above zero"
+      ],
+      "failureSignals": [
+        "hold is repeated across decisions before and after the range channel fills",
+        "several consecutive decisions reproduce the same own speed, range and acceleration with no demand applied"
+      ],
+      "recovery": [
+        "On detecting a plateau, treat it as a deadline: apply brake demand on the next decision and re-evaluate immediately afterwards."
+      ],
+      "invariants": [
+        "holding is a choice to keep the previous command in force, not a passive wait",
+        "an unchanged observation with zero acceleration and zero demand implies the ego is coasting and nothing will change on its own"
+      ],
+      "sourceGapIds": [
+        "repeats-hold-after-lock",
+        "frozen-reading-treated-as-neutral"
+      ]
+    },
+    {
+      "id": "nuisance-advisory-is-not-a-terminal-penalty",
+      "title": "The early-onset advisory labels an action, it does not fail the episode",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "You are choosing between holding and braking, the computed time-to-collision is above the threshold the task instructions describe as nuisance braking, and the scenario still requires the ego to come to rest.",
+      "procedure": [
+        "Prefer committing to at least a light brake demand over holding when the standstill predicate is still unreached, whatever the stated onset threshold says.",
+        "Treat the nuisance-braking label as a recorded attribute of the run, not as a loss condition: a recorded success of this bench carried that label at onset and still reached the terminal standstill with full score.",
+        "Weigh the two failure modes explicitly — braking somewhat earlier than the advisory prefers is recoverable; running out of decision budget while still moving is not.",
+        "Size the demand from the gap and the closing rate, not from the label: the nuisance flag never costs score, and contact is the only failure branch, so never trade stopping margin for a cleaner onset."
+      ],
+      "successSignals": [
+        "episode terminates with own speed zero even though the recorded brake onset was labelled nuisance braking",
+        "a light, sustained demand carries the ego to a standstill"
+      ],
+      "failureSignals": [
+        "no brake demand is ever applied while own speed remains high",
+        "episode ends by budget exhaustion with nuisanceBraking reported false and the ego still moving"
+      ],
+      "recovery": [
+        "If decisions are being consumed without a standstill and no brake has been applied, apply a light demand immediately rather than continuing to hold for a cleaner onset."
+      ],
+      "invariants": [
+        "a false nuisance flag coincides with never stopping; a true nuisance flag coincides with a scored success in this bench",
+        "the onset threshold governs labelling only, not the terminal outcome"
+      ],
+      "sourceGapIds": [
+        "defers-brake-on-nuisance-advisory"
+      ]
+    }
+  ]
+}

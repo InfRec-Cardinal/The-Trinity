@@ -1,0 +1,76 @@
+{
+  "taskId": "actiview_unseen",
+  "name": "ActiView (all 1,625 instances: zooming + shifting R/E/M/H)",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D3",
+    "subCategoryId": "D3.1"
+  },
+  "assignment": {
+    "task": "Official ActiView (active perception VQA). Each request is one official step: either a perception decision (which image parts to zoom into, or whether more visual information is needed) or the final multiple-choice answer. Follow the instruction text of the request exactly; the reply text is parsed by the official ActiView parser.",
+    "observation": "The official request: the image(s) shown at this step followed by the official prompt text.",
+    "actions": {
+      "action": "The reply text for this step, in the format the request asks for."
+    },
+    "evaluation": "Official ActiView accuracy per setting (zooming; shifting R, E, M, H)."
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Submit the reply text for this step.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "contract": "One reply text per request, in the format the request asks for.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract)",
+    "contextPolicy": "current",
+    "imageOrder": "before",
+    "structuredOutput": true,
+    "invalidResponses": "H0 used structured output (one schema-valid submit_action per response); a refusal or a response without an action was retried with the same request, without a reprompt."
+  },
+  "evaluation": {
+    "configurations": 1625,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 1625
+  },
+  "otherModels": [],
+  "environment": {
+    "adapter": "jsonl",
+    "name": "actiview",
+    "envDir": "tasks/08-actiview_unseen/env",
+    "python": "actiview",
+    "bridge": {
+      "script": "actiview_bridge.py",
+      "args": [
+        "{instanceId}"
+      ],
+      "reply": "args"
+    },
+    "terminal": "actiview",
+    "limits": null,
+    "data": {
+      "check": "tasks/08-actiview_unseen/env/data/asset/data.json",
+      "fetch": "envs/actiview/bin/python -I tools/fetch/actiview_data.py",
+      "note": "HF wangphoebe/ActiView @ dd07264, verified against data-manifest.json"
+    }
+  },
+  "driverId": "actiview-official-bridge-v1",
+  "notes": []
+}

@@ -1,0 +1,16 @@
+{
+  "game_id": "tr87-cd924810",
+  "title": "TR87",
+  "default_fps": 10,
+  "tags": [
+    "keyboard"
+  ],
+  "baseline_actions": [
+    54,
+    58,
+    40,
+    45,
+    71,
+    146
+  ]
+}

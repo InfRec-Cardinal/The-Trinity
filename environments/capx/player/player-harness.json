@@ -1,0 +1,16 @@
+{
+  "revision": 1,
+  "audience": "playing",
+  "frozen": true,
+  "skills": [],
+  "skillReferenceUpdates": [],
+  "promptPatches": [],
+  "memory": {
+    "retrievalPolicy": "hybrid",
+    "maxItems": 8,
+    "notes": []
+  },
+  "sampling": {},
+  "constraints": {},
+  "components": {}
+}

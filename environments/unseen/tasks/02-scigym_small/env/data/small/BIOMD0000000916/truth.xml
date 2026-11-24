@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_ug65">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_osbk">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_6seq">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_avhw">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_kxtm" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_3fdc" compartment="id_kxtm" initialConcentration="1" boundaryCondition="false" constant="false"/>
+      <species id="id_obek" compartment="id_kxtm" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_e6fd" compartment="id_kxtm" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_36d9" compartment="id_kxtm" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_8mtc" compartment="id_kxtm" initialConcentration="0" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_4il7" value="1.2" constant="true"/>
+      <parameter id="id_wtjf" value="1.2" constant="true"/>
+      <parameter id="id_dog0" value="26.6" constant="true"/>
+      <parameter id="id_ert8" value="1.2" constant="true"/>
+      <parameter id="id_3hkn" value="3.6" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_s8qp" reversible="true">
+        <listOfReactants>
+          <speciesReference species="id_e6fd" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_8mtc" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_kxtm </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_4il7 </ci>
+                  <ci> id_e6fd </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_wtjf </ci>
+                  <ci> id_8mtc </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_r82y" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_3fdc" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_e6fd" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_kxtm </ci>
+              <ci> id_dog0 </ci>
+              <ci> id_3fdc </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_nrrj" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_8mtc" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_obek" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_kxtm </ci>
+              <ci> id_ert8 </ci>
+              <ci> id_8mtc </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_y76s" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_e6fd" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_36d9" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_kxtm </ci>
+              <ci> id_3hkn </ci>
+              <ci> id_e6fd </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

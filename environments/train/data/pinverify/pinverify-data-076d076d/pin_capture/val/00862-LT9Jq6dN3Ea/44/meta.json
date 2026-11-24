@@ -1,0 +1,1514 @@
+{
+  "scene_id": "data/scene_datasets/hm3d/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+  "scene_key": "00862-LT9Jq6dN3Ea",
+  "episode_id": "44",
+  "goal_position_nominal": [
+    -1.7145999670028687,
+    4.347499847412109,
+    5.134799957275391
+  ],
+  "final_base_y": 3.306028127670288,
+  "base_y_source": "snap_goal_y",
+  "object_category": "teddy_bear",
+  "object_id": "d611fdfc1ce945de86fb319587c35cf1",
+  "pin_semantic_id_convention": {
+    "target_semantic_id": 100000,
+    "meaning": "All pixels with this semantic_id correspond to this episode's target object."
+  },
+  "camera_intrinsics": {
+    "width": 360,
+    "height": 640,
+    "hfov_deg": 42.0,
+    "vfov_deg": 68.62120575907826,
+    "K": [
+      [
+        468.9160316448843,
+        0,
+        179.5
+      ],
+      [
+        0,
+        468.91603164488436,
+        319.5
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "sensor_mount_offset_y": 1.31,
+  "n_sectors": 12,
+  "sector_order": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "sector_skip": 1,
+  "ranges": {
+    "near": [
+      0.9,
+      1.2
+    ],
+    "far": [
+      1.4,
+      1.7
+    ]
+  },
+  "look_thresh": 0.3,
+  "category_mask_threshold": 200,
+  "viewpoints": [
+    {
+      "tag": "s0_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 0,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s0_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 14031,
+      "mask_bbox_xyxy": [
+        112,
+        343,
+        241,
+        496
+      ],
+      "mask_area_fraction": 0.0608984375,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s0_near.png",
+      "mask_raw_path": "mask/mask_s0_near.png",
+      "camera_position": [
+        -0.7047977447509766,
+        4.61602783203125,
+        5.332117080688477
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.7719374895095825,
+        0.0,
+        0.6356984376907349,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          0.19177496433258057,
+          0.0,
+          -0.981438934803009,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.981438934803009,
+          0.0,
+          0.19177496433258057,
+          0.0
+        ],
+        [
+          -0.7047977447509766,
+          4.61602783203125,
+          5.332117080688477,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.19177496433258057,
+          -0.0,
+          0.981438934803009,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.981438934803009,
+          -0.0,
+          0.19177496433258057,
+          -0.0
+        ],
+        [
+          5.368309497833252,
+          -4.616027355194092,
+          -0.33085060119628906,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.981438934803009,
+        -0.19177496433258057
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0288996915428026
+    },
+    {
+      "tag": "s2_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 2,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s2_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 2,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s4_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s4_far.png",
+      "mask_raw_path": null,
+      "camera_position": [
+        -2.812924385070801,
+        4.61602783203125,
+        6.1441850662231445
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9156054854393005,
+        0.0,
+        -0.40207788348197937,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          0.6766667366027832,
+          0.0,
+          0.7362894415855408,
+          0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.7362894415855408,
+          -0.0,
+          0.6766667366027832,
+          0.0
+        ],
+        [
+          -2.812924385070801,
+          4.61602783203125,
+          6.1441850662231445,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.6766667366027832,
+          -0.0,
+          -0.7362894415855408,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          0.7362894415855408,
+          -0.0,
+          0.6766667366027832,
+          -0.0
+        ],
+        [
+          -2.620486259460449,
+          -4.61602783203125,
+          -6.228692054748535,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.7362894415855408,
+        -0.676666796207428
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.4917019895038457
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": null,
+      "camera_position": [
+        -2.450310707092285,
+        4.61602783203125,
+        5.810935020446777
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9156054854393005,
+        0.0,
+        -0.402077853679657,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          0.676666796207428,
+          0.0,
+          0.736289381980896,
+          0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.736289381980896,
+          -0.0,
+          0.676666796207428,
+          0.0
+        ],
+        [
+          -2.450310707092285,
+          4.61602783203125,
+          5.810935020446777,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.676666796207428,
+          -0.0,
+          -0.736289381980896,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          0.736289381980896,
+          -0.0,
+          0.676666796207428,
+          -0.0
+        ],
+        [
+          -2.620485782623291,
+          -4.61602783203125,
+          -5.736204147338867,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.736289381980896,
+        -0.6766668558120728
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9992141495859095
+    },
+    {
+      "tag": "s6_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s6_far.png",
+      "mask_raw_path": null,
+      "camera_position": [
+        -3.3623228073120117,
+        4.61602783203125,
+        4.779734134674072
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.6282302737236023,
+        0.0,
+        -0.7780274748802185,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          -0.21065354347229004,
+          0.0,
+          0.977560818195343,
+          0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.977560818195343,
+          -0.0,
+          -0.21065354347229004,
+          0.0
+        ],
+        [
+          -3.3623228073120117,
+          4.61602783203125,
+          4.779734134674072,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.21065351366996765,
+          -0.0,
+          -0.9775606989860535,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          0.9775606989860535,
+          -0.0,
+          -0.21065351366996765,
+          -0.0
+        ],
+        [
+          -5.380765438079834,
+          -4.61602783203125,
+          -2.2800068855285645,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.977560818195343,
+        0.21065348386764526
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6855451037738445
+    },
+    {
+      "tag": "s6_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 6,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s8_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 8,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s8_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 8,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 6985,
+      "mask_bbox_xyxy": [
+        109,
+        338,
+        223,
+        436
+      ],
+      "mask_area_fraction": 0.030316840277777778,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        -0.7123222351074219,
+        4.61602783203125,
+        4.129734516143799
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.3820417523384094,
+        0.0,
+        0.9241450428962708,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          -0.7080881595611572,
+          0.0,
+          -0.7061240077018738,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.7061240077018738,
+          0.0,
+          -0.7080881595611572,
+          0.0
+        ],
+        [
+          -0.7123222351074219,
+          4.61602783203125,
+          4.129734516143799,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.7080881595611572,
+          -0.0,
+          0.7061240077018738,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.7061240077018738,
+          -0.0,
+          -0.7080881595611572,
+          0.0
+        ],
+        [
+          2.4117178916931152,
+          -4.61602783203125,
+          3.427203893661499,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7061240077018738,
+        0.7080881595611572
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.4194073385785078
+    },
+    {
+      "tag": "s10_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 17333,
+      "mask_bbox_xyxy": [
+        72,
+        346,
+        244,
+        506
+      ],
+      "mask_area_fraction": 0.07523003472222223,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s10_near.png",
+      "mask_raw_path": "mask/mask_s10_near.png",
+      "camera_position": [
+        -1.0123224258422852,
+        4.61602783203125,
+        4.493556976318359
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.4035539925098419,
+        0.0,
+        0.9149558544158936,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          -0.6742883920669556,
+          0.0,
+          -0.7384681701660156,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.7384681701660156,
+          0.0,
+          -0.6742883920669556,
+          0.0
+        ],
+        [
+          -1.0123224258422852,
+          4.61602783203125,
+          4.493556976318359,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.6742883920669556,
+          -0.0,
+          0.7384681701660156,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.7384681701660156,
+          -0.0,
+          -0.6742883920669556,
+          0.0
+        ],
+        [
+          2.635751724243164,
+          -4.616028308868408,
+          3.7775211334228516,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7384681701660156,
+        0.6742883920669556
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.950992274124882
+    }
+  ],
+  "episode_result": {
+    "navigable_count": 6,
+    "valid_mask_count": 3,
+    "total_viewpoints": 12,
+    "success": true,
+    "object_category": "teddy_bear"
+  },
+  "captures": [
+    {
+      "tag": "s0_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 14031,
+      "mask_bbox_xyxy": [
+        112,
+        343,
+        241,
+        496
+      ],
+      "mask_area_fraction": 0.0608984375,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s0_near.png",
+      "mask_raw_path": "mask/mask_s0_near.png",
+      "camera_position": [
+        -0.7047977447509766,
+        4.61602783203125,
+        5.332117080688477
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.7719374895095825,
+        0.0,
+        0.6356984376907349,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          0.19177496433258057,
+          0.0,
+          -0.981438934803009,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.981438934803009,
+          0.0,
+          0.19177496433258057,
+          0.0
+        ],
+        [
+          -0.7047977447509766,
+          4.61602783203125,
+          5.332117080688477,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.19177496433258057,
+          -0.0,
+          0.981438934803009,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.981438934803009,
+          -0.0,
+          0.19177496433258057,
+          -0.0
+        ],
+        [
+          5.368309497833252,
+          -4.616027355194092,
+          -0.33085060119628906,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.981438934803009,
+        -0.19177496433258057
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0288996915428026
+    },
+    {
+      "tag": "s4_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s4_far.png",
+      "mask_raw_path": null,
+      "camera_position": [
+        -2.812924385070801,
+        4.61602783203125,
+        6.1441850662231445
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9156054854393005,
+        0.0,
+        -0.40207788348197937,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          0.6766667366027832,
+          0.0,
+          0.7362894415855408,
+          0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.7362894415855408,
+          -0.0,
+          0.6766667366027832,
+          0.0
+        ],
+        [
+          -2.812924385070801,
+          4.61602783203125,
+          6.1441850662231445,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.6766667366027832,
+          -0.0,
+          -0.7362894415855408,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          0.7362894415855408,
+          -0.0,
+          0.6766667366027832,
+          -0.0
+        ],
+        [
+          -2.620486259460449,
+          -4.61602783203125,
+          -6.228692054748535,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.7362894415855408,
+        -0.676666796207428
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.4917019895038457
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": null,
+      "camera_position": [
+        -2.450310707092285,
+        4.61602783203125,
+        5.810935020446777
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9156054854393005,
+        0.0,
+        -0.402077853679657,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          0.676666796207428,
+          0.0,
+          0.736289381980896,
+          0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.736289381980896,
+          -0.0,
+          0.676666796207428,
+          0.0
+        ],
+        [
+          -2.450310707092285,
+          4.61602783203125,
+          5.810935020446777,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.676666796207428,
+          -0.0,
+          -0.736289381980896,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          0.736289381980896,
+          -0.0,
+          0.676666796207428,
+          -0.0
+        ],
+        [
+          -2.620485782623291,
+          -4.61602783203125,
+          -5.736204147338867,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.736289381980896,
+        -0.6766668558120728
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9992141495859095
+    },
+    {
+      "tag": "s6_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s6_far.png",
+      "mask_raw_path": null,
+      "camera_position": [
+        -3.3623228073120117,
+        4.61602783203125,
+        4.779734134674072
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.6282302737236023,
+        0.0,
+        -0.7780274748802185,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          -0.21065354347229004,
+          0.0,
+          0.977560818195343,
+          0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.977560818195343,
+          -0.0,
+          -0.21065354347229004,
+          0.0
+        ],
+        [
+          -3.3623228073120117,
+          4.61602783203125,
+          4.779734134674072,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.21065351366996765,
+          -0.0,
+          -0.9775606989860535,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          0.9775606989860535,
+          -0.0,
+          -0.21065351366996765,
+          -0.0
+        ],
+        [
+          -5.380765438079834,
+          -4.61602783203125,
+          -2.2800068855285645,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.977560818195343,
+        0.21065348386764526
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6855451037738445
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 6985,
+      "mask_bbox_xyxy": [
+        109,
+        338,
+        223,
+        436
+      ],
+      "mask_area_fraction": 0.030316840277777778,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        -0.7123222351074219,
+        4.61602783203125,
+        4.129734516143799
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.3820417523384094,
+        0.0,
+        0.9241450428962708,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          -0.7080881595611572,
+          0.0,
+          -0.7061240077018738,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.7061240077018738,
+          0.0,
+          -0.7080881595611572,
+          0.0
+        ],
+        [
+          -0.7123222351074219,
+          4.61602783203125,
+          4.129734516143799,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.7080881595611572,
+          -0.0,
+          0.7061240077018738,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.7061240077018738,
+          -0.0,
+          -0.7080881595611572,
+          0.0
+        ],
+        [
+          2.4117178916931152,
+          -4.61602783203125,
+          3.427203893661499,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7061240077018738,
+        0.7080881595611572
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.4194073385785078
+    },
+    {
+      "tag": "s10_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 17333,
+      "mask_bbox_xyxy": [
+        72,
+        346,
+        244,
+        506
+      ],
+      "mask_area_fraction": 0.07523003472222223,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 200,
+      "rgb": "rgb/rgb_s10_near.png",
+      "mask_raw_path": "mask/mask_s10_near.png",
+      "camera_position": [
+        -1.0123224258422852,
+        4.61602783203125,
+        4.493556976318359
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.4035539925098419,
+        0.0,
+        0.9149558544158936,
+        0.0
+      ],
+      "camera_to_world": [
+        [
+          -0.6742883920669556,
+          0.0,
+          -0.7384681701660156,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.7384681701660156,
+          0.0,
+          -0.6742883920669556,
+          0.0
+        ],
+        [
+          -1.0123224258422852,
+          4.61602783203125,
+          4.493556976318359,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.6742883920669556,
+          -0.0,
+          0.7384681701660156,
+          -0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.7384681701660156,
+          -0.0,
+          -0.6742883920669556,
+          0.0
+        ],
+        [
+          2.635751724243164,
+          -4.616028308868408,
+          3.7775211334228516,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7384681701660156,
+        0.6742883920669556
+      ],
+      "goal_position": [
+        -1.7145999670028687,
+        4.347499847412109,
+        5.134799957275391
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "d611fdfc1ce945de86fb319587c35cf1",
+      "episode_object_category": "teddy_bear",
+      "floor_y_at_cam": 3.306028127670288,
+      "base_y_used": 3.306028127670288,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 4.61602783203125,
+      "action": "none",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.950992274124882
+    }
+  ],
+  "overview": "overview.png",
+  "regen_info": {
+    "generated_by": "val_verify_capture_v2_distributed.py (episode-level eval)",
+    "time": "2026-02-11 06:49:01"
+  }
+}

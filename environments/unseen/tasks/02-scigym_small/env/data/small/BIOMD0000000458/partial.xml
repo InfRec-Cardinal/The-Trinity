@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" level="2" version="4">
+  <model id="id_x489">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_cl7o">
+        <listOfUnits>
+          <unit kind="mole" scale="-3"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_pwa6">
+        <listOfUnits>
+          <unit kind="mole" scale="-3"/>
+          <unit kind="litre" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_qmdf">
+        <listOfUnits>
+          <unit kind="second" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_olc5" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_hdou" compartment="id_olc5" initialConcentration="0.25" boundaryCondition="true" constant="true"/>
+      <species id="id_l307" compartment="id_olc5" initialConcentration="2.36" boundaryCondition="true" constant="true"/>
+      <species id="id_7qoq" compartment="id_olc5" initialConcentration="1.15" boundaryCondition="true" constant="true"/>
+      <species id="id_vgvb" compartment="id_olc5" initialConcentration="0.09"/>
+      <species id="id_ryiz" compartment="id_olc5" initialConcentration="4.9" boundaryCondition="true" constant="true"/>
+      <species id="id_5jaw" compartment="id_olc5" initialConcentration="0.1" boundaryCondition="true" constant="true"/>
+      <species id="id_g19q" compartment="id_olc5" initialConcentration="0.6"/>
+    </listOfSpecies>
+  </model>
+</sbml>

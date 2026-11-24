@@ -1,0 +1,54 @@
+import re
+from typing import Optional, Dict, Any, Tuple
+
+import textarena as ta
+
+
+class IteratedMatchingPenniesEnv(ta.Env):
+    def __init__(self, num_rounds: int = 5):
+        self.num_rounds = num_rounds
+        self._choice_re = re.compile(r"\[\s*(heads|h|tails|t)\s*\]", re.IGNORECASE)                                                         
+
+    def reset(self, num_players: int, seed: Optional[int] = None):
+        self.state = ta.TwoPlayerState(num_players=num_players, seed=seed)
+        game_state = {"round": 1, "points": {0:0, 1:0}, "moves": {}, "history": []}
+        self.state.reset(game_state=game_state, player_prompt_function=self._make_prompt)
+
+    def _make_prompt(self, player_id: int, game_state: Dict[str, Any]) -> str:
+        role = "Matcher" if player_id == 0 else "Mismatcher"
+        return self.m("player_prompt", "intro", player_id=player_id, role=role, num_rounds=self.num_rounds)
+
+    def get_board_str(self) -> str:
+        gs = self.state.game_state
+        s = f"Round {gs['round']}/{self.num_rounds}\n"
+        if gs["history"]:
+            s += "History:\n"
+            for i, past in enumerate(gs["history"], start=1):
+                s += (f"  Round {i}: " + ", ".join(f"P{pid}→{choice}" for pid, choice in past.items()) + "\n")
+        return s
+
+    def step(self, action: str) -> Tuple[bool, ta.Info]:
+        pid = self.state.current_player_id
+        m = self._choice_re.search(action)
+        if not m: self.state.set_invalid_move(reason=self.m("invalid_move", "wrong_format"))
+        else:
+            token = m.group(1).lower()
+            choice = "heads" if token in ("heads", "h") else "tails"
+            self.state.game_state["moves"][pid] = choice
+            if len(self.state.game_state["moves"]) == 2:
+                moves = self.state.game_state["moves"]
+                same = (moves[0] == moves[1])
+                winner = 0 if same else 1
+                self.state.game_state["history"].append(moves.copy())
+                if same: message = self.m("message", "round_match", choice0=self.state.game_state['moves'][0], choice1=self.state.game_state['moves'][1])
+                else:    message = self.m("message", "round_mismatch", choice0=self.state.game_state['moves'][0], choice1=self.state.game_state['moves'][1])
+                self.state.add_observation(message=message, observation_type=ta.ObservationType.GAME_MESSAGE)
+                self.state.game_state["points"][winner] += 1
+                self.state.game_state["round"] += 1
+                self.state.game_state["moves"].clear()
+                if self.state.game_state["round"] > self.num_rounds:
+                    p0, p1 = self.state.game_state["points"][0], self.state.game_state["points"][1]
+                    if p0 > p1:     self.state.set_winner(0, reason=self.m("outcome", "p0_wins"))
+                    elif p1 > p0:   self.state.set_winner(1, reason=self.m("outcome", "p1_wins"))
+                    else:           self.state.set_draw(reason=self.m("outcome", "draw"))
+        return self.state.step()

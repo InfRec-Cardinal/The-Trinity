@@ -1,0 +1,85 @@
+{
+  "taskId": "balrog_minihack_boxoban",
+  "configurations": [
+    {
+      "id": "MiniHack-Boxoban-Hard-v0-ep1",
+      "label": "MiniHack-Boxoban-Hard-v0 · seed 2026101100",
+      "ordinal": 0,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Hard-v0",
+      "seed": 2026101100
+    },
+    {
+      "id": "MiniHack-Boxoban-Hard-v0-ep2",
+      "label": "MiniHack-Boxoban-Hard-v0 · seed 2026101101",
+      "ordinal": 1,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Hard-v0",
+      "seed": 2026101101
+    },
+    {
+      "id": "MiniHack-Boxoban-Hard-v0-ep3",
+      "label": "MiniHack-Boxoban-Hard-v0 · seed 2026101102",
+      "ordinal": 2,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Hard-v0",
+      "seed": 2026101102
+    },
+    {
+      "id": "MiniHack-Boxoban-Hard-v0-ep4",
+      "label": "MiniHack-Boxoban-Hard-v0 · seed 2026101103",
+      "ordinal": 3,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Hard-v0",
+      "seed": 2026101103
+    },
+    {
+      "id": "MiniHack-Boxoban-Hard-v0-ep5",
+      "label": "MiniHack-Boxoban-Hard-v0 · seed 2026101104",
+      "ordinal": 4,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Hard-v0",
+      "seed": 2026101104
+    },
+    {
+      "id": "MiniHack-Boxoban-Medium-v0-ep1",
+      "label": "MiniHack-Boxoban-Medium-v0 · seed 2026101200",
+      "ordinal": 5,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Medium-v0",
+      "seed": 2026101200
+    },
+    {
+      "id": "MiniHack-Boxoban-Medium-v0-ep2",
+      "label": "MiniHack-Boxoban-Medium-v0 · seed 2026101201",
+      "ordinal": 6,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Medium-v0",
+      "seed": 2026101201
+    },
+    {
+      "id": "MiniHack-Boxoban-Medium-v0-ep3",
+      "label": "MiniHack-Boxoban-Medium-v0 · seed 2026101202",
+      "ordinal": 7,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Medium-v0",
+      "seed": 2026101202
+    },
+    {
+      "id": "MiniHack-Boxoban-Medium-v0-ep4",
+      "label": "MiniHack-Boxoban-Medium-v0 · seed 2026101203",
+      "ordinal": 8,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Medium-v0",
+      "seed": 2026101203
+    },
+    {
+      "id": "MiniHack-Boxoban-Medium-v0-ep5",
+      "label": "MiniHack-Boxoban-Medium-v0 · seed 2026101204",
+      "ordinal": 9,
+      "envName": "minihack",
+      "task": "MiniHack-Boxoban-Medium-v0",
+      "seed": 2026101204
+    }
+  ]
+}

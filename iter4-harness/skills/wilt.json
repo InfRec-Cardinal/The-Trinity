@@ -1,0 +1,46 @@
+{
+  "taskId": "wilt",
+  "proposals": [
+    {
+      "id": "structural-cover-before-guess",
+      "title": "Identify a numeric predicate with structural contrasts and counterexamples",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "Each oracle probe or final guess in a hidden numeric rule task",
+      "procedure": [
+        "At the start and after new oracle feedback, call consult_capability_path with moduleId candidateProbe and input mode ordinal_predicate. Provide variable names, the complete observed query records with Boolean labels and obs-N sources, and three distinct valid probe levels. This is a numeric predicate task; do not use the code/feedback mode.",
+        "While candidateCount is above one, execute a legal split probe from the module rather than guessing or merely confirming all-equal positives. Append the actual feedback to records before consulting again. Only once candidates are separated may you form the final lambda; check the returned scope and validate against every oracle result.",
+        "Keep a table of queried tuples and observed Boolean results. Keep multiple consistent hypotheses; never remove a hypothesis merely because it is asymmetric in the input slots. Slot order is part of the problem.",
+        "Before concluding that only all-equal tuples are accepted, test every permutation of three distinct admissible magnitudes. There are six strict order patterns; two tested permutations do not cover the other four. Choose small valid values and generate all six permutations without duplicates.",
+        "For any accepted strict ordering, probe both adjacent equality boundaries and their reversals. Distinguish strict from non-strict comparisons, partial equality and all equality. Test the same structural pattern with negative and decimal values to distinguish order from sign, integrality and arithmetic identities.",
+        "When no order hypothesis fits, compare candidate arithmetic, sign and magnitude relations. Pick a tuple on which two surviving candidates predict opposite answers. Do not collect more examples from a cell on which they already agree.",
+        "Do not guess early just because ten probes agree with one candidate. A single-cell positive set does not prove necessity. If all-equal positives dominate, test the unvisited distinct-order cells before guessing. Use remaining probes to falsify the current rule.",
+        "Reserve the final available action for one lambda. Before submission evaluate the candidate against every recorded result; choose the simplest surviving relation supported by contrasts. Preserve the native Test Case and Final Guess syntax."
+      ],
+      "successSignals": [
+        "Distinct order patterns and relevant equality boundaries are covered before a guess",
+        "The candidate survives discriminating tests outside its initial positive region"
+      ],
+      "failureSignals": [
+        "All positive observations have the same tie pattern",
+        "An untested permutation is silently treated as negative",
+        "Stopping because candidates were not enumerated rather than because they were separated"
+      ],
+      "recovery": [
+        "Return to the raw query table, list uncovered structural cells, and spend the next probe on an uncovered cell that separates plausible rules."
+      ],
+      "invariants": [
+        "Never use a revealed answer from a prior attempt as a rule or a fixed final expression.",
+        "No fixed tuples or case-specific lambda are prescribed.",
+        "No final guess without checking every actual oracle result."
+      ],
+      "sourceGapIds": [
+        "premature-equality-only-guess",
+        "untested-order-permutations",
+        "anti-asymmetry-skill-conflict"
+      ]
+    }
+  ]
+}

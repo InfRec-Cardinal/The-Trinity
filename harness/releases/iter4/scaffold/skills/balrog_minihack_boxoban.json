@@ -1,0 +1,40 @@
+{
+  "taskId": "balrog_minihack_boxoban",
+  "proposals": [
+    {
+      "id": "boxoban-occupied-goal-execution",
+      "title": "Execute a public occupied-goal plan and verify each move",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Each Boxoban public map and prerequisite advice.",
+      "procedure": [
+        "The goal is to push every boulder onto a fountain. A boulder stays present on the fountain and hides its glyph; it is not consumed. Keep known goal cells from the visible map history.",
+        "When automatic prerequisite advice has status plan and nextNativeAction, submit that exact native action once. It is the first move of a complete verified plan from THIS observation. A direction that revisits a square can be necessary to reach the correct pushing side. Do not substitute a more visually direct push or advance an old plan cursor.",
+        "After executing the recommendation, compare the current public player/box positions against expectedTransition, then use the NEW recommendation. If they match, continue the verified policy, including backtracking. Only an actual observed mismatch justifies abandoning the model. An empty plan requires waiting for native terminal evidence.",
+        "If a manual helper call is needed, use mode grid_push, goalMode occupy, distinct composite glyphs for box/player on a remembered goal, and no unrelated gate configuration. Unknown space is blocked.",
+        "When no path is found, first check parsing and goal memory; do not push a box into an unverified corner merely to make motion. Native terminal success is the only completion criterion."
+      ],
+      "invariants": [
+        "No level-specific path, fixed coordinates, hidden target or seeded solution.",
+        "One cardinal move per native action, with observation after each.",
+        "A valid complete plan with limited spareActions is not a suggestion to spend those actions on exploration; preserve feasibility."
+      ],
+      "successSignals": [
+        "All goals occupied and native terminal success."
+      ],
+      "failureSignals": [
+        "Fewer remembered goals after glyph occlusion",
+        "Plan assumes boxes disappear",
+        "No-displacement push"
+      ],
+      "recovery": [
+        "Reparse current public map and merge static goals already seen, then replan."
+      ],
+      "sourceGapIds": [
+        "policy-boxoban-occupied-goal-execution"
+      ]
+    }
+  ]
+}

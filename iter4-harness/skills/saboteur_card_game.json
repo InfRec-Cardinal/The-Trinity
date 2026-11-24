@@ -1,0 +1,131 @@
+{
+  "taskId": "saboteur_card_game",
+  "proposals": [
+    {
+      "id": "saboteur-target-active-builder",
+      "title": "As saboteur, deny the player who is actually extending the tunnel, every turn, until the round ends",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "Your assigned side for the round is the blocking side, and the public tunnel shows a frontier cell that is connected back to the start, or any seat has just placed a path card that advanced the connected tunnel toward a goal.",
+      "procedure": [
+        "Read which seat is the active builder: the seat that has most recently placed a card on the frontier of the connected tunnel, or that repeatedly places cards keeping the tunnel connected outward.",
+        "Spend this turn on any denial aimed at that seat: a dead-end placement on the live frontier, a removal on the card the connection runs through, or a broken tool. Do not rank them -- a broken tool is undone by one repair card, while a dead-end on the crossing cell is permanent.",
+        "Keep hitting the same active builder across consecutive turns rather than spreading broken tools over seats that have never placed a path card.",
+        "If your own tools are broken so you cannot place path cards, do not treat this as a lost turn: broken-tool cards, removal, peek, and repair remain playable, and denying the builder does not require your own tools.",
+        "Pass only when no denial card of any kind is in hand, and treat an endgame in which the opposing side still holds cards as a signal that denial, not passing, is the needed action.",
+        "Re-evaluate the target every time the frontier card changes, because the seat that is dangerous is the one adjacent to the current connection, not the one with the largest hand."
+      ],
+      "successSignals": [
+        "The round ends with the tunnel not reaching a goal while you hold or have spent denial cards.",
+        "Broken tools accumulate on the seat that has been laying frontier cards.",
+        "Opposing placements at the frontier stop or repeatedly get removed.",
+        "Your side wins rounds in which you hold the blocking role."
+      ],
+      "failureSignals": [
+        "You pass while another seat places the card that completes the connection.",
+        "Broken tools are spread over seats that have never placed a path card.",
+        "The round ends with the connection made while usable denial cards remain in your hand or others' hands.",
+        "Your side wins miner-role rounds but loses the blocking-role rounds of the same configuration."
+      ],
+      "recovery": [
+        "If the frontier has already advanced past your reach, fall back to removal on the single card the connection passes through rather than starting a new branch of denial.",
+        "If your own placement is illegal because edges do not match a neighbour, do not resubmit variants: switch to a non-path denial card this turn.",
+        "If no denial card is in hand, discard the card least useful for future denial and keep the seat you are tracking recorded for the next turn."
+      ],
+      "invariants": [
+        "A path placement is legal only if it is empty, its openings match every already-placed neighbour, and the cell connects back to the start through open tunnels.",
+        "A path placement is impossible while the placing side has any broken tool; the block is not specific to the tool a particular placement would need.",
+        "Nuggets are awarded only to the side that wins the round, so any action that helps the opposing side is a direct loss of nuggets."
+      ],
+      "sourceGapIds": [
+        "saboteur-rounds-lost-to-undirected-denial",
+        "passes-while-connection-open"
+      ]
+    },
+    {
+      "id": "miner-commit-frontier-placement-early",
+      "title": "As miner, place the legal frontier card on your turn instead of discarding or waiting",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Your assigned side for the round is the building side and at least one frontier cell adjacent to the connected tunnel is empty and inside the region that can still reach an unrevealed goal.",
+      "procedure": [
+        "Before considering any other action, test your hand against the empty frontier cells: for each, check whether a card you hold can legally sit there with edges matching all placed neighbours and a connection back to the start.",
+        "If such a placement exists, make it this turn -- but not a dead-end card on a cell the tunnel must cross: a dead end is not walked through, so it blocks your own side permanently and raises your suspicion.",
+        "Among legal placements, prefer the one that keeps the connected tunnel pointing at an unrevealed goal over one that opens a side branch, and prefer opening a new frontier over deepening one that already runs into a placed dead-end.",
+        "Discard a non-path card you cannot use rather than a path card, so the next turns still have frontier placements available.",
+        "Use a peek card only when the tunnel forks between unrevealed goals and the peek can eliminate a branch; do not spend a placement turn on peeking while a legal frontier placement is in hand.",
+        "Never spend the turn on an action the world will refuse: re-verify tool status and neighbour edges before submitting."
+      ],
+      "successSignals": [
+        "The connected tunnel advances by one frontier cell on most of your turns.",
+        "Rounds where your side builds end with the connection made.",
+        "Your hand retains usable path cards into the mid-game rather than being discarded early.",
+        "Building-side rounds are won even when only one opposing blocker is present."
+      ],
+      "failureSignals": [
+        "Turns spent discarding or peeking while a legal frontier placement was available.",
+        "Path cards discarded while the tunnel remains short of any goal.",
+        "A round lost with a single opposing blocker while your side holds a numeric majority.",
+        "The tunnel forks into branches that cannot reach an unrevealed goal."
+      ],
+      "recovery": [
+        "If no legal frontier placement exists, discard the least useful path card and re-plan the frontier for the next turn rather than resubmitting a refused placement.",
+        "If the main line is blocked by a placed dead-end, convert the turn to opening a fresh frontier cell that still points at an unrevealed goal.",
+        "If a blocking player keeps breaking your tool, hold a repair card in reserve and repair on the following turn instead of discarding it."
+      ],
+      "invariants": [
+        "Edges must match all placed neighbours and the cell must connect back to the start through open tunnels for any placement to be legal.",
+        "A drawn card replaces the one played, so each turn is worth exactly one placement regardless of hand size.",
+        "Nuggets are awarded only to the side that wins the round; a round lost by your building side yields nothing no matter how well you played individually."
+      ],
+      "sourceGapIds": [
+        "miner-stalls-before-open-frontier",
+        "discards-path-cards-before-frontier"
+      ]
+    },
+    {
+      "id": "verify-legality-before-submitting",
+      "title": "Check legality on the observation in hand, and never resubmit an action class the world already refused",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "You are about to submit a placement, a broken-tool card, a repair, a removal, or a peek, or the latest observation shows that a previous action was rejected this round.",
+      "procedure": [
+        "Before submitting, confirm from the current observation: the acting player has NO broken tool (any broken tool blocks every path placement, not just one kind); the target cell holds no card AND is not one of the three goal coordinates (goal cells are kept outside the tunnel list, so they read as empty but are rejected as occupied); and the edges match by STRICT EQUALITY on every placed neighbour -- for each of the four directions, your card's opening on that side must be open if the neighbour's facing side is open AND CLOSED IF THE NEIGHBOUR'S FACING SIDE IS CLOSED. A closed edge laid against an open one is rejected here, which is the single most common rejection in this bench. An unrevealed goal cell counts as a neighbour but imposes no edge constraint, so you may place beside a goal freely. Finally, at least one of your OPEN edges must touch a cell that is reachable from the start through open edges -- a dead-end card is not walked through, so it never supplies that reachability for the next placement.",
+        "`rotated` is a 180-degree flip, not a free turn: it swaps N with S AND E with W at the same time, so each card has exactly TWO orientations and no 90-degree turn exists. A card printed NE becomes SW when rotated -- never NW and never EN. Before setting rotated, write out both orientations of the card in hand and pick the one that satisfies the edge equality; if neither does, the card does not belong in that cell and no rotation will rescue it. Measured in this bench, placements submitted with rotated=true are rejected on edge fit three to four times as often as rotated=false, which is this module's largest single source of lost turns.",
+        "If the previous action was rejected, change only the detail the rejection names -- the rotation flag, the target cell, or the card -- and resubmit this turn. The turn has not passed and the board cannot change until you act legally, so switching action class forfeits the turn.",
+        "Treat every rejection as spent budget: three refusals lose the game outright, and each refusal also consumes a turn that could have carried denial or a frontier placement.",
+        "When two candidate actions seem equally good, prefer the one whose legality you can verify from the observation in hand over one that requires assuming a face-down cell is what you hope it is.",
+        "Track the rejection count alongside the round score, because a later round's scarce turns are the ones a wasted submission is actually stealing."
+      ],
+      "successSignals": [
+        "The cumulative rejected-action count for the episode stays at or near zero.",
+        "Every submitted action advances either the tunnel or the denial of it.",
+        "No turn is repeated on the same refused action class."
+      ],
+      "failureSignals": [
+        "The rejected-action count grows within a round, approaching the three-refusal loss threshold.",
+        "A placement is submitted into a cell whose neighbour edges do not match.",
+        "A placement is attempted while the acting side's required tool is broken.",
+        "The same action class is resubmitted immediately after being refused."
+      ],
+      "recovery": [
+        "Re-read the tool status and the neighbour openings of the frontier before the next placement."
+      ],
+      "invariants": [
+        "Three rejected actions end the episode in a loss independent of nugget totals.",
+        "A rejection does not advance the tunnel, does not draw a card, and does not change any player's tool status.",
+        "Tool status and neighbour openings are fully visible in the public observation, so legality is decidable without spending an action to discover it."
+      ],
+      "sourceGapIds": [
+        "wasted-turn-on-rejected-action",
+        "resubmits-refused-action-class"
+      ]
+    }
+  ]
+}

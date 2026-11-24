@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_7s7l">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_umvk">
+        <listOfUnits>
+          <unit kind="item"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_29sf">
+        <listOfUnits>
+          <unit kind="second" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_phg3" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_5mud" compartment="id_phg3" initialConcentration="0"/>
+      <species id="id_cue9" compartment="id_phg3" initialConcentration="0"/>
+      <species id="id_6m7j" compartment="id_phg3" initialConcentration="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

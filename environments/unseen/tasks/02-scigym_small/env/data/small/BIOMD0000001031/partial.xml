@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_y1cz">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_dr34">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_q0qs">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_ar9k">
+        <listOfUnits>
+          <unit kind="metre" exponent="3" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_kims">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="2" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_k7gb">
+        <listOfUnits>
+          <unit kind="item" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_0u5a" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_4j6j" compartment="id_0u5a" initialConcentration="0.6" boundaryCondition="false" constant="false"/>
+      <species id="id_a1rm" compartment="id_0u5a" initialConcentration="0.5" boundaryCondition="false" constant="false"/>
+      <species id="id_ewpv" compartment="id_0u5a" initialConcentration="0" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

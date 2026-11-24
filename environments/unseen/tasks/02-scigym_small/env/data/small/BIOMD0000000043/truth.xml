@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_y16y">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_0yqd">
+        <listOfUnits>
+          <unit kind="mole" scale="-6" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_4fev">
+        <listOfUnits>
+          <unit kind="second" multiplier="60" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_52il" size="1" outside="id_cyas"/>
+      <compartment id="id_rt6a" size="1"/>
+      <compartment id="id_cyas" size="1" outside="id_rt6a"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_x589" compartment="id_cyas" initialConcentration="0"/>
+      <species id="id_r7xb" compartment="id_52il" initialConcentration="0.36"/>
+      <species id="id_22ta" compartment="id_cyas" initialConcentration="0"/>
+      <species id="id_plsk" compartment="id_cyas" initialConcentration="0"/>
+      <species id="id_0nyd" compartment="id_rt6a" initialConcentration="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_2flp" value="1"/>
+      <parameter id="id_orrz" value="5000"/>
+      <parameter id="id_c5zl" value="100"/>
+      <parameter id="id_958t" value="0.1"/>
+      <parameter id="id_mpkr" value="6.5"/>
+      <parameter id="id_6w2g" value="1"/>
+      <parameter id="id_cmt2" value="1"/>
+      <parameter id="id_75gf" value="0.2"/>
+      <parameter id="id_dfq9" value="40000"/>
+      <parameter id="id_0b8x" value="50"/>
+      <parameter id="id_aa7b" value="10"/>
+      <parameter id="id_1sma" value="5"/>
+      <parameter id="id_sfai" value="1"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_sxzm" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_r7xb"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_x589"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_22ta"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_cyas </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_2flp </ci>
+                  <apply>
+                    <divide/>
+                    <apply>
+                      <times/>
+                      <ci> id_22ta </ci>
+                      <apply>
+                        <divide/>
+                        <ci> id_dfq9 </ci>
+                        <ci> id_c5zl </ci>
+                      </apply>
+                      <apply>
+                        <power/>
+                        <ci> id_x589 </ci>
+                        <cn> 4 </cn>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <plus/>
+                      <cn> 1 </cn>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <divide/>
+                          <ci> id_dfq9 </ci>
+                          <ci> id_c5zl </ci>
+                        </apply>
+                        <apply>
+                          <power/>
+                          <ci> id_x589 </ci>
+                          <cn> 4 </cn>
+                        </apply>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <ci> id_0b8x </ci>
+                  <apply>
+                    <power/>
+                    <ci> id_r7xb </ci>
+                    <cn type="integer"> 2 </cn>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <power/>
+                    <ci> id_75gf </ci>
+                    <cn type="integer"> 2 </cn>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci> id_r7xb </ci>
+                    <cn type="integer"> 2 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_m4lm" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_x589"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_r7xb"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_52il </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_mpkr </ci>
+                  <apply>
+                    <power/>
+                    <ci> id_x589 </ci>
+                    <cn type="integer"> 2 </cn>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <power/>
+                    <ci> id_958t </ci>
+                    <cn type="integer"> 2 </cn>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci> id_x589 </ci>
+                    <cn type="integer"> 2 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_houa" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_0nyd"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_x589"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_cyas </ci>
+              <apply>
+                <plus/>
+                <ci> id_6w2g </ci>
+                <apply>
+                  <times/>
+                  <ci> id_cmt2 </ci>
+                  <ci> id_2flp </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_9smp" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_x589"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_0nyd"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_rt6a </ci>
+              <ci> id_aa7b </ci>
+              <ci> id_x589 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_1ofg" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_plsk"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_22ta"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_cyas </ci>
+              <ci> id_1sma </ci>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> id_22ta </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_g9ex" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_r7xb"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_x589"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_cyas </ci>
+              <ci> id_sfai </ci>
+              <ci> id_r7xb </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_lokd" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_22ta"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_plsk"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_x589"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_cyas </ci>
+              <ci> id_orrz </ci>
+              <apply>
+                <power/>
+                <ci> id_x589 </ci>
+                <cn type="integer"> 4 </cn>
+              </apply>
+              <ci> id_22ta </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

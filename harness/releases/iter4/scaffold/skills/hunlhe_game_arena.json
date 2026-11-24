@@ -1,0 +1,141 @@
+{
+  "taskId": "hunlhe_game_arena",
+  "proposals": [
+    {
+      "id": "concise-public-output-contract",
+      "title": "Provide the required action with a brief public justification",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Preparing each native response field",
+      "procedure": [
+        "Follow the original native action syntax and required headings exactly. If a field or heading asks for thoughts, reasoning, beliefs or analysis, fill it with a short decision summary based on public task facts, calculations or experiment results.",
+        "Do not emit private internal deliberation, hidden chain of thought, or a reconstruction of another model. The public summary and requested action are sufficient.",
+        "Return the real task action, experiment, code or final submission using the offered schema. Do not replace the task with an explanation."
+      ],
+      "successSignals": [
+        "Native parser accepts the action",
+        "Summary cites only public evidence"
+      ],
+      "failureSignals": [
+        "Narrative replaces the required action",
+        "Detailed internal deliberation is requested or emitted"
+      ],
+      "recovery": [
+        "Use a concise public evidence summary under the same headings, followed by the exact native action."
+      ],
+      "invariants": [
+        "Keep the native rules, budget, opponent and scoring unchanged.",
+        "No hidden target, evaluator state or answer is available."
+      ],
+      "sourceGapIds": [
+        "public-summary-versus-private-reasoning-output"
+      ]
+    },
+    {
+      "id": "raise-or-fold-vs-wide-small-open",
+      "title": "Convert a wide-open read into raises, not flat calls, from the blind",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "You are in the blind facing a small or minimum open from an opponent whose observed open frequency is very wide, and your holding is an offsuit hand with poor postflop playability that you are tempted to defend on pot odds alone.",
+      "procedure": [
+        "Classify the hand: does it have at least one of (pair potential with dominating high card, suitedness, connectedness)? If not, it is a raise-or-fold hand, never a flat.",
+        "If the opponent's observed fold-to-raise frequency in this session is high, raise to roughly 3-3.5x their open size as the default action with that hand.",
+        "If the opponent has shown they continue or re-raise often, fold instead of flatting; do not take the call branch for junk out of position.",
+        "Reserve flat-calling for hands you are willing to continue with on two or more streets without initiative.",
+        "Record the result of each raise attempt so the fold-to-raise estimate updates from hands already played, not from extra probing."
+      ],
+      "successSignals": [
+        "A meaningful share of pots are won preflop or with a single small continuation bet.",
+        "Fewer multi-street out-of-position hands where you are the caller with no initiative."
+      ],
+      "failureSignals": [
+        "Repeated preflop flats with offsuit low-card hands followed by check-fold or check-call lines.",
+        "Session chip graph bleeding in small increments from blind defends."
+      ],
+      "recovery": [
+        "If raises start getting re-raised or called consistently, switch the same hand class to fold rather than back to flatting."
+      ],
+      "invariants": [
+        "Never spend chips calling preflop with a hand you have already judged unable to continue postflop.",
+        "Use only reads from hands already played this session; do not pay to gather more."
+      ],
+      "sourceGapIds": [
+        "flats-junk-out-of-position",
+        "read-not-converted-to-aggression"
+      ]
+    },
+    {
+      "id": "one-street-floats-only",
+      "title": "Cap a no-equity float at exactly one street",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "You called a cheap bet from the opponent with a hand that has no made pair and no primary draw, justified by pot odds, and the opponent bets again on the next street.",
+      "procedure": [
+        "At the moment of the first call, identify the publicly observable continuing condition: the specific improvement (pair, draw completion, or opponent checking) that will let you continue.",
+        "On the next street, check your actual holding against that stated condition.",
+        "If the condition is not met, fold immediately to any bet regardless of how small it is; do not recompute pot odds as a fresh independent decision.",
+        "If the opponent checks instead, take the betting lead with a small stab, since their check caps their range.",
+        "Only widen continuation if your hand actually improved to a pair or a real draw."
+      ],
+      "successSignals": [
+        "No-equity hands cost at most one small bet.",
+        "Pots where you have no pair end on your fold or your own stab, not on a third call."
+      ],
+      "failureSignals": [
+        "A chain of 'small bet, I only need ~20% equity' calls across flop, turn and river with the same pairless hand.",
+        "Showdowns reached with high-card-only holdings."
+      ],
+      "recovery": [
+        "If you notice you already made two such calls in one hand, fold the next bet unconditionally and do not price-justify it."
+      ],
+      "invariants": [
+        "Pot odds alone never justify a second call with the same unimproved hand; equity must come from a named out.",
+        "No extra observation is required - the decision uses the current board and your own cards."
+      ],
+      "sourceGapIds": [
+        "calls-down-on-pot-odds-without-equity",
+        "repeats-refuted-hypothesis"
+      ]
+    },
+    {
+      "id": "four-bet-or-fold-vs-reraise",
+      "title": "Answer a re-raise with 4-bet or fold when your hand is dominated",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Your open is re-raised and your holding is an offsuit hand whose value comes mainly from a single high card or blocker, and you are tempted to call because the opponent re-raises frequently.",
+      "procedure": [
+        "Ask which part of the opponent's re-raising range you actually beat: if the hands that continue against you dominate you and the hands you beat will fold to pressure, the hand is not a call.",
+        "If the opponent's observed fold-to-4-bet rate this session is high, 4-bet as a pure exploit; otherwise fold.",
+        "Do not take the call branch merely because pot odds against a wide range look sufficient - weight equity realization without initiative and, if applicable, without position.",
+        "If you do call, pre-commit to a specific continuation plan (which boards you continue on) and fold on all others to the first bet."
+      ],
+      "successSignals": [
+        "Re-raised pots are resolved preflop rather than as reluctant postflop folds after extra chips go in.",
+        "Fewer flop folds immediately after calling a re-raise."
+      ],
+      "failureSignals": [
+        "A pattern of calling re-raises then folding to the first continuation bet.",
+        "Dominated offsuit holdings taken to multi-street out-of-position play in inflated pots."
+      ],
+      "recovery": [
+        "After two call-then-fold-flop sequences in a session, remove calling from the response set for that hand class and choose 4-bet or fold only."
+      ],
+      "invariants": [
+        "A frequent-re-raiser read justifies aggression or folding, never passive calling with dominated hands.",
+        "Decide from the current action and session history already observed."
+      ],
+      "sourceGapIds": [
+        "calls-reraise-with-dominated-hand",
+        "commits-before-discriminating"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+num_evals: 10
+env_name: lotka_volterra
+goal_name: direct_discovery
+com_limit: 200
+env_params:
+  prey_init: 40
+  predator_init: 9
+  alpha: 0.1
+  beta: 0.02
+  gamma: 0.4
+  delta: 0.01
+  lower_limit: 0
+  upper_limit: 50

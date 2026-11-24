@@ -1,0 +1,8 @@
+defaults:
+- _self_
+- llms: openai
+- exp: discovery
+- envs: hyperbolic_direct_discovery
+seed: 1
+include_prior: true
+use_ppl: true

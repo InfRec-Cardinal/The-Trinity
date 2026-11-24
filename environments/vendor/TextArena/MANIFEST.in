@@ -1,0 +1,6 @@
+include LICENSE
+recursive-include textarena *.json
+recursive-include textarena *.jsonl
+recursive-include textarena *.py
+recursive-include textarena/envs *.json
+recursive-include textarena/envs/utils/data *.dic *.aff

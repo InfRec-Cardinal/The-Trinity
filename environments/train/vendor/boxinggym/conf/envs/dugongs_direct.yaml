@@ -1,0 +1,10 @@
+num_evals: 10
+env_name: dugongs
+goal_name: direct
+com_limit: 200
+env_params:
+  lower_limit: 0
+  upper_limit: 5
+  alpha: 2
+  beta: 1.5
+  lambda_: 0.4

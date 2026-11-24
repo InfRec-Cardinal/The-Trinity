@@ -1,0 +1,13 @@
+{
+  "libraryId": "trinity-module-library",
+  "templateCount": 42,
+  "protocolCounts": {
+    "perception": 6,
+    "memory": 6,
+    "inference": 6,
+    "planning": 6,
+    "feedback": 12,
+    "loop": 6
+  },
+  "nativeModuleCount": 29
+}

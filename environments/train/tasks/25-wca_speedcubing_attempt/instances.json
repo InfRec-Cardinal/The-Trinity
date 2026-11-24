@@ -1,0 +1,83 @@
+[
+  {
+    "kind": "random_depth",
+    "seed": 2610162501,
+    "depth": 3,
+    "scramble": "U L2 F'",
+    "referenceFacelets": "DUUDUUBRRDBBDRRURRRFFRFFBBLLLFUDDUDDLLULLUFFDLLFBBFBBR",
+    "optimalSolution": "F L2 U'",
+    "optimalLength": 3
+  },
+  {
+    "kind": "random_depth",
+    "seed": 2610162601,
+    "depth": 5,
+    "scramble": "U' B D' R' D2",
+    "referenceFacelets": "FRUUUBUUBDDRFRBFFFLLRFFULLLDDDFDDLDDUBBULLFRBBBRLBRRRU",
+    "optimalSolution": "D2 R D B' U",
+    "optimalLength": 5
+  },
+  {
+    "kind": "random_depth",
+    "seed": 2610162701,
+    "depth": 7,
+    "scramble": "U2 B2 F R2 B U L'",
+    "referenceFacelets": "RUUFUUFDUBBBLRULLURRRDFBRFBBRDBDUDRLFDDFLLFDDLRUFBLFBL",
+    "optimalSolution": "L U' B' R2 B2 F' U2",
+    "optimalLength": 7
+  },
+  {
+    "kind": "random_depth",
+    "seed": 2610162801,
+    "depth": 3,
+    "scramble": "U2 L2 B2",
+    "referenceFacelets": "DDUDUUDUULLRRRLRRLBBBBFFFFFUDDUDDUUDRLLRLLLRRBBBFBBFFF",
+    "optimalSolution": "B2 L2 U2",
+    "optimalLength": 3
+  },
+  {
+    "kind": "random_depth",
+    "seed": 2610162902,
+    "depth": 5,
+    "scramble": "R B2 L' B R2",
+    "referenceFacelets": "LLBFUBFURURRURRURRDFBDFBFFBUDLUDFLLFDLLDLLFRRDBBDBBDUU",
+    "optimalSolution": "R2 B' L B2 R'",
+    "optimalLength": 5
+  },
+  {
+    "kind": "random_depth",
+    "seed": 2610163001,
+    "depth": 7,
+    "scramble": "R' U2 L' F' L2 F U'",
+    "referenceFacelets": "UURUURLBRBBBRRRRRRFLDDFUDFUBDFFDFLDFFFDULLULLULLDBBDBB",
+    "optimalSolution": "U F' L2 F L U2 R",
+    "optimalLength": 7
+  },
+  {
+    "kind": "random_depth",
+    "seed": 2610163101,
+    "depth": 3,
+    "scramble": "R2 U' F2",
+    "referenceFacelets": "DDDUUUUDDLFBLRRBRRBFFBFFLLLUUUDDUDDUFBRLLRLLFRRRFBBFBB",
+    "optimalSolution": "F2 U R2",
+    "optimalLength": 3
+  },
+  {
+    "kind": "random_depth",
+    "seed": 2610163201,
+    "depth": 5,
+    "scramble": "R2 L U2 B R'",
+    "referenceFacelets": "LRDDUBDUFUDFLRRLRRFBRUFBUFBFDDFDBRLBBRRULLDLLLFUUBFUDB",
+    "optimalSolution": "R B' U2 L' R2",
+    "optimalLength": 5
+  },
+  {
+    "kind": "random_depth",
+    "seed": 2610163301,
+    "depth": 7,
+    "scramble": "F R D L' D2 F D'",
+    "referenceFacelets": "FUFFUFDBBLUULRRBLDRDDRFFFLUUBRRDDLRRDDBLLBUDRLBLUBUFFB",
+    "optimalSolution": "D F' D2 L D' R' F'",
+    "optimalLength": 7
+  }
+]

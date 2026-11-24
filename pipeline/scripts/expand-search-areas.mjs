@@ -1,5 +1,5 @@
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, dirname, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL} from 'node:url';
 import { openStore } from '../src/store.mjs';
 import { SEARCH_POLICY_VERSION } from '../src/search/schema.mjs';
 import { now } from '../src/core.mjs';
@@ -24,7 +24,7 @@ export function expandSearchAreas(store, areas, { policyVersion = SEARCH_POLICY_
   return added;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const store = openStore(join(ROOT, 'data'));
   const reason = 'The task-input policy widened from excluding audio and video to excluding audio alone. Every existing area was swept while video protocols were out of scope, so the newly admissible scope has never been searched.';
   const added = expandSearchAreas(store, [

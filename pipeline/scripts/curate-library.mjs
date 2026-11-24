@@ -1,5 +1,6 @@
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import {readFileSync} from 'node:fs';
+import { join, dirname, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { openStore } from '../src/store.mjs';
 import { saveCandidate } from '../src/search/discover.mjs';
 import { now } from '../src/core.mjs';
@@ -16,11 +17,17 @@ export const WITHDRAW_REASONS = {
 export function curate(store, { withdraw = {}, candidates = [], reason }) {
   const s = store.state.search, at = now(), withdrawn = [], recorded = [];
   if (!reason?.trim()) throw new Error('say why the library is being curated');
-  for (const [taskId, codes] of Object.entries(withdraw)) {
+  if (!s?.candidates) throw new Error('No task library to curate');
+  const removals = Object.entries(withdraw).map(([taskId, value]) => {
+    const codes = typeof value === 'string' ? [value] : value;
+    if (!Array.isArray(codes) || !codes.length || codes.some(code => typeof code !== 'string' || !Object.hasOwn(WITHDRAW_REASONS, code))) throw new Error(`invalid withdrawal reasons for ${taskId}`);
     const c = s.candidates[taskId];
     if (!c) throw new Error(`unknown task ${taskId}`);
     if (c.status !== 'admitted') throw new Error(`${taskId} is ${c.status}, not admitted`);
     const texts = codes.map(code => WITHDRAW_REASONS[code] ?? (() => { throw new Error(`unknown reason ${code}`); })());
+    return {taskId, c, codes, texts};
+  });
+  for (const {taskId, c, codes, texts} of removals) {
     c.status = 'withdrawn'; c.withdrawnAt = at; c.withdrawnReasons = codes; c.withdrawnReason = texts.join(' ');
     withdrawn.push(taskId);
   }
@@ -39,13 +46,21 @@ export function curate(store, { withdraw = {}, candidates = [], reason }) {
   s.taxonomyHistory ??= [];
   if (s.taxonomy) s.taxonomyHistory.push({ at, reason: 'library curation', fingerprint: s.taxonomy.fingerprint, nodes: s.taxonomy.nodes.length });
   s.taxonomy = null;
+  store.state.library = null;
+  store.state.split = null;
+  store.state.analysis = null;
   store.save();
   store.event('search_library_curated', { runId: s.runId, reason, withdrawn, recorded });
   return { withdrawn, recorded };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const { CURATION } = await import(join(ROOT, '.work', 'curation-plan.mjs'));
-  const store = openStore(join(ROOT, 'data'));
-  console.log(JSON.stringify(curate(store, CURATION), null, 1));
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  const args = process.argv.slice(2);
+  const option = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
+  const plan = option('--plan');
+  if (!plan || plan.startsWith('--')) throw new Error('Usage: node curate-library.mjs --plan PLAN.json [--data DIRECTORY]');
+  const curation = JSON.parse(readFileSync(resolve(plan), 'utf8'));
+  if (!curation || typeof curation !== 'object' || Array.isArray(curation)) throw new Error('Curation plan must be an object');
+  const store = openStore(resolve(option('--data') ?? join(ROOT, 'data')));
+  console.log(JSON.stringify(curate(store, curation), null, 1));
 }

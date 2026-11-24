@@ -1,0 +1,6 @@
+num_evals: 10
+env_name: morals
+goal_name: direct_discovery
+com_limit: 200
+env_params:
+  model_name: openai/gpt-4-1106-preview

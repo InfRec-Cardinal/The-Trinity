@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_xxt7">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_ko78">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_ua3c">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_0q4q">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_3zlc">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_yox4">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_gji3">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="-1" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_4c18">
+        <listOfUnits>
+          <unit kind="metre" exponent="-2" scale="-3" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="-1" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_1smt">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="5" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_61sm">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="5" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_oh5i" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_wd4c" compartment="id_oh5i" initialConcentration="1" boundaryCondition="false" constant="false"/>
+      <species id="id_nwcx" compartment="id_oh5i" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_ltvs" compartment="id_oh5i" initialConcentration="1" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

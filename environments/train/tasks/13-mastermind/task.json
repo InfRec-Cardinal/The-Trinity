@@ -1,0 +1,55 @@
+{
+  "taskId": "mastermind",
+  "name": "Mastermind",
+  "fullName": "Mastermind code-breaking: agentic codebreaker protocol",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D1",
+    "domainName": "Latent Rule & Mechanism Discovery",
+    "subCategoryId": "D1.1",
+    "subCategoryName": "Query-Oracle Rule Identification"
+  },
+  "assignment": {
+    "actions": {
+      "guess": "Submit one complete candidate code of code_length colors from the allowed list, ending the response with the official line 'FINAL GUESS: [...]', and receive the resulting exact/partial match feedback."
+    },
+    "evaluation": {
+      "budget": 12,
+      "efficiency": "Fewer guesses to the solved state is better; secondarily, credit a 'perfect game' when the agent reduces the remaining consistent-code set to one and then guesses correctly on the very next turn, using the harness progress_history candidate counts.",
+      "failure": "Attempts reach max_guesses without an exact match, so the harness sets state LOST and solved=false; episodes won on the very first attempt are marked invalid and replayed rather than scored.",
+      "success": "An episode is solved when a submitted guess yields exact_matches == code_length (the harness sets state WON and solved=true) within the guess budget."
+    },
+    "generation": "Instantiate the official Mastermind(code_length=4, num_colors=6, max_guesses=12) class with the process RNG seeded to a recorded integer, so the sampled color set and secret code are reproducible; episode index plus seed identifies the instance.",
+    "id": "mastermind-codebreaker-agentic",
+    "observation": "Text only. The initial turn gives the rules, the allowed color list, code length and guess budget; after every guess the harness returns the feedback line reporting how many colors are correct and in the correct position and how many are correct but misplaced. The full prior chat history is carried forward. The secret code is never shown, and feedback never indicates which positions it refers to.",
+    "reference": "Published MastermindEval agentic paradigm (Golde et al., ICLR 2025 Workshop; flairNLP/mastermind): the LLM is the codebreaker in a multi-turn chat game defined by code length c, color count n and guess budget g, receiving exact/partial match feedback. New design choices: explicit RNG seeding for instance reproduction, and the requirement to persist both solved and unsolved episode records.",
+    "task": "Act as the codebreaker in a Mastermind game with code_length=4 over 6 named colors drawn by the official game class. Each turn submit one complete candidate code and use the returned match counts to deduce the hidden code before the guess budget runs out.",
+    "verification": "Replay each recorded episode against the official evaluate_guess grading function to confirm the reported exact/partial counts and the terminal solved flag and num_guesses. The harness JSONL record (chat_history, turn_history with per-attempt guess, exact_matches, partial_matches, feedback, solved, num_guesses, game) plus the run summary provide the independently checkable run record for both won and lost episodes."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": 5,
+    "totalEpisodes": 45,
+    "actionBudget": 12,
+    "plannedEpisodes": 45
+  },
+  "otherModels": [],
+  "pythonEnv": "extra-official-venv",
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Driver ported from the original pipeline src/h0-extra-official.mjs (official-mastermind-public-driver); worker from adapters/h0-extra-official-worker.py. The shared worker and runtime live in PKG/vendor/extra-official/ (worker.py, runtime.mjs).",
+    "Upstream source vendored to PKG/vendor/extra-official/mastermind-source-03de37ea: only src/mastermind/game.py, evaluator.py, utils.py and LICENSE (the three files the native evaluator AST and class load).",
+    "invalidOutcomePolicy repeat_same_configuration and maxInvalidAttempts 3 are carried as player-facing fields for the harness."
+  ]
+}

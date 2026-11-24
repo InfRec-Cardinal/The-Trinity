@@ -1,0 +1,42 @@
+import dqn_agent
+import rainbow_agent
+import run_experiment
+
+                                
+AGENT_CLASS = @DQNAgent
+DQNAgent.gamma = 0.99
+DQNAgent.update_horizon = 1
+DQNAgent.min_replay_history = 500              
+DQNAgent.target_update_period = 500              
+DQNAgent.epsilon_train = 0.0
+DQNAgent.epsilon_eval = 0.0
+DQNAgent.epsilon_decay_period = 1000              
+DQNAgent.tf_device = '/gpu:0'                                    
+
+                                    
+AGENT_CLASS_2 = @RainbowAgent
+RainbowAgent.gamma = 0.99
+RainbowAgent.update_horizon = 1
+RainbowAgent.num_atoms = 51
+RainbowAgent.min_replay_history = 500              
+RainbowAgent.target_update_period = 500              
+RainbowAgent.epsilon_train = 0.0
+RainbowAgent.epsilon_eval = 0.0
+RainbowAgent.epsilon_decay_period = 1000              
+RainbowAgent.tf_device = '/gpu:0'                                    
+WrappedReplayMemory.replay_capacity = 50000 
+
+run_experiment.training_steps = 10000
+run_experiment.num_iterations = 10005
+run_experiment.checkpoint_every_n = 50
+run_one_iteration.evaluate_every_n = 10
+
+               
+create_environment.game_type = 'Hanabi-Full-CardKnowledge'
+create_environment.num_players = 2
+
+create_agent.agent_type = 'Rainbow'
+create_obs_stacker.history_size = 1
+
+rainbow_template.layer_size=512
+rainbow_template.num_layers=2

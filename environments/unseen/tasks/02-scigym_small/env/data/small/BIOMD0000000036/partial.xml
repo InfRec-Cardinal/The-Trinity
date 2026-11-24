@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_vtvn">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_liyq">
+        <listOfUnits>
+          <unit kind="second" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_fclk" size="1"/>
+      <compartment id="id_o84f" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_cczd" compartment="id_fclk" initialAmount="1"/>
+      <species id="id_v5j9" compartment="id_o84f" initialAmount="0" boundaryCondition="true" constant="true"/>
+      <species id="id_4bhu" compartment="id_fclk" initialAmount="1"/>
+    </listOfSpecies>
+  </model>
+</sbml>

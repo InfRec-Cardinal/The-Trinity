@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_jxv5">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_ucr3">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_6k3o">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_y038" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_59ww" compartment="id_y038" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_0lud" compartment="id_y038" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_70w8" compartment="id_y038" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_5lmp" compartment="id_y038" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_u8uf" compartment="id_y038" initialConcentration="7.4e-12" boundaryCondition="false" constant="false"/>
+      <species id="id_ckd0" compartment="id_y038" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_3nd3" compartment="id_y038" initialConcentration="5.5e-14" boundaryCondition="false" constant="false"/>
+      <species id="id_dadg" compartment="id_y038" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_erlz" compartment="id_y038" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_xsbr" compartment="id_y038" initialConcentration="3.6e-12" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

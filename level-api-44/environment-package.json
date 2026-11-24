@@ -1,0 +1,66 @@
+{
+  "schema": "trinity-environment-package-v1",
+  "id": "level-api-44",
+  "version": "1.2.0",
+  "driverModule": "driver.mjs",
+  "curriculum": "curriculum.json",
+  "integrity": "integrity.json",
+  "instanceSemantics": "fixed-instance-repeats",
+  "capabilities": {
+    "a": {
+      "id": "a",
+      "name": "Visual evidence and diagnosis",
+      "definition": "Visual evidence and diagnosis using only delivered public observations, actions and feedback."
+    },
+    "b": {
+      "id": "b",
+      "name": "Inference from public opponent behavior",
+      "definition": "Inference from public opponent behavior using only delivered public observations, actions and feedback."
+    },
+    "c": {
+      "id": "c",
+      "name": "Constraint-based planning",
+      "definition": "Constraint-based planning using only delivered public observations, actions and feedback."
+    },
+    "c-a": {
+      "id": "c-a",
+      "name": "Planning with retained observations",
+      "definition": "Planning with retained observations using only delivered public observations, actions and feedback."
+    },
+    "c-d": {
+      "id": "c-d",
+      "name": "Planning with irreversible commitments",
+      "definition": "Planning with irreversible commitments using only delivered public observations, actions and feedback."
+    },
+    "c-d-a": {
+      "id": "c-d-a",
+      "name": "Planning under revised requirements",
+      "definition": "Planning under revised requirements using only delivered public observations, actions and feedback."
+    },
+    "d": {
+      "id": "d",
+      "name": "Evidence-based action commitment",
+      "definition": "Evidence-based action commitment using only delivered public observations, actions and feedback."
+    },
+    "d-a": {
+      "id": "d-a",
+      "name": "Navigation with stateful observations",
+      "definition": "Navigation with stateful observations using only delivered public observations, actions and feedback."
+    },
+    "d-b": {
+      "id": "d-b",
+      "name": "Feedback-driven hypothesis revision",
+      "definition": "Feedback-driven hypothesis revision using only delivered public observations, actions and feedback."
+    },
+    "e": {
+      "id": "e",
+      "name": "Temporal evidence acquisition",
+      "definition": "Temporal evidence acquisition using only delivered public observations, actions and feedback."
+    },
+    "e-f": {
+      "id": "e-f",
+      "name": "Temporal tracking and event reconstruction",
+      "definition": "Temporal tracking and event reconstruction using only delivered public observations, actions and feedback."
+    }
+  }
+}

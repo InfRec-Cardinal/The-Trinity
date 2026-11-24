@@ -1,0 +1,23 @@
+{
+  "files": {
+    "LICENSE": "1a72973e2fe438c3d60321cbf22a70705d1ed8b53219d3fddbba76ab3485fba2",
+    "actions.mjs": "fe786f95b805f2631da2e712b5a0d8aa1b3ba2db47445b96842041928b99a20c",
+    "adapter.json": "70dbbd1b2d007abbc2d8738a6540b98a59e6298f8cd9861995193aa61aeef6f3",
+    "curriculum.json": "b08c6c093df9297d317c57fc063868193bf35514e6d2ff61652905be1a97f96e",
+    "driver.mjs": "c0e13c7d60dc84872b279c027b2dee7ca46f9601c120f9a57b58d44a01bc7d51",
+    "engine.mjs": "211268a5d611dc55d0fd81c27c66448743c49b6c88edcf93c9498154ecc4b07b",
+    "environment-package.json": "d2344e5f9c224d4b3a1d93030f0270d08750c285b3528a9282e7282773712d82",
+    "groups/inference.js": "6e4f6bfd56b74f16a24ca30bb493714da9102ab8da902d3ca9b7e7083343ba66",
+    "groups/observation.js": "7280fffedc6c83ab95583f80fa1a0e83de3fa0bff90868946ffba6414f63d513",
+    "groups/planning.js": "41b37d043c381975713c425470b460284d650a81d768be18a1888ce26ae2765d",
+    "manifest.json": "f0b45b38de9be22e3a46e6752e129f30ec50ab0ee3dcebe344dfca8163086694",
+    "package-info.mjs": "c9a74e7c06378063d7286cca930a2c4879892d2ddb0f1ece8a33b79f614d09e3",
+    "package.json": "514911d78b6b6032d7f9ea8c9e12a95adcc52cef4187a3cf4c94e7d167286bb4",
+    "rules.mjs": "49affae03d8dec99e7e4f93693426bccf5f5e014871ec78370de44262e6f716b",
+    "runtime.mjs": "5f88f8343b8c0f358d795e6e902c1c7ef23ff04d6a884d43002a677221b3525e",
+    "server.mjs": "f2e4756b92f984c1c55bfba602d3f9565b5628356d7f3760a0da5c2ced14b044",
+    "vendor/LICENSE": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+    "vendor/three.core.js": "1945162ac7bf53444debe66dd69cb913bf4841baaaa01001157ddcf933e5ea5c",
+    "vendor/three.module.js": "174e79888242232d31349d87b4c9724f3bd1fa4275e5e5532f2d8fb1f14ba4f2"
+  }
+}

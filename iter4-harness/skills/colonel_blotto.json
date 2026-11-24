@@ -1,0 +1,37 @@
+{
+  "taskId": "colonel_blotto",
+  "proposals": [
+    {
+      "id": "resource-contest",
+      "title": "Use complete public history with a symmetry-aware opponent model",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Before each native decision in this task, using only current public observations and earlier public feedback.",
+      "procedure": [
+        "Read your assigned commander and the exact total allocation budget. The prerequisite b module automatically parses all current-episode opponent allocations from the public transcript and evaluates every legal allocation. It never uses your own past allocations as opponent observations.",
+        "The module now treats observed allocation SHAPES as exchangeable across fields and removes its broad uniform-allocation prior once a real shape has been observed. This tests structural rather than position-specific generalization. Use its recommendation while checking the exact budget; a concentrated two-field strategy can defeat a familiar balanced distribution without requiring a memorized allocation.",
+        "Inspect the computed top actions, normally execute the recommended allocation, and preserve its field order exactly in the native action format. Verify nonnegative integer allocations and their sum. Do not replace a computed allocation with a superficially balanced one.",
+        "Recompute after every revealed round. Use the complete ordered public history rather than only the last opponent move; repeated observations still contribute their actual frequency. If you disagree with the symmetry assumption, base that disagreement on repeated current-episode evidence, not a remembered opponent pattern.",
+        "Read the native round result and overall win count after execution. The task is scored by rounds won; a tie is not a win. Do not claim a guarantee from an empirical expected-utility recommendation."
+      ],
+      "successSignals": [
+        "Native objective achieved; actual feedback agrees with the selected action."
+      ],
+      "failureSignals": [
+        "Action repeats a known failure or depends on an unverified observation or model."
+      ],
+      "recovery": [
+        "Re-read the actual public feedback, identify whether perception, model or execution was wrong, and revise only that assumption."
+      ],
+      "invariants": [
+        "No fixed allocation, opponent list or seed is embedded.",
+        "The node module uses generic resource contests and is not a task-answer lookup."
+      ],
+      "sourceGapIds": [
+        "policy-resource-contest"
+      ]
+    }
+  ]
+}

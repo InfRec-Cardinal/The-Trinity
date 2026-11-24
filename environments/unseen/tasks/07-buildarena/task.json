@@ -1,0 +1,101 @@
+{
+  "taskId": "buildarena_1_0",
+  "name": "BuildArena 1.0: language-driven machine construction in Besiege (9 official tasks)",
+  "kind": "workflow",
+  "taxonomy": {
+    "domainId": "D2",
+    "subCategoryId": "D2.4"
+  },
+  "assignment": {
+    "note": "Built per call by h0/h0_call.mjs: the official role system prompt (BuildArena-1.0/prompt.yaml) is placed verbatim into the H0 assignment task; observation, actions (message or one official tool call) and evaluation texts are fixed there."
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Submit one message or one official tool call.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "text",
+        "tool",
+        "arguments_json"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "message",
+            "tool_call"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "tool": {
+          "type": "string"
+        },
+        "arguments_json": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "contract": "One action per turn: a message or one official tool call.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract) with the per-role assignment of h0/h0_call.mjs",
+    "roles": [
+      "planner",
+      "drafter",
+      "draft_reviewer",
+      "builder",
+      "guidance",
+      "controller"
+    ],
+    "contextPolicy": "official AutoGen conversation of the role, in full (no H0 window); BuildArena-1.0/h0_client.py to_h0_turns converts it to H0 turns",
+    "imageOrder": null,
+    "structuredOutput": true,
+    "invalidResponses": "Every response is a schema-valid action (structured output). A failed call is retried unchanged up to 20 times (usage-limit errors wait in 5-minute steps up to 4 h); BuildArena-1.0/h0_client.py.",
+    "transport": "player/claude-cli-transport-v4.mjs, or H0_PLAYER_MODULE"
+  },
+  "evaluation": {
+    "configurations": 9,
+    "samplesPerConfiguration": 5,
+    "totalEpisodes": 45,
+    "metric": "official pass rate per task (BuildArena-1.0/analyze/sim_<category>.py); transport is counted at its final (3rd) control generation",
+    "report": "overall, per category and per level (15 episodes each)"
+  },
+  "otherModels": [],
+  "environment": {
+    "adapter": "own workflow (official BuildArena 1.0 run_construction / run_simulation + H0 model client)",
+    "name": "buildarena-1.0",
+    "envDir": "tasks/07-buildarena/BuildArena-1.0",
+    "python": "buildarena-1.0",
+    "requires": [
+      "Offline contract validation: no game or mod required.",
+      "Native simulation: user-installed Besiege with required DLC and Lua Scripting mod.",
+      "Official GUI route: macOS with Accessibility and Screen Recording permissions.",
+      "Optional Linux x86-64 transport_soft route: system Xvfb, VirtualGL (vglrun), xclip and compatible external observer; see README.md.",
+      "BESIEGE_SAVED_MACHINES = <Besiege data>/SavedMachines"
+    ],
+    "setup": "tasks/07-buildarena/README.md",
+    "data": {
+      "check": "tasks/07-buildarena/BuildArena-1.0/run_h0.py",
+      "fetch": "tools/fetch/sources.sh buildarena",
+      "note": "BuildArena @ c3005b9, official-changes.diff and H0 integration are already present in one source tree. The fetch command checks local files only."
+    }
+  },
+  "driverId": null,
+  "notes": [
+    "The prebuilt control/examples machines of BuildArena 2.0 are not part of 1.0 and are never shown to the Player.",
+    "Official code changes are minimal (F1 controller role under agents, F2 starting-block guard id, F3/F4 approval and completion of non-spinning, refined and assembled machines); the diff against c3005b9 is official-changes.diff.",
+    "config.py: placeholder API keys only (every role uses the H0 client) and click positions calibrated for a 1470x956-point screen with Besiege windowed at (104,35), 1262x849 pt. Recalibrate on another screen."
+  ]
+}

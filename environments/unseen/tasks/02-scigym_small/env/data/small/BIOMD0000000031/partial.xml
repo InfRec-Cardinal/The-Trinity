@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_fngg">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_14oc">
+        <listOfUnits>
+          <unit kind="mole" scale="-9"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_j7wu" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_dxmb" compartment="id_j7wu" initialAmount="0"/>
+      <species id="id_2i2t" compartment="id_j7wu" initialAmount="100" constant="true"/>
+      <species id="id_7wlx" compartment="id_j7wu" initialAmount="1" constant="true"/>
+      <species id="id_wv4z" compartment="id_j7wu" initialAmount="0"/>
+      <species id="id_rhn6" compartment="id_j7wu" initialAmount="500"/>
+      <species id="id_hxcn" compartment="id_j7wu" initialAmount="100" constant="true"/>
+    </listOfSpecies>
+  </model>
+</sbml>

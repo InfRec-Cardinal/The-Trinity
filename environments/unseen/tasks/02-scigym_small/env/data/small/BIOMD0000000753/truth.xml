@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1" level="3" version="1" layout:required="false" render:required="false">
+  <model id="id_5dbi" substanceUnits="id_p4ir" timeUnits="id_yd1u" volumeUnits="id_7m6k" areaUnits="id_mefz" lengthUnits="id_w6z3" extentUnits="id_p4ir">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_w6z3">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_mefz">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_7m6k">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_yd1u">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_p4ir">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_g13h">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="0" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_fkle" spatialDimensions="3" size="1" units="id_7m6k" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_rekj" compartment="id_fkle" initialConcentration="5" substanceUnits="id_p4ir" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_2r3i" compartment="id_fkle" initialConcentration="50" substanceUnits="id_p4ir" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_xkrl" value="2" units="id_g13h" constant="true"/>
+      <parameter id="id_fvhh" value="0.004" units="id_g13h" constant="true"/>
+      <parameter id="id_4ceb" value="1.636" units="id_g13h" constant="true"/>
+      <parameter id="id_cwp8" value="0.00311" units="id_g13h" constant="true"/>
+      <parameter id="id_chf4" value="20.19" units="id_g13h" constant="true"/>
+      <parameter id="id_gg0t" value="1" units="id_g13h" constant="true"/>
+      <parameter id="id_8vf2" value="0.318" units="id_g13h" constant="true"/>
+      <parameter id="id_7vtm" value="1.131" units="id_g13h" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_av91" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="id_2r3i" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_fkle </ci>
+              <ci> id_4ceb </ci>
+              <ci> id_fvhh </ci>
+              <ci> id_2r3i </ci>
+              <ci> id_2r3i </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_djd0" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="id_rekj" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_2r3i"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_fkle </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_7vtm </ci>
+                  <ci> id_2r3i </ci>
+                  <ci> id_rekj </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <ci> id_chf4 </ci>
+                  <ci> id_2r3i </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_fno6" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="id_rekj" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_2r3i"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_fkle </ci>
+              <ci> id_cwp8 </ci>
+              <ci> id_rekj </ci>
+              <ci> id_2r3i </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_qjs3" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="id_2r3i" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_fkle </ci>
+              <ci> id_4ceb </ci>
+              <ci> id_2r3i </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_fte4" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="id_2r3i" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_rekj"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_fkle </ci>
+              <ci> id_gg0t </ci>
+              <ci> id_2r3i </ci>
+              <ci> id_rekj </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_elve" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="id_rekj" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_fkle </ci>
+              <ci> id_xkrl </ci>
+              <ci> id_rekj </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_et1h" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="id_rekj" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_fkle </ci>
+              <ci> id_8vf2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

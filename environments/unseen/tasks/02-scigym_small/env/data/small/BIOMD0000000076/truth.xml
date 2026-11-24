@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_u5zm">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_r7h7">
+        <listOfUnits>
+          <unit kind="mole" scale="-3" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_ia1g">
+        <listOfUnits>
+          <unit kind="second" multiplier="60" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_0ok6">
+        <listOfUnits>
+          <unit kind="mole" scale="-3" multiplier="1" offset="0"/>
+          <unit kind="litre" exponent="-1" multiplier="1" offset="0"/>
+          <unit kind="second" exponent="-1" multiplier="60" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_80mt">
+        <listOfUnits>
+          <unit kind="mole" scale="-3" multiplier="1" offset="0"/>
+          <unit kind="litre" exponent="-1" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_vg02" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_pham" compartment="id_vg02" initialConcentration="0.59" boundaryCondition="true"/>
+      <species id="id_p5hv" compartment="id_vg02" initialConcentration="15.1" boundaryCondition="true"/>
+      <species id="id_4g8t" compartment="id_vg02" initialConcentration="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_6uux" value="2" units="id_80mt"/>
+      <parameter id="id_vnn2" value="0.023" units="id_80mt"/>
+      <parameter id="id_gxbk" value="53" units="id_0ok6"/>
+      <parameter id="id_sk9o" value="6.01" units="id_80mt"/>
+      <parameter id="id_hj6b" value="2.17" units="id_80mt"/>
+      <parameter id="id_a8o3" value="1" units="id_80mt"/>
+      <parameter id="id_7cf6" value="4.8" units="id_80mt"/>
+      <parameter id="id_7f7v" value="1.2" units="id_80mt"/>
+      <parameter id="id_5h2r" value="1" units="id_80mt"/>
+      <parameter id="id_2gkl" value="0.73" units="id_80mt"/>
+      <parameter id="id_qeor" value="10000" units="dimensionless"/>
+      <parameter id="id_d55q" value="0.93" units="id_80mt"/>
+      <parameter id="id_nam9" value="2.37" units="id_80mt"/>
+      <parameter id="id_c04r" value="0.54" units="id_80mt"/>
+      <parameter id="id_a8y6" value="47" units="id_0ok6"/>
+      <parameter id="id_ten5" value="3.5" units="id_80mt"/>
+      <parameter id="id_muk6" value="1.87" units="id_80mt"/>
+      <parameter id="id_2w2g" value="1.45" units="id_80mt"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_wgnm">
+        <listOfReactants>
+          <speciesReference species="id_4g8t"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_p5hv"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_vg02 </ci>
+                  <ci> id_gxbk </ci>
+                  <ci> id_4g8t </ci>
+                </apply>
+                <ci> id_ten5 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <divide/>
+                    <ci> id_4g8t </ci>
+                    <ci> id_ten5 </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <divide/>
+                    <ci> id_a8o3 </ci>
+                    <ci> id_5h2r </ci>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_11vj">
+        <listOfReactants>
+          <speciesReference species="id_pham"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_4g8t"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <divide/>
+                  <apply>
+                    <times/>
+                    <ci> id_vg02 </ci>
+                    <ci> id_a8y6 </ci>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> id_vnn2 </ci>
+                    <ci> id_c04r </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <minus/>
+                  <apply>
+                    <times/>
+                    <ci> id_muk6 </ci>
+                    <ci> id_pham </ci>
+                  </apply>
+                  <apply>
+                    <divide/>
+                    <apply>
+                      <times/>
+                      <ci> id_2w2g </ci>
+                      <ci> id_4g8t </ci>
+                    </apply>
+                    <ci> id_qeor </ci>
+                  </apply>
+                </apply>
+              </apply>
+              <apply>
+                <times/>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <divide/>
+                    <ci> id_sk9o </ci>
+                    <ci> id_7cf6 </ci>
+                  </apply>
+                  <apply>
+                    <divide/>
+                    <ci> id_nam9 </ci>
+                    <ci> id_2gkl </ci>
+                  </apply>
+                  <apply>
+                    <divide/>
+                    <ci> id_hj6b </ci>
+                    <ci> id_6uux </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <divide/>
+                    <ci> id_muk6 </ci>
+                    <ci> id_vnn2 </ci>
+                  </apply>
+                  <apply>
+                    <divide/>
+                    <ci> id_2w2g </ci>
+                    <ci> id_d55q </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <divide/>
+                    <ci> id_pham </ci>
+                    <ci> id_c04r </ci>
+                  </apply>
+                  <apply>
+                    <divide/>
+                    <ci> id_4g8t </ci>
+                    <ci> id_7f7v </ci>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1" level="3" version="1" layout:required="false" render:required="false">
+  <model id="id_s6b8" substanceUnits="id_jypb" timeUnits="id_92ij" volumeUnits="id_x8zo" areaUnits="id_9zg4" lengthUnits="id_08rr" extentUnits="id_jypb">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_08rr">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_9zg4">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_x8zo">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_92ij">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_jypb">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_87zb">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="0" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_vevg" spatialDimensions="3" size="1" units="id_x8zo" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_4jho" compartment="id_vevg" initialConcentration="0.0001" substanceUnits="id_jypb" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_v4pi" compartment="id_vevg" initialConcentration="0.5" substanceUnits="id_jypb" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

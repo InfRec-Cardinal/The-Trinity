@@ -1,0 +1,65 @@
+{
+  "revision": "cfcb4b5549ddf13c41b2ea8b4e709540de9538a8",
+  "files": [
+    {
+      "rfilename": "README.md",
+      "url": "https://huggingface.co/datasets/yizheapple/entity-deduction-arena/resolve/cfcb4b5549ddf13c41b2ea8b4e709540de9538a8/README.md",
+      "bytes": 2922,
+      "sha256": "718f5614f0af9f0650faf9817f8338d347603e224e284f2d0dfa05ed72ae8430"
+    },
+    {
+      "rfilename": "celebs/dev.txt",
+      "url": "https://huggingface.co/datasets/yizheapple/entity-deduction-arena/resolve/cfcb4b5549ddf13c41b2ea8b4e709540de9538a8/celebs/dev.txt",
+      "bytes": 1539,
+      "sha256": "09def7111040c9e8f32bfa02f627838d9f1ca4d906f9c8a22659aa16b2507b5c",
+      "packagedPath": "../source/data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "rfilename": "celebs/test.txt",
+      "url": "https://huggingface.co/datasets/yizheapple/entity-deduction-arena/resolve/cfcb4b5549ddf13c41b2ea8b4e709540de9538a8/celebs/test.txt",
+      "bytes": 1431,
+      "sha256": "d49b21fed0af0cc3ee684ed02e4a7cb792c8a7a1569d98ada48ef167bb151007",
+      "packagedPath": "../source/data/celebrities/newlist_celebs.all.rmdup.test.txt"
+    },
+    {
+      "rfilename": "celebs/train.txt",
+      "url": "https://huggingface.co/datasets/yizheapple/entity-deduction-arena/resolve/cfcb4b5549ddf13c41b2ea8b4e709540de9538a8/celebs/train.txt",
+      "bytes": 4409,
+      "sha256": "17edbb8ef5b5090ee3e6338234a1c91ecadf8d8ff5c42e462aa8440ac8e82d7e",
+      "packagedPath": "../source/data/celebrities/newlist_celebs.all.rmdup.train.txt"
+    },
+    {
+      "rfilename": "dataset_dict.py",
+      "url": "https://huggingface.co/datasets/yizheapple/entity-deduction-arena/resolve/cfcb4b5549ddf13c41b2ea8b4e709540de9538a8/dataset_dict.py",
+      "bytes": 774,
+      "sha256": "f5516252312c78a5cf1982378f2e2d8eb5d717b09638edeb8ac80b4d32579a73"
+    },
+    {
+      "rfilename": "entity-deduction-arena.py",
+      "url": "https://huggingface.co/datasets/yizheapple/entity-deduction-arena/resolve/cfcb4b5549ddf13c41b2ea8b4e709540de9538a8/entity-deduction-arena.py",
+      "bytes": 1832,
+      "sha256": "2abaf60c223f7491eaaf01a2c57965c1a6c05ad53bccbbe30e6c116afc0546cb"
+    },
+    {
+      "rfilename": "things/dev.txt",
+      "url": "https://huggingface.co/datasets/yizheapple/entity-deduction-arena/resolve/cfcb4b5549ddf13c41b2ea8b4e709540de9538a8/things/dev.txt",
+      "bytes": 782,
+      "sha256": "a8dd6a7e7badfe762568c98e351cfe6115d44c31c7f97e938924cb4e4d7692b3",
+      "packagedPath": "../source/data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "rfilename": "things/test.txt",
+      "url": "https://huggingface.co/datasets/yizheapple/entity-deduction-arena/resolve/cfcb4b5549ddf13c41b2ea8b4e709540de9538a8/things/test.txt",
+      "bytes": 961,
+      "sha256": "3262c84bd6224c691c7e187e5d48cc7736f12e2eeecf289aabfc538c5875433a",
+      "packagedPath": "../source/data/things/newlist_things.rmdup.test.txt"
+    },
+    {
+      "rfilename": "things/train.txt",
+      "url": "https://huggingface.co/datasets/yizheapple/entity-deduction-arena/resolve/cfcb4b5549ddf13c41b2ea8b4e709540de9538a8/things/train.txt",
+      "bytes": 2491,
+      "sha256": "bc65d45ba155dad37b5184f7cf7e640e6553044a5476b6c9b683ba2dcbed72ef",
+      "packagedPath": "../source/data/things/newlist_things.rmdup.train.txt"
+    }
+  ]
+}

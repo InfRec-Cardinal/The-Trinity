@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_o53x">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_e7wq">
+        <listOfUnits>
+          <unit kind="second" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_cypr">
+        <listOfUnits>
+          <unit kind="mole" scale="-9"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_s1wu" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_rcgu" compartment="id_s1wu" initialConcentration="2.399999"/>
+      <species id="id_458f" compartment="id_s1wu" initialConcentration="0"/>
+      <species id="id_4w9j" compartment="id_s1wu" initialConcentration="0"/>
+      <species id="id_ge2e" compartment="id_s1wu" initialConcentration="0"/>
+      <species id="id_dx3e" compartment="id_s1wu" initialConcentration="169.9999"/>
+      <species id="id_8d6p" compartment="id_s1wu" initialConcentration="0"/>
+      <species id="id_y67x" compartment="id_s1wu" initialConcentration="0.9999997"/>
+      <species id="id_o8r6" compartment="id_s1wu" initialConcentration="0"/>
+      <species id="id_yhgz" compartment="id_s1wu" initialConcentration="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

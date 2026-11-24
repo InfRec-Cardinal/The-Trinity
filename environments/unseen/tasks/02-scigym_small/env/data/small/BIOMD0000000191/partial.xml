@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version3" level="2" version="3">
+  <model id="id_vatl">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_xsw3">
+        <listOfUnits>
+          <unit kind="second" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_h3n1">
+        <listOfUnits>
+          <unit kind="mole" scale="-6"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_oaqn">
+        <listOfUnits>
+          <unit kind="mole" scale="-6"/>
+          <unit kind="litre" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_dxsx">
+        <listOfUnits>
+          <unit kind="mole" scale="-6"/>
+          <unit kind="litre" exponent="-1"/>
+          <unit kind="second" exponent="-1" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_3ypa" size="1"/>
+      <compartment id="id_lof9" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_qdet" compartment="id_3ypa" initialConcentration="1"/>
+      <species id="id_9456" compartment="id_lof9" initialConcentration="330" boundaryCondition="true" constant="true"/>
+      <species id="id_htec" compartment="id_3ypa" initialConcentration="1"/>
+    </listOfSpecies>
+  </model>
+</sbml>

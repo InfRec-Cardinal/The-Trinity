@@ -1,0 +1,81 @@
+{
+  "taskId": "phyre_unseen_fold0",
+  "name": "PHYRE-B within-template fold 0 (2 tasks per template)",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D3",
+    "subCategoryId": "D3.3"
+  },
+  "assignment": {
+    "task": "Official PHYRE single-ball tier: place one red ball so that, after the physics simulation, the green object touches a blue or purple object. Up to 100 valid attempts per task; fewer attempts score higher (AUCCESS).",
+    "observation": "The official initial scene image, then after each attempt the official status (SOLVED / NOT_SOLVED / INVALID_INPUT) with two rollout frames.",
+    "actions": {
+      "x": "ball centre x in [0,1] from the left edge",
+      "y": "ball centre y in [0,1] from the bottom edge",
+      "radius": "ball radius in [0,1] (PHYRE allowed range)"
+    },
+    "evaluation": "Official PHYRE: solved or not within 100 valid attempts; AUCCESS over attempts."
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Place one ball.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "radius": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "radius"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "contract": "One ball placement (x, y, radius, each in [0,1]) per turn.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract)",
+    "contextPolicy": "first+15",
+    "imageOrder": "after",
+    "structuredOutput": true,
+    "invalidResponses": "H0 used structured output (one schema-valid submit_action per response); a refusal or a response without an action was retried with the same request, without a reprompt."
+  },
+  "evaluation": {
+    "configurations": 50,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 50
+  },
+  "otherModels": [],
+  "environment": {
+    "adapter": "jsonl",
+    "name": "phyre",
+    "envDir": "tasks/10-phyre_unseen_fold0/env",
+    "python": "phyre",
+    "bridge": {
+      "script": "phyre_bridge.py",
+      "args": [
+        "{taskId}"
+      ],
+      "reply": "args"
+    },
+    "terminal": "phyre",
+    "limits": null
+  },
+  "driverId": "phyre-official-ball-bridge-v1",
+  "notes": []
+}

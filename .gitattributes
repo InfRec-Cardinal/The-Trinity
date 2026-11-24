@@ -1,0 +1,12 @@
+# The frozen harness and course manifests verify file bytes.
+cli.mjs text eol=lf
+harness/** text=auto eol=lf
+src/** text=auto eol=lf
+pipeline/** text=auto eol=lf
+stage2/** text=auto eol=lf
+scripts/** text=auto eol=lf
+trinity-studio/** text=auto eol=lf
+iter4-harness/** text=auto eol=lf
+level-api-44/** text=auto eol=lf
+# Preserve original benchmark assets, including mixed line endings.
+environments/** -text

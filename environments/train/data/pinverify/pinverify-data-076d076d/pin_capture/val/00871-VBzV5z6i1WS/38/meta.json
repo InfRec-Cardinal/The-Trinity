@@ -1,0 +1,1724 @@
+{
+  "scene_id": "data/scene_datasets/hm3d/val/00871-VBzV5z6i1WS/VBzV5z6i1WS.basis.glb",
+  "scene_key": "00871-VBzV5z6i1WS",
+  "episode_id": "38",
+  "goal_position_nominal": [
+    0.5404999852180481,
+    0.11739999800920486,
+    -2.7058000564575195
+  ],
+  "final_base_y": 0.046541884541511536,
+  "base_y_source": "snap_goal_y",
+  "object_category": "book",
+  "object_id": "3b549cefd7c241afa1cad95c1b5d5666",
+  "pin_semantic_id_convention": {
+    "target_semantic_id": 100000,
+    "meaning": "All pixels with this semantic_id correspond to this episode's target object."
+  },
+  "camera_intrinsics": {
+    "width": 360,
+    "height": 640,
+    "hfov_deg": 42.0,
+    "vfov_deg": 68.62120575907826,
+    "K": [
+      [
+        468.9160316448843,
+        0,
+        179.5
+      ],
+      [
+        0,
+        468.91603164488436,
+        319.5
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "sensor_mount_offset_y": 1.31,
+  "n_sectors": 12,
+  "sector_order": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "sector_skip": 1,
+  "ranges": {
+    "near": [
+      0.9,
+      1.2
+    ],
+    "far": [
+      1.4,
+      1.7
+    ]
+  },
+  "look_thresh": 0.3,
+  "category_mask_threshold": 300,
+  "viewpoints": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 895,
+      "mask_bbox_xyxy": [
+        191,
+        359,
+        220,
+        405
+      ],
+      "mask_area_fraction": 0.003884548611111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        2.158946990966797,
+        1.3565418720245361,
+        -2.662260055541992
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.692135751247406,
+        -0.1854572296142578,
+        0.6737660765647888,
+        0.18053509294986725
+      ],
+      "camera_to_world": [
+        [
+          0.026892729103565216,
+          0.0,
+          -0.9996382594108582,
+          0.0
+        ],
+        [
+          -0.49981915950775146,
+          0.8660253882408142,
+          -0.013446316123008728,
+          0.0
+        ],
+        [
+          0.8657121062278748,
+          0.5,
+          0.023289799690246582,
+          0.0
+        ],
+        [
+          2.158946990966797,
+          1.3565418720245361,
+          -2.662260055541992,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.02689271979033947,
+          -0.49981918931007385,
+          0.8657122254371643,
+          -0.0
+        ],
+        [
+          4.936010356004772e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.9996383786201477,
+          -0.013446366414427757,
+          0.023289788514375687,
+          -0.0
+        ],
+        [
+          -2.7193572521209717,
+          -0.13151423633098602,
+          -2.4852941036224365,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.8657121658325195,
+        -0.02328968048095703
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6190326232138545
+    },
+    {
+      "tag": "s0_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 0,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s2_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 2,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s2_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 2,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s4_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 4,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s4_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 4,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s6_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 3708,
+      "mask_bbox_xyxy": [
+        137,
+        358,
+        226,
+        415
+      ],
+      "mask_area_fraction": 0.01609375,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s6_far.png",
+      "mask_raw_path": "mask/mask_s6_far.png",
+      "camera_position": [
+        -1.0024911165237427,
+        1.3565418720245361,
+        -3.095953941345215
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.59341961145401,
+        -0.15900632739067078,
+        -0.7621455788612366,
+        -0.20421631634235382
+      ],
+      "camera_to_world": [
+        [
+          -0.24514032900333405,
+          0.0,
+          0.9694876670837402,
+          0.0
+        ],
+        [
+          0.4847438633441925,
+          0.8660253882408142,
+          0.12257018685340881,
+          0.0
+        ],
+        [
+          -0.8396009206771851,
+          0.5000001192092896,
+          -0.2122977375984192,
+          0.0
+        ],
+        [
+          -1.0024911165237427,
+          1.3565418720245361,
+          -3.095953941345215,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.24514031410217285,
+          0.4847438931465149,
+          -0.8396008014678955,
+          -0.0
+        ],
+        [
+          -1.4901159417490817e-08,
+          0.8660253286361694,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.9694875478744507,
+          0.12257017940282822,
+          -0.212297722697258,
+          -0.0
+        ],
+        [
+          2.7557380199432373,
+          -0.30937665700912476,
+          -2.17722749710083,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.8396009206771851,
+        0.21229776740074158
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.591553259519198
+    },
+    {
+      "tag": "s6_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 6259,
+      "mask_bbox_xyxy": [
+        128,
+        416,
+        236,
+        497
+      ],
+      "mask_area_fraction": 0.02716579861111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s6_near.png",
+      "mask_raw_path": "mask/mask_s6_near.png",
+      "camera_position": [
+        -0.6211243271827698,
+        1.3565418720245361,
+        -2.999523162841797
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.59341961145401,
+        -0.15900632739067078,
+        -0.7621455788612366,
+        -0.20421631634235382
+      ],
+      "camera_to_world": [
+        [
+          -0.24514032900333405,
+          0.0,
+          0.9694876670837402,
+          0.0
+        ],
+        [
+          0.4847438633441925,
+          0.8660253882408142,
+          0.12257018685340881,
+          0.0
+        ],
+        [
+          -0.8396009206771851,
+          0.5000001192092896,
+          -0.2122977375984192,
+          0.0
+        ],
+        [
+          -0.6211243271827698,
+          1.3565418720245361,
+          -2.999523162841797,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.24514031410217285,
+          0.4847438931465149,
+          -0.8396008014678955,
+          -0.0
+        ],
+        [
+          -1.4901159417490817e-08,
+          0.8660253286361694,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.9694875478744507,
+          0.12257017940282822,
+          -0.212297722697258,
+          -0.0
+        ],
+        [
+          2.755737781524658,
+          -0.5060613751411438,
+          -1.836559534072876,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.8396009206771851,
+        0.21229776740074158
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1981837531800799
+    },
+    {
+      "tag": "s8_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 4334,
+      "mask_bbox_xyxy": [
+        136,
+        376,
+        217,
+        441
+      ],
+      "mask_area_fraction": 0.018810763888888887,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s8_far.png",
+      "mask_raw_path": "mask/mask_s8_far.png",
+      "camera_position": [
+        0.3329727351665497,
+        1.3565418720245361,
+        -4.145445346832275
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.06908442825078964,
+        -0.01851111836731434,
+        -0.963452160358429,
+        -0.2581562399864197
+      ],
+      "camera_to_world": [
+        [
+          -0.9897693991661072,
+          3.725290298461914e-09,
+          0.14267659187316895,
+          0.0
+        ],
+        [
+          0.07133831083774567,
+          0.8660253882408142,
+          0.4948846995830536,
+          0.0
+        ],
+        [
+          -0.1235615536570549,
+          0.5,
+          -0.8571654558181763,
+          0.0
+        ],
+        [
+          0.3329727351665497,
+          1.3565418720245361,
+          -4.145445346832275,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9897692799568176,
+          0.07133828848600388,
+          -0.12356153875589371,
+          -0.0
+        ],
+        [
+          1.4901159417490817e-08,
+          0.8660253286361694,
+          0.5,
+          -0.0
+        ],
+        [
+          0.14267657697200775,
+          0.4948846399784088,
+          -0.8571653366088867,
+          -0.0
+        ],
+        [
+          0.9210240840911865,
+          0.8529638051986694,
+          -4.190460205078125,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.1235615536570549,
+        0.8571654558181763
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.4545260814478895
+    },
+    {
+      "tag": "s8_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 9084,
+      "mask_bbox_xyxy": [
+        121,
+        464,
+        227,
+        570
+      ],
+      "mask_area_fraction": 0.039427083333333335,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s8_near.png",
+      "mask_raw_path": "mask/mask_s8_near.png",
+      "camera_position": [
+        0.4036598205566406,
+        1.3565418720245361,
+        -3.6550791263580322
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.06908442080020905,
+        -0.01851111650466919,
+        -0.963452160358429,
+        -0.2581562399864197
+      ],
+      "camera_to_world": [
+        [
+          -0.9897693991661072,
+          3.725290298461914e-09,
+          0.14267657697200775,
+          0.0
+        ],
+        [
+          0.07133829593658447,
+          0.8660253882408142,
+          0.4948846995830536,
+          0.0
+        ],
+        [
+          -0.12356153875589371,
+          0.5,
+          -0.8571654558181763,
+          0.0
+        ],
+        [
+          0.4036598205566406,
+          1.3565418720245361,
+          -3.6550791263580322,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9897692799568176,
+          0.07133828103542328,
+          -0.12356152385473251,
+          -0.0
+        ],
+        [
+          7.4505797087454084e-09,
+          0.8660253286361694,
+          0.5,
+          -0.0
+        ],
+        [
+          0.14267656207084656,
+          0.4948846399784088,
+          -0.8571653366088867,
+          -0.0
+        ],
+        [
+          0.9210241436958313,
+          0.6052464246749878,
+          -3.7614009380340576,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.12356153875589371,
+        0.8571654558181763
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9590912277858366
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 4174,
+      "mask_bbox_xyxy": [
+        128,
+        364,
+        231,
+        436
+      ],
+      "mask_area_fraction": 0.018116319444444445,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        1.6257002353668213,
+        1.3565418720245361,
+        -3.7623555660247803
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.3756027817726135,
+        -0.10064247250556946,
+        0.8899074196815491,
+        0.23844999074935913
+      ],
+      "camera_to_world": [
+        [
+          -0.6975871920585632,
+          0.0,
+          -0.7164998054504395,
+          0.0
+        ],
+        [
+          -0.3582499325275421,
+          0.8660253882408142,
+          0.3487936556339264,
+          0.0
+        ],
+        [
+          0.620507001876831,
+          0.5,
+          -0.6041282415390015,
+          0.0
+        ],
+        [
+          1.6257002353668213,
+          1.3565418720245361,
+          -3.7623555660247803,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.6975873708724976,
+          -0.3582499921321869,
+          0.6205071210861206,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000001192092896,
+          0.0
+        ],
+        [
+          -0.716499924659729,
+          0.3487936854362488,
+          -0.604128360748291,
+          -0.0
+        ],
+        [
+          -1.5616596937179565,
+          0.7198931574821472,
+          -3.9599757194519043,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.620507001876831,
+        0.6041282415390015
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5145855066934477
+    },
+    {
+      "tag": "s10_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 7174,
+      "mask_bbox_xyxy": [
+        116,
+        424,
+        242,
+        530
+      ],
+      "mask_area_fraction": 0.031137152777777777,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_near.png",
+      "mask_raw_path": "mask/mask_s10_near.png",
+      "camera_position": [
+        1.3444591760635376,
+        1.3565418720245361,
+        -3.4885380268096924
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.37560275197029114,
+        -0.10064245760440826,
+        0.8899074196815491,
+        0.23844999074935913
+      ],
+      "camera_to_world": [
+        [
+          -0.6975871920585632,
+          1.4901161193847656e-08,
+          -0.7164997458457947,
+          0.0
+        ],
+        [
+          -0.3582499027252197,
+          0.8660253882408142,
+          0.3487936854362488,
+          0.0
+        ],
+        [
+          0.6205069422721863,
+          0.5,
+          -0.6041282415390015,
+          0.0
+        ],
+        [
+          1.3444591760635376,
+          1.3565418720245361,
+          -3.4885380268096924,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.6975874304771423,
+          -0.3582499623298645,
+          0.6205070614814758,
+          -0.0
+        ],
+        [
+          1.4901164746561335e-08,
+          0.8660253882408142,
+          0.5000001192092896,
+          -0.0
+        ],
+        [
+          -0.716499924659729,
+          0.3487936854362488,
+          -0.604128360748291,
+          -0.0
+        ],
+        [
+          -1.561659336090088,
+          0.5236327052116394,
+          -3.620042324066162,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.6205069422721863,
+        0.6041283011436462
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1220646642578018
+    }
+  ],
+  "episode_result": {
+    "navigable_count": 7,
+    "valid_mask_count": 7,
+    "total_viewpoints": 12,
+    "success": true,
+    "object_category": "book"
+  },
+  "captures": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 895,
+      "mask_bbox_xyxy": [
+        191,
+        359,
+        220,
+        405
+      ],
+      "mask_area_fraction": 0.003884548611111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        2.158946990966797,
+        1.3565418720245361,
+        -2.662260055541992
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.692135751247406,
+        -0.1854572296142578,
+        0.6737660765647888,
+        0.18053509294986725
+      ],
+      "camera_to_world": [
+        [
+          0.026892729103565216,
+          0.0,
+          -0.9996382594108582,
+          0.0
+        ],
+        [
+          -0.49981915950775146,
+          0.8660253882408142,
+          -0.013446316123008728,
+          0.0
+        ],
+        [
+          0.8657121062278748,
+          0.5,
+          0.023289799690246582,
+          0.0
+        ],
+        [
+          2.158946990966797,
+          1.3565418720245361,
+          -2.662260055541992,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.02689271979033947,
+          -0.49981918931007385,
+          0.8657122254371643,
+          -0.0
+        ],
+        [
+          4.936010356004772e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.9996383786201477,
+          -0.013446366414427757,
+          0.023289788514375687,
+          -0.0
+        ],
+        [
+          -2.7193572521209717,
+          -0.13151423633098602,
+          -2.4852941036224365,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.8657121658325195,
+        -0.02328968048095703
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6190326232138545
+    },
+    {
+      "tag": "s6_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 3708,
+      "mask_bbox_xyxy": [
+        137,
+        358,
+        226,
+        415
+      ],
+      "mask_area_fraction": 0.01609375,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s6_far.png",
+      "mask_raw_path": "mask/mask_s6_far.png",
+      "camera_position": [
+        -1.0024911165237427,
+        1.3565418720245361,
+        -3.095953941345215
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.59341961145401,
+        -0.15900632739067078,
+        -0.7621455788612366,
+        -0.20421631634235382
+      ],
+      "camera_to_world": [
+        [
+          -0.24514032900333405,
+          0.0,
+          0.9694876670837402,
+          0.0
+        ],
+        [
+          0.4847438633441925,
+          0.8660253882408142,
+          0.12257018685340881,
+          0.0
+        ],
+        [
+          -0.8396009206771851,
+          0.5000001192092896,
+          -0.2122977375984192,
+          0.0
+        ],
+        [
+          -1.0024911165237427,
+          1.3565418720245361,
+          -3.095953941345215,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.24514031410217285,
+          0.4847438931465149,
+          -0.8396008014678955,
+          -0.0
+        ],
+        [
+          -1.4901159417490817e-08,
+          0.8660253286361694,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.9694875478744507,
+          0.12257017940282822,
+          -0.212297722697258,
+          -0.0
+        ],
+        [
+          2.7557380199432373,
+          -0.30937665700912476,
+          -2.17722749710083,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.8396009206771851,
+        0.21229776740074158
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.591553259519198
+    },
+    {
+      "tag": "s6_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 6259,
+      "mask_bbox_xyxy": [
+        128,
+        416,
+        236,
+        497
+      ],
+      "mask_area_fraction": 0.02716579861111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s6_near.png",
+      "mask_raw_path": "mask/mask_s6_near.png",
+      "camera_position": [
+        -0.6211243271827698,
+        1.3565418720245361,
+        -2.999523162841797
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.59341961145401,
+        -0.15900632739067078,
+        -0.7621455788612366,
+        -0.20421631634235382
+      ],
+      "camera_to_world": [
+        [
+          -0.24514032900333405,
+          0.0,
+          0.9694876670837402,
+          0.0
+        ],
+        [
+          0.4847438633441925,
+          0.8660253882408142,
+          0.12257018685340881,
+          0.0
+        ],
+        [
+          -0.8396009206771851,
+          0.5000001192092896,
+          -0.2122977375984192,
+          0.0
+        ],
+        [
+          -0.6211243271827698,
+          1.3565418720245361,
+          -2.999523162841797,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.24514031410217285,
+          0.4847438931465149,
+          -0.8396008014678955,
+          -0.0
+        ],
+        [
+          -1.4901159417490817e-08,
+          0.8660253286361694,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.9694875478744507,
+          0.12257017940282822,
+          -0.212297722697258,
+          -0.0
+        ],
+        [
+          2.755737781524658,
+          -0.5060613751411438,
+          -1.836559534072876,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.8396009206771851,
+        0.21229776740074158
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1981837531800799
+    },
+    {
+      "tag": "s8_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 4334,
+      "mask_bbox_xyxy": [
+        136,
+        376,
+        217,
+        441
+      ],
+      "mask_area_fraction": 0.018810763888888887,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s8_far.png",
+      "mask_raw_path": "mask/mask_s8_far.png",
+      "camera_position": [
+        0.3329727351665497,
+        1.3565418720245361,
+        -4.145445346832275
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.06908442825078964,
+        -0.01851111836731434,
+        -0.963452160358429,
+        -0.2581562399864197
+      ],
+      "camera_to_world": [
+        [
+          -0.9897693991661072,
+          3.725290298461914e-09,
+          0.14267659187316895,
+          0.0
+        ],
+        [
+          0.07133831083774567,
+          0.8660253882408142,
+          0.4948846995830536,
+          0.0
+        ],
+        [
+          -0.1235615536570549,
+          0.5,
+          -0.8571654558181763,
+          0.0
+        ],
+        [
+          0.3329727351665497,
+          1.3565418720245361,
+          -4.145445346832275,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9897692799568176,
+          0.07133828848600388,
+          -0.12356153875589371,
+          -0.0
+        ],
+        [
+          1.4901159417490817e-08,
+          0.8660253286361694,
+          0.5,
+          -0.0
+        ],
+        [
+          0.14267657697200775,
+          0.4948846399784088,
+          -0.8571653366088867,
+          -0.0
+        ],
+        [
+          0.9210240840911865,
+          0.8529638051986694,
+          -4.190460205078125,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.1235615536570549,
+        0.8571654558181763
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.4545260814478895
+    },
+    {
+      "tag": "s8_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 9084,
+      "mask_bbox_xyxy": [
+        121,
+        464,
+        227,
+        570
+      ],
+      "mask_area_fraction": 0.039427083333333335,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s8_near.png",
+      "mask_raw_path": "mask/mask_s8_near.png",
+      "camera_position": [
+        0.4036598205566406,
+        1.3565418720245361,
+        -3.6550791263580322
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.06908442080020905,
+        -0.01851111650466919,
+        -0.963452160358429,
+        -0.2581562399864197
+      ],
+      "camera_to_world": [
+        [
+          -0.9897693991661072,
+          3.725290298461914e-09,
+          0.14267657697200775,
+          0.0
+        ],
+        [
+          0.07133829593658447,
+          0.8660253882408142,
+          0.4948846995830536,
+          0.0
+        ],
+        [
+          -0.12356153875589371,
+          0.5,
+          -0.8571654558181763,
+          0.0
+        ],
+        [
+          0.4036598205566406,
+          1.3565418720245361,
+          -3.6550791263580322,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9897692799568176,
+          0.07133828103542328,
+          -0.12356152385473251,
+          -0.0
+        ],
+        [
+          7.4505797087454084e-09,
+          0.8660253286361694,
+          0.5,
+          -0.0
+        ],
+        [
+          0.14267656207084656,
+          0.4948846399784088,
+          -0.8571653366088867,
+          -0.0
+        ],
+        [
+          0.9210241436958313,
+          0.6052464246749878,
+          -3.7614009380340576,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.12356153875589371,
+        0.8571654558181763
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9590912277858366
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 4174,
+      "mask_bbox_xyxy": [
+        128,
+        364,
+        231,
+        436
+      ],
+      "mask_area_fraction": 0.018116319444444445,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        1.6257002353668213,
+        1.3565418720245361,
+        -3.7623555660247803
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.3756027817726135,
+        -0.10064247250556946,
+        0.8899074196815491,
+        0.23844999074935913
+      ],
+      "camera_to_world": [
+        [
+          -0.6975871920585632,
+          0.0,
+          -0.7164998054504395,
+          0.0
+        ],
+        [
+          -0.3582499325275421,
+          0.8660253882408142,
+          0.3487936556339264,
+          0.0
+        ],
+        [
+          0.620507001876831,
+          0.5,
+          -0.6041282415390015,
+          0.0
+        ],
+        [
+          1.6257002353668213,
+          1.3565418720245361,
+          -3.7623555660247803,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.6975873708724976,
+          -0.3582499921321869,
+          0.6205071210861206,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000001192092896,
+          0.0
+        ],
+        [
+          -0.716499924659729,
+          0.3487936854362488,
+          -0.604128360748291,
+          -0.0
+        ],
+        [
+          -1.5616596937179565,
+          0.7198931574821472,
+          -3.9599757194519043,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.620507001876831,
+        0.6041282415390015
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5145855066934477
+    },
+    {
+      "tag": "s10_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 7174,
+      "mask_bbox_xyxy": [
+        116,
+        424,
+        242,
+        530
+      ],
+      "mask_area_fraction": 0.031137152777777777,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_near.png",
+      "mask_raw_path": "mask/mask_s10_near.png",
+      "camera_position": [
+        1.3444591760635376,
+        1.3565418720245361,
+        -3.4885380268096924
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.37560275197029114,
+        -0.10064245760440826,
+        0.8899074196815491,
+        0.23844999074935913
+      ],
+      "camera_to_world": [
+        [
+          -0.6975871920585632,
+          1.4901161193847656e-08,
+          -0.7164997458457947,
+          0.0
+        ],
+        [
+          -0.3582499027252197,
+          0.8660253882408142,
+          0.3487936854362488,
+          0.0
+        ],
+        [
+          0.6205069422721863,
+          0.5,
+          -0.6041282415390015,
+          0.0
+        ],
+        [
+          1.3444591760635376,
+          1.3565418720245361,
+          -3.4885380268096924,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.6975874304771423,
+          -0.3582499623298645,
+          0.6205070614814758,
+          -0.0
+        ],
+        [
+          1.4901164746561335e-08,
+          0.8660253882408142,
+          0.5000001192092896,
+          -0.0
+        ],
+        [
+          -0.716499924659729,
+          0.3487936854362488,
+          -0.604128360748291,
+          -0.0
+        ],
+        [
+          -1.561659336090088,
+          0.5236327052116394,
+          -3.620042324066162,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.6205069422721863,
+        0.6041283011436462
+      ],
+      "goal_position": [
+        0.5404999852180481,
+        0.11739999800920486,
+        -2.7058000564575195
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "3b549cefd7c241afa1cad95c1b5d5666",
+      "episode_object_category": "book",
+      "floor_y_at_cam": 0.046541884541511536,
+      "base_y_used": 0.046541884541511536,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3565418720245361,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1220646642578018
+    }
+  ],
+  "overview": "overview.png",
+  "regen_info": {
+    "generated_by": "val_verify_capture_v2_distributed.py (episode-level eval)",
+    "time": "2026-02-11 06:48:34"
+  }
+}

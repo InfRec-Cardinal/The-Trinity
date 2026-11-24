@@ -1,0 +1,39 @@
+{
+  "taskId": "balrog_nethack",
+  "proposals": [
+    {
+      "id": "balrog_nethack-public-state-policy",
+      "title": "Public-map frontier progress with explicit command phases",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Every native NetHack observation, especially unchanged level or a pending command prompt.",
+      "procedure": [
+        "Read the message before planning: a direction, item-letter, yes/no, menu or continuation prompt must be answered in that mode. Do not issue a fresh movement or inventory command into a pending prompt. The text cursor during a prompt is not the hero position; locate @ in the map.",
+        "From the public ASCII map, maintain current level, hero square, connected walkable region, observed downstairs, unexplored frontier exits, and confirmed blocked edges. Blank/unseen cells are not proven walkable. Use only relative directions admitted by the native action vocabulary.",
+        "Prioritize a known reachable downstairs. Trace a connected route on the actual map. Move along that route with single steps near doors, monsters or uncertain boundaries; use a far direction only along a visibly clear corridor, and verify displacement afterward.",
+        "If no downstairs is known, pursue one unvisited reachable frontier until it is explored or disproved. After a wall/solid-stone/no-displacement message, mark that exact local edge blocked and choose another reachable route. Do not alternate already-failed directions or revisit the start room without a remaining frontier there.",
+        "When a closed door blocks a useful frontier, stand orthogonally adjacent, open it and answer the direction prompt. Only if locked and this route is useful, kick with the correct follow-up direction. Avoid spending turns unlocking a door whose far side is already reachable by an open path.",
+        "If all visible frontiers are exhausted, search a small bounded number of turns at plausible dead ends or room-wall gaps, then move to a different candidate. Measure progress by new map cells, new reachable exits or deeper level, not movement count.",
+        "At low HP disengage through mapped safe squares before inventory healing or recovery. Prefer healing with verified inventory items over praying in melee. Read hunger and status each turn; avoid discretionary fights, repeated pickups and fountains that do not serve the objective."
+      ],
+      "invariants": [
+        "No fixed map coordinates, object identifiers, seeded route or hidden state.",
+        "Never interpret turn count, survival, depth or partial progression as native success."
+      ],
+      "successSignals": [
+        "Native environment confirms the task success condition."
+      ],
+      "failureSignals": [
+        "Repeated action without the predicted public effect."
+      ],
+      "recovery": [
+        "Recompute from current public feedback; do not replay a failed action unchanged."
+      ],
+      "sourceGapIds": [
+        "policy-balrog_nethack-public-state-policy"
+      ]
+    }
+  ]
+}

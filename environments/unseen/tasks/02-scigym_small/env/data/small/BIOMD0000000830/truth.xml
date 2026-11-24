@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_8lks">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_i11f">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_aks4" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_j9a8" compartment="id_aks4" initialConcentration="1.23" boundaryCondition="false" constant="false"/>
+      <species id="id_8kh9" compartment="id_aks4" initialConcentration="0.4" boundaryCondition="false" constant="false"/>
+      <species id="id_ajks" compartment="id_aks4" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_2rkz" compartment="id_aks4" initialConcentration="0.05" boundaryCondition="true" constant="true"/>
+      <species id="id_s9pa" compartment="id_aks4" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_bp2u" compartment="id_aks4" initialConcentration="0.4" boundaryCondition="false" constant="false"/>
+      <species id="id_5v6j" compartment="id_aks4" initialConcentration="0.1" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_3843" value="0.96"/>
+      <parameter id="id_9rd8" value="0.05"/>
+      <parameter id="id_ogzw" value="0.005"/>
+      <parameter id="id_5ek3" value="0.033"/>
+      <parameter id="id_fxmw" value="0.01"/>
+      <parameter id="id_40ci" value="0.05"/>
+      <parameter id="id_7vp3" value="0.01"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_7bw0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_8kh9" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_j9a8" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_aks4 </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_8kh9 </ci>
+                  <ci> id_aks4 </ci>
+                  <ci> id_fxmw </ci>
+                </apply>
+                <ci> id_aks4 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_xos0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_bp2u" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_5v6j" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_aks4 </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_bp2u </ci>
+                  <ci> id_aks4 </ci>
+                  <ci> id_9rd8 </ci>
+                </apply>
+                <ci> id_aks4 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_pb07" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_5v6j" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_bp2u" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_aks4 </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_5v6j </ci>
+                  <ci> id_aks4 </ci>
+                  <ci> id_40ci </ci>
+                </apply>
+                <ci> id_aks4 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_2lbx" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_j9a8" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_ajks" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_aks4 </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_j9a8 </ci>
+                  <ci> id_aks4 </ci>
+                  <ci> id_ogzw </ci>
+                </apply>
+                <ci> id_aks4 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_qb34" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_bp2u" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_8kh9" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_aks4 </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_bp2u </ci>
+                  <ci> id_aks4 </ci>
+                  <ci> id_7vp3 </ci>
+                </apply>
+                <ci> id_aks4 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_2cp6" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_2rkz" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_5v6j" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_aks4 </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_2rkz </ci>
+                  <ci> id_aks4 </ci>
+                  <ci> id_3843 </ci>
+                </apply>
+                <ci> id_aks4 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_59gu" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_5v6j" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_s9pa" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_aks4 </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_5v6j </ci>
+                  <ci> id_aks4 </ci>
+                  <ci> id_5ek3 </ci>
+                </apply>
+                <ci> id_aks4 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

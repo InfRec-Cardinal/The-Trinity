@@ -1,0 +1,54 @@
+{
+  "_id": "664bb4b4d1ba9237d323f10f",
+  "id": "yizheapple/entity-deduction-arena",
+  "author": "yizheapple",
+  "sha": "cfcb4b5549ddf13c41b2ea8b4e709540de9538a8",
+  "lastModified": "2024-05-20T22:43:28.000Z",
+  "private": false,
+  "gated": false,
+  "disabled": false,
+  "tags": [
+    "arxiv:2310.01468",
+    "region:us"
+  ],
+  "description": "\n\t\n\t\t\n\t\n\t\n\t\tEntity-Deduction Arena (EDA)\n\t\n\nThis dataset complements the paper Probing the Multi-turn Planning Capabilities of LLMs via 20 Question Games, presented in ACL 2024 main conference.\nThe main repo can be found at https://github.com/apple/ml-entity-deduction-arena \n\n\t\n\t\t\n\t\n\t\n\t\tMotivation\n\t\n\n\nThere is a demand to assessing the capability of LLM to clarify with questions in order to effectively resolve ambiguities, when confronted with vague queries.\nThis capability demands a… See the full description on the dataset page: https://huggingface.co/datasets/yizheapple/entity-deduction-arena.",
+  "downloads": 48,
+  "likes": 1,
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "celebs/dev.txt"
+    },
+    {
+      "rfilename": "celebs/test.txt"
+    },
+    {
+      "rfilename": "celebs/train.txt"
+    },
+    {
+      "rfilename": "dataset_dict.py"
+    },
+    {
+      "rfilename": "dataset_info.json"
+    },
+    {
+      "rfilename": "entity-deduction-arena.py"
+    },
+    {
+      "rfilename": "things/dev.txt"
+    },
+    {
+      "rfilename": "things/test.txt"
+    },
+    {
+      "rfilename": "things/train.txt"
+    }
+  ],
+  "createdAt": "2024-05-20T20:38:12.000Z",
+  "usedStorage": 23722
+}

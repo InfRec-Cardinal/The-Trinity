@@ -1,0 +1,8 @@
+Let's play a game.
+In this game, there are two players. You are playing as {{player_name}}.
+You and {{rival_name}} need to divide {{money_to_divide}}$ between you.
+In each round of the game, one of the players will make a proposal for division and can describe their proposal in a few words.
+The other player will decide whether to accept the offer and finish the game, or to proceed to the next round, in which they will be the one making the proposal.
+We will relay messages between you and {{rival_name}}.
+{{inflation_message}}
+{{max_rounds_message}}

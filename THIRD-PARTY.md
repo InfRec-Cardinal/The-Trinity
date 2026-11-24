@@ -1,0 +1,12 @@
+# Third-party software and benchmark resources
+
+The [MIT License](LICENSE) covers the original Trinity software and documentation released by the Trinity Research Team. Third-party code, benchmarks, datasets, and assets retain their own terms. The license files alongside those materials and the [environment notices](environments/THIRD-PARTY-NOTICES.json) provide attribution and source information. Verify permissions for commercial use and redistribution against the terms of each third-party component.
+
+| Component | License and scope |
+| --- | --- |
+| [BuildArena 1.0](https://github.com/AI4Science-WestlakeU/BuildArena) | The [bundled license](environments/unseen/tasks/07-buildarena/BuildArena-1.0/LICENSE) is [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). It permits sharing under its noncommercial and attribution conditions. The [simulation setup](environments/unseen/tasks/07-buildarena/README.md) lists the separately supplied game and add-ons. |
+| [AdaPlanBench software](https://github.com/JiayuJeff/AdaPlanBench) and [dataset](https://huggingface.co/datasets/JiayuJeff/AdaPlanBench) | We could not verify an explicit public redistribution license for the bundled upstream code or dataset. Consult the upstream rights holders before redistributing or reusing these materials. |
+| [GLEE](https://github.com/eilamshapira/GLEE) | We could not verify an explicit public redistribution license for the bundled benchmark code. Consult the upstream rights holders before redistributing or reusing it. |
+| [PInVerify](https://huggingface.co/datasets/Avalon-S/PInVerify#license--attribution) | The upstream data card lists MIT for its annotations and protocol. Scenes, objects, and descriptions follow the [PInNED source terms](https://github.com/aimagelab/pin#-licenses-and-terms-of-use), which include separate terms for HM3D and individual Objaverse-XL assets. This distinction applies to the included visual data. |
+| [Video-Index](https://huggingface.co/datasets/Video-Index/Video-Index#licences) | The included question data retains the license of each source benchmark. The upstream data card describes the distribution of questions and videos as intended for research evaluation and directs users to each source's terms for other uses. |
+| [PHYRE](https://github.com/facebookresearch/phyre) | The [bundled upstream license](environments/unseen/tasks/10-phyre_unseen_fold0/env/phyre-macos-arm64-py39/LICENSE) is Apache 2.0. See the environment notices for additional attributions. |

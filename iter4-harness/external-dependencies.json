@@ -1,0 +1,80 @@
+{
+  "environment": {
+    "variable": "H0_ENV_ROOT",
+    "cli": "--env-root",
+    "bundledDefaults": "task-profiles.json"
+  },
+  "optionalByTask": {
+    "CAPXO_PYTHON": "python3",
+    "BUILDARENA_PYTHON": "python3",
+    "BUILDARENA_ROOT": null,
+    "BUILDARENA_TRANSPORT_ROOT": null,
+    "BESIEGE_SAVED_MACHINES": null,
+    "ALE_BENCH_ROOT": null,
+    "NATIVE_CODEX_BIN": "codex",
+    "GLOVE_ROOT": {
+      "files": [
+        "glove.6B.100d.vocab.json",
+        "glove.6B.100d.f64.npy"
+      ],
+      "sha256": {
+        "glove.6B.100d.vocab.json": "495eb5242173e8967ff241ba5a6e93bf677207d946df69d860252805e777882f",
+        "glove.6B.100d.f64.npy": "167d9dfad441ea35b033618e11f89c21b61b3350e83410ccd8c2407314182f03"
+      }
+    },
+    "SIGLIP_MODEL_PATH": {
+      "repository": "google/siglip-base-patch16-224",
+      "revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+      "localFilesOnly": true
+    },
+    "ALE_BENCH_DATA": "../environments/ale-bench/data",
+    "BESIEGE_GAME_ROOT": null,
+    "BESIEGE_MOD_ROOT": null
+  },
+  "python": [
+    "numpy",
+    "Pillow",
+    "opencv-python",
+    "torch",
+    "transformers",
+    "ultralytics"
+  ],
+  "provider": {
+    "baseUrl": "https://api.anthropic.com",
+    "credential": "UPSTREAM_API_KEY",
+    "modelVariable": "RELAY_MODEL"
+  },
+  "moduleCodeExternalDependencies": [],
+  "nativeOpponentProvider": {
+    "baseUrl": "https://api.openai.com",
+    "baseUrlVariable": "NATIVE_CODEX_BASE_URL",
+    "credential": "NATIVE_CODEX_API_KEY"
+  },
+  "pythonByAdapter": {
+    "buildarena": [
+      "autogen-core",
+      "pyautogui",
+      "python-xlib"
+    ],
+    "publicMedia": [
+      "numpy",
+      "Pillow",
+      "opencv-python",
+      "torch",
+      "transformers",
+      "ultralytics"
+    ]
+  },
+  "bundled": {
+    "tasks": 34,
+    "roots": [
+      "../environments/train",
+      "../environments/unseen",
+      "../environments/arc",
+      "../environments/capx"
+    ],
+    "buildarenaSource": "../environments/unseen/tasks/07-buildarena/BuildArena-1.0",
+    "buildarenaTransport": "../environments/unseen/tasks/07-buildarena/linux/transport",
+    "aleBenchSource": "../environments/ale-bench"
+  }
+}

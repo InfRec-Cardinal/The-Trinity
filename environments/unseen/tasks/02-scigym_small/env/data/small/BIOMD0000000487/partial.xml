@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_7tjg">
+    <listOfCompartments>
+      <compartment id="id_49xc" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_fez8" compartment="id_49xc" initialAmount="0"/>
+      <species id="id_au3s" compartment="id_49xc" initialAmount="0"/>
+      <species id="id_0yw9" compartment="id_49xc" initialAmount="0"/>
+      <species id="id_obee" compartment="id_49xc" initialAmount="0"/>
+      <species id="id_k6ej" compartment="id_49xc" initialAmount="0"/>
+      <species id="id_3749" compartment="id_49xc" initialAmount="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

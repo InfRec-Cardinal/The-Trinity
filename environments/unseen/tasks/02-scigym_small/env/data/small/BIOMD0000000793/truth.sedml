@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version2" level="1" version="2">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="model.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="100" numberOfPoints="4404">
+      <algorithm kisaoID="KISAO:0000019"/>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="time_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> var_time_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="var_time_task1" symbol="urn:sedml:symbol:time" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="H_1_task1" name="[H]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_H_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_H_task1" name="H" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;H&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="T_2_task1" name="[T]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_T_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_T_task1" name="T" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;T&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_1_task1" name="Fig2">
+      <listOfCurves>
+        <curve id="p1_curve_1_task1" name="[H]" logX="false" xDataReference="time_task1" logY="false" yDataReference="H_1_task1"/>
+        <curve id="p1_curve_2_task1" name="[T]" logX="false" xDataReference="time_task1" logY="false" yDataReference="T_2_task1"/>
+      </listOfCurves>
+    </plot2D>
+  </listOfOutputs>
+</sedML>

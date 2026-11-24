@@ -1,0 +1,173 @@
+[
+  {
+    "id": "train-refresh-chess-01",
+    "label": "Position 1: mate in 1, 23 legal candidates",
+    "difficulty": "medium",
+    "fen": "8/k4pP1/1p3P1R/pR6/P1n3P1/4nr2/8/2K5 b - - 14 86",
+    "turn": "Black",
+    "horizon": 1,
+    "answer": "f3f1",
+    "rows": [
+      "........",
+      "k....pP.",
+      ".p...P.R",
+      "pR......",
+      "P.n...P.",
+      "....nr..",
+      "........",
+      "..K....."
+    ]
+  },
+  {
+    "id": "train-refresh-chess-02",
+    "label": "Position 2: mate in 1, 45 legal candidates",
+    "difficulty": "medium",
+    "fen": "rn5r/2p1q3/p1k3Pb/3ppp1p/PpP1n2P/3K1BP1/2PPN2R/RNB1Q3 b - - 0 27",
+    "turn": "Black",
+    "horizon": 1,
+    "answer": "e4c5",
+    "rows": [
+      "rn.....r",
+      "..p.q...",
+      "p.k...Pb",
+      "...ppp.p",
+      "PpP.n..P",
+      "...K.BP.",
+      "..PPN..R",
+      "RNB.Q..."
+    ]
+  },
+  {
+    "id": "train-refresh-chess-03",
+    "label": "Position 3: mate in 1, 32 legal candidates",
+    "difficulty": "medium",
+    "fen": "rn1k2n1/2q2RP1/1Q6/p2Ppp2/2B2Pr1/2bP4/2P3b1/R1BK4 b - - 0 33",
+    "turn": "Black",
+    "horizon": 1,
+    "answer": "g2f3",
+    "rows": [
+      "rn.k..n.",
+      "..q..RP.",
+      ".Q......",
+      "p..Ppp..",
+      "..B..Pr.",
+      "..bP....",
+      "..P...b.",
+      "R.BK...."
+    ]
+  },
+  {
+    "id": "train-refresh-chess-04",
+    "label": "Position 4: mate in 1, 37 legal candidates",
+    "difficulty": "medium",
+    "fen": "r1b4r/1p3k2/pb2p1p1/3p4/P6P/2npP3/1B2B1P1/1RK3R1 b - - 9 43",
+    "turn": "Black",
+    "horizon": 1,
+    "answer": "b6e3",
+    "rows": [
+      "r.b....r",
+      ".p...k..",
+      "pb..p.p.",
+      "...p....",
+      "P......P",
+      "..npP...",
+      ".B..B.P.",
+      ".RK...R."
+    ]
+  },
+  {
+    "id": "train-refresh-chess-05",
+    "label": "Position 5: mate in 1, 47 legal candidates",
+    "difficulty": "medium",
+    "fen": "rn1qkbnr/p1p1pp1p/3pP1p1/8/2P3PP/5Q1R/PpBP4/R1B1K1N1 w Q - 0 14",
+    "turn": "White",
+    "horizon": 1,
+    "answer": "f3f7",
+    "rows": [
+      "rn.qkbnr",
+      "p.p.pp.p",
+      "...pP.p.",
+      "........",
+      "..P...PP",
+      ".....Q.R",
+      "PpBP....",
+      "R.B.K.N."
+    ]
+  },
+  {
+    "id": "train-refresh-chess-06",
+    "label": "Position 6: mate in 1, 42 legal candidates",
+    "difficulty": "medium",
+    "fen": "r1bqk2r/p1p5/np4pn/1K2pp1p/Pb3P2/N3p1PB/RPPPN2P/2B1Q2R b kq - 5 15",
+    "turn": "Black",
+    "horizon": 1,
+    "answer": "d8d5",
+    "rows": [
+      "r.bqk..r",
+      "p.p.....",
+      "np....pn",
+      ".K..pp.p",
+      "Pb...P..",
+      "N...p.PB",
+      "RPPPN..P",
+      "..B.Q..R"
+    ]
+  },
+  {
+    "id": "train-refresh-chess-07",
+    "label": "Position 7: mate in 2, 33 legal candidates",
+    "difficulty": "hard",
+    "fen": "k7/1p4R1/3P4/pb3P1r/3Bp2P/2P5/8/3B2K1 w - - 1 62",
+    "turn": "White",
+    "horizon": 2,
+    "answer": "g7g8",
+    "rows": [
+      "k.......",
+      ".p....R.",
+      "...P....",
+      "pb...P.r",
+      "...Bp..P",
+      "..P.....",
+      "........",
+      "...B..K."
+    ]
+  },
+  {
+    "id": "train-refresh-chess-08",
+    "label": "Position 8: mate in 2, 31 legal candidates",
+    "difficulty": "hard",
+    "fen": "8/8/7p/3R3P/5k2/R2p4/3N3K/8 w - - 2 87",
+    "turn": "White",
+    "horizon": 2,
+    "answer": "a3d3",
+    "rows": [
+      "........",
+      "........",
+      ".......p",
+      "...R...P",
+      ".....k..",
+      "R..p....",
+      "...N...K",
+      "........"
+    ]
+  },
+  {
+    "id": "train-refresh-chess-09",
+    "label": "Position 9: mate in 2, 37 legal candidates",
+    "difficulty": "hard",
+    "fen": "rb6/4Bp2/k7/1p5P/1P5q/1B2r1R1/3N2K1/8 b - - 11 83",
+    "turn": "Black",
+    "horizon": 2,
+    "answer": "h4g3",
+    "rows": [
+      "rb......",
+      "....Bp..",
+      "k.......",
+      ".p.....P",
+      ".P.....q",
+      ".B..r.R.",
+      "...N..K.",
+      "........"
+    ]
+  }
+]

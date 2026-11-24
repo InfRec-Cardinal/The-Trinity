@@ -1,0 +1,439 @@
+import re, random
+from typing import Optional, Dict, Tuple, List, Any
+
+import textarena as ta
+
+class StrategoEnv(ta.Env):
+    pass                                                          
+    def __init__(self):
+        pass                                   
+           
+                                 
+        self.piece_counts = {
+            'Flag': 1, 'Bomb': 6, 'Spy': 1, 'Scout': 8, 'Miner': 5,
+            'Sergeant': 4, 'Lieutenant': 4, 'Captain': 4, 'Major': 3,
+            'Colonel': 2, 'General': 1, 'Marshal': 1
+        }
+        self.piece_ranks = {
+            'Flag': 0, 'Bomb': 11, 'Spy': 1, 'Scout': 2, 'Miner': 3,
+            'Sergeant': 4, 'Lieutenant': 5, 'Captain': 6, 'Major': 7,
+            'Colonel': 8, 'General': 9, 'Marshal': 10
+        }
+        self.lakes = [(4, 2), (4, 3), (5, 2), (5, 3), (4, 6), (4, 7), (5, 6), (5, 7)]
+        self.player_pieces = {0: [], 1: []}
+        self.board = [[None for _ in range(10)] for _ in range(10)]
+
+    @property
+    def terminal_render_keys(self):
+        return ["rendered_board"]
+
+    def reset(self, num_players: int, seed: Optional[int]=None):
+        pass                                             
+        self.state = ta.TwoPlayerState(num_players=num_players, seed=seed)
+        
+                             
+        self.board = self._populate_board()
+
+                                    
+        rendered_board = self._render_board(player_id=None, full_board=True)
+        game_state={"board": self.board, "player_pieces": self.player_pieces, "rendered_board": rendered_board}
+        self.state.reset(game_state=game_state, player_prompt_function=self._generate_player_prompt)
+        self._observe_current_state()
+    
+    def _generate_player_prompt(self, player_id: int, game_state: Dict[str, Any]):
+        pass                                                           
+
+             
+                                                          
+                                                                
+           
+        prompt = self.m("player_prompt", "intro", player_id=player_id)
+        return prompt
+
+    def _observe_current_state(self):
+        pass                                                                                          
+                                                             
+           
+        player_id = self.state.current_player_id
+        available_moves = []
+
+        for row in range(10):
+            for col in range(10):
+                piece = self.board[row][col]
+                if isinstance(piece, dict) and piece['player'] == player_id:
+                                           
+                    if piece['rank'].lower() in ['bomb', 'flag']:
+                        continue
+
+                                                                          
+                    is_scout = piece['rank'].lower() == 'scout'
+                    
+                                               
+                    for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                        if is_scout:
+                                                                               
+                            distance = 1
+                            while True:
+                                new_row = row + (dr * distance)
+                                new_col = col + (dc * distance)
+                                
+                                                                    
+                                if not (0 <= new_row < 10 and 0 <= new_col < 10):
+                                    break
+                                
+                                target = self.board[new_row][new_col]
+                                
+                                if target is None:
+                                                                                     
+                                    available_moves.append(f"[{chr(row + 65)}{col} {chr(new_row + 65)}{new_col}]")
+                                    distance += 1
+                                elif isinstance(target, dict) and target['player'] != player_id:
+                                                                                             
+                                    available_moves.append(f"[{chr(row + 65)}{col} {chr(new_row + 65)}{new_col}]")
+                                    break
+                                else:
+                                                                                                  
+                                    break
+                        else:
+                                                                      
+                            new_row, new_col = row + dr, col + dc
+                            if 0 <= new_row < 10 and 0 <= new_col < 10:
+                                target = self.board[new_row][new_col]
+                                if (target is None or
+                                    (isinstance(target, dict) and target['player'] != player_id)):
+                                    available_moves.append(f"[{chr(row + 65)}{col} {chr(new_row + 65)}{new_col}]")
+
+        self.state.add_observation(
+            message=self.m("board", "current_board", board=self._render_board(player_id=player_id, full_board=False), moves=", ".join(available_moves)),
+            observation_type=ta.ObservationType.GAME_BOARD
+        )
+    
+    def _populate_board(self):
+        pass                                                                      
+           
+        for player in range(2):
+                                         
+            back_rows = range(0, 2) if player == 0 else range(8, 10)
+            front_rows = range(2, 4) if player == 0 else range(7, 9)
+            all_rows = range(0, 4) if player == 0 else range(6, 10)
+
+                                          
+            while True:
+                row = random.choice(back_rows)
+                col = random.randint(0, 9)
+                if (row, col) not in self.lakes and self.board[row][col] is None:
+                    self.board[row][col] = {'rank': 'Flag', 'player': player}
+                    self.player_pieces[player].append((row, col))
+                    flag_position = (row, col)
+                    break
+
+                                                     
+            bombs_to_place = self.piece_counts['Bomb']
+            bomb_positions = [
+                (flag_position[0] + dr, flag_position[1] + dc)
+                for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]                  
+                if 0 <= flag_position[0] + dr < 10 and 0 <= flag_position[1] + dc < 10
+            ]
+
+            for pos in bomb_positions:
+                if bombs_to_place > 0 and self.board[pos[0]][pos[1]] is None and pos not in self.lakes:
+                    self.board[pos[0]][pos[1]] = {'rank': 'Bomb', 'player': player}
+                    self.player_pieces[player].append(pos)
+                    bombs_to_place -= 1
+
+                                                    
+            for _ in range(bombs_to_place):
+                while True:
+                    row = random.choice(front_rows)
+                    col = random.randint(0, 9)
+                    if self.board[row][col] is None and (row, col) not in self.lakes:
+                        self.board[row][col] = {'rank': 'Bomb', 'player': player}
+                        self.player_pieces[player].append((row, col))
+                        break
+
+                                         
+            for piece, count in self.piece_counts.items():
+                if piece in ['Flag', 'Bomb']:
+                    continue                              
+                for _ in range(count):
+                    while True:
+                        row = random.choice(all_rows)
+                        col = random.randint(0, 9)
+                        if self.board[row][col] is None and (row, col) not in self.lakes:
+                            self.board[row][col] = {'rank': piece, 'player': player}
+                            self.player_pieces[player].append((row, col))
+                            break
+
+                         
+        for row, col in self.lakes:
+            self.board[row][col] = "~"
+
+        return self.board
+
+
+    
+    def _render_board(self, player_id, full_board: bool = False):
+        pass                                                                                  
+
+             
+                                                          
+                                                                                           
+           
+                                             
+        piece_abbreviations = {
+            'Flag': 'FL', 'Bomb': 'BM', 'Spy': 'SP', 'Scout': 'SC', 'Miner': 'MN',
+            'Sergeant': 'SG', 'Lieutenant': 'LT', 'Captain': 'CP', 'Major': 'MJ',
+            'Colonel': 'CL', 'General': 'GN', 'Marshal': 'MS'
+        }
+
+        res = []
+        column_headers = "   " + " ".join([f"{i:>3}" for i in range(10)])                        
+        res.append(column_headers + "\n")
+
+        for row in range(10):
+            row_label = chr(row + 65)                                                
+            row_render = [f"{row_label:<3}"]                                  
+            for col in range(10):
+                if (row, col) in self.lakes:
+                    cell = "  ~ "         
+                elif self.board[row][col] is None:
+                    cell = "  . "               
+                else:
+                    piece = self.board[row][col]
+                    abbreviation = piece_abbreviations[piece['rank']]
+                    if full_board:
+                        cell = f" {abbreviation.lower() if piece['player'] == 0 else abbreviation.upper()} "                   
+                    elif piece['player'] == player_id:
+                        displayed_piece = abbreviation.upper()
+                        cell = f" {displayed_piece} "
+                    else:
+                        cell = "  ? "                         
+                row_render.append(cell)
+
+            res.append("".join(row_render) + "\n")
+
+        return "".join(res)
+
+
+
+    def step(self, action: str) -> Tuple[bool, ta.Info]:
+        pass                                        
+        player_id = self.state.current_player_id
+
+                                 
+        self.state.add_observation(from_id=player_id, to_id=player_id, message=action, observation_type=ta.ObservationType.PLAYER_ACTION)
+
+                                
+        action_search_pattern = re.compile(r"\[([A-J])([0-9]) ([A-J])([0-9])\]", re.IGNORECASE)
+        match = action_search_pattern.search(action)
+
+        if match is None:
+            reason=self.m("invalid_move", "wrong_format", player_id=player_id)
+            self.state.set_invalid_move(reason=reason)
+        
+        else:
+            src_row, src_col, dest_row, dest_col = match.groups()
+            src_row, dest_row = src_row.upper(), dest_row.upper()
+            source = f"{src_row}{src_col}"
+            dest = f"{dest_row}{dest_col}"
+            src_row, src_col = ord(src_row) - 65, int(src_col)
+            dest_row, dest_col = ord(dest_row) - 65, int(dest_col)
+             
+
+                                                            
+            if self._validate_move(player_id=player_id, src_row=src_row, src_col=src_col, dest_row=dest_row, dest_col=dest_col):
+
+                attacking_piece = self.board[src_row][src_col]
+                target_piece = self.board[dest_row][dest_col]
+
+                if target_piece is None:
+                                              
+                    self.board[dest_row][dest_col] = attacking_piece
+                    self.board[src_row][src_col] = None
+                    self.player_pieces[player_id].remove((src_row, src_col))
+                    self.player_pieces[player_id].append((dest_row, dest_col))
+                    
+                                                                     
+                    message=self.m("game_action", "you_moved", source=source, dest=dest)
+                    self.state.add_observation(from_id=-1, to_id=player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                    message=self.m("game_action", "opponent_moved", player_id=player_id, source=source, dest=dest)
+                    self.state.add_observation(from_id=-1, to_id=1-player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                else:
+                             
+                    attacking_rank = self.piece_ranks[attacking_piece['rank']]
+                    target_rank = self.piece_ranks[target_piece['rank']]
+                    if attacking_rank == target_rank:
+                                                  
+                        self.board[src_row][src_col] = None
+                        self.board[dest_row][dest_col] = None
+                        self.player_pieces[player_id].remove((src_row, src_col))
+                        self.player_pieces[1 - player_id].remove((dest_row, dest_col))
+
+                                                                         
+                        message=self.m("game_action", "you_equal_ranks", source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                        self.state.add_observation(from_id=-1, to_id=player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                        message=self.m("game_action", "opponent_equal_ranks", player_id=player_id, source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                        self.state.add_observation(from_id=-1, to_id=1 - player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                    elif target_piece['rank'] == 'Bomb':
+                        if attacking_piece['rank'] == 'Miner':
+                                                     
+                            self.board[dest_row][dest_col] = attacking_piece
+                            self.board[src_row][src_col] = None
+                            self.player_pieces[player_id].remove((src_row, src_col))
+                            self.player_pieces[player_id].append((dest_row, dest_col))
+
+                                                                             
+                            message=self.m("game_action", "you_miner_defused", source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                            self.state.add_observation(from_id=-1, to_id=player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                            message=self.m("game_action", "opponent_miner_defused", player_id=player_id, source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                            self.state.add_observation(from_id=-1, to_id=1-player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                        else:
+                                                           
+                            self.board[src_row][src_col] = None
+                            self.player_pieces[player_id].remove((src_row, src_col))
+
+                                                                             
+                            message=self.m("game_action", "you_bomb_lost", source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                            self.state.add_observation(from_id=-1, to_id=player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                            message=self.m("game_action", "opponent_bomb_won", player_id=player_id, source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                            self.state.add_observation(from_id=-1, to_id=1-player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                    elif target_piece['rank'] == 'Flag':
+                        self.board[dest_row][dest_col] = attacking_piece
+                        self.board[src_row][src_col] = None
+                        self.player_pieces[player_id].remove((src_row, src_col))
+                        self.player_pieces[player_id].append((dest_row, dest_col))
+                        self.player_pieces[1 - player_id].remove((dest_row, dest_col))
+                                    
+                        self.state.set_winner(player_id=player_id,reason=[self.m("outcome", "flag_captured", player_id=player_id)])
+                    elif attacking_piece['rank'] == 'Spy' and target_piece['rank'] == 'Marshal':
+                                                                      
+                        self.board[dest_row][dest_col] = attacking_piece
+                        self.board[src_row][src_col] = None
+                        self.player_pieces[player_id].remove((src_row, src_col))
+                        self.player_pieces[player_id].append((dest_row, dest_col))
+                        self.player_pieces[1 - player_id].remove((dest_row, dest_col))
+
+                                                                         
+                        message=self.m("game_action", "you_spy_won", source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                        self.state.add_observation(from_id=-1, to_id=player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                        message=self.m("game_action", "opponent_spy_lost", player_id=player_id, source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                        self.state.add_observation(from_id=-1, to_id=1-player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                    elif attacking_rank > target_rank:
+                                        
+                        self.board[dest_row][dest_col] = attacking_piece
+                        self.board[src_row][src_col] = None
+                        self.player_pieces[player_id].remove((src_row, src_col))
+                        self.player_pieces[player_id].append((dest_row, dest_col))
+                        self.player_pieces[1 - player_id].remove((dest_row, dest_col))
+
+                                                                         
+                        message=self.m("game_action", "you_higher_won", source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                        self.state.add_observation(from_id=-1, to_id=player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                        message=self.m("game_action", "opponent_higher_lost", player_id=player_id, source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                        self.state.add_observation(from_id=-1, to_id=1-player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                    else:
+                                        
+                        self.board[src_row][src_col] = None
+                        self.player_pieces[player_id].remove((src_row, src_col))
+
+                                                                         
+                        message=self.m("game_action", "you_lower_lost", source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                        self.state.add_observation(from_id=-1, to_id=player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                        message=self.m("game_action", "opponent_lower_won", player_id=player_id, source=source, dest=dest, attacking_rank=attacking_piece['rank'], target_rank=target_piece['rank'])
+                        self.state.add_observation(from_id=-1, to_id=1-player_id, message=message, observation_type=ta.ObservationType.GAME_ACTION_DESCRIPTION)
+
+                                    
+        if self._check_winner():
+            reason=self.m("outcome", "no_movable_pieces", winner_id=self._check_winner(), loser_id=1 - self._check_winner())
+            self.state.set_winner(player_id=self._check_winner(), reason=reason)
+
+                                    
+        self.state.game_state["rendered_board"] = self._render_board(player_id=player_id, full_board=True)
+
+        result = self.state.step()
+        self._observe_current_state()
+        return result
+    
+    def _validate_move(self, player_id, src_row, src_col, dest_row, dest_col):
+        pass                                                   
+
+             
+                                                                  
+                                                          
+                                                             
+                                                                
+                                                                   
+           
+        if not (0 <= src_row < 10 and 0 <= src_col < 10 and 0 <= dest_row < 10 and 0 <= dest_col < 10):
+            reason=self.m("invalid_move", "invalid_coordinates", player_id=player_id)
+            self.state.set_invalid_move(reason=reason)
+            return False
+        
+        if self.board[src_row][src_col] is None or self.board[src_row][src_col]['player'] != player_id:
+            reason=self.m("invalid_move", "not_own_piece", player_id=player_id)
+            self.state.set_invalid_move(reason=reason)
+            return False
+        
+        if abs(src_row - dest_row) + abs(src_col - dest_col) != 1 and self.board[src_row][src_col]['rank'].lower() == 'scout':
+                                                                             
+            if src_row == dest_row:
+                for col in range(min(src_col, dest_col) + 1, max(src_col, dest_col)):
+                    if self.board[src_row][col] is not None:
+                        reason=self.m("invalid_move", "scout_through_pieces", player_id=player_id)
+                        self.state.set_invalid_move(reason=reason)
+                        return False
+            elif src_col == dest_col:
+                for row in range(min(src_row, dest_row) + 1, max(src_row, dest_row)):
+                    if self.board[row][src_col] is not None:
+                        reason=self.m("invalid_move", "scout_through_pieces", player_id=player_id)
+                        self.state.set_invalid_move(reason=reason)
+                        return False
+            else:
+                reason=self.m("invalid_move", "scout_diagonal", player_id=player_id)
+                self.state.set_invalid_move(reason=reason)
+                return False
+            
+        if abs(src_row - dest_row) + abs(src_col - dest_col) != 1 and self.board[src_row][src_col]['rank'].lower() != 'scout':
+                                                                                                                      
+            reason=self.m("invalid_move", "non_scout_multi_square")
+            self.state.set_invalid_move(reason=reason)
+            return False
+        
+        if self.board[dest_row][dest_col] is not None:
+            if (dest_row, dest_col) in self.lakes:
+                reason=self.m("invalid_move", "move_into_lake", player_id=player_id)
+                self.state.set_invalid_move(reason=reason)
+                return False
+            
+            elif self.board[dest_row][dest_col]['player'] == player_id:
+                reason=self.m("invalid_move", "move_onto_own_piece", player_id=player_id)
+                self.state.set_invalid_move(reason=reason)
+                return False
+        
+        if self.board[src_row][src_col]['rank'].lower() in ['bomb','flag']:
+            reason=self.m("invalid_move", "move_bomb_or_flag", player_id=player_id)
+            self.state.set_invalid_move(reason=reason)
+            return False
+        
+        return True
+    
+    def _check_winner(self):
+        pass                                                                              
+           
+        for player in range(2):
+            if all([self.board[row][col]['rank'] in ['Bomb', 'Flag'] for row, col in self.player_pieces[player]]):
+                return 1 - player
+        return None

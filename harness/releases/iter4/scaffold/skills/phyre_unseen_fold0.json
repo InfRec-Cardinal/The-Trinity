@@ -1,0 +1,79 @@
+{
+  "taskId": "phyre_unseen_fold0",
+  "proposals": [
+    {
+      "id": "commit-to-one-monotone-ladder",
+      "title": "After the first near-miss, lock the region and sweep one parameter monotonically",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "A rollout returns NOT_SOLVED but its frames show the goal object was displaced toward the target (moved, rolled, or nearly contacted) rather than untouched, and the budget is still mostly unspent.",
+      "procedure": [
+        "Declare that placement the anchor: fix two of the three parameters (usually x and y) at its values.",
+        "Change only the remaining parameter, in a single consistent direction, in steps of roughly 10-15% of its range, on consecutive attempts.",
+        "Keep stepping in that direction while each rollout's frames show the goal object getting closer to the target than the previous one.",
+        "Reverse direction once and halve the step the first time progress worsens; then continue the ladder from the better side.",
+        "Only after the ladder has been run to both the improving and worsening ends do you release the anchor and pick a new region.",
+        "Never interleave an unrelated far-away probe into an active ladder; finish the ladder first."
+      ],
+      "successSignals": [
+        "Consecutive attempts differ in exactly one parameter",
+        "Each rollout's goal-object end position is monotonically nearer the target along the ladder",
+        "Solve occurs within a short run of same-line attempts"
+      ],
+      "failureSignals": [
+        "Consecutive actions change x, y and radius at once",
+        "Attempts hop between distant regions while no region has been swept",
+        "Same coarse region revisited many attempts apart with no ordering"
+      ],
+      "recovery": [
+        "If the full ladder ends with no improvement at either extreme, mark that anchor's whole band refuted and move the anchor a full ball-diameter to a region not yet swept, then start a fresh ladder immediately."
+      ],
+      "invariants": [
+        "Uses only frames already returned by prior attempts; requests no extra rollout",
+        "One parameter changes per attempt while a ladder is active"
+      ],
+      "sourceGapIds": [
+        "random-global-resampling",
+        "abandons-promising-region",
+        "no-monotone-sweep"
+      ]
+    },
+    {
+      "id": "ban-refuted-and-overlapping-cells",
+      "title": "Treat every tried placement and every overlap as a permanently excluded cell",
+      "audience": [
+        "playing"
+      ],
+      "capability": "perception",
+      "trigger": "About to emit a placement whose (x, y) is within roughly one ball radius of a placement already tried this episode, or within a region where an earlier placement returned INVALID_INPUT.",
+      "procedure": [
+        "Maintain a running list of tried (x, y, radius) with their outcome and of every INVALID_INPUT coordinate.",
+        "If the candidate's centre is within one radius of a previously NOT_SOLVED placement of similar radius, discard it unless it is the next rung of an active ladder.",
+        "If the candidate's centre lies in or adjacent to a prior INVALID_INPUT coordinate, either shrink the radius below the overlap margin or shift the centre at least one radius away from the occupied spot before emitting.",
+        "Prefer the nearest untried cell of the coarse grid over any re-probe of an explored cell.",
+        "When several untried cells remain, choose the one whose line of fall toward the goal object is least obstructed in the initial frame."
+      ],
+      "successSignals": [
+        "Zero exact or near-duplicate repeats of previously tried actions",
+        "INVALID_INPUT rate stays near zero after the first few attempts",
+        "Coverage of the plausible region grows with each attempt"
+      ],
+      "failureSignals": [
+        "The same coordinate reappears with trivially different radius late in the episode",
+        "Repeated overlap errors at coordinates already known to be occupied"
+      ],
+      "recovery": [
+        "If the duplicate filter leaves no candidate, widen the grid to the whole scene rather than re-probing an explored cell, and record the expansion."
+      ],
+      "invariants": [
+        "No extra observations or probes are spent; the exclusion list comes from results already received"
+      ],
+      "sourceGapIds": [
+        "repeats-refuted-hypothesis",
+        "wastes-budget-on-invalid-placements"
+      ]
+    }
+  ]
+}

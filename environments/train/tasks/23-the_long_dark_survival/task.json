@@ -1,0 +1,71 @@
+{
+  "taskId": "the_long_dark_survival",
+  "name": "The Long Dark",
+  "fullName": "The Long Dark: keep warmth, hunger, thirst and fatigue above zero until rescue while a blizzard approaches",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D5",
+    "domainName": "Long-Horizon Open-Ended Environments",
+    "subCategoryId": "D5.2",
+    "subCategoryName": "Resource & Schedule Management over a Horizon"
+  },
+  "assignment": {
+    "actions": {
+      "boil_water": "Melt and boil snow on an active fire to make potable water.",
+      "craft": "Make a simple item such as a torch, bandage or improved clothing from materials.",
+      "eat_drink": "Consume a food or water item from the inventory.",
+      "forage": "Gather sticks and fuel outdoors for a chosen number of hours.",
+      "search": "Search the current location for items for a chosen number of hours.",
+      "sleep": "Sleep for a chosen number of hours, warmer in better shelter and with a bedroll.",
+      "start_fire": "Light a fire using tinder, fuel and a match or lighter, with a success chance that falls in wind.",
+      "travel": "Walk to an adjacent known location; costs hours, calories and warmth, with a wildlife-encounter risk.",
+      "treat": "Treat an affliction such as frostbite or a sprain with an appropriate item."
+    },
+    "evaluation": {
+      "budget": 200,
+      "efficiency": "Final condition, the lowest value reached by each need, and the number of afflictions incurred.",
+      "failure": "Condition reaches zero at any time, which is permanent death as in survival mode, or the 200-action budget runs out before rescue.",
+      "success": "Condition stays above zero until the rescue day."
+    },
+    "generation": "A seeded map of 6 to 10 locations with shelter quality, item tables and wildlife risk, a temperature curve with colder nights, and one or two scheduled blizzards announced 12 hours ahead in the forecast. Difficulty tiers mirror the source modes from pilgrim to interloper by scaling starting supplies, item abundance, wildlife risk, cold and the rescue day (day 4 to day 8). A careful planner survives pilgrim and voyageur seeds while interloper seeds often end in death, so outcomes are mixed.",
+    "id": "the-long-dark-survival-tradeoffs",
+    "observation": "Text status after every action: day and hour, outdoor temperature, wind and the weather forecast for the next 24 hours, the four need meters and overall condition on a 0 to 100 scale, any afflictions, current location with its shelter quality, known locations with travel times, and the inventory with item weights and condition.",
+    "reference": "Self-proposed text survival simulation built on The Long Dark survival mode: manage body temperature, calories, hunger and fatigue, avoid wildlife and injury, use fire for warmth and cooking, survive a colder night in a day/night cycle, with permadeath, and difficulty that changes resources, wildlife and weather. New designs: the location graph and resource tables, the decay rates, thirst and condition, the scheduled blizzard, the rescue day that ends a successful episode, the action set, the budget and the recorder.",
+    "task": "Survive alone in a frozen wilderness until a rescue day by keeping warmth, calories, thirst and rest from running out, choosing between foraging, travel, fire, water, food and sleep while weather and night change the costs.",
+    "verification": "The simulator is deterministic given the seed, so the host replays every action to recompute meters, events and the outcome. Each episode records the seed and tier, every action with arguments, the full status after each action and the terminal reason."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "totalEpisodes": 9,
+    "plannedEpisodes": 9
+  },
+  "otherModels": [],
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Existing original generator with seeds 29, 67, 103 across the three original size/difficulty settings. Seeds 29/67 are existing generator cases; seed 103 is a synthetic addition. These are local reconstruction worlds, not official levels.",
+    "Replacement instances are pinned in instances.json; task rules, scoring, action budget, model and rendering logic are preserved. Drivers reject old provider/ID/hash selectors.",
+    "nativeInstanceFingerprint is SHA-256 of recursively key-sorted JSON of the full instance. substantiveIdentityHash omits seed, ID and private witness (chess uses the position and horizon). configurationHash covers taskId, id, selector and nativeInstanceFingerprint."
+  ]
+}

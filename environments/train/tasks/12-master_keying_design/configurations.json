@@ -1,0 +1,142 @@
+{
+  "taskId": "master_keying_design",
+  "configurations": [
+    {
+      "id": "master_keying_design-refresh-01",
+      "ordinal": 0,
+      "label": "Master Keying: replacement 1",
+      "selector": {
+        "providerId": "master_keying_design-train-refresh-20261016-v1",
+        "ordinal": 0
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "c1cd4a80fd6cf06bdee39952c682ba5310c11ddc419dc3fd67ab1467fd86ab30",
+      "substantiveIdentityHash": "2a0420b5c3e974c70b952e0ea6cbfa5cafb10ee1f912c6f38ea0043e0f9cfcc1",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "ec271cb351a920c22f52e4dab1c52979f74f8a5ed5029d1945d0bacf8af21cc7"
+    },
+    {
+      "id": "master_keying_design-refresh-02",
+      "ordinal": 1,
+      "label": "Master Keying: replacement 2",
+      "selector": {
+        "providerId": "master_keying_design-train-refresh-20261016-v1",
+        "ordinal": 1
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "8106f21db4d7db9248b21d7f6588b2e7c3e80c713a4a0359ba90835c3a3aa922",
+      "substantiveIdentityHash": "f7e5660898654644f0aea231bf50f2fc60ea04e5bf637b26f6d46ceb1d0a65e6",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "880f340d9d9b8ce81be2e8239f1ae80df7346ac0809246a9a6c82d9cfd964c06"
+    },
+    {
+      "id": "master_keying_design-refresh-03",
+      "ordinal": 2,
+      "label": "Master Keying: replacement 3",
+      "selector": {
+        "providerId": "master_keying_design-train-refresh-20261016-v1",
+        "ordinal": 2
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "1045b8b9a3c63e5920a55a1b5f1335a72c3bb9e77af77ebf20705c7047ab7945",
+      "substantiveIdentityHash": "ed60d617007a2f8f5554fa23556e0fce1bf3518d3330bc6159cc3984f118a205",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "4d2355bf5f914afc4b1098a208e37f7a02907078c6a72763c27c913013962b5a"
+    },
+    {
+      "id": "master_keying_design-refresh-04",
+      "ordinal": 3,
+      "label": "Master Keying: replacement 4",
+      "selector": {
+        "providerId": "master_keying_design-train-refresh-20261016-v1",
+        "ordinal": 3
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "20df26212af0f7d9767dfb5acb4685ce9d50e0821afd4b137a410d93d438d790",
+      "substantiveIdentityHash": "0135234bafcfd40654b3a4146a2d2c29f35e76cee6806cfdfa6046d5cffd1434",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "2ed4fe6d407440c4d3648b7cbbc6399729b386dbbc3b0fbfa2ad4186bae4dd20"
+    },
+    {
+      "id": "master_keying_design-refresh-05",
+      "ordinal": 4,
+      "label": "Master Keying: replacement 5",
+      "selector": {
+        "providerId": "master_keying_design-train-refresh-20261016-v1",
+        "ordinal": 4
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "336807e9a38ae5685452df05f7c0a8720746b6120f30adc35a5d790e3c02b2f0",
+      "substantiveIdentityHash": "2580f7abf768c60ea0794c2a28b7496c282f65dea47aaf41a4041f701160d591",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "f00fe659b9e28f8a737fc2f0c5a8bebefb5925319a427b0b5723b93a45fd38a0"
+    },
+    {
+      "id": "master_keying_design-refresh-06",
+      "ordinal": 5,
+      "label": "Master Keying: replacement 6",
+      "selector": {
+        "providerId": "master_keying_design-train-refresh-20261016-v1",
+        "ordinal": 5
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "137d2b335729d2dbed6a995b0751fc0aef2472efdf2d3ee170e951da0ce49699",
+      "substantiveIdentityHash": "2b13838133da172ca2e2eb211e5be2959817cd474eb9f992087c9bcacf5e8cc5",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "c1ecfb31892ede58b90111bc3b6f4edc9eb921d3568e4112a19cbae8ab5c4667"
+    },
+    {
+      "id": "master_keying_design-refresh-07",
+      "ordinal": 6,
+      "label": "Master Keying: replacement 7",
+      "selector": {
+        "providerId": "master_keying_design-train-refresh-20261016-v1",
+        "ordinal": 6
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "a725e454dd9da0ffabdde8c0ab980a593fade3ab60e1e07710624b1bbc6ff3e4",
+      "substantiveIdentityHash": "844d3c41b36c64ab98ae45f3a6ba3aaa10484dda08453ede1f64279bb6fccfac",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "f36aece211ba9af64a3c37aaac156502ddfeb99e1ad080b70711bf5a8ee5d2d9"
+    },
+    {
+      "id": "master_keying_design-refresh-08",
+      "ordinal": 7,
+      "label": "Master Keying: replacement 8",
+      "selector": {
+        "providerId": "master_keying_design-train-refresh-20261016-v1",
+        "ordinal": 7
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "a9ba0bb34a5e63103d61510efdb69e63c0abfbe5c93804659396c6aa719ee281",
+      "substantiveIdentityHash": "1609ff85ccff6d9d1a3caf793c3ee50c85ab888c9bfd49849adcf5eea894450d",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "a7c8e8b32412d185fb9d32f4dc51859bb91b49ce49837242c13a9abb80154a45"
+    },
+    {
+      "id": "master_keying_design-refresh-09",
+      "ordinal": 8,
+      "label": "Master Keying: replacement 9",
+      "selector": {
+        "providerId": "master_keying_design-train-refresh-20261016-v1",
+        "ordinal": 8
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "505113109f342fd1449530d4f1b31df6ced5ad603eeb2c7425b1567f0fdc1fad",
+      "substantiveIdentityHash": "3c0339c88a9a5a904e539cc9450e57b46531f76da4d04f07171b3d1611bf70bf",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "6ed4b838e42e37f55f2ca957015941cc9405a2466c205822a0e413566e677adc"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

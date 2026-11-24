@@ -1,0 +1,2 @@
+{"seller": "Send your {{offer_type}} in the format:\n{\"message\": Your message to {{rival_name}}, \"product_price\": The price you want to sell the product for}",
+"buyer": "Send your counteroffer in the format:\n{\"message\": Your message to {{rival_name}}, \"product_price\": The price you want to buy the product for}"}

@@ -1,0 +1,19 @@
+{
+  "game_id": "bp35-0a0ad940",
+  "title": "BP35",
+  "default_fps": 20,
+  "tags": [
+    "keyboard_click"
+  ],
+  "baseline_actions": [
+    21,
+    48,
+    44,
+    38,
+    33,
+    87,
+    86,
+    131,
+    163
+  ]
+}

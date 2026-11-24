@@ -1,0 +1,115 @@
+{
+  "taskId": "pooltool_billiards_shots",
+  "configurations": [
+    {
+      "id": "native-pooltool-nineball-seed-10",
+      "ordinal": 0,
+      "seed": 10,
+      "configurationType": "actual_native_seeded_nineball_rack",
+      "origin": "unchanged_original_get_rack_with_declared_reproducible_seed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "b00a86176b6197a0238a06b414596d238cd845f4be90c6726e417d78ca05a2fa",
+      "initialNativeStateHash": "82f67cd8765cacccbb03094532f2ee04a24c114e89ad3aee4591a92f1412505e",
+      "nativeInstanceFingerprint": "82f67cd8765cacccbb03094532f2ee04a24c114e89ad3aee4591a92f1412505e"
+    },
+    {
+      "id": "native-pooltool-nineball-seed-11",
+      "ordinal": 1,
+      "seed": 11,
+      "configurationType": "actual_native_seeded_nineball_rack",
+      "origin": "unchanged_original_get_rack_with_declared_reproducible_seed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "b518a030e7fd18e3b19e4991e5f1efd3e4c3986bbb8d87c75a6f0abc6753b168",
+      "initialNativeStateHash": "12528fecff5725e837cab31cbe07cc445ebd320b04009e547c57813622c71deb",
+      "nativeInstanceFingerprint": "12528fecff5725e837cab31cbe07cc445ebd320b04009e547c57813622c71deb"
+    },
+    {
+      "id": "native-pooltool-nineball-seed-12",
+      "ordinal": 2,
+      "seed": 12,
+      "configurationType": "actual_native_seeded_nineball_rack",
+      "origin": "unchanged_original_get_rack_with_declared_reproducible_seed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "2e1f10683c8f82fea56ea66c4745f0dee0a95431933859e00a07635012fea8b5",
+      "initialNativeStateHash": "141b4ea4960f190164286d4e3a6643149d4c8acf45984fcb1ffd2df0f5f402f6",
+      "nativeInstanceFingerprint": "141b4ea4960f190164286d4e3a6643149d4c8acf45984fcb1ffd2df0f5f402f6"
+    },
+    {
+      "id": "native-pooltool-nineball-seed-13",
+      "ordinal": 3,
+      "seed": 13,
+      "configurationType": "actual_native_seeded_nineball_rack",
+      "origin": "unchanged_original_get_rack_with_declared_reproducible_seed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "8c7c9813bf83a21c78edcf4cd79d2d52f53295fe333c56ec4d4d294850c075ac",
+      "initialNativeStateHash": "7bbd89b54e0f7d9a86a93887b974476acd30efc21e5468206e59f79abf013020",
+      "nativeInstanceFingerprint": "7bbd89b54e0f7d9a86a93887b974476acd30efc21e5468206e59f79abf013020"
+    },
+    {
+      "id": "native-pooltool-nineball-seed-14",
+      "ordinal": 4,
+      "seed": 14,
+      "configurationType": "actual_native_seeded_nineball_rack",
+      "origin": "unchanged_original_get_rack_with_declared_reproducible_seed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "f7c6e5311318c86554912695e84937839b99889ceca49312a87d04813bd48b94",
+      "initialNativeStateHash": "2f2e52759df348a4a0bf9a5ab061a6df6b2c5db065db8735d59ea139a376e235",
+      "nativeInstanceFingerprint": "2f2e52759df348a4a0bf9a5ab061a6df6b2c5db065db8735d59ea139a376e235"
+    },
+    {
+      "id": "native-pooltool-nineball-seed-15",
+      "ordinal": 5,
+      "seed": 15,
+      "configurationType": "actual_native_seeded_nineball_rack",
+      "origin": "unchanged_original_get_rack_with_declared_reproducible_seed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "de388ff205ac84de7a9f6402941450ebae260fe4d187b6037a1e4dcc2e159e0f",
+      "initialNativeStateHash": "2e424ec1528fbb7ed510aee434eb339e7e08578c1a680eecc2ee8015e0034732",
+      "nativeInstanceFingerprint": "2e424ec1528fbb7ed510aee434eb339e7e08578c1a680eecc2ee8015e0034732"
+    },
+    {
+      "id": "native-pooltool-nineball-seed-16",
+      "ordinal": 6,
+      "seed": 16,
+      "configurationType": "actual_native_seeded_nineball_rack",
+      "origin": "unchanged_original_get_rack_with_declared_reproducible_seed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "9c911c8d226a7ebbbcfb2fedd27f8fc1c7b0580a7af2d1ac87d2421f72560c85",
+      "initialNativeStateHash": "0313488088814130b16a27fdaff6179039f78bf3b33fa911c6c8e3f7d3e08af5",
+      "nativeInstanceFingerprint": "0313488088814130b16a27fdaff6179039f78bf3b33fa911c6c8e3f7d3e08af5"
+    },
+    {
+      "id": "native-pooltool-nineball-seed-17",
+      "ordinal": 7,
+      "seed": 17,
+      "configurationType": "actual_native_seeded_nineball_rack",
+      "origin": "unchanged_original_get_rack_with_declared_reproducible_seed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "5a8e0f08bb1656b75801199a18d017e8405c3f7d63112977e3f968252a3b43e0",
+      "initialNativeStateHash": "ccdf60b3dc013474faee14fb471330ecec53ae3aea494fcaf3a52dd146252d03",
+      "nativeInstanceFingerprint": "ccdf60b3dc013474faee14fb471330ecec53ae3aea494fcaf3a52dd146252d03"
+    },
+    {
+      "id": "native-pooltool-nineball-seed-18",
+      "ordinal": 8,
+      "seed": 18,
+      "configurationType": "actual_native_seeded_nineball_rack",
+      "origin": "unchanged_original_get_rack_with_declared_reproducible_seed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "e2b38bb59c9d31003f3988cd1c59423e5d6f722e681271400005cc79e1f70395",
+      "initialNativeStateHash": "dc6483ecf79babee7c27a1f84fccbf02733fd3c5fbafa8b824b6e2a7ce3517f9",
+      "nativeInstanceFingerprint": "dc6483ecf79babee7c27a1f84fccbf02733fd3c5fbafa8b824b6e2a7ce3517f9"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

@@ -1,0 +1,8 @@
+benchmark_dir: data/small/BIOMD0000000027
+temperature: 1.0
+max_iterations: 5
+eval_debug_rounds: 5
+test_memorize: false
+experiment_actions_path: prompts/experiment_actions_perturb.md
+customized_functions_path: prompts/customized_functions_sim.md
+output_dir: ./results

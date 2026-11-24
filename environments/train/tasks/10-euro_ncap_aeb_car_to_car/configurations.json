@@ -1,0 +1,142 @@
+{
+  "taskId": "euro_ncap_aeb_car_to_car",
+  "configurations": [
+    {
+      "id": "euro_ncap_aeb_car_to_car-refresh-01",
+      "ordinal": 0,
+      "label": "Euro NCAP AEB: replacement 1",
+      "selector": {
+        "providerId": "euro_ncap_aeb_car_to_car-train-refresh-20261016-v1",
+        "ordinal": 0
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "3f5586d01725eb89165ff01e393b8974a1a9696f67e012d02f85711e752ddd9a",
+      "substantiveIdentityHash": "3654bedefa0d53d8d62f69943a80935170299d5366ad4f4c8f17b4742c5cd96a",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "e27ef3486b8411f79c81ef601c9cd377aacd2700821d85dba32cd0a848eceea4"
+    },
+    {
+      "id": "euro_ncap_aeb_car_to_car-refresh-02",
+      "ordinal": 1,
+      "label": "Euro NCAP AEB: replacement 2",
+      "selector": {
+        "providerId": "euro_ncap_aeb_car_to_car-train-refresh-20261016-v1",
+        "ordinal": 1
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "6737d6f9ba7cfe353f4591cfe3de25086886037cfe42875c324f4d60e5208b91",
+      "substantiveIdentityHash": "a4147682b773e5c9c185f9dd7b64656f509434434f4864ad649835557fa80403",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "0f233b09a2802b4b2eaedb7720cd539d593b171c15d2c72b6af2d0040fba9db4"
+    },
+    {
+      "id": "euro_ncap_aeb_car_to_car-refresh-03",
+      "ordinal": 2,
+      "label": "Euro NCAP AEB: replacement 3",
+      "selector": {
+        "providerId": "euro_ncap_aeb_car_to_car-train-refresh-20261016-v1",
+        "ordinal": 2
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "2e2842e7aeffcf5ad19a2a73c7b51503451bee6c0bcee3d7640e1cecae20e348",
+      "substantiveIdentityHash": "11f264fe77a343788ca3080a9338f56fe1c38a9f926af9bd16115c454264d922",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "267e983da2e8eb856d9b40c5a4d1106a6646dd189bea774ccc732644f70027c7"
+    },
+    {
+      "id": "euro_ncap_aeb_car_to_car-refresh-04",
+      "ordinal": 3,
+      "label": "Euro NCAP AEB: replacement 4",
+      "selector": {
+        "providerId": "euro_ncap_aeb_car_to_car-train-refresh-20261016-v1",
+        "ordinal": 3
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "5839ef80e713ddce36157804296e354e138c44f512f403b2b95bd8c8a57cf13a",
+      "substantiveIdentityHash": "a93a7ef904cdc546200b3783853e9f3805fa77745752de55d8f15e0ebd657142",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "d956a072b8bb698c649cbd904d0085aa8894d6cf3eb23b15a7e1d89f9f88d6eb"
+    },
+    {
+      "id": "euro_ncap_aeb_car_to_car-refresh-05",
+      "ordinal": 4,
+      "label": "Euro NCAP AEB: replacement 5",
+      "selector": {
+        "providerId": "euro_ncap_aeb_car_to_car-train-refresh-20261016-v1",
+        "ordinal": 4
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "1583d3db05f289b501ed6b8ec2e5e5d4d8b204efc1ef901687d15dd5d233087a",
+      "substantiveIdentityHash": "9b6e8a80a905de10b7e47b72724ddccefb6e5812c1446a363047af892537cb93",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "63520d9d93ce68aab7fa74e1dbb15ce29da8c4d4b18e64663fb71ccea694bca1"
+    },
+    {
+      "id": "euro_ncap_aeb_car_to_car-refresh-06",
+      "ordinal": 5,
+      "label": "Euro NCAP AEB: replacement 6",
+      "selector": {
+        "providerId": "euro_ncap_aeb_car_to_car-train-refresh-20261016-v1",
+        "ordinal": 5
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "3c28724e486b655b93aebb85aa701ac7265576787146b358cfd3ad2ec6d7df11",
+      "substantiveIdentityHash": "70c2e6e68ee7f3e30f8271f2659df304fd88c7919a544a5dce22e37e27957714",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "068f6fe8b0dd0b51766e3ae7abe8da742739470a7be7afa3a6aa53cf3625b78a"
+    },
+    {
+      "id": "euro_ncap_aeb_car_to_car-refresh-07",
+      "ordinal": 6,
+      "label": "Euro NCAP AEB: replacement 7",
+      "selector": {
+        "providerId": "euro_ncap_aeb_car_to_car-train-refresh-20261016-v1",
+        "ordinal": 6
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "ee3a1776325cc6cd63d239d77bca9656e664b529d742dc671ac4255d3dfad1e2",
+      "substantiveIdentityHash": "42fd7149397ca2de7c1b58d36d4005ce5130f639ac3d7638ab5f25aebca281f9",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "aa59dda8a03f7a9ad3aa1c6d8af2184cd4d1d528994b0bec9ffe957a903bfaeb"
+    },
+    {
+      "id": "euro_ncap_aeb_car_to_car-refresh-08",
+      "ordinal": 7,
+      "label": "Euro NCAP AEB: replacement 8",
+      "selector": {
+        "providerId": "euro_ncap_aeb_car_to_car-train-refresh-20261016-v1",
+        "ordinal": 7
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "d6808942c0f3e10c14129bb9eeaaffa8cabb13a24431c38e31ab88fae7118274",
+      "substantiveIdentityHash": "77f1cf004c442de89353e4fe9002a040b16934ac276cd215f741c12944007333",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "890e88087653446befe709a905f46322325b43e02cff96155eca7772a26dc8c8"
+    },
+    {
+      "id": "euro_ncap_aeb_car_to_car-refresh-09",
+      "ordinal": 8,
+      "label": "Euro NCAP AEB: replacement 9",
+      "selector": {
+        "providerId": "euro_ncap_aeb_car_to_car-train-refresh-20261016-v1",
+        "ordinal": 8
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "ce02ee8b635c131085a81bc2f24ea466f942f4613916a1afdde2555e33d3b942",
+      "substantiveIdentityHash": "101fa8be73daa79d27336b67f7dbe5971b8aefb3ab2d18cf9a7f69df2fdaa3f8",
+      "episodes": 1,
+      "h0Runs": 0,
+      "configurationHash": "8e002880deea345e0a41b7a6e76603357bd33876cf851f522846e5ac204022f2"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

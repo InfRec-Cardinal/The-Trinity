@@ -1,3 +1,4 @@
+import {validateFreeActionAllowance, executionIdentity} from './execution-policy.mjs';
 import fs from 'node:fs';
 import {clone, digest, ensure, snapshot} from './core.mjs';
 import {validate} from './runtime.mjs';
@@ -72,11 +73,12 @@ export function freezeRoutingPlan(input) {
   ensure(Array.isArray(input.tasks) && input.tasks.length > 0, 'Ordered routing task manifest required');
   const tasks = input.tasks.map(task => {
     keys(task, ['taskId', 'publicTask', 'world', 'candidateIds', 'budget', 'modelCallBudget', 'benchmarkId',
-      'preparationWorlds', 'skillDirectory', 'scoreNormalization', 'instance', 'expectedInitialStateHash'], 'routing task');
+      'preparationWorlds', 'skillDirectory', 'scoreNormalization', 'instance', 'expectedInitialStateHash', 'maxFreeActions'], 'routing task');
     ensure(text(task.taskId) && text(task.benchmarkId) && object(task.world), 'Task ID, benchmark ID and world required');
     if (task.instance !== undefined) ensure(object(task.instance), 'Invalid routing instance');
     if (task.expectedInitialStateHash !== undefined) ensure(object(task.instance) && text(task.expectedInitialStateHash), 'Frozen routing state requires an instance and hash');
     for (const key of ['budget', 'modelCallBudget']) ensure(Number.isInteger(task[key]) && task[key] > 0, 'Positive ' + key + ' required');
+    if (task.maxFreeActions !== undefined) validateFreeActionAllowance(task.maxFreeActions);
     const candidateIds = task.candidateIds ?? poolIds;
     ensure(Array.isArray(candidateIds) && candidateIds.length > 0 && new Set(candidateIds).size === candidateIds.length && candidateIds.every(id => poolIds.includes(id)), 'Compatible candidates must be a subset of the frozen pool');
     if (task.publicTask?.id !== undefined) ensure(task.publicTask.id === task.taskId, 'Public task ID differs from manifest ID');
@@ -102,6 +104,7 @@ export function memoryForModel(row) {
 }
 export function boundedRoutingAgent(agent, budget) {
   const proxy = {
+    executionProfile: executionIdentity(agent),
     get calls() {return agent.calls;},
     get scope() {return agent.scope;},
     async ask(operation, context, contract, scope) {

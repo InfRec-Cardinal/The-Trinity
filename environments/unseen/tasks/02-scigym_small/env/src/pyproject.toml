@@ -1,0 +1,40 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = 3.10
+ignore_missing_imports = true
+
+[tool.poetry]
+name = "scigym"
+version = "0.0.1"
+description = "SciGym: Measuring Scientific Capabilities of Language Models with a Systems Biology Dry Lab"
+authors = []
+
+[tool.poetry.dependencies]
+tqdm = '4.66.3'
+tellurium = '2.2.10'
+python-libsbml = '5.20.4'
+libroadrunner = '2.8.0'
+matplotlib = '3.10.1'
+seaborn = '0.13.2'
+petab = '0.5.0'
+copasi_basico = '0.83'
+copasi-petab-importer = '1.0.7'
+datasets = '3.6.0'
+tabulate = '0.9.0'
+anthropic = '0.49.0'
+google-genai = '1.10.0'
+openai = '1.69.0'
+omegaconf = "1.4.1"
+deprecation = '2.1.0'
+rrplugins = '2.8.0'
+nltk = '3.9.1'
+networkx = '3.4.2'
+python-dotenv = '1.1.0'
+zss = '1.2.0'

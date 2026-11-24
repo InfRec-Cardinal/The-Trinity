@@ -1,0 +1,41 @@
+{
+  "taskId": "boxinggym",
+  "proposals": [
+    {
+      "id": "boxing-threshold",
+      "title": "Fit and communicate an experimentally tested predictor",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Before each native decision in this task, using only current public observations and earlier public feedback.",
+      "procedure": [
+        "At scientist_step0 give your honest best prior predictions from the public problem. Never deliberately lower baseline accuracy to manufacture a later improvement. A perfect initial prediction set cannot strictly improve under this task's native rule; that is a legitimate ceiling.",
+        "For delayed-versus-immediate decisions, test a hyperbolic threshold family alongside the observations: delayed utility dR/(1+k*D). Each query gives a constraint on k through its critical value (dR/iR-1)/D. Keep a feasible interval if consistent; when outcomes conflict, allow noise and fit the overall trend rather than proclaiming exact determinism.",
+        "The a module now fits a generic scalar threshold from ALL completed experiment receipts and reports the admissible parameter interval, residual errors, model-conditioned predictions and the next informative cut. It is not a hidden-parameter oracle. Use its arithmetic to choose probes near unresolved prediction boundaries, test repeats when evidence conflicts, and use the final fit consistently in both scientist predictions and the novice explanation. Do not force a deterministic model when residuals contradict it.",
+        "Use the ten experiments to distinguish parameter values that change the displayed prediction questions. Probe near those decision boundaries and repeat ambiguous boundaries when noisy. Do not spend most probes on obvious outcomes far from any relevant boundary. Infer k anew in each episode; do not reuse a numeric parameter from a previous episode.",
+        "For scalar spatial fields, cover the displayed input range first, then investigate gradients and peaks. Compare repeated or adjacent values before fitting a smooth function. Do not collapse a localized peak into a global constant, and do not invent a precise Gaussian or inverse-square law without checking its residuals against several actual probes.",
+        "At scientist_step10 recompute every prediction from the fitted rule and its uncertainty. Double-check arithmetic near classification thresholds. Submit exactly ten bare numeric strings in the native prediction action.",
+        "Explain the final model in fewer than 200 words. State the formula or decision rule, fitted values and units, uncertainty where relevant, and exact output convention. Do not send raw observed question-answer pairs or memorized coordinates; the novice must apply the same general rule to its own questions.",
+        "Keep the explanation internally consistent: examples, table entries and prose must give the same answers as the formula. Prefer one precise rule to a formula plus loosely contradictory approximations. Return only what the current native phase requests."
+      ],
+      "successSignals": [
+        "Native objective achieved; actual feedback agrees with the selected action."
+      ],
+      "failureSignals": [
+        "Action repeats a known failure or depends on an unverified observation or model."
+      ],
+      "recovery": [
+        "Re-read the actual public feedback, identify whether perception, model or execution was wrong, and revise only that assumption."
+      ],
+      "invariants": [
+        "No stored parameter values, coordinates, questions or answer vectors.",
+        "Never weaken initial predictions or modify native strict-improvement scoring.",
+        "The final explanation conveys a model, not an answer lookup."
+      ],
+      "sourceGapIds": [
+        "policy-boxing-threshold"
+      ]
+    }
+  ]
+}

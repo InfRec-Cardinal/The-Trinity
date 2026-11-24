@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2" level="1" version="4">
+  <listOfModels>
+    <model id="BIOMD0000000039_url" language="urn:sedml:language:sbml" source="BIOMD0000000039_url.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="auto_ten_seconds" initialTime="0" outputStartTime="0" outputEndTime="32" numberOfSteps="1625">
+      <algorithm name="ODE solver" kisaoID="KISAO:0000694"/>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="BIOMD0000000039_url" simulationReference="auto_ten_seconds"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="auto_time_for_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_time_for_task1_var </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_time_for_task1_var" symbol="urn:sedml:symbol:time" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Ca_cyt">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Ca_cyt__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Ca_cyt__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Ca_cyt&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_CaER">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_CaER__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_CaER__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;CaER&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_CaM">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_CaM__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_CaM__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;CaM&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_CaPr">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_CaPr__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_CaPr__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;CaPr&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Pr">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Pr__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Pr__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Pr&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Cytosol">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Cytosol__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Cytosol__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Cytosol&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Endoplasmic_Reticulum">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Endoplasmic_Reticulum__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Endoplasmic_Reticulum__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Endoplasmic_Reticulum&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Mitochondria">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Mitochondria__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Mitochondria__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Mitochondria&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_v1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_v1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_v1__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;v1&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_v3">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_v3__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_v3__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;v3&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_v5">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_v5__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_v5__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;v5&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_v7">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_v7__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_v7__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;v7&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_v9">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_v9__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_v9__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;v9&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_v11">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_v11__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_v11__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;v11&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_v12">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_v12__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_v12__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;v12&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="auto_time_for_task1"/>
+        <dataSet id="autogen_task1_Ca_cyt" label="Ca_cyt" dataReference="auto_dg_for_task1_Ca_cyt"/>
+        <dataSet id="autogen_task1_CaER" label="CaER" dataReference="auto_dg_for_task1_CaER"/>
+        <dataSet id="autogen_task1_CaM" label="CaM" dataReference="auto_dg_for_task1_CaM"/>
+        <dataSet id="autogen_task1_CaPr" label="CaPr" dataReference="auto_dg_for_task1_CaPr"/>
+        <dataSet id="autogen_task1_Pr" label="Pr" dataReference="auto_dg_for_task1_Pr"/>
+        <dataSet id="autogen_task1_Cytosol" label="Cytosol" dataReference="auto_dg_for_task1_Cytosol"/>
+        <dataSet id="autogen_task1_Endoplasmic_Reticulum" label="Endoplasmic_Reticulum" dataReference="auto_dg_for_task1_Endoplasmic_Reticulum"/>
+        <dataSet id="autogen_task1_Mitochondria" label="Mitochondria" dataReference="auto_dg_for_task1_Mitochondria"/>
+        <dataSet id="autogen_task1_v1" label="v1" dataReference="auto_dg_for_task1_v1"/>
+        <dataSet id="autogen_task1_v3" label="v3" dataReference="auto_dg_for_task1_v3"/>
+        <dataSet id="autogen_task1_v5" label="v5" dataReference="auto_dg_for_task1_v5"/>
+        <dataSet id="autogen_task1_v7" label="v7" dataReference="auto_dg_for_task1_v7"/>
+        <dataSet id="autogen_task1_v9" label="v9" dataReference="auto_dg_for_task1_v9"/>
+        <dataSet id="autogen_task1_v11" label="v11" dataReference="auto_dg_for_task1_v11"/>
+        <dataSet id="autogen_task1_v12" label="v12" dataReference="auto_dg_for_task1_v12"/>
+      </listOfDataSets>
+    </report>
+    <plot2D id="autogen_plot_for_task1" name="Auto-generated plot for task1, including all species.">
+      <xAxis name="Time" type="linear"/>
+      <yAxis name="Species" type="linear"/>
+      <listOfCurves>
+        <curve id="autogen_curve_task1_Ca_cyt" name="Ca_cyt" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_Ca_cyt"/>
+        <curve id="autogen_curve_task1_CaER" name="CaER" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_CaER"/>
+        <curve id="autogen_curve_task1_CaM" name="CaM" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_CaM"/>
+        <curve id="autogen_curve_task1_CaPr" name="CaPr" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_CaPr"/>
+        <curve id="autogen_curve_task1_Pr" name="Pr" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_Pr"/>
+      </listOfCurves>
+    </plot2D>
+  </listOfOutputs>
+</sedML>

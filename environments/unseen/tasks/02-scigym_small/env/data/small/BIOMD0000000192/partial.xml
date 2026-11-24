@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_1fz1">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_x3bb">
+        <listOfUnits>
+          <unit kind="mole" scale="-6"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_1ljm">
+        <listOfUnits>
+          <unit kind="mole" scale="-6"/>
+          <unit kind="second" exponent="-1"/>
+          <unit kind="litre" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_6d2q">
+        <listOfUnits>
+          <unit kind="litre"/>
+          <unit kind="mole" exponent="-1" scale="-6"/>
+          <unit kind="second" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_p0jk">
+        <listOfUnits>
+          <unit kind="second" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_gukt">
+        <listOfUnits>
+          <unit kind="mole" scale="-6"/>
+          <unit kind="litre" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_utjg" size="1.2e-11"/>
+      <compartment id="id_julz" size="1.8e-11"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_udn6" compartment="id_julz" initialConcentration="0"/>
+      <species id="id_ml0z" compartment="id_utjg" initialConcentration="0"/>
+      <species id="id_aprv" compartment="id_utjg" initialConcentration="0"/>
+      <species id="id_j3mt" compartment="id_utjg" initialConcentration="0"/>
+      <species id="id_uqzr" compartment="id_julz" initialConcentration="5"/>
+      <species id="id_ageg" compartment="id_utjg" initialConcentration="0.7"/>
+      <species id="id_4vc0" compartment="id_utjg" initialConcentration="1.6" boundaryCondition="true"/>
+      <species id="id_nh4a" compartment="id_utjg" initialConcentration="0"/>
+      <species id="id_hdof" compartment="id_julz" initialConcentration="0"/>
+      <species id="id_9e2p" compartment="id_julz" initialConcentration="2"/>
+      <species id="id_tod7" compartment="id_julz" initialConcentration="0.7"/>
+      <species id="id_r693" compartment="id_utjg" initialConcentration="500" boundaryCondition="true"/>
+      <species id="id_o2wu" compartment="id_utjg" initialConcentration="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

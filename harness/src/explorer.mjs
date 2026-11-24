@@ -1,3 +1,4 @@
+import {executionLimits} from './execution-policy.mjs';
 import {hostVerificationCall} from './host-verification.mjs';
 import {screeningPolicy} from './screening-policy.mjs';
 import {freezeExplorationInstances} from './exploration-plan.mjs';
@@ -7,7 +8,7 @@ import {execute, validate} from './runtime.mjs';
 import {clone, ensure, digest, snapshot} from './core.mjs';
 import {sealTerminalReceipt} from './receipts.mjs';
 
-export async function runEpisode({agent, driver, store, world, modules, budget, phase, node, skills = [], benchmarkId = null, taskId = null, split = null, protocolId = null, iteration = agent.scope?.iteration ?? null, scoreNormalization = null, decisionId = null, publicTask = null, instance = null, expectedInitialStateHash = null, instancePlan = null}) {
+export async function runEpisode({agent, driver, store, world, modules, budget, phase, node, skills = [], benchmarkId = null, taskId = null, split = null, protocolId = null, iteration = agent.scope?.iteration ?? null, scoreNormalization = null, nativeHost, decisionId = null, publicTask = null, instance = null, expectedInitialStateHash = null, instancePlan = null, maxFreeActions, learningContract = null}) {
   if (phase === 'initial_training_exploration' && instancePlan === null) {
     const plan = await freezeExplorationInstances({driver, world, trials: 1, store, taskId});
     instance = plan.instances[0];
@@ -15,7 +16,9 @@ export async function runEpisode({agent, driver, store, world, modules, budget, 
     instancePlan = plan.event;
   }
   const frozen = snapshot(modules);
-  const identity = {benchmarkId, taskId, split, protocolId, iteration, scoreNormalization, budget, instance: clone(instance), expectedInitialStateHash, instancePlan};
+  const {budgetUnit, interactionLimit} = executionLimits({budget, driver, maxFreeActions});
+  const costBudget = budgetUnit === 'environment_cost';
+  const identity = {...(learningContract ? {learningContract: clone(learningContract)} : {}), ...(costBudget ? {budgetUnit: 'environment_cost', interactionLimit} : {}), benchmarkId, taskId, split, protocolId, iteration, scoreNormalization, budget, instance: clone(instance), expectedInitialStateHash, instancePlan};
   let initialStateHash = null;
   const evidence = [], history = [], carry = {}, receipts = [];
   const episodeKey = store.record('episode_started', {...identity, phase, node, budget, decisionId, worldDigest: digest(world), harnessId: frozen.id});
@@ -38,7 +41,8 @@ export async function runEpisode({agent, driver, store, world, modules, budget, 
       session = null;
     }
     if (!report.technicalFailure) report.terminalReceipt = sealTerminalReceipt(report, {decisionId, budget,
-      termination: receipts.at(-1)?.done ? 'environment' : 'host_budget_exhausted'});
+      termination: receipts.at(-1)?.done ? 'environment' : costBudget && report.actions === interactionLimit && report.cost < budget ? 'host_interaction_limit' : 'host_budget_exhausted',
+      ...(costBudget ? {budgetUnit: 'environment_cost', interactionLimit} : {})});
     store.record('episode_finished', report);
     return report;
   };
@@ -53,13 +57,14 @@ export async function runEpisode({agent, driver, store, world, modules, budget, 
     ensure(session && session.observation && typeof session.actionSchema === 'object', 'Invalid environment reset');
     let observation = normalizeMedia(session.observation);
     publicTask ??= {goal: observation.goal ?? null, initialObservation: clone(observation), metadata: {}};
-    for (let step = 1; step <= budget; step++) {
+    let spent = 0;
+    for (let step = 1; step <= interactionLimit && (costBudget ? spent < budget : step <= budget); step++) {
       let moduleResults = [], action;
       for (let call = 0; call <= 2; call++) {
         failureStage = 'model_transport';
         const response = await agent.ask('explorer_act', {
-          observation, history: clone(history), remaining: budget - step + 1,
-          modules: frozen.modules.map(module => ({moduleId: module.moduleId, protocolClass: module.protocolClass, prompt: module.prompt, required: module.interface.required})),
+          observation, history: clone(history), remainingInteractions: interactionLimit - step + 1, remaining: costBudget ? budget - spent : budget - step + 1,
+          modules: frozen.modules.map(module => ({moduleId: module.moduleId, protocolClass: module.protocolClass, prompt: module.prompt, required: module.interface.required, interface: clone(module.interface)})),
           moduleResults, carry: clone(carry), callsRemaining: 2 - call, actionSchema: session.actionSchema, skills: clone(skills)
         }, {kind: 'module or action', module: ['moduleId', 'publicInput'], action: ['action']}, {...identity, episodeId: episodeKey, harnessId: frozen.id, phase, node});
         failureStage = 'agent_protocol';
@@ -72,7 +77,9 @@ export async function runEpisode({agent, driver, store, world, modules, budget, 
         if (module.protocolClass === 'memory') input.carry = clone(carry[module.moduleId] ?? null);
         else ensure(!Object.hasOwn(input, 'carry'), 'Only Memory may receive retained carry');
         moduleAttempts++;
-        const output = await execute(module, input);
+        let output;
+        try {output = await execute(module, input, {nativeHost});}
+        catch (error) {output = {error: String(error.message).slice(0, 300)};}
         if (module.protocolClass === 'memory' && output && Object.hasOwn(output, 'carry')) carry[module.moduleId] = clone(output.carry);
         const result = {moduleId: module.moduleId, version: module.version, output};
         moduleResults.push(result);
@@ -87,6 +94,8 @@ export async function runEpisode({agent, driver, store, world, modules, budget, 
         score: Number.isFinite(receipt?.score) ? receipt.score : null, reward: Number.isFinite(receipt?.reward) ? receipt.reward : null});
       ensure(receipt && typeof receipt.done === 'boolean' && typeof receipt.success === 'boolean' && receipt.observation && typeof receipt.cost === 'number' && receipt.cost >= 0 && Number.isFinite(receipt.cost), 'Invalid host receipt');
       ensure(!receipt.success || receipt.done, 'Success requires a terminal receipt');
+      ensure(!costBudget || receipt.cost <= budget - spent, 'Environment cost exceeds remaining budget');
+      spent += receipt.cost;
       receipt.observation = normalizeMedia(receipt.observation);
       for (const key of ['score', 'reward']) ensure(receipt[key] == null || Number.isFinite(receipt[key]), 'Invalid host ' + key);
       const item = {step, observation: clone(observation), action: clone(action), receipt: clone(receipt)};
@@ -98,7 +107,8 @@ export async function runEpisode({agent, driver, store, world, modules, budget, 
         return await finish(report);
       }
     }
-    const report = {...metrics(), episodeId: episodeKey, phase, node, harnessId: frozen.id, worldDigest: digest(world), success: false, technicalFailure: false, actions: budget, cost: receipts.reduce((sum, value) => sum + value.cost, 0), events: evidence, reason: 'Action budget exhausted'};
+    if (costBudget && spent < budget) return await finish({...metrics(), episodeId: episodeKey, phase, node, harnessId: frozen.id, worldDigest: digest(world), success: false, technicalFailure: false, actions: receipts.length, cost: spent, events: evidence, reason: 'Interaction budget exhausted'});
+    const report = {...metrics(), episodeId: episodeKey, phase, node, harnessId: frozen.id, worldDigest: digest(world), success: false, technicalFailure: false, actions: receipts.length, cost: receipts.reduce((sum, value) => sum + value.cost, 0), events: evidence, reason: 'Action budget exhausted'};
     return await finish(report);
   } catch (error) {
     const report = {...metrics(), episodeId: episodeKey, phase, node, harnessId: frozen.id, worldDigest: digest(world), success: false, technicalFailure: true, actions: receipts.length, cost: receipts.reduce((sum, value) => sum + value.cost, 0), events: evidence, failureStage, reason: String(error.message)};
@@ -110,21 +120,26 @@ export async function runBatch(options, trials) {
     const plan = await freezeExplorationInstances({...options, trials});
     options = {...options, instances: plan.instances, initialStateHashes: plan.initialStateHashes, instancePlan: plan.event};
   }
-  const rows = [];
   ensure(Number.isInteger(trials) && trials > 0, 'Positive episode count required');
   const retries = options.phase === 'initial_training_exploration' ? (options.infrastructureRetries ?? 2) : 0;
   ensure(Number.isInteger(retries) && retries >= 0, 'Invalid infrastructure retry budget');
   if (options.instances) ensure(options.instances.length === trials, 'Instance manifest length mismatch');
-  for (let trial = 0; trial < trials; trial++) {
+  const runTrial = async trial => {
     for (let attempt = 0; ; attempt++) {
       const row = await runEpisode({...options, instance: options.instances?.[trial] ?? null, expectedInitialStateHash: options.initialStateHashes?.[trial] ?? null});
-      if (!row.technicalFailure || options.phase !== 'initial_training_exploration') {rows.push(row); break;}
+      if (!row.technicalFailure || options.phase !== 'initial_training_exploration') return row;
       ensure(['reset', 'step', 'cleanup', 'model_transport'].includes(row.failureStage), 'Technical failures in agent protocol are not retryable infrastructure errors');
       options.store.record('initial_exploration_retry', {trial, attempt, episodeId: row.episodeId, exhausted: attempt >= retries});
       ensure(attempt < retries, 'Technical failures exhausted the initial exploration retry budget');
     }
+  };
+  const order = Array.from({length: trials}, (_, trial) => trial);
+  if (options.serialTrials) {
+    const rows = [];
+    for (const trial of order) rows.push(await runTrial(trial));
+    return rows;
   }
-  return rows;
+  return Promise.all(order.map(runTrial));
 }
 export async function matchedInstances(driver, world, trials) {
   ensure(typeof driver.instanceManifest === 'function' && typeof driver.initialState === 'function', 'Matched comparisons require instanceManifest and initialState adapter methods');
@@ -134,6 +149,8 @@ export async function matchedInstances(driver, world, trials) {
 }
 function matched(left, right) {
   return left.worldDigest === right.worldDigest && left.taskId === right.taskId && Number.isInteger(left.budget) && left.budget === right.budget &&
+    (left.budgetUnit ?? 'action') === (right.budgetUnit ?? 'action') &&
+    (left.interactionLimit ?? left.budget) === (right.interactionLimit ?? right.budget) &&
     left.instance !== null && left.instance !== undefined && digest(left.instance) === digest(right.instance) &&
     (left.technicalFailure || right.technicalFailure || typeof left.initialStateHash === 'string' && left.initialStateHash === right.initialStateHash);
 }

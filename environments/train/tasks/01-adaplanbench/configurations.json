@@ -1,0 +1,341 @@
+{
+  "taskId": "adaplanbench",
+  "note": "Train refresh 2026-10-16. episodes are planned repetitions; h0Runs=0. The configurations own their runtime instance; fingerprints use canonical sorted-key JSON: nativeInstanceFingerprint hashes instance; configurationHash hashes the configuration excluding configurationHash, episodes and h0Runs. See per-task refresh report in group-b.",
+  "configurations": [
+    {
+      "id": "adaplanbench-refresh-0",
+      "ordinal": 0,
+      "selector": {
+        "providerId": "adaplanbench-refresh-20261016",
+        "ordinal": 0
+      },
+      "origin": "official_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained.",
+      "instance": {
+        "benchmark": "adaplanbench",
+        "domain": "housing",
+        "source": "macgyver",
+        "queryIndex": 3,
+        "queryId": "housing:macgyver:549",
+        "banIterativeSampleNum": 2,
+        "maxTurns": 20,
+        "earlyStop": "no_new_violation x2 (official run_config.yaml)",
+        "routes": {
+          "tools": "claude-sonnet-5",
+          "prefs": "claude-sonnet-5",
+          "rubrics": [
+            "claude-sonnet-5",
+            "claude-haiku-4-5-20251001"
+          ],
+          "userSimulator": "claude-haiku-4-5-20251001"
+        },
+        "officialCommit": "b17d2d7f00e640b6f37bb872e760aec1b2597db7",
+        "files": {
+          "vendor/adaplanbench/official/AdaPlanBench/domain_metadata/housing/final/query_housing_macgyver_resample.json": "c5f272cf543f5d6b146027199b6762245ff425f3810b6d171d76e4e4a3092825"
+        }
+      },
+      "nativeInstanceFingerprint": "b98152d72de9acd462a691b34ad5c1315de1ae9bfad873a749709cf21f6b9b12",
+      "configurationHash": "796114e73cee200c82fdfea55c0bb2d2336543d9461dd5f66b289fbf9c1eb4d0"
+    },
+    {
+      "id": "adaplanbench-refresh-1",
+      "ordinal": 1,
+      "selector": {
+        "providerId": "adaplanbench-refresh-20261016",
+        "ordinal": 1
+      },
+      "origin": "official_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained.",
+      "instance": {
+        "benchmark": "adaplanbench",
+        "domain": "housing",
+        "source": "macgyver",
+        "queryIndex": 4,
+        "queryId": "housing:macgyver:441",
+        "banIterativeSampleNum": 2,
+        "maxTurns": 20,
+        "earlyStop": "no_new_violation x2 (official run_config.yaml)",
+        "routes": {
+          "tools": "claude-sonnet-5",
+          "prefs": "claude-sonnet-5",
+          "rubrics": [
+            "claude-sonnet-5",
+            "claude-haiku-4-5-20251001"
+          ],
+          "userSimulator": "claude-haiku-4-5-20251001"
+        },
+        "officialCommit": "b17d2d7f00e640b6f37bb872e760aec1b2597db7",
+        "files": {
+          "vendor/adaplanbench/official/AdaPlanBench/domain_metadata/housing/final/query_housing_macgyver_resample.json": "c5f272cf543f5d6b146027199b6762245ff425f3810b6d171d76e4e4a3092825"
+        }
+      },
+      "nativeInstanceFingerprint": "c21a2ecaed7edfd06486d066f458d2c6a7c7780ad096241b3ea5aaded2741417",
+      "configurationHash": "f48c685a5f7c71906c703bbb6500b3ea3555a174e94a1c40b9cdb1fa0064c11e"
+    },
+    {
+      "id": "adaplanbench-refresh-2",
+      "ordinal": 2,
+      "selector": {
+        "providerId": "adaplanbench-refresh-20261016",
+        "ordinal": 2
+      },
+      "origin": "official_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained.",
+      "instance": {
+        "benchmark": "adaplanbench",
+        "domain": "housing",
+        "source": "macgyver",
+        "queryIndex": 5,
+        "queryId": "housing:macgyver:442",
+        "banIterativeSampleNum": 2,
+        "maxTurns": 20,
+        "earlyStop": "no_new_violation x2 (official run_config.yaml)",
+        "routes": {
+          "tools": "claude-sonnet-5",
+          "prefs": "claude-sonnet-5",
+          "rubrics": [
+            "claude-sonnet-5",
+            "claude-haiku-4-5-20251001"
+          ],
+          "userSimulator": "claude-haiku-4-5-20251001"
+        },
+        "officialCommit": "b17d2d7f00e640b6f37bb872e760aec1b2597db7",
+        "files": {
+          "vendor/adaplanbench/official/AdaPlanBench/domain_metadata/housing/final/query_housing_macgyver_resample.json": "c5f272cf543f5d6b146027199b6762245ff425f3810b6d171d76e4e4a3092825"
+        }
+      },
+      "nativeInstanceFingerprint": "d484d1d4772f54ddc4fdd84fd10464933efed32ec040298f0e9d532adf9cd9ac",
+      "configurationHash": "1c2a746318ee60c495d5da716a65272e7a9304a79c15c45d9766fe9666509a5d"
+    },
+    {
+      "id": "adaplanbench-refresh-3",
+      "ordinal": 3,
+      "selector": {
+        "providerId": "adaplanbench-refresh-20261016",
+        "ordinal": 3
+      },
+      "origin": "official_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained.",
+      "instance": {
+        "benchmark": "adaplanbench",
+        "domain": "housing",
+        "source": "macgyver",
+        "queryIndex": 6,
+        "queryId": "housing:macgyver:443",
+        "banIterativeSampleNum": 2,
+        "maxTurns": 20,
+        "earlyStop": "no_new_violation x2 (official run_config.yaml)",
+        "routes": {
+          "tools": "claude-sonnet-5",
+          "prefs": "claude-sonnet-5",
+          "rubrics": [
+            "claude-sonnet-5",
+            "claude-haiku-4-5-20251001"
+          ],
+          "userSimulator": "claude-haiku-4-5-20251001"
+        },
+        "officialCommit": "b17d2d7f00e640b6f37bb872e760aec1b2597db7",
+        "files": {
+          "vendor/adaplanbench/official/AdaPlanBench/domain_metadata/housing/final/query_housing_macgyver_resample.json": "c5f272cf543f5d6b146027199b6762245ff425f3810b6d171d76e4e4a3092825"
+        }
+      },
+      "nativeInstanceFingerprint": "5dfe197577b046e5c6cd8030233f29199c093e94fc54f3bf7a3f8f1287444463",
+      "configurationHash": "abef7f1a9ffc180631502a3e052e5943fe3d4015ebbfa8def29d9c363d963d09"
+    },
+    {
+      "id": "adaplanbench-refresh-4",
+      "ordinal": 4,
+      "selector": {
+        "providerId": "adaplanbench-refresh-20261016",
+        "ordinal": 4
+      },
+      "origin": "official_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained.",
+      "instance": {
+        "benchmark": "adaplanbench",
+        "domain": "housing",
+        "source": "macgyver",
+        "queryIndex": 7,
+        "queryId": "housing:macgyver:446",
+        "banIterativeSampleNum": 2,
+        "maxTurns": 20,
+        "earlyStop": "no_new_violation x2 (official run_config.yaml)",
+        "routes": {
+          "tools": "claude-sonnet-5",
+          "prefs": "claude-sonnet-5",
+          "rubrics": [
+            "claude-sonnet-5",
+            "claude-haiku-4-5-20251001"
+          ],
+          "userSimulator": "claude-haiku-4-5-20251001"
+        },
+        "officialCommit": "b17d2d7f00e640b6f37bb872e760aec1b2597db7",
+        "files": {
+          "vendor/adaplanbench/official/AdaPlanBench/domain_metadata/housing/final/query_housing_macgyver_resample.json": "c5f272cf543f5d6b146027199b6762245ff425f3810b6d171d76e4e4a3092825"
+        }
+      },
+      "nativeInstanceFingerprint": "0da4167bec33a02b08672f1c921d7971eb35ace15e785eaf9206eaf942b0f184",
+      "configurationHash": "5d7189fbfa79c3ef1b188a526f3a62a53287ddca77bfa0dba07b5d5a095efb73"
+    },
+    {
+      "id": "adaplanbench-refresh-5",
+      "ordinal": 5,
+      "selector": {
+        "providerId": "adaplanbench-refresh-20261016",
+        "ordinal": 5
+      },
+      "origin": "official_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained.",
+      "instance": {
+        "benchmark": "adaplanbench",
+        "domain": "housing",
+        "source": "macgyver",
+        "queryIndex": 8,
+        "queryId": "housing:macgyver:449",
+        "banIterativeSampleNum": 2,
+        "maxTurns": 20,
+        "earlyStop": "no_new_violation x2 (official run_config.yaml)",
+        "routes": {
+          "tools": "claude-sonnet-5",
+          "prefs": "claude-sonnet-5",
+          "rubrics": [
+            "claude-sonnet-5",
+            "claude-haiku-4-5-20251001"
+          ],
+          "userSimulator": "claude-haiku-4-5-20251001"
+        },
+        "officialCommit": "b17d2d7f00e640b6f37bb872e760aec1b2597db7",
+        "files": {
+          "vendor/adaplanbench/official/AdaPlanBench/domain_metadata/housing/final/query_housing_macgyver_resample.json": "c5f272cf543f5d6b146027199b6762245ff425f3810b6d171d76e4e4a3092825"
+        }
+      },
+      "nativeInstanceFingerprint": "c3e5fed6343856878454cadb3abb18d1c434b1d25f54d61dfb7714ef00766c82",
+      "configurationHash": "667d42214dfa687f64297296130b4d5afbeeda6b79b5e9f1a799d69409bc5706"
+    },
+    {
+      "id": "adaplanbench-refresh-6",
+      "ordinal": 6,
+      "selector": {
+        "providerId": "adaplanbench-refresh-20261016",
+        "ordinal": 6
+      },
+      "origin": "official_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained.",
+      "instance": {
+        "benchmark": "adaplanbench",
+        "domain": "housing",
+        "source": "macgyver",
+        "queryIndex": 9,
+        "queryId": "housing:macgyver:332",
+        "banIterativeSampleNum": 2,
+        "maxTurns": 20,
+        "earlyStop": "no_new_violation x2 (official run_config.yaml)",
+        "routes": {
+          "tools": "claude-sonnet-5",
+          "prefs": "claude-sonnet-5",
+          "rubrics": [
+            "claude-sonnet-5",
+            "claude-haiku-4-5-20251001"
+          ],
+          "userSimulator": "claude-haiku-4-5-20251001"
+        },
+        "officialCommit": "b17d2d7f00e640b6f37bb872e760aec1b2597db7",
+        "files": {
+          "vendor/adaplanbench/official/AdaPlanBench/domain_metadata/housing/final/query_housing_macgyver_resample.json": "c5f272cf543f5d6b146027199b6762245ff425f3810b6d171d76e4e4a3092825"
+        }
+      },
+      "nativeInstanceFingerprint": "a42d19fb478484d315d8b999b1d7b0cba741338a2206ad30eb415cb1fbf2c8cc",
+      "configurationHash": "68dccf69df52e7023423a6a22b0430add69ce1c09eb9b7329cb33fe3396e1264"
+    },
+    {
+      "id": "adaplanbench-refresh-7",
+      "ordinal": 7,
+      "selector": {
+        "providerId": "adaplanbench-refresh-20261016",
+        "ordinal": 7
+      },
+      "origin": "official_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained.",
+      "instance": {
+        "benchmark": "adaplanbench",
+        "domain": "housing",
+        "source": "macgyver",
+        "queryIndex": 10,
+        "queryId": "housing:macgyver:333",
+        "banIterativeSampleNum": 2,
+        "maxTurns": 20,
+        "earlyStop": "no_new_violation x2 (official run_config.yaml)",
+        "routes": {
+          "tools": "claude-sonnet-5",
+          "prefs": "claude-sonnet-5",
+          "rubrics": [
+            "claude-sonnet-5",
+            "claude-haiku-4-5-20251001"
+          ],
+          "userSimulator": "claude-haiku-4-5-20251001"
+        },
+        "officialCommit": "b17d2d7f00e640b6f37bb872e760aec1b2597db7",
+        "files": {
+          "vendor/adaplanbench/official/AdaPlanBench/domain_metadata/housing/final/query_housing_macgyver_resample.json": "c5f272cf543f5d6b146027199b6762245ff425f3810b6d171d76e4e4a3092825"
+        }
+      },
+      "nativeInstanceFingerprint": "973001941eee47a7531dbcc9886e9e2fda817c6e997ee6bf94e784c47c78f8cb",
+      "configurationHash": "058e1ccbbe823c11c9f0b88a7bb09e9a264d30f4d4d3bc8408195bb2746f7465"
+    },
+    {
+      "id": "adaplanbench-refresh-8",
+      "ordinal": 8,
+      "selector": {
+        "providerId": "adaplanbench-refresh-20261016",
+        "ordinal": 8
+      },
+      "origin": "official_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained.",
+      "instance": {
+        "benchmark": "adaplanbench",
+        "domain": "housing",
+        "source": "macgyver",
+        "queryIndex": 11,
+        "queryId": "housing:macgyver:337",
+        "banIterativeSampleNum": 2,
+        "maxTurns": 20,
+        "earlyStop": "no_new_violation x2 (official run_config.yaml)",
+        "routes": {
+          "tools": "claude-sonnet-5",
+          "prefs": "claude-sonnet-5",
+          "rubrics": [
+            "claude-sonnet-5",
+            "claude-haiku-4-5-20251001"
+          ],
+          "userSimulator": "claude-haiku-4-5-20251001"
+        },
+        "officialCommit": "b17d2d7f00e640b6f37bb872e760aec1b2597db7",
+        "files": {
+          "vendor/adaplanbench/official/AdaPlanBench/domain_metadata/housing/final/query_housing_macgyver_resample.json": "c5f272cf543f5d6b146027199b6762245ff425f3810b6d171d76e4e4a3092825"
+        }
+      },
+      "nativeInstanceFingerprint": "d138ceb7822801585335c88ce17eac1d03aee478434580fb800dadfd69c7d377",
+      "configurationHash": "94d411b4a4a7a9436beff670de6a558e3dd86e18908cb44a6bbe0934e966fa55"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

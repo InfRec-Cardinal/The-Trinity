@@ -1,0 +1,16 @@
+{
+  "game_id": "cn04-2fe56bfb",
+  "title": "CN04",
+  "default_fps": 5,
+  "tags": [
+    "keyboard_click"
+  ],
+  "baseline_actions": [
+    29,
+    54,
+    85,
+    300,
+    208,
+    113
+  ]
+}

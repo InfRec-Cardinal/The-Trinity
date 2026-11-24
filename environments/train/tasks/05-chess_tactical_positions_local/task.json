@@ -1,0 +1,66 @@
+{
+  "taskId": "chess_tactical_positions_local",
+  "name": "Chess Tactics",
+  "fullName": "Local Chess Tactical Positions",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D2",
+    "domainName": "Constraint Solving, Puzzles & Design",
+    "subCategoryId": "D2.1",
+    "subCategoryName": "Rule-Complete Deduction & Search"
+  },
+  "assignment": {
+    "actions": {
+      "submit_move": "Submit exactly one legal UCI move as {\"move\":\"e2e4\"}. Promotions append q, r, b or n."
+    },
+    "evaluation": {
+      "budget": 1,
+      "efficiency": "Exactly one Player response per episode.",
+      "failure": "Any other or malformed move fails the episode immediately.",
+      "success": "The submitted move is the unique exhaustively verified move that forces checkmate within the stated horizon."
+    },
+    "generation": "Nine new legal FEN positions selected from deterministic legal playouts: six unique mate-in-one and three unique forced-mate-in-two positions.",
+    "id": "local-chess-unique-forced-mate-tactics",
+    "observation": "The full 8x8 board, FEN, side to move, mate horizon and UCI action format are public. There is no hidden state and no opponent model call.",
+    "reference": "Self-proposed perfect-information board task built from standard chess legality and checkmate rules. The nine replacement FEN positions were exhaustively verified with python-chess 1.11.2; all construction and sampling choices are reconstruction designs.",
+    "task": "Given a complete legal chess position and a stated mate horizon, submit the unique first move that forces checkmate within that horizon.",
+    "verification": "Re-enumerate every legal root move with python-chess 1.11.2; for mate-in-two, quantify over every legal defender reply and require an attacking mate reply. Retain FEN, accepted move and proof output."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "mode": "fixed_nine_configurations_three_trials",
+    "policy": "nine-configurations-three-trials-report-every-result-adaptive-low-v1",
+    "configurations": 9,
+    "episodesPerConfiguration": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "repetitions": null,
+    "totalEpisodes": 27,
+    "actionBudget": null,
+    "plannedEpisodes": 27
+  },
+  "otherModels": [],
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Replacement instances are pinned in instances.json; task rules, scoring, action budget, model and rendering logic are preserved. Drivers reject old provider/ID/hash selectors.",
+    "nativeInstanceFingerprint is SHA-256 of recursively key-sorted JSON of the full instance. substantiveIdentityHash omits seed, ID and private witness (chess uses the position and horizon). configurationHash covers taskId, id, selector and nativeInstanceFingerprint."
+  ]
+}

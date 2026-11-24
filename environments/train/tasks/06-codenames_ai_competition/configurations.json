@@ -1,0 +1,197 @@
+{
+  "taskId": "codenames_ai_competition",
+  "note": "Train refresh 2026-10-16. episodes are planned repetitions; h0Runs=0. The configurations own their runtime instance; fingerprints use canonical sorted-key JSON: nativeInstanceFingerprint hashes instance; configurationHash hashes the configuration excluding configurationHash, episodes and h0Runs. See per-task refresh report in group-b.",
+  "configurations": [
+    {
+      "id": "codenames_ai_competition-refresh-0",
+      "ordinal": 0,
+      "selector": {
+        "providerId": "codenames_ai_competition-refresh-20261016",
+        "ordinal": 0
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level.",
+      "instance": {
+        "seed": 101,
+        "partner": "glove_100d",
+        "singleTeam": true,
+        "clueBudget": 25,
+        "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+      },
+      "nativeInstanceFingerprint": "b7f87240499cd66349fdcdb5f55e61f8dda9befb0a7be257707be92dbd1a9b9a",
+      "configurationHash": "16368d3037f967ab61ee13e1d12758ceae8b914896f4e87f1481da0f8a20e99e"
+    },
+    {
+      "id": "codenames_ai_competition-refresh-1",
+      "ordinal": 1,
+      "selector": {
+        "providerId": "codenames_ai_competition-refresh-20261016",
+        "ordinal": 1
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level.",
+      "instance": {
+        "seed": 102,
+        "partner": "glove_50d",
+        "singleTeam": true,
+        "clueBudget": 25,
+        "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+      },
+      "nativeInstanceFingerprint": "bbc73f41c17b69b339f4dc866ce0874f3ea07c8ee830559cacb240e45420eabe",
+      "configurationHash": "fe19787acdf0208b34e05706e3d0198fb13324e6cf90f589976b3764b82772f8"
+    },
+    {
+      "id": "codenames_ai_competition-refresh-2",
+      "ordinal": 2,
+      "selector": {
+        "providerId": "codenames_ai_competition-refresh-20261016",
+        "ordinal": 2
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level.",
+      "instance": {
+        "seed": 103,
+        "partner": "glove_100d",
+        "singleTeam": true,
+        "clueBudget": 25,
+        "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+      },
+      "nativeInstanceFingerprint": "87cec70600fd72b3fd2b9a74080585046e35b1b8437aa65ed8fd0ac974a24840",
+      "configurationHash": "da24fbd619b9ddf02564e0efd66fc209f3284a6ff1f8bd86def619900864a229"
+    },
+    {
+      "id": "codenames_ai_competition-refresh-3",
+      "ordinal": 3,
+      "selector": {
+        "providerId": "codenames_ai_competition-refresh-20261016",
+        "ordinal": 3
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level.",
+      "instance": {
+        "seed": 104,
+        "partner": "glove_100d",
+        "singleTeam": true,
+        "clueBudget": 25,
+        "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+      },
+      "nativeInstanceFingerprint": "a8645f9c579c42c164983fcb59541fa75d9aeb4e71189c7eaf37f900279a50f2",
+      "configurationHash": "77a4a15ba1288049f6f9e3ea5a178d3e49572ec5b6412bef8637789088651bb5"
+    },
+    {
+      "id": "codenames_ai_competition-refresh-4",
+      "ordinal": 4,
+      "selector": {
+        "providerId": "codenames_ai_competition-refresh-20261016",
+        "ordinal": 4
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level.",
+      "instance": {
+        "seed": 105,
+        "partner": "glove_50d",
+        "singleTeam": true,
+        "clueBudget": 25,
+        "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+      },
+      "nativeInstanceFingerprint": "a46dede0696a86999cf762f7061e523cd82d3ca8a2e47c5363e07979169d4a3b",
+      "configurationHash": "48f0eabd5c37e8aa833be9610d0d0d7f826ea4eda9c5255e8e86944be87e4154"
+    },
+    {
+      "id": "codenames_ai_competition-refresh-5",
+      "ordinal": 5,
+      "selector": {
+        "providerId": "codenames_ai_competition-refresh-20261016",
+        "ordinal": 5
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level.",
+      "instance": {
+        "seed": 106,
+        "partner": "glove_100d",
+        "singleTeam": true,
+        "clueBudget": 25,
+        "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+      },
+      "nativeInstanceFingerprint": "02f2852307a1acca7510802bf3d10a0ec91030fc93554c655c3cf61def22e82e",
+      "configurationHash": "48ff0f557d45b5eb07b22d0014e424cc83f62771c27365705c9ca53c0307ec9f"
+    },
+    {
+      "id": "codenames_ai_competition-refresh-6",
+      "ordinal": 6,
+      "selector": {
+        "providerId": "codenames_ai_competition-refresh-20261016",
+        "ordinal": 6
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level.",
+      "instance": {
+        "seed": 107,
+        "partner": "glove_100d",
+        "singleTeam": true,
+        "clueBudget": 25,
+        "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+      },
+      "nativeInstanceFingerprint": "ce0f1e0f4c69121114ead985878c072dac72b1c17e728b6ab30d64b0d170a516",
+      "configurationHash": "0feef73619691da0063432acee2974320e63eb93bd4bd18885fdd539a52ab036"
+    },
+    {
+      "id": "codenames_ai_competition-refresh-7",
+      "ordinal": 7,
+      "selector": {
+        "providerId": "codenames_ai_competition-refresh-20261016",
+        "ordinal": 7
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level.",
+      "instance": {
+        "seed": 108,
+        "partner": "glove_50d",
+        "singleTeam": true,
+        "clueBudget": 25,
+        "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+      },
+      "nativeInstanceFingerprint": "138ee63c207a30a29c0debef8164dedddbe8e67c14df47f9527349a60d54d70c",
+      "configurationHash": "e38963db2c333f203cb9dcc9fdc0b5459c2ba55e45599438fa519f927bb4605e"
+    },
+    {
+      "id": "codenames_ai_competition-refresh-8",
+      "ordinal": 8,
+      "selector": {
+        "providerId": "codenames_ai_competition-refresh-20261016",
+        "ordinal": 8
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh official Game board/key shuffle; existing non-LLM GloVe partner convention retained; not a published fixed level.",
+      "instance": {
+        "seed": 109,
+        "partner": "glove_100d",
+        "singleTeam": true,
+        "clueBudget": 25,
+        "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+      },
+      "nativeInstanceFingerprint": "b21bbf80c9bd9de5a2bfcf2adbee4dae129248c82374b1c92d5dd147da4e36eb",
+      "configurationHash": "8992f241bcd3fb2be5762dea17d35c2e338e002cf4a9a6d417dc86722df30ae6"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

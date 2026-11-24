@@ -1,0 +1,142 @@
+{
+  "taskId": "chess_tactical_positions_local",
+  "configurations": [
+    {
+      "id": "chess_tactical_positions_local-refresh-01",
+      "ordinal": 0,
+      "label": "Position 1: mate in 1, 23 legal candidates",
+      "selector": {
+        "providerId": "chess_tactical_positions_local-train-refresh-20261016-v1",
+        "ordinal": 0
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "a523b5a1f4e3e5c4a5af8b283c01f7625c32fb49d3e4973431d97d7b19961ae5",
+      "substantiveIdentityHash": "5c6dbcacea3059585baa6c6172a505e4aa20360b963def3a4d45eb437adad855",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "d3b711180670920750516105c8c03a8bd9ffa63adcb48340284920c62adfe5e2"
+    },
+    {
+      "id": "chess_tactical_positions_local-refresh-02",
+      "ordinal": 1,
+      "label": "Position 2: mate in 1, 45 legal candidates",
+      "selector": {
+        "providerId": "chess_tactical_positions_local-train-refresh-20261016-v1",
+        "ordinal": 1
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "acfbb15088980bc352986e7e68518f255a8aac3b91c70b05dd55e35f121d013a",
+      "substantiveIdentityHash": "98874b4d4647e110f992867bd9724c501f4950a1a8a451f8c07a29b5038110a7",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "d711fe7b50c735cc0764e4a7b12db52a44092a6a1690c4a71a56408bdd0cf75a"
+    },
+    {
+      "id": "chess_tactical_positions_local-refresh-03",
+      "ordinal": 2,
+      "label": "Position 3: mate in 1, 32 legal candidates",
+      "selector": {
+        "providerId": "chess_tactical_positions_local-train-refresh-20261016-v1",
+        "ordinal": 2
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "c88d63132f9ef6e1b0a2502465beb112e9cbf892afee929acaff597163e0c23c",
+      "substantiveIdentityHash": "a7cf537f49039ac12698486d6b43f44b12241af0d5a0343c160730b0944e5972",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "da85d54e6290bd0be87359c2563adb2b50f25bcba50499958528217e54514a6a"
+    },
+    {
+      "id": "chess_tactical_positions_local-refresh-04",
+      "ordinal": 3,
+      "label": "Position 4: mate in 1, 37 legal candidates",
+      "selector": {
+        "providerId": "chess_tactical_positions_local-train-refresh-20261016-v1",
+        "ordinal": 3
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "95a446fe8abd30e792cbbd08f130340fcd6dbc5285fac13674833c8a9fc55c45",
+      "substantiveIdentityHash": "0b0ff759e2661e5c84fe759bede7bc9090598032847efbb55cf1c87dc8501656",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "e2e680a9000c87f607238ddfece16672bcf57f235acdc7ef63f2534d7e1cd462"
+    },
+    {
+      "id": "chess_tactical_positions_local-refresh-05",
+      "ordinal": 4,
+      "label": "Position 5: mate in 1, 47 legal candidates",
+      "selector": {
+        "providerId": "chess_tactical_positions_local-train-refresh-20261016-v1",
+        "ordinal": 4
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "d38be6976326f769279245fdcb2b0f48dd6de04202ff2cd0d627bb03fc294413",
+      "substantiveIdentityHash": "62a4e18e415ae1b6cd28b5bb4c0630359660487a954e0234a4ab17731d9833ed",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "6da933834c2ba625e10416cfbd2acb166ae8463e795a10a011216e61ed6a73c8"
+    },
+    {
+      "id": "chess_tactical_positions_local-refresh-06",
+      "ordinal": 5,
+      "label": "Position 6: mate in 1, 42 legal candidates",
+      "selector": {
+        "providerId": "chess_tactical_positions_local-train-refresh-20261016-v1",
+        "ordinal": 5
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "7f247c34863a394c9994ca8f4bb925452da9b9ec60d0bc599616a4a568f7f321",
+      "substantiveIdentityHash": "88a0ab60b27d53279d6fbfec5f1019550152ce25bb279567cb1665cfb764c9c4",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "5f67097033fc5ea3979d07e36ac58e229042a40eaab0fc913340714a132144f3"
+    },
+    {
+      "id": "chess_tactical_positions_local-refresh-07",
+      "ordinal": 6,
+      "label": "Position 7: mate in 2, 33 legal candidates",
+      "selector": {
+        "providerId": "chess_tactical_positions_local-train-refresh-20261016-v1",
+        "ordinal": 6
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "c548e3f4c0ee55c69604b941b5723412d000830fcb57254a40d3c96090bafa20",
+      "substantiveIdentityHash": "878426cbc5cbf37b4ff7d5c09ef5dc93023ecc2caa1f823011010a2fe7ade157",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "55ceeb9ec765dc3f36f56ed9e09602336f956f9cee2d0a8b4e42c7aee39a22bb"
+    },
+    {
+      "id": "chess_tactical_positions_local-refresh-08",
+      "ordinal": 7,
+      "label": "Position 8: mate in 2, 31 legal candidates",
+      "selector": {
+        "providerId": "chess_tactical_positions_local-train-refresh-20261016-v1",
+        "ordinal": 7
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "6ac2578bf357da95d6181eac33efff5733732ce2fa415536b06ca5b6b2ee1b52",
+      "substantiveIdentityHash": "65b06985544a143b5e6072126c459729225a3f7799f209a15e4566046b02348d",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "cd5eadd6b97e99d0d2d6633043f2915265b6bc03610b66c55bea32bd9a10428c"
+    },
+    {
+      "id": "chess_tactical_positions_local-refresh-09",
+      "ordinal": 8,
+      "label": "Position 9: mate in 2, 37 legal candidates",
+      "selector": {
+        "providerId": "chess_tactical_positions_local-train-refresh-20261016-v1",
+        "ordinal": 8
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "8ccbf6a395864d2375a9f5881ad124e07319a2a303ed3916eb964eb1cc89da78",
+      "substantiveIdentityHash": "00c5b9e9ce81b470b7761d13232075c7f772deb0b16d0f8af50a6602472d59ac",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "bcdf2619448769b42f56d5948cdeb17109968fbedf0554be12bd52ee62aaf188"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

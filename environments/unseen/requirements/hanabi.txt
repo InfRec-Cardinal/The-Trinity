@@ -1,0 +1,13 @@
+                                                                                                     
+                                                                                           
+cffi==2.1.1
+cmake==3.31.10
+distro==1.9.0
+./hanabi-source
+ninja==1.13.2
+packaging==26.3
+pillow==11.3.0
+pycparser==3.0
+scikit-build==0.19.1
+setuptools==84.0.0
+wheel==0.48.0

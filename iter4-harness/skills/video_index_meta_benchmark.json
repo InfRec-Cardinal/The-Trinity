@@ -1,0 +1,37 @@
+{
+  "taskId": "video_index_meta_benchmark",
+  "proposals": [
+    {
+      "id": "video-index-meta-benchmark",
+      "title": "Anchor causal video answers to the actual visible interaction",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Before each native decision in this task, using only current public observations and earlier public feedback.",
+      "procedure": [
+        "Read the question and options, then examine the ordered sequence at the event that distinguishes the options. Identify state before contact, the contact itself and the resulting state.",
+        "For what-caused questions distinguish the acting entity from any separate implement. Track whether a distinct object is actually interposed at the contact; do not infer a conventional implement from the usual way this event is done.",
+        "A barely visible or absent object must not be invented to make a familiar story. Prefer direct evidence of the interaction to canonical expectations; however lack of one sampled frame alone does not prove absence.",
+        "For temporal direction or order use early, intermediate and late states in the supplied order, including reversal. For counts, count distinct completed events, not repeated frames of one event.",
+        "Use prerequisite temporal/evidence modules only where their public event model fits. The already supplied frames cannot be supplemented with imaginary tools. Select the supported option in the exact native response format."
+      ],
+      "successSignals": [
+        "Native objective achieved; actual feedback agrees with the selected action."
+      ],
+      "failureSignals": [
+        "Action repeats a known failure or depends on an unverified observation or model."
+      ],
+      "recovery": [
+        "Re-read the actual public feedback, identify whether perception, model or execution was wrong, and revise only that assumption."
+      ],
+      "invariants": [
+        "No fixed object names, choices or case-specific events in the skill.",
+        "Causal plausibility cannot override visible event evidence."
+      ],
+      "sourceGapIds": [
+        "policy-video-index-meta-benchmark"
+      ]
+    }
+  ]
+}

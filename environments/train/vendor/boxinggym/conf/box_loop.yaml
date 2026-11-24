@@ -1,0 +1,15 @@
+llm: GPT4-V
+experiment: box_loop
+num_rounds: 1
+proposal_temperature: 0.0
+critic_temperature: 0.0
+num_exemplars: 3
+num_to_consider: 50
+language_synthesize: true
+corrupt: false
+warm_start: false
+incontext_heuristic: recent
+critic_exemplar_heuristic: recent
+vision_only: false
+use_vision: false
+num_proposals: 1

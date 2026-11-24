@@ -1,0 +1,113 @@
+{
+  "revision": 1,
+  "audience": "playing",
+  "frozen": true,
+  "skills": [
+    {
+      "id": "playing-public-control-loop",
+      "title": "Observe, act, and re-observe",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "Before every movement or interaction decision",
+      "procedure": [
+        "Record the current phase, direction, and latest public progress cue.",
+        "Choose one bounded public action or short batch with an expected visible effect.",
+        "Re-observe and keep the plan unless new evidence falsifies it; never infer success from a claim."
+      ],
+      "successSignals": [
+        "The host returns goal_reached and the public frame agrees."
+      ],
+      "failureSignals": [
+        "The same scene/action signature repeats without new evidence or terminal host status is absent."
+      ],
+      "recovery": [
+        "Perform one bounded information-gaining recovery action, then resume with a new guard."
+      ],
+      "invariants": [
+        "Only host terminal status ends the episode.",
+        "No hidden coordinates or route trace is used."
+      ],
+      "sourceGapIds": [
+        "bootstrap:playing-public-control-loop"
+      ],
+      "version": 1,
+      "status": "frozen"
+    },
+    {
+      "id": "playing-action-effect-calibration",
+      "title": "Calibrate opaque public actions from visible effects",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "Before relying on an action whose current-episode effect is not yet confirmed",
+      "procedure": [
+        "Read the action's current public contract description and record one expected observable effect without assuming semantics from its identifier.",
+        "Execute one bounded atomic instance, re-observe, and classify the result as confirmed, contradicted, ambiguous, or rejected from public evidence.",
+        "Persist only confirmed action-effect facts for the current episode; if contradicted or ambiguous, do not repeat or invert the action without a distinct precondition or information goal."
+      ],
+      "successSignals": [
+        "A later decision cites a current-episode confirmed action-effect fact and its expected public consequence occurs."
+      ],
+      "failureSignals": [
+        "An unconfirmed action is repeated, an inverse pair substitutes for evidence, or the identifier is treated as proof of its effect."
+      ],
+      "recovery": [
+        "Preserve the contradiction and choose an independently grounded action or observation."
+      ],
+      "invariants": [
+        "Action identifiers are opaque.",
+        "Calibration uses public evidence only.",
+        "No game-specific action, route, coordinate, or mechanic is stored."
+      ],
+      "sourceGapIds": [
+        "bootstrap:playing-action-effect-calibration"
+      ],
+      "version": 1,
+      "status": "frozen"
+    },
+    {
+      "id": "playing-terminal-discipline",
+      "title": "Require host-confirmed terminal evidence",
+      "audience": [
+        "playing"
+      ],
+      "capability": "perception",
+      "trigger": "When the goal appears visually near or apparently complete",
+      "procedure": [
+        "Check the latest act response before making any completion claim.",
+        "If episodeEnded is false, continue with the smallest safe productive action.",
+        "Stop only on episodeEnded=true with reason=goal_reached or host budget exhaustion."
+      ],
+      "successSignals": [
+        "A host-confirmed terminal response is present."
+      ],
+      "failureSignals": [
+        "Player stops early or treats visual proximity as terminal."
+      ],
+      "recovery": [
+        "Resume the current plan and re-observe; do not restart without evidence."
+      ],
+      "invariants": [
+        "Player self-report never overrides the host."
+      ],
+      "sourceGapIds": [
+        "bootstrap:playing-terminal-discipline"
+      ],
+      "version": 1,
+      "status": "frozen"
+    }
+  ],
+  "skillReferenceUpdates": [],
+  "promptPatches": [],
+  "memory": {
+    "retrievalPolicy": "hybrid",
+    "maxItems": 8,
+    "notes": []
+  },
+  "sampling": {},
+  "constraints": {},
+  "components": {}
+}

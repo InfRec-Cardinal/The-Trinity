@@ -91,7 +91,7 @@ def step_evidence(work_dir, task, episode, step):
     file = Path(work_dir) / 'records-canonical' / (task + '.json')
     if not file.exists():
         raise ValueError('Canonical observations are unavailable; reimport the source trajectories')
-    rows = json.loads(file.read_text())
+    rows = json.loads(file.read_text(encoding="utf-8"))
     row = next((row for row in rows if row['episodeId'] == episode), None)
     if row is None or not 0 <= step <= len(row['steps']):
         raise ValueError('Unknown episode or step')

@@ -1,0 +1,37 @@
+{
+  "taskId": "hanabi_hle_unseen",
+  "proposals": [
+    {
+      "id": "hanabi_hle_unseen",
+      "title": "Use public consequence calculations to protect lives and finish the deck",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Before each native decision in this task, using only current public observations and earlier public feedback.",
+      "procedure": [
+        "The automatic cooperative module forecasts each legal move through the next four cycles of partner turns, with a conservative public-information own-seat fallback, sampling only identities and future draws consistent with the public inventory. Its partner policy is an explicit conditional model, not access to hidden decisions.",
+        "Use the highest-valued module candidate when the public rules and observed partner reactions match its assumptions. Its full-cycle death risk takes precedence over a locally attractive hint or speculative own play. Do not replace a strong computed candidate with a narrative heuristic without an actual public contradiction.",
+        "Positive hints cause these partners to play their earliest hinted card. A hint that touches multiple cards can set up several future plays, including duplicates and unplayable ranks. Also consider hints and plays from intervening partners, resource capacity, and the next partner cycle.",
+        "Your own hand is hidden. Use multiplicity-weighted public hypotheses, negative hint information and observed signal semantics rather than treating all identities as equiprobable. A signal implies some touched card may be playable; it does not prove every touched card is playable.",
+        "Read current legal move indices afresh on every turn. Once the host ends the game, accept the official final score. Preserve lives until deck exhaustion; no intermediate stack total is a substitute for the final score."
+      ],
+      "successSignals": [
+        "Native objective achieved; actual feedback agrees with the selected action."
+      ],
+      "failureSignals": [
+        "Action repeats a known failure or depends on an unverified observation or model."
+      ],
+      "recovery": [
+        "Re-read the actual public feedback, identify whether perception, model or execution was wrong, and revise only that assumption."
+      ],
+      "invariants": [
+        "No hidden own identities or fixed hand positions.",
+        "Do not change the official zero-score-on-life-loss rule."
+      ],
+      "sourceGapIds": [
+        "policy-hanabi_hle_unseen"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "schema": "trinity-task-environments-v1",
+  "taskCount": 34,
+  "tasks": {
+    "active_instance_verification": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "chess_tactical_positions_local": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "video_index_meta_benchmark": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "mastermind": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "codenames_ai_competition": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "colonel_blotto": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "pooltool_billiards_shots": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "boxinggym": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "among_us_deception_sandbox": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "actiview_unseen": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "hanabi_hle_unseen": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "video_mme_v2_unseen": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "adaplanbench": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "discoverphysics": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "euro_ncap_aeb_car_to_car": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "glee_economic_games": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "master_keying_design": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "pallet_rack_inspection": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "saboteur_card_game": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "the_long_dark_survival": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "wca_speedcubing_attempt": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "wilt": {
+      "profile": "embodied",
+      "root": "train"
+    },
+    "ale_bench": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "balrog_minihack_boxoban": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "balrog_minihack_maze_corridor": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "balrog_nethack": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "buildarena_1_0": {
+      "profile": "buildarena",
+      "root": "unseen"
+    },
+    "coup_textarena_4p": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "entity_deduction_arena": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "hunlhe_game_arena": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "phyre_unseen_fold0": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "scigym_small": {
+      "profile": "embodied",
+      "root": "unseen"
+    },
+    "arc_agi_3": {
+      "profile": "arc",
+      "root": "arc"
+    },
+    "capx_cupsearch_v2": {
+      "profile": "capx",
+      "root": "capx"
+    }
+  },
+  "excludedFromRuntimeValidation": [
+    "buildarena_1_0"
+  ],
+  "packaging": "download-on-demand",
+  "downloads": "downloads.json",
+  "assetsBundled": false
+}

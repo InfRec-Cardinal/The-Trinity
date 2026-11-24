@@ -1,0 +1,21 @@
+{
+  "releaseId": "iter4-current",
+  "harness": {
+    "harnessId": "iter4-current",
+    "activeModuleCount": 29,
+    "nodeCounts": {
+      "a": 3,
+      "b": 3,
+      "c": 2,
+      "c-a": 3,
+      "c-d": 3,
+      "c-d-a": 2,
+      "d": 3,
+      "d-a": 3,
+      "d-b": 2,
+      "e": 3,
+      "e-f": 2
+    }
+  },
+  "links": {}
+}

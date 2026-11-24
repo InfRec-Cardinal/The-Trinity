@@ -1,3 +1,4 @@
+import {executionLimits, executionIdentity} from './execution-policy.mjs';
 import {hostVerificationCall} from './host-verification.mjs';
 import fs from 'node:fs';
 import {randomUUID} from 'node:crypto';
@@ -8,13 +9,17 @@ import {runBatch} from './explorer.mjs';
 import {tokenSummary} from './metrics.mjs';
 
 const pending = new Map();
-const protocol = 'benchmark-harness-skills-v2';
+const protocol = 'benchmark-harness-skills-v3';
 const text = value => typeof value === 'string' && value.trim().length > 0;
-export function skillIdentity({benchmarkId, protocolId, modules, budget}) {
+export function skillIdentity({benchmarkId, protocolId, modules, budget, driver, maxFreeActions, agent}) {
   ensure(text(benchmarkId) && text(protocolId), 'Explicit benchmarkId and protocolId are required for evaluation skills');
   ensure(Number.isInteger(budget) && budget > 0, 'Positive evaluation action budget required');
   const prompts = ['explorer', 'skills'].map(role => fs.readFileSync(new URL('../prompts/' + role + '.txt', import.meta.url), 'utf8'));
-  return {protocol, benchmarkId, protocolId, harnessId: snapshot(modules).id, budget, promptDigest: digest(prompts)};
+  const runtime = ['explorer', 'agent', 'runtime', 'native', 'worker', 'media', 'execution-policy', 'evaluation-skills']
+    .map(name => fs.readFileSync(new URL('./' + name + '.mjs', import.meta.url), 'utf8'));
+  return {protocol, benchmarkId, protocolId, harnessId: snapshot(modules).id, budget,
+    ...executionLimits({budget, driver, maxFreeActions}), executionProfile: executionIdentity(agent),
+    promptDigest: digest(prompts), runtimeDigest: digest(runtime)};
 }
 
 export async function prepareEvaluationSkills(options) {
@@ -62,7 +67,7 @@ async function prepareSkills(options) {
         {phase: 'preparation', index, trials: worlds.length}));
       for (const [index, world] of worlds.entries()) {
         const buildDigest = digest(await hostVerificationCall('world_fingerprint', () => driver.fingerprint(clone(world))));
-        episodes.push(...await runBatch({instances: [instances[index].instance], initialStateHashes: [instances[index].expectedInitialStateHash], instancePlan: instances[index].instancePlan, agent, driver, store, world, modules: frozen.modules, node, budget, benchmarkId: identity.benchmarkId, protocolId: identity.protocolId, split: 'preparation', scoreNormalization: options.scoreNormalization, phase: 'evaluation_skill_preparation', skills: []}, 1));
+        episodes.push(...await runBatch({nativeHost:options.nativeHost,instances: [instances[index].instance], initialStateHashes: [instances[index].expectedInitialStateHash], instancePlan: instances[index].instancePlan, agent, driver, store, world, modules: frozen.modules, node, budget, maxFreeActions: options.maxFreeActions, benchmarkId: identity.benchmarkId, protocolId: identity.protocolId, split: 'preparation', scoreNormalization: options.scoreNormalization, phase: 'evaluation_skill_preparation', skills: []}, 1));
         ensure(digest(await hostVerificationCall('world_fingerprint', () => driver.fingerprint(clone(world)))) === buildDigest, 'Preparation world changed during execution');
         buildDigests.push(buildDigest);
       }

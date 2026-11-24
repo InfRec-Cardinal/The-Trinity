@@ -1,0 +1,2264 @@
+{
+  "scene_id": "data/scene_datasets/hm3d/val/00815-h1zeeAwLh9Z/h1zeeAwLh9Z.basis.glb",
+  "scene_key": "00815-h1zeeAwLh9Z",
+  "episode_id": "53",
+  "goal_position_nominal": [
+    6.967299938201904,
+    0.972100019454956,
+    -1.9739999771118164
+  ],
+  "final_base_y": 0.04902343451976776,
+  "base_y_source": "snap_goal_y",
+  "object_category": "eyeglasses",
+  "object_id": "6248d5f724974328a2ecda34295f4939",
+  "pin_semantic_id_convention": {
+    "target_semantic_id": 100000,
+    "meaning": "All pixels with this semantic_id correspond to this episode's target object."
+  },
+  "camera_intrinsics": {
+    "width": 360,
+    "height": 640,
+    "hfov_deg": 42.0,
+    "vfov_deg": 68.62120575907826,
+    "K": [
+      [
+        468.9160316448843,
+        0,
+        179.5
+      ],
+      [
+        0,
+        468.91603164488436,
+        319.5
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "sensor_mount_offset_y": 1.31,
+  "n_sectors": 12,
+  "sector_order": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "sector_skip": 1,
+  "ranges": {
+    "near": [
+      0.9,
+      1.2
+    ],
+    "far": [
+      1.4,
+      1.7
+    ]
+  },
+  "look_thresh": 0.3,
+  "category_mask_threshold": 150,
+  "viewpoints": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 528,
+      "mask_bbox_xyxy": [
+        160,
+        166,
+        209,
+        192
+      ],
+      "mask_area_fraction": 0.0022916666666666667,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        8.53007698059082,
+        1.3590233325958252,
+        -1.6511023044586182
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.7489332556724548,
+        -0.2006760686635971,
+        0.6100095510482788,
+        0.16345156729221344
+      ],
+      "camera_to_world": [
+        [
+          0.2023438811302185,
+          -1.4901161193847656e-08,
+          -0.9793145060539246,
+          0.0
+        ],
+        [
+          -0.48965728282928467,
+          0.8660253882408142,
+          -0.10117192566394806,
+          0.0
+        ],
+        [
+          0.8481112122535706,
+          0.5,
+          0.17523491382598877,
+          0.0
+        ],
+        [
+          8.53007698059082,
+          1.3590233325958252,
+          -1.6511023044586182,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.2023438662290573,
+          -0.48965728282928467,
+          0.8481112718582153,
+          -0.0
+        ],
+        [
+          7.450581485102248e-09,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.9793145656585693,
+          -0.10117196291685104,
+          0.17523495852947235,
+          -0.0
+        ],
+        [
+          -3.3429574966430664,
+          2.832820415496826,
+          -7.624635696411133,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.8481112122535706,
+        -0.17523491382598877
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5957866371237415
+    },
+    {
+      "tag": "s0_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 0,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s2_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 475,
+      "mask_bbox_xyxy": [
+        170,
+        174,
+        225,
+        202
+      ],
+      "mask_area_fraction": 0.0020616319444444445,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s2_far.png",
+      "mask_raw_path": "mask/mask_s2_far.png",
+      "camera_position": [
+        7.421821594238281,
+        1.3590233325958252,
+        -0.591914176940918
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9537627696990967,
+        -0.2555599510669708,
+        0.15280476212501526,
+        0.04094391688704491
+      ],
+      "camera_to_world": [
+        [
+          0.9499486088752747,
+          1.4901161193847656e-08,
+          -0.3124062418937683,
+          0.0
+        ],
+        [
+          -0.15620312094688416,
+          0.8660253882408142,
+          -0.47497427463531494,
+          0.0
+        ],
+        [
+          0.27055174112319946,
+          0.5,
+          0.8226796388626099,
+          0.0
+        ],
+        [
+          7.421821594238281,
+          1.3590233325958252,
+          -0.591914176940918,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9499486088752747,
+          -0.15620313584804535,
+          0.27055174112319946,
+          -0.0
+        ],
+        [
+          1.4901161193847656e-08,
+          0.866025447845459,
+          0.4999999701976776,
+          -0.0
+        ],
+        [
+          -0.3124062418937683,
+          -0.47497430443763733,
+          0.8226796388626099,
+          -0.0
+        ],
+        [
+          -7.23526668548584,
+          -0.2987809181213379,
+          -2.200542688369751,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.27055174112319946,
+        -0.8226796388626099
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.454905871470757
+    },
+    {
+      "tag": "s2_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 687,
+      "mask_bbox_xyxy": [
+        168,
+        196,
+        233,
+        232
+      ],
+      "mask_area_fraction": 0.0029817708333333332,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s2_near.png",
+      "mask_raw_path": "mask/mask_s2_near.png",
+      "camera_position": [
+        7.340426921844482,
+        1.3590233325958252,
+        -0.8394144177436829
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9537627696990967,
+        -0.2555599510669708,
+        0.1528046876192093,
+        0.040943894535303116
+      ],
+      "camera_to_world": [
+        [
+          0.9499486088752747,
+          7.450580596923828e-09,
+          -0.31240609288215637,
+          0.0
+        ],
+        [
+          -0.156203031539917,
+          0.8660253882408142,
+          -0.47497430443763733,
+          0.0
+        ],
+        [
+          0.2705515921115875,
+          0.4999999701976776,
+          0.8226796388626099,
+          0.0
+        ],
+        [
+          7.340426921844482,
+          1.3590233325958252,
+          -0.8394144177436829,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9499487280845642,
+          -0.15620304644107819,
+          0.2705516517162323,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5,
+          0.0
+        ],
+        [
+          -0.31240609288215637,
+          -0.4749743342399597,
+          0.8226797580718994,
+          -0.0
+        ],
+        [
+          -7.235267639160156,
+          -0.42905193567276,
+          -1.9749070405960083,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.2705515921115875,
+        -0.8226796388626099
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1943652174699544
+    },
+    {
+      "tag": "s4_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 526,
+      "mask_bbox_xyxy": [
+        161,
+        167,
+        216,
+        188
+      ],
+      "mask_area_fraction": 0.002282986111111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s4_far.png",
+      "mask_raw_path": "mask/mask_s4_far.png",
+      "camera_position": [
+        5.671833515167236,
+        1.3590233325958252,
+        -1.1418159008026123
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8477270603179932,
+        -0.22714780271053314,
+        -0.46300268173217773,
+        -0.1240612044930458
+      ],
+      "camera_to_world": [
+        [
+          0.5404746532440186,
+          0.0,
+          0.8413602709770203,
+          0.0
+        ],
+        [
+          0.4206801652908325,
+          0.8660253882408142,
+          -0.2702373266220093,
+          0.0
+        ],
+        [
+          -0.7286393046379089,
+          0.5,
+          0.4680647552013397,
+          0.0
+        ],
+        [
+          5.671833515167236,
+          1.3590233325958252,
+          -1.1418159008026123,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.5404747128486633,
+          0.4206801950931549,
+          -0.7286394238471985,
+          -0.0
+        ],
+        [
+          -1.4901162970204496e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.841360330581665,
+          -0.27023735642433167,
+          0.4680648446083069,
+          -0.0
+        ],
+        [
+          -2.104804039001465,
+          -3.8715381622314453,
+          3.9876537322998047,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.7286393642425537,
+        -0.4680647552013397
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5397284143876933
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 806,
+      "mask_bbox_xyxy": [
+        156,
+        194,
+        225,
+        222
+      ],
+      "mask_area_fraction": 0.003498263888888889,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": "mask/mask_s4_near.png",
+      "camera_position": [
+        5.962107181549072,
+        1.3590233325958252,
+        -1.3282825946807861
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8477270007133484,
+        -0.22714778780937195,
+        -0.4630028009414673,
+        -0.1240612342953682
+      ],
+      "camera_to_world": [
+        [
+          0.5404744148254395,
+          1.4901161193847656e-08,
+          0.8413604497909546,
+          0.0
+        ],
+        [
+          0.4206802248954773,
+          0.8660253882408142,
+          -0.2702372372150421,
+          0.0
+        ],
+        [
+          -0.7286394834518433,
+          0.5,
+          0.4680646061897278,
+          0.0
+        ],
+        [
+          5.962107181549072,
+          1.3590233325958252,
+          -1.3282825946807861,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.5404744744300842,
+          0.4206802248954773,
+          -0.7286394834518433,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5,
+          0.0
+        ],
+        [
+          0.8413604497909546,
+          -0.2702372074127197,
+          0.4680645763874054,
+          -0.0
+        ],
+        [
+          -2.104802131652832,
+          -4.044040679931641,
+          4.286437034606934,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.728639543056488,
+        -0.468064546585083
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1947231545428845
+    },
+    {
+      "tag": "s6_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 483,
+      "mask_bbox_xyxy": [
+        157,
+        165,
+        199,
+        182
+      ],
+      "mask_area_fraction": 0.0020963541666666665,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s6_far.png",
+      "mask_raw_path": "mask/mask_s6_far.png",
+      "camera_position": [
+        5.381453990936279,
+        1.3590233325958252,
+        -2.1292295455932617
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.6488912105560303,
+        -0.17386989295482635,
+        -0.7155088186264038,
+        -0.19172002375125885
+      ],
+      "camera_to_world": [
+        [
+          -0.0974188894033432,
+          1.4901161193847656e-08,
+          0.9952434301376343,
+          0.0
+        ],
+        [
+          0.4976217746734619,
+          0.8660253882408142,
+          0.048709437251091,
+          0.0
+        ],
+        [
+          -0.8619060516357422,
+          0.5,
+          -0.08436721563339233,
+          0.0
+        ],
+        [
+          5.381453990936279,
+          1.3590233325958252,
+          -2.1292295455932617,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.0974188819527626,
+          0.4976217746734619,
+          -0.8619061708450317,
+          -0.0
+        ],
+        [
+          3.725290742551124e-09,
+          0.8660253882408142,
+          0.5000001192092896,
+          -0.0
+        ],
+        [
+          0.9952435493469238,
+          0.0487094409763813,
+          -0.08436724543571472,
+          -0.0
+        ],
+        [
+          2.643357038497925,
+          -3.751163959503174,
+          3.7791593074798584,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.8619060516357422,
+        0.08436724543571472
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5934251119490188
+    },
+    {
+      "tag": "s6_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 6,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s8_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 401,
+      "mask_bbox_xyxy": [
+        136,
+        166,
+        189,
+        186
+      ],
+      "mask_area_fraction": 0.0017404513888888888,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s8_far.png",
+      "mask_raw_path": "mask/mask_s8_far.png",
+      "camera_position": [
+        6.385033130645752,
+        1.3590233325958252,
+        -3.436830997467041
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.18186238408088684,
+        -0.04872988164424896,
+        -0.9486510157585144,
+        -0.2541902959346771
+      ],
+      "camera_to_world": [
+        [
+          -0.9291029572486877,
+          0.0,
+          0.3698211908340454,
+          0.0
+        ],
+        [
+          0.1849106103181839,
+          0.8660253882408142,
+          0.46455147862434387,
+          0.0
+        ],
+        [
+          -0.3202745318412781,
+          0.5,
+          -0.8046267032623291,
+          0.0
+        ],
+        [
+          6.385033130645752,
+          1.3590233325958252,
+          -3.436830997467041,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9291029572486877,
+          0.1849106103181839,
+          -0.32027456164360046,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.3698211908340454,
+          0.46455150842666626,
+          -0.8046268224716187,
+          -0.0
+        ],
+        [
+          7.203366279602051,
+          -0.761023998260498,
+          -1.3999145030975342,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.32027456164360046,
+        0.8046267628669739
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5744552166686547
+    },
+    {
+      "tag": "s8_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 633,
+      "mask_bbox_xyxy": [
+        124,
+        197,
+        191,
+        225
+      ],
+      "mask_area_fraction": 0.0027473958333333335,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s8_near.png",
+      "mask_raw_path": "mask/mask_s8_near.png",
+      "camera_position": [
+        6.5273051261901855,
+        1.3590233325958252,
+        -3.0794010162353516
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.18186230957508087,
+        -0.04872986301779747,
+        -0.9486510157585144,
+        -0.2541902959346771
+      ],
+      "camera_to_world": [
+        [
+          -0.9291029572486877,
+          0.0,
+          0.36982107162475586,
+          0.0
+        ],
+        [
+          0.18491053581237793,
+          0.8660253882408142,
+          0.46455150842666626,
+          0.0
+        ],
+        [
+          -0.3202744126319885,
+          0.5,
+          -0.8046267032623291,
+          0.0
+        ],
+        [
+          6.5273051261901855,
+          1.3590233325958252,
+          -3.0794010162353516,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9291030168533325,
+          0.18491055071353912,
+          -0.3202744722366333,
+          -0.0
+        ],
+        [
+          -1.4901162970204496e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.36982107162475586,
+          0.46455153822898865,
+          -0.8046268820762634,
+          -0.0
+        ],
+        [
+          7.203366756439209,
+          -0.9533758163452148,
+          -1.06675124168396,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.3202744126319885,
+        0.8046268224716187
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.189750768813628
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 511,
+      "mask_bbox_xyxy": [
+        141,
+        162,
+        197,
+        188
+      ],
+      "mask_area_fraction": 0.0022178819444444446,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        8.302375793457031,
+        1.3590233325958252,
+        -2.94667649269104
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.4379546344280243,
+        -0.11734959483146667,
+        0.8609346151351929,
+        0.2306867390871048
+      ],
+      "camera_to_world": [
+        [
+          -0.5888496041297913,
+          0.0,
+          -0.8082426190376282,
+          0.0
+        ],
+        [
+          -0.4041213095188141,
+          0.8660253882408142,
+          0.29442477226257324,
+          0.0
+        ],
+        [
+          0.6999586224555969,
+          0.5,
+          -0.5099587440490723,
+          0.0
+        ],
+        [
+          8.302375793457031,
+          1.3590233325958252,
+          -2.94667649269104,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.588849663734436,
+          -0.4041213393211365,
+          0.6999586820602417,
+          -0.0
+        ],
+        [
+          -2.980232594040899e-08,
+          0.8660255074501038,
+          0.5,
+          0.0
+        ],
+        [
+          -0.8082426190376282,
+          0.294424831867218,
+          -0.5099587440490723,
+          -0.0
+        ],
+        [
+          2.5072214603424072,
+          3.045793056488037,
+          -7.993515491485596,
+          0.9999999403953552
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.6999586224555969,
+        0.5099587440490723
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6518253973239871
+    },
+    {
+      "tag": "s10_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 1222,
+      "mask_bbox_xyxy": [
+        119,
+        224,
+        208,
+        275
+      ],
+      "mask_area_fraction": 0.005303819444444444,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s10_near.png",
+      "mask_raw_path": "mask/mask_s10_near.png",
+      "camera_position": [
+        7.762692451477051,
+        1.3590233325958252,
+        -2.5534873008728027
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.4379546642303467,
+        -0.11734960228204727,
+        0.8609346151351929,
+        0.2306867390871048
+      ],
+      "camera_to_world": [
+        [
+          -0.5888496041297913,
+          0.0,
+          -0.808242678642273,
+          0.0
+        ],
+        [
+          -0.4041213393211365,
+          0.8660253882408142,
+          0.29442477226257324,
+          0.0
+        ],
+        [
+          0.6999586820602417,
+          0.5,
+          -0.5099587440490723,
+          0.0
+        ],
+        [
+          7.762692451477051,
+          1.3590233325958252,
+          -2.5534873008728027,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.5888495445251465,
+          -0.4041212797164917,
+          0.6999586224555969,
+          -0.0
+        ],
+        [
+          -2.9802318834981634e-08,
+          0.8660253286361694,
+          0.4999999403953552,
+          0.0
+        ],
+        [
+          -0.8082425594329834,
+          0.29442477226257324,
+          -0.5099586248397827,
+          -0.0
+        ],
+        [
+          2.507220983505249,
+          2.711930513381958,
+          -7.415247917175293,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.6999586820602417,
+        0.5099587440490723
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9841010154317616
+    }
+  ],
+  "episode_result": {
+    "navigable_count": 10,
+    "valid_mask_count": 10,
+    "total_viewpoints": 12,
+    "success": true,
+    "object_category": "eyeglasses"
+  },
+  "captures": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 528,
+      "mask_bbox_xyxy": [
+        160,
+        166,
+        209,
+        192
+      ],
+      "mask_area_fraction": 0.0022916666666666667,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        8.53007698059082,
+        1.3590233325958252,
+        -1.6511023044586182
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.7489332556724548,
+        -0.2006760686635971,
+        0.6100095510482788,
+        0.16345156729221344
+      ],
+      "camera_to_world": [
+        [
+          0.2023438811302185,
+          -1.4901161193847656e-08,
+          -0.9793145060539246,
+          0.0
+        ],
+        [
+          -0.48965728282928467,
+          0.8660253882408142,
+          -0.10117192566394806,
+          0.0
+        ],
+        [
+          0.8481112122535706,
+          0.5,
+          0.17523491382598877,
+          0.0
+        ],
+        [
+          8.53007698059082,
+          1.3590233325958252,
+          -1.6511023044586182,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.2023438662290573,
+          -0.48965728282928467,
+          0.8481112718582153,
+          -0.0
+        ],
+        [
+          7.450581485102248e-09,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.9793145656585693,
+          -0.10117196291685104,
+          0.17523495852947235,
+          -0.0
+        ],
+        [
+          -3.3429574966430664,
+          2.832820415496826,
+          -7.624635696411133,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.8481112122535706,
+        -0.17523491382598877
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5957866371237415
+    },
+    {
+      "tag": "s2_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 475,
+      "mask_bbox_xyxy": [
+        170,
+        174,
+        225,
+        202
+      ],
+      "mask_area_fraction": 0.0020616319444444445,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s2_far.png",
+      "mask_raw_path": "mask/mask_s2_far.png",
+      "camera_position": [
+        7.421821594238281,
+        1.3590233325958252,
+        -0.591914176940918
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9537627696990967,
+        -0.2555599510669708,
+        0.15280476212501526,
+        0.04094391688704491
+      ],
+      "camera_to_world": [
+        [
+          0.9499486088752747,
+          1.4901161193847656e-08,
+          -0.3124062418937683,
+          0.0
+        ],
+        [
+          -0.15620312094688416,
+          0.8660253882408142,
+          -0.47497427463531494,
+          0.0
+        ],
+        [
+          0.27055174112319946,
+          0.5,
+          0.8226796388626099,
+          0.0
+        ],
+        [
+          7.421821594238281,
+          1.3590233325958252,
+          -0.591914176940918,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9499486088752747,
+          -0.15620313584804535,
+          0.27055174112319946,
+          -0.0
+        ],
+        [
+          1.4901161193847656e-08,
+          0.866025447845459,
+          0.4999999701976776,
+          -0.0
+        ],
+        [
+          -0.3124062418937683,
+          -0.47497430443763733,
+          0.8226796388626099,
+          -0.0
+        ],
+        [
+          -7.23526668548584,
+          -0.2987809181213379,
+          -2.200542688369751,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.27055174112319946,
+        -0.8226796388626099
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.454905871470757
+    },
+    {
+      "tag": "s2_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 687,
+      "mask_bbox_xyxy": [
+        168,
+        196,
+        233,
+        232
+      ],
+      "mask_area_fraction": 0.0029817708333333332,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s2_near.png",
+      "mask_raw_path": "mask/mask_s2_near.png",
+      "camera_position": [
+        7.340426921844482,
+        1.3590233325958252,
+        -0.8394144177436829
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9537627696990967,
+        -0.2555599510669708,
+        0.1528046876192093,
+        0.040943894535303116
+      ],
+      "camera_to_world": [
+        [
+          0.9499486088752747,
+          7.450580596923828e-09,
+          -0.31240609288215637,
+          0.0
+        ],
+        [
+          -0.156203031539917,
+          0.8660253882408142,
+          -0.47497430443763733,
+          0.0
+        ],
+        [
+          0.2705515921115875,
+          0.4999999701976776,
+          0.8226796388626099,
+          0.0
+        ],
+        [
+          7.340426921844482,
+          1.3590233325958252,
+          -0.8394144177436829,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9499487280845642,
+          -0.15620304644107819,
+          0.2705516517162323,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5,
+          0.0
+        ],
+        [
+          -0.31240609288215637,
+          -0.4749743342399597,
+          0.8226797580718994,
+          -0.0
+        ],
+        [
+          -7.235267639160156,
+          -0.42905193567276,
+          -1.9749070405960083,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.2705515921115875,
+        -0.8226796388626099
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1943652174699544
+    },
+    {
+      "tag": "s4_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 526,
+      "mask_bbox_xyxy": [
+        161,
+        167,
+        216,
+        188
+      ],
+      "mask_area_fraction": 0.002282986111111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s4_far.png",
+      "mask_raw_path": "mask/mask_s4_far.png",
+      "camera_position": [
+        5.671833515167236,
+        1.3590233325958252,
+        -1.1418159008026123
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8477270603179932,
+        -0.22714780271053314,
+        -0.46300268173217773,
+        -0.1240612044930458
+      ],
+      "camera_to_world": [
+        [
+          0.5404746532440186,
+          0.0,
+          0.8413602709770203,
+          0.0
+        ],
+        [
+          0.4206801652908325,
+          0.8660253882408142,
+          -0.2702373266220093,
+          0.0
+        ],
+        [
+          -0.7286393046379089,
+          0.5,
+          0.4680647552013397,
+          0.0
+        ],
+        [
+          5.671833515167236,
+          1.3590233325958252,
+          -1.1418159008026123,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.5404747128486633,
+          0.4206801950931549,
+          -0.7286394238471985,
+          -0.0
+        ],
+        [
+          -1.4901162970204496e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.841360330581665,
+          -0.27023735642433167,
+          0.4680648446083069,
+          -0.0
+        ],
+        [
+          -2.104804039001465,
+          -3.8715381622314453,
+          3.9876537322998047,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.7286393642425537,
+        -0.4680647552013397
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5397284143876933
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 806,
+      "mask_bbox_xyxy": [
+        156,
+        194,
+        225,
+        222
+      ],
+      "mask_area_fraction": 0.003498263888888889,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": "mask/mask_s4_near.png",
+      "camera_position": [
+        5.962107181549072,
+        1.3590233325958252,
+        -1.3282825946807861
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8477270007133484,
+        -0.22714778780937195,
+        -0.4630028009414673,
+        -0.1240612342953682
+      ],
+      "camera_to_world": [
+        [
+          0.5404744148254395,
+          1.4901161193847656e-08,
+          0.8413604497909546,
+          0.0
+        ],
+        [
+          0.4206802248954773,
+          0.8660253882408142,
+          -0.2702372372150421,
+          0.0
+        ],
+        [
+          -0.7286394834518433,
+          0.5,
+          0.4680646061897278,
+          0.0
+        ],
+        [
+          5.962107181549072,
+          1.3590233325958252,
+          -1.3282825946807861,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.5404744744300842,
+          0.4206802248954773,
+          -0.7286394834518433,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5,
+          0.0
+        ],
+        [
+          0.8413604497909546,
+          -0.2702372074127197,
+          0.4680645763874054,
+          -0.0
+        ],
+        [
+          -2.104802131652832,
+          -4.044040679931641,
+          4.286437034606934,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.728639543056488,
+        -0.468064546585083
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1947231545428845
+    },
+    {
+      "tag": "s6_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 483,
+      "mask_bbox_xyxy": [
+        157,
+        165,
+        199,
+        182
+      ],
+      "mask_area_fraction": 0.0020963541666666665,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s6_far.png",
+      "mask_raw_path": "mask/mask_s6_far.png",
+      "camera_position": [
+        5.381453990936279,
+        1.3590233325958252,
+        -2.1292295455932617
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.6488912105560303,
+        -0.17386989295482635,
+        -0.7155088186264038,
+        -0.19172002375125885
+      ],
+      "camera_to_world": [
+        [
+          -0.0974188894033432,
+          1.4901161193847656e-08,
+          0.9952434301376343,
+          0.0
+        ],
+        [
+          0.4976217746734619,
+          0.8660253882408142,
+          0.048709437251091,
+          0.0
+        ],
+        [
+          -0.8619060516357422,
+          0.5,
+          -0.08436721563339233,
+          0.0
+        ],
+        [
+          5.381453990936279,
+          1.3590233325958252,
+          -2.1292295455932617,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.0974188819527626,
+          0.4976217746734619,
+          -0.8619061708450317,
+          -0.0
+        ],
+        [
+          3.725290742551124e-09,
+          0.8660253882408142,
+          0.5000001192092896,
+          -0.0
+        ],
+        [
+          0.9952435493469238,
+          0.0487094409763813,
+          -0.08436724543571472,
+          -0.0
+        ],
+        [
+          2.643357038497925,
+          -3.751163959503174,
+          3.7791593074798584,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.8619060516357422,
+        0.08436724543571472
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5934251119490188
+    },
+    {
+      "tag": "s8_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 401,
+      "mask_bbox_xyxy": [
+        136,
+        166,
+        189,
+        186
+      ],
+      "mask_area_fraction": 0.0017404513888888888,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s8_far.png",
+      "mask_raw_path": "mask/mask_s8_far.png",
+      "camera_position": [
+        6.385033130645752,
+        1.3590233325958252,
+        -3.436830997467041
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.18186238408088684,
+        -0.04872988164424896,
+        -0.9486510157585144,
+        -0.2541902959346771
+      ],
+      "camera_to_world": [
+        [
+          -0.9291029572486877,
+          0.0,
+          0.3698211908340454,
+          0.0
+        ],
+        [
+          0.1849106103181839,
+          0.8660253882408142,
+          0.46455147862434387,
+          0.0
+        ],
+        [
+          -0.3202745318412781,
+          0.5,
+          -0.8046267032623291,
+          0.0
+        ],
+        [
+          6.385033130645752,
+          1.3590233325958252,
+          -3.436830997467041,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9291029572486877,
+          0.1849106103181839,
+          -0.32027456164360046,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.3698211908340454,
+          0.46455150842666626,
+          -0.8046268224716187,
+          -0.0
+        ],
+        [
+          7.203366279602051,
+          -0.761023998260498,
+          -1.3999145030975342,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.32027456164360046,
+        0.8046267628669739
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5744552166686547
+    },
+    {
+      "tag": "s8_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 633,
+      "mask_bbox_xyxy": [
+        124,
+        197,
+        191,
+        225
+      ],
+      "mask_area_fraction": 0.0027473958333333335,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s8_near.png",
+      "mask_raw_path": "mask/mask_s8_near.png",
+      "camera_position": [
+        6.5273051261901855,
+        1.3590233325958252,
+        -3.0794010162353516
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.18186230957508087,
+        -0.04872986301779747,
+        -0.9486510157585144,
+        -0.2541902959346771
+      ],
+      "camera_to_world": [
+        [
+          -0.9291029572486877,
+          0.0,
+          0.36982107162475586,
+          0.0
+        ],
+        [
+          0.18491053581237793,
+          0.8660253882408142,
+          0.46455150842666626,
+          0.0
+        ],
+        [
+          -0.3202744126319885,
+          0.5,
+          -0.8046267032623291,
+          0.0
+        ],
+        [
+          6.5273051261901855,
+          1.3590233325958252,
+          -3.0794010162353516,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9291030168533325,
+          0.18491055071353912,
+          -0.3202744722366333,
+          -0.0
+        ],
+        [
+          -1.4901162970204496e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.36982107162475586,
+          0.46455153822898865,
+          -0.8046268820762634,
+          -0.0
+        ],
+        [
+          7.203366756439209,
+          -0.9533758163452148,
+          -1.06675124168396,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.3202744126319885,
+        0.8046268224716187
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.189750768813628
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 511,
+      "mask_bbox_xyxy": [
+        141,
+        162,
+        197,
+        188
+      ],
+      "mask_area_fraction": 0.0022178819444444446,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        8.302375793457031,
+        1.3590233325958252,
+        -2.94667649269104
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.4379546344280243,
+        -0.11734959483146667,
+        0.8609346151351929,
+        0.2306867390871048
+      ],
+      "camera_to_world": [
+        [
+          -0.5888496041297913,
+          0.0,
+          -0.8082426190376282,
+          0.0
+        ],
+        [
+          -0.4041213095188141,
+          0.8660253882408142,
+          0.29442477226257324,
+          0.0
+        ],
+        [
+          0.6999586224555969,
+          0.5,
+          -0.5099587440490723,
+          0.0
+        ],
+        [
+          8.302375793457031,
+          1.3590233325958252,
+          -2.94667649269104,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.588849663734436,
+          -0.4041213393211365,
+          0.6999586820602417,
+          -0.0
+        ],
+        [
+          -2.980232594040899e-08,
+          0.8660255074501038,
+          0.5,
+          0.0
+        ],
+        [
+          -0.8082426190376282,
+          0.294424831867218,
+          -0.5099587440490723,
+          -0.0
+        ],
+        [
+          2.5072214603424072,
+          3.045793056488037,
+          -7.993515491485596,
+          0.9999999403953552
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.6999586224555969,
+        0.5099587440490723
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6518253973239871
+    },
+    {
+      "tag": "s10_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 1222,
+      "mask_bbox_xyxy": [
+        119,
+        224,
+        208,
+        275
+      ],
+      "mask_area_fraction": 0.005303819444444444,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 150,
+      "rgb": "rgb/rgb_s10_near.png",
+      "mask_raw_path": "mask/mask_s10_near.png",
+      "camera_position": [
+        7.762692451477051,
+        1.3590233325958252,
+        -2.5534873008728027
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.4379546642303467,
+        -0.11734960228204727,
+        0.8609346151351929,
+        0.2306867390871048
+      ],
+      "camera_to_world": [
+        [
+          -0.5888496041297913,
+          0.0,
+          -0.808242678642273,
+          0.0
+        ],
+        [
+          -0.4041213393211365,
+          0.8660253882408142,
+          0.29442477226257324,
+          0.0
+        ],
+        [
+          0.6999586820602417,
+          0.5,
+          -0.5099587440490723,
+          0.0
+        ],
+        [
+          7.762692451477051,
+          1.3590233325958252,
+          -2.5534873008728027,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.5888495445251465,
+          -0.4041212797164917,
+          0.6999586224555969,
+          -0.0
+        ],
+        [
+          -2.9802318834981634e-08,
+          0.8660253286361694,
+          0.4999999403953552,
+          0.0
+        ],
+        [
+          -0.8082425594329834,
+          0.29442477226257324,
+          -0.5099586248397827,
+          -0.0
+        ],
+        [
+          2.507220983505249,
+          2.711930513381958,
+          -7.415247917175293,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.6999586820602417,
+        0.5099587440490723
+      ],
+      "goal_position": [
+        6.967299938201904,
+        0.972100019454956,
+        -1.9739999771118164
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "6248d5f724974328a2ecda34295f4939",
+      "episode_object_category": "eyeglasses",
+      "floor_y_at_cam": 0.04902343451976776,
+      "base_y_used": 0.04902343451976776,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3590233325958252,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9841010154317616
+    }
+  ],
+  "overview": "overview.png",
+  "regen_info": {
+    "generated_by": "val_verify_capture_v2_distributed.py (episode-level eval)",
+    "time": "2026-02-11 06:48:37"
+  }
+}

@@ -32,7 +32,7 @@ async function main() {
       catch (error) {store.event('connection_usage', {calls: [modelCall(error, {failed: true, role: 'stage1', phase: 'connection_test', operation: 'connection_test'})]}); throw error;}
       store.event('connection_usage', {calls: result.modelCalls.map(call => modelCall(call, {failed: Boolean(call.failed), role: 'stage1', phase: 'connection_test', operation: 'connection_test'}))});
       console.log(JSON.stringify(result, null, 2));
-      if (!result.search.ok) process.exitCode = 1;
+      if (!result.search.ok && result.search.state !== 'disabled') process.exitCode = 1;
       return;
     }
     case 'search': {
@@ -59,7 +59,12 @@ async function main() {
     case 'status': console.log(JSON.stringify({ overview: overview(store.state), checkpoint: searchCheckpoint(store) }, null, 2)); return;
     case 'curate': {
       const { curate } = await import('./scripts/curate-library.mjs');
-      const withdraw = Object.fromEntries((flag('withdraw') ?? '').split(',').filter(Boolean).map(pair => pair.split(':')));
+      const withdraw = Object.create(null);
+      for (const pair of (flag('withdraw') ?? '').split(',').filter(Boolean)) {
+        const parts = pair.split(':');
+        if (parts.length !== 2 || !parts[0] || !parts[1]) throw Error('Expected --withdraw taskId:reason');
+        (withdraw[parts[0]] ??= []).push(parts[1]);
+      }
       console.log(JSON.stringify(curate(store, { withdraw, candidates: [], reason: flag('reason') ?? 'curation' }), null, 2)); return;
     }
     default:

@@ -1,0 +1,163 @@
+{
+ "taskId": "ale_bench",
+ "source": "ale_bench.list_problem_ids(lite_version=False)",
+ "scope": "26 problems of the official full set. 'ordinal' is the official problem index; episode ids use it (case-<ordinal>-repeat-1).",
+ "configurations": [
+  {
+   "id": "ahc001",
+   "ordinal": 0,
+   "label": "AHC001",
+   "episodes": 1
+  },
+  {
+   "id": "ahc002",
+   "ordinal": 1,
+   "label": "AHC002",
+   "episodes": 1
+  },
+  {
+   "id": "ahc003",
+   "ordinal": 2,
+   "label": "AHC003",
+   "episodes": 1
+  },
+  {
+   "id": "ahc005",
+   "ordinal": 4,
+   "label": "AHC005",
+   "episodes": 1
+  },
+  {
+   "id": "ahc006",
+   "ordinal": 6,
+   "label": "AHC006",
+   "episodes": 1
+  },
+  {
+   "id": "ahc007",
+   "ordinal": 7,
+   "label": "AHC007",
+   "episodes": 1
+  },
+  {
+   "id": "ahc008",
+   "ordinal": 8,
+   "label": "AHC008",
+   "episodes": 1
+  },
+  {
+   "id": "ahc009",
+   "ordinal": 9,
+   "label": "AHC009",
+   "episodes": 1
+  },
+  {
+   "id": "ahc016",
+   "ordinal": 15,
+   "label": "AHC016",
+   "episodes": 1
+  },
+  {
+   "id": "ahc019",
+   "ordinal": 17,
+   "label": "AHC019",
+   "episodes": 1
+  },
+  {
+   "id": "toyota2023summer-final",
+   "ordinal": 20,
+   "label": "TOYOTA2023SUMMER-FINAL",
+   "episodes": 1
+  },
+  {
+   "id": "ahc024",
+   "ordinal": 21,
+   "label": "AHC024",
+   "episodes": 1
+  },
+  {
+   "id": "ahc028",
+   "ordinal": 25,
+   "label": "AHC028",
+   "episodes": 1
+  },
+  {
+   "id": "ahc030",
+   "ordinal": 26,
+   "label": "AHC030",
+   "episodes": 1
+  },
+  {
+   "id": "ahc031",
+   "ordinal": 27,
+   "label": "AHC031",
+   "episodes": 1
+  },
+  {
+   "id": "ahc032",
+   "ordinal": 28,
+   "label": "AHC032",
+   "episodes": 1
+  },
+  {
+   "id": "ahc033",
+   "ordinal": 29,
+   "label": "AHC033",
+   "episodes": 1
+  },
+  {
+   "id": "ahc034",
+   "ordinal": 30,
+   "label": "AHC034",
+   "episodes": 1
+  },
+  {
+   "id": "ahc035",
+   "ordinal": 31,
+   "label": "AHC035",
+   "episodes": 1
+  },
+  {
+   "id": "ahc038",
+   "ordinal": 32,
+   "label": "AHC038",
+   "episodes": 1
+  },
+  {
+   "id": "ahc039",
+   "ordinal": 33,
+   "label": "AHC039",
+   "episodes": 1
+  },
+  {
+   "id": "ahc040",
+   "ordinal": 34,
+   "label": "AHC040",
+   "episodes": 1
+  },
+  {
+   "id": "ahc041",
+   "ordinal": 35,
+   "label": "AHC041",
+   "episodes": 1
+  },
+  {
+   "id": "ahc042",
+   "ordinal": 36,
+   "label": "AHC042",
+   "episodes": 1
+  },
+  {
+   "id": "ahc045",
+   "ordinal": 38,
+   "label": "AHC045",
+   "episodes": 1
+  },
+  {
+   "id": "ahc046",
+   "ordinal": 39,
+   "label": "AHC046",
+   "episodes": 1
+  }
+ ]
+}

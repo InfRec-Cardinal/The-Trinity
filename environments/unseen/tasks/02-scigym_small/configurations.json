@@ -1,0 +1,635 @@
+{
+  "taskId": "scigym_small",
+  "configurations": [
+    {
+      "id": "BIOMD0000000027",
+      "label": "BIOMD0000000027",
+      "ordinal": 0
+    },
+    {
+      "id": "BIOMD0000000029",
+      "label": "BIOMD0000000029",
+      "ordinal": 1
+    },
+    {
+      "id": "BIOMD0000000031",
+      "label": "BIOMD0000000031",
+      "ordinal": 2
+    },
+    {
+      "id": "BIOMD0000000036",
+      "label": "BIOMD0000000036",
+      "ordinal": 3
+    },
+    {
+      "id": "BIOMD0000000039",
+      "label": "BIOMD0000000039",
+      "ordinal": 4
+    },
+    {
+      "id": "BIOMD0000000041",
+      "label": "BIOMD0000000041",
+      "ordinal": 5
+    },
+    {
+      "id": "BIOMD0000000043",
+      "label": "BIOMD0000000043",
+      "ordinal": 6
+    },
+    {
+      "id": "BIOMD0000000044",
+      "label": "BIOMD0000000044",
+      "ordinal": 7
+    },
+    {
+      "id": "BIOMD0000000045",
+      "label": "BIOMD0000000045",
+      "ordinal": 8
+    },
+    {
+      "id": "BIOMD0000000066",
+      "label": "BIOMD0000000066",
+      "ordinal": 9
+    },
+    {
+      "id": "BIOMD0000000068",
+      "label": "BIOMD0000000068",
+      "ordinal": 10
+    },
+    {
+      "id": "BIOMD0000000072",
+      "label": "BIOMD0000000072",
+      "ordinal": 11
+    },
+    {
+      "id": "BIOMD0000000076",
+      "label": "BIOMD0000000076",
+      "ordinal": 12
+    },
+    {
+      "id": "BIOMD0000000079",
+      "label": "BIOMD0000000079",
+      "ordinal": 13
+    },
+    {
+      "id": "BIOMD0000000080",
+      "label": "BIOMD0000000080",
+      "ordinal": 14
+    },
+    {
+      "id": "BIOMD0000000082",
+      "label": "BIOMD0000000082",
+      "ordinal": 15
+    },
+    {
+      "id": "BIOMD0000000084",
+      "label": "BIOMD0000000084",
+      "ordinal": 16
+    },
+    {
+      "id": "BIOMD0000000092",
+      "label": "BIOMD0000000092",
+      "ordinal": 17
+    },
+    {
+      "id": "BIOMD0000000098",
+      "label": "BIOMD0000000098",
+      "ordinal": 18
+    },
+    {
+      "id": "BIOMD0000000156",
+      "label": "BIOMD0000000156",
+      "ordinal": 19
+    },
+    {
+      "id": "BIOMD0000000157",
+      "label": "BIOMD0000000157",
+      "ordinal": 20
+    },
+    {
+      "id": "BIOMD0000000159",
+      "label": "BIOMD0000000159",
+      "ordinal": 21
+    },
+    {
+      "id": "BIOMD0000000191",
+      "label": "BIOMD0000000191",
+      "ordinal": 23
+    },
+    {
+      "id": "BIOMD0000000192",
+      "label": "BIOMD0000000192",
+      "ordinal": 24
+    },
+    {
+      "id": "BIOMD0000000224",
+      "label": "BIOMD0000000224",
+      "ordinal": 25
+    },
+    {
+      "id": "BIOMD0000000231",
+      "label": "BIOMD0000000231",
+      "ordinal": 26
+    },
+    {
+      "id": "BIOMD0000000233",
+      "label": "BIOMD0000000233",
+      "ordinal": 27
+    },
+    {
+      "id": "BIOMD0000000282",
+      "label": "BIOMD0000000282",
+      "ordinal": 29
+    },
+    {
+      "id": "BIOMD0000000283",
+      "label": "BIOMD0000000283",
+      "ordinal": 30
+    },
+    {
+      "id": "BIOMD0000000319",
+      "label": "BIOMD0000000319",
+      "ordinal": 31
+    },
+    {
+      "id": "BIOMD0000000322",
+      "label": "BIOMD0000000322",
+      "ordinal": 32
+    },
+    {
+      "id": "BIOMD0000000323",
+      "label": "BIOMD0000000323",
+      "ordinal": 33
+    },
+    {
+      "id": "BIOMD0000000329",
+      "label": "BIOMD0000000329",
+      "ordinal": 34
+    },
+    {
+      "id": "BIOMD0000000357",
+      "label": "BIOMD0000000357",
+      "ordinal": 35
+    },
+    {
+      "id": "BIOMD0000000359",
+      "label": "BIOMD0000000359",
+      "ordinal": 36
+    },
+    {
+      "id": "BIOMD0000000360",
+      "label": "BIOMD0000000360",
+      "ordinal": 37
+    },
+    {
+      "id": "BIOMD0000000361",
+      "label": "BIOMD0000000361",
+      "ordinal": 38
+    },
+    {
+      "id": "BIOMD0000000363",
+      "label": "BIOMD0000000363",
+      "ordinal": 39
+    },
+    {
+      "id": "BIOMD0000000405",
+      "label": "BIOMD0000000405",
+      "ordinal": 40
+    },
+    {
+      "id": "BIOMD0000000413",
+      "label": "BIOMD0000000413",
+      "ordinal": 41
+    },
+    {
+      "id": "BIOMD0000000435",
+      "label": "BIOMD0000000435",
+      "ordinal": 42
+    },
+    {
+      "id": "BIOMD0000000438",
+      "label": "BIOMD0000000438",
+      "ordinal": 43
+    },
+    {
+      "id": "BIOMD0000000454",
+      "label": "BIOMD0000000454",
+      "ordinal": 44
+    },
+    {
+      "id": "BIOMD0000000455",
+      "label": "BIOMD0000000455",
+      "ordinal": 45
+    },
+    {
+      "id": "BIOMD0000000456",
+      "label": "BIOMD0000000456",
+      "ordinal": 46
+    },
+    {
+      "id": "BIOMD0000000458",
+      "label": "BIOMD0000000458",
+      "ordinal": 47
+    },
+    {
+      "id": "BIOMD0000000459",
+      "label": "BIOMD0000000459",
+      "ordinal": 48
+    },
+    {
+      "id": "BIOMD0000000460",
+      "label": "BIOMD0000000460",
+      "ordinal": 49
+    },
+    {
+      "id": "BIOMD0000000461",
+      "label": "BIOMD0000000461",
+      "ordinal": 50
+    },
+    {
+      "id": "BIOMD0000000462",
+      "label": "BIOMD0000000462",
+      "ordinal": 51
+    },
+    {
+      "id": "BIOMD0000000483",
+      "label": "BIOMD0000000483",
+      "ordinal": 52
+    },
+    {
+      "id": "BIOMD0000000484",
+      "label": "BIOMD0000000484",
+      "ordinal": 53
+    },
+    {
+      "id": "BIOMD0000000485",
+      "label": "BIOMD0000000485",
+      "ordinal": 54
+    },
+    {
+      "id": "BIOMD0000000486",
+      "label": "BIOMD0000000486",
+      "ordinal": 55
+    },
+    {
+      "id": "BIOMD0000000487",
+      "label": "BIOMD0000000487",
+      "ordinal": 56
+    },
+    {
+      "id": "BIOMD0000000573",
+      "label": "BIOMD0000000573",
+      "ordinal": 57
+    },
+    {
+      "id": "BIOMD0000000591",
+      "label": "BIOMD0000000591",
+      "ordinal": 58
+    },
+    {
+      "id": "BIOMD0000000624",
+      "label": "BIOMD0000000624",
+      "ordinal": 59
+    },
+    {
+      "id": "BIOMD0000000626",
+      "label": "BIOMD0000000626",
+      "ordinal": 60
+    },
+    {
+      "id": "BIOMD0000000629",
+      "label": "BIOMD0000000629",
+      "ordinal": 61
+    },
+    {
+      "id": "BIOMD0000000657",
+      "label": "BIOMD0000000657",
+      "ordinal": 62
+    },
+    {
+      "id": "BIOMD0000000663",
+      "label": "BIOMD0000000663",
+      "ordinal": 63
+    },
+    {
+      "id": "BIOMD0000000732",
+      "label": "BIOMD0000000732",
+      "ordinal": 66
+    },
+    {
+      "id": "BIOMD0000000733",
+      "label": "BIOMD0000000733",
+      "ordinal": 67
+    },
+    {
+      "id": "BIOMD0000000742",
+      "label": "BIOMD0000000742",
+      "ordinal": 68
+    },
+    {
+      "id": "BIOMD0000000753",
+      "label": "BIOMD0000000753",
+      "ordinal": 69
+    },
+    {
+      "id": "BIOMD0000000755",
+      "label": "BIOMD0000000755",
+      "ordinal": 70
+    },
+    {
+      "id": "BIOMD0000000758",
+      "label": "BIOMD0000000758",
+      "ordinal": 71
+    },
+    {
+      "id": "BIOMD0000000760",
+      "label": "BIOMD0000000760",
+      "ordinal": 72
+    },
+    {
+      "id": "BIOMD0000000762",
+      "label": "BIOMD0000000762",
+      "ordinal": 73
+    },
+    {
+      "id": "BIOMD0000000763",
+      "label": "BIOMD0000000763",
+      "ordinal": 74
+    },
+    {
+      "id": "BIOMD0000000767",
+      "label": "BIOMD0000000767",
+      "ordinal": 75
+    },
+    {
+      "id": "BIOMD0000000771",
+      "label": "BIOMD0000000771",
+      "ordinal": 76
+    },
+    {
+      "id": "BIOMD0000000772",
+      "label": "BIOMD0000000772",
+      "ordinal": 77
+    },
+    {
+      "id": "BIOMD0000000783",
+      "label": "BIOMD0000000783",
+      "ordinal": 79
+    },
+    {
+      "id": "BIOMD0000000793",
+      "label": "BIOMD0000000793",
+      "ordinal": 81
+    },
+    {
+      "id": "BIOMD0000000795",
+      "label": "BIOMD0000000795",
+      "ordinal": 82
+    },
+    {
+      "id": "BIOMD0000000800",
+      "label": "BIOMD0000000800",
+      "ordinal": 84
+    },
+    {
+      "id": "BIOMD0000000813",
+      "label": "BIOMD0000000813",
+      "ordinal": 85
+    },
+    {
+      "id": "BIOMD0000000821",
+      "label": "BIOMD0000000821",
+      "ordinal": 86
+    },
+    {
+      "id": "BIOMD0000000827",
+      "label": "BIOMD0000000827",
+      "ordinal": 87
+    },
+    {
+      "id": "BIOMD0000000830",
+      "label": "BIOMD0000000830",
+      "ordinal": 88
+    },
+    {
+      "id": "BIOMD0000000838",
+      "label": "BIOMD0000000838",
+      "ordinal": 89
+    },
+    {
+      "id": "BIOMD0000000847",
+      "label": "BIOMD0000000847",
+      "ordinal": 90
+    },
+    {
+      "id": "BIOMD0000000850",
+      "label": "BIOMD0000000850",
+      "ordinal": 91
+    },
+    {
+      "id": "BIOMD0000000876",
+      "label": "BIOMD0000000876",
+      "ordinal": 92
+    },
+    {
+      "id": "BIOMD0000000877",
+      "label": "BIOMD0000000877",
+      "ordinal": 93
+    },
+    {
+      "id": "BIOMD0000000878",
+      "label": "BIOMD0000000878",
+      "ordinal": 94
+    },
+    {
+      "id": "BIOMD0000000882",
+      "label": "BIOMD0000000882",
+      "ordinal": 95
+    },
+    {
+      "id": "BIOMD0000000885",
+      "label": "BIOMD0000000885",
+      "ordinal": 96
+    },
+    {
+      "id": "BIOMD0000000888",
+      "label": "BIOMD0000000888",
+      "ordinal": 97
+    },
+    {
+      "id": "BIOMD0000000891",
+      "label": "BIOMD0000000891",
+      "ordinal": 98
+    },
+    {
+      "id": "BIOMD0000000892",
+      "label": "BIOMD0000000892",
+      "ordinal": 99
+    },
+    {
+      "id": "BIOMD0000000894",
+      "label": "BIOMD0000000894",
+      "ordinal": 101
+    },
+    {
+      "id": "BIOMD0000000897",
+      "label": "BIOMD0000000897",
+      "ordinal": 102
+    },
+    {
+      "id": "BIOMD0000000899",
+      "label": "BIOMD0000000899",
+      "ordinal": 103
+    },
+    {
+      "id": "BIOMD0000000902",
+      "label": "BIOMD0000000902",
+      "ordinal": 104
+    },
+    {
+      "id": "BIOMD0000000906",
+      "label": "BIOMD0000000906",
+      "ordinal": 105
+    },
+    {
+      "id": "BIOMD0000000909",
+      "label": "BIOMD0000000909",
+      "ordinal": 106
+    },
+    {
+      "id": "BIOMD0000000910",
+      "label": "BIOMD0000000910",
+      "ordinal": 107
+    },
+    {
+      "id": "BIOMD0000000911",
+      "label": "BIOMD0000000911",
+      "ordinal": 108
+    },
+    {
+      "id": "BIOMD0000000912",
+      "label": "BIOMD0000000912",
+      "ordinal": 109
+    },
+    {
+      "id": "BIOMD0000000914",
+      "label": "BIOMD0000000914",
+      "ordinal": 110
+    },
+    {
+      "id": "BIOMD0000000916",
+      "label": "BIOMD0000000916",
+      "ordinal": 111
+    },
+    {
+      "id": "BIOMD0000000920",
+      "label": "BIOMD0000000920",
+      "ordinal": 113
+    },
+    {
+      "id": "BIOMD0000000922",
+      "label": "BIOMD0000000922",
+      "ordinal": 114
+    },
+    {
+      "id": "BIOMD0000000923",
+      "label": "BIOMD0000000923",
+      "ordinal": 115
+    },
+    {
+      "id": "BIOMD0000000927",
+      "label": "BIOMD0000000927",
+      "ordinal": 116
+    },
+    {
+      "id": "BIOMD0000000932",
+      "label": "BIOMD0000000932",
+      "ordinal": 117
+    },
+    {
+      "id": "BIOMD0000000937",
+      "label": "BIOMD0000000937",
+      "ordinal": 119
+    },
+    {
+      "id": "BIOMD0000000957",
+      "label": "BIOMD0000000957",
+      "ordinal": 120
+    },
+    {
+      "id": "BIOMD0000000966",
+      "label": "BIOMD0000000966",
+      "ordinal": 121
+    },
+    {
+      "id": "BIOMD0000000967",
+      "label": "BIOMD0000000967",
+      "ordinal": 122
+    },
+    {
+      "id": "BIOMD0000000970",
+      "label": "BIOMD0000000970",
+      "ordinal": 123
+    },
+    {
+      "id": "BIOMD0000001013",
+      "label": "BIOMD0000001013",
+      "ordinal": 124
+    },
+    {
+      "id": "BIOMD0000001016",
+      "label": "BIOMD0000001016",
+      "ordinal": 125
+    },
+    {
+      "id": "BIOMD0000001022",
+      "label": "BIOMD0000001022",
+      "ordinal": 126
+    },
+    {
+      "id": "BIOMD0000001024",
+      "label": "BIOMD0000001024",
+      "ordinal": 128
+    },
+    {
+      "id": "BIOMD0000001031",
+      "label": "BIOMD0000001031",
+      "ordinal": 129
+    },
+    {
+      "id": "BIOMD0000001035",
+      "label": "BIOMD0000001035",
+      "ordinal": 130
+    },
+    {
+      "id": "BIOMD0000001036",
+      "label": "BIOMD0000001036",
+      "ordinal": 131
+    },
+    {
+      "id": "BIOMD0000001037",
+      "label": "BIOMD0000001037",
+      "ordinal": 132
+    },
+    {
+      "id": "BIOMD0000001038",
+      "label": "BIOMD0000001038",
+      "ordinal": 133
+    },
+    {
+      "id": "BIOMD0000001045",
+      "label": "BIOMD0000001045",
+      "ordinal": 134
+    },
+    {
+      "id": "BIOMD0000001048",
+      "label": "BIOMD0000001048",
+      "ordinal": 135
+    },
+    {
+      "id": "BIOMD0000001057",
+      "label": "BIOMD0000001057",
+      "ordinal": 136
+    }
+  ]
+}

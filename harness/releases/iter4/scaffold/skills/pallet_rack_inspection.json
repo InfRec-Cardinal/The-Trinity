@@ -1,0 +1,125 @@
+{
+  "taskId": "pallet_rack_inspection",
+  "proposals": [
+    {
+      "id": "span-not-prefix-coverage",
+      "title": "Spend the action budget spanning every aisle and side, never sweeping a prefix of the rack",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "At the start of an inspection episode, when the observation announces the grid dimensions and the current cell, and the product of aisles x bays x levels x sides x zooms exceeds remainingActions, so that the view space cannot be enumerated exhaustively.",
+      "procedure": [
+        "Read the announced grid from the observation and estimate the distinct view-sides available; if that number exceeds remainingActions, do not enumerate views in row-major order outward from the current cell.",
+        "Choose a stride over aisles, sides and levels so that the first pass visits every aisle at least once, every side at least once and every level at least once, before any region gets a second visit.",
+        "Hold the plan as a short ordered anchor list (aisle, side, level) and execute it top to bottom; mark an anchor as observed and never re-enter it.",
+        "Re-enter a region only after every aisle has been observed once, and look at close zoom: close costs the same single action as wide and some defects are not rendered at all at wide zoom, so a wide view is never evidence that a cell is clean.",
+        "Stop the sweep with actions to spare and use them to submit; do not let the last remaining action be a look."
+      ],
+      "successSignals": [
+        "Every aisle index appears in the observed set before three quarters of the budget is gone",
+        "The submitted report contains at least one finding from an aisle other than the one the run started in",
+        "The terminal view is not adjacent to the region the run had been circling for most of the episode",
+        "remainingActions at submission is greater than zero by design, not by exhaustion"
+      ],
+      "failureSignals": [
+        "The episode terminates deep inside the same aisle range it started in, leaving whole aisles never rendered",
+        "The submitted report draws every finding from one or two aisles of a larger grid",
+        "remainingActions reaches 0-2 with the last action spent on a look rather than on the submission",
+        "Two runs on the same grid and the same damage map score 0.0 and 0.2, showing the sweep order rather than the world drives the result"
+      ],
+      "recovery": [
+        "If late in the episode some aisles have never been observed, abandon the current row immediately and jump to one unobserved aisle at wide zoom rather than finishing the row.",
+        "If a region has already been observed twice while another aisle has zero observations, treat the second visit as a mistake and re-target the plan to the zero-observation aisle."
+      ],
+      "invariants": [
+        "No region receives a second observation while any aisle has zero observations, except for a bounded follow-up on a bay that just disclosed a defect.",
+        "The observed set spans all aisles and both sides before depth is added anywhere"
+      ],
+      "sourceGapIds": [
+        "prefix-sweep-leaves-aisles-unvisited",
+        "budget-burnt-deep-in-start-region"
+      ]
+    },
+    {
+      "id": "exhaust-the-hit-column",
+      "title": "On finding a defect, finish that rack column and its immediate neighbours before relocating",
+      "audience": [
+        "playing"
+      ],
+      "capability": "perception",
+      "trigger": "When a rendered view discloses a defect on a component at some (aisle, bay, level), and the same aisle-and-bay column still has levels or the opposite side that have not been rendered.",
+      "procedure": [
+        "Treat the hit as evidence about the region, not as the target: this world places multiple defects close together, often in one bay or adjacent bays.",
+        "Immediately render the remaining levels of that same aisle, bay and side, nearest level first, before any view outside that bay.",
+        "Then render the opposite side of that same bay, and the same level in each immediate neighbouring bay.",
+        "Bound the follow-up to roughly that column plus one neighbour on each side; when the bound is spent, return to the global lattice.",
+        "Collect every component judged defective in the column into the same submission rather than reporting only the first hit."
+      ],
+      "successSignals": [
+        "The submitted report contains two or more findings that share a bay, an adjacent bay, or adjacent levels of one column",
+        "A second finding in a bay is reached within a couple of actions of the first finding in that bay",
+        "No bay that produced a finding is left with an obviously uninspected sibling level or side"
+      ],
+      "failureSignals": [
+        "A bay appears in the report through one component while a ground-truth sibling in that same bay, visible from both sides and not close-zoom-only, is absent",
+        "Consecutive views jump to bays unrelated to the last disclosure",
+        "The report is a single entry after a long sweep, indicating hits were not exploited locally",
+        "Recall stays at a small fraction of the defects the grid physically contains"
+      ],
+      "recovery": [
+        "If the hit is at the edge of a bay or aisle, extend the follow-up one bay inward rather than off the edge.",
+        "If the run has already relocated away from a bay that produced a finding, return to that bay's remaining levels and opposite side before resuming the sweep."
+      ],
+      "invariants": [
+        "No bay that produced a finding is abandoned with its remaining levels unobserved from at least one side",
+        "Local follow-up spending is bounded so the global span of the sweep still completes",
+        "Findings from one column are reported together, not deferred across submissions"
+      ],
+      "sourceGapIds": [
+        "leaves-sibling-defects-unchecked",
+        "moves-away-after-first-hit"
+      ]
+    },
+    {
+      "id": "evidence-tied-report-entries",
+      "title": "Every submitted entry tied to a cue actually seen; never fill a damage type by pattern",
+      "audience": [
+        "playing"
+      ],
+      "capability": "perception",
+      "trigger": "When composing the submission, or at any moment when the run is about to append a report entry whose damage type was inferred from a pattern shared with other entries rather than from that component's own rendered view.",
+      "procedure": [
+        "Before submitting, walk each entry back to the view it came from; drop any entry whose component was not listed among the components visible in a frame the run actually received.",
+        "Refuse to emit one damage type for several components on the strength of a single exemplar; each entry needs its own observation of its own component.",
+        "For near-synonym type pairs, choose the type whose distinguishing cue was visible; if neither cue resolved, file BOTH candidate types for that component. Precision tolerates one wrong entry per three correct ones; a missing critical fails the episode whatever precision says.",
+        "Prefer a short precise report to a long speculative one, since scoring is per (component, type) pair and a wrong type scores as a plain miss that buys no coverage.",
+        "After the sweep, if the report holds no high-severity finding at all, spend remaining looks on unobserved regions rather than padding the report with low-confidence entries."
+      ],
+      "successSignals": [
+        "Every entry in the submitted report names a component that appeared in the visibleComponents of some received frame",
+        "Precision holds at 1.0 while recall is the largest the sweep can support",
+        "Entries of the same damage type belong to components that were each separately resolved",
+        "Type assignments follow the cue that was actually visible rather than a default label"
+      ],
+      "failureSignals": [
+        "A block of entries shares one damage type across bays that were never individually resolved",
+        "Precision collapses to 0 while recall is no better than sibling runs on the identical map",
+        "Entries name components that never appeared in any received observation",
+        "Two visually similar damage types are swapped on the same component class across runs"
+      ],
+      "recovery": [
+        "If the run notices it has appended a run of same-type entries, delete all but the one backed by a specific view before submitting.",
+        "If a type cannot be resolved for a component but the component is clearly deformed, report the component with the type whose cue was seen and omit it otherwise, rather than substituting a guess."
+      ],
+      "invariants": [
+        "No entry is assigned by analogy from another component",
+        "A component seen in no frame never appears in the report"
+      ],
+      "sourceGapIds": [
+        "type-template-overgeneralization",
+        "guesses-damage-type-without-cue"
+      ]
+    }
+  ]
+}

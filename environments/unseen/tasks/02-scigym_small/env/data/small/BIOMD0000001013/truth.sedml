@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Leon-Triana2021 - eqs 1 and 2.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="60" numberOfSteps="1000">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="100000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+    <repeatedTask id="task2" range="range0" resetModel="true">
+      <listOfRanges>
+        <vectorRange id="range0">
+          <value> 200000000 </value>
+          <value> 400000000 </value>
+          <value> 700000000 </value>
+        </vectorRange>
+      </listOfRanges>
+      <listOfChanges>
+        <setValue modelReference="model" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;CAR_T_cells&apos;]" range="range0">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> range0 </ci>
+          </math>
+        </setValue>
+      </listOfChanges>
+      <listOfSubTasks>
+        <subTask order="1" task="task1"/>
+      </listOfSubTasks>
+    </repeatedTask>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task2" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task2 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task2" name="Time" symbol="urn:sedml:symbol:time" taskReference="task2" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="CAR_T_cells_1_task2" name="[CAR_T-cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_CAR_T_cells_1_task2 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_CAR_T_cells_1_task2" name="[CAR_T-cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;CAR_T_cells&apos;]" taskReference="task2" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Tumour_cells_2_task2" name="[Tumour_cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Tumour_cells_2_task2 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Tumour_cells_2_task2" name="[Tumour_cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Tumour_cells&apos;]" taskReference="task2" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_rho_C">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_rho_C__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_rho_C__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;rho_C&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_g_T">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_g_T__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_g_T__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;g_T&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_alpha_1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_alpha_1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_alpha_1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha_1&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_g_C">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_g_C__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_g_C__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;g_C&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_tao_C">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_tao_C__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_tao_C__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;tao_C&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_rho_T">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_rho_T__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_rho_T__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;rho_T&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_alpha_2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_alpha_2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_alpha_2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha_2&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_Solid_tumour">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_Solid_tumour__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_Solid_tumour__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Solid_tumour&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_CAR_T_cell_proliferation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_CAR_T_cell_proliferation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_CAR_T_cell_proliferation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;CAR_T_cell_proliferation&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_CAR_T_cell_depletion">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_CAR_T_cell_depletion__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_CAR_T_cell_depletion__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;CAR_T_cell_depletion&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_tumour_growth">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_tumour_growth__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_tumour_growth__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;tumour_growth&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_tumour_death">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_tumour_death__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_tumour_death__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;tumour_death&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_2_task2" name="Concentrations, Volumes, and Global Quantity Values 1">
+      <listOfCurves>
+        <curve id="p1_curve_1_task2" name="[CAR_T-cells]" logX="false" style="style1" xDataReference="_1_task2" logY="false" yDataReference="CAR_T_cells_1_task2"/>
+        <curve id="p1_curve_2_task2" name="[Tumour_cells]" logX="false" style="style2" xDataReference="_1_task2" logY="false" yDataReference="Tumour_cells_2_task2"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task2" name="Auto-generated report for task2, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task2" label="Time" dataReference="_1_task2"/>
+        <dataSet id="autogen_task2_CAR_T_cells" label="CAR_T_cells" dataReference="CAR_T_cells_1_task2"/>
+        <dataSet id="autogen_task2_Tumour_cells" label="Tumour_cells" dataReference="Tumour_cells_2_task2"/>
+        <dataSet id="autogen_task2_rho_C" label="rho_C" dataReference="auto_dg_for_task2_rho_C"/>
+        <dataSet id="autogen_task2_g_T" label="g_T" dataReference="auto_dg_for_task2_g_T"/>
+        <dataSet id="autogen_task2_alpha_1" label="alpha_1" dataReference="auto_dg_for_task2_alpha_1"/>
+        <dataSet id="autogen_task2_g_C" label="g_C" dataReference="auto_dg_for_task2_g_C"/>
+        <dataSet id="autogen_task2_tao_C" label="tao_C" dataReference="auto_dg_for_task2_tao_C"/>
+        <dataSet id="autogen_task2_rho_T" label="rho_T" dataReference="auto_dg_for_task2_rho_T"/>
+        <dataSet id="autogen_task2_alpha_2" label="alpha_2" dataReference="auto_dg_for_task2_alpha_2"/>
+        <dataSet id="autogen_task2_Solid_tumour" label="Solid_tumour" dataReference="auto_dg_for_task2_Solid_tumour"/>
+        <dataSet id="autogen_task2_CAR_T_cell_proliferation" label="CAR_T_cell_proliferation" dataReference="auto_dg_for_task2_CAR_T_cell_proliferation"/>
+        <dataSet id="autogen_task2_CAR_T_cell_depletion" label="CAR_T_cell_depletion" dataReference="auto_dg_for_task2_CAR_T_cell_depletion"/>
+        <dataSet id="autogen_task2_tumour_growth" label="tumour_growth" dataReference="auto_dg_for_task2_tumour_growth"/>
+        <dataSet id="autogen_task2_tumour_death" label="tumour_death" dataReference="auto_dg_for_task2_tumour_death"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" color="0000FF" thickness="1"/>
+      <marker type="none"/>
+    </style>
+    <style id="style2">
+      <line type="solid" color="FF0000" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

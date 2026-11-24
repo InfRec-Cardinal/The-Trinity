@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_uxhs">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_ox14">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_9xcw">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_48yx" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_k9ou" compartment="id_48yx" initialConcentration="0.324" boundaryCondition="false" constant="false"/>
+      <species id="id_0p77" compartment="id_48yx" initialConcentration="1" boundaryCondition="false" constant="false"/>
+      <species id="id_q0gl" compartment="id_48yx" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_vjan" compartment="id_48yx" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_7aj7" compartment="id_48yx" initialConcentration="0" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

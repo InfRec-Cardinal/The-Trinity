@@ -1,0 +1,56 @@
+{
+  "taskId": "wilt",
+  "name": "WILT",
+  "fullName": "WILT: Wason Inductive Logic Test",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D1",
+    "domainName": "Latent Rule & Mechanism Discovery",
+    "subCategoryId": "D1.1",
+    "subCategoryName": "Query-Oracle Rule Identification"
+  },
+  "assignment": {
+    "actions": {
+      "answer": "Submit exactly one final guess of the hidden rule as a Python lambda of three arguments returning a boolean, formatted as a message ending with 'Final Guess: ```lambda x,y,z: ...```'. This action is available at any step, is allowed only once, is scored by the official equivalence checker, and terminates the episode.",
+      "probe": "Submit one test-case triple of three numbers (each a float or integer typeable in three or fewer characters, excluding sign and decimal point), formatted as the official harness expects: a message ending with 'Test Case: ```(x,y,z)```'. The environment evaluates the hidden rule on the triple and returns only the boolean verdict and the remaining attempt count. Permitted while fewer than 30 probes have been consumed."
+    },
+    "evaluation": {
+      "budget": 31,
+      "efficiency": "The official bonus rewards unused probes: 100 * (1 - attempts/30) added to the 1000 points, awarded only when the guess is correct. Record alongside each episode the number of probes consumed, the number of repeated (already-tested) triples, the character length and operator count of the submitted lambda, and the set-inclusion ratio versus the hidden rule, as published diagnostics. Repeats and format complaints consume budget and are never rewarded.",
+      "failure": "Any disagreement between the guessed lambda and the hidden rule on any generated case marks the rule incorrect (0 points). Also a failure: a guess that cannot be parsed or raises during evaluation ('Invalid lambda function.'), an episode aborted because the agent twice failed to respond in the required format, and an episode that ends without the single final guess being submitted. Approximately-correct guesses (correct critical behaviour but failing edge cases, e.g. x < y < z instead of x <= y <= z) are recorded separately as a diagnostic but score zero.",
+      "success": "The single `answer` lambda is behaviourally identical to the hidden rule under the official equivalence check: the hidden rule and the guessed lambda must agree on every generated case, namely the integer grid of triplets from -20 to 20 inclusive, the uniform random float triplets, and the hand-designed special cases. Agreement on all cases scores the official 1000 points and the episode is a success."
+    },
+    "generation": "Instances are the fixed official rule dictionaries in harness/test_cases.py, keyed by string index: TESTS_LITE ('1'..'10') and TESTS_FULL ('1'..'50'). An instance is identified reproducibly by the pair (split, index); no randomness is involved in instance selection, so the split index is the seed. The full split is the canonical reported suite; the lite split is the quick-signal suite. The scorer's own case generation (uniform random float triplets) must be run under a fixed, logged RNG seed so that a scoring decision is reproducible. The three-argument, non-Bayesian protocol is used: the TESTS_BAYESIAN and TESTS_BAYESIAN_SINGLE dictionaries, which use a 5-attempt budget and a single-argument variant, are out of scope for this specification.",
+    "id": "wilt-wason-inductive-logic-test",
+    "observation": "Text only. At episode start: the official WILT instruction prompt (prompts/instruction.txt), which states the objective, that inputs are any float or integer typeable in three or fewer digits excluding signs and decimal characters, that up to 30 test cases and exactly one final guess are available, that the rules are deterministic, and the required response format. After each accepted probe: a single text line of the form 'Result for input (x, y, z): <True|False>. Attempts Remaining: <n>'. After the 30-probe limit is reached: 'Maximum attempts reached. Please make a guess.'. Malformed responses receive the harness's format-complaint text instead of a verdict. Nothing else is revealed: the hidden rule source, the split index, the set of candidate rules, the harness's internal hypothesis-space-coverage statistics (printed to the operator console only), the repeat counter and the confirmation-bias counter are all withheld from the agent for the duration of the episode. The hidden rule string is disclosed only in the terminal message after the final guess has been scored.",
+    "reference": "Published task: WILT (Wason Inductive Logic Test), Banatt et al., arXiv:2410.10998, with the official harness at github.com/RiotGames/WILT. Sourced from the publication and harness code: the hidden rule is a Python lambda of three numbers returning a boolean; the participant may pose up to 30 test-case triples, each answered only with the boolean result and the remaining attempt count; valid values are any float or integer typeable in three or fewer characters excluding sign and decimal point; exactly one final guess, submitted as a Python lambda, terminates the episode; full credit requires the guess to be identical or equivalent to the hidden rule, verified by differential execution over an integer grid, uniform random floats and hand-designed special cases. New (not sourced): the per-episode action budget expressed as 31 actions (30 probes + 1 answer), the mapping of the harness methods onto the two public action ids, the per-step trajectory record format, and the use of the official split index as the reproducible instance seed.",
+    "task": "Discover a hidden boolean rule over three numbers by experimentation, then submit it as executable code. One episode binds one hidden rule, drawn by index from an official WILT split (lite: 10 rules; full: 50 rules). The agent is given the official instruction prompt and no information about the rule. It may pose up to 30 test-case triples, one at a time, each answered only with True/False plus the number of attempts remaining. At any point, and at the latest once the 30 probes are exhausted, the agent must submit exactly one final guess as a Python lambda of three arguments returning a boolean; submitting the guess terminates the episode. Rules are deterministic, so re-probing an already-tested triple yields no new information and is counted as a repeat.",
+    "verification": "Scoring reuses the official differential-execution equivalence check: instantiate both the hidden rule and the parsed guess, evaluate both on the integer grid of triplets from -20 to 20 inclusive, the uniform random float triplets over the published range, and the hand-designed special cases, and declare the guess correct only if the outputs match on every case; otherwise 0. Guess parsing follows the official regular-expression extraction of the backtick-wrapped lambda after the last 'Final Guess' marker. Every run writes a replayable record: the split and index, the full ordered conversation/trajectory (each agent message, the parsed triple or guess, and the exact verdict string returned), the probe count, repeat count, points, and the final hidden-rule source string. Because the hidden rules and the probe channel are deterministic, an independent checker can replay a recorded trajectory against the named rule index and recompute every verdict and the final score without the original model; re-running the equivalence check on the recorded guess string under the logged seed must reproduce the same verdict. Guess code is executed only inside a sandbox, as the repository warns."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 24,
+    "episodesPerConfiguration": 5,
+    "totalEpisodes": 120,
+    "actionBudget": 31,
+    "plannedEpisodes": 120
+  },
+  "otherModels": [],
+  "pythonEnv": "extra-official-venv",
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Driver ported from the original pipeline src/h0-extra-official.mjs (official-wilt-public-driver); worker from adapters/h0-extra-official-worker.py. The shared worker and runtime live in PKG/vendor/extra-official/ (worker.py, runtime.mjs), shared with 14-mastermind.",
+    "Upstream source vendored to PKG/vendor/extra-official/wilt-source-6344f04b: harness/test_cases.py (full-split rule catalogue), harness/hypothesis_space.py, harness/llm_reasoning_harness.py (LLMReasoningHarness class only, via AST) and prompts/instruction.txt (the only prompt read on the tuple-length-3 non-Bayesian route).",
+    "Requires macOS /usr/bin/sandbox-exec for the final-guess candidate evaluation; the original driver checked for it as a readiness gate, this package does not."
+  ]
+}

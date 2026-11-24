@@ -1,0 +1,18 @@
+{
+  "game_id": "sb26-7fbdac44",
+  "title": "SB26",
+  "default_fps": 30,
+  "tags": [
+    "keyboard_click"
+  ],
+  "baseline_actions": [
+    18,
+    28,
+    18,
+    19,
+    31,
+    23,
+    58,
+    18
+  ]
+}

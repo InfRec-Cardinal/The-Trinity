@@ -1,0 +1,17 @@
+{
+  "game_id": "tn36-ef4dde99",
+  "title": "TN36",
+  "default_fps": 3,
+  "tags": [
+    "click"
+  ],
+  "baseline_actions": [
+    32,
+    72,
+    26,
+    40,
+    30,
+    55,
+    62
+  ]
+}

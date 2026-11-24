@@ -1,0 +1,17 @@
+{
+  "game_id": "ka59-38d34dbb",
+  "title": "KA59",
+  "default_fps": 10,
+  "tags": [
+    "keyboard_click"
+  ],
+  "baseline_actions": [
+    28,
+    109,
+    51,
+    51,
+    33,
+    132,
+    326
+  ]
+}

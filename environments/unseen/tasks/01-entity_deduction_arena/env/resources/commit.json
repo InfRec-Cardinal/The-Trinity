@@ -1,0 +1,113 @@
+{
+  "sha": "653aaa9b033897c936ae72d5fac1c2f85ff1d2a9",
+  "node_id": "C_kwDOLCxA_NoAKDY1M2FhYTliMDMzODk3YzkzNmFlNzJkNWZhYzFjMmY4NWZmMWQyYTk",
+  "commit": {
+    "author": {
+      "name": "apple-ospo[bot]",
+      "email": "326325757+apple-ospo[bot]@users.noreply.github.com",
+      "date": "2026-09-11T15:56:26Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-09-11T15:56:26Z"
+    },
+    "message": "Update root files\n\nRemove root files that are not applicable or are replaced by org-wide files.",
+    "tree": {
+      "sha": "6fad19b50e44006fe3c97b4e6545f8fbe2bc15ac",
+      "url": "https://api.github.com/repos/apple-aiml-research/ml-entity-deduction-arena/git/trees/6fad19b50e44006fe3c97b4e6545f8fbe2bc15ac"
+    },
+    "url": "https://api.github.com/repos/apple-aiml-research/ml-entity-deduction-arena/git/commits/653aaa9b033897c936ae72d5fac1c2f85ff1d2a9",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqpCSqCRC1aQ7uu5UhlAAAl6AQABJ6q2+YS3csvpSHFhQR0Wen\nw7jvroklvt7C0TOKM8wpO7BOsUYKCK6+1xw0iKIeGqcH/38yCn4+JxvYTDApVwZM\nVkcwfAmeCavrr+QpGiQPWcKr4P7SEmz8Nkgj6VwvMBLyg16U8UWAOqDYamxZ01Dp\n7a4hvk/Enp5vp4yWXNLou+/n3A4yXso7M7L45xHUVYAD49jBQXKY+W1bGgRoTWUG\nqrfGsSq1BQXblJ8XgEg3DxwsYcCby1dW7toHRE+KfOAjnN/24Ihh4Z6j0Q6h3U4+\nUcTc9z2scipahOpwvgUGxsuPO8GLxuZvA0I+bOZy72ygBiBR4ZIlc9HTKqqeJmml\nKElPAAtlKc2HgiT7FsV1LAuthi42qu1eLkNBxuv8+TAxx/H6591d4dcdFJAKEEnX\nAbYrumK4+y45oyq+gSkOv0eHejgPLdJGGJIriHY5ktMmc51eDXT74N+0AOQVM3vX\nbN/xjZ3kWeLW9O8XRIOu1G8jaeTkwaT+t6myS/ykTvft6xn+szrySopl+7EY1Rwh\ne6iplJGE1FepF5L1Jh92cgM1dJXvIoJ/L8xKc2uvH1FZtP6eCVjXl2wmqfcASCH9\nBEahGlEGEq/Jo6zpN8poSOrNywSFw5mNZ7l+FRFaQk4JFp8qfeEkDbCP4JRXZQEl\nz9S65rsxpSu7uhMrDYJ9\n=aYZw\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 6fad19b50e44006fe3c97b4e6545f8fbe2bc15ac\nparent 64e6a92c31fcd757050ecd995112b04bc47eac9a\nauthor apple-ospo[bot] <326325757+apple-ospo[bot]@users.noreply.github.com> 1789142186 +0000\ncommitter GitHub <noreply@github.com> 1789142186 +0000\n\nUpdate root files\n\nRemove root files that are not applicable or are replaced by org-wide files.",
+      "verified_at": "2026-09-11T15:56:27Z"
+    }
+  },
+  "url": "https://api.github.com/repos/apple-aiml-research/ml-entity-deduction-arena/commits/653aaa9b033897c936ae72d5fac1c2f85ff1d2a9",
+  "html_url": "https://github.com/apple-aiml-research/ml-entity-deduction-arena/commit/653aaa9b033897c936ae72d5fac1c2f85ff1d2a9",
+  "comments_url": "https://api.github.com/repos/apple-aiml-research/ml-entity-deduction-arena/commits/653aaa9b033897c936ae72d5fac1c2f85ff1d2a9/comments",
+  "author": {
+    "login": "apple-ospo[bot]",
+    "id": 326325757,
+    "node_id": "BOT_kgDOE3NV_Q",
+    "avatar_url": "https://avatars.githubusercontent.com/in/4867995?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/apple-ospo%5Bbot%5D",
+    "html_url": "https://github.com/apps/apple-ospo",
+    "followers_url": "https://api.github.com/users/apple-ospo%5Bbot%5D/followers",
+    "following_url": "https://api.github.com/users/apple-ospo%5Bbot%5D/following{/other_user}",
+    "gists_url": "https://api.github.com/users/apple-ospo%5Bbot%5D/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/apple-ospo%5Bbot%5D/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/apple-ospo%5Bbot%5D/subscriptions",
+    "organizations_url": "https://api.github.com/users/apple-ospo%5Bbot%5D/orgs",
+    "repos_url": "https://api.github.com/users/apple-ospo%5Bbot%5D/repos",
+    "events_url": "https://api.github.com/users/apple-ospo%5Bbot%5D/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/apple-ospo%5Bbot%5D/received_events",
+    "type": "Bot",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "64e6a92c31fcd757050ecd995112b04bc47eac9a",
+      "url": "https://api.github.com/repos/apple-aiml-research/ml-entity-deduction-arena/commits/64e6a92c31fcd757050ecd995112b04bc47eac9a",
+      "html_url": "https://github.com/apple-aiml-research/ml-entity-deduction-arena/commit/64e6a92c31fcd757050ecd995112b04bc47eac9a"
+    }
+  ],
+  "stats": {
+    "total": 82,
+    "additions": 0,
+    "deletions": 82
+  },
+  "files": [
+    {
+      "sha": "c991377a60951acbcd7f586ebcf0184840e30e55",
+      "filename": "CODE_OF_CONDUCT.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 71,
+      "changes": 71,
+      "blob_url": "https://github.com/apple-aiml-research/ml-entity-deduction-arena/blob/64e6a92c31fcd757050ecd995112b04bc47eac9a/CODE_OF_CONDUCT.md",
+      "raw_url": "https://github.com/apple-aiml-research/ml-entity-deduction-arena/raw/64e6a92c31fcd757050ecd995112b04bc47eac9a/CODE_OF_CONDUCT.md",
+      "contents_url": "https://api.github.com/repos/apple-aiml-research/ml-entity-deduction-arena/contents/CODE_OF_CONDUCT.md?ref=64e6a92c31fcd757050ecd995112b04bc47eac9a",
+      "patch": "@@ -1,71 +0,0 @@\n-# Code of Conduct\n-\n-## Our Pledge\n-\n-In the interest of fostering an open and welcoming environment, we as\n-contributors and maintainers pledge to making participation in our project and\n-our community a harassment-free experience for everyone, regardless of age, body\n-size, disability, ethnicity, sex characteristics, gender identity and expression,\n-level of experience, education, socio-economic status, nationality, personal\n-appearance, race, religion, or sexual identity and orientation.\n-\n-## Our Standards\n-\n-Examples of behavior that contributes to creating a positive environment\n-include:\n-\n-* Using welcoming and inclusive language\n-* Being respectful of differing viewpoints and experiences\n-* Gracefully accepting constructive criticism\n-* Focusing on what is best for the community\n-* Showing empathy towards other community members\n-\n-Examples of unacceptable behavior by participants include:\n-\n-* The use of sexualized language or imagery and unwelcome sexual attention or\n-  advances\n-* Trolling, insulting/derogatory comments, and personal or political attacks\n-* Public or private harassment\n-* Publishing others' private information, such as a physical or electronic\n-  address, without explicit permission\n-* Other conduct which could reasonably be considered inappropriate in a\n-  professional setting\n-\n-## Our Responsibilities\n-\n-Project maintainers are responsible for clarifying the standards of acceptable\n-behavior and are expected to take appropriate and fair corrective action in\n-response to any instances of unacceptable behavior.\n-\n-Project maintainers have the right and responsibility to remove, edit, or\n-reject comments, commits, code, wiki edits, issues, and other contributions\n-that are not aligned to this Code of Conduct, or to ban temporarily or\n-permanently any contributor for other behaviors that they deem inappropriate,\n-threatening, offensive, or harmful.\n-\n-## Scope\n-\n-This Code of Conduct applies within all project spaces, and it also applies when\n-an individual is representing the project or its community in public spaces.\n-Examples of representing a project or community include using an official\n-project e-mail address, posting via an official social media account, or acting\n-as an appointed representative at an online or offline event. Representation of\n-a project may be further defined and clarified by project maintainers.\n-\n-## Enforcement\n-\n-Instances of abusive, harassing, or otherwise unacceptable behavior may be\n-reported by contacting the open source team at [opensource-conduct@group.apple.com](mailto:opensource-conduct@group.apple.com). All\n-complaints will be reviewed and investigated and will result in a response that\n-is deemed necessary and appropriate to the circumstances. The project team is\n-obligated to maintain confidentiality with regard to the reporter of an incident.\n-Further details of specific enforcement policies may be posted separately.\n-\n-Project maintainers who do not follow or enforce the Code of Conduct in good\n-faith may face temporary or permanent repercussions as determined by other\n-members of the project's leadership.\n-\n-## Attribution\n-\n-This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 1.4,\n-available at [https://www.contributor-covenant.org/version/1/4/code-of-conduct.html](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html)\n\\ No newline at end of file"
+    },
+    {
+      "sha": "3bf4882f38a2ae74986aebe03bf0eeabf1bac97a",
+      "filename": "CONTRIBUTING.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 11,
+      "changes": 11,
+      "blob_url": "https://github.com/apple-aiml-research/ml-entity-deduction-arena/blob/64e6a92c31fcd757050ecd995112b04bc47eac9a/CONTRIBUTING.md",
+      "raw_url": "https://github.com/apple-aiml-research/ml-entity-deduction-arena/raw/64e6a92c31fcd757050ecd995112b04bc47eac9a/CONTRIBUTING.md",
+      "contents_url": "https://api.github.com/repos/apple-aiml-research/ml-entity-deduction-arena/contents/CONTRIBUTING.md?ref=64e6a92c31fcd757050ecd995112b04bc47eac9a",
+      "patch": "@@ -1,11 +0,0 @@\n-# Contribution Guide\n-\n-Thanks for your interest in contributing. This project was released to accompany a research paper for purposes of reproducability, and beyond its publication there are limited plans for future development of the repository.\n-\n-While we welcome new pull requests and issues please note that our response may be limited. Forks and out-of-tree improvements are strongly encouraged.\n-\n-## Before you get started\n-\n-By submitting a pull request, you represent that you have the right to license your contribution to Apple and the community, and agree by submitting the patch that your contributions are licensed under the [LICENSE](LICENSE).\n-\n-We ask that all community members read and observe our [Code of Conduct](CODE_OF_CONDUCT.md).\n\\ No newline at end of file"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_nkxd">
+    <listOfCompartments>
+      <compartment id="id_94gl" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_qxqb" compartment="id_94gl" initialAmount="1"/>
+      <species id="id_s4m8" compartment="id_94gl" initialAmount="1"/>
+    </listOfSpecies>
+  </model>
+</sbml>

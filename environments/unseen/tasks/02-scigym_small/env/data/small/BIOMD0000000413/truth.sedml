@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="BIOMD0000000413_url" language="urn:sedml:language:sbml" source="BIOMD0000000413_url.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="auto_ten_seconds" initialTime="0" outputStartTime="0" outputEndTime="229" numberOfSteps="10000">
+      <algorithm name="ODE solver" kisaoID="KISAO:0000694"/>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="BIOMD0000000413_url" simulationReference="auto_ten_seconds"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="auto_time_for_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_time_for_task1_var </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_time_for_task1_var" symbol="urn:sedml:symbol:time" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxin">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxin__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxin__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;auxin&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_TIR1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_TIR1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_TIR1__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;TIR1&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxinTIR1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxinTIR1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxinTIR1__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;auxinTIR1&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxinTIR1VENUS">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxinTIR1VENUS__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxinTIR1VENUS__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;auxinTIR1VENUS&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_VENUS">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_VENUS__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_VENUS__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;VENUS&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kd">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kd__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kd__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kd&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_ka">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_ka__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_ka__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;ka&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_mu">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_mu__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_mu__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;mu&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_ld">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_ld__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_ld__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;ld&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_lm">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_lm__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_lm__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;lm&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_la">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_la__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_la__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;la&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_delta">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_delta__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_delta__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;delta&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_lambda">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_lambda__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_lambda__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;lambda&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_TIR1T">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_TIR1T__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_TIR1T__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;TIR1T&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_alpha_tr">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_alpha_tr__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_alpha_tr__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha_tr&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_cell">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_cell__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_cell__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;cell&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxin_TIR1association">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxin_TIR1association__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxin_TIR1association__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;auxin_TIR1association&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxin_TIR1dissociation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxin_TIR1dissociation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxin_TIR1dissociation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;auxin_TIR1dissociation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxin_TIR1_VENUSassociation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxin_TIR1_VENUSassociation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxin_TIR1_VENUSassociation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;auxin_TIR1_VENUSassociation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxin_TIR1_VENUSdissociation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxin_TIR1_VENUSdissociation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxin_TIR1_VENUSdissociation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;auxin_TIR1_VENUSdissociation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxin_TIR1_VENUSdissociationleadingtoubiquitination">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxin_TIR1_VENUSdissociationleadingtoubiquitination__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxin_TIR1_VENUSdissociationleadingtoubiquitination__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;auxin_TIR1_VENUSdissociationleadingtoubiquitination&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxinproduction">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxinproduction__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxinproduction__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;auxinproduction&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_auxindecay">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_auxindecay__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_auxindecay__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;auxindecay&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_VENUSproduction">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_VENUSproduction__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_VENUSproduction__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;VENUSproduction&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_VENUSphotobleachingdecay">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_VENUSphotobleachingdecay__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_VENUSphotobleachingdecay__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;VENUSphotobleachingdecay&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="auto_time_for_task1"/>
+        <dataSet id="autogen_task1_auxin" label="auxin" dataReference="auto_dg_for_task1_auxin"/>
+        <dataSet id="autogen_task1_TIR1" label="TIR1" dataReference="auto_dg_for_task1_TIR1"/>
+        <dataSet id="autogen_task1_auxinTIR1" label="auxinTIR1" dataReference="auto_dg_for_task1_auxinTIR1"/>
+        <dataSet id="autogen_task1_auxinTIR1VENUS" label="auxinTIR1VENUS" dataReference="auto_dg_for_task1_auxinTIR1VENUS"/>
+        <dataSet id="autogen_task1_VENUS" label="VENUS" dataReference="auto_dg_for_task1_VENUS"/>
+        <dataSet id="autogen_task1_kd" label="kd" dataReference="auto_dg_for_task1_kd"/>
+        <dataSet id="autogen_task1_ka" label="ka" dataReference="auto_dg_for_task1_ka"/>
+        <dataSet id="autogen_task1_mu" label="mu" dataReference="auto_dg_for_task1_mu"/>
+        <dataSet id="autogen_task1_ld" label="ld" dataReference="auto_dg_for_task1_ld"/>
+        <dataSet id="autogen_task1_lm" label="lm" dataReference="auto_dg_for_task1_lm"/>
+        <dataSet id="autogen_task1_la" label="la" dataReference="auto_dg_for_task1_la"/>
+        <dataSet id="autogen_task1_delta" label="delta" dataReference="auto_dg_for_task1_delta"/>
+        <dataSet id="autogen_task1_lambda" label="lambda" dataReference="auto_dg_for_task1_lambda"/>
+        <dataSet id="autogen_task1_TIR1T" label="TIR1T" dataReference="auto_dg_for_task1_TIR1T"/>
+        <dataSet id="autogen_task1_alpha_tr" label="alpha_tr" dataReference="auto_dg_for_task1_alpha_tr"/>
+        <dataSet id="autogen_task1_cell" label="cell" dataReference="auto_dg_for_task1_cell"/>
+        <dataSet id="autogen_task1_auxin_TIR1association" label="auxin_TIR1association" dataReference="auto_dg_for_task1_auxin_TIR1association"/>
+        <dataSet id="autogen_task1_auxin_TIR1dissociation" label="auxin_TIR1dissociation" dataReference="auto_dg_for_task1_auxin_TIR1dissociation"/>
+        <dataSet id="autogen_task1_auxin_TIR1_VENUSassociation" label="auxin_TIR1_VENUSassociation" dataReference="auto_dg_for_task1_auxin_TIR1_VENUSassociation"/>
+        <dataSet id="autogen_task1_auxin_TIR1_VENUSdissociation" label="auxin_TIR1_VENUSdissociation" dataReference="auto_dg_for_task1_auxin_TIR1_VENUSdissociation"/>
+        <dataSet id="autogen_task1_auxin_TIR1_VENUSdissociationleadingtoubiquitination" label="auxin_TIR1_VENUSdissociationleadingtoubiquitination" dataReference="auto_dg_for_task1_auxin_TIR1_VENUSdissociationleadingtoubiquitination"/>
+        <dataSet id="autogen_task1_auxinproduction" label="auxinproduction" dataReference="auto_dg_for_task1_auxinproduction"/>
+        <dataSet id="autogen_task1_auxindecay" label="auxindecay" dataReference="auto_dg_for_task1_auxindecay"/>
+        <dataSet id="autogen_task1_VENUSproduction" label="VENUSproduction" dataReference="auto_dg_for_task1_VENUSproduction"/>
+        <dataSet id="autogen_task1_VENUSphotobleachingdecay" label="VENUSphotobleachingdecay" dataReference="auto_dg_for_task1_VENUSphotobleachingdecay"/>
+      </listOfDataSets>
+    </report>
+    <plot2D id="autogen_plot_for_task1" name="Auto-generated plot for task1, including all species.">
+      <xAxis name="Time" type="linear"/>
+      <yAxis name="Species" type="linear"/>
+      <listOfCurves>
+        <curve id="autogen_curve_task1_auxin" name="auxin" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_auxin"/>
+        <curve id="autogen_curve_task1_TIR1" name="TIR1" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_TIR1"/>
+        <curve id="autogen_curve_task1_auxinTIR1" name="auxinTIR1" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_auxinTIR1"/>
+        <curve id="autogen_curve_task1_auxinTIR1VENUS" name="auxinTIR1VENUS" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_auxinTIR1VENUS"/>
+        <curve id="autogen_curve_task1_VENUS" name="VENUS" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_VENUS"/>
+      </listOfCurves>
+    </plot2D>
+  </listOfOutputs>
+</sedML>

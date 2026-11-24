@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Alharbi2019 TNM.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="30" numberOfSteps="100">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="100000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task1" name="Time" symbol="urn:sedml:symbol:time" taskReference="task1" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Normal_cells_1_task1" name="[Normal_cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Normal_cells_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Normal_cells_1_task1" name="[Normal_cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Normal_cells&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Tumor_cells_2_task1" name="[Tumor_cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Tumor_cells_2_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Tumor_cells_2_task1" name="[Tumor_cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Tumor_cells&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_r">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_r__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_r__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;r&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_beta1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_beta1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_beta1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;beta1&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_gamma">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_gamma__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_gamma__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;gamma&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_alpha1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_alpha1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_alpha1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha1&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_alpha2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_alpha2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_alpha2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha2&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_beta2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_beta2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_beta2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;beta2&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Whole_organism">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Whole_organism__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Whole_organism__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Whole_organism&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Normal_cell_growth">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Normal_cell_growth__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Normal_cell_growth__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Normal_cell_growth&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Normal_cell_death_inhibition">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Normal_cell_death_inhibition__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Normal_cell_death_inhibition__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Normal_cell_death_inhibition&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Tumor_cell_growth">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Tumor_cell_growth__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Tumor_cell_growth__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Tumor_cell_growth&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_1_task1" name="Concentrations, Volumes, and Global Quantity Values">
+      <listOfCurves>
+        <curve id="p1_curve_1_task1" name="Normal Cells" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Normal_cells_1_task1"/>
+        <curve id="p1_curve_2_task1" name="Tumor Cells" logX="false" style="style2" xDataReference="_1_task1" logY="false" yDataReference="Tumor_cells_2_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="_1_task1"/>
+        <dataSet id="autogen_task1_Normal_cells" label="Normal_cells" dataReference="Normal_cells_1_task1"/>
+        <dataSet id="autogen_task1_Tumor_cells" label="Tumor_cells" dataReference="Tumor_cells_2_task1"/>
+        <dataSet id="autogen_task1_r" label="r" dataReference="auto_dg_for_task1_r"/>
+        <dataSet id="autogen_task1_beta1" label="beta1" dataReference="auto_dg_for_task1_beta1"/>
+        <dataSet id="autogen_task1_gamma" label="gamma" dataReference="auto_dg_for_task1_gamma"/>
+        <dataSet id="autogen_task1_alpha1" label="alpha1" dataReference="auto_dg_for_task1_alpha1"/>
+        <dataSet id="autogen_task1_alpha2" label="alpha2" dataReference="auto_dg_for_task1_alpha2"/>
+        <dataSet id="autogen_task1_beta2" label="beta2" dataReference="auto_dg_for_task1_beta2"/>
+        <dataSet id="autogen_task1_Whole_organism" label="Whole_organism" dataReference="auto_dg_for_task1_Whole_organism"/>
+        <dataSet id="autogen_task1_Normal_cell_growth" label="Normal_cell_growth" dataReference="auto_dg_for_task1_Normal_cell_growth"/>
+        <dataSet id="autogen_task1_Normal_cell_death_inhibition" label="Normal_cell_death_inhibition" dataReference="auto_dg_for_task1_Normal_cell_death_inhibition"/>
+        <dataSet id="autogen_task1_Tumor_cell_growth" label="Tumor_cell_growth" dataReference="auto_dg_for_task1_Tumor_cell_growth"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" color="0000FF" thickness="1"/>
+      <marker type="none"/>
+    </style>
+    <style id="style2">
+      <line type="dash" color="FF0000" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

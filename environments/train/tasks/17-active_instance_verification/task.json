@@ -1,0 +1,62 @@
+{
+  "taskId": "active_instance_verification",
+  "name": "PInVerify",
+  "fullName": "Active Instance Verification (PInVerify): choose viewpoints until a described object can be confirmed or rejected",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D3",
+    "domainName": "Perception, Navigation & Control",
+    "subCategoryId": "D3.1",
+    "subCategoryName": "Active Perception & Viewpoint Selection"
+  },
+  "assignment": {
+    "id": "active-instance-verification-pinverify",
+    "reference": "PInVerify / Active Instance Verification (AIV) (arXiv:2605.30639, FMEA @ CVPR 2026): an offline embodied benchmark on PInNED/HM3D captures. Reused: the AIV finite-horizon formulation, the 6-sector two-ring capture topology with trap-view and unreachable-sector annotations, the 1:1:1 positive/neg_same/neg_diff stratification, the NAV/YES/NO action space and the released environment, reference agents and evaluation harness. New here are deployment wrappers only: a filtered Player observation (no ground-truth boxes/masks, no pair label), the fixed 6-step budget as the episode budget, and explicit per-episode trajectory-recording requirements.",
+    "task": "One episode supplies a candidate object rendered in a pre-captured scene plus the three natural-language descriptions of the query instance; the agent must decide whether the rendered candidate is the described instance. Relative navigation uses the original six-sector angular resolver with far-first capture priority. Non-front destinations must be unvisited; nav_front stays in the current sector and may repeat. The agent must terminate with YES or NO within six total actions. The deliverable is that binary decision together with the recorded sequence of chosen views.",
+    "observation": "Each step yields the unchanged full RGB capture at the native current viewpoint, plus the three original query descriptions, the published query-description category cache, current sector, visited sectors, remaining budget, available sectors and prior public actions. A visibility warning accompanies the next observation after trap or unreachable navigation. Ground-truth boxes/masks, pair label/type and target/query identities are never Player input. Grounding DINO and its crops are operators of the published MLLMPolicy reference strategy, not PInVerifyEnv observation fields or mandatory external tools. The unchanged fixed H0 is responsible for visual localization and verification from the original public RGB and text; this execution does not claim the DINO reference baseline.",
+    "actions": {
+      "nav_front": "Native NAV front stays in the current sector and may repeat; it consumes one action from the six-step budget.",
+      "nav_front_left": "NAV into the sector toward the front-left relative direction.",
+      "nav_back_left": "NAV into the sector toward the back-left relative direction.",
+      "nav_back": "NAV into the sector behind the current pose (relative ~180 deg).",
+      "nav_back_right": "NAV into the sector toward the back-right relative direction.",
+      "nav_front_right": "NAV into the sector toward the front-right relative direction.",
+      "decide_yes": "Terminal verification decision that the candidate object is the described query instance (STOP_YES).",
+      "decide_no": "Terminal verification decision that the candidate object is not the described query instance (STOP_NO)."
+    },
+    "evaluation": {
+      "budget": 6,
+      "success": "An episode succeeds when the terminal decision matches the index label (label=1 iff query_object_id equals target_object_id), emitted within the 6-step horizon. Official reporting is overall accuracy plus per-pair-type accuracy (positive / neg_same / neg_diff) on the 3,000-episode split.",
+      "failure": "A terminal YES/NO decision that contradicts the label is a failure. Every navigation consumes one action. Unreachable or already-visited angular destinations keep the current capture and remain nonterminal, with navigation failure recorded separately; a later correct YES/NO commitment can still succeed. A sixth action that is NAV forces terminal Unsure. The official evaluator option unsure_as_negative=false maps Unsure to -1, so no-commitment is a failure on positive and negative pairs alike. A YES/NO commitment on action six remains valid.",
+      "efficiency": "Average Steps to Decision (ASD) is the efficiency metric: the agent should emit its verdict as soon as accumulated attribute evidence supports one instead of spending the remaining budget, as the reference tracker does when it converges."
+    },
+    "generation": "Fixed published instance set: the official test index val/pv_index_all.jsonl from the Hugging Face dataset Avalon-S/PInVerify, 3,000 pairs balanced 1:1:1 over 71 object instances in 35 HM3D scenes; one index row selects one episode directory holding its pre-rendered 6-sector, two-ring captures. No live simulator, re-rendering, or additional pair sampling occurs at evaluation time.",
+    "verification": "scripts/evaluate.py (batch runner.py) writes metrics.json per run with overall / Pos / Neg_Same / Neg_Diff accuracy, ASD and navigation-failure counts, aggregated across configs by scripts/summarize_all_agents.py and scripts/compare_metrics.py. SAVE_VIZ=true additionally writes a per-episode episode.json consumed by plot_nbv_polar_dino.py and plot_case_study.py, giving step-level records of each chosen direction and observation, while budget-exhausted and unreachable-sector episodes are explicitly counted rather than dropped."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": 5,
+    "totalEpisodes": 45,
+    "actionBudget": 6,
+    "plannedEpisodes": 45
+  },
+  "otherModels": [],
+  "pythonEnv": "piv3-runtime",
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Nine actual unused rows of the unchanged 3,000-row official PInVerify index (revision 076d076d). Selected deterministically as three positive, three neg_same and three neg_diff rows with distinct scenes and target/query identities; no original rows 0/2/8, original scenes, original query identities or original target identities are reused.",
+    "All selected metadata and every referenced RGB capture were copied byte-for-byte from the full local official dataset. The already complete index, descriptions and category cache are unchanged. Native environment, six-step budget, seed 42, far-first views, scorer and public/private observation filtering are unchanged.",
+    "Rows: 1, 3, 4, 7, 9, 14, 16, 18, 23. configurations.json is private source selection metadata. nativeInstanceFingerprint hashes canonical sorted-key JSON of the full original index row; nativeInputFingerprint hashes row, descriptions record, category record and asset-path-to-SHA256 mapping."
+  ]
+}

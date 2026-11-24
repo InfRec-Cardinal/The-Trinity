@@ -1,5 +1,3 @@
-// Count bounds define a predeclared intermediate-performance band.
-// Legacy targetSuccesses remains an exact-count policy for reproducibility.
 export function screeningPolicy(value = {trials: 3, targetSuccesses: 1}) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw Error('Screening policy required');
   const {trials} = value;

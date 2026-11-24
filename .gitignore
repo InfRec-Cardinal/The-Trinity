@@ -20,6 +20,8 @@ node_modules/
 # Local adapters, credentials, and generated experiment artifacts
 /local/
 /runs/
+/trinity-studio/runs/
+/trinity-studio/trees/
 /pipeline/data/
 /pipeline/exports/
 

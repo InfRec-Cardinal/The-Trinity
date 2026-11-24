@@ -1,0 +1,28 @@
+                                                                                                                     
+FROM gcc:9.2.0
+
+LABEL org.opencontainers.image.source=https://github.com/SakanaAI/ALE-Bench
+
+                                                                            
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends python-dev time && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+                    
+WORKDIR /tmp
+
+RUN mkdir /opt/ac-library && \
+    wget https://github.com/atcoder/ac-library/releases/download/v1.4/ac-library.zip -O ac-library.zip && \
+    unzip /tmp/ac-library.zip -d /opt/ac-library
+
+               
+RUN wget https://archives.boost.io/release/1.72.0/source/boost_1_72_0.tar.gz -O boost_1_72_0.tar.gz && \
+    tar xf boost_1_72_0.tar.gz && \
+    cd boost_1_72_0 && \
+    ./bootstrap.sh --with-toolset=gcc --without-libraries=mpi,graph_parallel && \
+    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" stage && \
+    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" --prefix=/opt/boost/gcc install
+
+WORKDIR /workdir

@@ -1,0 +1,67 @@
+{
+  "taskId": "master_keying_design",
+  "name": "Master Keying",
+  "fullName": "Master keying: assign pin cuts so each key opens exactly the locks its access table requires",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D2",
+    "domainName": "Constraint Solving, Puzzles & Design",
+    "subCategoryId": "D2.3",
+    "subCategoryName": "Artefact Design & Verifier-Driven Revision"
+  },
+  "assignment": {
+    "actions": {
+      "check": "Derive each lock's shear points as the union of the cuts of the keys that must open it, test every key against every lock, and return the violations.",
+      "set_bitting": "Set the cut depth in every chamber for one key.",
+      "submit": "Submit the current bittings, ending the episode."
+    },
+    "evaluation": {
+      "budget": 80,
+      "efficiency": "Total number of unintended bittings accepted across all locks, which measures the security cost of the design, and the number of checks used.",
+      "failure": "Any violation in the submitted system, or no submission within 80 actions.",
+      "success": "The submitted system reproduces the access table exactly: every required key opens its locks, no forbidden key opens any lock, all bittings respect the adjacent-cut limit and are distinct, and no lock has more than the allowed number of shear points per chamber."
+    },
+    "generation": "Seeded access tables built from hierarchies: a single master over change keys; a grand master over masters over change keys; and hierarchies with cross-keyed common doors that several unrelated keys must open. Tables have 6 to 40 keys and 4 to 30 locks with 5 or 6 chambers, and the shear-point limit per chamber is 2 or 3. Plain hierarchies yield to the standard rotating-constant method and are usually solved, while cross-keyed tables with few chambers and tight shear limits often cannot be met without careful search, so outcomes are mixed; each table is checked feasible by the host before use.",
+    "id": "master-keyed-lock-system-design",
+    "observation": "Text: the access table (keys by locks, required or forbidden), the pin model (number of chambers, cut depths 0 to 9, maximum adjacent cut difference), the current bitting of every key, and after each check the list of violations: required keys that fail, forbidden keys that open, and the number of unintended bittings each lock accepts.",
+    "reference": "Self-proposed master-key system design built on the published pin-tumbler master-keying mechanism: each lock opens with its own change key and with master keys, implemented as extra shear points in each pin chamber; extra shear points let unintended combinations operate a lock; large systems form a hierarchy of master levels. New designs: the access-table generator, the cut-depth model with an adjacent-cut limit, the derived lock pinning, the checker, the budget and the recorder.",
+    "task": "Given an access table that says which keys must open which locks and which must not, assign cut depths to every key so that, with each lock pinned for exactly the keys that must open it, every required key opens its locks and no key opens a lock it must not.",
+    "verification": "The host recomputes lock pinning from the required keys and tests every key against every lock in the submitted system. Each episode records the table, every action with its bitting and the returned violations, and the final verdict."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": [
+      5,
+      5,
+      1,
+      5,
+      5,
+      1,
+      5,
+      5,
+      1
+    ],
+    "totalEpisodes": 33,
+    "actionBudget": 80,
+    "plannedEpisodes": 33
+  },
+  "otherModels": [],
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "pythonEnv": null,
+  "notes": [
+    "Six unused finite generateMasterKeying cases plus three synthetic induced access graphs (remove 3, 3, 1 private change keys and associated private locks from seed/tier 67/0, 67/1, 29/2). All nine have valid private bitting witnesses. Local reconstruction, no official catalog claim.",
+    "Replacement instances are pinned in instances.json; task rules, scoring, action budget, model and rendering logic are preserved. Drivers reject old provider/ID/hash selectors.",
+    "nativeInstanceFingerprint is SHA-256 of recursively key-sorted JSON of the full instance. substantiveIdentityHash omits seed, ID and private witness (chess uses the position and horizon). configurationHash covers taskId, id, selector and nativeInstanceFingerprint."
+  ]
+}

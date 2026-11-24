@@ -1,8 +1,8 @@
 [project]
 name = "trinity-stage2"
-version = "1.2.0"
+version = "1.3.1"
 requires-python = ">=3.10"
-dependencies = ["anthropic>=1.0"]
+dependencies = ["anthropic>=2.0,<3"]
 
 [project.scripts]
 trinity-stage2 = "trinity_stage2.cli:main"
@@ -15,4 +15,4 @@ build-backend = "setuptools.build_meta"
 include = ["trinity_stage2*"]
 
 [tool.setuptools.package-data]
-trinity_stage2 = ["prompts/*.txt"]
+trinity_stage2 = ["prompts/*.txt", "providers.json", "_runtime/**/*.mjs"]

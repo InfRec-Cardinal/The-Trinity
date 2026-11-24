@@ -1,0 +1,240 @@
+{
+  "taskId": "active_instance_verification",
+  "configurations": [
+    {
+      "id": "pinverify-refresh-row-0001",
+      "rowIndex": 1,
+      "sourceSelector": {
+        "datasetRevision": "076d076d8855c36ee7d925175e00bb89e7ac8466",
+        "index": "val/pv_index_all.jsonl",
+        "rowIndex": 1
+      },
+      "origin": "official_dataset_row",
+      "assetPaths": [
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00803-k1cupFYWXJ6/7/meta.json",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00803-k1cupFYWXJ6/7/rgb/rgb_s0_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00803-k1cupFYWXJ6/7/rgb/rgb_s0_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00803-k1cupFYWXJ6/7/rgb/rgb_s2_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00803-k1cupFYWXJ6/7/rgb/rgb_s2_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00803-k1cupFYWXJ6/7/rgb/rgb_s4_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00803-k1cupFYWXJ6/7/rgb/rgb_s4_near.png"
+      ],
+      "nativeInstanceFingerprint": "08dade7214baaae1d43c5056966d94d0ab9fec74694f737a235489323e28da47",
+      "nativeInputFingerprint": "039d170885a7206d2c4a6290406b3ee780a559488af7971c16d292b59621ca12",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "365b5010477fc8b0d3937bb8c5790bb5c1d6cf726f36a75fb0b80f16a60e457d"
+    },
+    {
+      "id": "pinverify-refresh-row-0003",
+      "rowIndex": 3,
+      "sourceSelector": {
+        "datasetRevision": "076d076d8855c36ee7d925175e00bb89e7ac8466",
+        "index": "val/pv_index_all.jsonl",
+        "rowIndex": 3
+      },
+      "origin": "official_dataset_row",
+      "assetPaths": [
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/meta.json",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s0_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s0_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s10_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s10_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s2_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s4_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s6_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s6_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s8_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00876-mv2HUxq3B53/54/rgb/rgb_s8_near.png"
+      ],
+      "nativeInstanceFingerprint": "26ebc074e2eb84cf6665ca71638444891229641378c8bc52305855fb9de4eaed",
+      "nativeInputFingerprint": "787ef04c976d27a111a1a24806617747701431d139aac202074a82106b9a96ed",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "4a537792f68ba61d2d33d2f5b7ae518a25309e7ec0471287883e28ed6fface97"
+    },
+    {
+      "id": "pinverify-refresh-row-0004",
+      "rowIndex": 4,
+      "sourceSelector": {
+        "datasetRevision": "076d076d8855c36ee7d925175e00bb89e7ac8466",
+        "index": "val/pv_index_all.jsonl",
+        "rowIndex": 4
+      },
+      "origin": "official_dataset_row",
+      "assetPaths": [
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00824-Dd4bFSTQ8gi/62/meta.json",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00824-Dd4bFSTQ8gi/62/rgb/rgb_s0_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00824-Dd4bFSTQ8gi/62/rgb/rgb_s0_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00824-Dd4bFSTQ8gi/62/rgb/rgb_s10_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00824-Dd4bFSTQ8gi/62/rgb/rgb_s10_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00824-Dd4bFSTQ8gi/62/rgb/rgb_s2_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00824-Dd4bFSTQ8gi/62/rgb/rgb_s2_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00824-Dd4bFSTQ8gi/62/rgb/rgb_s4_near.png"
+      ],
+      "nativeInstanceFingerprint": "0de85deefc04af9172afd466587e2ca1cdf11bae0f7e997f8f0068925c15ed62",
+      "nativeInputFingerprint": "280f5702858164beda20accc6f87fe6fc8a780e3d369b433e6895accaa51e322",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "4f6b3676bb5f188270112c6654758dcab8d02979f9b5ee0dccbeb38d3b0dd725"
+    },
+    {
+      "id": "pinverify-refresh-row-0007",
+      "rowIndex": 7,
+      "sourceSelector": {
+        "datasetRevision": "076d076d8855c36ee7d925175e00bb89e7ac8466",
+        "index": "val/pv_index_all.jsonl",
+        "rowIndex": 7
+      },
+      "origin": "official_dataset_row",
+      "assetPaths": [
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/meta.json",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s0_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s0_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s10_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s2_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s4_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s4_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s6_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s6_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s8_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00843-DYehNKdT76V/18/rgb/rgb_s8_near.png"
+      ],
+      "nativeInstanceFingerprint": "6c05d3a6454a82e1a3e383f2a991bafc7d2acf7b704871498c0d705cb92d0b9c",
+      "nativeInputFingerprint": "f9660a529167ba1e0664f88329f325237bc259413d8054835377791ccb668ef4",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "abdcbc3aa743a2119308d2441c1ec2a337f7c84f89b8adb446abdd4e7ddd8c3c"
+    },
+    {
+      "id": "pinverify-refresh-row-0009",
+      "rowIndex": 9,
+      "sourceSelector": {
+        "datasetRevision": "076d076d8855c36ee7d925175e00bb89e7ac8466",
+        "index": "val/pv_index_all.jsonl",
+        "rowIndex": 9
+      },
+      "origin": "official_dataset_row",
+      "assetPaths": [
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/meta.json",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s0_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s0_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s10_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s2_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s2_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s4_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s4_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s6_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s6_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s8_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00873-bxsVRursffK/68/rgb/rgb_s8_near.png"
+      ],
+      "nativeInstanceFingerprint": "6d4cc95542237826e7f71d260b9444ac8fd3f9cbc693c63e65668eaada278666",
+      "nativeInputFingerprint": "571d4773c99c39fa27da3a8b6ef4aa20b61be08cce9a23d0183792bf0a854721",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "565e031027199e94b3a2f14421dc7780ad091f600e795ea21ea813df191154f6"
+    },
+    {
+      "id": "pinverify-refresh-row-0014",
+      "rowIndex": 14,
+      "sourceSelector": {
+        "datasetRevision": "076d076d8855c36ee7d925175e00bb89e7ac8466",
+        "index": "val/pv_index_all.jsonl",
+        "rowIndex": 14
+      },
+      "origin": "official_dataset_row",
+      "assetPaths": [
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00890-6s7QHgap2fW/57/meta.json",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00890-6s7QHgap2fW/57/rgb/rgb_s10_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00890-6s7QHgap2fW/57/rgb/rgb_s10_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00890-6s7QHgap2fW/57/rgb/rgb_s6_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00890-6s7QHgap2fW/57/rgb/rgb_s6_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00890-6s7QHgap2fW/57/rgb/rgb_s8_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00890-6s7QHgap2fW/57/rgb/rgb_s8_near.png"
+      ],
+      "nativeInstanceFingerprint": "94ab4a83df09d605c3a7b42acda4f9d05b1e29939c6f8d5f8cd2d355b0982105",
+      "nativeInputFingerprint": "563efaf0259138eecd51ccdbba43cf01febbddd07cbf9e2507e8c7eb437530b1",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "fb6e22dfb1a516134129f6c555079e152d8713ebb9dce7af040559c77d0e33b0"
+    },
+    {
+      "id": "pinverify-refresh-row-0016",
+      "rowIndex": 16,
+      "sourceSelector": {
+        "datasetRevision": "076d076d8855c36ee7d925175e00bb89e7ac8466",
+        "index": "val/pv_index_all.jsonl",
+        "rowIndex": 16
+      },
+      "origin": "official_dataset_row",
+      "assetPaths": [
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00848-ziup5kvtCCR/10/meta.json",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00848-ziup5kvtCCR/10/rgb/rgb_s0_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00848-ziup5kvtCCR/10/rgb/rgb_s2_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00848-ziup5kvtCCR/10/rgb/rgb_s2_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00848-ziup5kvtCCR/10/rgb/rgb_s4_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00848-ziup5kvtCCR/10/rgb/rgb_s6_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00848-ziup5kvtCCR/10/rgb/rgb_s8_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00848-ziup5kvtCCR/10/rgb/rgb_s8_near.png"
+      ],
+      "nativeInstanceFingerprint": "9044ad60ffa29b555b787b7b73a4d9be8270f970990c58359fe08db65e93411d",
+      "nativeInputFingerprint": "eeb3528f8bb76a19eb1c4f353d22840822859c10fb5f526c4cb56655393cb448",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "c4c7c6e64fcbfe6e18564a380d76d1cdf41fe35dc95b98cd2eec28f5f6b70bd4"
+    },
+    {
+      "id": "pinverify-refresh-row-0018",
+      "rowIndex": 18,
+      "sourceSelector": {
+        "datasetRevision": "076d076d8855c36ee7d925175e00bb89e7ac8466",
+        "index": "val/pv_index_all.jsonl",
+        "rowIndex": 18
+      },
+      "origin": "official_dataset_row",
+      "assetPaths": [
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00802-wcojb4TFT35/46/meta.json",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00802-wcojb4TFT35/46/rgb/rgb_s0_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00802-wcojb4TFT35/46/rgb/rgb_s0_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00802-wcojb4TFT35/46/rgb/rgb_s10_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00802-wcojb4TFT35/46/rgb/rgb_s10_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00802-wcojb4TFT35/46/rgb/rgb_s2_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00802-wcojb4TFT35/46/rgb/rgb_s2_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00802-wcojb4TFT35/46/rgb/rgb_s4_near.png"
+      ],
+      "nativeInstanceFingerprint": "31b94ce5f80e8117e2dcdbf8e4d395de566db687eaaee69cb2ca9cd2c00c696e",
+      "nativeInputFingerprint": "547b1339f1e639982491af19bb9903fcd8867b29e362fe1687b8c2b956ece5a9",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "951e1b8d2df6e59f795c8a61e3fae914a823e410950179cca6d0a39466b12980"
+    },
+    {
+      "id": "pinverify-refresh-row-0023",
+      "rowIndex": 23,
+      "sourceSelector": {
+        "datasetRevision": "076d076d8855c36ee7d925175e00bb89e7ac8466",
+        "index": "val/pv_index_all.jsonl",
+        "rowIndex": 23
+      },
+      "origin": "official_dataset_row",
+      "assetPaths": [
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00871-VBzV5z6i1WS/38/meta.json",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00871-VBzV5z6i1WS/38/rgb/rgb_s0_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00871-VBzV5z6i1WS/38/rgb/rgb_s10_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00871-VBzV5z6i1WS/38/rgb/rgb_s10_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00871-VBzV5z6i1WS/38/rgb/rgb_s6_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00871-VBzV5z6i1WS/38/rgb/rgb_s6_near.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00871-VBzV5z6i1WS/38/rgb/rgb_s8_far.png",
+        "data/pinverify/pinverify-data-076d076d/pin_capture/val/00871-VBzV5z6i1WS/38/rgb/rgb_s8_near.png"
+      ],
+      "nativeInstanceFingerprint": "fc7f720117a7ce68819b4d0e65198c7e219bb2aa4dc4547438018220433e76b5",
+      "nativeInputFingerprint": "fadbeca1a988f7b530f4c88c997f3f59d3c8ef0507a5422ed9c233c416fe66b7",
+      "episodes": 5,
+      "h0Runs": 0,
+      "configurationHash": "330bb4bd5eb865bd09584f72e911eb743dd163517413c308b901584e2448fe0f"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

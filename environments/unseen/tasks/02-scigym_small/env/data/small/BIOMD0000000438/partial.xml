@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_ds8q">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_xryu">
+        <listOfUnits>
+          <unit kind="mole"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_lx20">
+        <listOfUnits>
+          <unit kind="litre"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_pz38">
+        <listOfUnits>
+          <unit kind="metre" exponent="2"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_kzo1">
+        <listOfUnits>
+          <unit kind="metre"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_0bsy">
+        <listOfUnits>
+          <unit kind="second"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_81da" size="1" units="id_lx20"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_bkc0" compartment="id_81da" initialConcentration="5e-06"/>
+      <species id="id_rlz2" compartment="id_81da" initialAmount="1e-05" hasOnlySubstanceUnits="true"/>
+      <species id="id_pwwx" compartment="id_81da" initialAmount="0"/>
+      <species id="id_jmd6" compartment="id_81da" initialAmount="0" hasOnlySubstanceUnits="true"/>
+      <species id="id_t5qy" compartment="id_81da" initialAmount="1e-05" hasOnlySubstanceUnits="true"/>
+      <species id="id_3qbq" compartment="id_81da" initialAmount="0"/>
+      <species id="id_dqo1" compartment="id_81da" initialAmount="1e-06" hasOnlySubstanceUnits="true"/>
+      <species id="id_wspc" compartment="id_81da" initialAmount="0"/>
+      <species id="id_09k3" compartment="id_81da" initialAmount="0"/>
+      <species id="id_llvz" compartment="id_81da" initialAmount="0" hasOnlySubstanceUnits="true"/>
+    </listOfSpecies>
+  </model>
+</sbml>

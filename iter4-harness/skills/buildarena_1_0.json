@@ -1,0 +1,42 @@
+{
+  "taskId": "buildarena_1_0",
+  "proposals": [
+    {
+      "id": "construction-constraints-then-control",
+      "title": "Build a stable connected load path before optimizing motion",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Machine construction, review, or controller revision",
+      "procedure": [
+        "Translate the current public task into payload, support, clearance, connection, power and actuation constraints. Keep the official role responsibilities and tool schema.",
+        "First make one simple connected chassis with a low center of mass, symmetric support contacts and explicit attachment paths. Check every block position and orientation from tool feedback; do not assume visually close parts are connected.",
+        "Treat prescribed payload mass and geometry as fixed. Verify clearance and containment under acceleration; avoid structures whose success depends on an unverified collision or a detached support.",
+        "Use the shortest controllable mechanism that can satisfy the task. Separate movement control from payload retention and inspect torque and tipping risk before adding more actuators.",
+        "After native simulation, compare actual displacement, payload retention and stability against the requirements. Change the failed mechanism or control assumption, not unrelated decorative structure.",
+        "Complete the official construction and controller protocol. A valid build or visual plausibility is not a physics pass."
+      ],
+      "successSignals": [
+        "Public construction feedback establishes connected support and usable controls",
+        "Native metrics meet every required condition"
+      ],
+      "failureSignals": [
+        "Unconnected components",
+        "Actuator force or torque destabilizes the load",
+        "Controller does not match configured keys"
+      ],
+      "recovery": [
+        "Diagnose the first failed support, attachment or actuation constraint from public feedback and simplify the affected subsystem."
+      ],
+      "invariants": [
+        "No case-specific layout, fixed seed, answer machine or pixel coordinate",
+        "Only offered tools and public feedback",
+        "Native simulation decides success"
+      ],
+      "sourceGapIds": [
+        "construction-to-native-verification"
+      ]
+    }
+  ]
+}

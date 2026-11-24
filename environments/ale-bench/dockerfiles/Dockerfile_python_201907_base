@@ -1,0 +1,17 @@
+FROM python:3.8.2-slim-buster
+
+LABEL org.opencontainers.image.source=https://github.com/SakanaAI/ALE-Bench
+
+                                              
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends time && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+                         
+RUN python3.8 -m pip install --no-cache-dir -U Cython numba numpy scipy scikit-learn networkx && \
+                                  
+    python3.8 -c "import Cython, numba, numpy, scipy, sklearn, networkx"
+
+WORKDIR /workdir

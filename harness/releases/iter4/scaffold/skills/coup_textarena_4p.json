@@ -1,0 +1,47 @@
+{
+  "taskId": "coup_textarena_4p",
+  "proposals": [
+    {
+      "id": "influence-economy-and-claim-ledger",
+      "title": "Upgrade an unproductive hand and prevent economic starvation",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Every own action or response window in Coup",
+      "procedure": [
+        "Read the current turn type first: own action, challenge/block response, card loss, or exchange selection. Return exactly one bracketed command valid for that phase.",
+        "Track coins, remaining influence, public claims, revealed cards and actual successful challenges. Do not equate an unchallenged claim with proven ownership.",
+        "On your own turn, evaluate whether the current hand provides recurring income, offense or protection from theft. Two defensive or redundant cards without an economic engine are not a viable passive plan. Prefer an early exchange to diversify rather than repeating income while two opponents can steal it back. Exchange is a legal claim; assess challenge risk from public evidence.",
+        "Keep one reliable income or offensive role and one complementary defense when an exchange offers them. Duplicates are normally less useful than complementary roles. Read the actual returned choices before keeping cards.",
+        "Use tax or theft when supported by your holding; legal bluffs are strategic options when public challenges are rare and the alternative is certain economic starvation. A bluff is uncertain, not fabricated evidence for a module.",
+        "Do not repeatedly pass against theft while planning to accumulate coins by income: compare the lost two coins each cycle with the risk of a legal block or early exchange. Prioritize protecting an achievable coup budget.",
+        "Use guaranteed coup once affordable against the opponent with the most imminent elimination threat; remove a one-influence threat when it prevents their next attack. Do not spend coins on low-probability assassination into demonstrated defense when a guaranteed action is near.",
+        "Challenge only on meaningful public contradictions, card availability or decisive survival odds. Use a genuinely held block when appropriate. If losing influence, preserve the role with the highest current economic or survival value."
+      ],
+      "successSignals": [
+        "The hand can generate and retain resources",
+        "Each response is valid for the current phase",
+        "Threats are eliminated before repeated theft makes your plan impossible"
+      ],
+      "failureSignals": [
+        "Repeated income is immediately stolen",
+        "Holding redundant defense with no route to seven coins",
+        "Late unsupported bluff after influence is already low"
+      ],
+      "recovery": [
+        "Change the economic mechanism through exchange or a justified proactive claim before repeating the same losing cycle."
+      ],
+      "invariants": [
+        "No fixed starting hand or opponent script",
+        "No hidden opponent state",
+        "All game deception remains inside native legal claims"
+      ],
+      "sourceGapIds": [
+        "income-theft-starvation",
+        "redundant-unproductive-hand",
+        "late-block-without-plan"
+      ]
+    }
+  ]
+}

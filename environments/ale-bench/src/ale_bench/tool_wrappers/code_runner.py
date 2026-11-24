@@ -1,0 +1,396 @@
+                                                                    
+
+import enum
+import json
+import os
+import tempfile
+import time
+from pathlib import Path
+
+from requests.exceptions import ConnectionError as RequestsConnectionError, Timeout
+
+import ale_bench.constants
+from ale_bench.code_language import (
+    CodeLanguage,
+    JudgeVersion,
+    get_docker_image_name,
+)
+from ale_bench.result import CodeRunResult, Profiles
+from ale_bench.tool_wrappers.case_runner import (
+    HostPathsCompile,
+    build_batch_run_command,
+    build_compile_command,
+    get_batch_run_volumes,
+    get_compile_volumes,
+    setup_paths_batch_run,
+    setup_paths_compile,
+)
+from ale_bench.utils import docker_client
+
+
+class ExitStatus(enum.IntEnum):
+    pass                    
+
+    SUCCESS = 0
+    COMPILE_ERROR = -1
+    RUNTIME_ERROR = 1
+    TIME_LIMIT_EXCEEDED = 9
+    MEMORY_LIMIT_EXCEEDED = 9
+
+
+def run_compile_container(
+    code_language: CodeLanguage,
+    judge_version: JudgeVersion,
+    host_paths_compile: HostPathsCompile,
+    compile_volumes: dict[str, dict[str, str]],
+    compile_command: str,
+) -> CodeRunResult | None:
+    pass                                             
+
+         
+                                                        
+                                                        
+                                                                                                     
+                                                                                                        
+                                                   
+
+            
+                                                                                       
+
+       
+    with docker_client() as client:
+        container = client.containers.run(
+            image=get_docker_image_name(code_language, judge_version),
+            command=["/bin/bash", "--noprofile", "--norc", "-c", compile_command],
+            remove=False,
+            auto_remove=False,
+            cpu_period=100000,
+            cpu_quota=100000,         
+            detach=True,
+            group_add=[os.getgid()],
+            mem_limit=ale_bench.constants.MAX_MEMORY_LIMIT,
+            network_disabled=True,
+            user=os.getuid(),
+            volumes=compile_volumes,
+            working_dir=ale_bench.constants.WORK_DIR,
+        )
+        try:
+            try:
+                container.wait(timeout=ale_bench.constants.COMPILE_TIMEOUT)
+            except (Timeout, RequestsConnectionError):
+                if code_language not in {CodeLanguage.PYTHON, CodeLanguage.PYPY, CodeLanguage.JULIA}:
+                    return CodeRunResult(
+                        stdin="",
+                        stdout="",
+                        stderr=f"Compilation timed out ({ale_bench.constants.COMPILE_TIMEOUT}s).",
+                        exit_status=ExitStatus.COMPILE_ERROR.value,
+                        execution_time=0.0,
+                        memory_usage=0,
+                    )
+            except Exception:
+                return CodeRunResult(
+                    stdin="",
+                    stdout="",
+                    stderr="Failed to compile the code due to an unexpected error.",
+                    exit_status=ExitStatus.COMPILE_ERROR.value,
+                    execution_time=0.0,
+                    memory_usage=0,
+                )
+            stderr = container.logs(stdout=False, stderr=True).decode("utf-8").strip()
+            exit_code = container.attrs["State"]["ExitCode"]
+        finally:
+            container.remove(force=True)
+    object_size = host_paths_compile.object_file.stat().st_size
+    if any(
+        [
+            exit_code != 0,
+                                                                                                     
+            code_language not in {CodeLanguage.PYTHON, CodeLanguage.PYPY, CodeLanguage.JULIA} and object_size == 0,
+                                                                                 
+            code_language in {CodeLanguage.PYTHON, CodeLanguage.PYPY} and "SyntaxError" in stderr,
+                                                                          
+            code_language == CodeLanguage.JULIA and "ParseError" in stderr,
+        ]
+    ):
+        return CodeRunResult(
+            stdin="",
+            stdout="",
+            stderr=stderr,
+            exit_status=ExitStatus.COMPILE_ERROR.value,
+            execution_time=0.0,
+            memory_usage=0,
+        )
+    return None                                                          
+
+
+def run_run_container(
+    code_language: CodeLanguage,
+    judge_version: JudgeVersion,
+    time_limit: float,
+    run_volumes: dict[str, dict[str, str]],
+    run_command: str,
+    stdin: str,
+) -> CodeRunResult | tuple[float, str]:
+    pass                                         
+
+         
+                                                        
+                                                        
+                                                      
+                                                                                                
+                                           
+                                                                                 
+
+            
+                                          
+                                                                                                                 
+
+       
+    with docker_client() as client:
+        start_at = time.perf_counter()
+        container = client.containers.run(
+            image=get_docker_image_name(code_language, judge_version),
+            command=["/bin/bash", "--noprofile", "--norc", "-c", run_command],
+            remove=False,
+            auto_remove=False,
+            cpu_period=100000,
+            cpu_quota=100000,         
+            detach=True,
+            group_add=[os.getgid()],
+            mem_limit=ale_bench.constants.MAX_MEMORY_LIMIT,
+            network_disabled=True,
+            user=os.getuid(),
+            volumes=run_volumes,
+            working_dir=ale_bench.constants.WORK_DIR,
+        )
+        try:
+            container.wait()                                                        
+            end_at = time.perf_counter()
+            execution_time_host = end_at - start_at                                                                 
+            stderr = container.logs(stdout=False, stderr=True).decode("utf-8").strip()
+            exit_code = container.attrs["State"]["ExitCode"]
+        finally:
+            container.remove(force=True)
+    if exit_code != 0:
+        if execution_time_host > time_limit:                               
+            return CodeRunResult(
+                stdin=stdin,
+                stdout="",
+                stderr=stderr,
+                exit_status=ExitStatus.TIME_LIMIT_EXCEEDED.value,
+                execution_time=min(execution_time_host, time_limit + 0.1),                                       
+                memory_usage=0,
+            )
+        return CodeRunResult(
+            stdin=stdin,
+            stdout="",
+            stderr=stderr,
+            exit_status=exit_code,
+            execution_time=execution_time_host,
+            memory_usage=0,
+        )
+    return execution_time_host, stderr                                                       
+
+
+def parse_profiles(
+    time_limit: float,
+    memory_limit: int,
+    profiles_content: str,
+    execution_time_host: float,
+    stdin: str,
+    stdout: str,
+    stderr: str,
+) -> CodeRunResult | tuple[float, int]:
+    pass                                                                                  
+
+         
+                                                      
+                                                      
+                                                                 
+                                                                               
+                                                                                 
+                                                                                   
+                                                                                  
+
+            
+                                          
+                                                                                               
+
+       
+    if execution_time_host < 0.0:
+        msg = "execution_time_host must be non-negative"
+        raise ValueError(msg)
+                                                                         
+    is_tle = False
+    exited_with_status_137 = False
+    if profiles_content == "":
+        if execution_time_host > time_limit:                                                       
+            return CodeRunResult(
+                stdin=stdin,
+                stdout=stdout,
+                stderr=stderr,
+                exit_status=ExitStatus.TIME_LIMIT_EXCEEDED.value,
+                execution_time=min(execution_time_host, time_limit + 0.1),                                       
+                memory_usage=0,
+            )
+                                         
+        return CodeRunResult(
+            stdin=stdin,
+            stdout=stdout,
+            stderr=stderr,
+            exit_status=ExitStatus.RUNTIME_ERROR.value,
+            execution_time=execution_time_host,
+            memory_usage=0,
+        )
+    if profiles_content.startswith("Command terminated by signal 9"):
+                                                                              
+                                                                                                         
+        _status_line, _, rest = profiles_content.partition("\n")
+        profiles_content = rest
+        is_tle = True
+    elif profiles_content.startswith("Command exited with non-zero status"):
+                                                           
+                                                                                                     
+        status_line, _, rest = profiles_content.partition("\n")
+        status_code_str = status_line.rsplit(" ", 1)[-1].rstrip(".")
+        if status_code_str.isdigit() and int(status_code_str) == ale_bench.constants.ERROR_CODE_137:
+            exited_with_status_137 = True
+        profiles_content = rest
+                                
+    profiles_content = profiles_content.strip()
+    try:
+        profiles_dict = json.loads(profiles_content)
+    except json.JSONDecodeError:
+        return CodeRunResult(
+            stdin=stdin,
+            stdout=stdout,
+            stderr=f"Failed to parse profiles.\nStandard error:\n{stderr}",
+            exit_status=ExitStatus.RUNTIME_ERROR.value,
+            execution_time=min(execution_time_host, time_limit + 0.1),                                       
+            memory_usage=0,
+        )
+    try:
+        profiles = Profiles(**profiles_dict)
+    except ValueError:
+        return CodeRunResult(
+            stdin=stdin,
+            stdout=stdout,
+            stderr=f"Invalid profiles format.\nStandard error:\n{stderr}",
+            exit_status=ExitStatus.RUNTIME_ERROR.value,
+            execution_time=min(execution_time_host, time_limit + 0.1),                                       
+            memory_usage=0,
+        )                                                  
+                                                                          
+    exit_status = profiles.exit_status
+    execution_time = max(profiles.elapsed_time_seconds, profiles.user_cpu_seconds + profiles.system_cpu_seconds)
+    memory_usage = profiles.max_resident_set_size_kbytes * 1024
+    is_timeout_via_wrapper = exited_with_status_137 and execution_time > time_limit
+                              
+    if exit_status != 0 and not is_timeout_via_wrapper:
+        return CodeRunResult(
+            stdin=stdin,
+            stdout=stdout,
+            stderr=stderr,
+            exit_status=exit_status,
+            execution_time=min(execution_time, time_limit + 0.1),                                       
+            memory_usage=memory_usage,
+        )
+    if execution_time > time_limit or is_tle or is_timeout_via_wrapper:
+        return CodeRunResult(
+            stdin=stdin,
+            stdout=stdout,
+            stderr=stderr,
+            exit_status=ExitStatus.TIME_LIMIT_EXCEEDED.value,
+            execution_time=min(execution_time, time_limit + 0.1),                                       
+            memory_usage=memory_usage,
+        )
+    if memory_usage > memory_limit:
+        return CodeRunResult(
+            stdin=stdin,
+            stdout=stdout,
+            stderr=stderr,
+            exit_status=ExitStatus.MEMORY_LIMIT_EXCEEDED.value,
+            execution_time=execution_time,
+            memory_usage=memory_usage,
+        )
+    return execution_time, memory_usage                                                                 
+
+
+def run_code(
+    *,
+    code: str,
+    code_language: CodeLanguage,
+    judge_version: JudgeVersion,
+    stdin: str,
+    time_limit: float,
+    memory_limit: int,
+) -> CodeRunResult:
+    pass                                                                
+
+         
+                                    
+                                                        
+                                                        
+                                                                    
+                                                      
+                                                      
+
+            
+                                                        
+
+       
+    with tempfile.TemporaryDirectory() as temp_dir_str:
+        temp_dir = Path(temp_dir_str)
+                     
+        host_paths_compile = setup_paths_compile(temp_dir, code, code_language, judge_version)
+        compile_volumes = get_compile_volumes(host_paths_compile, temp_dir)
+        compile_command = build_compile_command(
+            code_language, judge_version, host_paths_compile.object_file.relative_to(temp_dir)
+        )
+        compile_result = run_compile_container(
+            code_language,
+            judge_version,
+            host_paths_compile,
+            compile_volumes,
+            compile_command,
+        )
+        if compile_result is not None:
+            return compile_result
+                 
+        host_paths_run = setup_paths_batch_run(host_paths_compile, temp_dir, stdin)
+        run_volumes = get_batch_run_volumes(host_paths_run, temp_dir)
+        run_command = build_batch_run_command(code_language, judge_version, time_limit)
+        run_result = run_run_container(code_language, judge_version, time_limit, run_volumes, run_command, stdin)
+        if isinstance(run_result, CodeRunResult):
+            return run_result
+        if not isinstance(run_result, tuple):
+            msg = "Run result must be a tuple"
+            raise TypeError(msg)
+        execution_time_host, stderr = run_result
+        stdout = host_paths_run.output_file.read_text()
+                                 
+        profiles_content = host_paths_run.profiles_file.read_text()
+        profiles_result = parse_profiles(
+            time_limit,
+            memory_limit,
+            profiles_content,
+            execution_time_host,
+            stdin,
+            stdout,
+            stderr,
+        )
+        if isinstance(profiles_result, CodeRunResult):
+            return profiles_result                                                    
+        if not isinstance(profiles_result, tuple):
+            msg = "Profiles result must be a tuple"
+            raise TypeError(msg)
+        execution_time, memory_usage = profiles_result
+
+        return CodeRunResult(
+            stdin=stdin,
+            stdout=stdout,
+            stderr=stderr,
+            exit_status=ExitStatus.SUCCESS.value,
+            execution_time=execution_time,
+            memory_usage=memory_usage,
+        )

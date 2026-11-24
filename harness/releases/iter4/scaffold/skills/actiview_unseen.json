@@ -1,0 +1,40 @@
+{
+  "taskId": "actiview_unseen",
+  "proposals": [
+    {
+      "id": "actiview_unseen",
+      "title": "Bind detail to the correct person, limb and viewpoint",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Before each native decision in this task, using only current public observations and earlier public feedback.",
+      "procedure": [
+        "The prerequisite visual module automatically supplies sourced enlargements of the entire anchor frame, or a labelled overview of a long delivered sequence. Read these images before deciding. They are the same pixels at a different scale, not extra observations; use source labels to prevent mixing people, body parts, or timeline positions. If an enlarged region conflicts with the query description, record the visible contradiction instead of copying the description into evidence.",
+        "For a question about a fine visible feature or body-relative side, make one inspect_public_frame consultation of the requested subject and attached part before ending visual acquisition or choosing an option. This is an inspection protocol, even when the first impression feels confident. If a crop omits the connecting limb/body, include that context in the crop. Use current-image positions only.",
+        "When a distinguishing region in a delivered frame is small or ambiguous, use the selected module evidenceDiagnosis through the branch tool in inspect_public_frame mode before committing. Supply the current obs-N, zero-based delivered frame index and a normalized bounding rectangle inferred from the CURRENT image. Choose the target and its attachment context together; compare with the full frame. This crops existing pixels only, never acquires a new view or verifies a visual claim. Do not use remembered positions.",
+        "Before requesting or stopping views, identify the subject and the exact body part or relation in the question. Distinct people in different crops remain distinct until visible continuity proves the same identity.",
+        "For anatomical left/right, trace the visible limb from the requested subject's shoulder through elbow to hand. Establish body-facing direction. Do not choose by image-left/image-right alone, by the most conspicuous accessory, or by another person's limb in another crop.",
+        "Use all current crops together with their labelled image regions. A crop of the same scene is not automatically a crop of the same person. Preserve reliable direct detail instead of overwriting it with a more salient but unrelated crop.",
+        "If the target identity, limb side or distinguishing detail is unresolved and another native view is available, answer Yes to inspect more. Stop only once the relevant detail can distinguish the candidate answers or views are exhausted.",
+        "At the answer stage compare options against the correctly bound visible detail. Choose the supported option and submit only the allowed token. Do not use a memorized object, answer letter, or image coordinate."
+      ],
+      "successSignals": [
+        "Native objective achieved; actual feedback agrees with the selected action."
+      ],
+      "failureSignals": [
+        "Action repeats a known failure or depends on an unverified observation or model."
+      ],
+      "recovery": [
+        "Re-read the actual public feedback, identify whether perception, model or execution was wrong, and revise only that assumption."
+      ],
+      "invariants": [
+        "Bind identity before attribute comparison.",
+        "No stored accessory names, pixel locations, or answer letters."
+      ],
+      "sourceGapIds": [
+        "policy-actiview_unseen"
+      ]
+    }
+  ]
+}

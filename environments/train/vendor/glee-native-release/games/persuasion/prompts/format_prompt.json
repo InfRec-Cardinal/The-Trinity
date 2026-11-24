@@ -1,0 +1,6 @@
+{"seller_text": "Send your message in JSON format:\n{\"message\": \"Your message to {{rival_name}}\"}",
+  "seller_binary": "Would you recommend {{rival_name}} to buy the product?\\nAnswer in JSON with {\"decision\": \"yes\"} or {\"decision\": \"no\"}",
+
+  "buyer_binary": "Answer in JSON format with {\"decision\": \"yes\"} or {\"decision\": \"no\"}",
+  "buyer_text": "Answer in JSON format with {\"decision\": \"yes\", \"message\": \"your message to {{rival_name}}\"} or {\"decision\": \"no\", \"message\": \"your message to {{rival_name}}\"}"
+}

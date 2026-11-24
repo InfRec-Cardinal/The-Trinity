@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_60in">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_yhki">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_wuig">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="-1" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_re6h">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_cj6b" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_4dcb" compartment="id_cj6b" initialConcentration="1" boundaryCondition="false" constant="false"/>
+      <species id="id_ch15" compartment="id_cj6b" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_74fx" compartment="id_cj6b" initialConcentration="0" boundaryCondition="true" constant="true"/>
+      <species id="id_kk6h" compartment="id_cj6b" initialConcentration="0" boundaryCondition="true" constant="true"/>
+      <species id="id_k7w2" compartment="id_cj6b" initialConcentration="0" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

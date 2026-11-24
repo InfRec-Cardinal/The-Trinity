@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_gvop">
+    <listOfCompartments>
+      <compartment id="id_mpo9" size="1" units="volume"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_1t80" compartment="id_mpo9" initialConcentration="1" substanceUnits="substance" boundaryCondition="true" constant="true"/>
+      <species id="id_ijk0" compartment="id_mpo9" initialConcentration="1" substanceUnits="substance"/>
+      <species id="id_9k8m" compartment="id_mpo9" initialConcentration="1" substanceUnits="substance" boundaryCondition="true" constant="true"/>
+      <species id="id_bnxy" compartment="id_mpo9" initialConcentration="1" substanceUnits="substance"/>
+    </listOfSpecies>
+  </model>
+</sbml>

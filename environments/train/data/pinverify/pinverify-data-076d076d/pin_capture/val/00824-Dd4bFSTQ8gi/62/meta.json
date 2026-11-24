@@ -1,0 +1,1724 @@
+{
+  "scene_id": "data/scene_datasets/hm3d/val/00824-Dd4bFSTQ8gi/Dd4bFSTQ8gi.basis.glb",
+  "scene_key": "00824-Dd4bFSTQ8gi",
+  "episode_id": "62",
+  "goal_position_nominal": [
+    5.945273399353027,
+    0.5488283038139343,
+    -4.090374946594238
+  ],
+  "final_base_y": 0.06882309913635254,
+  "base_y_source": "snap_goal_y",
+  "object_category": "shoes",
+  "object_id": "f28f17e68205452c99a244971ab0f446",
+  "pin_semantic_id_convention": {
+    "target_semantic_id": 100000,
+    "meaning": "All pixels with this semantic_id correspond to this episode's target object."
+  },
+  "camera_intrinsics": {
+    "width": 360,
+    "height": 640,
+    "hfov_deg": 42.0,
+    "vfov_deg": 68.62120575907826,
+    "K": [
+      [
+        468.9160316448843,
+        0,
+        179.5
+      ],
+      [
+        0,
+        468.91603164488436,
+        319.5
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "sensor_mount_offset_y": 1.31,
+  "n_sectors": 12,
+  "sector_order": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "sector_skip": 1,
+  "ranges": {
+    "near": [
+      0.9,
+      1.2
+    ],
+    "far": [
+      1.4,
+      1.7
+    ]
+  },
+  "look_thresh": 0.3,
+  "category_mask_threshold": 300,
+  "viewpoints": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 3640,
+      "mask_bbox_xyxy": [
+        130,
+        282,
+        221,
+        339
+      ],
+      "mask_area_fraction": 0.01579861111111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        7.2820258140563965,
+        1.3788230419158936,
+        -3.5603654384613037
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.7990304231643677,
+        -0.21409957110881805,
+        0.5427366495132446,
+        0.14542585611343384
+      ],
+      "camera_to_world": [
+        [
+          0.3685764670372009,
+          -1.4901161193847656e-08,
+          -0.9295974373817444,
+          0.0
+        ],
+        [
+          -0.4647987484931946,
+          0.8660253882408142,
+          -0.18428824841976166,
+          0.0
+        ],
+        [
+          0.8050549626350403,
+          0.5,
+          0.31919658184051514,
+          0.0
+        ],
+        [
+          7.2820258140563965,
+          1.3788230419158936,
+          -3.5603654384613037,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.3685764670372009,
+          -0.4647987186908722,
+          0.8050549626350403,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.9295973777770996,
+          -0.18428824841976166,
+          0.31919658184051514,
+          -0.0
+        ],
+        [
+          -5.993690013885498,
+          1.5344467163085938,
+          -5.41538667678833,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.8050549626350403,
+        -0.31919658184051514
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.43799064563251
+    },
+    {
+      "tag": "s0_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 5386,
+      "mask_bbox_xyxy": [
+        121,
+        320,
+        229,
+        392
+      ],
+      "mask_area_fraction": 0.023376736111111112,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_near.png",
+      "mask_raw_path": "mask/mask_s0_near.png",
+      "camera_position": [
+        7.023864269256592,
+        1.3788230419158936,
+        -3.662724018096924
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.7990304231643677,
+        -0.21409957110881805,
+        0.5427366495132446,
+        0.14542585611343384
+      ],
+      "camera_to_world": [
+        [
+          0.3685764670372009,
+          -1.4901161193847656e-08,
+          -0.9295974373817444,
+          0.0
+        ],
+        [
+          -0.4647987484931946,
+          0.8660253882408142,
+          -0.18428824841976166,
+          0.0
+        ],
+        [
+          0.8050549626350403,
+          0.5,
+          0.31919658184051514,
+          0.0
+        ],
+        [
+          7.023864269256592,
+          1.3788230419158936,
+          -3.662724018096924,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.3685764670372009,
+          -0.4647987186908722,
+          0.8050549626350403,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.9295973777770996,
+          -0.18428824841976166,
+          0.31919658184051514,
+          -0.0
+        ],
+        [
+          -5.993690013885498,
+          1.39559006690979,
+          -5.174879550933838,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.8050549626350403,
+        -0.31919658184051514
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1602773725639672
+    },
+    {
+      "tag": "s2_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2402,
+      "mask_bbox_xyxy": [
+        147,
+        256,
+        213,
+        307
+      ],
+      "mask_area_fraction": 0.010425347222222223,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s2_far.png",
+      "mask_raw_path": "mask/mask_s2_far.png",
+      "camera_position": [
+        6.470415115356445,
+        1.3788230419158936,
+        -2.487229585647583
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9538520574569702,
+        -0.25558388233184814,
+        0.15224644541740417,
+        0.040794312953948975
+      ],
+      "camera_to_world": [
+        [
+          0.9503136873245239,
+          0.0,
+          -0.31129392981529236,
+          0.0
+        ],
+        [
+          -0.15564695000648499,
+          0.866025447845459,
+          -0.47515684366226196,
+          0.0
+        ],
+        [
+          0.269588440656662,
+          0.5,
+          0.8229957818984985,
+          0.0
+        ],
+        [
+          6.470415115356445,
+          1.3788230419158936,
+          -2.487229585647583,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9503137469291687,
+          -0.15564697980880737,
+          0.26958850026130676,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.31129395961761475,
+          -0.47515687346458435,
+          0.8229959011077881,
+          -0.0
+        ],
+        [
+          -6.923183917999268,
+          -1.3688195943832397,
+          -0.38678136467933655,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.269588440656662,
+        -0.8229957818984985
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6869643950634512
+    },
+    {
+      "tag": "s2_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 5812,
+      "mask_bbox_xyxy": [
+        132,
+        341,
+        227,
+        435
+      ],
+      "mask_area_fraction": 0.025225694444444443,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s2_near.png",
+      "mask_raw_path": "mask/mask_s2_near.png",
+      "camera_position": [
+        6.265857219696045,
+        1.3788230419158936,
+        -3.111701250076294
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9538520574569702,
+        -0.25558388233184814,
+        0.15224647521972656,
+        0.04079432040452957
+      ],
+      "camera_to_world": [
+        [
+          0.9503136873245239,
+          0.0,
+          -0.31129395961761475,
+          0.0
+        ],
+        [
+          -0.15564697980880737,
+          0.866025447845459,
+          -0.47515684366226196,
+          0.0
+        ],
+        [
+          0.2695884704589844,
+          0.5,
+          0.8229957818984985,
+          0.0
+        ],
+        [
+          6.265857219696045,
+          1.3788230419158936,
+          -3.111701250076294,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9503136873245239,
+          -0.15564697980880737,
+          0.26958850026130676,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5,
+          0.0
+        ],
+        [
+          -0.31129395961761475,
+          -0.47515684366226196,
+          0.8229958415031433,
+          -0.0
+        ],
+        [
+          -6.923183441162109,
+          -1.6973801851272583,
+          0.18230271339416504,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.2695884704589844,
+        -0.8229957818984985
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0298427987425176
+    },
+    {
+      "tag": "s4_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 4,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 6426,
+      "mask_bbox_xyxy": [
+        127,
+        344,
+        236,
+        441
+      ],
+      "mask_area_fraction": 0.027890625,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": "mask/mask_s4_near.png",
+      "camera_position": [
+        5.425535202026367,
+        1.3788230419158936,
+        -3.2243967056274414
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9308605790138245,
+        -0.24942335486412048,
+        -0.2578977942466736,
+        -0.06910350918769836
+      ],
+      "camera_to_world": [
+        [
+          0.8574268817901611,
+          0.0,
+          0.5146058201789856,
+          0.0
+        ],
+        [
+          0.2573029398918152,
+          0.8660253882408142,
+          -0.42871347069740295,
+          0.0
+        ],
+        [
+          -0.445661723613739,
+          0.5000000596046448,
+          0.7425534129142761,
+          0.0
+        ],
+        [
+          5.425535202026367,
+          1.3788230419158936,
+          -3.2243967056274414,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.8574268817901611,
+          0.2573029398918152,
+          -0.4456616938114166,
+          -0.0
+        ],
+        [
+          1.4901161193847656e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          0.5146058797836304,
+          -0.42871350049972534,
+          0.7425534725189209,
+          -0.0
+        ],
+        [
+          -2.992705821990967,
+          -3.9724440574645996,
+          4.122828483581543,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.445661723613739,
+        -0.7425534129142761
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0099733202358931
+    },
+    {
+      "tag": "s6_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 6,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s6_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 6,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s8_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 8,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s8_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 8,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2356,
+      "mask_bbox_xyxy": [
+        142,
+        268,
+        219,
+        314
+      ],
+      "mask_area_fraction": 0.010225694444444445,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        6.880263805389404,
+        1.3788230419158936,
+        -5.395312786102295
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.2954528331756592,
+        -0.07916635274887085,
+        0.9196305274963379,
+        0.24641427397727966
+      ],
+      "camera_to_world": [
+        [
+          -0.8128805756568909,
+          0.0,
+          -0.5824303030967712,
+          0.0
+        ],
+        [
+          -0.291215181350708,
+          0.8660253882408142,
+          0.4064403474330902,
+          0.0
+        ],
+        [
+          0.5043994784355164,
+          0.5000000596046448,
+          -0.7039752006530762,
+          0.0
+        ],
+        [
+          6.880263805389404,
+          1.3788230419158936,
+          -5.395312786102295,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.8128806948661804,
+          -0.2912152111530304,
+          0.5043994784355164,
+          -0.0
+        ],
+        [
+          2.980232594040899e-08,
+          0.866025447845459,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.5824304223060608,
+          0.406440407037735,
+          -0.703975260257721,
+          -0.0
+        ],
+        [
+          2.450438976287842,
+          3.0024147033691406,
+          -7.957980155944824,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.5043995380401611,
+        0.703975260257721
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.605325457457155
+    },
+    {
+      "tag": "s10_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 6120,
+      "mask_bbox_xyxy": [
+        125,
+        368,
+        238,
+        452
+      ],
+      "mask_area_fraction": 0.0265625,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_near.png",
+      "mask_raw_path": "mask/mask_s10_near.png",
+      "camera_position": [
+        6.495822906494141,
+        1.3788230419158936,
+        -4.858760356903076
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.2954527735710144,
+        -0.07916633784770966,
+        0.9196305274963379,
+        0.24641427397727966
+      ],
+      "camera_to_world": [
+        [
+          -0.8128805756568909,
+          0.0,
+          -0.5824301838874817,
+          0.0
+        ],
+        [
+          -0.29121512174606323,
+          0.8660253882408142,
+          0.4064403474330902,
+          0.0
+        ],
+        [
+          0.5043993592262268,
+          0.5,
+          -0.7039752006530762,
+          0.0
+        ],
+        [
+          6.495822906494141,
+          1.3788230419158936,
+          -4.858760356903076,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.8128807544708252,
+          -0.2912151515483856,
+          0.5043994188308716,
+          -0.0
+        ],
+        [
+          2.980232949312267e-08,
+          0.8660253286361694,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.582430362701416,
+          0.4064403772354126,
+          -0.7039753794670105,
+          -0.0
+        ],
+        [
+          2.450439929962158,
+          2.6723828315734863,
+          -7.386348724365234,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.5043994188308716,
+        0.7039753794670105
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9452623437907616
+    }
+  ],
+  "episode_result": {
+    "navigable_count": 7,
+    "valid_mask_count": 7,
+    "total_viewpoints": 12,
+    "success": true,
+    "object_category": "shoes"
+  },
+  "captures": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 3640,
+      "mask_bbox_xyxy": [
+        130,
+        282,
+        221,
+        339
+      ],
+      "mask_area_fraction": 0.01579861111111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        7.2820258140563965,
+        1.3788230419158936,
+        -3.5603654384613037
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.7990304231643677,
+        -0.21409957110881805,
+        0.5427366495132446,
+        0.14542585611343384
+      ],
+      "camera_to_world": [
+        [
+          0.3685764670372009,
+          -1.4901161193847656e-08,
+          -0.9295974373817444,
+          0.0
+        ],
+        [
+          -0.4647987484931946,
+          0.8660253882408142,
+          -0.18428824841976166,
+          0.0
+        ],
+        [
+          0.8050549626350403,
+          0.5,
+          0.31919658184051514,
+          0.0
+        ],
+        [
+          7.2820258140563965,
+          1.3788230419158936,
+          -3.5603654384613037,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.3685764670372009,
+          -0.4647987186908722,
+          0.8050549626350403,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.9295973777770996,
+          -0.18428824841976166,
+          0.31919658184051514,
+          -0.0
+        ],
+        [
+          -5.993690013885498,
+          1.5344467163085938,
+          -5.41538667678833,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.8050549626350403,
+        -0.31919658184051514
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.43799064563251
+    },
+    {
+      "tag": "s0_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 5386,
+      "mask_bbox_xyxy": [
+        121,
+        320,
+        229,
+        392
+      ],
+      "mask_area_fraction": 0.023376736111111112,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_near.png",
+      "mask_raw_path": "mask/mask_s0_near.png",
+      "camera_position": [
+        7.023864269256592,
+        1.3788230419158936,
+        -3.662724018096924
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.7990304231643677,
+        -0.21409957110881805,
+        0.5427366495132446,
+        0.14542585611343384
+      ],
+      "camera_to_world": [
+        [
+          0.3685764670372009,
+          -1.4901161193847656e-08,
+          -0.9295974373817444,
+          0.0
+        ],
+        [
+          -0.4647987484931946,
+          0.8660253882408142,
+          -0.18428824841976166,
+          0.0
+        ],
+        [
+          0.8050549626350403,
+          0.5,
+          0.31919658184051514,
+          0.0
+        ],
+        [
+          7.023864269256592,
+          1.3788230419158936,
+          -3.662724018096924,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.3685764670372009,
+          -0.4647987186908722,
+          0.8050549626350403,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.9295973777770996,
+          -0.18428824841976166,
+          0.31919658184051514,
+          -0.0
+        ],
+        [
+          -5.993690013885498,
+          1.39559006690979,
+          -5.174879550933838,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.8050549626350403,
+        -0.31919658184051514
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1602773725639672
+    },
+    {
+      "tag": "s2_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2402,
+      "mask_bbox_xyxy": [
+        147,
+        256,
+        213,
+        307
+      ],
+      "mask_area_fraction": 0.010425347222222223,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s2_far.png",
+      "mask_raw_path": "mask/mask_s2_far.png",
+      "camera_position": [
+        6.470415115356445,
+        1.3788230419158936,
+        -2.487229585647583
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9538520574569702,
+        -0.25558388233184814,
+        0.15224644541740417,
+        0.040794312953948975
+      ],
+      "camera_to_world": [
+        [
+          0.9503136873245239,
+          0.0,
+          -0.31129392981529236,
+          0.0
+        ],
+        [
+          -0.15564695000648499,
+          0.866025447845459,
+          -0.47515684366226196,
+          0.0
+        ],
+        [
+          0.269588440656662,
+          0.5,
+          0.8229957818984985,
+          0.0
+        ],
+        [
+          6.470415115356445,
+          1.3788230419158936,
+          -2.487229585647583,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9503137469291687,
+          -0.15564697980880737,
+          0.26958850026130676,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.31129395961761475,
+          -0.47515687346458435,
+          0.8229959011077881,
+          -0.0
+        ],
+        [
+          -6.923183917999268,
+          -1.3688195943832397,
+          -0.38678136467933655,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.269588440656662,
+        -0.8229957818984985
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6869643950634512
+    },
+    {
+      "tag": "s2_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 5812,
+      "mask_bbox_xyxy": [
+        132,
+        341,
+        227,
+        435
+      ],
+      "mask_area_fraction": 0.025225694444444443,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s2_near.png",
+      "mask_raw_path": "mask/mask_s2_near.png",
+      "camera_position": [
+        6.265857219696045,
+        1.3788230419158936,
+        -3.111701250076294
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9538520574569702,
+        -0.25558388233184814,
+        0.15224647521972656,
+        0.04079432040452957
+      ],
+      "camera_to_world": [
+        [
+          0.9503136873245239,
+          0.0,
+          -0.31129395961761475,
+          0.0
+        ],
+        [
+          -0.15564697980880737,
+          0.866025447845459,
+          -0.47515684366226196,
+          0.0
+        ],
+        [
+          0.2695884704589844,
+          0.5,
+          0.8229957818984985,
+          0.0
+        ],
+        [
+          6.265857219696045,
+          1.3788230419158936,
+          -3.111701250076294,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9503136873245239,
+          -0.15564697980880737,
+          0.26958850026130676,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5,
+          0.0
+        ],
+        [
+          -0.31129395961761475,
+          -0.47515684366226196,
+          0.8229958415031433,
+          -0.0
+        ],
+        [
+          -6.923183441162109,
+          -1.6973801851272583,
+          0.18230271339416504,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.2695884704589844,
+        -0.8229957818984985
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0298427987425176
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 6426,
+      "mask_bbox_xyxy": [
+        127,
+        344,
+        236,
+        441
+      ],
+      "mask_area_fraction": 0.027890625,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": "mask/mask_s4_near.png",
+      "camera_position": [
+        5.425535202026367,
+        1.3788230419158936,
+        -3.2243967056274414
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9308605790138245,
+        -0.24942335486412048,
+        -0.2578977942466736,
+        -0.06910350918769836
+      ],
+      "camera_to_world": [
+        [
+          0.8574268817901611,
+          0.0,
+          0.5146058201789856,
+          0.0
+        ],
+        [
+          0.2573029398918152,
+          0.8660253882408142,
+          -0.42871347069740295,
+          0.0
+        ],
+        [
+          -0.445661723613739,
+          0.5000000596046448,
+          0.7425534129142761,
+          0.0
+        ],
+        [
+          5.425535202026367,
+          1.3788230419158936,
+          -3.2243967056274414,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.8574268817901611,
+          0.2573029398918152,
+          -0.4456616938114166,
+          -0.0
+        ],
+        [
+          1.4901161193847656e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          0.5146058797836304,
+          -0.42871350049972534,
+          0.7425534725189209,
+          -0.0
+        ],
+        [
+          -2.992705821990967,
+          -3.9724440574645996,
+          4.122828483581543,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.445661723613739,
+        -0.7425534129142761
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0099733202358931
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2356,
+      "mask_bbox_xyxy": [
+        142,
+        268,
+        219,
+        314
+      ],
+      "mask_area_fraction": 0.010225694444444445,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        6.880263805389404,
+        1.3788230419158936,
+        -5.395312786102295
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.2954528331756592,
+        -0.07916635274887085,
+        0.9196305274963379,
+        0.24641427397727966
+      ],
+      "camera_to_world": [
+        [
+          -0.8128805756568909,
+          0.0,
+          -0.5824303030967712,
+          0.0
+        ],
+        [
+          -0.291215181350708,
+          0.8660253882408142,
+          0.4064403474330902,
+          0.0
+        ],
+        [
+          0.5043994784355164,
+          0.5000000596046448,
+          -0.7039752006530762,
+          0.0
+        ],
+        [
+          6.880263805389404,
+          1.3788230419158936,
+          -5.395312786102295,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.8128806948661804,
+          -0.2912152111530304,
+          0.5043994784355164,
+          -0.0
+        ],
+        [
+          2.980232594040899e-08,
+          0.866025447845459,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.5824304223060608,
+          0.406440407037735,
+          -0.703975260257721,
+          -0.0
+        ],
+        [
+          2.450438976287842,
+          3.0024147033691406,
+          -7.957980155944824,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.5043995380401611,
+        0.703975260257721
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.605325457457155
+    },
+    {
+      "tag": "s10_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 6120,
+      "mask_bbox_xyxy": [
+        125,
+        368,
+        238,
+        452
+      ],
+      "mask_area_fraction": 0.0265625,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_near.png",
+      "mask_raw_path": "mask/mask_s10_near.png",
+      "camera_position": [
+        6.495822906494141,
+        1.3788230419158936,
+        -4.858760356903076
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.2954527735710144,
+        -0.07916633784770966,
+        0.9196305274963379,
+        0.24641427397727966
+      ],
+      "camera_to_world": [
+        [
+          -0.8128805756568909,
+          0.0,
+          -0.5824301838874817,
+          0.0
+        ],
+        [
+          -0.29121512174606323,
+          0.8660253882408142,
+          0.4064403474330902,
+          0.0
+        ],
+        [
+          0.5043993592262268,
+          0.5,
+          -0.7039752006530762,
+          0.0
+        ],
+        [
+          6.495822906494141,
+          1.3788230419158936,
+          -4.858760356903076,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.8128807544708252,
+          -0.2912151515483856,
+          0.5043994188308716,
+          -0.0
+        ],
+        [
+          2.980232949312267e-08,
+          0.8660253286361694,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.582430362701416,
+          0.4064403772354126,
+          -0.7039753794670105,
+          -0.0
+        ],
+        [
+          2.450439929962158,
+          2.6723828315734863,
+          -7.386348724365234,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.5043994188308716,
+        0.7039753794670105
+      ],
+      "goal_position": [
+        5.945273399353027,
+        0.5488283038139343,
+        -4.090374946594238
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "f28f17e68205452c99a244971ab0f446",
+      "episode_object_category": "shoes",
+      "floor_y_at_cam": 0.06882309913635254,
+      "base_y_used": 0.06882309913635254,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.3788230419158936,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9452623437907616
+    }
+  ],
+  "overview": "overview.png",
+  "regen_info": {
+    "generated_by": "val_verify_capture_v2_distributed.py (episode-level eval)",
+    "time": "2026-02-11 06:46:07"
+  }
+}

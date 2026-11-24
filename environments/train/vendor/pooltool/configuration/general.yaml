@@ -1,0 +1,23 @@
+graphics:
+  room: true
+  floor: true
+  table: true
+  shadows: false
+  shader: true
+  lights: true
+  max_lights: 13
+  physical_based_rendering: false
+  debug: false
+  fps: 45
+  fps_inactive: 5
+  hud: true
+gameplay:
+  cue_collision: true
+  game_type: nineball
+panda:
+  show_frame_rate: true
+  window_width: 1400
+  sync_video: false
+  gl_check_errors: false
+  gl_version_major: 3
+  gl_version_minor: 2

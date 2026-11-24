@@ -1,0 +1,8 @@
+num_evals: 10
+env_name: irt
+goal_name: direct_discovery
+com_limit: 200
+env_params:
+  num_students: 6
+  num_questions: 6
+  mode: 2pl

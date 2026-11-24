@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_8w72">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_hd31">
+        <listOfUnits>
+          <unit kind="mole" scale="-9"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_txht" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_bya5" compartment="id_txht" initialAmount="500"/>
+      <species id="id_eyok" compartment="id_txht" initialAmount="0"/>
+      <species id="id_i3vs" compartment="id_txht" initialAmount="100" constant="true"/>
+      <species id="id_nmyo" compartment="id_txht" initialAmount="50" constant="true"/>
+      <species id="id_346h" compartment="id_txht" initialAmount="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

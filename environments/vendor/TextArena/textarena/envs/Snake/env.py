@@ -1,0 +1,275 @@
+import random, math, itertools
+from collections import deque
+from typing import Any, Dict, List, Optional, Tuple
+
+import textarena as ta
+from textarena.envs.Snake.renderer import create_board_str
+
+_DIR_DELTAS = {"up":(0,1), "w":(0,1), "down":(0,-1), "s":(0,-1), "left":(-1,0), "a":(-1,0), "right":(1,0), "d":(1,0)}
+
+def _step_from_str(move: str) -> Tuple[int, int]:
+    pass                                                                         
+    lower = move.lower()
+    for token, delta in _DIR_DELTAS.items():
+        if f"[{token}]" in lower: return delta
+    return (0, 0)                                                   
+
+class Snake:
+    pass                                                                 
+    def __init__(self, positions: List[Tuple[int, int]]):
+        self.positions = deque(positions)
+        self.alive: bool = True
+        self.death_reason: Optional[str] = None
+    @property
+    def head(self) -> Tuple[int, int]:
+        return self.positions[0]
+
+class SnakeEnv(ta.Env):
+    pass                                                         
+    def __init__(self, width: int = 10, height: int = 10, num_apples: int = 3, max_turns: int = 100):
+        if width * height < (num_apples + 15): raise ValueError(f"Board {width}x{height} too small for {num_apples} apples and up to {15} snakes")
+        self.width, self.height = width, height
+        self.num_apples = num_apples
+        self.max_turns = max_turns
+        self.pending_actions: Dict[int, Optional[str]] = {}
+
+    def _generate_spawn_positions(self, k: int) -> List[Tuple[int, int]]:
+        pass                                                
+        candidates = [(x, y) for x in range(1, self.width - 1) for y in range(1, self.height - 1)]
+        if len(candidates) < k: raise ValueError(f"Board {self.width}x{self.height} is too small for {k} snakes (needs inner cells)")
+        random.shuffle(candidates)
+        spawns = [candidates.pop()]
+        while len(spawns) < k:
+            best = max(candidates, key=lambda p: min(math.dist(p, s) for s in spawns))
+            spawns.append(best)
+            candidates.remove(best)
+        return spawns
+
+    def _random_free_cell(self, snakes: Dict[int, "Snake"] | None = None, apples: List[Tuple[int, int]] | None = None) -> Optional[Tuple[int, int]]:
+        pass                                                                
+        occupied = {p for s in (snakes or {}).values() if s.alive for p in s.positions}
+        occupied.update(apples or [])
+        free = [(x, y) for x in range(self.width) for y in range(self.height) if (x, y) not in occupied]
+        return random.choice(free) if free else None
+
+    def get_board_str(self):
+        return create_board_str(width=self.width, height=self.height, snakes=self.state.game_state["snakes"], apples=self.state.game_state["apples"])
+
+    def _get_board_string(self, snakes: Dict[int, "Snake"], apples: List[Tuple[int, int]]) -> str:
+        pass                                                      
+        board = [["." for _ in range(self.width)] for _ in range(self.height)]
+        for ax, ay in apples:
+            board[ay][ax] = "A"
+        for pid, snake in snakes.items():
+            if not snake.alive: continue
+            for idx, (x, y) in enumerate(snake.positions):
+                board[y][x] = format(pid, "X") if idx == 0 else "#"
+        horiz = "+" + "-" * (self.width * 2 + 1) + "+"
+        lines = [horiz]
+        for row in reversed(board):
+            lines.append("| " + " ".join(row) + " |")
+        lines.append(horiz)
+        return "\n".join(lines)
+
+    def reset(self, num_players: int, seed: Optional[int] = None):
+        assert 2<=num_players<=15, f"The number of players has to be 2<=x<=15, received {num_players}"
+        self.state = ta.FFAMultiPlayerState(num_players=num_players, max_turns=self.max_turns, seed=seed)
+        snakes = {pid: Snake([pos]) for pid, pos in enumerate(self._generate_spawn_positions(num_players))}
+        apples: List[Tuple[int, int]] = [c for _ in range(self.num_apples) if (c := self._random_free_cell(snakes, [])) is not None]
+        scores = {pid: 0 for pid in range(num_players)}
+        game_state = {"snakes": snakes, "apples": apples, "scores": scores, "death_turn": {}, "board_state": ""}
+        self.state.reset(game_state=game_state, player_prompt_function=self._generate_player_prompt)
+        self.pending_actions = {pid: None for pid in range(num_players)}
+        game_state["board_state"] = self._get_board_string(snakes, apples)
+        self.state.add_observation(self.m("board", "current", board=game_state['board_state']), observation_type=ta.ObservationType.GAME_BOARD)
+
+    def _generate_player_prompt(self, player_id: int, game_state: Dict[str, Any]) -> str:
+        return self.m("player_prompt", "intro", num_players=self.state.num_players, width=self.width, height=self.height, player_id=player_id, max_turns=self.max_turns)
+
+    def step(self, action: str) -> Tuple[bool, ta.Info]:
+        snakes = self.state.game_state["snakes"]
+        pid = self.state.current_player_id
+
+                                                   
+        token = next((k for k in _DIR_DELTAS if f"[{k}]" in action.lower()), None)
+        if token is None:
+            snake = snakes[pid]
+            if snake.alive:
+                snake.alive = False
+                snake.death_reason = "invalid move"
+                self.state.game_state["death_turn"][pid] = self.state.turn
+                self.state.add_observation(self.m("game_action", "invalid_death", player_id=pid), observation_type=ta.ObservationType.GAME_MESSAGE)
+
+            self.pending_actions[pid] = None                          
+        else: self.pending_actions[pid] = action
+
+                                                            
+        living = [p for p, s in snakes.items() if s.alive]
+        if living and all(self.pending_actions[p] for p in living):
+            self._apply_simultaneous_moves()
+            for p in living:
+                self.pending_actions[p] = None
+
+        self._rotate_players()
+        self._check_turn_limit()
+        return self.state.step(rotate_player=False)
+
+    def _check_turn_limit(self):
+        if not self.state.done and self.state.turn >= self.state.max_turns:
+            self._finalise_rewards(self.m("outcome", "turn_limit"))
+
+    def _rotate_players(self):
+        if self.state.done:
+            return
+        alive = {pid for pid, s in self.state.game_state["snakes"].items() if s.alive}
+        if len(alive) <= 1:
+            self._finalise_rewards(self.m("outcome", "outlived") if alive else self.m("outcome", "all_dead"))
+            return
+        nxt = (self.state.current_player_id + 1) % self.state.num_players
+        while nxt not in alive:
+            nxt = (nxt + 1) % self.state.num_players
+        self.state.manually_set_current_player_id(nxt)
+
+    def _finalise_rewards(self, reason: str):
+        snakes = self.state.game_state["snakes"]
+        scores = self.state.game_state["scores"]
+        death_turn = self.state.game_state["death_turn"]
+
+                                                                    
+        survival_turn = {pid: (self.state.turn + 1) if s.alive else death_turn.get(pid, -1) for pid, s in snakes.items()}
+
+                 
+                                           
+                                                           
+                                           
+                                                            
+        sort_key  = lambda pid: (survival_turn[pid], snakes[pid].alive, scores[pid], -pid)
+        group_key = lambda pid: (survival_turn[pid], snakes[pid].alive, scores[pid])
+        
+                                     
+        ranked = sorted(range(self.state.num_players), key=sort_key)
+
+                                                       
+        groups: list[list[int]] = []
+        for pid in ranked:
+            if not groups or group_key(groups[-1][0]) != group_key(pid): 
+                groups.append([pid])
+            else: 
+                groups[-1].append(pid)
+
+                                               
+
+                           
+        G = len(groups)
+        reward_dict: dict[int, float] = {}
+
+        if G == 1:                                        
+            reward_dict = {pid: 0.0 for pid in groups[0]}
+        else:
+            for g_idx, g in enumerate(groups):                          
+                r = -1.0 + 2.0 * g_idx / (G - 1)                       
+                for pid in g: reward_dict[pid] = r
+                   
+        self.state.set_game_outcome(reward_dict=reward_dict, reason=self.m("outcome", "ranking", reason=reason, groups=groups))
+
+
+
+                                                                     
+    def _apply_simultaneous_moves(self):
+        snakes = self.state.game_state["snakes"]
+        apples = self.state.game_state["apples"]
+        scores = self.state.game_state["scores"]
+        deaths: Dict[int, str] = {}
+        old_head = {pid: s.head for pid, s in snakes.items() if s.alive}
+        
+                                                 
+        desired = {}
+        for pid, snake in snakes.items():
+            if not snake.alive:
+                continue
+                                                                             
+            if self.pending_actions[pid] is None:
+                continue
+            dx, dy = _step_from_str(self.pending_actions[pid])
+            hx, hy = snake.head
+            desired[pid] = (hx + dx, hy + dy)
+        
+                                      
+        for pid, (x, y) in desired.items():
+            if x < 0 or x >= self.width or y < 0 or y >= self.height:
+                deaths[pid] = "wall"
+        
+                                                                                   
+        bins: Dict[Tuple[int, int], List[int]] = {}
+        for pid, pos in desired.items():
+            bins.setdefault(pos, []).append(pid)
+        for pos, ids in bins.items():
+            if len(ids) > 1:
+                for pid in ids:
+                    deaths[pid] = "head-on"
+        
+                                                                      
+        for a, b in itertools.combinations(desired, 2):
+            if desired[a] == old_head[b] and desired[b] == old_head[a]:
+                deaths[a] = deaths[b] = "head-on"
+        
+                                                                 
+        for pid, reason in deaths.items():
+            snake = snakes[pid]
+            snake.alive, snake.death_reason = False, reason
+            self.state.game_state["death_turn"][pid] = self.state.turn
+            desired.pop(pid, None)
+        
+                                      
+                                                                                            
+        occupied = set()
+        for pid, snake in snakes.items():
+            if snake.alive:
+                                                                                            
+                for i, pos in enumerate(snake.positions):
+                    if i < len(snake.positions) - 1:                
+                        occupied.add(pos)
+                    else:                    
+                                                                                                            
+                        if pid in desired and desired[pid] in apples:
+                            occupied.add(pos)
+        
+                                                                 
+        for pid, new_head in list(desired.items()):
+            if new_head in occupied:
+                snake = snakes[pid]
+                snake.alive, snake.death_reason = False, "body collision"
+                self.state.game_state["death_turn"][pid] = self.state.turn
+                desired.pop(pid)
+        
+                                               
+        for pid, new_head in desired.items():
+            snake = snakes[pid]
+            snake.positions.appendleft(new_head)
+            
+                                         
+            if new_head in apples:
+                apples.remove(new_head)
+                scores[pid] += 1
+                                                 
+                                 
+                if (na := self._random_free_cell(snakes, apples)):
+                    apples.append(na)
+            else:
+                                                                 
+                snake.positions.pop()
+        
+                                                              
+        self.state.game_state["board_state"] = self._get_board_string(snakes, apples)
+        self.state.add_observation(from_id=ta.GAME_ID, to_id=-1, message=self.m("board", "after_moves", board=self.state.game_state['board_state']), observation_type=ta.ObservationType.GAME_BOARD)
+
+                                             
+        alive = [pid for pid, s in snakes.items() if s.alive]
+        if len(alive) <= 1:
+            self._finalise_rewards(self.m("outcome", "survived_win", player_id=alive[0]) if alive else self.m("outcome", "all_dead_simul"))
+            self.state.step(rotate_player=False)                                 
+            return
+                     
+        self.state.game_state["board_state"] = self._get_board_string(snakes, apples)
+        self.state.add_observation(self.m("board", "current", board=self.state.game_state['board_state']), observation_type=ta.ObservationType.GAME_BOARD)
+

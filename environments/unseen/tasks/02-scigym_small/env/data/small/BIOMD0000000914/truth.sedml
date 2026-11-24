@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Parra_Guillen2013.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="100" numberOfSteps="1000">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="10000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task1" name="Time" symbol="urn:sedml:symbol:time" taskReference="task1" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="VAC_1_task1" name="[VAC]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_VAC_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_VAC_1_task1" name="[VAC]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;VAC&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="TRAN_2_task1" name="[TRAN]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_TRAN_2_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_TRAN_2_task1" name="[TRAN]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;TRAN&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="SVAC_3_task1" name="[SVAC]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_SVAC_3_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_SVAC_3_task1" name="[SVAC]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;SVAC&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Ts_4_task1" name="[Ts]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Ts_4_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Ts_4_task1" name="[Ts]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Ts&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="REG_5_task1" name="[REG]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_REG_5_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_REG_5_task1" name="[REG]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;REG&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_lamda">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_lamda__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_lamda__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;lamda&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k1&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_P">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_P__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_P__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;P&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k2_pop1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k2_pop1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k2_pop1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k2_pop1&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k3">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k3__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k3__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k3&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k4">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k4__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k4__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k4&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_REG_50">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_REG_50__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_REG_50__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;REG_50&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_gamma">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_gamma__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_gamma__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;gamma&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Residual_error">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Residual_error__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Residual_error__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;Residual_error&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k2_pop2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k2_pop2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k2_pop2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k2_pop2&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_compartment">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_compartment__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_compartment__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;compartment&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Removal_of_CyaA_E7_vaccine">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Removal_of_CyaA_E7_vaccine__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Removal_of_CyaA_E7_vaccine__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Removal_of_CyaA_E7_vaccine&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Triggering_of_intermediate_transit_compartment_TRAN">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Triggering_of_intermediate_transit_compartment_TRAN__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Triggering_of_intermediate_transit_compartment_TRAN__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Triggering_of_intermediate_transit_compartment_TRAN&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Elimination_of_intermeidate_transit_compartment">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Elimination_of_intermeidate_transit_compartment__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Elimination_of_intermeidate_transit_compartment__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Elimination_of_intermeidate_transit_compartment&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Increase_in_vaccine_signal_to_reduce_tumor_size">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Increase_in_vaccine_signal_to_reduce_tumor_size__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Increase_in_vaccine_signal_to_reduce_tumor_size__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Increase_in_vaccine_signal_to_reduce_tumor_size&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Reduction_of_vaccine_signal">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Reduction_of_vaccine_signal__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Reduction_of_vaccine_signal__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Reduction_of_vaccine_signal&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Increase_in_tumor_size">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Increase_in_tumor_size__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Increase_in_tumor_size__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Increase_in_tumor_size&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Reduction_of_tumor_size">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Reduction_of_tumor_size__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Reduction_of_tumor_size__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Reduction_of_tumor_size&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_REguilator_compartment_to_decrease_vaccine_response">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_REguilator_compartment_to_decrease_vaccine_response__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_REguilator_compartment_to_decrease_vaccine_response__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;REguilator_compartment_to_decrease_vaccine_response&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Decrease_in_the_regulator_comparment">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Decrease_in_the_regulator_comparment__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Decrease_in_the_regulator_comparment__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Decrease_in_the_regulator_comparment&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_1_task1" name="Figure 2">
+      <listOfCurves>
+        <curve id="p1_curve_1_task1" name="[VAC]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="VAC_1_task1"/>
+        <curve id="p1_curve_2_task1" name="[TRAN]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="TRAN_2_task1"/>
+        <curve id="p1_curve_3_task1" name="[SVAC]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="SVAC_3_task1"/>
+        <curve id="p1_curve_4_task1" name="[Ts]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Ts_4_task1"/>
+        <curve id="p1_curve_5_task1" name="[REG]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="REG_5_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="_1_task1"/>
+        <dataSet id="autogen_task1_VAC" label="VAC" dataReference="VAC_1_task1"/>
+        <dataSet id="autogen_task1_TRAN" label="TRAN" dataReference="TRAN_2_task1"/>
+        <dataSet id="autogen_task1_SVAC" label="SVAC" dataReference="SVAC_3_task1"/>
+        <dataSet id="autogen_task1_Ts" label="Ts" dataReference="Ts_4_task1"/>
+        <dataSet id="autogen_task1_REG" label="REG" dataReference="REG_5_task1"/>
+        <dataSet id="autogen_task1_lamda" label="lamda" dataReference="auto_dg_for_task1_lamda"/>
+        <dataSet id="autogen_task1_k1" label="k1" dataReference="auto_dg_for_task1_k1"/>
+        <dataSet id="autogen_task1_P" label="P" dataReference="auto_dg_for_task1_P"/>
+        <dataSet id="autogen_task1_k2_pop1" label="k2_pop1" dataReference="auto_dg_for_task1_k2_pop1"/>
+        <dataSet id="autogen_task1_k3" label="k3" dataReference="auto_dg_for_task1_k3"/>
+        <dataSet id="autogen_task1_k4" label="k4" dataReference="auto_dg_for_task1_k4"/>
+        <dataSet id="autogen_task1_REG_50" label="REG_50" dataReference="auto_dg_for_task1_REG_50"/>
+        <dataSet id="autogen_task1_gamma" label="gamma" dataReference="auto_dg_for_task1_gamma"/>
+        <dataSet id="autogen_task1_Residual_error" label="Residual_error" dataReference="auto_dg_for_task1_Residual_error"/>
+        <dataSet id="autogen_task1_k2_pop2" label="k2_pop2" dataReference="auto_dg_for_task1_k2_pop2"/>
+        <dataSet id="autogen_task1_compartment" label="compartment" dataReference="auto_dg_for_task1_compartment"/>
+        <dataSet id="autogen_task1_Removal_of_CyaA_E7_vaccine" label="Removal_of_CyaA_E7_vaccine" dataReference="auto_dg_for_task1_Removal_of_CyaA_E7_vaccine"/>
+        <dataSet id="autogen_task1_Triggering_of_intermediate_transit_compartment_TRAN" label="Triggering_of_intermediate_transit_compartment_TRAN" dataReference="auto_dg_for_task1_Triggering_of_intermediate_transit_compartment_TRAN"/>
+        <dataSet id="autogen_task1_Elimination_of_intermeidate_transit_compartment" label="Elimination_of_intermeidate_transit_compartment" dataReference="auto_dg_for_task1_Elimination_of_intermeidate_transit_compartment"/>
+        <dataSet id="autogen_task1_Increase_in_vaccine_signal_to_reduce_tumor_size" label="Increase_in_vaccine_signal_to_reduce_tumor_size" dataReference="auto_dg_for_task1_Increase_in_vaccine_signal_to_reduce_tumor_size"/>
+        <dataSet id="autogen_task1_Reduction_of_vaccine_signal" label="Reduction_of_vaccine_signal" dataReference="auto_dg_for_task1_Reduction_of_vaccine_signal"/>
+        <dataSet id="autogen_task1_Increase_in_tumor_size" label="Increase_in_tumor_size" dataReference="auto_dg_for_task1_Increase_in_tumor_size"/>
+        <dataSet id="autogen_task1_Reduction_of_tumor_size" label="Reduction_of_tumor_size" dataReference="auto_dg_for_task1_Reduction_of_tumor_size"/>
+        <dataSet id="autogen_task1_REguilator_compartment_to_decrease_vaccine_response" label="REguilator_compartment_to_decrease_vaccine_response" dataReference="auto_dg_for_task1_REguilator_compartment_to_decrease_vaccine_response"/>
+        <dataSet id="autogen_task1_Decrease_in_the_regulator_comparment" label="Decrease_in_the_regulator_comparment" dataReference="auto_dg_for_task1_Decrease_in_the_regulator_comparment"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

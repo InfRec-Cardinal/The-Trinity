@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Adams2019.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <steadyState id="steady2">
+      <algorithm name="Steady state root-finding method" kisaoID="KISAO:0000407"/>
+    </steadyState>
+    <uniformTimeCourse id="id_d1pwm3r4" initialTime="0" outputStartTime="0" outputEndTime="21" numberOfSteps="1068">
+      <algorithm name="CVODE" kisaoID="KISAO:0000019"/>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task2" modelReference="model" simulationReference="steady2"/>
+    <repeatedTask id="task3" range="range0" resetModel="true">
+      <listOfRanges>
+        <uniformRange id="range0" start="0.1" end="35" numberOfSteps="25" type="linear"/>
+      </listOfRanges>
+      <listOfChanges>
+        <setValue modelReference="model" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;a_0&apos;]" range="range0">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> range0 </ci>
+          </math>
+        </setValue>
+      </listOfChanges>
+      <listOfSubTasks>
+        <subTask order="1" task="task2"/>
+      </listOfSubTasks>
+    </repeatedTask>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="a_0_1_task3" name="Values[a_0].InitialValue">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_a_0_1_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_a_0_1_task3" name="Values[a_0].InitialValue" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;a_0&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="V_1_Phenylalanine_Biosynthesis_Shikimate_1_task3" name="(V_1_Phenylalanine_Biosynthesis_Shikimate).Flux">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_V_1_Phenylalanine_Biosynthesis_Shikimate_1_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_V_1_Phenylalanine_Biosynthesis_Shikimate_1_task3" name="(V_1_Phenylalanine_Biosynthesis_Shikimate).Flux" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;V_1_Phenylalanine_Biosynthesis_Shikimate&apos;]" taskReference="task3" term="KISAO:0000639"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="V_2_Shikimate_Transport_2_task3" name="(V_2_Shikimate_Transport).Flux">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_V_2_Shikimate_Transport_2_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_V_2_Shikimate_Transport_2_task3" name="(V_2_Shikimate_Transport).Flux" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;V_2_Shikimate_Transport&apos;]" taskReference="task3" term="KISAO:0000639"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="V_3_Caffeoyl_Shikimate_Biosynthesis_3_task3" name="(V_3_Caffeoyl_Shikimate_Biosynthesis).Flux">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_V_3_Caffeoyl_Shikimate_Biosynthesis_3_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_V_3_Caffeoyl_Shikimate_Biosynthesis_3_task3" name="(V_3_Caffeoyl_Shikimate_Biosynthesis).Flux" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;V_3_Caffeoyl_Shikimate_Biosynthesis&apos;]" taskReference="task3" term="KISAO:0000639"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="V_4_Mass_Release_Monolignol_Pathway_4_task3" name="(V_4_Mass_Release_Monolignol_Pathway).Flux">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_V_4_Mass_Release_Monolignol_Pathway_4_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_V_4_Mass_Release_Monolignol_Pathway_4_task3" name="(V_4_Mass_Release_Monolignol_Pathway).Flux" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;V_4_Mass_Release_Monolignol_Pathway&apos;]" taskReference="task3" term="KISAO:0000639"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="V_5_Phenylalanine_To_Protein_5_task3" name="(V_5_Phenylalanine_To_Protein).Flux">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_V_5_Phenylalanine_To_Protein_5_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_V_5_Phenylalanine_To_Protein_5_task3" name="(V_5_Phenylalanine_To_Protein).Flux" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;V_5_Phenylalanine_To_Protein&apos;]" taskReference="task3" term="KISAO:0000639"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_X_1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_X_1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_X_1__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;X_1&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_X_2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_X_2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_X_2__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;X_2&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_X_3">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_X_3__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_X_3__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;X_3&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_X_4">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_X_4__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_X_4__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;X_4&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_a_1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_a_1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_a_1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;a_1&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_K_1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_K_1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_K_1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;K_1&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_b">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_b__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_b__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;b&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_a_2_plus">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_a_2_plus__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_a_2_plus__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;a_2_plus&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_K_2_plus">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_K_2_plus__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_K_2_plus__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;K_2_plus&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_a_2_minus">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_a_2_minus__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_a_2_minus__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;a_2_minus&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_K_2_minus">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_K_2_minus__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_K_2_minus__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;K_2_minus&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_a_3">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_a_3__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_a_3__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;a_3&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_K_3_3">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_K_3_3__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_K_3_3__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;K_3_3&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_a_4">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_a_4__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_a_4__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;a_4&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_K_4">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_K_4__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_K_4__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;K_4&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_a_5">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_a_5__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_a_5__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;a_5&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_K_5">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_K_5__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_K_5__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;K_5&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_K_3_2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_K_3_2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_K_3_2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;K_3_2&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_b2f">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_b2f__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_b2f__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;b2f&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_b2r">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_b2r__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_b2r__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;b2r&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_compartment">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_compartment__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_compartment__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;compartment&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_a_0_Shikimate_Biosynthesis">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_a_0_Shikimate_Biosynthesis__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_a_0_Shikimate_Biosynthesis__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;a_0_Shikimate_Biosynthesis&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_2_task3" name="Figure 4d">
+      <listOfCurves>
+        <curve id="p1_curve_1_task3" name="(V_1_Phenylalanine_Biosynthesis_Shikimate).Flux|Values[a_0].InitialValue" logX="false" style="style1" xDataReference="a_0_1_task3" logY="false" yDataReference="V_1_Phenylalanine_Biosynthesis_Shikimate_1_task3"/>
+        <curve id="p1_curve_2_task3" name="(V_2_Shikimate_Transport).Flux|Values[a_0].InitialValue" logX="false" style="style1" xDataReference="a_0_1_task3" logY="false" yDataReference="V_2_Shikimate_Transport_2_task3"/>
+        <curve id="p1_curve_3_task3" name="(V_3_Caffeoyl_Shikimate_Biosynthesis).Flux|Values[a_0].InitialValue" logX="false" style="style1" xDataReference="a_0_1_task3" logY="false" yDataReference="V_3_Caffeoyl_Shikimate_Biosynthesis_3_task3"/>
+        <curve id="p1_curve_4_task3" name="(V_4_Mass_Release_Monolignol_Pathway).Flux|Values[a_0].InitialValue" logX="false" style="style1" xDataReference="a_0_1_task3" logY="false" yDataReference="V_4_Mass_Release_Monolignol_Pathway_4_task3"/>
+        <curve id="p1_curve_5_task3" name="(V_5_Phenylalanine_To_Protein).Flux|Values[a_0].InitialValue" logX="false" style="style1" xDataReference="a_0_1_task3" logY="false" yDataReference="V_5_Phenylalanine_To_Protein_5_task3"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task3" name="Auto-generated report for task3, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_task3_a_0" label="a_0" dataReference="a_0_1_task3"/>
+        <dataSet id="autogen_task3_V_1_Phenylalanine_Biosynthesis_Shikimate" label="V_1_Phenylalanine_Biosynthesis_Shikimate" dataReference="V_1_Phenylalanine_Biosynthesis_Shikimate_1_task3"/>
+        <dataSet id="autogen_task3_V_2_Shikimate_Transport" label="V_2_Shikimate_Transport" dataReference="V_2_Shikimate_Transport_2_task3"/>
+        <dataSet id="autogen_task3_V_3_Caffeoyl_Shikimate_Biosynthesis" label="V_3_Caffeoyl_Shikimate_Biosynthesis" dataReference="V_3_Caffeoyl_Shikimate_Biosynthesis_3_task3"/>
+        <dataSet id="autogen_task3_V_4_Mass_Release_Monolignol_Pathway" label="V_4_Mass_Release_Monolignol_Pathway" dataReference="V_4_Mass_Release_Monolignol_Pathway_4_task3"/>
+        <dataSet id="autogen_task3_V_5_Phenylalanine_To_Protein" label="V_5_Phenylalanine_To_Protein" dataReference="V_5_Phenylalanine_To_Protein_5_task3"/>
+        <dataSet id="autogen_task3_X_1" label="X_1" dataReference="auto_dg_for_task3_X_1"/>
+        <dataSet id="autogen_task3_X_2" label="X_2" dataReference="auto_dg_for_task3_X_2"/>
+        <dataSet id="autogen_task3_X_3" label="X_3" dataReference="auto_dg_for_task3_X_3"/>
+        <dataSet id="autogen_task3_X_4" label="X_4" dataReference="auto_dg_for_task3_X_4"/>
+        <dataSet id="autogen_task3_a_1" label="a_1" dataReference="auto_dg_for_task3_a_1"/>
+        <dataSet id="autogen_task3_K_1" label="K_1" dataReference="auto_dg_for_task3_K_1"/>
+        <dataSet id="autogen_task3_b" label="b" dataReference="auto_dg_for_task3_b"/>
+        <dataSet id="autogen_task3_a_2_plus" label="a_2_plus" dataReference="auto_dg_for_task3_a_2_plus"/>
+        <dataSet id="autogen_task3_K_2_plus" label="K_2_plus" dataReference="auto_dg_for_task3_K_2_plus"/>
+        <dataSet id="autogen_task3_a_2_minus" label="a_2_minus" dataReference="auto_dg_for_task3_a_2_minus"/>
+        <dataSet id="autogen_task3_K_2_minus" label="K_2_minus" dataReference="auto_dg_for_task3_K_2_minus"/>
+        <dataSet id="autogen_task3_a_3" label="a_3" dataReference="auto_dg_for_task3_a_3"/>
+        <dataSet id="autogen_task3_K_3_3" label="K_3_3" dataReference="auto_dg_for_task3_K_3_3"/>
+        <dataSet id="autogen_task3_a_4" label="a_4" dataReference="auto_dg_for_task3_a_4"/>
+        <dataSet id="autogen_task3_K_4" label="K_4" dataReference="auto_dg_for_task3_K_4"/>
+        <dataSet id="autogen_task3_a_5" label="a_5" dataReference="auto_dg_for_task3_a_5"/>
+        <dataSet id="autogen_task3_K_5" label="K_5" dataReference="auto_dg_for_task3_K_5"/>
+        <dataSet id="autogen_task3_K_3_2" label="K_3_2" dataReference="auto_dg_for_task3_K_3_2"/>
+        <dataSet id="autogen_task3_b2f" label="b2f" dataReference="auto_dg_for_task3_b2f"/>
+        <dataSet id="autogen_task3_b2r" label="b2r" dataReference="auto_dg_for_task3_b2r"/>
+        <dataSet id="autogen_task3_compartment" label="compartment" dataReference="auto_dg_for_task3_compartment"/>
+        <dataSet id="autogen_task3_a_0_Shikimate_Biosynthesis" label="a_0_Shikimate_Biosynthesis" dataReference="auto_dg_for_task3_a_0_Shikimate_Biosynthesis"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

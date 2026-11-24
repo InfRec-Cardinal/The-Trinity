@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_gu0p">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_ak7n">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_rkh1">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_v9w1">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_5bml">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_41pp">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_82l1" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_oggm" compartment="id_82l1" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_89xa" compartment="id_82l1" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_sxt1" compartment="id_82l1" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_1vh9" compartment="id_82l1" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_r4h9" compartment="id_82l1" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_mhpd" compartment="id_82l1" initialConcentration="1.4e-06" boundaryCondition="false" constant="false"/>
+      <species id="id_p9rp" compartment="id_82l1" initialConcentration="1e-09" boundaryCondition="false" constant="false"/>
+      <species id="id_z5qf" compartment="id_82l1" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_lj9y" compartment="id_82l1" initialConcentration="1.6e-07" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

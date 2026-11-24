@@ -1,3 +1,4 @@
+import {executionLimits, executionIdentity} from './execution-policy.mjs';
 import {hostVerificationCall} from './host-verification.mjs';
 import {defaultTrainingMemory} from './protocol-state.mjs';
 import fs from 'node:fs';
@@ -27,11 +28,14 @@ export function cosine(left, right) {
 }
 export class Router {
   #plan; #memory; #results = []; #cursor = 0; #running = false; #sealed = null;
-  #agent; #driver; #store; #similarity; #planDigest; #poolDigest; #promptDigest;
-  constructor({agent, driver, store, plan, memory, trainingRun = null, allowColdStart = false, similarity = cosine}) {
+  #agent; #driver; #store; #similarity; #planDigest; #poolDigest; #promptDigest; #nativeHost; #executionProfile;
+  constructor({agent, driver, store, plan, memory, trainingRun = null, allowColdStart = false, similarity = cosine, nativeHost}) {
+    this.#nativeHost=nativeHost;
     this.#plan = freezeRoutingPlan(plan);
+    for (const task of this.#plan.tasks) executionLimits({...task, driver});
     memory ??= trainingRun ? defaultTrainingMemory(trainingRun) : allowColdStart ? [] : defaultTrainingMemory(path.dirname(store.directory));
     ensure(memory.length > 0 || allowColdStart, 'Verified training memory is required; cold start must be explicit');
+    this.#executionProfile = executionIdentity(agent);
     this.#agent = agent; this.#driver = driver; this.#store = store; this.#similarity = similarity;
     this.#memory = orderedTrainingMemory(validateTrainingMemory(memory), this.#plan.publicMetadataKeys);
     this.#planDigest = digest(this.#plan);
@@ -41,7 +45,7 @@ export class Router {
     ensure(!existing.some(event => event.type === 'routing_session_registered'), 'This run directory already has a routing session');
     const planArtifact = store.put(this.#plan);
     store.record('routing_session_registered', {planDigest: this.#planDigest, planArtifact, poolDigest: this.#poolDigest,
-      promptDigest: this.#promptDigest, protocolId: plan.protocolId, split: plan.split,
+      executionProfile: this.#executionProfile, promptDigest: this.#promptDigest, protocolId: plan.protocolId, split: plan.split,
       taskIds: this.#plan.tasks.map(task => task.taskId), initialMemoryDigest: digest(this.#memory),
       sourceMemoryDigest: digest(memory), sourceMemoryCount: memory.length,
       retrieval: {threshold: 0.5, limit: 10, capacity: 20000}});
@@ -50,13 +54,14 @@ export class Router {
   get results() {return clone(this.#results);}
   get nextTaskId() {return this.#plan.tasks[this.#cursor]?.taskId ?? null;}
   async run(taskId) {
+    ensure(digest(executionIdentity(this.#agent)) === digest(this.#executionProfile), 'Routing model settings changed');
     ensure(!this.#sealed && !this.#running, 'Routing session is sealed or already running');
     ensure(typeof taskId === 'string' && taskId === this.nextTaskId, 'Task must be the next unprocessed manifest instance');
     this.#running = true;
     try {
       const item = clone(this.#plan.tasks[this.#cursor]);
       const callBudget = {limit: item.modelCallBudget, modelCalls: 0, preparationCalls: 0,
-        preparationLimit: 5 * 3 * item.budget + 1, promptDigest: this.#promptDigest};
+        preparationLimit: 5 * 3 * executionLimits({...item, driver: this.#driver}).interactionLimit + 1, promptDigest: this.#promptDigest};
       const agent = boundedRoutingAgent(this.#agent, callBudget);
       const options = {...item, publicTask: {...item.publicTask, id: item.taskId},
         candidates: this.#plan.candidates.filter(candidate => item.candidateIds.includes(candidate.snapshotId)).map(clone),
@@ -126,7 +131,7 @@ export class Router {
     };
     return agent.withScope ? agent.withScope({routingId, benchmarkId: options.benchmarkId, taskId: options.publicTask.id ?? null, protocolId: options.protocolId, split: options.split ?? 'unseen'}, task) : task();
   }
-  async #execute({publicTask, world, candidates, budget, split = 'unseen', benchmarkId, protocolId, preparationWorlds, skillDirectory, scoreNormalization, instance, expectedInitialStateHash, routingId}, agent, callBudget) {
+  async #execute({publicTask, world, candidates, budget, maxFreeActions, split = 'unseen', benchmarkId, protocolId, preparationWorlds, skillDirectory, scoreNormalization, instance, expectedInitialStateHash, routingId}, agent, callBudget) {
     const usageStart = agent.calls?.length ?? 0;
     const episodeStart = this.#store.episodes.length;
     ensure(candidates.length > 0, 'No compatible Harness candidates');
@@ -142,7 +147,9 @@ export class Router {
     const selection = await agent.ask('router_select', {publicTask: safeTask, candidates: candidates.map(candidate => ({snapshotId: candidate.snapshotId, description: candidate.description})), retrieved, summaries}, {snapshotId: 'Candidate ID', rationale: 'Evidence-based reason'});
     ensure(typeof selection?.rationale === 'string' && selection.rationale.trim().length > 0, 'Routing selection requires a rationale before execution');
     const candidate = candidates.find(value => value.snapshotId === selection.snapshotId);
-    const decisionId = this.#store.record('routing_committed', {publicTask: safeTask, selection, budget, modelCallBudget: callBudget.limit, planDigest: this.#planDigest, poolDigest: this.#poolDigest, worldDigest: digest(world)});
+    const decisionId = this.#store.record('routing_committed', {publicTask: safeTask, selection, budget,
+      ...executionLimits({budget, maxFreeActions, driver: this.#driver}), modelCallBudget: callBudget.limit,
+      planDigest: this.#planDigest, poolDigest: this.#poolDigest, worldDigest: digest(world)});
     const finish = report => {
       const final = {...routingScore(report), routingId, decisionId, selectedSnapshotId: selection.snapshotId ?? null, phase: 'routed_evaluation',
         modelCallBudget: callBudget.limit, modelCalls: callBudget.modelCalls, preparationModelCalls: callBudget.preparationCalls,
@@ -158,11 +165,11 @@ export class Router {
     }
     let report;
     try {
-      report = await evaluateWithSkills({...frozenInstance, agent, driver: this.#driver, store: this.#store, world, modules: candidate.modules, budget, decisionId, publicTask: safeTask, phase: 'routed_evaluation', node: candidate.node, benchmarkId, taskId: publicTask.id ?? null, split, protocolId, preparationWorlds, skillDirectory, scoreNormalization});
+      report = await evaluateWithSkills({...frozenInstance, nativeHost:this.#nativeHost,agent, driver: this.#driver, store: this.#store, world, modules: candidate.modules, budget, maxFreeActions, decisionId, publicTask: safeTask, phase: 'routed_evaluation', node: candidate.node, benchmarkId, taskId: publicTask.id ?? null, split, protocolId, preparationWorlds, skillDirectory, scoreNormalization});
       if (report.technicalFailure) return finish(report);
 
       const receipt = verifyRoutedReceipt({...report, cost: report.executionCost}, {store: this.#store, decisionId,
-        harnessId: candidate.snapshotId, worldDigest: digest(world), budget});
+        harnessId: candidate.snapshotId, worldDigest: digest(world), budget, ...executionLimits({budget, maxFreeActions, driver: this.#driver})});
       this.#store.record('routing_receipt_verified', {decisionId, episodeId: report.episodeId, receiptHash: report.terminalReceipt.hash});
       const entry = {publicTask: safeTask, snapshotId: candidate.snapshotId, success: receipt.success, score: receipt.score,
         usage: report.executionUsage, cost: receipt.cost, split, verified: true, decisionId, episodeId: receipt.episodeId, terminalReceiptHash: report.terminalReceipt.hash};

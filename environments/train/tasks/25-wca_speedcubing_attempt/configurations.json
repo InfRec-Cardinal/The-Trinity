@@ -1,0 +1,133 @@
+{
+  "taskId": "wca_speedcubing_attempt",
+  "configurations": [
+    {
+      "id": "wca-refresh-20261016-1",
+      "ordinal": 0,
+      "selector": {
+        "providerId": "wca-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 0
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "34068a397da40a8354fba93c16e6f65caefe54ff7b70a21e9532f13645b90a02",
+      "configurationHash": "2f34f89c52403faada6e6c2bed3b046501448d68879b64f354d22577acf08322",
+      "episodes": 5,
+      "h0Runs": 0
+    },
+    {
+      "id": "wca-refresh-20261016-2",
+      "ordinal": 1,
+      "selector": {
+        "providerId": "wca-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 1
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "6343dfab92608bcbbad0683fd6a26c065dc560f64fd1c1363b935bcc1aebcdf6",
+      "configurationHash": "11092f634a5ab2f5660d198e08383e5e7758da3ded408f347abad1e17b519cd5",
+      "episodes": 5,
+      "h0Runs": 0
+    },
+    {
+      "id": "wca-refresh-20261016-3",
+      "ordinal": 2,
+      "selector": {
+        "providerId": "wca-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 2
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "f77b306133ee1a08710037b9431f71969250165d58f29df78f9c4052ab33246a",
+      "configurationHash": "75d7d87d90d34dc54da42c104b807829d6888ac29d1e161ce31a4e30eb54d125",
+      "episodes": 5,
+      "h0Runs": 0
+    },
+    {
+      "id": "wca-refresh-20261016-4",
+      "ordinal": 3,
+      "selector": {
+        "providerId": "wca-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 3
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "f14af47e8a79ca21ed3fa8b716d3fedf00204f910b933ea992c139f08d908cff",
+      "configurationHash": "ca916bf434863ca1654a0f90f59c156189e1936d79009df4911b5e9d561b2c13",
+      "episodes": 5,
+      "h0Runs": 0
+    },
+    {
+      "id": "wca-refresh-20261016-5",
+      "ordinal": 4,
+      "selector": {
+        "providerId": "wca-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 4
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "9c87dfa96005339b6f1ab402b8b7f238eb9db79cc380f17376705552004cc053",
+      "configurationHash": "ffe67e7ffb7f521c485ee08e19e60c9e6b5f13c306a401705a734edd51ae4e59",
+      "episodes": 5,
+      "h0Runs": 0
+    },
+    {
+      "id": "wca-refresh-20261016-6",
+      "ordinal": 5,
+      "selector": {
+        "providerId": "wca-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 5
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "824ef066566ed9ee63676373547920874c383dc26051dcfdd6466199fe485d4e",
+      "configurationHash": "fcea3231c607fae40237d24508cd9bcbcd6ef8776cf4c22d05a18ed01b9dec07",
+      "episodes": 5,
+      "h0Runs": 0
+    },
+    {
+      "id": "wca-refresh-20261016-7",
+      "ordinal": 6,
+      "selector": {
+        "providerId": "wca-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 6
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "df4cd7d6287fdf3ba7a9f93e3843d1ba6d43075e5b671d284ed41dd7f56892c3",
+      "configurationHash": "a15275739fdfa9ee6bd5ae58dc166b2205ccd158ddd60c02155d544219956858",
+      "episodes": 5,
+      "h0Runs": 0
+    },
+    {
+      "id": "wca-refresh-20261016-8",
+      "ordinal": 7,
+      "selector": {
+        "providerId": "wca-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 7
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "ee09757dc03329bc55bdabde601e16780e21d3a48c0612862b887fd5854b1273",
+      "configurationHash": "ed26ec5be9b69fecf59a85d996e30ef920e83074577857b29b585e47593896c0",
+      "episodes": 5,
+      "h0Runs": 0
+    },
+    {
+      "id": "wca-refresh-20261016-9",
+      "ordinal": 8,
+      "selector": {
+        "providerId": "wca-refresh-20261016",
+        "providerVersion": 2,
+        "ordinal": 8
+      },
+      "origin": "synthetic_reconstruction_instance",
+      "nativeInstanceFingerprint": "5035c087e32620ca57d4632ba0fd00476a2e3aa72e78dc90af2202206109c1e1",
+      "configurationHash": "7f6ce3969efa9fbebe31fea8626b6362e7d22c8614ba06b27b59ae364f9deb9c",
+      "episodes": 5,
+      "h0Runs": 0
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

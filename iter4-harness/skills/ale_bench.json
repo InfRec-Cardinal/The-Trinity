@@ -1,0 +1,79 @@
+{
+  "taskId": "ale_bench",
+  "proposals": [
+    {
+      "id": "self-capped-time-budget",
+      "title": "Cap anytime search well under the stated limit and make the cap global",
+      "audience": [
+        "playing"
+      ],
+      "capability": "coding",
+      "trigger": "The solution uses an anytime loop (simulated annealing, beam, repeated restarts) that runs until a self-measured deadline derived from the problem's stated execution time limit, and the public judge has so far returned ACCEPTED.",
+      "procedure": [
+        "Derive the internal deadline as a fixed fraction of the stated limit (leave a clear margin), not as the limit minus a few milliseconds; the grading machine may be slower than the public one.",
+        "Measure elapsed time from process start with a single monotonic clock and check it inside every inner loop that can run long, including construction, repair and output phases — not only the main optimization loop.",
+        "Make the worst case bounded independently of input: any per-iteration cost that grows with input size must be divided out of the iteration budget so the largest instances still finish.",
+        "After each round, scale the margin by observed headroom only downward, never upward: if any case's score pattern suggests near-limit behaviour, shrink the internal deadline rather than extending it.",
+        "Prefer winning score by better moves per unit time over winning it by consuming more wall-clock; if a change only helps because it runs longer, reject it.",
+        "Keep a guaranteed-valid fallback answer written before the search begins so an early abort still emits legal output."
+      ],
+      "successSignals": [
+        "Every submitted round returns ACCEPTED and the final graded verdict matches the public verdict.",
+        "Score improvements across rounds come from algorithmic changes while measured runtime stays flat and below the self-imposed cap."
+      ],
+      "failureSignals": [
+        "Any round's verdict changes to TIME_LIMIT_EXCEEDED, or the final verdict differs from the public verdicts.",
+        "The internal deadline equals or nearly equals the stated limit, or long phases exist with no clock check."
+      ],
+      "recovery": [
+        "Immediately resubmit the current best variant with the internal deadline reduced substantially and clock checks added to every unbounded loop, before attempting any further quality improvement."
+      ],
+      "invariants": [
+        "Never set the internal deadline to the full stated limit.",
+        "Legal output must be producible at any abort point."
+      ],
+      "sourceGapIds": [
+        "fills-stated-time-limit",
+        "no-wallclock-margin",
+        "verdict-regression-unnoticed"
+      ]
+    },
+    {
+      "id": "revert-to-measured-best",
+      "title": "Treat the best measured variant as the base; revert instead of stacking onto a regression",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "A submission round returns an aggregate score worse than the best aggregate seen so far in this episode, and submission rounds remain.",
+      "procedure": [
+        "Keep the exact source of the best-scoring variant so far; treat it, not the most recent variant, as the base for the next edit.",
+        "When the latest round regressed, discard the regressing change and re-derive the next edit from the stored best base.",
+        "Make one conceptually isolated change per round so each round's score difference attributes to that change.",
+        "Use the per-case score breakdown already returned to decide where to edit: target the cases that are weakest relative to the best base, not uniform rewrites.",
+        "Resist monotone code growth; if a change adds substantial code without an aggregate gain over the best base, remove it.",
+        "Reserve the last round to resubmit the stored best base verbatim if no later variant has beaten it."
+      ],
+      "successSignals": [
+        "Aggregate score is non-decreasing across the second half of the episode and the final submission equals or beats the episode's best.",
+        "Code size plateaus while score still improves."
+      ],
+      "failureSignals": [
+        "Two or more consecutive rounds below the best-so-far aggregate while code size keeps growing.",
+        "Final submission scores below a variant submitted earlier in the same episode."
+      ],
+      "recovery": [
+        "Resubmit the stored best variant unchanged to re-anchor, then resume with a single small edit."
+      ],
+      "invariants": [
+        "Never build the next revision on top of a variant that scored worse than the stored best.",
+        "Exactly one isolated change per round."
+      ],
+      "sourceGapIds": [
+        "stacks-onto-regression",
+        "monotone-code-growth",
+        "final-worse-than-earlier-best"
+      ]
+    }
+  ]
+}

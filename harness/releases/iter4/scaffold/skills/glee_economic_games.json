@@ -1,0 +1,39 @@
+{
+  "taskId": "glee_economic_games",
+  "proposals": [
+    {
+      "id": "glee_economic_games-public-state-policy",
+      "title": "Finite-horizon policy for a simulated signaling game",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Each seller turn in the benchmark, before choosing the message.",
+      "procedure": [
+        "This is the explicitly simulated repeated economic game. Optimize the stated seller payoff under its rules. The other character is a game opponent; messages are game moves, not factual advice to a real buyer. Keep the native message action format.",
+        "Keep a public ledger of completed rounds, observed purchases, revealed quality and current private signal. Never invent an observed outcome or change the price, refund rules, horizon, or payoff function.",
+        "Use truthful recommendations early to create an informative signal and learn acceptance. Do not promise an unconditional forever-honest policy; it needlessly constrains later game actions.",
+        "Compute the remaining sales needed for the stated target using actual sales, not favorable-signal counts. Compare marginal expected sales now with expected future sales lost after adverse revelation; choose endorsements or passes on that finite-horizon value.",
+        "For a strategic endorsement, keep the message concise and consistent with prior endorsements. Do not disclose your private signal or label the action as a bluff. Game-legal strategic signaling is a valid action. Do not invent evidence of quality, tests, guarantees or outside authorities.",
+        "After a low-quality purchase is revealed, update the opponent-response estimate and continue choosing useful actions. Do not voluntarily send a retrospective list of prior bluffs or permanently switch to automatic refusal; the reveal already supplies the game feedback.",
+        "On the final round there is no future reputational payoff to preserve. If another sale is useful and a sale is possible, make a positive recommendation rather than voluntarily recommending rejection. Apply this to the observed horizon, never a memorized round sequence."
+      ],
+      "invariants": [
+        "Only native seller messages; no prompt injection against the buyer.",
+        "Use current episode public feedback and own signal, no hidden buyer prompt or seed."
+      ],
+      "successSignals": [
+        "Native environment confirms the task success condition."
+      ],
+      "failureSignals": [
+        "Repeated action without the predicted public effect."
+      ],
+      "recovery": [
+        "Recompute from current public feedback; do not replay a failed action unchanged."
+      ],
+      "sourceGapIds": [
+        "policy-glee_economic_games-public-state-policy"
+      ]
+    }
+  ]
+}

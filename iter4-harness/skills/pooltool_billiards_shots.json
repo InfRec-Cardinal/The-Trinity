@@ -1,0 +1,38 @@
+{
+  "taskId": "pooltool_billiards_shots",
+  "proposals": [
+    {
+      "id": "pooltool-billiards-shots",
+      "title": "Adapt finite shot controls to observed effects and terminal objective",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Before each native decision in this task, using only current public observations and earlier public feedback.",
+      "procedure": [
+        "Read the actual task objective: the terminal-scoring target must be pocketed within the shot budget; clearing every other ball is only a possible route, not the objective. The native system chooses the aim automatically, so do not plan an aiming adjustment you cannot execute.",
+        "Inspect the cue, the automatically selected contact target, the scoring target and pockets in relative geometry. For a compact cluster use a strong central strike to separate the cluster. After separation, use controlled speed only when the current automatic line can plausibly reach a pocket; otherwise a rail route or secondary collision may need stronger travel.",
+        "After each shot compare the visible target identities, remaining-object count, cue location and scratch indication. A changed arrangement is not automatically score progress; distinguish a clearing event from motion alone.",
+        "If a control pair has twice failed to remove the current contact target or improve a visible route, change a meaningful control on the next shot: speed or spin direction. Do not cycle back to a repeatedly ineffective pair merely because it is the default. The same pair can be reconsidered only after a visibly changed contact geometry.",
+        "Follow-through and draw affect cue travel after contact; choose them for the observed line and scratch risk rather than rotating labels arbitrarily. A scratch resets the cue and invalidates the previous position plan.",
+        "As remaining shots shrink, prefer direct scoring opportunities and purposeful secondary collisions over slow clearing that cannot finish in budget. Preserve the distinction between the target the host aims at and the target whose pocketing terminates the game."
+      ],
+      "successSignals": [
+        "Native objective achieved; actual feedback agrees with the selected action."
+      ],
+      "failureSignals": [
+        "Action repeats a known failure or depends on an unverified observation or model."
+      ],
+      "recovery": [
+        "Re-read the actual public feedback, identify whether perception, model or execution was wrong, and revise only that assumption."
+      ],
+      "invariants": [
+        "Use relative visual geometry, no pixel coordinates, fixed ball layouts, seed schedules or stored action sequences.",
+        "Actions are limited to the actual public speed and strike controls."
+      ],
+      "sourceGapIds": [
+        "policy-pooltool-billiards-shots"
+      ]
+    }
+  ]
+}

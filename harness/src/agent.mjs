@@ -13,13 +13,16 @@ export class CommandAgent {
     this.maxBytes = maxBytes;
   }
   async respond(request) {
+    const input = JSON.stringify(request);
     return new Promise((resolve, reject) => {
       const child = spawn(this.command[0], this.command.slice(1), {stdio: ['pipe', 'pipe', 'pipe'], shell: false});
+      child.stdout.setEncoding('utf8'); child.stderr.setEncoding('utf8');
       let output = '', error = '', settled = false;
       const finish = (failure, value) => {
         if (settled) return;
         settled = true;
         clearTimeout(timer);
+        if (failure && child.pid && child.exitCode === null && child.signalCode === null) child.kill('SIGKILL');
         failure ? reject(failure) : resolve(value);
       };
       const timer = setTimeout(() => {child.kill('SIGKILL'); finish(Error('Agent response timeout'));}, this.timeoutMs);
@@ -37,7 +40,7 @@ export class CommandAgent {
           finish(null, response);
         } catch (failure) {finish(failure);}
       });
-      child.stdin.end(JSON.stringify(request));
+      try { child.stdin.end(input); } catch (failure) { finish(failure); }
     });
   }
 }

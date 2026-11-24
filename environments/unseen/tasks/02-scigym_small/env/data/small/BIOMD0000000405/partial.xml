@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_63tt">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_zikm">
+        <listOfUnits>
+          <unit kind="dimensionless"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_bzgw">
+        <listOfUnits>
+          <unit kind="item"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_ezco" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_gg4p" compartment="id_ezco" initialConcentration="100"/>
+      <species id="id_f7cs" compartment="id_ezco" initialConcentration="0"/>
+      <species id="id_o5u9" compartment="id_ezco" initialConcentration="0"/>
+      <species id="id_qifv" compartment="id_ezco" initialConcentration="0"/>
+      <species id="id_ldfd" compartment="id_ezco" initialConcentration="1"/>
+      <species id="id_kkqu" compartment="id_ezco" initialConcentration="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

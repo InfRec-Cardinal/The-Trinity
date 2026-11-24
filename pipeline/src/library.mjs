@@ -8,6 +8,7 @@ const ROOT_LABELS = { benchmarks: 'Benchmarks' };
 export function buildTaskTree(state) {
   const { search: s, library, split } = state;
   if (!library || !split) throw new Error('the library and split must exist before the task tree can be exported');
+  if (s.errorCode === 'library_curation' || library.tasks.some(t => s.candidates?.[t.taskId]?.status === 'withdrawn')) throw new Error('Curated library must be rebuilt and split before export');
   const nodes = library.tree, byParent = new Map();
   for (const node of nodes) byParent.set(node.parentId ?? null, [...(byParent.get(node.parentId ?? null) ?? []), node]);
   const tasksOf = id => library.tasks.filter(t => t.direction === id)

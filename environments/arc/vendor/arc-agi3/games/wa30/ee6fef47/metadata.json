@@ -1,0 +1,19 @@
+{
+  "game_id": "wa30-ee6fef47",
+  "title": "WA30",
+  "default_fps": 5,
+  "tags": [
+    "keyboard"
+  ],
+  "baseline_actions": [
+    71,
+    119,
+    183,
+    98,
+    368,
+    68,
+    79,
+    442,
+    415
+  ]
+}

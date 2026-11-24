@@ -1,0 +1,205 @@
+{
+  "taskId": "boxinggym",
+  "configurations": [
+    {
+      "id": "boxinggym-hyperbolic-2",
+      "label": "hyperbolic / native seed 2 / prior",
+      "ordinal": 0,
+      "sourceSelector": {
+        "domain": "hyperbolic",
+        "seed": 2,
+        "include_prior": true,
+        "goal": "direct_discovery",
+        "experiment_type": "discovery",
+        "com_limit": 200,
+        "num_evals": 10
+      },
+      "episodes": 5,
+      "h0Runs": 0,
+      "origin": "official_generator_declared_seed",
+      "configurationType": "native_seeded_instance",
+      "configurationHash": "77c4c5d23e458f74493276324d924b3be304571a08ae66dbd8d1344c110c2b69",
+      "nativeInstanceFingerprint": "01592cd29d9e4530eba977f344dcc1319af786e893cb8e249dc579b658352433",
+      "nativeInitialHash": "f3c27e7fa2cdd0d255f60acc83b694f5727d8e98109e48d084fe6b6b73b8b747",
+      "initialPublicHash": "33f8ca3ec1d81a529c46480df74237ba3c8fc60d473076e112623c1689720430"
+    },
+    {
+      "id": "boxinggym-hyperbolic-3",
+      "label": "hyperbolic / native seed 3 / prior",
+      "ordinal": 1,
+      "sourceSelector": {
+        "domain": "hyperbolic",
+        "seed": 3,
+        "include_prior": true,
+        "goal": "direct_discovery",
+        "experiment_type": "discovery",
+        "com_limit": 200,
+        "num_evals": 10
+      },
+      "episodes": 5,
+      "h0Runs": 0,
+      "origin": "official_generator_declared_seed",
+      "configurationType": "native_seeded_instance",
+      "configurationHash": "147405b1d27a86237d6e8587f6a71288cb7581a978dccac16185ec23e9266e42",
+      "nativeInstanceFingerprint": "06a2a29e496693a6a1f75404970fa385f8758047cd0f9f90cc0e5857d8ea34f6",
+      "nativeInitialHash": "3d5b977572c6076c669ecf76d0ec446b54a3138452fc6de55a9e34db6a12899a",
+      "initialPublicHash": "cac3d119c1fac63d39a76af6d439e1c0a7f75c4b06cef80cb986a5c83569c464"
+    },
+    {
+      "id": "boxinggym-hyperbolic-4",
+      "label": "hyperbolic / native seed 4 / prior",
+      "ordinal": 2,
+      "sourceSelector": {
+        "domain": "hyperbolic",
+        "seed": 4,
+        "include_prior": true,
+        "goal": "direct_discovery",
+        "experiment_type": "discovery",
+        "com_limit": 200,
+        "num_evals": 10
+      },
+      "episodes": 5,
+      "h0Runs": 0,
+      "origin": "official_generator_declared_seed",
+      "configurationType": "native_seeded_instance",
+      "configurationHash": "7402878a80977c12a3736b8eb8b1cc46d4def4c786d56e1bd04dee95d0a9a718",
+      "nativeInstanceFingerprint": "e7fa8c0883bdddb381b5bea8e03fde706a9cb14b55d35658db1989229d982e56",
+      "nativeInitialHash": "302a0e92eae325de167c46281a8e3596515066ee596a950cd05598ebf7f53686",
+      "initialPublicHash": "0e358f95e56e1dc2c170ecf250cf8a7698500869bac2855d956d40570e7d1ec7"
+    },
+    {
+      "id": "boxinggym-location_finding-1",
+      "label": "location_finding / native seed 1 / no prior",
+      "ordinal": 3,
+      "sourceSelector": {
+        "domain": "location_finding",
+        "seed": 1,
+        "include_prior": false,
+        "goal": "direct_discovery",
+        "experiment_type": "discovery",
+        "com_limit": 200,
+        "num_evals": 10
+      },
+      "episodes": 5,
+      "h0Runs": 0,
+      "origin": "official_generator_declared_seed",
+      "configurationType": "native_seeded_instance",
+      "configurationHash": "28c3e689fec846dab29de85ad2eee74e05007a4553ee4d00c99b3112c1634697",
+      "nativeInstanceFingerprint": "7443879e84f4259b091d800eaa097ce5ef0bff9a12ad335424c93bc9c4898ab3",
+      "nativeInitialHash": "047a17530fd2f09ccfc4efd075660c6e45b70fcee49187db90ac01eb4635ba00",
+      "initialPublicHash": "6b7c2070f00e509b622d00baa1ae960f7b3cf87081e15fc7037c56d8e595c2a9"
+    },
+    {
+      "id": "boxinggym-location_finding-3",
+      "label": "location_finding / native seed 3 / no prior",
+      "ordinal": 4,
+      "sourceSelector": {
+        "domain": "location_finding",
+        "seed": 3,
+        "include_prior": false,
+        "goal": "direct_discovery",
+        "experiment_type": "discovery",
+        "com_limit": 200,
+        "num_evals": 10
+      },
+      "episodes": 5,
+      "h0Runs": 0,
+      "origin": "official_generator_declared_seed",
+      "configurationType": "native_seeded_instance",
+      "configurationHash": "073276960aa5b164c7267f26c3ab8dfe4bfb450f3cb8aef858e33c5d3bbd9623",
+      "nativeInstanceFingerprint": "9ee8a1c7e9b25c6fcc06e459d126c1253d142f69d389a6fd0368abeb760c5f25",
+      "nativeInitialHash": "a64f1220f7ad8b39ccdc3e9b0d10a9e35df67c2f530a6131a197302316c7a785",
+      "initialPublicHash": "3a75e65d3aaacedb6013139b9762c5c25492e64193d9b193bb07aa2f61123235"
+    },
+    {
+      "id": "boxinggym-location_finding-4",
+      "label": "location_finding / native seed 4 / no prior",
+      "ordinal": 5,
+      "sourceSelector": {
+        "domain": "location_finding",
+        "seed": 4,
+        "include_prior": false,
+        "goal": "direct_discovery",
+        "experiment_type": "discovery",
+        "com_limit": 200,
+        "num_evals": 10
+      },
+      "episodes": 5,
+      "h0Runs": 0,
+      "origin": "official_generator_declared_seed",
+      "configurationType": "native_seeded_instance",
+      "configurationHash": "63c4eaf7a946e27f54ed90c0bd4242023d707b99a1972a6a99ae3b7639b1a046",
+      "nativeInstanceFingerprint": "5714386c07a79126d4f393dc5df2a7889b3fbf42a4290e8d5163d035ff1bd0f9",
+      "nativeInitialHash": "a987be2f62635e642f936c5dbf95e30e35b601d846e7cca6bade21614c9feee4",
+      "initialPublicHash": "4e71d74915c50724b06e7d67ea540a0817906473032a128ab012f410af3364a2"
+    },
+    {
+      "id": "boxinggym-death_process-1",
+      "label": "death_process / native seed 1 / prior",
+      "ordinal": 6,
+      "sourceSelector": {
+        "domain": "death_process",
+        "seed": 1,
+        "include_prior": true,
+        "goal": "direct_discovery",
+        "experiment_type": "discovery",
+        "com_limit": 200,
+        "num_evals": 10
+      },
+      "episodes": 5,
+      "h0Runs": 0,
+      "origin": "official_generator_declared_seed",
+      "configurationType": "native_seeded_instance",
+      "configurationHash": "bbf482b031fbdfc4251a63f72f25caf64fa042d0b769aecf14d298af6cd34fdb",
+      "nativeInstanceFingerprint": "84c4a5ba1329c78fd419c4f3326a365eadebd13d6d43922cd38d0f5fbebfa0ce",
+      "nativeInitialHash": "db73bd843b8f6c2a759a7d84bac1a66000718ee730840b7c14fef63755a5dab8",
+      "initialPublicHash": "ac14baf273c6b6c1687399784a7e95fac66021c12092513fb1d84ada194e4326"
+    },
+    {
+      "id": "boxinggym-death_process-2",
+      "label": "death_process / native seed 2 / prior",
+      "ordinal": 7,
+      "sourceSelector": {
+        "domain": "death_process",
+        "seed": 2,
+        "include_prior": true,
+        "goal": "direct_discovery",
+        "experiment_type": "discovery",
+        "com_limit": 200,
+        "num_evals": 10
+      },
+      "episodes": 5,
+      "h0Runs": 0,
+      "origin": "official_generator_declared_seed",
+      "configurationType": "native_seeded_instance",
+      "configurationHash": "a88741c31f9a6c644ce1f15205e2a24c76b590c4775b57d2112d71488810623f",
+      "nativeInstanceFingerprint": "3588e99f6330f33e44e33f366e70fa779e56f980c4cfa099cdd0e59ebf06cedc",
+      "nativeInitialHash": "8f7adfc83a6d61377b5f4f43044002b0f68c80d29ceb67a8b2c5164bc7f3feb4",
+      "initialPublicHash": "ac14baf273c6b6c1687399784a7e95fac66021c12092513fb1d84ada194e4326"
+    },
+    {
+      "id": "boxinggym-death_process-4",
+      "label": "death_process / native seed 4 / prior",
+      "ordinal": 8,
+      "sourceSelector": {
+        "domain": "death_process",
+        "seed": 4,
+        "include_prior": true,
+        "goal": "direct_discovery",
+        "experiment_type": "discovery",
+        "com_limit": 200,
+        "num_evals": 10
+      },
+      "episodes": 5,
+      "h0Runs": 0,
+      "origin": "official_generator_declared_seed",
+      "configurationType": "native_seeded_instance",
+      "configurationHash": "c5447c3df89e3bf112ec17787fe8b2ec0c2b852f62074a7f4b1dda26f2f9a7fb",
+      "nativeInstanceFingerprint": "2b1a5cde35f3d98f246c390b8b6b3f99001d9111488fb65b883ed131522e1f74",
+      "nativeInitialHash": "33c2e9da8e89fe46c4114d89c1162b07777aa979315ffe5a6dd6a97f20a688a8",
+      "initialPublicHash": "ac14baf273c6b6c1687399784a7e95fac66021c12092513fb1d84ada194e4326"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

@@ -1,0 +1,2735 @@
+[
+  {
+    "seed": 29,
+    "tier": "pilgrim",
+    "tierIndex": 0,
+    "locations": [
+      {
+        "id": 0,
+        "name": "Starting cabin",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005,
+        "loot": {
+          "food": 3,
+          "water": 6,
+          "fuel": 4,
+          "tinder": 5,
+          "matches": 5,
+          "cloth": 3,
+          "bandage": 1,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 1
+          },
+          {
+            "to": 9,
+            "hours": 1
+          },
+          {
+            "to": 4,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Forest 1",
+        "shelter": 0.36,
+        "wildlifeRisk": 0.050149053581990295,
+        "loot": {
+          "food": 3,
+          "water": 6,
+          "fuel": 4,
+          "tinder": 6,
+          "matches": 4,
+          "cloth": 4,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 0,
+            "hours": 1
+          },
+          {
+            "to": 2,
+            "hours": 3
+          },
+          {
+            "to": 6,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lodge 2",
+        "shelter": 0.18,
+        "wildlifeRisk": 0.056445044181309634,
+        "loot": {
+          "food": 4,
+          "water": 4,
+          "fuel": 5,
+          "tinder": 5,
+          "matches": 3,
+          "cloth": 3,
+          "bandage": 0,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 3
+          },
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ravine 3",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005622728844173253,
+        "loot": {
+          "food": 2,
+          "water": 3,
+          "fuel": 4,
+          "tinder": 3,
+          "matches": 6,
+          "cloth": 4,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 2,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 3
+          },
+          {
+            "to": 5,
+            "hours": 1
+          },
+          {
+            "to": 9,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Outpost 4",
+        "shelter": 0.18,
+        "wildlifeRisk": 0.061904583456926045,
+        "loot": {
+          "food": 7,
+          "water": 3,
+          "fuel": 6,
+          "tinder": 5,
+          "matches": 6,
+          "cloth": 4,
+          "bandage": 0,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 3,
+            "hours": 3
+          },
+          {
+            "to": 5,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 8,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Cabin 5",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.05622429511044174,
+        "loot": {
+          "food": 7,
+          "water": 5,
+          "fuel": 2,
+          "tinder": 3,
+          "matches": 2,
+          "cloth": 1,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 6,
+            "hours": 3
+          },
+          {
+            "to": 2,
+            "hours": 3
+          },
+          {
+            "to": 3,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Forest 6",
+        "shelter": 0.87,
+        "wildlifeRisk": 0.03210547761525959,
+        "loot": {
+          "food": 3,
+          "water": 6,
+          "fuel": 1,
+          "tinder": 2,
+          "matches": 6,
+          "cloth": 6,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 5,
+            "hours": 3
+          },
+          {
+            "to": 7,
+            "hours": 3
+          },
+          {
+            "to": 1,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Lodge 7",
+        "shelter": 0.67,
+        "wildlifeRisk": 0.01051591191906482,
+        "loot": {
+          "food": 6,
+          "water": 3,
+          "fuel": 5,
+          "tinder": 4,
+          "matches": 4,
+          "cloth": 2,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 6,
+            "hours": 3
+          },
+          {
+            "to": 8,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Ravine 8",
+        "shelter": 0.25,
+        "wildlifeRisk": 0.0627866668952629,
+        "loot": {
+          "food": 8,
+          "water": 6,
+          "fuel": 5,
+          "tinder": 1,
+          "matches": 4,
+          "cloth": 3,
+          "bandage": 2,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 7,
+            "hours": 1
+          },
+          {
+            "to": 9,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Outpost 9",
+        "shelter": 0.76,
+        "wildlifeRisk": 0.015431549721397458,
+        "loot": {
+          "food": 3,
+          "water": 6,
+          "fuel": 2,
+          "tinder": 3,
+          "matches": 5,
+          "cloth": 5,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 8,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 1
+          },
+          {
+            "to": 3,
+            "hours": 1
+          }
+        ]
+      }
+    ],
+    "rescueDay": 5,
+    "rescueHour": 108,
+    "blizzards": [
+      {
+        "start": 35,
+        "hours": 9,
+        "temperaturePenalty": 20,
+        "wind": 45
+      },
+      {
+        "start": 44,
+        "hours": 10,
+        "temperaturePenalty": 20,
+        "wind": 45
+      }
+    ],
+    "dayTemperature": -12,
+    "clothingInsulation": 12,
+    "maxActions": 200,
+    "initialInventory": {
+      "food": 10,
+      "water": 6,
+      "fuel": 10,
+      "sticks": 3,
+      "tinder": 12,
+      "matches": 10,
+      "lighter": 1,
+      "cloth": 4,
+      "bandage": 2,
+      "medkit": 1,
+      "bedroll": 1,
+      "torch": 0
+    },
+    "rates": {
+      "calories": 2.2,
+      "thirst": 3.5,
+      "activeRest": 4,
+      "sleepRest": 10,
+      "warmthDamage": 5,
+      "caloriesDamage": 2,
+      "thirstDamage": 4,
+      "restDamage": 2,
+      "conditionRecovery": 0.8
+    }
+  },
+  {
+    "seed": 29,
+    "tier": "voyageur",
+    "tierIndex": 1,
+    "locations": [
+      {
+        "id": 0,
+        "name": "Starting cabin",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005,
+        "loot": {
+          "food": 2,
+          "water": 3,
+          "fuel": 2,
+          "tinder": 3,
+          "matches": 3,
+          "cloth": 1,
+          "bandage": 1,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 2
+          },
+          {
+            "to": 6,
+            "hours": 1
+          },
+          {
+            "to": 2,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Forest 1",
+        "shelter": 0.36,
+        "wildlifeRisk": 0.07522358037298545,
+        "loot": {
+          "food": 2,
+          "water": 3,
+          "fuel": 2,
+          "tinder": 3,
+          "matches": 2,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 2,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lodge 2",
+        "shelter": 0.18,
+        "wildlifeRisk": 0.08466756627196445,
+        "loot": {
+          "food": 2,
+          "water": 2,
+          "fuel": 3,
+          "tinder": 3,
+          "matches": 1,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 2
+          },
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 6,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ravine 3",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.008434093266259879,
+        "loot": {
+          "food": 1,
+          "water": 2,
+          "fuel": 2,
+          "tinder": 1,
+          "matches": 3,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 2,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 3
+          },
+          {
+            "to": 5,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Outpost 4",
+        "shelter": 0.18,
+        "wildlifeRisk": 0.09285687518538907,
+        "loot": {
+          "food": 4,
+          "water": 2,
+          "fuel": 3,
+          "tinder": 3,
+          "matches": 3,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 3,
+            "hours": 3
+          },
+          {
+            "to": 5,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Cabin 5",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.0843364426656626,
+        "loot": {
+          "food": 4,
+          "water": 3,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 1,
+          "cloth": 0,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 6,
+            "hours": 2
+          },
+          {
+            "to": 3,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Forest 6",
+        "shelter": 0.87,
+        "wildlifeRisk": 0.04815821642288938,
+        "loot": {
+          "food": 1,
+          "water": 3,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 3,
+          "cloth": 3,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 5,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 1
+          },
+          {
+            "to": 2,
+            "hours": 3
+          }
+        ]
+      }
+    ],
+    "rescueDay": 6,
+    "rescueHour": 132,
+    "blizzards": [
+      {
+        "start": 41,
+        "hours": 10,
+        "temperaturePenalty": 23,
+        "wind": 55
+      }
+    ],
+    "dayTemperature": -18,
+    "clothingInsulation": 10,
+    "maxActions": 200,
+    "initialInventory": {
+      "food": 5,
+      "water": 3,
+      "fuel": 6,
+      "sticks": 3,
+      "tinder": 8,
+      "matches": 7,
+      "lighter": 0,
+      "cloth": 3,
+      "bandage": 2,
+      "medkit": 1,
+      "bedroll": 1,
+      "torch": 0
+    },
+    "rates": {
+      "calories": 2.5500000000000003,
+      "thirst": 3.8,
+      "activeRest": 4.3,
+      "sleepRest": 10,
+      "warmthDamage": 5,
+      "caloriesDamage": 2,
+      "thirstDamage": 4,
+      "restDamage": 2,
+      "conditionRecovery": 0.8
+    }
+  },
+  {
+    "seed": 29,
+    "tier": "stalker",
+    "tierIndex": 2,
+    "locations": [
+      {
+        "id": 0,
+        "name": "Starting cabin",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005,
+        "loot": {
+          "food": 1,
+          "water": 2,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 1,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 3
+          },
+          {
+            "to": 8,
+            "hours": 1
+          },
+          {
+            "to": 5,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Forest 1",
+        "shelter": 0.36,
+        "wildlifeRisk": 0.10029810716398059,
+        "loot": {
+          "food": 1,
+          "water": 2,
+          "fuel": 1,
+          "tinder": 2,
+          "matches": 1,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 0,
+            "hours": 3
+          },
+          {
+            "to": 2,
+            "hours": 1
+          },
+          {
+            "to": 6,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lodge 2",
+        "shelter": 0.18,
+        "wildlifeRisk": 0.11289008836261927,
+        "loot": {
+          "food": 1,
+          "water": 1,
+          "fuel": 2,
+          "tinder": 2,
+          "matches": 1,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 1
+          },
+          {
+            "to": 3,
+            "hours": 3
+          },
+          {
+            "to": 6,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 7,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ravine 3",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.011245457688346505,
+        "loot": {
+          "food": 0,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 2,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 2,
+            "hours": 3
+          },
+          {
+            "to": 4,
+            "hours": 1
+          },
+          {
+            "to": 7,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Outpost 4",
+        "shelter": 0.18,
+        "wildlifeRisk": 0.12380916691385209,
+        "loot": {
+          "food": 2,
+          "water": 1,
+          "fuel": 2,
+          "tinder": 2,
+          "matches": 2,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 3,
+            "hours": 1
+          },
+          {
+            "to": 5,
+            "hours": 2
+          },
+          {
+            "to": 2,
+            "hours": 2
+          },
+          {
+            "to": 6,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Cabin 5",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.11244859022088348,
+        "loot": {
+          "food": 2,
+          "water": 1,
+          "fuel": 0,
+          "tinder": 1,
+          "matches": 0,
+          "cloth": 0,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 6,
+            "hours": 3
+          },
+          {
+            "to": 0,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Forest 6",
+        "shelter": 0.87,
+        "wildlifeRisk": 0.06421095523051917,
+        "loot": {
+          "food": 1,
+          "water": 2,
+          "fuel": 0,
+          "tinder": 0,
+          "matches": 2,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 5,
+            "hours": 3
+          },
+          {
+            "to": 7,
+            "hours": 3
+          },
+          {
+            "to": 1,
+            "hours": 2
+          },
+          {
+            "to": 2,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 8,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Lodge 7",
+        "shelter": 0.67,
+        "wildlifeRisk": 0.02103182383812964,
+        "loot": {
+          "food": 2,
+          "water": 1,
+          "fuel": 2,
+          "tinder": 1,
+          "matches": 1,
+          "cloth": 0,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 6,
+            "hours": 3
+          },
+          {
+            "to": 8,
+            "hours": 2
+          },
+          {
+            "to": 3,
+            "hours": 3
+          },
+          {
+            "to": 2,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Ravine 8",
+        "shelter": 0.25,
+        "wildlifeRisk": 0.1255733337905258,
+        "loot": {
+          "food": 2,
+          "water": 2,
+          "fuel": 1,
+          "tinder": 0,
+          "matches": 1,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 7,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 1
+          },
+          {
+            "to": 6,
+            "hours": 2
+          }
+        ]
+      }
+    ],
+    "rescueDay": 7,
+    "rescueHour": 156,
+    "blizzards": [
+      {
+        "start": 30,
+        "hours": 6,
+        "temperaturePenalty": 26,
+        "wind": 65
+      },
+      {
+        "start": 24,
+        "hours": 7,
+        "temperaturePenalty": 26,
+        "wind": 65
+      }
+    ],
+    "dayTemperature": -24,
+    "clothingInsulation": 8,
+    "maxActions": 200,
+    "initialInventory": {
+      "food": 3,
+      "water": 2,
+      "fuel": 3,
+      "sticks": 3,
+      "tinder": 4,
+      "matches": 4,
+      "lighter": 0,
+      "cloth": 2,
+      "bandage": 2,
+      "medkit": 1,
+      "bedroll": 1,
+      "torch": 0
+    },
+    "rates": {
+      "calories": 2.9000000000000004,
+      "thirst": 4.1,
+      "activeRest": 4.6,
+      "sleepRest": 10,
+      "warmthDamage": 5,
+      "caloriesDamage": 2,
+      "thirstDamage": 4,
+      "restDamage": 2,
+      "conditionRecovery": 0.8
+    }
+  },
+  {
+    "seed": 67,
+    "tier": "pilgrim",
+    "tierIndex": 0,
+    "locations": [
+      {
+        "id": 0,
+        "name": "Starting cabin",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005,
+        "loot": {
+          "food": 3,
+          "water": 3,
+          "fuel": 5,
+          "tinder": 2,
+          "matches": 1,
+          "cloth": 5,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 2
+          },
+          {
+            "to": 7,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Forest 1",
+        "shelter": 0.62,
+        "wildlifeRisk": 0.024805763917975128,
+        "loot": {
+          "food": 4,
+          "water": 2,
+          "fuel": 4,
+          "tinder": 1,
+          "matches": 4,
+          "cloth": 3,
+          "bandage": 1,
+          "medkit": 2
+        },
+        "edges": [
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 2,
+            "hours": 2
+          },
+          {
+            "to": 6,
+            "hours": 3
+          },
+          {
+            "to": 5,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lodge 2",
+        "shelter": 0.46,
+        "wildlifeRisk": 0.005376448915340007,
+        "loot": {
+          "food": 2,
+          "water": 5,
+          "fuel": 2,
+          "tinder": 3,
+          "matches": 1,
+          "cloth": 6,
+          "bandage": 1,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 2
+          },
+          {
+            "to": 3,
+            "hours": 3
+          },
+          {
+            "to": 6,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ravine 3",
+        "shelter": 0.72,
+        "wildlifeRisk": 0.019785945652984083,
+        "loot": {
+          "food": 5,
+          "water": 5,
+          "fuel": 3,
+          "tinder": 6,
+          "matches": 1,
+          "cloth": 4,
+          "bandage": 1,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 2,
+            "hours": 3
+          },
+          {
+            "to": 4,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Outpost 4",
+        "shelter": 0.29,
+        "wildlifeRisk": 0.013543699202127755,
+        "loot": {
+          "food": 4,
+          "water": 3,
+          "fuel": 5,
+          "tinder": 1,
+          "matches": 2,
+          "cloth": 4,
+          "bandage": 0,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 3,
+            "hours": 3
+          },
+          {
+            "to": 5,
+            "hours": 3
+          },
+          {
+            "to": 7,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Cabin 5",
+        "shelter": 0.35,
+        "wildlifeRisk": 0.023365032891742885,
+        "loot": {
+          "food": 3,
+          "water": 1,
+          "fuel": 5,
+          "tinder": 2,
+          "matches": 5,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 4,
+            "hours": 3
+          },
+          {
+            "to": 6,
+            "hours": 2
+          },
+          {
+            "to": 1,
+            "hours": 2
+          },
+          {
+            "to": 7,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Forest 6",
+        "shelter": 0.56,
+        "wildlifeRisk": 0.01496179009322077,
+        "loot": {
+          "food": 6,
+          "water": 4,
+          "fuel": 2,
+          "tinder": 2,
+          "matches": 5,
+          "cloth": 2,
+          "bandage": 1,
+          "medkit": 2
+        },
+        "edges": [
+          {
+            "to": 5,
+            "hours": 2
+          },
+          {
+            "to": 7,
+            "hours": 1
+          },
+          {
+            "to": 1,
+            "hours": 3
+          },
+          {
+            "to": 2,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Lodge 7",
+        "shelter": 0.19,
+        "wildlifeRisk": 0.04039687981363386,
+        "loot": {
+          "food": 2,
+          "water": 6,
+          "fuel": 3,
+          "tinder": 6,
+          "matches": 6,
+          "cloth": 2,
+          "bandage": 1,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 6,
+            "hours": 1
+          },
+          {
+            "to": 0,
+            "hours": 3
+          },
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 2
+          }
+        ]
+      }
+    ],
+    "rescueDay": 4,
+    "rescueHour": 84,
+    "blizzards": [
+      {
+        "start": 28,
+        "hours": 9,
+        "temperaturePenalty": 20,
+        "wind": 45
+      },
+      {
+        "start": 58,
+        "hours": 9,
+        "temperaturePenalty": 20,
+        "wind": 45
+      }
+    ],
+    "dayTemperature": -12,
+    "clothingInsulation": 12,
+    "maxActions": 200,
+    "initialInventory": {
+      "food": 10,
+      "water": 6,
+      "fuel": 10,
+      "sticks": 3,
+      "tinder": 12,
+      "matches": 10,
+      "lighter": 1,
+      "cloth": 4,
+      "bandage": 2,
+      "medkit": 1,
+      "bedroll": 1,
+      "torch": 0
+    },
+    "rates": {
+      "calories": 2.2,
+      "thirst": 3.5,
+      "activeRest": 4,
+      "sleepRest": 10,
+      "warmthDamage": 5,
+      "caloriesDamage": 2,
+      "thirstDamage": 4,
+      "restDamage": 2,
+      "conditionRecovery": 0.8
+    }
+  },
+  {
+    "seed": 67,
+    "tier": "voyageur",
+    "tierIndex": 1,
+    "locations": [
+      {
+        "id": 0,
+        "name": "Starting cabin",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005,
+        "loot": {
+          "food": 2,
+          "water": 1,
+          "fuel": 2,
+          "tinder": 1,
+          "matches": 1,
+          "cloth": 3,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 2
+          },
+          {
+            "to": 9,
+            "hours": 2
+          },
+          {
+            "to": 6,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Forest 1",
+        "shelter": 0.62,
+        "wildlifeRisk": 0.037208645876962695,
+        "loot": {
+          "food": 2,
+          "water": 1,
+          "fuel": 2,
+          "tinder": 1,
+          "matches": 2,
+          "cloth": 1,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 2,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lodge 2",
+        "shelter": 0.46,
+        "wildlifeRisk": 0.00806467337301001,
+        "loot": {
+          "food": 1,
+          "water": 3,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 1,
+          "cloth": 3,
+          "bandage": 1,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 3
+          },
+          {
+            "to": 3,
+            "hours": 3
+          },
+          {
+            "to": 4,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ravine 3",
+        "shelter": 0.72,
+        "wildlifeRisk": 0.029678918479476124,
+        "loot": {
+          "food": 3,
+          "water": 3,
+          "fuel": 2,
+          "tinder": 3,
+          "matches": 0,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 2,
+            "hours": 3
+          },
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 8,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Outpost 4",
+        "shelter": 0.29,
+        "wildlifeRisk": 0.020315548803191634,
+        "loot": {
+          "food": 2,
+          "water": 1,
+          "fuel": 2,
+          "tinder": 1,
+          "matches": 1,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 1
+          },
+          {
+            "to": 2,
+            "hours": 2
+          },
+          {
+            "to": 9,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Cabin 5",
+        "shelter": 0.35,
+        "wildlifeRisk": 0.03504754933761433,
+        "loot": {
+          "food": 2,
+          "water": 0,
+          "fuel": 3,
+          "tinder": 1,
+          "matches": 3,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 4,
+            "hours": 1
+          },
+          {
+            "to": 6,
+            "hours": 3
+          },
+          {
+            "to": 7,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Forest 6",
+        "shelter": 0.56,
+        "wildlifeRisk": 0.022442685139831157,
+        "loot": {
+          "food": 4,
+          "water": 2,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 3,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 5,
+            "hours": 3
+          },
+          {
+            "to": 7,
+            "hours": 3
+          },
+          {
+            "to": 0,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Lodge 7",
+        "shelter": 0.19,
+        "wildlifeRisk": 0.06059531972045079,
+        "loot": {
+          "food": 1,
+          "water": 3,
+          "fuel": 2,
+          "tinder": 3,
+          "matches": 3,
+          "cloth": 1,
+          "bandage": 1,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 6,
+            "hours": 3
+          },
+          {
+            "to": 8,
+            "hours": 3
+          },
+          {
+            "to": 5,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Ravine 8",
+        "shelter": 0.49,
+        "wildlifeRisk": 0.09358929422451183,
+        "loot": {
+          "food": 2,
+          "water": 3,
+          "fuel": 3,
+          "tinder": 3,
+          "matches": 2,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 7,
+            "hours": 3
+          },
+          {
+            "to": 9,
+            "hours": 2
+          },
+          {
+            "to": 3,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Outpost 9",
+        "shelter": 0.81,
+        "wildlifeRisk": 0.04933058810653164,
+        "loot": {
+          "food": 4,
+          "water": 3,
+          "fuel": 3,
+          "tinder": 1,
+          "matches": 3,
+          "cloth": 3,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 8,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 3
+          }
+        ]
+      }
+    ],
+    "rescueDay": 5,
+    "rescueHour": 108,
+    "blizzards": [
+      {
+        "start": 34,
+        "hours": 10,
+        "temperaturePenalty": 23,
+        "wind": 55
+      }
+    ],
+    "dayTemperature": -18,
+    "clothingInsulation": 10,
+    "maxActions": 200,
+    "initialInventory": {
+      "food": 5,
+      "water": 3,
+      "fuel": 6,
+      "sticks": 3,
+      "tinder": 8,
+      "matches": 7,
+      "lighter": 0,
+      "cloth": 3,
+      "bandage": 2,
+      "medkit": 1,
+      "bedroll": 1,
+      "torch": 0
+    },
+    "rates": {
+      "calories": 2.5500000000000003,
+      "thirst": 3.8,
+      "activeRest": 4.3,
+      "sleepRest": 10,
+      "warmthDamage": 5,
+      "caloriesDamage": 2,
+      "thirstDamage": 4,
+      "restDamage": 2,
+      "conditionRecovery": 0.8
+    }
+  },
+  {
+    "seed": 67,
+    "tier": "stalker",
+    "tierIndex": 2,
+    "locations": [
+      {
+        "id": 0,
+        "name": "Starting cabin",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005,
+        "loot": {
+          "food": 1,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 0,
+          "matches": 0,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 1
+          },
+          {
+            "to": 6,
+            "hours": 1
+          },
+          {
+            "to": 5,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Forest 1",
+        "shelter": 0.62,
+        "wildlifeRisk": 0.049611527835950256,
+        "loot": {
+          "food": 1,
+          "water": 0,
+          "fuel": 1,
+          "tinder": 0,
+          "matches": 1,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 0,
+            "hours": 1
+          },
+          {
+            "to": 2,
+            "hours": 1
+          },
+          {
+            "to": 4,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lodge 2",
+        "shelter": 0.46,
+        "wildlifeRisk": 0.010752897830680013,
+        "loot": {
+          "food": 0,
+          "water": 2,
+          "fuel": 0,
+          "tinder": 1,
+          "matches": 0,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 1
+          },
+          {
+            "to": 3,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ravine 3",
+        "shelter": 0.72,
+        "wildlifeRisk": 0.039571891305968165,
+        "loot": {
+          "food": 1,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 2,
+          "matches": 0,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 2,
+            "hours": 3
+          },
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Outpost 4",
+        "shelter": 0.29,
+        "wildlifeRisk": 0.02708739840425551,
+        "loot": {
+          "food": 1,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 0,
+          "matches": 0,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 3
+          },
+          {
+            "to": 1,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Cabin 5",
+        "shelter": 0.35,
+        "wildlifeRisk": 0.04673006578348577,
+        "loot": {
+          "food": 1,
+          "water": 0,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 2,
+          "cloth": 0,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 4,
+            "hours": 3
+          },
+          {
+            "to": 6,
+            "hours": 3
+          },
+          {
+            "to": 0,
+            "hours": 1
+          },
+          {
+            "to": 3,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Forest 6",
+        "shelter": 0.56,
+        "wildlifeRisk": 0.02992358018644154,
+        "loot": {
+          "food": 2,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 0,
+          "matches": 2,
+          "cloth": 0,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 5,
+            "hours": 3
+          },
+          {
+            "to": 0,
+            "hours": 1
+          }
+        ]
+      }
+    ],
+    "rescueDay": 6,
+    "rescueHour": 132,
+    "blizzards": [
+      {
+        "start": 101,
+        "hours": 9,
+        "temperaturePenalty": 26,
+        "wind": 65
+      },
+      {
+        "start": 98,
+        "hours": 7,
+        "temperaturePenalty": 26,
+        "wind": 65
+      }
+    ],
+    "dayTemperature": -24,
+    "clothingInsulation": 8,
+    "maxActions": 200,
+    "initialInventory": {
+      "food": 3,
+      "water": 2,
+      "fuel": 3,
+      "sticks": 3,
+      "tinder": 4,
+      "matches": 4,
+      "lighter": 0,
+      "cloth": 2,
+      "bandage": 2,
+      "medkit": 1,
+      "bedroll": 1,
+      "torch": 0
+    },
+    "rates": {
+      "calories": 2.9000000000000004,
+      "thirst": 4.1,
+      "activeRest": 4.6,
+      "sleepRest": 10,
+      "warmthDamage": 5,
+      "caloriesDamage": 2,
+      "thirstDamage": 4,
+      "restDamage": 2,
+      "conditionRecovery": 0.8
+    }
+  },
+  {
+    "seed": 103,
+    "tier": "pilgrim",
+    "tierIndex": 0,
+    "locations": [
+      {
+        "id": 0,
+        "name": "Starting cabin",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005,
+        "loot": {
+          "food": 3,
+          "water": 4,
+          "fuel": 3,
+          "tinder": 3,
+          "matches": 1,
+          "cloth": 4,
+          "bandage": 1,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 2
+          },
+          {
+            "to": 8,
+            "hours": 3
+          },
+          {
+            "to": 5,
+            "hours": 3
+          },
+          {
+            "to": 2,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Forest 1",
+        "shelter": 0.87,
+        "wildlifeRisk": 0.05763843686785548,
+        "loot": {
+          "food": 5,
+          "water": 4,
+          "fuel": 2,
+          "tinder": 2,
+          "matches": 6,
+          "cloth": 4,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 2,
+            "hours": 1
+          },
+          {
+            "to": 6,
+            "hours": 1
+          },
+          {
+            "to": 3,
+            "hours": 1
+          },
+          {
+            "to": 5,
+            "hours": 1
+          },
+          {
+            "to": 7,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lodge 2",
+        "shelter": 0.26,
+        "wildlifeRisk": 0.042258832347579295,
+        "loot": {
+          "food": 8,
+          "water": 5,
+          "fuel": 4,
+          "tinder": 3,
+          "matches": 4,
+          "cloth": 2,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 1
+          },
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ravine 3",
+        "shelter": 0.84,
+        "wildlifeRisk": 0.05530899315606802,
+        "loot": {
+          "food": 6,
+          "water": 5,
+          "fuel": 6,
+          "tinder": 4,
+          "matches": 5,
+          "cloth": 6,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 2,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 1,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Outpost 4",
+        "shelter": 0.56,
+        "wildlifeRisk": 0.05614917727652937,
+        "loot": {
+          "food": 6,
+          "water": 4,
+          "fuel": 5,
+          "tinder": 2,
+          "matches": 2,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 2
+        },
+        "edges": [
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 3
+          },
+          {
+            "to": 7,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Cabin 5",
+        "shelter": 0.93,
+        "wildlifeRisk": 0.042761521316133436,
+        "loot": {
+          "food": 8,
+          "water": 6,
+          "fuel": 5,
+          "tinder": 2,
+          "matches": 6,
+          "cloth": 5,
+          "bandage": 2,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 4,
+            "hours": 3
+          },
+          {
+            "to": 6,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 3
+          },
+          {
+            "to": 1,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Forest 6",
+        "shelter": 0.56,
+        "wildlifeRisk": 0.030299349282868208,
+        "loot": {
+          "food": 8,
+          "water": 5,
+          "fuel": 3,
+          "tinder": 2,
+          "matches": 3,
+          "cloth": 6,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 5,
+            "hours": 2
+          },
+          {
+            "to": 7,
+            "hours": 3
+          },
+          {
+            "to": 1,
+            "hours": 1
+          },
+          {
+            "to": 8,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Lodge 7",
+        "shelter": 0.86,
+        "wildlifeRisk": 0.02765253360848874,
+        "loot": {
+          "food": 3,
+          "water": 2,
+          "fuel": 6,
+          "tinder": 4,
+          "matches": 5,
+          "cloth": 5,
+          "bandage": 0,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 6,
+            "hours": 3
+          },
+          {
+            "to": 8,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 1
+          },
+          {
+            "to": 1,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Ravine 8",
+        "shelter": 0.72,
+        "wildlifeRisk": 0.03359873263631016,
+        "loot": {
+          "food": 3,
+          "water": 3,
+          "fuel": 4,
+          "tinder": 3,
+          "matches": 2,
+          "cloth": 2,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 7,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 3
+          },
+          {
+            "to": 6,
+            "hours": 2
+          }
+        ]
+      }
+    ],
+    "rescueDay": 4,
+    "rescueHour": 84,
+    "blizzards": [
+      {
+        "start": 61,
+        "hours": 9,
+        "temperaturePenalty": 20,
+        "wind": 45
+      },
+      {
+        "start": 40,
+        "hours": 8,
+        "temperaturePenalty": 20,
+        "wind": 45
+      }
+    ],
+    "dayTemperature": -12,
+    "clothingInsulation": 12,
+    "maxActions": 200,
+    "initialInventory": {
+      "food": 10,
+      "water": 6,
+      "fuel": 10,
+      "sticks": 3,
+      "tinder": 12,
+      "matches": 10,
+      "lighter": 1,
+      "cloth": 4,
+      "bandage": 2,
+      "medkit": 1,
+      "bedroll": 1,
+      "torch": 0
+    },
+    "rates": {
+      "calories": 2.2,
+      "thirst": 3.5,
+      "activeRest": 4,
+      "sleepRest": 10,
+      "warmthDamage": 5,
+      "caloriesDamage": 2,
+      "thirstDamage": 4,
+      "restDamage": 2,
+      "conditionRecovery": 0.8
+    }
+  },
+  {
+    "seed": 103,
+    "tier": "voyageur",
+    "tierIndex": 1,
+    "locations": [
+      {
+        "id": 0,
+        "name": "Starting cabin",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005,
+        "loot": {
+          "food": 2,
+          "water": 2,
+          "fuel": 1,
+          "tinder": 2,
+          "matches": 0,
+          "cloth": 2,
+          "bandage": 1,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Forest 1",
+        "shelter": 0.87,
+        "wildlifeRisk": 0.08645765530178323,
+        "loot": {
+          "food": 3,
+          "water": 2,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 3,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 2,
+            "hours": 3
+          },
+          {
+            "to": 3,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lodge 2",
+        "shelter": 0.26,
+        "wildlifeRisk": 0.06338824852136894,
+        "loot": {
+          "food": 5,
+          "water": 3,
+          "fuel": 2,
+          "tinder": 2,
+          "matches": 2,
+          "cloth": 1,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 3
+          },
+          {
+            "to": 3,
+            "hours": 3
+          },
+          {
+            "to": 5,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ravine 3",
+        "shelter": 0.84,
+        "wildlifeRisk": 0.08296348973410203,
+        "loot": {
+          "food": 4,
+          "water": 3,
+          "fuel": 3,
+          "tinder": 2,
+          "matches": 3,
+          "cloth": 3,
+          "bandage": 0,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 2,
+            "hours": 3
+          },
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 1,
+            "hours": 3
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Outpost 4",
+        "shelter": 0.56,
+        "wildlifeRisk": 0.08422376591479405,
+        "loot": {
+          "food": 3,
+          "water": 2,
+          "fuel": 3,
+          "tinder": 1,
+          "matches": 1,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Cabin 5",
+        "shelter": 0.93,
+        "wildlifeRisk": 0.06414228197420016,
+        "loot": {
+          "food": 5,
+          "water": 3,
+          "fuel": 3,
+          "tinder": 1,
+          "matches": 3,
+          "cloth": 2,
+          "bandage": 1,
+          "medkit": 1
+        },
+        "edges": [
+          {
+            "to": 4,
+            "hours": 1
+          },
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 2,
+            "hours": 1
+          }
+        ]
+      }
+    ],
+    "rescueDay": 5,
+    "rescueHour": 108,
+    "blizzards": [
+      {
+        "start": 79,
+        "hours": 7,
+        "temperaturePenalty": 23,
+        "wind": 55
+      }
+    ],
+    "dayTemperature": -18,
+    "clothingInsulation": 10,
+    "maxActions": 200,
+    "initialInventory": {
+      "food": 5,
+      "water": 3,
+      "fuel": 6,
+      "sticks": 3,
+      "tinder": 8,
+      "matches": 7,
+      "lighter": 0,
+      "cloth": 3,
+      "bandage": 2,
+      "medkit": 1,
+      "bedroll": 1,
+      "torch": 0
+    },
+    "rates": {
+      "calories": 2.5500000000000003,
+      "thirst": 3.8,
+      "activeRest": 4.3,
+      "sleepRest": 10,
+      "warmthDamage": 5,
+      "caloriesDamage": 2,
+      "thirstDamage": 4,
+      "restDamage": 2,
+      "conditionRecovery": 0.8
+    }
+  },
+  {
+    "seed": 103,
+    "tier": "stalker",
+    "tierIndex": 2,
+    "locations": [
+      {
+        "id": 0,
+        "name": "Starting cabin",
+        "shelter": 0.9,
+        "wildlifeRisk": 0.005,
+        "loot": {
+          "food": 1,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 0,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 3
+          },
+          {
+            "to": 7,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Forest 1",
+        "shelter": 0.87,
+        "wildlifeRisk": 0.11527687373571097,
+        "loot": {
+          "food": 1,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 0,
+          "matches": 2,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 0,
+            "hours": 3
+          },
+          {
+            "to": 2,
+            "hours": 1
+          },
+          {
+            "to": 5,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lodge 2",
+        "shelter": 0.26,
+        "wildlifeRisk": 0.08451766469515859,
+        "loot": {
+          "food": 3,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 1,
+          "matches": 1,
+          "cloth": 0,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 1,
+            "hours": 1
+          },
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 7,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ravine 3",
+        "shelter": 0.84,
+        "wildlifeRisk": 0.11061798631213604,
+        "loot": {
+          "food": 2,
+          "water": 2,
+          "fuel": 2,
+          "tinder": 1,
+          "matches": 2,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 2,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 7,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Outpost 4",
+        "shelter": 0.56,
+        "wildlifeRisk": 0.11229835455305874,
+        "loot": {
+          "food": 2,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 0,
+          "matches": 0,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 2
+          },
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 7,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Cabin 5",
+        "shelter": 0.93,
+        "wildlifeRisk": 0.08552304263226687,
+        "loot": {
+          "food": 3,
+          "water": 2,
+          "fuel": 1,
+          "tinder": 0,
+          "matches": 2,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 6,
+            "hours": 1
+          },
+          {
+            "to": 1,
+            "hours": 1
+          },
+          {
+            "to": 7,
+            "hours": 2
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Forest 6",
+        "shelter": 0.56,
+        "wildlifeRisk": 0.060598698565736416,
+        "loot": {
+          "food": 2,
+          "water": 1,
+          "fuel": 1,
+          "tinder": 0,
+          "matches": 1,
+          "cloth": 2,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 5,
+            "hours": 1
+          },
+          {
+            "to": 7,
+            "hours": 1
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Lodge 7",
+        "shelter": 0.86,
+        "wildlifeRisk": 0.05530506721697748,
+        "loot": {
+          "food": 1,
+          "water": 1,
+          "fuel": 2,
+          "tinder": 1,
+          "matches": 2,
+          "cloth": 1,
+          "bandage": 0,
+          "medkit": 0
+        },
+        "edges": [
+          {
+            "to": 6,
+            "hours": 1
+          },
+          {
+            "to": 0,
+            "hours": 2
+          },
+          {
+            "to": 3,
+            "hours": 2
+          },
+          {
+            "to": 4,
+            "hours": 2
+          },
+          {
+            "to": 5,
+            "hours": 2
+          },
+          {
+            "to": 2,
+            "hours": 1
+          }
+        ]
+      }
+    ],
+    "rescueDay": 6,
+    "rescueHour": 132,
+    "blizzards": [
+      {
+        "start": 102,
+        "hours": 6,
+        "temperaturePenalty": 26,
+        "wind": 65
+      },
+      {
+        "start": 30,
+        "hours": 10,
+        "temperaturePenalty": 26,
+        "wind": 65
+      }
+    ],
+    "dayTemperature": -24,
+    "clothingInsulation": 8,
+    "maxActions": 200,
+    "initialInventory": {
+      "food": 3,
+      "water": 2,
+      "fuel": 3,
+      "sticks": 3,
+      "tinder": 4,
+      "matches": 4,
+      "lighter": 0,
+      "cloth": 2,
+      "bandage": 2,
+      "medkit": 1,
+      "bedroll": 1,
+      "torch": 0
+    },
+    "rates": {
+      "calories": 2.9000000000000004,
+      "thirst": 4.1,
+      "activeRest": 4.6,
+      "sleepRest": 10,
+      "warmthDamage": 5,
+      "caloriesDamage": 2,
+      "thirstDamage": 4,
+      "restDamage": 2,
+      "conditionRecovery": 0.8
+    }
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "name": "trinity-module-library-unified42-native29",
+  "version": "1.2.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "verify": "node release.mjs --verify"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

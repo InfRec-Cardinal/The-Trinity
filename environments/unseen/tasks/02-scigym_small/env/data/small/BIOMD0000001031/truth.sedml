@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Al-Tuwairqi2020 - Phase I virotherapy.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="100" numberOfSteps="1000">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="100000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task1" name="Time" symbol="urn:sedml:symbol:time" taskReference="task1" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="uninfected_cancer_cells_1_task1" name="[uninfected_cancer_cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_uninfected_cancer_cells_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_uninfected_cancer_cells_1_task1" name="[uninfected_cancer_cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;uninfected_cancer_cells&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="infected_cancer_cells_2_task1" name="[infected_cancer_cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_infected_cancer_cells_2_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_infected_cancer_cells_2_task1" name="[infected_cancer_cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;infected_cancer_cells&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="free_virus_3_task1" name="[free_virus]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_free_virus_3_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_free_virus_3_task1" name="[free_virus]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;free_virus&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_f">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_f__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_f__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;f&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_h">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_h__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_h__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;h&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_m">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_m__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_m__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;m&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Whole_organism">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Whole_organism__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Whole_organism__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Whole_organism&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_uninfected_cancer_cell_growth">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_uninfected_cancer_cell_growth__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_uninfected_cancer_cell_growth__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;uninfected_cancer_cell_growth&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_cancer_cell_infection">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_cancer_cell_infection__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_cancer_cell_infection__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;cancer_cell_infection&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_infected_cancer_cell_lysis">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_infected_cancer_cell_lysis__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_infected_cancer_cell_lysis__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;infected_cancer_cell_lysis&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_virus_infection_removal">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_virus_infection_removal__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_virus_infection_removal__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;virus_infection_removal&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_1_task1" name="Concentrations, Volumes, and Global Quantity Values">
+      <listOfCurves>
+        <curve id="p1_curve_1_task1" name="uninfected cells, x" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="uninfected_cancer_cells_1_task1"/>
+        <curve id="p1_curve_2_task1" name="infected cells, y" logX="false" style="style2" xDataReference="_1_task1" logY="false" yDataReference="infected_cancer_cells_2_task1"/>
+        <curve id="p1_curve_3_task1" name="virus, v" logX="false" style="style3" xDataReference="_1_task1" logY="false" yDataReference="free_virus_3_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="_1_task1"/>
+        <dataSet id="autogen_task1_uninfected_cancer_cells" label="uninfected_cancer_cells" dataReference="uninfected_cancer_cells_1_task1"/>
+        <dataSet id="autogen_task1_infected_cancer_cells" label="infected_cancer_cells" dataReference="infected_cancer_cells_2_task1"/>
+        <dataSet id="autogen_task1_free_virus" label="free_virus" dataReference="free_virus_3_task1"/>
+        <dataSet id="autogen_task1_f" label="f" dataReference="auto_dg_for_task1_f"/>
+        <dataSet id="autogen_task1_h" label="h" dataReference="auto_dg_for_task1_h"/>
+        <dataSet id="autogen_task1_m" label="m" dataReference="auto_dg_for_task1_m"/>
+        <dataSet id="autogen_task1_Whole_organism" label="Whole_organism" dataReference="auto_dg_for_task1_Whole_organism"/>
+        <dataSet id="autogen_task1_uninfected_cancer_cell_growth" label="uninfected_cancer_cell_growth" dataReference="auto_dg_for_task1_uninfected_cancer_cell_growth"/>
+        <dataSet id="autogen_task1_cancer_cell_infection" label="cancer_cell_infection" dataReference="auto_dg_for_task1_cancer_cell_infection"/>
+        <dataSet id="autogen_task1_infected_cancer_cell_lysis" label="infected_cancer_cell_lysis" dataReference="auto_dg_for_task1_infected_cancer_cell_lysis"/>
+        <dataSet id="autogen_task1_virus_infection_removal" label="virus_infection_removal" dataReference="auto_dg_for_task1_virus_infection_removal"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" color="0000FF" thickness="1"/>
+      <marker type="none"/>
+    </style>
+    <style id="style2">
+      <line type="solid" color="FF0000" thickness="1"/>
+      <marker type="none"/>
+    </style>
+    <style id="style3">
+      <line type="dash" color="F0C800" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="munz2000.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="10000" numberOfSteps="10000">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="100000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task1" name="Time" symbol="urn:sedml:symbol:time" taskReference="task1" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Susceptible_1_task1" name="[Susceptible]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Susceptible_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Susceptible_1_task1" name="[Susceptible]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Susceptible&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Zombie_2_task1" name="[Zombie]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Zombie_2_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Zombie_2_task1" name="[Zombie]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Zombie&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Removal_3_task1" name="[Removal]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Removal_3_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Removal_3_task1" name="[Removal]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Removal&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_alpha">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_alpha__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_alpha__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_beta">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_beta__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_beta__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;beta&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_delta">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_delta__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_delta__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;delta&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_zeta">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_zeta__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_zeta__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;zeta&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_p">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_p__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_p__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;p&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_compartment">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_compartment__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_compartment__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;compartment&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Birth">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Birth__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Birth__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Birth&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Zombification">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Zombification__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Zombification__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Zombification&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Susceptible_to_Zombie_or_death">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Susceptible_to_Zombie_or_death__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Susceptible_to_Zombie_or_death__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Susceptible_to_Zombie_or_death&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Removal_of_zombie_or_susceptible">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Removal_of_zombie_or_susceptible__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Removal_of_zombie_or_susceptible__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Removal_of_zombie_or_susceptible&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Resurrection_to_Zombie">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Resurrection_to_Zombie__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Resurrection_to_Zombie__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Resurrection_to_Zombie&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Death_from_Zombie">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Death_from_Zombie__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Death_from_Zombie__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Death_from_Zombie&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_1_task1" name="Figure 3">
+      <listOfCurves>
+        <curve id="p1_curve_1_task1" name="[Susceptible]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Susceptible_1_task1"/>
+        <curve id="p1_curve_2_task1" name="[Zombie]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Zombie_2_task1"/>
+        <curve id="p1_curve_3_task1" name="[Removal]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Removal_3_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="_1_task1"/>
+        <dataSet id="autogen_task1_Susceptible" label="Susceptible" dataReference="Susceptible_1_task1"/>
+        <dataSet id="autogen_task1_Zombie" label="Zombie" dataReference="Zombie_2_task1"/>
+        <dataSet id="autogen_task1_Removal" label="Removal" dataReference="Removal_3_task1"/>
+        <dataSet id="autogen_task1_alpha" label="alpha" dataReference="auto_dg_for_task1_alpha"/>
+        <dataSet id="autogen_task1_beta" label="beta" dataReference="auto_dg_for_task1_beta"/>
+        <dataSet id="autogen_task1_delta" label="delta" dataReference="auto_dg_for_task1_delta"/>
+        <dataSet id="autogen_task1_zeta" label="zeta" dataReference="auto_dg_for_task1_zeta"/>
+        <dataSet id="autogen_task1_p" label="p" dataReference="auto_dg_for_task1_p"/>
+        <dataSet id="autogen_task1_compartment" label="compartment" dataReference="auto_dg_for_task1_compartment"/>
+        <dataSet id="autogen_task1_Birth" label="Birth" dataReference="auto_dg_for_task1_Birth"/>
+        <dataSet id="autogen_task1_Zombification" label="Zombification" dataReference="auto_dg_for_task1_Zombification"/>
+        <dataSet id="autogen_task1_Susceptible_to_Zombie_or_death" label="Susceptible_to_Zombie_or_death" dataReference="auto_dg_for_task1_Susceptible_to_Zombie_or_death"/>
+        <dataSet id="autogen_task1_Removal_of_zombie_or_susceptible" label="Removal_of_zombie_or_susceptible" dataReference="auto_dg_for_task1_Removal_of_zombie_or_susceptible"/>
+        <dataSet id="autogen_task1_Resurrection_to_Zombie" label="Resurrection_to_Zombie" dataReference="auto_dg_for_task1_Resurrection_to_Zombie"/>
+        <dataSet id="autogen_task1_Death_from_Zombie" label="Death_from_Zombie" dataReference="auto_dg_for_task1_Death_from_Zombie"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4"
+  xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Grigolon2018_fig1b.xml" />
+  </listOfModels>
+  <listOfSimulations>
+    <steadyState id="steady2">
+      <algorithm name="Steady state root-finding method" kisaoID="KISAO:0000407" />
+    </steadyState>
+    <uniformTimeCourse id="utc" initialTime="0" outputStartTime="0" outputEndTime="920"
+      numberOfSteps="10000">
+      <algorithm name="CVODE" kisaoID="KISAO:0000019" />
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task2" modelReference="model" simulationReference="steady2" />
+    <repeatedTask id="task3" range="range0" resetModel="true">
+      <listOfRanges>
+        <uniformRange id="range0" start="0" end="0.5" numberOfSteps="1000" type="linear" />
+      </listOfRanges>
+      <listOfChanges>
+        <setValue modelReference="model"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;Sauxin&apos;]"
+          range="range0">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> range0 </ci>
+          </math>
+        </setValue>
+      </listOfChanges>
+      <listOfSubTasks>
+        <subTask order="1" task="task2" />
+      </listOfSubTasks>
+    </repeatedTask>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="Sauxin_1_task3" name="Values[Sauxin]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Sauxin_1_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Sauxin_1_task3" name="Values[Sauxin]"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;Sauxin&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="ARF_1_task3" name="[ARF]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_ARF_1_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_ARF_1_task3" name="[ARF]"
+          target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;ARF&apos;]"
+          taskReference="task3" term="KISAO:0000838" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="IAA_2_task3" name="[IAA]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_IAA_2_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_IAA_2_task3" name="[IAA]"
+          target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;IAA&apos;]"
+          taskReference="task3" term="KISAO:0000838" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auxin_3_task3" name="[auxin]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_auxin_3_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_auxin_3_task3" name="[auxin]"
+          target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;auxin&apos;]"
+          taskReference="task3" term="KISAO:0000838" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_Tauxin">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_Tauxin__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_Tauxin__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;Tauxin&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_TIAA">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_TIAA__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_TIAA__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;TIAA&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_TARF">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_TARF__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_TARF__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;TARF&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_alpha_no_reg">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_alpha_no_reg__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_alpha_no_reg__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha_no_reg&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_alpha_reg">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_alpha_reg__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_alpha_reg__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha_reg&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_SIAA">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_SIAA__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_SIAA__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;SIAA&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_SARF">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_SARF__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_SARF__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;SARF&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_beta">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_beta__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_beta__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;beta&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_compartment">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_compartment__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_compartment__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;compartment&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_reaction_for_auxin_induction">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_reaction_for_auxin_induction__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_reaction_for_auxin_induction__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;reaction_for_auxin_induction&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator
+      id="auto_dg_for_task3_reaction_for_synthesis_of_IAA_along_with_natural_decay_of_IAA">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_reaction_for_synthesis_of_IAA_along_with_natural_decay_of_IAA__x </ci>
+      </math>
+      <listOfVariables>
+        <variable
+          id="auto_dg_for_task3_reaction_for_synthesis_of_IAA_along_with_natural_decay_of_IAA__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;reaction_for_synthesis_of_IAA_along_with_natural_decay_of_IAA&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator
+      id="auto_dg_for_task3_reaction_for_synthesis_of_ARF_along_with_natural_decay_of_ARF">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_reaction_for_synthesis_of_ARF_along_with_natural_decay_of_ARF__x </ci>
+      </math>
+      <listOfVariables>
+        <variable
+          id="auto_dg_for_task3_reaction_for_synthesis_of_ARF_along_with_natural_decay_of_ARF__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;reaction_for_synthesis_of_ARF_along_with_natural_decay_of_ARF&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_reaction_for__natural_decay_of_ARF">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_reaction_for__natural_decay_of_ARF__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_reaction_for__natural_decay_of_ARF__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;reaction_for__natural_decay_of_ARF&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_reaction_natural_decay_of_IAA">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_reaction_natural_decay_of_IAA__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_reaction_natural_decay_of_IAA__x"
+          target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;reaction_natural_decay_of_IAA&apos;]"
+          taskReference="task3" />
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_2_task3" name="Figure1.b">
+      <listOfCurves>
+        <curve id="p1_curve_1_task3" name="[ARF]|Values[Sauxin]" logX="false" style="style1"
+          xDataReference="Sauxin_1_task3" logY="false" yDataReference="ARF_1_task3" />
+        <curve id="p1_curve_2_task3" name="[IAA]|Values[Sauxin]" logX="false" style="style1"
+          xDataReference="Sauxin_1_task3" logY="false" yDataReference="IAA_2_task3" />
+        <curve id="p1_curve_3_task3" name="[auxin]|Values[Sauxin]" logX="false" style="style1"
+          xDataReference="Sauxin_1_task3" logY="false" yDataReference="auxin_3_task3" />
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task3"
+      name="Auto-generated report for task3, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_task3_Sauxin" label="Sauxin" dataReference="Sauxin_1_task3" />
+        <dataSet id="autogen_task3_ARF" label="ARF" dataReference="ARF_1_task3" />
+        <dataSet id="autogen_task3_IAA" label="IAA" dataReference="IAA_2_task3" />
+        <dataSet id="autogen_task3_auxin" label="auxin" dataReference="auxin_3_task3" />
+        <dataSet id="autogen_task3_Tauxin" label="Tauxin" dataReference="auto_dg_for_task3_Tauxin" />
+        <dataSet id="autogen_task3_TIAA" label="TIAA" dataReference="auto_dg_for_task3_TIAA" />
+        <dataSet id="autogen_task3_TARF" label="TARF" dataReference="auto_dg_for_task3_TARF" />
+        <dataSet id="autogen_task3_alpha_no_reg" label="alpha_no_reg"
+          dataReference="auto_dg_for_task3_alpha_no_reg" />
+        <dataSet id="autogen_task3_alpha_reg" label="alpha_reg"
+          dataReference="auto_dg_for_task3_alpha_reg" />
+        <dataSet id="autogen_task3_SIAA" label="SIAA" dataReference="auto_dg_for_task3_SIAA" />
+        <dataSet id="autogen_task3_SARF" label="SARF" dataReference="auto_dg_for_task3_SARF" />
+        <dataSet id="autogen_task3_beta" label="beta" dataReference="auto_dg_for_task3_beta" />
+        <dataSet id="autogen_task3_compartment" label="compartment"
+          dataReference="auto_dg_for_task3_compartment" />
+        <dataSet id="autogen_task3_reaction_for_auxin_induction"
+          label="reaction_for_auxin_induction"
+          dataReference="auto_dg_for_task3_reaction_for_auxin_induction" />
+        <dataSet id="autogen_task3_reaction_for_synthesis_of_IAA_along_with_natural_decay_of_IAA"
+          label="reaction_for_synthesis_of_IAA_along_with_natural_decay_of_IAA"
+          dataReference="auto_dg_for_task3_reaction_for_synthesis_of_IAA_along_with_natural_decay_of_IAA" />
+        <dataSet id="autogen_task3_reaction_for_synthesis_of_ARF_along_with_natural_decay_of_ARF"
+          label="reaction_for_synthesis_of_ARF_along_with_natural_decay_of_ARF"
+          dataReference="auto_dg_for_task3_reaction_for_synthesis_of_ARF_along_with_natural_decay_of_ARF" />
+        <dataSet id="autogen_task3_reaction_for__natural_decay_of_ARF"
+          label="reaction_for__natural_decay_of_ARF"
+          dataReference="auto_dg_for_task3_reaction_for__natural_decay_of_ARF" />
+        <dataSet id="autogen_task3_reaction_natural_decay_of_IAA"
+          label="reaction_natural_decay_of_IAA"
+          dataReference="auto_dg_for_task3_reaction_natural_decay_of_IAA" />
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1" />
+      <marker type="none" />
+    </style>
+  </listOfStyles>
+</sedML>

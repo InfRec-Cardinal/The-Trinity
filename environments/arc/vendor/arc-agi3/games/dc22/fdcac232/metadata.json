@@ -1,0 +1,16 @@
+{
+  "game_id": "dc22-fdcac232",
+  "title": "DC22",
+  "default_fps": 15,
+  "tags": [
+    "keyboard_click"
+  ],
+  "baseline_actions": [
+    59,
+    102,
+    67,
+    98,
+    324,
+    578
+  ]
+}

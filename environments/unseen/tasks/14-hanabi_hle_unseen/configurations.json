@@ -1,0 +1,325 @@
+{
+  "taskId": "hanabi_hle_unseen",
+  "configurations": [
+    {
+      "id": "hanabi-2p-g1",
+      "label": "2 players · seed 2026101200 · H0 seat 0",
+      "ordinal": 0,
+      "players": 2,
+      "seed": 2026101200,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-2p-g2",
+      "label": "2 players · seed 2026101201 · H0 seat 1",
+      "ordinal": 1,
+      "players": 2,
+      "seed": 2026101201,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-2p-g3",
+      "label": "2 players · seed 2026101202 · H0 seat 0",
+      "ordinal": 2,
+      "players": 2,
+      "seed": 2026101202,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-2p-g4",
+      "label": "2 players · seed 2026101203 · H0 seat 1",
+      "ordinal": 3,
+      "players": 2,
+      "seed": 2026101203,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-2p-g5",
+      "label": "2 players · seed 2026101204 · H0 seat 0",
+      "ordinal": 4,
+      "players": 2,
+      "seed": 2026101204,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-2p-g6",
+      "label": "2 players · seed 2026101205 · H0 seat 1",
+      "ordinal": 5,
+      "players": 2,
+      "seed": 2026101205,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-2p-g7",
+      "label": "2 players · seed 2026101206 · H0 seat 0",
+      "ordinal": 6,
+      "players": 2,
+      "seed": 2026101206,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-2p-g8",
+      "label": "2 players · seed 2026101207 · H0 seat 1",
+      "ordinal": 7,
+      "players": 2,
+      "seed": 2026101207,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-2p-g9",
+      "label": "2 players · seed 2026101208 · H0 seat 0",
+      "ordinal": 8,
+      "players": 2,
+      "seed": 2026101208,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-2p-g10",
+      "label": "2 players · seed 2026101209 · H0 seat 1",
+      "ordinal": 9,
+      "players": 2,
+      "seed": 2026101209,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-3p-g1",
+      "label": "3 players · seed 2026101300 · H0 seat 0",
+      "ordinal": 10,
+      "players": 3,
+      "seed": 2026101300,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-3p-g2",
+      "label": "3 players · seed 2026101301 · H0 seat 1",
+      "ordinal": 11,
+      "players": 3,
+      "seed": 2026101301,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-3p-g3",
+      "label": "3 players · seed 2026101302 · H0 seat 2",
+      "ordinal": 12,
+      "players": 3,
+      "seed": 2026101302,
+      "seat": 2
+    },
+    {
+      "id": "hanabi-3p-g4",
+      "label": "3 players · seed 2026101303 · H0 seat 0",
+      "ordinal": 13,
+      "players": 3,
+      "seed": 2026101303,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-3p-g5",
+      "label": "3 players · seed 2026101304 · H0 seat 1",
+      "ordinal": 14,
+      "players": 3,
+      "seed": 2026101304,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-3p-g6",
+      "label": "3 players · seed 2026101305 · H0 seat 2",
+      "ordinal": 15,
+      "players": 3,
+      "seed": 2026101305,
+      "seat": 2
+    },
+    {
+      "id": "hanabi-3p-g7",
+      "label": "3 players · seed 2026101306 · H0 seat 0",
+      "ordinal": 16,
+      "players": 3,
+      "seed": 2026101306,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-3p-g8",
+      "label": "3 players · seed 2026101307 · H0 seat 1",
+      "ordinal": 17,
+      "players": 3,
+      "seed": 2026101307,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-3p-g9",
+      "label": "3 players · seed 2026101308 · H0 seat 2",
+      "ordinal": 18,
+      "players": 3,
+      "seed": 2026101308,
+      "seat": 2
+    },
+    {
+      "id": "hanabi-3p-g10",
+      "label": "3 players · seed 2026101309 · H0 seat 0",
+      "ordinal": 19,
+      "players": 3,
+      "seed": 2026101309,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-4p-g1",
+      "label": "4 players · seed 2026101400 · H0 seat 0",
+      "ordinal": 20,
+      "players": 4,
+      "seed": 2026101400,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-4p-g2",
+      "label": "4 players · seed 2026101401 · H0 seat 1",
+      "ordinal": 21,
+      "players": 4,
+      "seed": 2026101401,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-4p-g3",
+      "label": "4 players · seed 2026101402 · H0 seat 2",
+      "ordinal": 22,
+      "players": 4,
+      "seed": 2026101402,
+      "seat": 2
+    },
+    {
+      "id": "hanabi-4p-g4",
+      "label": "4 players · seed 2026101403 · H0 seat 3",
+      "ordinal": 23,
+      "players": 4,
+      "seed": 2026101403,
+      "seat": 3
+    },
+    {
+      "id": "hanabi-4p-g5",
+      "label": "4 players · seed 2026101404 · H0 seat 0",
+      "ordinal": 24,
+      "players": 4,
+      "seed": 2026101404,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-4p-g6",
+      "label": "4 players · seed 2026101405 · H0 seat 1",
+      "ordinal": 25,
+      "players": 4,
+      "seed": 2026101405,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-4p-g7",
+      "label": "4 players · seed 2026101406 · H0 seat 2",
+      "ordinal": 26,
+      "players": 4,
+      "seed": 2026101406,
+      "seat": 2
+    },
+    {
+      "id": "hanabi-4p-g8",
+      "label": "4 players · seed 2026101407 · H0 seat 3",
+      "ordinal": 27,
+      "players": 4,
+      "seed": 2026101407,
+      "seat": 3
+    },
+    {
+      "id": "hanabi-4p-g9",
+      "label": "4 players · seed 2026101408 · H0 seat 0",
+      "ordinal": 28,
+      "players": 4,
+      "seed": 2026101408,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-4p-g10",
+      "label": "4 players · seed 2026101409 · H0 seat 1",
+      "ordinal": 29,
+      "players": 4,
+      "seed": 2026101409,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-5p-g1",
+      "label": "5 players · seed 2026101500 · H0 seat 0",
+      "ordinal": 30,
+      "players": 5,
+      "seed": 2026101500,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-5p-g2",
+      "label": "5 players · seed 2026101501 · H0 seat 1",
+      "ordinal": 31,
+      "players": 5,
+      "seed": 2026101501,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-5p-g3",
+      "label": "5 players · seed 2026101502 · H0 seat 2",
+      "ordinal": 32,
+      "players": 5,
+      "seed": 2026101502,
+      "seat": 2
+    },
+    {
+      "id": "hanabi-5p-g4",
+      "label": "5 players · seed 2026101503 · H0 seat 3",
+      "ordinal": 33,
+      "players": 5,
+      "seed": 2026101503,
+      "seat": 3
+    },
+    {
+      "id": "hanabi-5p-g5",
+      "label": "5 players · seed 2026101504 · H0 seat 4",
+      "ordinal": 34,
+      "players": 5,
+      "seed": 2026101504,
+      "seat": 4
+    },
+    {
+      "id": "hanabi-5p-g6",
+      "label": "5 players · seed 2026101505 · H0 seat 0",
+      "ordinal": 35,
+      "players": 5,
+      "seed": 2026101505,
+      "seat": 0
+    },
+    {
+      "id": "hanabi-5p-g7",
+      "label": "5 players · seed 2026101506 · H0 seat 1",
+      "ordinal": 36,
+      "players": 5,
+      "seed": 2026101506,
+      "seat": 1
+    },
+    {
+      "id": "hanabi-5p-g8",
+      "label": "5 players · seed 2026101507 · H0 seat 2",
+      "ordinal": 37,
+      "players": 5,
+      "seed": 2026101507,
+      "seat": 2
+    },
+    {
+      "id": "hanabi-5p-g9",
+      "label": "5 players · seed 2026101508 · H0 seat 3",
+      "ordinal": 38,
+      "players": 5,
+      "seed": 2026101508,
+      "seat": 3
+    },
+    {
+      "id": "hanabi-5p-g10",
+      "label": "5 players · seed 2026101509 · H0 seat 4",
+      "ordinal": 39,
+      "players": 5,
+      "seed": 2026101509,
+      "seat": 4
+    }
+  ]
+}

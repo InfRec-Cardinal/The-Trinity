@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Cui2008.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="45" numberOfSteps="450">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="100000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task1" name="Time" symbol="urn:sedml:symbol:time" taskReference="task1" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Py_1_task1" name="[Py]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Py_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Py_1_task1" name="[Py]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Py&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Py1_2_task1" name="[Py1]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Py1_2_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Py1_2_task1" name="[Py1]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Py1&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Rw_3_task1" name="[Rw]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Rw_3_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Rw_3_task1" name="[Rw]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Rw&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Dw_1_task1" name="[Dw]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p2_Dw_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p2_Dw_1_task1" name="[Dw]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Dw&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Qw1_2_task1" name="[Qw1]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p2_Qw1_2_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p2_Qw1_2_task1" name="[Qw1]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Qw1&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Qw2_3_task1" name="[Qw2]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p2_Qw2_3_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p2_Qw2_3_task1" name="[Qw2]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Qw2&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Zn_2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Zn_2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Zn_2__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Zn_2&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_r3">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_r3__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_r3__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;r3&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_r4">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_r4__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_r4__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;r4&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k_1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k_1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k_1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k_1&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k2&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k_2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k_2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k_2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k_2&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Zn">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Zn__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Zn__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;Zn&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k1a">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k1a__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k1a__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k1a&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Cell">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Cell__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Cell__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Cell&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Formation_of_the_Zn4Zur_complex">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Formation_of_the_Zn4Zur_complex__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Formation_of_the_Zn4Zur_complex__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Formation_of_the_Zn4Zur_complex&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Dissociation_of_Zn4Zur_complex">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Dissociation_of_Zn4Zur_complex__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Dissociation_of_Zn4Zur_complex__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Dissociation_of_Zn4Zur_complex&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Formation_of_DNA_binding_complex">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Formation_of_DNA_binding_complex__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Formation_of_DNA_binding_complex__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Formation_of_DNA_binding_complex&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Disassociation_of_DNA_binding_complex">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Disassociation_of_DNA_binding_complex__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Disassociation_of_DNA_binding_complex__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Disassociation_of_DNA_binding_complex&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Formation_of_transcription_initiation_complex">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Formation_of_transcription_initiation_complex__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Formation_of_transcription_initiation_complex__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Formation_of_transcription_initiation_complex&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Disassociation_of_transcription_initiation_complex">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Disassociation_of_transcription_initiation_complex__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Disassociation_of_transcription_initiation_complex__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Disassociation_of_transcription_initiation_complex&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_1_task1" name="Figure 3 (1)">
+      <listOfCurves>
+        <curve id="p1_curve_1_task1" name="[Py]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Py_1_task1"/>
+        <curve id="p1_curve_2_task1" name="[Py1]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Py1_2_task1"/>
+        <curve id="p1_curve_3_task1" name="[Rw]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Rw_3_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <plot2D id="plot_2_task1" name="Figure 3 (2)">
+      <listOfCurves>
+        <curve id="p2_curve_1_task1" name="[Dw]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Dw_1_task1"/>
+        <curve id="p2_curve_2_task1" name="[Qw1]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Qw1_2_task1"/>
+        <curve id="p2_curve_3_task1" name="[Qw2]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="Qw2_3_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="_1_task1"/>
+        <dataSet id="autogen_task1_Py" label="Py" dataReference="Py_1_task1"/>
+        <dataSet id="autogen_task1_Py1" label="Py1" dataReference="Py1_2_task1"/>
+        <dataSet id="autogen_task1_Rw" label="Rw" dataReference="Rw_3_task1"/>
+        <dataSet id="autogen_task1_Dw" label="Dw" dataReference="Dw_1_task1"/>
+        <dataSet id="autogen_task1_Qw1" label="Qw1" dataReference="Qw1_2_task1"/>
+        <dataSet id="autogen_task1_Qw2" label="Qw2" dataReference="Qw2_3_task1"/>
+        <dataSet id="autogen_task1_Zn_2" label="Zn_2" dataReference="auto_dg_for_task1_Zn_2"/>
+        <dataSet id="autogen_task1_r3" label="r3" dataReference="auto_dg_for_task1_r3"/>
+        <dataSet id="autogen_task1_r4" label="r4" dataReference="auto_dg_for_task1_r4"/>
+        <dataSet id="autogen_task1_k_1" label="k_1" dataReference="auto_dg_for_task1_k_1"/>
+        <dataSet id="autogen_task1_k2" label="k2" dataReference="auto_dg_for_task1_k2"/>
+        <dataSet id="autogen_task1_k_2" label="k_2" dataReference="auto_dg_for_task1_k_2"/>
+        <dataSet id="autogen_task1_Zn" label="Zn" dataReference="auto_dg_for_task1_Zn"/>
+        <dataSet id="autogen_task1_k1a" label="k1a" dataReference="auto_dg_for_task1_k1a"/>
+        <dataSet id="autogen_task1_Cell" label="Cell" dataReference="auto_dg_for_task1_Cell"/>
+        <dataSet id="autogen_task1_Formation_of_the_Zn4Zur_complex" label="Formation_of_the_Zn4Zur_complex" dataReference="auto_dg_for_task1_Formation_of_the_Zn4Zur_complex"/>
+        <dataSet id="autogen_task1_Dissociation_of_Zn4Zur_complex" label="Dissociation_of_Zn4Zur_complex" dataReference="auto_dg_for_task1_Dissociation_of_Zn4Zur_complex"/>
+        <dataSet id="autogen_task1_Formation_of_DNA_binding_complex" label="Formation_of_DNA_binding_complex" dataReference="auto_dg_for_task1_Formation_of_DNA_binding_complex"/>
+        <dataSet id="autogen_task1_Disassociation_of_DNA_binding_complex" label="Disassociation_of_DNA_binding_complex" dataReference="auto_dg_for_task1_Disassociation_of_DNA_binding_complex"/>
+        <dataSet id="autogen_task1_Formation_of_transcription_initiation_complex" label="Formation_of_transcription_initiation_complex" dataReference="auto_dg_for_task1_Formation_of_transcription_initiation_complex"/>
+        <dataSet id="autogen_task1_Disassociation_of_transcription_initiation_complex" label="Disassociation_of_transcription_initiation_complex" dataReference="auto_dg_for_task1_Disassociation_of_transcription_initiation_complex"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

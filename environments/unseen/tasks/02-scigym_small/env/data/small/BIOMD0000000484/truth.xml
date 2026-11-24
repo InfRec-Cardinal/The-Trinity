@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_ee76">
+    <listOfCompartments>
+      <compartment id="id_foei" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_biay" compartment="id_foei" initialAmount="0"/>
+      <species id="id_fgon" compartment="id_foei" initialAmount="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_68kc" value="1"/>
+      <parameter id="id_9a7z" value="0.025"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_n2qy" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="id_fgon"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_biay"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_fgon"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_9a7z </ci>
+              <ci> id_fgon </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_t2hu" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="id_biay"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_fgon"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_foei </ci>
+              <ci> id_68kc </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

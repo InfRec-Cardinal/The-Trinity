@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" level="2" version="4">
+  <model id="id_gpo2">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_gjbf">
+        <listOfUnits>
+          <unit kind="dimensionless"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_hj5z">
+        <listOfUnits>
+          <unit kind="dimensionless"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_wev8">
+        <listOfUnits>
+          <unit kind="dimensionless"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_800s" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_hnsn" compartment="id_800s" initialConcentration="10" boundaryCondition="true" constant="true"/>
+      <species id="id_v9u9" compartment="id_800s" initialConcentration="1"/>
+      <species id="id_879h" compartment="id_800s" initialConcentration="0.05625738310526"/>
+      <species id="id_chj2" compartment="id_800s" initialConcentration="0" boundaryCondition="true" constant="true"/>
+      <species id="id_0pqo" compartment="id_800s" initialConcentration="0" boundaryCondition="true" constant="true"/>
+      <species id="id_09gk" compartment="id_800s" initialConcentration="0.76876151899652"/>
+      <species id="id_5ofw" compartment="id_800s" initialConcentration="4.23123848100348"/>
+      <species id="id_96t8" compartment="id_800s" initialConcentration="0" boundaryCondition="true" constant="true"/>
+      <species id="id_yfai" compartment="id_800s" initialConcentration="1" boundaryCondition="true" constant="true"/>
+      <species id="id_izv4" compartment="id_800s" initialConcentration="1" boundaryCondition="true" constant="true"/>
+      <species id="id_mpgx" compartment="id_800s" initialConcentration="1" boundaryCondition="true" constant="true"/>
+    </listOfSpecies>
+  </model>
+</sbml>

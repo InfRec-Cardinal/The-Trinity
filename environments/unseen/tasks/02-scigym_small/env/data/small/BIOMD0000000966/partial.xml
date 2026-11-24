@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1" level="3" version="1" layout:required="false" render:required="false">
+  <model id="id_0uut" substanceUnits="id_k0ja" timeUnits="id_8c13" volumeUnits="id_ca0t" areaUnits="id_u5eo" lengthUnits="id_wr4z" extentUnits="id_k0ja">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_wr4z">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_u5eo">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_ca0t">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_8c13">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_k0ja">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-9" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_hmee">
+        <listOfUnits>
+          <unit kind="mole" exponent="-2" scale="-9" multiplier="1"/>
+          <unit kind="litre" exponent="2" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_7v8s">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_57jc">
+        <listOfUnits>
+          <unit kind="mole" exponent="-1" scale="-9" multiplier="1"/>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_b0k1">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-9" multiplier="1"/>
+          <unit kind="litre" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_838q" spatialDimensions="3" size="1" units="id_ca0t" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_im7c" compartment="id_838q" initialConcentration="0" substanceUnits="id_k0ja" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_pv68" compartment="id_838q" initialConcentration="25" substanceUnits="id_k0ja" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_n9e9" compartment="id_838q" initialConcentration="50" substanceUnits="id_k0ja" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_6za2" compartment="id_838q" initialConcentration="1" substanceUnits="id_k0ja" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_k1hy" compartment="id_838q" initialConcentration="0" substanceUnits="id_k0ja" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_4r19" compartment="id_838q" initialConcentration="4" substanceUnits="id_k0ja" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_5via" compartment="id_838q" initialConcentration="0" substanceUnits="id_k0ja" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

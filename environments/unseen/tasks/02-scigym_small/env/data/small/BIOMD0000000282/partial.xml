@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" level="2" version="4">
+  <model id="id_nbmy">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_4axr">
+        <listOfUnits>
+          <unit kind="mole" scale="-6"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_urqu">
+        <listOfUnits>
+          <unit kind="mole" exponent="-1" scale="-6"/>
+          <unit kind="litre" scale="1"/>
+          <unit kind="second" exponent="-1" scale="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_w4qo">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_fh8x" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_2vrt" compartment="id_fh8x" initialConcentration="0"/>
+      <species id="id_rt7u" compartment="id_fh8x" initialConcentration="0" boundaryCondition="true" constant="true"/>
+      <species id="id_k4l1" compartment="id_fh8x" initialConcentration="1.36"/>
+      <species id="id_ytan" compartment="id_fh8x" initialConcentration="2"/>
+      <species id="id_pp0g" compartment="id_fh8x" initialConcentration="0"/>
+      <species id="id_sxhf" compartment="id_fh8x" initialConcentration="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

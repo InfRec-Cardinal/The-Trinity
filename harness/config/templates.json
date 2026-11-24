@@ -12,45 +12,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const facts=input.observations.filter(x=>x.source&&x.visible===true);return {facts,status:facts.length?'observed':'unknown'};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "observations": [
-            {
-              "source": "f",
-              "visible": true,
-              "value": 1
-            }
-          ]
-        },
-        "expected": {
-          "facts": [
-            {
-              "source": "f",
-              "visible": true,
-              "value": 1
-            }
-          ],
-          "status": "observed"
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "observations": [
-            {
-              "value": 1
-            }
-          ]
-        },
-        "expected": {
-          "facts": [],
-          "status": "unknown"
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "identity_binding",
@@ -64,46 +26,8 @@
     },
     "function": {
       "language": "javascript",
-      "source": "function run(input){const groups={};for(const o of input.observations)if(o.entity&&o.source)(groups[o.entity]??=[]).push(o);return {groups,status:Object.keys(groups).length?'linked':'unknown'};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "observations": [
-            {
-              "entity": "x",
-              "source": "f"
-            }
-          ]
-        },
-        "expected": {
-          "groups": {
-            "x": [
-              {
-                "entity": "x",
-                "source": "f"
-              }
-            ]
-          },
-          "status": "linked"
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "observations": [
-            {
-              "entity": "x"
-            }
-          ]
-        },
-        "expected": {
-          "groups": {},
-          "status": "unknown"
-        }
-      }
-    ]
+      "source": "function run(input){const groups=Object.create(null);for(const o of input.observations)if(o.entity&&o.source)(groups[o.entity]??=[]).push(o);return {groups,status:Object.keys(groups).length?'linked':'unknown'};}"
+    }
   },
   {
     "templateId": "evidence_coverage",
@@ -119,45 +43,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const covered=input.requirements.filter(k=>input.delivered.some(x=>x.key===k&&x.source&&x.readable===true));return {covered,missing:input.requirements.filter(k=>!covered.includes(k))};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "requirements": [
-            "a"
-          ],
-          "delivered": [
-            {
-              "key": "a",
-              "source": "f",
-              "readable": true
-            }
-          ]
-        },
-        "expected": {
-          "covered": [
-            "a"
-          ],
-          "missing": []
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "requirements": [
-            "a"
-          ],
-          "delivered": []
-        },
-        "expected": {
-          "covered": [],
-          "missing": [
-            "a"
-          ]
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "entity_state_ledger",
@@ -171,46 +57,8 @@
     },
     "function": {
       "language": "javascript",
-      "source": "function run(input){const state={};for(const r of input.history)if(r.entity&&r.source)state[r.entity]=r.value;return {state};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "history": [
-            {
-              "entity": "x",
-              "source": "f",
-              "value": 1
-            },
-            {
-              "entity": "x",
-              "source": "g",
-              "value": 2
-            }
-          ]
-        },
-        "expected": {
-          "state": {
-            "x": 2
-          }
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "history": [
-            {
-              "entity": "x",
-              "value": 2
-            }
-          ]
-        },
-        "expected": {
-          "state": {}
-        }
-      }
-    ]
+      "source": "function run(input){const state=Object.create(null);for(const r of input.history)if(r.entity&&r.source)state[r.entity]=r.value;return {state};}"
+    }
   },
   {
     "templateId": "temporal_event_ledger",
@@ -225,46 +73,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const seen=new Set();const events=input.events.filter(e=>e.id&&e.source&&!seen.has(e.id)&&seen.add(e.id)).sort((a,b)=>a.time-b.time);return {events,count:events.length};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "events": [
-            {
-              "id": "e",
-              "source": "f",
-              "time": 1
-            },
-            {
-              "id": "e",
-              "source": "f",
-              "time": 1
-            }
-          ]
-        },
-        "expected": {
-          "events": [
-            {
-              "id": "e",
-              "source": "f",
-              "time": 1
-            }
-          ],
-          "count": 1
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "events": []
-        },
-        "expected": {
-          "events": [],
-          "count": 0
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "revision_dependency_memory",
@@ -280,51 +89,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const kept=[],revoked=[];for(const c of input.conclusions)(c.dependsOn.every(k=>input.activeIds.includes(k))?kept:revoked).push(c.id);return {kept,revoked};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "activeIds": [
-            "a"
-          ],
-          "conclusions": [
-            {
-              "id": "x",
-              "dependsOn": [
-                "a"
-              ]
-            }
-          ]
-        },
-        "expected": {
-          "kept": [
-            "x"
-          ],
-          "revoked": []
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "activeIds": [],
-          "conclusions": [
-            {
-              "id": "x",
-              "dependsOn": [
-                "a"
-              ]
-            }
-          ]
-        },
-        "expected": {
-          "kept": [],
-          "revoked": [
-            "x"
-          ]
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "constraint_solver",
@@ -339,45 +104,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const survivors=input.candidates.filter(c=>Array.isArray(c.violations)&&c.violations.length===0);return {survivors,status:survivors.length===1?'unique':survivors.length?'multiple':'none'};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "candidates": [
-            {
-              "id": "x",
-              "violations": []
-            },
-            {
-              "id": "y",
-              "violations": [
-                "c"
-              ]
-            }
-          ]
-        },
-        "expected": {
-          "survivors": [
-            {
-              "id": "x",
-              "violations": []
-            }
-          ],
-          "status": "unique"
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "candidates": []
-        },
-        "expected": {
-          "survivors": [],
-          "status": "none"
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "hypothesis_model",
@@ -393,50 +120,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const survivors=input.hypotheses.filter(h=>!input.refutedIds.includes(h.id));return {survivors};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "hypotheses": [
-            {
-              "id": "a"
-            },
-            {
-              "id": "b"
-            }
-          ],
-          "refutedIds": [
-            "a"
-          ]
-        },
-        "expected": {
-          "survivors": [
-            {
-              "id": "b"
-            }
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "hypotheses": [
-            {
-              "id": "a"
-            }
-          ],
-          "refutedIds": []
-        },
-        "expected": {
-          "survivors": [
-            {
-              "id": "a"
-            }
-          ]
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "relation_consistency",
@@ -452,51 +136,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const missing=[],conflicts=[];for(const r of input.requirements){const f=input.facts.filter(x=>x.key===r.key&&x.source);if(!f.length)missing.push(r.key);else if(f.some(x=>x.value!==r.value))conflicts.push(r.key);}return {missing,conflicts,consistent:!missing.length&&!conflicts.length};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "requirements": [
-            {
-              "key": "a",
-              "value": 1
-            }
-          ],
-          "facts": [
-            {
-              "key": "a",
-              "value": 1,
-              "source": "f"
-            }
-          ]
-        },
-        "expected": {
-          "missing": [],
-          "conflicts": [],
-          "consistent": true
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "requirements": [
-            {
-              "key": "a",
-              "value": 1
-            }
-          ],
-          "facts": []
-        },
-        "expected": {
-          "missing": [
-            "a"
-          ],
-          "conflicts": [],
-          "consistent": false
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "bounded_path_search",
@@ -513,40 +153,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const q=[[input.start]],seen=new Set([input.start]);while(q.length){const p=q.shift(),v=p.at(-1);if(v===input.goal)return {status:'found',path:p};for(const w of input.graph[v]??[])if(!seen.has(w)){seen.add(w);q.push([...p,w]);}}return {status:'unreachable',path:[]};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "graph": {
-            "a": [
-              "b"
-            ]
-          },
-          "start": "a",
-          "goal": "b"
-        },
-        "expected": {
-          "status": "found",
-          "path": [
-            "a",
-            "b"
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "graph": {},
-          "start": "a",
-          "goal": "b"
-        },
-        "expected": {
-          "status": "unreachable",
-          "path": []
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "resource_schedule",
@@ -562,63 +169,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const ranked=input.candidates.filter(c=>Number.isFinite(c.cost)&&c.cost<=input.budget&&Number.isFinite(c.value)).sort((a,b)=>b.value-a.value||a.cost-b.cost);return {ranked,recommendation:ranked[0]??null};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "candidates": [
-            {
-              "id": "a",
-              "cost": 2,
-              "value": 3
-            },
-            {
-              "id": "b",
-              "cost": 1,
-              "value": 4
-            }
-          ],
-          "budget": 2
-        },
-        "expected": {
-          "ranked": [
-            {
-              "id": "b",
-              "cost": 1,
-              "value": 4
-            },
-            {
-              "id": "a",
-              "cost": 2,
-              "value": 3
-            }
-          ],
-          "recommendation": {
-            "id": "b",
-            "cost": 1,
-            "value": 4
-          }
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "candidates": [
-            {
-              "id": "a",
-              "cost": 2,
-              "value": 3
-            }
-          ],
-          "budget": 1
-        },
-        "expected": {
-          "ranked": [],
-          "recommendation": null
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "information_acquisition",
@@ -634,41 +185,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const ranked=input.offers.filter(o=>o.available===true&&o.cost<=input.budget&&o.gain>0).sort((a,b)=>b.gain-a.gain||a.cost-b.cost);return {next:ranked[0]??null};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "offers": [
-            {
-              "id": "a",
-              "available": true,
-              "cost": 1,
-              "gain": 2
-            }
-          ],
-          "budget": 1
-        },
-        "expected": {
-          "next": {
-            "id": "a",
-            "available": true,
-            "cost": 1,
-            "gain": 2
-          }
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "offers": [],
-          "budget": 1
-        },
-        "expected": {
-          "next": null
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "evidence_commit_gate",
@@ -685,45 +202,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const missing=input.requirements.filter(k=>!input.evidence.some(e=>e.key===k&&e.source&&e.supported===true));return {missing,canCommit:!missing.length&&input.budget>=1};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "requirements": [
-            "a"
-          ],
-          "evidence": [
-            {
-              "key": "a",
-              "source": "f",
-              "supported": true
-            }
-          ],
-          "budget": 1
-        },
-        "expected": {
-          "missing": [],
-          "canCommit": true
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "requirements": [
-            "a"
-          ],
-          "evidence": [],
-          "budget": 1
-        },
-        "expected": {
-          "missing": [
-            "a"
-          ],
-          "canCommit": false
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "budget_progress_gate",
@@ -740,31 +219,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){return {decision:input.goalObserved===true&&input.budget>=1?'commit':input.budget<1?'abort':input.progressObserved===true?'continue':'retry'};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "budget": 2,
-          "goalObserved": true,
-          "progressObserved": true
-        },
-        "expected": {
-          "decision": "commit"
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "budget": 0,
-          "goalObserved": false,
-          "progressObserved": false
-        },
-        "expected": {
-          "decision": "abort"
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "frozen_obligation_gate",
@@ -780,43 +235,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){if(!input.contract)return {status:'block',missing:['contract']};const missing=input.contract.requirements.filter(k=>!input.evidence.some(e=>e.key===k&&e.source&&e.supported===true));return {status:missing.length?'block':'allow',missing};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "contract": {
-            "requirements": [
-              "a"
-            ]
-          },
-          "evidence": [
-            {
-              "key": "a",
-              "source": "f",
-              "supported": true
-            }
-          ]
-        },
-        "expected": {
-          "status": "allow",
-          "missing": []
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "contract": null,
-          "evidence": []
-        },
-        "expected": {
-          "status": "block",
-          "missing": [
-            "contract"
-          ]
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "observed_relation_extractor",
@@ -831,50 +250,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const relations=input.observations.filter(o=>o.source&&o.visible===true&&o.subject&&o.object&&o.relation&&o.frame).map(({subject,object,relation,frame,source})=>({subject,object,relation,frame,source}));return {relations};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "observations": [
-            {
-              "subject": "a",
-              "object": "b",
-              "relation": "left",
-              "frame": "camera",
-              "source": "f",
-              "visible": true
-            }
-          ]
-        },
-        "expected": {
-          "relations": [
-            {
-              "subject": "a",
-              "object": "b",
-              "relation": "left",
-              "frame": "camera",
-              "source": "f"
-            }
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "observations": [
-            {
-              "subject": "a",
-              "object": "b",
-              "relation": "left"
-            }
-          ]
-        },
-        "expected": {
-          "relations": []
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "motion_candidate_association",
@@ -892,65 +268,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){if(!input.previous.source||!Number.isFinite(input.elapsed)||input.elapsed<=0||!Number.isFinite(input.maxSpeed)||input.maxSpeed<0)return {status:'unknown',candidates:[]};const candidates=input.detections.filter(d=>d.source&&d.position.length===input.previous.position.length&&Math.hypot(...d.position.map((v,i)=>v-input.previous.position[i]))<=input.maxSpeed*input.elapsed).map(d=>d.id);return {status:candidates.length===1?'unique':candidates.length?'ambiguous':'lost',candidates};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "previous": {
-            "position": [
-              0,
-              0
-            ],
-            "source": "f0"
-          },
-          "detections": [
-            {
-              "id": "a",
-              "position": [
-                1,
-                0
-              ],
-              "source": "f1"
-            },
-            {
-              "id": "b",
-              "position": [
-                3,
-                0
-              ],
-              "source": "f1"
-            }
-          ],
-          "elapsed": 1,
-          "maxSpeed": 2
-        },
-        "expected": {
-          "status": "unique",
-          "candidates": [
-            "a"
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "previous": {
-            "position": [
-              0,
-              0
-            ]
-          },
-          "detections": [],
-          "elapsed": 1,
-          "maxSpeed": 2
-        },
-        "expected": {
-          "status": "unknown",
-          "candidates": []
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "temporal_coverage_auditor",
@@ -968,51 +286,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const times=[...new Set(input.frames.filter(f=>f.source&&f.readable===true&&Number.isFinite(f.time)&&f.time>=input.start&&f.time<=input.end).map(f=>f.time))].sort((a,b)=>a-b);if(!times.length)return {covered:false,gaps:[[input.start,input.end]]};const gaps=[];if(times[0]>input.start)gaps.push([input.start,times[0]]);for(let i=1;i<times.length;i++)if(times[i]-times[i-1]>input.maxGap)gaps.push([times[i-1],times[i]]);if(times.at(-1)<input.end)gaps.push([times.at(-1),input.end]);return {covered:gaps.length===0,gaps};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "frames": [
-            {
-              "time": 0,
-              "source": "a",
-              "readable": true
-            },
-            {
-              "time": 1,
-              "source": "b",
-              "readable": true
-            }
-          ],
-          "start": 0,
-          "end": 1,
-          "maxGap": 1
-        },
-        "expected": {
-          "covered": true,
-          "gaps": []
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "frames": [],
-          "start": 0,
-          "end": 2,
-          "maxGap": 1
-        },
-        "expected": {
-          "covered": false,
-          "gaps": [
-            [
-              0,
-              2
-            ]
-          ]
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "report_reconciliation",
@@ -1029,56 +303,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){if(input.complete!==true)return {status:'incomplete',edits:[]};const edits=[];for(const [key,value]of Object.entries(input.current)){if(!Object.hasOwn(input.previous,key))edits.push({kind:'add',key,value});else if(JSON.stringify(input.previous[key])!==JSON.stringify(value))edits.push({kind:'correct',key,value});}for(const key of Object.keys(input.previous))if(!Object.hasOwn(input.current,key))edits.push({kind:'retract',key});return {status:'reconciled',edits};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "previous": {
-            "a": 1,
-            "b": 2
-          },
-          "current": {
-            "a": 3,
-            "c": 4
-          },
-          "complete": true
-        },
-        "expected": {
-          "status": "reconciled",
-          "edits": [
-            {
-              "kind": "correct",
-              "key": "a",
-              "value": 3
-            },
-            {
-              "kind": "add",
-              "key": "c",
-              "value": 4
-            },
-            {
-              "kind": "retract",
-              "key": "b"
-            }
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "previous": {
-            "a": 1
-          },
-          "current": {},
-          "complete": false
-        },
-        "expected": {
-          "status": "incomplete",
-          "edits": []
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "ordered_progress_memory",
@@ -1094,52 +319,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){let completed=0;for(const r of input.receipts)if(r.source&&r.completed===true&&r.id===input.order[completed])completed++;return {completed,next:input.order[completed]??null};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "order": [
-            "a",
-            "b"
-          ],
-          "receipts": [
-            {
-              "id": "b",
-              "source": "x",
-              "completed": true
-            },
-            {
-              "id": "a",
-              "source": "y",
-              "completed": true
-            }
-          ]
-        },
-        "expected": {
-          "completed": 1,
-          "next": "b"
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "order": [
-            "a"
-          ],
-          "receipts": [
-            {
-              "id": "a",
-              "completed": true
-            }
-          ]
-        },
-        "expected": {
-          "completed": 0,
-          "next": "a"
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "cyclic_residue_memory",
@@ -1155,58 +335,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const counts=Object.create(null);for(const e of input.events)if(e.source&&e.entered===true&&typeof e.class==='string')counts[e.class]=(counts[e.class]??0)+1;const residues=Object.create(null);for(const [key,n]of Object.entries(counts)){const c=input.cycles[key];residues[key]=Number.isInteger(c)&&c>0?n%c:null;}return {counts,residues};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "events": [
-            {
-              "class": "a",
-              "source": "f",
-              "entered": true
-            },
-            {
-              "class": "a",
-              "source": "g",
-              "entered": true
-            }
-          ],
-          "cycles": {
-            "a": 3
-          }
-        },
-        "expected": {
-          "counts": {
-            "a": 2
-          },
-          "residues": {
-            "a": 2
-          }
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "events": [
-            {
-              "class": "a",
-              "source": "f",
-              "entered": true
-            }
-          ],
-          "cycles": {}
-        },
-        "expected": {
-          "counts": {
-            "a": 1
-          },
-          "residues": {
-            "a": null
-          }
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "attribute_rule_classifier",
@@ -1223,59 +352,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const missing=input.required.filter(k=>!Object.hasOwn(input.facts,k));if(missing.length)return {status:'unknown',labels:[],missing};const labels=input.rules.filter(r=>Object.entries(r.when).every(([k,v])=>Object.hasOwn(input.facts,k)&&JSON.stringify(input.facts[k])===JSON.stringify(v))).map(r=>r.label);return {status:labels.length===1?'classified':labels.length?'ambiguous':'unclassified',labels,missing};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "facts": {
-            "a": 1
-          },
-          "required": [
-            "a"
-          ],
-          "rules": [
-            {
-              "when": {
-                "a": 1
-              },
-              "label": "x"
-            }
-          ]
-        },
-        "expected": {
-          "status": "classified",
-          "labels": [
-            "x"
-          ],
-          "missing": []
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "facts": {},
-          "required": [
-            "a"
-          ],
-          "rules": [
-            {
-              "when": {
-                "a": 1
-              },
-              "label": "x"
-            }
-          ]
-        },
-        "expected": {
-          "status": "unknown",
-          "labels": [],
-          "missing": [
-            "a"
-          ]
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "feedback_partition_model",
@@ -1291,67 +368,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const groups=Object.create(null),unknown=[];for(const h of input.hypotheses){if(!Object.hasOwn(h.predictions??{},input.probeId)){unknown.push(h.id);continue;}const key=JSON.stringify(h.predictions[input.probeId]);(groups[key]??=[]).push(h.id);}return {groups,unknown,worstKnownPartition:Math.max(0,...Object.values(groups).map(g=>g.length))};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "hypotheses": [
-            {
-              "id": "a",
-              "predictions": {
-                "p": 1
-              }
-            },
-            {
-              "id": "b",
-              "predictions": {
-                "p": 1
-              }
-            },
-            {
-              "id": "c",
-              "predictions": {
-                "p": 2
-              }
-            }
-          ],
-          "probeId": "p"
-        },
-        "expected": {
-          "groups": {
-            "1": [
-              "a",
-              "b"
-            ],
-            "2": [
-              "c"
-            ]
-          },
-          "unknown": [],
-          "worstKnownPartition": 2
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "hypotheses": [
-            {
-              "id": "a",
-              "predictions": {}
-            }
-          ],
-          "probeId": "p"
-        },
-        "expected": {
-          "groups": {},
-          "unknown": [
-            "a"
-          ],
-          "worstKnownPartition": 0
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "domain_support_propagation",
@@ -1368,64 +385,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){if(input.complete!==true)return {status:'unknown',domains:input.domains};const keys=Object.keys(input.domains);const valid=input.tuples.filter(t=>keys.every(k=>Object.hasOwn(t,k)&&input.domains[k].includes(t[k])));const domains=Object.fromEntries(keys.map(k=>[k,input.domains[k].filter(v=>valid.some(t=>t[k]===v))]));return {status:valid.length?'supported':'inconsistent',domains};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "domains": {
-            "a": [
-              1,
-              2
-            ],
-            "b": [
-              1,
-              2
-            ]
-          },
-          "tuples": [
-            {
-              "a": 1,
-              "b": 2
-            }
-          ],
-          "complete": true
-        },
-        "expected": {
-          "status": "supported",
-          "domains": {
-            "a": [
-              1
-            ],
-            "b": [
-              2
-            ]
-          }
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "domains": {
-            "a": [
-              1,
-              2
-            ]
-          },
-          "tuples": [],
-          "complete": false
-        },
-        "expected": {
-          "status": "unknown",
-          "domains": {
-            "a": [
-              1,
-              2
-            ]
-          }
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "joint_transition_scheduler",
@@ -1441,62 +401,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const feasible=input.jointActions.filter(a=>a.legal===true&&a.preconditionsMet===true&&Number.isFinite(a.cost)&&a.cost>=0&&a.cost<=input.budget).sort((a,b)=>a.cost-b.cost);return {feasible,next:feasible[0]??null};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "jointActions": [
-            {
-              "id": "a",
-              "legal": true,
-              "preconditionsMet": true,
-              "cost": 1
-            },
-            {
-              "id": "b",
-              "legal": false,
-              "preconditionsMet": true,
-              "cost": 0
-            }
-          ],
-          "budget": 1
-        },
-        "expected": {
-          "feasible": [
-            {
-              "id": "a",
-              "legal": true,
-              "preconditionsMet": true,
-              "cost": 1
-            }
-          ],
-          "next": {
-            "id": "a",
-            "legal": true,
-            "preconditionsMet": true,
-            "cost": 1
-          }
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "jointActions": [
-            {
-              "id": "a",
-              "preconditionsMet": true,
-              "cost": 1
-            }
-          ],
-          "budget": 1
-        },
-        "expected": {
-          "feasible": [],
-          "next": null
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "ordered_capacity_planner",
@@ -1512,45 +417,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){if(!Number.isInteger(input.capacity)||input.capacity<1)return {status:'invalid_capacity',batches:[]};const batches=[];for(let i=0;i<input.targets.length;i+=input.capacity)batches.push(input.targets.slice(i,i+input.capacity));return {status:'planned',batches};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "targets": [
-            "a",
-            "b",
-            "c"
-          ],
-          "capacity": 2
-        },
-        "expected": {
-          "status": "planned",
-          "batches": [
-            [
-              "a",
-              "b"
-            ],
-            [
-              "c"
-            ]
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "targets": [
-            "a"
-          ],
-          "capacity": 0
-        },
-        "expected": {
-          "status": "invalid_capacity",
-          "batches": []
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "reserve_deadline_planner",
@@ -1568,67 +435,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const ranked=input.candidates.filter(c=>Number.isFinite(c.cost)&&c.cost>=0&&input.budget-c.cost>=input.reserve&&Number.isFinite(c.finish)&&c.finish<=input.deadline&&Number.isFinite(c.value)).sort((a,b)=>b.value-a.value||a.finish-b.finish);return {ranked,recommendation:ranked[0]??null};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "candidates": [
-            {
-              "id": "a",
-              "cost": 3,
-              "finish": 2,
-              "value": 5
-            },
-            {
-              "id": "b",
-              "cost": 5,
-              "finish": 2,
-              "value": 8
-            }
-          ],
-          "budget": 5,
-          "reserve": 1,
-          "deadline": 3
-        },
-        "expected": {
-          "ranked": [
-            {
-              "id": "a",
-              "cost": 3,
-              "finish": 2,
-              "value": 5
-            }
-          ],
-          "recommendation": {
-            "id": "a",
-            "cost": 3,
-            "finish": 2,
-            "value": 5
-          }
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "candidates": [
-            {
-              "id": "a",
-              "cost": 3,
-              "finish": 4,
-              "value": 5
-            }
-          ],
-          "budget": 5,
-          "reserve": 1,
-          "deadline": 3
-        },
-        "expected": {
-          "ranked": [],
-          "recommendation": null
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "unique_survivor_gate",
@@ -1644,45 +451,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const alive=input.candidates.filter(c=>c.refuted!==true);return {canCommit:input.searchComplete===true&&alive.length===1,answer:input.searchComplete===true&&alive.length===1?alive[0]:null};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "candidates": [
-            {
-              "id": "a"
-            },
-            {
-              "id": "b",
-              "refuted": true
-            }
-          ],
-          "searchComplete": true
-        },
-        "expected": {
-          "canCommit": true,
-          "answer": {
-            "id": "a"
-          }
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "candidates": [
-            {
-              "id": "a"
-            }
-          ],
-          "searchComplete": false
-        },
-        "expected": {
-          "canCommit": false,
-          "answer": null
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "checkpoint_recovery_gate",
@@ -1698,55 +467,7 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const eligible=input.checkpoints.filter(c=>c.source&&c.progressObserved===true&&c.reversible===true&&Number.isFinite(c.cost)&&c.cost>=0&&c.cost<=input.budget&&Number.isFinite(c.step)).sort((a,b)=>b.step-a.step);return {canRecover:eligible.length>0,checkpoint:eligible[0]??null};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "checkpoints": [
-            {
-              "id": "a",
-              "source": "f",
-              "progressObserved": true,
-              "reversible": true,
-              "cost": 1,
-              "step": 2
-            }
-          ],
-          "budget": 1
-        },
-        "expected": {
-          "canRecover": true,
-          "checkpoint": {
-            "id": "a",
-            "source": "f",
-            "progressObserved": true,
-            "reversible": true,
-            "cost": 1,
-            "step": 2
-          }
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "checkpoints": [
-            {
-              "id": "a",
-              "source": "f",
-              "progressObserved": true,
-              "cost": 1,
-              "step": 2
-            }
-          ],
-          "budget": 1
-        },
-        "expected": {
-          "canRecover": false,
-          "checkpoint": null
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "repeated_attempt_gate",
@@ -1764,65 +485,11 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);const repeated=input.history.some(h=>h.source&&h.rejected===true&&same(h.state,input.state)&&same(h.action,input.action));return {attemptAllowed:!repeated&&input.budget>=1,repeated};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "state": [
-            1,
-            2
-          ],
-          "action": "enter",
-          "history": [
-            {
-              "state": [
-                1,
-                1
-              ],
-              "action": "enter",
-              "source": "host",
-              "rejected": true
-            }
-          ],
-          "budget": 1
-        },
-        "expected": {
-          "attemptAllowed": true,
-          "repeated": false
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "state": [
-            1,
-            2
-          ],
-          "action": "enter",
-          "history": [
-            {
-              "state": [
-                1,
-                2
-              ],
-              "action": "enter",
-              "source": "host",
-              "rejected": true
-            }
-          ],
-          "budget": 1
-        },
-        "expected": {
-          "attemptAllowed": false,
-          "repeated": true
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "resource_applicability",
-    "protocolClass": "orchestration",
+    "protocolClass": "feedback",
     "name": "Resource Applicability",
     "prompt": "Select host-exposed resources whose declared capabilities and availability satisfy the request. Unknown availability does not authorize use.",
     "interface": {
@@ -1834,53 +501,11 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const eligible=input.resources.filter(r=>r.available===true&&Array.isArray(r.capabilities)&&input.required.every(k=>r.capabilities.includes(k)));return {eligible};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [
-            {
-              "id": "scan",
-              "available": true,
-              "capabilities": [
-                "image"
-              ]
-            }
-          ],
-          "required": [
-            "image"
-          ]
-        },
-        "expected": {
-          "eligible": [
-            {
-              "id": "scan",
-              "available": true,
-              "capabilities": [
-                "image"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [],
-          "required": [
-            "image"
-          ]
-        },
-        "expected": {
-          "eligible": []
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "evidence_relevance",
-    "protocolClass": "orchestration",
+    "protocolClass": "feedback",
     "name": "Evidence Resource Relevance",
     "prompt": "Select resources addressing current evidence gaps. Do not treat a resource description as evidence already obtained.",
     "interface": {
@@ -1892,53 +517,11 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){return {relevant:input.offers.filter(o=>o.available===true&&Array.isArray(o.addresses)&&input.missing.some(k=>o.addresses.includes(k)))};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "offers": [
-            {
-              "id": "camera",
-              "available": true,
-              "addresses": [
-                "identity"
-              ]
-            }
-          ],
-          "missing": [
-            "identity"
-          ]
-        },
-        "expected": {
-          "relevant": [
-            {
-              "id": "camera",
-              "available": true,
-              "addresses": [
-                "identity"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "offers": [],
-          "missing": [
-            "identity"
-          ]
-        },
-        "expected": {
-          "relevant": []
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "resource_trust",
-    "protocolClass": "orchestration",
+    "protocolClass": "feedback",
     "name": "Resource Trust Withdrawal",
     "prompt": "Withdraw reliance on resources whose executed advice was refuted by sourced host feedback. Unexecuted advice is not refuted.",
     "interface": {
@@ -1950,50 +533,11 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){const withdrawn=input.resources.filter(id=>input.history.some(h=>h.resource===id&&h.source&&h.executed===true&&h.refuted===true));return {trusted:input.resources.filter(id=>!withdrawn.includes(id)),withdrawn};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [
-            "tool"
-          ],
-          "history": []
-        },
-        "expected": {
-          "trusted": [
-            "tool"
-          ],
-          "withdrawn": []
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [
-            "tool"
-          ],
-          "history": [
-            {
-              "resource": "tool",
-              "source": "receipt",
-              "executed": true,
-              "refuted": true
-            }
-          ]
-        },
-        "expected": {
-          "trusted": [],
-          "withdrawn": [
-            "tool"
-          ]
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "resource_freshness",
-    "protocolClass": "orchestration",
+    "protocolClass": "feedback",
     "name": "Resource State Freshness",
     "prompt": "Use resources bound to the current state version or explicitly guaranteed static. Do not silently reuse stale state-sensitive resources.",
     "interface": {
@@ -2005,48 +549,11 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){return {eligible:input.resources.filter(r=>r.stateVersion===input.stateVersion||r.staticGuaranteed===true)};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [
-            {
-              "id": "map",
-              "stateVersion": 1
-            }
-          ],
-          "stateVersion": 1
-        },
-        "expected": {
-          "eligible": [
-            {
-              "id": "map",
-              "stateVersion": 1
-            }
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [
-            {
-              "id": "map",
-              "stateVersion": 1
-            }
-          ],
-          "stateVersion": 2
-        },
-        "expected": {
-          "eligible": []
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "resource_input_readiness",
-    "protocolClass": "orchestration",
+    "protocolClass": "feedback",
     "name": "Resource Input Readiness",
     "prompt": "Check declared public input requirements before resource invocation. Missing inputs block applicability rather than creating fabricated defaults.",
     "interface": {
@@ -2058,63 +565,11 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){return {resources:input.resources.map(r=>({id:r.id,missing:r.required.filter(k=>!input.availableFields.includes(k)),ready:r.required.every(k=>input.availableFields.includes(k))}))};}"
-    },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [
-            {
-              "id": "check",
-              "required": [
-                "facts"
-              ]
-            }
-          ],
-          "availableFields": [
-            "facts"
-          ]
-        },
-        "expected": {
-          "resources": [
-            {
-              "id": "check",
-              "missing": [],
-              "ready": true
-            }
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [
-            {
-              "id": "check",
-              "required": [
-                "facts"
-              ]
-            }
-          ],
-          "availableFields": []
-        },
-        "expected": {
-          "resources": [
-            {
-              "id": "check",
-              "missing": [
-                "facts"
-              ],
-              "ready": false
-            }
-          ]
-        }
-      }
-    ]
+    }
   },
   {
     "templateId": "resource_compatibility",
-    "protocolClass": "orchestration",
+    "protocolClass": "feedback",
     "name": "Resource Interface Compatibility",
     "prompt": "Restrict resource choices to host-exposed IDs with compatible public interfaces. Do not expand the tool set.",
     "interface": {
@@ -2127,47 +582,104 @@
     "function": {
       "language": "javascript",
       "source": "function run(input){return {compatible:input.resources.filter(r=>input.hostIds.includes(r.id)&&r.interfaceVersion===input.interfaceVersion)};}"
+    }
+  },
+  {
+    "templateId": "rejection_repair",
+    "protocolClass": "feedback",
+    "name": "Rejection Diagnosis and Repeated-Error Repair",
+    "prompt": "Identify errors and repairable elements from actual host rejections. Avoid resubmitting an already rejected signature. Do not infer that an untried action is illegal.",
+    "interface": {
+      "required": [
+        "history",
+        "candidates"
+      ]
     },
-    "examples": [
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [
-            {
-              "id": "scan",
-              "interfaceVersion": 1
-            }
-          ],
-          "hostIds": [
-            "scan"
-          ],
-          "interfaceVersion": 1
-        },
-        "expected": {
-          "compatible": [
-            {
-              "id": "scan",
-              "interfaceVersion": 1
-            }
-          ]
-        }
-      },
-      {
-        "kind": "synthetic",
-        "input": {
-          "resources": [
-            {
-              "id": "scan",
-              "interfaceVersion": 1
-            }
-          ],
-          "hostIds": [],
-          "interfaceVersion": 1
-        },
-        "expected": {
-          "compatible": []
-        }
-      }
-    ]
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const rejected=new Set(input.history.filter(r=>r.rejected===true).map(r=>r.signature));return {remaining:input.candidates.filter(c=>!rejected.has(c.signature)),rejected:[...rejected]};}"
+    }
+  },
+  {
+    "templateId": "transition_reconciliation",
+    "protocolClass": "feedback",
+    "name": "Execution Receipts and Expectation Reconciliation",
+    "prompt": "Compare expected action results, actual before-and-after states, and host receipts. Distinguish acceptance, no effect, rejection, and unexpected changes, and propose subsequent corrections.",
+    "interface": {
+      "required": [
+        "before",
+        "after",
+        "expected"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const mismatches=Object.keys(input.expected).filter(k=>input.after[k]!==input.expected[k]);return {mismatches,changed:JSON.stringify(input.before)!==JSON.stringify(input.after),needsRepair:mismatches.length>0};}"
+    }
+  },
+  {
+    "templateId": "stale_state_repair",
+    "protocolClass": "feedback",
+    "name": "Stale-State Invalidation and Replanning",
+    "prompt": "When a phase or rule change is observed, invalidate outdated maps, plans, and advice. Preserve reusable portions only under explicit guarantees that they remain static.",
+    "interface": {
+      "required": [
+        "records",
+        "phase"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const retained=input.records.filter(r=>r.phase===input.phase||r.staticGuaranteed===true);return {retained,invalidated:input.records.filter(r=>!retained.includes(r)).map(r=>r.id)};}"
+    }
+  },
+  {
+    "templateId": "contradiction_localizer",
+    "protocolClass": "feedback",
+    "name": "Contradiction Localization and Conclusion Repair",
+    "prompt": "When new public observations refute old conclusions, identify the conflicting fields and sources. Lack of new evidence does not automatically retract an old conclusion.",
+    "interface": {
+      "required": [
+        "claims",
+        "observations"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const conflicts=[];for(const c of input.claims)for(const o of input.observations)if(o.source&&o.key===c.key&&JSON.stringify(o.value)!==JSON.stringify(c.value))conflicts.push({claimId:c.id,key:c.key,source:o.source});return {conflicts,reviseIds:[...new Set(conflicts.map(c=>c.claimId))]};}"
+    }
+  },
+  {
+    "templateId": "advice_trust_withdrawal",
+    "protocolClass": "feedback",
+    "name": "Trust Withdrawal for Refuted Advice",
+    "prompt": "Withdraw trust in the corresponding module only when the host actually executes and refutes its advice. Advice that was never executed or merely unhelpful is not necessarily refuted.",
+    "interface": {
+      "required": [
+        "capabilities",
+        "history"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const withdrawn=[...new Set(input.history.filter(r=>r.source&&r.executed===true&&r.refuted===true).map(r=>r.capability))].filter(id=>input.capabilities.includes(id));return {trusted:input.capabilities.filter(id=>!withdrawn.includes(id)),withdrawn};}"
+    }
+  },
+  {
+    "templateId": "ineffective_probe_filter",
+    "protocolClass": "feedback",
+    "name": "Ineffective Evidence Requests and Repeat Suppression",
+    "prompt": "Use actual receipts to suppress repeated probes that already failed or yielded no information in the same state. Reconsider them after a state change.",
+    "interface": {
+      "required": [
+        "offers",
+        "attempts",
+        "stateVersion"
+      ]
+    },
+    "function": {
+      "language": "javascript",
+      "source": "function run(input){const blocked=[...new Set(input.attempts.filter(a=>a.source&&a.stateVersion===input.stateVersion&&['failed','no_gain'].includes(a.result)).map(a=>a.signature))];return {eligible:input.offers.filter(o=>!blocked.includes(o.signature)),blocked};}"
+    }
   }
 ]

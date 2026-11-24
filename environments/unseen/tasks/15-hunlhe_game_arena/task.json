@@ -1,0 +1,84 @@
+{
+  "taskId": "hunlhe_game_arena",
+  "name": "HU-NLHE poker (Game Arena, 20 x 100-hand duplicate episodes vs gpt-5.6-luna)",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D4",
+    "subCategoryId": "D4.3"
+  },
+  "assignment": {
+    "task": "Official Game Arena heads-up no-limit hold'em (blinds 1/2, 100 BB stacks reset every hand, 100 hands per episode, duplicate format) against a fixed opponent. The request is the official Game Arena prompt with the session history and the current hand.",
+    "observation": "The official Game Arena poker prompt for your seat.",
+    "actions": {
+      "action": "Your reply text in the format the prompt asks for; parsed by the official Game Arena parser (one retry on an illegal move, then check/fold)."
+    },
+    "evaluation": "Official chip result, BB/100 over the episode."
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Submit the reply text for this decision.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "contract": "One reply text per request, in the format the request asks for.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract)",
+    "contextPolicy": "current",
+    "imageOrder": "after",
+    "structuredOutput": true,
+    "invalidResponses": "H0 used structured output (one schema-valid submit_action per response); a refusal or a response without an action was retried with the same request, without a reprompt."
+  },
+  "evaluation": {
+    "configurations": 20,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 20
+  },
+  "otherModels": [
+    {
+      "role": "opponent",
+      "model": "gpt-5.6-luna",
+      "via": "codex exec (reasoning effort low)"
+    }
+  ],
+  "environment": {
+    "adapter": "jsonl",
+    "name": "poker",
+    "envDir": "tasks/15-hunlhe_game_arena/env",
+    "python": "poker",
+    "bridge": {
+      "script": "poker_bridge.py",
+      "args": [
+        "{index}"
+      ],
+      "reply": "args",
+      "skipKinds": [
+        "hand_result"
+      ],
+      "env": {
+        "POKER_LOG": "{EPISODE_DIR}/opponents.jsonl",
+        "POKER_STATE_DIR": "{EPISODE_DIR}/poker-state"
+      }
+    },
+    "terminal": "poker",
+    "limits": null
+  },
+  "driverId": "poker-official-bridge-v1",
+  "notes": []
+}

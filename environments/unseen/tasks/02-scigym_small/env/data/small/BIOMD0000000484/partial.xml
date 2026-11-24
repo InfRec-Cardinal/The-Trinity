@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_ee76">
+    <listOfCompartments>
+      <compartment id="id_foei" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_biay" compartment="id_foei" initialAmount="0"/>
+      <species id="id_fgon" compartment="id_foei" initialAmount="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>

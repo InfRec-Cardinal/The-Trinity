@@ -1,0 +1,124 @@
+{
+  "taskId": "arc_agi_3",
+  "proposals": [
+    {
+      "id": "read-edge-clock-first",
+      "title": "Read the frame-edge clock on the first frame diff, before spending a second action",
+      "audience": [
+        "playing"
+      ],
+      "capability": "perception",
+      "trigger": "An undisclosed-rule interactive episode whose only feedback is the frame plus a state field and a level counter (no scalar reward), where the public frames show a uniform run of one value along a frame border that differs from the interior background. Applies as soon as two consecutive public frames exist, i.e. after the very first submitted action.",
+      "procedure": [
+        "Diff the first two frames by region: border run versus interior play area.",
+        "If the border run changed while the interior did not, classify it as a per-action clock, not decoration or scenery.",
+        "Count what remains in that run, but treat it as a per-level allowance in unknown units: measure how many cells it loses per action before converting it to a number of actions, and re-read it after every level change, refill or restart. It is not the episode budget.",
+        "Use that publicly visible count when choosing the next action, and refresh it from each arriving frame; no plan entry or additional action is required.",
+        "Prefer executing the best-supported sequence over a fresh probe when the run is close to empty; do not stop exploring merely because the run is shorter than a candidate sequence."
+      ],
+      "successSignals": [
+        "The next action accounts for the currently visible unconverted count; no quoted plan entry is required.",
+        "The clock is still non-terminal when the level counter first increments.",
+        "The episode ends with at least one level completed rather than at the first clock exhaustion."
+      ],
+      "failureSignals": [
+        "Play continues past the point where the unconverted remainder of the border run is smaller than the current best solution sequence.",
+        "The first frame diff is dismissed as background art, and the terminal state arrives with the level counter still at its starting value.",
+        "Every action is a fresh probe, with no action repeated once its result was known."
+      ],
+      "recovery": [
+        "On reaching a terminal state with the level counter unchanged, restart and, on the first pair of frames, compare the border run against the interior before issuing any second probe.",
+        "If mid-episode the remaining count is noticed only late, stop the probe loop at once and spend the remainder on the single best-supported sequence rather than on a new experiment.",
+        "If the border run turns out not to change per action, drop this card for the episode and fall back to the level counter alone as the only outcome channel."
+      ],
+      "invariants": [
+        "The clock reading rides on the next frame the player would receive anyway; reading it never consumes an action.",
+        "Transport acceptance and validity are bookkeeping and say nothing about the clock or the goal.",
+        "Only host terminal status ends the episode; an exhausted run may cost a life and restart the level instead."
+      ],
+      "sourceGapIds": [
+        "unread-action-clock",
+        "probes-past-budget"
+      ]
+    },
+    {
+      "id": "commit-one-sequence-not-probes",
+      "title": "Convert accumulated frames into one executed sequence while the clock still fits it",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "The observation carries a level counter that has stayed at its starting value while the action clock advanced over a run of actions, and the clock's remaining budget is still at least as large as the action count of the current best-supported hypothesis about what moves that counter.",
+      "procedure": [
+        "Use the single best-supported rule from existing frames about what precedes a counter change (which entity or region moved, in which direction, relative to which action).",
+        "Choose a complete action sequence consistent with that rule and compare its length with the observed allowance; no written sequence is required.",
+        "Execute it without interleaving unrelated probes; a sequence interrupted by experiments does not test the hypothesis.",
+        "Abandon the sequence only on an observation that cannot be reconciled with the rule, not on one that is merely unexplained.",
+        "When the remaining clock equals the sequence length, either execute it now or drop to a strictly shorter hypothesis; do not start a new probe at that point."
+      ],
+      "successSignals": [
+        "The level counter increments, or the state field leaves its initial reading, before the clock empties.",
+        "The same action class is repeated deliberately as part of the sequence rather than as fresh exploration.",
+        "The selected actions are consistent with the best-supported rule about the change the counter responds to."
+      ],
+      "failureSignals": [
+        "Terminal state reached with the counter still at its starting value and a long tail of mutually distinct actions.",
+        "No hypothesis was ever completed end to end, so no rule was ever refuted or confirmed in full.",
+        "Probing resumes immediately after a result that already constrained the goal."
+      ],
+      "recovery": [
+        "On a run that ends with the counter unmoved, in the next episode commit the first hypothesis at the first clock reading instead of after a probing phase.",
+        "If the clock cannot fit the full sequence, shrink the hypothesis to the shortest prefix whose effect would be observable in one frame, and run that.",
+        "If two hypotheses are equally supported, pick the one with the shorter action sequence; the longer one is unaffordable at that clock reading."
+      ],
+      "invariants": [
+        "A hypothesis is only tested by an uninterrupted sequence; a sequence broken by probes tests nothing.",
+        "The budget check uses the clock count already on screen, never an extrapolation from an extra action.",
+        "Committing early on partial evidence dominates gathering more under a fixed clock."
+      ],
+      "sourceGapIds": [
+        "no-committed-sequence",
+        "counter-stuck-at-start"
+      ]
+    },
+    {
+      "id": "acceptance-is-not-progress",
+      "title": "Judge progress by interior change, never by transport acceptance",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "Every submitted action comes back accepted and valid with zero rejected attempts and the reward field empty, while a state field and a level counter are the only outcome readouts.",
+      "procedure": [
+        "After each action, compare only the interior play area against the previous frame; treat border-run and counter movement as clock bookkeeping, not as the action's effect.",
+        "If the interior is unchanged, mark that action class as non-productive in the current state and do not re-issue it in that same state.",
+        "If the interior changed, use its visible entity motion relative to the action as transition evidence; consult the host history and computed module output rather than writing a separate table.",
+        "Choose subsequent actions that either extend a recorded pair or deliberately test one untested pair, and never on the grounds that the transport accepted the last one."
+      ],
+      "successSignals": [
+        "Public action-to-interior-effect evidence from the host history and module output is being used to select actions.",
+        "Actions are selected to extend a known pair rather than to see what happens.",
+        "The level counter increments, showing that interior effects were being driven toward the goal."
+      ],
+      "failureSignals": [
+        "Action classes are repeated that never changed the interior in the current state.",
+        "Acceptance of a submission is cited as evidence of progress.",
+        "No distinction is drawn between frame regions that changed due to the action and regions that changed on their own."
+      ],
+      "recovery": [
+        "On noticing that a whole run moved only the border clock, re-evaluate which interior region ever changed and use evidence from that region only.",
+        "If the interior never changed under any declared action in a state, rotate to an untested declared action class instead of repeating a known non-effect.",
+        "If the only declared action is a pointing action, use the interior diff of the previous action to pick the next target rather than a coordinate chosen without reference to it."
+      ],
+      "invariants": [
+        "Transport acceptance is uniform across every action in the supplied runs and therefore carries no information about the goal.",
+        "Only interior change counts as an effect of an action.",
+        "The clock and the level counter are readouts, not effects; they change because time or the goal advanced, not because a particular action was clever."
+      ],
+      "sourceGapIds": [
+        "acceptance-as-progress",
+        "no-transition-model"
+      ]
+    }
+  ]
+}

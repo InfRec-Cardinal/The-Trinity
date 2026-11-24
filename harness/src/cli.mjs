@@ -15,12 +15,16 @@ ensure(config.mode !== 'scripted_demo', 'Production mode must not claim a script
 const backend = new CommandAgent(config.agentCommand, config.agentOptions);
 const module = await import(pathToFileURL(path.resolve(path.dirname(file), config.driverModule)).href);
 const driver = await module.createDriver(config.driverOptions ?? {});
-const store = new Store(directory, config), agent = new Agent(backend, store);
+let store;
 try {
+  store = new Store(directory, config);
+  const agent = new Agent(backend, store);
   const result = await new Trinity({config, agent, driver, store}).run();
   console.log(JSON.stringify({mode: config.mode, directory, nodes: result.nodes, iterations: result.iterations, completedNodeIterations: result.summary.length, creatorModules: result.creatorBase.modules.length, creatorSkills: Object.values(result.creatorNodeSkills).reduce((sum, skills) => sum + skills.length, 0), benchmarkPerformanceClaim: false}, null, 2));
 } catch (error) {
-  store.record('run_failed', {message: String(error.message)});
+  store?.record('run_failed', {message: String(error.message)});
   process.stderr.write(String(error.stack) + '\n');
   process.exitCode = 1;
+} finally {
+  await driver.shutdown?.();
 }

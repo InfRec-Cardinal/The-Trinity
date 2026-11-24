@@ -1,0 +1,9 @@
+num_evals: 1
+env_name: death_process
+goal_name: infection
+com_limit: 200
+env_params:
+  N: 50
+  mu: 1
+  sigma: 1
+  lower_bound: 0

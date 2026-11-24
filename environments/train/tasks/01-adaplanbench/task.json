@@ -1,0 +1,61 @@
+{
+  "taskId": "adaplanbench",
+  "name": "AdaPlanBench",
+  "fullName": "AdaPlanBench: replanning against constraints revealed only when violated",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D2",
+    "domainName": "Constraint Solving, Puzzles & Design",
+    "subCategoryId": "D2.3",
+    "subCategoryName": "Artefact Design & Verifier-Driven Revision"
+  },
+  "assignment": {
+    "actions": {
+      "submit_plan": "Submit a natural-language step-by-step plan for the current turn; the environment judges it against the full hidden profile and returns the single-type violation feedback, or terminates the episode if no constraint is violated."
+    },
+    "evaluation": {
+      "budget": 20,
+      "efficiency": "Fewer submit_plan turns to the terminal valid plan is better; report first-attempt success separately and penalize repeated violations of already disclosed world/user constraints (AWRV/AURV).",
+      "failure": "Failure if the episode ends by exhausting the 20-turn budget, by the early-stop rule (two consecutive turns with no newly violated constraint), or if the terminal constraint-satisfying plan misses the rubric threshold.",
+      "success": "An episode succeeds if some submitted plan violates no world and no user constraint and its averaged rubric score is at least 4 on every dimension (the published Acc. criterion applied to the terminal turn)."
+    },
+    "generation": "Instances come from the official query file domain_metadata/housing/final/query_housing_macgyver_resample.json (mirrored as adaplanbench_queries.json on Hugging Face), addressed by query_id in file order; the constraint profile is fixed to the medium load via ban_iterative_sample_num=2, matching the paper's main table.",
+    "id": "adaplanbench-violation-revealed-constraint-replanning",
+    "observation": "Turn 1 exposes only the query text. After each submitted plan the agent receives the user-simulator feedback text naming the constraints revealed for that turn (one constraint type per turn, world violations prioritized), plus the accumulated dialogue history. The hidden constraint profile, withheld violations of the non-selected type, and raw judge/rubric internals are never shown.",
+    "reference": "AdaPlanBench's published runtime protocol (arXiv 2606.05622v2, official repo JiayuJeff/AdaPlanBench): 307 MacGyver-derived household queries, each with a hidden dual-constraint profile; violated constraints are disclosed only after a violating plan, under a single-type priority rule. New here: iterating the official query file in fixed order as the instance index, and the explicit per-turn logging contract for successful and failed episodes.",
+    "task": "Given a natural-language household planning query, propose a step-by-step plan and revise it across turns as the hidden world and user constraints behind it are progressively disclosed, until a plan satisfies every constraint in the instance's profile and passes rubric judging.",
+    "verification": "Score with the official harness (python -m env.run) and evaluator (env/eval_main_table.py --iteration 2), reading results/runs/ metadata.json, summary.json, index.jsonl and queries/*.json. Every episode, successful and failed, must persist each turn's submitted plan, the feedback text shown, the judge-identified violated world/user constraint ids, rubric dimension scores, and the terminal outcome with its termination reason, so the run is independently replayable."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": 3,
+    "totalEpisodes": 27,
+    "actionBudget": 20,
+    "allocationNote": "Original configuration episodes vector repeated three times; all episodes are planned, none executed as H0 runs.",
+    "plannedEpisodes": 27
+  },
+  "otherModels": [
+    {
+      "role": "environment model: judges and simulated user",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "low",
+      "backend": "local Codex CLI (lib/codex-model.mjs)"
+    }
+  ],
+  "pythonEnv": "adaplanbench-runtime",
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Unused official housing/MacGyver catalog query; existing medium constraint profile and model routing retained."
+  ]
+}

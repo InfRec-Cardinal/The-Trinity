@@ -1,0 +1,76 @@
+{
+  "taskId": "discoverphysics",
+  "name": "DiscoverPhysics",
+  "fullName": "DiscoverPhysics: discovering laws of an alien physics",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D1",
+    "domainName": "Latent Rule & Mechanism Discovery",
+    "subCategoryId": "D1.2",
+    "subCategoryName": "Experimental Intervention & Scientific Discovery"
+  },
+  "assignment": {
+    "actions": {
+      "experiment": "Submit a JSON experiment: initial positions, velocities and charges of the controllable particles plus the list of measurement times; receive the simulated noisy positions and velocities.",
+      "fit": "Propose a candidate law with free parameters and request a least-squares fit against all trajectories logged so far; receive the fit report as text.",
+      "submit_final": "Submit the terminal answer: a plain-text explanation of the world's physics and a Python discovered_law function with up to five fittable parameters."
+    },
+    "evaluation": {
+      "budget": 17,
+      "efficiency": "Among passing episodes, prefer fewer experiment/fit rounds before submitting, then lower normalized MSE.",
+      "failure": "Failure if either threshold is missed, if the submitted Python law errors or cannot be fit, or if the budget is exhausted without a final submission.",
+      "success": "The episode passes when the submitted law's parameters are fit on the agent's observed data, rolled out on the world's held-out noise-free test particles, yields per-trajectory normalized MSE below 0.1 (MSE divided by test-trajectory variance) AND the LLM judge scores the explanation at least 0.9 against the world's human-written rubric."
+    },
+    "generation": "An instance is (public world name from the 11 released worlds: gravity, yukawa, fractional, circle, three_species, dark_matter, ether, hubble, oscillator, extra_dimensions, coulomb_easy) x (integer seed), run through the official runner with the default N-body engine, max_rounds 16 and position-only noise sigma = 0.05; worlds are generated on demand by the simulator from the world definition, so the seed plus world name fully reproduces the instance.",
+    "id": "discoverphysics-alien-law-discovery",
+    "observation": "Text/JSON only: the universal mission prompt, the world-specific experiment schema, and for each submitted experiment the simulator's returned positions and velocities of the controllable particles at the requested measurement times with Gaussian observation noise (sigma = 0.05). Parameter-fit results are returned as text at the start of the next round. No force law, field equation, coupling or hidden-species information is ever revealed, and held-out test particles are never shown.",
+    "reference": "Published DiscoverPhysics protocol (arXiv:2605.26087) and its open-source simulator/agent harness: rounds of agent-designed N-body experiments in a world with hidden non-canonical physics, then a final prose explanation plus Python law scored by held-out trajectory MSE and an LLM-judge rubric score. New design choices: fixed 16-round budget, (world, seed) instance keying at sigma = 0.05 position noise, the paper's 0.9 judge threshold, a thin action wrapper and explicit trajectory-logging requirements.",
+    "task": "Given one DiscoverPhysics world whose force law, field equation, couplings and hidden particle species are undisclosed, design and run experiments to infer the governing law, then submit a plain-text explanation of the world's physics together with a Python implementation of the discovered law (at most five fitted free parameters).",
+    "verification": "Recompute the verdict with the official scorer: scipy least-squares fit of the submitted law, rollout against the world's held-out noise-free test trajectories for normalized MSE, and the LLM judge (claude-opus-4-6) scoring the explanation against the world's rubric. Archive for both passing and failing episodes the per-run experiment-trajectory CSV, every round's submitted experiment/fit JSON and returned observation text, the final explanation and law, and the terminal metrics, so any run can be independently replayed and rescored."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 6,
+    "repetitions": 5,
+    "totalEpisodes": 30,
+    "actionBudget": 17,
+    "policy": "report-every-result-adaptive-low-v1",
+    "mode": "fixed_configurations_planned_repetitions",
+    "episodesPerConfiguration": 5,
+    "plannedEpisodes": 30
+  },
+  "otherModels": [
+    {
+      "role": "judge",
+      "model": "claude-opus-4-6",
+      "transport": "Claude Code CLI (claude -p, tools disabled, one turn, JSON output)",
+      "binary": "env CLAUDE_CLI, else `claude` on PATH",
+      "temperatureRequested": 1,
+      "temperatureEnforced": false,
+      "maxTokens": 1024,
+      "callsPerEpisode": "one per evaluated final law (official ExplanationJudge)",
+      "injection": "environmentModelCall (driver.mjs option); replay: replay-env/discoverphysics.mjs"
+    }
+  ],
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "pythonEnv": {
+    "name": "discoverphysics-runtime",
+    "pythonFor": "pythonFor(root, 'discoverphysics-runtime')",
+    "envVar": "TRAIN_PY_DISCOVERPHYSICS_RUNTIME",
+    "packages": "jax 0.10.2, numpy 2.4.6, scipy 1.17.1 (Python 3.11)"
+  },
+  "notes": [
+    "Official source: vendor/discoverphysics (SampsonML/DiscoverPhysics @ 33b7fa9d).",
+    "Hidden answers: configurations.json holds world, seed and noise settings that define the hidden physics; never show them to the player."
+  ]
+}

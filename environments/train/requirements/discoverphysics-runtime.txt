@@ -1,0 +1,13 @@
+                                                                
+certifi==2026.7.22
+charset-normalizer==3.5.2
+idna==3.20
+jax==0.10.2
+jaxlib==0.10.2
+ml_dtypes==0.6.0
+numpy==2.4.6
+opt_einsum==3.4.0
+PyYAML==6.0.3
+requests==2.34.2
+scipy==1.17.1
+urllib3==2.8.0

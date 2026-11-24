@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_k3l7">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_7r28">
+        <listOfUnits>
+          <unit kind="mole" exponent="-1" multiplier="1" offset="0"/>
+          <unit kind="litre" multiplier="1" offset="0"/>
+          <unit kind="second" exponent="-1" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_6ze7">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_pcqd" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_q3gg" compartment="id_pcqd" initialConcentration="0"/>
+      <species id="id_aoua" compartment="id_pcqd" initialConcentration="0"/>
+      <species id="id_7l07" compartment="id_pcqd" initialConcentration="2.4e-05"/>
+      <species id="id_ol0j" compartment="id_pcqd" initialConcentration="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_iqw1" value="0.004" units="id_6ze7"/>
+      <parameter id="id_zcv4" value="1000" units="id_7r28"/>
+      <parameter id="id_ntsj" value="0.00054" units="id_6ze7"/>
+      <parameter id="id_h5km" value="0.00021" units="id_6ze7"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_43tg">
+        <listOfReactants>
+          <speciesReference species="id_ol0j"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_aoua"/>
+          <speciesReference species="id_q3gg" stoichiometry="2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_pcqd </ci>
+              <ci> id_ntsj </ci>
+              <ci> id_ol0j </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_d4am">
+        <listOfReactants>
+          <speciesReference species="id_7l07"/>
+          <speciesReference species="id_q3gg"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_ol0j"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_pcqd </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_zcv4 </ci>
+                  <ci> id_q3gg </ci>
+                  <ci> id_7l07 </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_h5km </ci>
+                  <ci> id_ol0j </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_dvbd">
+        <listOfReactants>
+          <speciesReference species="id_7l07"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_aoua"/>
+          <speciesReference species="id_q3gg"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_pcqd </ci>
+              <ci> id_iqw1 </ci>
+              <ci> id_7l07 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

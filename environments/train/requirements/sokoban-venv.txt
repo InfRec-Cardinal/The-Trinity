@@ -1,0 +1,16 @@
+                                                                                                                     
+certifi==2026.7.22
+charset-normalizer==3.5.2
+cloudpickle==3.1.2
+gym==0.26.2
+gym-notices==0.1.0
+gym_sokoban==0.0.5
+idna==3.20
+imageio==2.37.0
+numpy==1.26.4
+pillow==10.4.0
+pip==25.0.1
+requests==2.32.5
+setuptools==80.10.2
+tqdm==4.67.1
+urllib3==2.8.0

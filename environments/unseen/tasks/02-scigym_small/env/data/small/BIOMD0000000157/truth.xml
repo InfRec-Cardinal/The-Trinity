@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_ewbh">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_hxrc">
+        <listOfUnits>
+          <unit kind="item"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_twzy">
+        <listOfUnits>
+          <unit kind="second" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_f4nr" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_x8lp" compartment="id_f4nr" initialConcentration="0.8"/>
+      <species id="id_ddfe" compartment="id_f4nr" initialConcentration="0.1"/>
+      <species id="id_y5nu" compartment="id_f4nr" initialConcentration="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_bvum" value="0.0001"/>
+      <parameter id="id_kpwb" value="1"/>
+      <parameter id="id_3we1" value="0.9"/>
+      <parameter id="id_l1vx" value="1.7"/>
+      <parameter id="id_yxzo" value="0.8"/>
+      <parameter id="id_onwv" value="1.1"/>
+      <parameter id="id_o049" value="0"/>
+      <parameter id="id_zfoy" value="0.8"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_2huz" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_y5nu"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_f4nr </ci>
+              <ci> id_o049 </ci>
+              <ci> id_y5nu </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_rb0g" reversible="false">
+        <listOfProducts>
+          <speciesReference species="id_ddfe"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_y5nu"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_f4nr </ci>
+              <ci> id_onwv </ci>
+              <ci> id_y5nu </ci>
+              <ci> id_kpwb </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_cn8e">
+        <listOfReactants>
+          <speciesReference species="id_x8lp"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_f4nr </ci>
+              <ci> id_yxzo </ci>
+              <ci> id_x8lp </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_f7q3" reversible="false">
+        <listOfProducts>
+          <speciesReference species="id_y5nu"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_f4nr </ci>
+              <ci> id_3we1 </ci>
+              <ci> id_kpwb </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_zlw9" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_ddfe"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_x8lp"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_f4nr </ci>
+              <ci> id_zfoy </ci>
+              <ci> id_ddfe </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_r8ep" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_y5nu"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_x8lp"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> id_f4nr </ci>
+                <ci> id_l1vx </ci>
+                <ci> id_x8lp </ci>
+                <ci> id_y5nu </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <ci> id_y5nu </ci>
+                <ci> id_bvum </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

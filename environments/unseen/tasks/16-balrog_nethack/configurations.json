@@ -1,0 +1,45 @@
+{
+  "taskId": "balrog_nethack",
+  "configurations": [
+    {
+      "id": "NetHackChallenge-v0-ep1",
+      "label": "NetHackChallenge-v0 · seed 2026101100",
+      "ordinal": 0,
+      "envName": "nle",
+      "task": "NetHackChallenge-v0",
+      "seed": 2026101100
+    },
+    {
+      "id": "NetHackChallenge-v0-ep2",
+      "label": "NetHackChallenge-v0 · seed 2026101101",
+      "ordinal": 1,
+      "envName": "nle",
+      "task": "NetHackChallenge-v0",
+      "seed": 2026101101
+    },
+    {
+      "id": "NetHackChallenge-v0-ep3",
+      "label": "NetHackChallenge-v0 · seed 2026101102",
+      "ordinal": 2,
+      "envName": "nle",
+      "task": "NetHackChallenge-v0",
+      "seed": 2026101102
+    },
+    {
+      "id": "NetHackChallenge-v0-ep4",
+      "label": "NetHackChallenge-v0 · seed 2026101103",
+      "ordinal": 3,
+      "envName": "nle",
+      "task": "NetHackChallenge-v0",
+      "seed": 2026101103
+    },
+    {
+      "id": "NetHackChallenge-v0-ep5",
+      "label": "NetHackChallenge-v0 · seed 2026101104",
+      "ordinal": 4,
+      "envName": "nle",
+      "task": "NetHackChallenge-v0",
+      "seed": 2026101104
+    }
+  ]
+}

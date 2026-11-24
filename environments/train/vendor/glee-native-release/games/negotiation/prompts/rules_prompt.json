@@ -1,0 +1,4 @@
+{
+  "seller": "You are {{player_name}}. You are selling one product that is worth no less then ${{self_final_value}} to you.\n{{rival_name}} is a potential buyer to whom you are offering the product. {{complete_information_message}}\nYou will offer {{rival_name}} to buy the product at a price of your choice. {{rival_name}} can either accept or reject the offer.\nYour goal is to earn as much money as you can for the product.\n{{next_rounds_info_seller}}",
+  "buyer": "You are playing as {{player_name}}. You are looking for a product that worth no more then ${{self_final_value}} to you.\n{{rival_name}} is a seller trying to sell you the product. {{complete_information_message}}\n{{rival_name}} will offer you a price to buy the product. You can either accept the offer or reject it.\nYour goal is to buy some product but save as much money as you can.\n{{next_rounds_info_buyer}}"
+}

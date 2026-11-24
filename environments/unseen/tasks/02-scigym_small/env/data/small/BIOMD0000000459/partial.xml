@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_r31p">
+    <listOfCompartments>
+      <compartment id="id_eiz2" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_9kmi" compartment="id_eiz2" initialConcentration="0"/>
+      <species id="id_oji9" compartment="id_eiz2" initialConcentration="0"/>
+      <species id="id_u6p8" compartment="id_eiz2" initialConcentration="0"/>
+      <species id="id_7zxt" compartment="id_eiz2" initialConcentration="100" boundaryCondition="true" constant="true"/>
+    </listOfSpecies>
+  </model>
+</sbml>

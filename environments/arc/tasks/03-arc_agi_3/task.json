@@ -1,0 +1,60 @@
+{
+  "taskId": "arc_agi_3",
+  "name": "ARC-AGI-3",
+  "fullName": "ARC-AGI-3 interactive reasoning environments",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D1",
+    "domainName": "Latent Rule & Mechanism Discovery",
+    "subCategoryId": "D1.3",
+    "subCategoryName": "Undisclosed-Rule Interactive Play"
+  },
+  "assignment": {
+    "actions": {
+      "ACTION1": "Simple game-defined action, semantically mapped to up.",
+      "ACTION2": "Simple game-defined action, semantically mapped to down.",
+      "ACTION3": "Simple game-defined action, semantically mapped to left.",
+      "ACTION4": "Simple game-defined action, semantically mapped to right.",
+      "ACTION5": "Simple game-specific interaction (e.g. interact, select, rotate, attach/detach, execute).",
+      "ACTION6": "Complex action requiring integer x and y coordinates in 0-63 range; active coordinates are not disclosed.",
+      "ACTION7": "Simple undo action, where the game supports it.",
+      "RESET": "Harness automatically resets GAME_OVER without a model call. Voluntary reset is available except on first turn and immediately after RESET. Failed actions and RESET count toward score and budget.",
+      "answer": "Not used: the terminal outcome is obtained by play, not by submitting an answer artifact. Completion is registered by the environment itself when the level objective is met."
+    },
+    "evaluation": {
+      "budget": "5 times the version-matched official baseline action count per selected level; RESET costs one action.",
+      "success": "The selected level registers one native completion; prior levels receive no credit.",
+      "failure": "Unsolved at the configured evaluation action budget. GAME_OVER is recoverable, not a terminal failure.",
+      "efficiency": "Official SDK per-level RHAE 0..115; level-index-weighted game score capped by weighted completion, then equal mean across9 games. Selected independent first5 levels, not sequential whole-game benchmark."
+    },
+    "generation": "Pinned game/version/seed/level-index manifest. Fresh native game, native set_level selection. No replayed solutions or skipped-level credit. Independent-start evaluation, not the whole-game benchmark.",
+    "id": "arc-agi-3-interactive-reasoning",
+    "observation": "After each action the agent receives the response for that step: one or more 2D frame arrays (max 64x64, integer cell values 0-15, (0,0) at top-left, (x,y)) plus metadata state, levels_completed, win_levels, available_actions, guid and full_reset. No natural-language instruction, goal, rule or reward channel is provided; the frame and metadata are the entire observation.",
+    "reference": "Unmodified vendored ARC Engine games and official per-level scoring calculator; wrapper changes sample granularity and initial level selection.",
+    "task": "Infer the hidden rules from public frames and complete this selected native level. Each level is initialized independently in a fresh game. No solution, goal text or hidden rule is supplied.",
+    "verification": "Per-action native frames, selected-level initialization receipt, and terminal per-level score receipt; no online leaderboard claim."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "disabled"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 45,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 45,
+    "actionBudget": "per-level5xbaseline",
+    "plannedEpisodes": 45
+  },
+  "otherModels": [],
+  "pythonEnv": "arc-agi3-venv",
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Independent-native-level-reset-v2:9games,first5levels each,45samples.",
+    "No baseline action counts or hidden state are included in Player input."
+  ]
+}

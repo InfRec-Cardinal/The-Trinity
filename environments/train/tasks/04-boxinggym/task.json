@@ -1,0 +1,81 @@
+{
+  "taskId": "boxinggym",
+  "name": "BoxingGym",
+  "fullName": "BoxingGym: experimental design and model discovery",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D1",
+    "domainName": "Latent Rule & Mechanism Discovery",
+    "subCategoryId": "D1.2",
+    "subCategoryName": "Experimental Intervention & Scientific Discovery"
+  },
+  "assignment": {
+    "actions": {
+      "answer_predictions": "Answer the current checkpoint's 10 goal-generated prediction questions in a single turn; answers go to the official evaluator and no correctness feedback returns.",
+      "explain_to_novice": "Produce the natural-language explanation requested by the goal's communication prompt, respecting the config's com_limit word budget.",
+      "run_experiment": "Submit one experimental design in the domain's published format (e.g. \"[iR, dR, D]\") and receive the sampled outcome plus a success flag.",
+      "submit_program": "Optionally submit a PyMC program expressing the inferred model; it is logged but not scored."
+    },
+    "evaluation": {
+      "budget": 25,
+      "efficiency": "Among passing episodes, prefer fewer run_experiment actions and lower step-10 and novice errors.",
+      "failure": "Either comparison fails or ties, or the episode ends with fewer than 10 successful experiments because the budget was exhausted or designs were rejected as malformed, or no explanation is produced within the word limit.",
+      "success": "The scientist's standardized prediction error at the step-10 checkpoint is strictly lower than at the step-0 checkpoint, AND the novice's error after reading the explanation is strictly lower than the scientist's step-0 negative control."
+    },
+    "generation": "An instance is (domain, discovery goal config, include_prior, seed). The pool is the direct_discovery/naive goal configurations in conf/envs for the 8 domains whose generative model contains no LLM-simulated participant, launched through run_experiment.py with exp=discovery so experiment_type=\"discovery\" and the communication legs are defined, crossed with include_prior in {true,false} and seed in {1,2,3,4,5}. The Hydra seed fixes the environment's sampled true parameters and the goal's evaluation questions.",
+    "id": "boxinggym-discovery-communication",
+    "observation": "Text only: the goal's system message for the instance's include_prior condition (full domain context, or a domain-agnostic tuple description), the permitted design format, and after each experiment the sampled outcome value with a success flag. Checkpoint prediction questions arrive as text. Hidden parameters, ground-truth answers and computed errors are never shown; the novice receives only the explanation, not the data or experiment log.",
+    "reference": "Published BoxingGym protocol (arXiv:2501.01540 and the kanishkg/boxing-gym repository): environments are PyMC generative models, the scientist designs experiments and observes sampled outcomes through a language interface, goal attainment is scored as prediction error standardized against the prior predictive mean, and model discovery is scored by whether a word-limited explanation lets a non-interacting novice predict. New design choices: the 25-action cap, batching each checkpoint's 10 evaluation questions into one turn, scoring only the step-0 and step-10 checkpoints, the per-episode binary pass rule, and restricting instances to the discovery goal configurations.",
+    "task": "Act as the scientist agent in one BoxingGym discovery instance. Answer the goal's prediction questions before experimenting, run up to 10 experiments against the hidden generative model, answer the questions again, and then write an explanation within the configured word limit that enables a novice agent with no environment access to predict the same environment.",
+    "verification": "Both scored legs are recomputed by the official goal evaluator over the checkpoint questions (scientist at steps 0 and 10; novice after the explanation). The emitted run JSON records the config, per-checkpoint (error, std) results, queries, observations, per-step successes, eigs, programs and the full scientist and naive message logs, so passing and failing episodes alike — including steps with success=false — are independently checkable and replayable from the stored seed and config."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "mode": "fixed_configurations_planned_repetitions",
+    "policy": "report-every-result-adaptive-low-v1",
+    "configurations": 9,
+    "episodesPerConfiguration": 5,
+    "repetitions": 5,
+    "totalEpisodes": 45,
+    "actionBudget": 25,
+    "plannedEpisodes": 45
+  },
+  "otherModels": [
+    {
+      "role": "novice (environment, answers the scientist's explanation)",
+      "model": "gpt-6-luna",
+      "backend": "local Codex CLI (driver.mjs liveNoviceCall; replay via replay-env/boxinggym.mjs)",
+      "reasoningEffort": "low",
+      "sourceDeclared": "claude-opus-5, temperature 0, max_tokens 256 (kept in the bridge SDK request)",
+      "temperature": "not exposed by Codex CLI",
+      "maxOutputTokens": "not exposed by Codex CLI"
+    },
+    {
+      "role": "original paper novice (reference only; never called by this package)",
+      "model": "gpt-4o",
+      "backend": "original BoxingGym default novice (README.md: LMExperimenter(model_name=\"gpt-4o\"); src/boxing_gym/agents/agent.py)",
+      "reasoningEffort": "not applicable",
+      "note": "The analysed train run used gpt-6-luna as novice, so paper-comparable numbers are not produced here."
+    }
+  ],
+  "pythonEnv": "boxinggym-private-runtime",
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Environment model (novice, post-explanation predictor): gpt-6-luna through the local Codex CLI at reasoning effort low. Prompt text, CLI arguments (exec --model gpt-6-luna -c model_reasoning_effort=low --ephemeral --ignore-user-config --ignore-rules --skip-git-repo-check --sandbox read-only --json -) and the record fields (boxinggym-novice-backend-v1) come from boxinggym-codex-novice-fetch-v2.mjs. The bridge request is the original claude-opus-5 SDK request (temperature 0, max_tokens 256, system + user turns) converted to the OpenAI-shaped messages the train-run bridge sent; the Codex CLI exposes neither temperature nor max output control (source-declared values kept in the record).",
+    "Driver fields copied from the original source-gate driver h0-boxinggym-original-native-source-gate-v3.mjs in the boxinggym-gpt-cli-20261006 work folder (driver object): id, version, kind, maxSteps 25, sourceTaskActionBudget, tool (name, description, parameters), actionContract (verbatim), normalizeAction (normalizeBoxingGymAction, copied verbatim), source (gate flags mechanismReviewed/protocolCompatible/sourceFingerprint dropped; sourceCommit, urls, executionCorrections, limitations copied). The original driver object has no maxResponseTokens / invalidActionPolicy / invalidOutcomePolicy / maxInvalidAttempts / sourceContextPolicy / memoryBoundaryPolicy / invalidResponseRecoveryDesign / independentItems fields, so none are carried.",
+    "Native world: the official worker is the v1 candidate worker (sha256 4871d255...) with only its BASE/source paths changed to PKG/vendor/boxinggym (no other edit); each step re-runs the worker with the full action history and the novice replies so far, as the train run did. Launcher integrity gates (runtime descriptor hash, immutable bootstrap, import-root and environment allow-lists, startup audit) are dropped; the worker is launched as python -s -B worker.py with PYTHONPATH=vendor/boxinggym/src, PYTHONHASHSEED=0, cwd and HOME/TMPDIR/XDG_CACHE_HOME in the episode directory. Not -S: the venv site-packages are used through normal venv activation.",
+    "Vendored: PKG/vendor/boxinggym (src/boxing_gym, conf/, run_experiment.py, LICENSE) from boxinggym-original-initial-five-v1-candidate-20261003/source; no .git, no analysis/scripts/tests.",
+    "Live novice path (not used in verify): Codex binary from env CODEX_CLI, else the bundled ChatGPT codex; the train run's fixed empty-workspace and TMPDIR/TMP/TEMP overrides are replaced by a fresh temporary workspace and the process environment. Up to three transport attempts only for codex_cli_no_completed_turn, as in the train run.",
+    "Novice prompt (NOVICE_PROMPT_HEAD, runNoviceOnce) and Codex CLI arguments are copied from boxinggym-codex-novice-fetch-v2.mjs; the working directory is a fresh temporary workspace and TMPDIR/TMP/TEMP are the process defaults instead of the fixed train-run paths."
+  ]
+}

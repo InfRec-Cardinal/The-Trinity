@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_l6kd">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_jrm6">
+        <listOfUnits>
+          <unit kind="mole" scale="-3"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_nh8o">
+        <listOfUnits>
+          <unit kind="second" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_nar6">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_s71r">
+        <listOfUnits>
+          <unit kind="mole" exponent="-1" scale="-3"/>
+          <unit kind="second" exponent="-1" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_f7r6">
+        <listOfUnits>
+          <unit kind="mole" scale="-3"/>
+          <unit kind="second" exponent="-1" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_t9bw">
+        <listOfUnits>
+          <unit kind="mole" scale="-3"/>
+          <unit kind="litre" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_1788" spatialDimensions="3" size="1" units="litre"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_3eug" compartment="id_1788" initialConcentration="10" substanceUnits="id_jrm6" boundaryCondition="false"/>
+      <species id="id_clzl" compartment="id_1788" initialConcentration="0.1" substanceUnits="id_jrm6" hasOnlySubstanceUnits="false" boundaryCondition="false"/>
+      <species id="id_a626" compartment="id_1788" initialConcentration="0" substanceUnits="id_jrm6" boundaryCondition="false"/>
+      <species id="id_wk33" compartment="id_1788" initialConcentration="0" substanceUnits="id_jrm6" boundaryCondition="false"/>
+      <species id="id_ianp" compartment="id_1788" initialConcentration="0" substanceUnits="id_jrm6" boundaryCondition="true"/>
+      <species id="id_8yk3" compartment="id_1788" initialConcentration="0" substanceUnits="id_jrm6" boundaryCondition="false"/>
+      <species id="id_xsvn" compartment="id_1788" initialConcentration="0" substanceUnits="id_jrm6" boundaryCondition="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

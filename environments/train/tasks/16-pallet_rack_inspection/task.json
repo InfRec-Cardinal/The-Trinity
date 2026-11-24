@@ -1,0 +1,67 @@
+{
+  "taskId": "pallet_rack_inspection",
+  "name": "Pallet Rack Inspection",
+  "fullName": "Pallet rack inspection: walk an aisle, inspect uprights and beams, and report every damaged component",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D3",
+    "domainName": "Perception, Navigation & Control",
+    "subCategoryId": "D3.1",
+    "subCategoryName": "Active Perception & Viewpoint Selection"
+  },
+  "assignment": {
+    "actions": {
+      "look": "Render a view of the current bay from the front or back side at low, middle or high level, wide or close.",
+      "move_to": "Walk to a bay in an aisle.",
+      "report": "Add a component identifier and a damage type to the report.",
+      "retract": "Remove an entry from the report.",
+      "submit": "Submit the report, ending the episode."
+    },
+    "evaluation": {
+      "budget": 80,
+      "efficiency": "F1 of reported against hidden defects with severity weighting, and actions used.",
+      "failure": "A missed critical defect, precision below 0.75, or no report within 80 actions.",
+      "success": "The submitted report contains every critical defect and has precision of at least 0.75 over all entries."
+    },
+    "generation": "Seeded warehouses of 2 to 6 aisles, 8 to 20 bays and 3 to 5 levels, with 3 to 15 defects drawn from bent or dented uprights, displaced or deflected beams, missing beam locks, damaged baseplates and damaged pallets with broken stringers or missing blocks; each defect has a severity and a set of viewpoints from which it is visible. Warehouse size, defect subtlety and occlusion are the difficulty knob: small aisles with obvious damage are fully reported, while large occluded aisles force the agent to choose which views to spend budget on and often miss defects, so outcomes are mixed.",
+    "id": "pallet-rack-damage-inspection",
+    "observation": "A rendered image of the current view, plus text with the current aisle, bay, side, level and zoom, component identifiers visible in the frame, and remaining actions. The damage map is hidden; some defects are visible only from a close view, from one side, or when not occluded by a stored load.",
+    "reference": "Self-proposed rack audit built on the published description of selective pallet racking: rows of upright frames and load beams at multiple levels, beams locked to uprights by clips or bolts, loose components and frame damage to be reported, pallets inspected for broken stringers and missing blocks, and regular audits by an inspector. New designs: the warehouse generator, the defect catalogue and visibility model, the rendered viewpoints, the action interface, the scoring, the budget and the recorder.",
+    "task": "Audit the pallet racking of a warehouse: walk the aisles, choose which bays and levels to look at and from where, and submit a report of every damaged component within an inspection budget.",
+    "verification": "The host rescans the stored damage map against the submitted report to recompute precision, recall and critical coverage. Each episode records the seed, every action with arguments, the frame and text returned, the report history and the final score."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "totalEpisodes": 27,
+    "plannedEpisodes": 27
+  },
+  "otherModels": [],
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Existing original generator with seeds 29, 67, 103 across the three original size/difficulty settings. Seeds 29/67 are existing generator cases; seed 103 is a synthetic addition. These are local reconstruction worlds, not official levels.",
+    "Replacement instances are pinned in instances.json; task rules, scoring, action budget, model and rendering logic are preserved. Drivers reject old provider/ID/hash selectors.",
+    "nativeInstanceFingerprint is SHA-256 of recursively key-sorted JSON of the full instance. substantiveIdentityHash omits seed, ID and private witness (chess uses the position and horizon). configurationHash covers taskId, id, selector and nativeInstanceFingerprint."
+  ]
+}

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Tsur2019.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="1000" numberOfSteps="1000">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="10000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task1" name="Time" symbol="urn:sedml:symbol:time" taskReference="task1" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="A_1_task1" name="[A]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_A_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_A_1_task1" name="[A]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;A&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="M_2_task1" name="[M]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_M_2_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_M_2_task1" name="[M]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;M&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="T_3_task1" name="[T]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_T_3_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_T_3_task1" name="[T]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;T&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_alpha_A">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_alpha_A__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_alpha_A__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha_A&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_b">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_b__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_b__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;b&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_mu_a">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_mu_a__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_mu_a__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;mu_a&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_alpha_e">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_alpha_e__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_alpha_e__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha_e&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_mu_e">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_mu_e__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_mu_e__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;mu_e&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_gamma_mel">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_gamma_mel__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_gamma_mel__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;gamma_mel&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_nu_mel">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_nu_mel__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_nu_mel__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;nu_mel&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_g">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_g__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_g__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;g&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_compartment">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_compartment__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_compartment__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;compartment&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_APC_Activation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_APC_Activation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_APC_Activation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;APC_Activation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_APC_Death">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_APC_Death__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_APC_Death__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;APC_Death&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Activation_CD8">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Activation_CD8__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Activation_CD8__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Activation_CD8&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_CD8_Death">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_CD8_Death__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_CD8_Death__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;CD8_Death&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Tumor_Growth">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Tumor_Growth__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Tumor_Growth__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Tumor_Growth&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Tumor_Death_CD8">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Tumor_Death_CD8__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Tumor_Death_CD8__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Tumor_Death_CD8&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_1_task1" name="Figure 7a">
+      <listOfCurves>
+        <curve id="p1_curve_1_task1" name="[A]" logX="false" style="style1" xDataReference="_1_task1" logY="true" yDataReference="A_1_task1"/>
+        <curve id="p1_curve_2_task1" name="[M]" logX="false" style="style1" xDataReference="_1_task1" logY="true" yDataReference="M_2_task1"/>
+        <curve id="p1_curve_3_task1" name="[T]" logX="false" style="style1" xDataReference="_1_task1" logY="true" yDataReference="T_3_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="_1_task1"/>
+        <dataSet id="autogen_task1_A" label="A" dataReference="A_1_task1"/>
+        <dataSet id="autogen_task1_M" label="M" dataReference="M_2_task1"/>
+        <dataSet id="autogen_task1_T" label="T" dataReference="T_3_task1"/>
+        <dataSet id="autogen_task1_alpha_A" label="alpha_A" dataReference="auto_dg_for_task1_alpha_A"/>
+        <dataSet id="autogen_task1_b" label="b" dataReference="auto_dg_for_task1_b"/>
+        <dataSet id="autogen_task1_mu_a" label="mu_a" dataReference="auto_dg_for_task1_mu_a"/>
+        <dataSet id="autogen_task1_alpha_e" label="alpha_e" dataReference="auto_dg_for_task1_alpha_e"/>
+        <dataSet id="autogen_task1_mu_e" label="mu_e" dataReference="auto_dg_for_task1_mu_e"/>
+        <dataSet id="autogen_task1_gamma_mel" label="gamma_mel" dataReference="auto_dg_for_task1_gamma_mel"/>
+        <dataSet id="autogen_task1_nu_mel" label="nu_mel" dataReference="auto_dg_for_task1_nu_mel"/>
+        <dataSet id="autogen_task1_g" label="g" dataReference="auto_dg_for_task1_g"/>
+        <dataSet id="autogen_task1_compartment" label="compartment" dataReference="auto_dg_for_task1_compartment"/>
+        <dataSet id="autogen_task1_APC_Activation" label="APC_Activation" dataReference="auto_dg_for_task1_APC_Activation"/>
+        <dataSet id="autogen_task1_APC_Death" label="APC_Death" dataReference="auto_dg_for_task1_APC_Death"/>
+        <dataSet id="autogen_task1_Activation_CD8" label="Activation_CD8" dataReference="auto_dg_for_task1_Activation_CD8"/>
+        <dataSet id="autogen_task1_CD8_Death" label="CD8_Death" dataReference="auto_dg_for_task1_CD8_Death"/>
+        <dataSet id="autogen_task1_Tumor_Growth" label="Tumor_Growth" dataReference="auto_dg_for_task1_Tumor_Growth"/>
+        <dataSet id="autogen_task1_Tumor_Death_CD8" label="Tumor_Death_CD8" dataReference="auto_dg_for_task1_Tumor_Death_CD8"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

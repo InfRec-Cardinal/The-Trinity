@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_y0yy">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_7955">
+        <listOfUnits>
+          <unit kind="second" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_dw4q">
+        <listOfUnits>
+          <unit kind="mole" scale="-9"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_h1tr" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_noeo" compartment="id_h1tr" initialConcentration="0"/>
+      <species id="id_p3gy" compartment="id_h1tr" initialConcentration="0"/>
+      <species id="id_cvc1" compartment="id_h1tr" initialConcentration="0"/>
+      <species id="id_3i7y" compartment="id_h1tr" initialConcentration="0.9999997"/>
+      <species id="id_96z7" compartment="id_h1tr" initialConcentration="2.399999"/>
+      <species id="id_itde" compartment="id_h1tr" initialConcentration="0"/>
+      <species id="id_pfsr" compartment="id_h1tr" initialConcentration="169.9999"/>
+      <species id="id_ykzq" compartment="id_h1tr" initialConcentration="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_puv6" value="0.44"/>
+      <parameter id="id_fvik" value="420"/>
+      <parameter id="id_2r80" value="0.054"/>
+      <parameter id="id_n6df" value="770"/>
+      <parameter id="id_pekm" value="5"/>
+      <parameter id="id_lz71" value="0.02"/>
+      <parameter id="id_41xx" value="0.066"/>
+      <parameter id="id_3ivh" value="5"/>
+      <parameter id="id_ie3d" value="770"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_2xwt">
+        <listOfReactants>
+          <speciesReference species="id_p3gy"/>
+          <speciesReference species="id_96z7"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_cvc1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_h1tr </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_2r80 </ci>
+                  <ci> id_p3gy </ci>
+                  <ci> id_96z7 </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_lz71 </ci>
+                  <ci> id_cvc1 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_bb6n">
+        <listOfReactants>
+          <speciesReference species="id_pfsr"/>
+          <speciesReference species="id_3i7y"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_itde"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_h1tr </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_pekm </ci>
+                  <ci> id_pfsr </ci>
+                  <ci> id_3i7y </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_ie3d </ci>
+                  <ci> id_itde </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_wsed">
+        <listOfReactants>
+          <speciesReference species="id_3i7y"/>
+          <speciesReference species="id_cvc1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_noeo"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_h1tr </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_puv6 </ci>
+                  <ci> id_3i7y </ci>
+                  <ci> id_cvc1 </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_41xx </ci>
+                  <ci> id_noeo </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_75yl">
+        <listOfReactants>
+          <speciesReference species="id_ykzq"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_p3gy"/>
+          <speciesReference species="id_3i7y"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_h1tr </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_n6df </ci>
+                  <ci> id_ykzq </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_3ivh </ci>
+                  <ci> id_p3gy </ci>
+                  <ci> id_3i7y </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_8mhk" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_itde"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_ykzq"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_h1tr </ci>
+              <ci> id_fvik </ci>
+              <ci> id_itde </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

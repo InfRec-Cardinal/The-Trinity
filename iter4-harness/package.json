@@ -1,0 +1,12 @@
+{
+  "name": "iter4-harness-generated",
+  "version": "1.4.0",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "verify": "node verify-build.mjs"
+  }
+}

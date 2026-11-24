@@ -1,0 +1,96 @@
+{
+  "taskId": "mastermind",
+  "proposals": [
+    {
+      "id": "commit-to-surviving-set",
+      "title": "Intersect every feedback into an explicit surviving code set, guess from it, and play it the moment it is a singleton",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "After any feedback, and especially once some guess has returned full credit (exact + wrong-position equals the code length) or once few turns remain: you are about to choose the next guess from a locally edited version of the previous guess rather than from the set of codes still consistent with the whole history.",
+      "procedure": [
+        "Keep an explicit written list of the codes still consistent with every (guess, feedback) pair seen so far; after each new feedback, filter that list rather than shifting colors around inside the last guess.",
+        "Filter with the bench's own scoring rule: a candidate survives only if scoring it against the guess reproduces both reported counts exactly, with each color counted once and exact matches taking precedence over misplaced ones.",
+        "Every emitted guess must be a member of the surviving list; a code outside the list has already been shown false by evidence you hold and can never be the secret, so guessing it spends a turn for nothing.",
+        "When the surviving list contains exactly one code, that code is the secret: emit it as FINAL GUESS immediately, even though turns remain and even though it looks like an unverified leap.",
+        "When several codes survive and turns are scarce, emit any surviving code rather than hedging; the feedback it returns will cut the list, so no probe is ever wasted.",
+        "If you cannot reconstruct the list from memory, rebuild it from the full history of guesses and feedbacks (score each candidate against all pairs) instead of continuing forward from the last guess.",
+        "Never re-emit a guess you have already made or a near-copy of it: its feedback is already known from the identical scoring function, so it transfers no information."
+      ],
+      "successSignals": [
+        "Final guess reproduces 4 exact / 0 wrong within budget.",
+        "Feedback is consumed by narrowing one explicit list, so the list shrinks monotonically and no colour reappears after feedback excluded it.",
+        "A singleton list is played on the very next turn instead of being held for later."
+      ],
+      "failureSignals": [
+        "Budget ends while a code consistent with every prior (guess, feedback) pair was never played.",
+        "Late guesses are one-swap edits of the previous guess rather than members of the surviving set.",
+        "A colour or arrangement reappears in a late guess after earlier feedback had excluded it.",
+        "Turns pass with no change in the player's belief set, i.e. the same reasoning is restated without a new intersection step."
+      ],
+      "recovery": [
+        "If a feedback contradicts your list, the error is in your filtering, not in the feedback: rebuild the list from the raw history before choosing again.",
+        "If you notice you have been editing the previous guess instead of intersecting, stop, rebuild the surviving set, and continue from it.",
+        "If the list looks empty, you have mis-applied the once-per-color / exact-priority rule; re-score each candidate against every pair until at least one survives."
+      ],
+      "invariants": [
+        "Feedback is a deterministic function of guess and secret; the same guess always returns the same score.",
+        "A code that fails to reproduce any observed (guess, feedback) pair is false permanently and can be discarded without spending a turn.",
+        "Every scored guess is fully informative; no additional probe is needed to use it."
+      ],
+      "sourceGapIds": [
+        "lingers-while-consistent-code-remains",
+        "edits-previous-guess-instead-of-intersecting",
+        "repeats-refuted-code"
+      ]
+    },
+    {
+      "id": "fix-multiset-then-permute",
+      "title": "Solve a confirmed all-distinct multiset as a permutation; discard it when feedback contradicts full credit",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "A guess whose colours are all distinct returns exact + wrong-position equal to the code length, so every token in it is matched and the code's colour multiset is therefore known; or, more weakly, a distinct-colour guess returns total credit below the code length, so at least one of its colours is absent.",
+      "procedure": [
+        "Full credit on an all-distinct guess licenses a multiset HYPOTHESIS, not a fact: provisionally take the secret to contain exactly those colours, each once. Record which guess licensed it. Credit from a guess that repeated a colour licenses nothing, because a repeated token can be credited at most once.",
+        "While the hypothesis stands, guess permutations of it. Treat every colour you drop as suspended, not deleted: keep the dropped colours listed beside the hypothesis so they can be restored in one step.",
+        "Read exact + wrong-position as ONE number: it is how many of your guessed colours occur in the secret. While that total is below the code length your colour set is WRONG — at least one colour in it is absent and at least one colour outside it is present — and NO rearrangement of a wrong set can ever reach full credit. The moment a guess totals less than the code length, stop permuting and start substituting; restore every suspended colour and release every pin, because they were derived from a set the evidence has refuted.",
+        "Pin a position that scored exact only for as long as the multiset hypothesis stands; a pin inherited from a disproved multiset carries no evidence and must be released with it.",
+        "Resolve the permutation systematically rather than by swapping pairs back and forth: circulate the unpinned colours through the unpinned positions so each guess assigns a fresh colour to every unresolved slot, and carry forward the assignments that scored exact.",
+        "Build each next permutation from every constraint accumulated so far, and never revert to an arrangement already scored — its feedback is already known.",
+        "When a distinct guess totals t below the code length, exactly t of its colours are in the secret — do NOT drop all of them from the pool. Isolate the intruder by substitution: replace ONE guessed colour with a colour you have never tested and keep the other three. If the total rises, the colour you removed was the absent one and the new colour belongs; if the total falls, the removed colour was carrying credit — put it back and substitute a different one. Each substitution costs one guess and settles one colour, which is strictly better than another permutation of a set already known to be wrong.",
+        "Do not place a colour twice in one guess while any not-yet-excluded colour is still untested: under once-per-colour counting a repeated token can be credited at most once, so it cannot distinguish multiplicity and simply wastes a slot."
+      ],
+      "successSignals": [
+        "The known multiset is resolved into the exact arrangement within the remaining turns.",
+        "Each successive guess after multiset fixation pins at least one more position.",
+        "No colour outside the proven multiset and no repeated colour appears in post-fixation guesses."
+      ],
+      "failureSignals": [
+        "Late guesses permute the correct multiset but oscillate between the same two arrangements (credit flips between patterns without new pins).",
+        "A colour already excluded by earlier feedback is reintroduced in a late guess.",
+        "The same colour occupies two positions of one guess while untested colours remain.",
+        "The final guess still shows partial credit despite the multiset being known several turns earlier.",
+        "Consecutive guesses are permutations of one fixed colour set and none returns full credit — the set is wrong and the budget is being spent proving it.",
+        "The guess budget reaches its limit with every late guess drawn from the same four colours."
+      ],
+      "recovery": [
+        "If a permutation guess returns no new exact credit, you are cycling: pick an arrangement differing from every scored arrangement in at least two unresolved positions instead of undoing the last swap.",
+        "If a guess's implied colour set disagrees with the proven multiset, the multiset proof was wrong; re-derive it by scoring candidates against all pairs before continuing.",
+        "If turns are scarce and the arrangement is still open, enumerate the surviving permutations explicitly and play one of them rather than improvising."
+      ],
+      "invariants": [
+        "Under once-per-colour, exact-priority counting, a repeated guess colour yields at most one credit regardless of how many copies the secret holds.",
+        "With distinct guessed colours, total credit equals the number of secret tokens drawn from that guess, so credit 4 on a four-slot code means multiset equality.",
+        "An exact credit is a permanent fact about that position; later feedback cannot undo it."
+      ],
+      "sourceGapIds": [
+        "unresolved-permutation-near-miss",
+        "duplicate-token-in-guess",
+        "reintroduces-excluded-colour"
+      ]
+    }
+  ]
+}

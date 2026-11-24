@@ -1,0 +1,76 @@
+{
+  "taskId": "video_mme_v2_unseen",
+  "name": "Video-MME-v2 (64 frames, no subtitles; 3,088 questions after the train-overlap check)",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D3",
+    "subCategoryId": "D3.4"
+  },
+  "assignment": {
+    "task": "Official Video-MME-v2 multiple-choice video question answering (no subtitles, no audio). One answer per question.",
+    "observation": "64 uniformly sampled frames of the video in temporal order, then the official question prompt with options A-H.",
+    "actions": {
+      "action": "The answer text; the official extractor takes the first capital letter A-H, so answer with the letter only."
+    },
+    "evaluation": "Official Video-MME-v2 accuracy and non-linear (group) score."
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Submit the answer.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "contract": "One answer per question.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract)",
+    "contextPolicy": "current",
+    "imageOrder": "before",
+    "structuredOutput": true,
+    "invalidResponses": "H0 used structured output (one schema-valid submit_action per response); a refusal or a response without an action was retried with the same request, without a reprompt."
+  },
+  "evaluation": {
+    "configurations": 1600,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 1600
+  },
+  "otherModels": [],
+  "environment": {
+    "adapter": "jsonl",
+    "name": "videomme",
+    "envDir": "tasks/12-video_mme_v2_unseen/env",
+    "python": "videomme",
+    "bridge": {
+      "script": "videomme_bridge.py",
+      "args": [
+        "{instanceId}"
+      ],
+      "reply": "args"
+    },
+    "terminal": "videomme",
+    "limits": null,
+    "data": {
+      "check": "tasks/12-video_mme_v2_unseen/env/frames/800/frame-64.jpg",
+      "fetch": "envs/videomme/bin/python -I tools/fetch/videomme_frames.py",
+      "note": "400 videos listed in env/videos-to-download.csv (HF MME-Benchmarks/Video-MME-v2 @ 6e4bebb, SHA-256 checked) and their 1,600 questions (configurations.json); 64 frames per video sampled as in the H0 prep"
+    }
+  },
+  "driverId": "video-mme-v2-official-bridge-v1",
+  "notes": []
+}

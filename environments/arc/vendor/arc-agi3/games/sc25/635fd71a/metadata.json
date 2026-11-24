@@ -1,0 +1,16 @@
+{
+  "game_id": "sc25-635fd71a",
+  "title": "SC25",
+  "default_fps": 20,
+  "tags": [
+    "keyboard_click"
+  ],
+  "baseline_actions": [
+    36,
+    6,
+    32,
+    83,
+    143,
+    50
+  ]
+}

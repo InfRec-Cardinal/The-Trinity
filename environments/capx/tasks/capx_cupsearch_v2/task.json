@@ -1,0 +1,54 @@
+{
+ "taskId": "capx_cupsearch_v2",
+ "name": "CaP-X cup search with the robot cameras (AlohaMini2, simulation, v2)",
+ "fullName": "CaP-X cup search on a simulated AlohaMini2, aligned with the real scene: 3 upside-down paper cups (9 cm tall, 7 cm mouth, 5 cm bottom), at most one 2 cm red, green or blue cube under one cup; only the head and both wrist camera images and the task text, small gripper moves",
+ "kind": "interactive",
+ "taxonomy": {
+  "domainId": "D3",
+  "domainName": "Perception, Navigation & Control",
+  "subCategoryId": "D3.3",
+  "subCategoryName": "Continuous Control & Physical Intervention"
+ },
+ "assignment": {
+  "task": "Control a bimanual robot (AlohaMini2: two 6-DoF arms with one fixed and one moving finger each) by small gripper moves: move one gripper left/right, forward/back, up/down by a few cm, turn it, open or close it, or send it home. Multi-turn: after every action you see the result of each move and a new image of the three camera views, then submit the next action or finish. Each episode is one trial of the cup search task; the instruction is in the observation.",
+  "observation": "Text: the robot and action description, the trial instruction, the result of each move of the previous action and the number of actions used. Image: the robot's head camera and its two wrist cameras (640x480 each, side by side). No depth, camera parameters, coordinates or perception outputs.",
+  "actions": {
+   "act": "kind \"act\": 1 to 5 moves, executed in order; each move is {arm 0|1, op move (right_cm, forward_cm, up_cm; each at most 10) | turn (turn_deg, at most 90) | open | close | home}.",
+   "finish": "kind \"finish\": end the trial; put the final answer, if the task asks for one, in answer."
+  },
+  "evaluation": {
+   "budget": "At most 30 actions per trial.",
+   "success": "Judged by the simulator. With a cube under a cup: the answer names its colour and its cup number, and that cup was lifted. Without a cube: the answer is \"none\" and all 3 cups were lifted. Using all 30 actions is a failure.",
+   "efficiency": "Actions, moves, turns, grasp attempts and moves that stopped early are also recorded."
+  },
+  "reference": "CaP-X (arXiv 2603.22435; github.com/capgym/cap-x) tasks as in capx_aloha_hard; image-only control condition proposed by the real-robot side (look at the image, small move, new image, correct). Robot model: AlohaMini2, github.com/liyiteng/AlohaMini (Apache-2.0)."
+ },
+ "player": {
+  "model": "claude-opus-5",
+  "thinking": {
+   "type": "adaptive",
+   "effort": "low",
+   "display": "omitted"
+  },
+  "maxResponseTokens": 16384,
+  "publicHistoryTurns": 64
+ },
+ "evaluation": {
+  "mode": "fixed_layouts_one_trial_each",
+  "configurations": 10,
+  "episodesPerConfiguration": 1,
+  "totalEpisodes": 10,
+  "actionBudget": 30
+ },
+ "otherModels": [],
+ "driver": "driver.mjs",
+ "configurations": "configurations.json",
+ "notes": [
+  "Simulation: embodied-sim-20261015/capxi (MuJoCo 3.14 with the AlohaMini2 model converted from the official URDF, liyiteng/AlohaMini @ 17c6a98; base and lift fixed; position-controlled arm servos with gravity compensation; Cartesian jog moves solved by damped least-squares IK). Objects, sizes and judgement as capxa (capx_aloha_hard).",
+  "Robot placement: base 0.28 m behind the layout origin facing the table (chassis under the table top), lift 0.20 m; grippers tilted 35 deg forward (as in the real robot photos), wrist cameras above the fingers looking along them. Cameras as on AlohaMini2 (cameras_am2pro.yaml): head camera front_camera on the mast, wrist cameras left/right_camera on the fixed jaws; 640x480, 90 x 73.7 deg. No simulator markers in the images.",
+  "Solvability: scripted controllers that know the true poses and act only through the same moves solve every layout (tools/capxi-ref/oracle.py 29/30 and oracle_cup2cm.py 29/30, together 30/30).",
+  "30 layouts: identical to capx_aloha_hard (H1 0-9, H2 10-19, H3 20-29); one trial each.",
+  "Supersedes the first run of capx_alohamini2_imageonly (fixed overhead camera) and robot-camera run v1 (gripper-centre marker visible, vertical gripper), both kept as archives (runs/h0-imageonly, runs/h0-robotcams-v1-marker). Multi-turn as CaP-X M2 (raw RGB observations returned every turn)."
+ ],
+ "reference": null
+}

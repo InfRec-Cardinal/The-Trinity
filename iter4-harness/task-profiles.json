@@ -1,0 +1,241 @@
+{
+  "active_instance_verification": {
+    "profile": "embodied",
+    "node": "d",
+    "split": "train",
+    "skills": "skills/active_instance_verification.json",
+    "envRoot": "../environments/train"
+  },
+  "chess_tactical_positions_local": {
+    "profile": "embodied",
+    "node": "c",
+    "split": "train",
+    "skills": "skills/chess_tactical_positions_local.json",
+    "envRoot": "../environments/train"
+  },
+  "video_index_meta_benchmark": {
+    "profile": "embodied",
+    "node": "e-f",
+    "split": "train",
+    "skills": "skills/video_index_meta_benchmark.json",
+    "envRoot": "../environments/train"
+  },
+  "mastermind": {
+    "profile": "embodied",
+    "node": "d-b",
+    "split": "train",
+    "skills": "skills/mastermind.json",
+    "envRoot": "../environments/train"
+  },
+  "codenames_ai_competition": {
+    "profile": "embodied",
+    "node": "b",
+    "split": "train",
+    "skills": "skills/codenames_ai_competition.json",
+    "envRoot": "../environments/train"
+  },
+  "colonel_blotto": {
+    "profile": "embodied",
+    "node": "b",
+    "split": "train",
+    "skills": "skills/colonel_blotto.json",
+    "envRoot": "../environments/train"
+  },
+  "pooltool_billiards_shots": {
+    "profile": "embodied",
+    "node": "c-a",
+    "split": "train",
+    "skills": "skills/pooltool_billiards_shots.json",
+    "envRoot": "../environments/train"
+  },
+  "boxinggym": {
+    "profile": "embodied",
+    "node": "a",
+    "split": "train",
+    "skills": "skills/boxinggym.json",
+    "envRoot": "../environments/train"
+  },
+  "among_us_deception_sandbox": {
+    "profile": "embodied",
+    "node": "d",
+    "split": "train",
+    "skills": "skills/among_us_deception_sandbox.json",
+    "envRoot": "../environments/train"
+  },
+  "actiview_unseen": {
+    "profile": "embodied",
+    "node": "a",
+    "split": "unseen",
+    "skills": "skills/actiview_unseen.json",
+    "envRoot": "../environments/unseen"
+  },
+  "hanabi_hle_unseen": {
+    "profile": "embodied",
+    "node": "b",
+    "split": "unseen",
+    "skills": "skills/hanabi_hle_unseen.json",
+    "envRoot": "../environments/unseen"
+  },
+  "video_mme_v2_unseen": {
+    "profile": "embodied",
+    "node": "e-f",
+    "split": "unseen",
+    "skills": "skills/video_mme_v2_unseen.json",
+    "envRoot": "../environments/unseen"
+  },
+  "adaplanbench": {
+    "profile": "embodied",
+    "node": "c-a",
+    "split": "train",
+    "skills": "skills/adaplanbench.json",
+    "envRoot": "../environments/train"
+  },
+  "discoverphysics": {
+    "profile": "embodied",
+    "node": "a",
+    "split": "train",
+    "skills": "skills/discoverphysics.json",
+    "envRoot": "../environments/train"
+  },
+  "euro_ncap_aeb_car_to_car": {
+    "profile": "embodied",
+    "node": "d",
+    "split": "train",
+    "skills": "skills/euro_ncap_aeb_car_to_car.json",
+    "envRoot": "../environments/train"
+  },
+  "glee_economic_games": {
+    "profile": "embodied",
+    "node": "d",
+    "split": "train",
+    "skills": "skills/glee_economic_games.json",
+    "envRoot": "../environments/train"
+  },
+  "master_keying_design": {
+    "profile": "embodied",
+    "node": "c-a",
+    "split": "train",
+    "skills": "skills/master_keying_design.json",
+    "envRoot": "../environments/train"
+  },
+  "pallet_rack_inspection": {
+    "profile": "embodied",
+    "node": "a",
+    "split": "train",
+    "skills": "skills/pallet_rack_inspection.json",
+    "envRoot": "../environments/train"
+  },
+  "saboteur_card_game": {
+    "profile": "embodied",
+    "node": "c-d",
+    "split": "train",
+    "skills": "skills/saboteur_card_game.json",
+    "envRoot": "../environments/train"
+  },
+  "the_long_dark_survival": {
+    "profile": "embodied",
+    "node": "c-d",
+    "split": "train",
+    "skills": "skills/the_long_dark_survival.json",
+    "envRoot": "../environments/train"
+  },
+  "wca_speedcubing_attempt": {
+    "profile": "embodied",
+    "node": "c-d",
+    "split": "train",
+    "skills": "skills/wca_speedcubing_attempt.json",
+    "envRoot": "../environments/train"
+  },
+  "wilt": {
+    "profile": "embodied",
+    "node": "d-b",
+    "split": "train",
+    "skills": "skills/wilt.json",
+    "envRoot": "../environments/train"
+  },
+  "ale_bench": {
+    "profile": "embodied",
+    "node": "c-d",
+    "split": "unseen",
+    "skills": "skills/ale_bench.json",
+    "envRoot": "../environments/unseen"
+  },
+  "balrog_minihack_boxoban": {
+    "profile": "embodied",
+    "node": "c",
+    "split": "unseen",
+    "skills": "skills/balrog_minihack_boxoban.json",
+    "envRoot": "../environments/unseen"
+  },
+  "balrog_minihack_maze_corridor": {
+    "profile": "embodied",
+    "node": "c",
+    "split": "unseen",
+    "skills": "skills/balrog_minihack_maze_corridor.json",
+    "envRoot": "../environments/unseen"
+  },
+  "balrog_nethack": {
+    "profile": "embodied",
+    "node": "c-a",
+    "split": "unseen",
+    "skills": "skills/balrog_nethack.json",
+    "envRoot": "../environments/unseen"
+  },
+  "buildarena_1_0": {
+    "profile": "buildarena",
+    "node": "c-d",
+    "split": "unseen",
+    "skills": "skills/buildarena_1_0.json",
+    "envRoot": "../environments/unseen"
+  },
+  "coup_textarena_4p": {
+    "profile": "embodied",
+    "node": "d",
+    "split": "unseen",
+    "skills": "skills/coup_textarena_4p.json",
+    "envRoot": "../environments/unseen"
+  },
+  "entity_deduction_arena": {
+    "profile": "embodied",
+    "node": "b",
+    "split": "unseen",
+    "skills": "skills/entity_deduction_arena.json",
+    "envRoot": "../environments/unseen"
+  },
+  "hunlhe_game_arena": {
+    "profile": "embodied",
+    "node": "d-a",
+    "split": "unseen",
+    "skills": "skills/hunlhe_game_arena.json",
+    "envRoot": "../environments/unseen"
+  },
+  "phyre_unseen_fold0": {
+    "profile": "embodied",
+    "node": "c-a",
+    "split": "unseen",
+    "skills": "skills/phyre_unseen_fold0.json",
+    "envRoot": "../environments/unseen"
+  },
+  "scigym_small": {
+    "profile": "embodied",
+    "node": "d-b",
+    "split": "unseen",
+    "skills": "skills/scigym_small.json",
+    "envRoot": "../environments/unseen"
+  },
+  "arc_agi_3": {
+    "profile": "arc",
+    "node": "d-a",
+    "split": "train",
+    "skills": "skills/arc_agi_3.json",
+    "envRoot": "../environments/arc"
+  },
+  "capx_cupsearch_v2": {
+    "profile": "capx",
+    "node": "d",
+    "split": "train",
+    "skills": "profiles/capx/skills/frozen-empty.json",
+    "evolvedSkills": "profiles/capx/skills/capx.json",
+    "envRoot": "../environments/capx"
+  }
+}

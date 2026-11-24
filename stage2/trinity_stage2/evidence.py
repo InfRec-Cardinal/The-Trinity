@@ -11,10 +11,10 @@ def input_digest(work, task_id):
         path = work / folder / (task_id + suffix)
         if not path.is_file():
             raise ValueError("Missing check input: " + str(path))
-        values[folder] = path.read_text()
+        values[folder] = path.read_text(encoding="utf-8")
     handoff = work / "handoff.json"
     if handoff.exists():
-        values["specification"] = next((t for t in json.loads(handoff.read_text())["tasks"] if t["taskId"] == task_id), None)
+        values["specification"] = next((t for t in json.loads(handoff.read_text(encoding="utf-8"))["tasks"] if t["taskId"] == task_id), None)
     return content_digest(values)
 
 

@@ -38,8 +38,9 @@ export function collectAccounting(directories) {
           continue;
         }
         if (event.type === 'model_usage') {insert(calls, event.payload.callId ?? event.hash, event.payload, 'call'); count++;}
-        if (['episode_finished', 'routing_invalid', 'routing_finished'].includes(event.type)) {
-          const {events, ...row} = event.payload;
+        if (['episode_finished', 'episode_reused', 'routing_invalid', 'routing_finished'].includes(event.type)) {
+                                                                                    
+          const {events, reuseProofDigest, reusedFrom, ...row} = event.payload;
           if (event.type === 'routing_finished' || !routedResults.has(row.episodeId)) insert(episodes, row.episodeId ?? event.hash, row, 'episode');
         }
         if (event.type === 'oracle_evaluated') {

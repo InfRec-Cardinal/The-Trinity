@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Nikolov2020.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="12000" numberOfSteps="1000">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="100000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task1" name="Time" symbol="urn:sedml:symbol:time" taskReference="task1" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="TFp53_1_task1" name="[TFp53]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_TFp53_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_TFp53_1_task1" name="[TFp53]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;TFp53&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="miR34a_1_task1" name="[miR34a]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p2_miR34a_1_task1 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p2_miR34a_1_task1" name="[miR34a]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;miR34a&apos;]" taskReference="task1" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k1&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k2&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k3">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k3__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k3__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k3&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k4">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k4__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k4__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k4&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_k5">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_k5__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_k5__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;k5&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_K">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_K__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_K__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;K&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_g">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_g__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_g__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;g&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_cell">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_cell__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_cell__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;cell&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Constant_synthesis_of_TFp53">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Constant_synthesis_of_TFp53__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Constant_synthesis_of_TFp53__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Constant_synthesis_of_TFp53&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Positive_feedback_loop_through_miR34">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Positive_feedback_loop_through_miR34__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Positive_feedback_loop_through_miR34__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Positive_feedback_loop_through_miR34&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Degradation_of_P53">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Degradation_of_P53__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Degradation_of_P53__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Degradation_of_P53&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Transcriptional_activation_of_miR43a_by_p53">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Transcriptional_activation_of_miR43a_by_p53__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Transcriptional_activation_of_miR43a_by_p53__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Transcriptional_activation_of_miR43a_by_p53&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Degradation_of_miR34a">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Degradation_of_miR34a__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Degradation_of_miR34a__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Degradation_of_miR34a&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_1_task1" name="Concentrations, Volumes, and Global Quantity Values">
+      <listOfCurves>
+        <curve id="p1_curve_1_task1" name="[TFp53]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="TFp53_1_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <plot2D id="plot_2_task1" name="Concentrations, Volumes, and Global Quantity Values 1">
+      <listOfCurves>
+        <curve id="p2_curve_1_task1" name="[miR34a]" logX="false" style="style1" xDataReference="_1_task1" logY="false" yDataReference="miR34a_1_task1"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="_1_task1"/>
+        <dataSet id="autogen_task1_TFp53" label="TFp53" dataReference="TFp53_1_task1"/>
+        <dataSet id="autogen_task1_miR34a" label="miR34a" dataReference="miR34a_1_task1"/>
+        <dataSet id="autogen_task1_k1" label="k1" dataReference="auto_dg_for_task1_k1"/>
+        <dataSet id="autogen_task1_k2" label="k2" dataReference="auto_dg_for_task1_k2"/>
+        <dataSet id="autogen_task1_k3" label="k3" dataReference="auto_dg_for_task1_k3"/>
+        <dataSet id="autogen_task1_k4" label="k4" dataReference="auto_dg_for_task1_k4"/>
+        <dataSet id="autogen_task1_k5" label="k5" dataReference="auto_dg_for_task1_k5"/>
+        <dataSet id="autogen_task1_K" label="K" dataReference="auto_dg_for_task1_K"/>
+        <dataSet id="autogen_task1_g" label="g" dataReference="auto_dg_for_task1_g"/>
+        <dataSet id="autogen_task1_cell" label="cell" dataReference="auto_dg_for_task1_cell"/>
+        <dataSet id="autogen_task1_Constant_synthesis_of_TFp53" label="Constant_synthesis_of_TFp53" dataReference="auto_dg_for_task1_Constant_synthesis_of_TFp53"/>
+        <dataSet id="autogen_task1_Positive_feedback_loop_through_miR34" label="Positive_feedback_loop_through_miR34" dataReference="auto_dg_for_task1_Positive_feedback_loop_through_miR34"/>
+        <dataSet id="autogen_task1_Degradation_of_P53" label="Degradation_of_P53" dataReference="auto_dg_for_task1_Degradation_of_P53"/>
+        <dataSet id="autogen_task1_Transcriptional_activation_of_miR43a_by_p53" label="Transcriptional_activation_of_miR43a_by_p53" dataReference="auto_dg_for_task1_Transcriptional_activation_of_miR43a_by_p53"/>
+        <dataSet id="autogen_task1_Degradation_of_miR34a" label="Degradation_of_miR34a" dataReference="auto_dg_for_task1_Degradation_of_miR34a"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_e1k8">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_2oy0">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_mu11">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_8smg">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="0" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_9eod">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_c2a0">
+        <listOfUnits>
+          <unit kind="item" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_fiew" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_tact" compartment="id_fiew" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_tf34" compartment="id_fiew" initialConcentration="1.27e-06" boundaryCondition="false" constant="false"/>
+      <species id="id_sskb" compartment="id_fiew" initialConcentration="0.999999999999998" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_ppe6" value="0.5" constant="true"/>
+      <parameter id="id_ps4i" value="0.33" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_d71b" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_tf34" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_tact" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_fiew </ci>
+              <ci> id_ps4i </ci>
+              <ci> id_tf34 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_ydi6" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_sskb" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_tf34" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_fiew </ci>
+              <ci> id_ppe6 </ci>
+              <ci> id_tf34 </ci>
+              <ci> id_sskb </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

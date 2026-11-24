@@ -1,0 +1,39 @@
+{
+  "taskId": "video_mme_v2_unseen",
+  "proposals": [
+    {
+      "id": "video-evidence-source-v4",
+      "title": "Localize, inspect and verify the decisive public evidence before the one-shot answer",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Before each native decision in this task, using only current public observations and earlier public feedback.",
+      "procedure": [
+        "Read the requested quantity, event and temporal scope first. Use the chronological overview to locate that event, then identify the smallest set of original frames that distinguishes the plausible options. Treat repeated introductions, demonstrations, reprises and later recaps as different intervals.",
+        "Before the irreversible answer, inspect decisive evidence with adaptiveAcquisition. If PUBLIC_SOURCE_ACQUISITION is available, deliveredFrameTimes maps the overview to actual seconds. Use acquire_public_video with the current source, a startSeconds/endSeconds interval grounded in visible subsection boundaries, maxFrameGap, and reason. For action counting, a small multi-second gap gives a first local chronological pass; use the remaining call at sub-second density on unresolved completion/reset boundaries. Each call supports at most 96 new frames. Narrow the interval if necessary; do not spread a dense budget over later repeats. If no original source is offered, use inspect_public_sequence on delivered frame indices and inspect_public_frame for small details; these cannot recover missing moments. At most two auxiliary calls total. Never invent a source or acquisition offer.",
+        "Numerical question: bind each requested symbol to its own visible object or segment, preserving case. Read all independent relations shown over time, including the late-stage diagram. Solve for the requested quantity, discard impossible roots, and substitute the result into every independent relation. Do not confuse the diagram's stated length, a radius, an area, or a squared quantity. Match the verified value to an option only at the end.",
+        "Ordinal or identity questions: do not infer that two objects are the same merely because they contain the same cargo or participate in the same event. Bind the target to stable distinguishing appearance such as body shape, surface colour, doors, edges or attachment relations. Inspect the event close-up and a separate wider view of the whole arrangement; keep competing identities when no feature matches. Read the physical ordered sequence from the established reference end, include every unit the wording counts, and convert front/rear indices only after establishing the total. Screen position and a cut alone are not identity evidence.",
+        "Count questions: localize the requested subsection using title cards, changes of the taught movement and surrounding context. Track the main demonstrator separately from inset clips. Record each completion and renewed onset: a continuous held pose is one occurrence; a return to the starting configuration followed by the same movement is a new occurrence, even close in time. Distinguish the first isolated demonstration from a subsequent run-through within the same requested subsection. Exclude later subsections and recaps. A sparse frame missing a movement does not prove that it did not occur. Supplement unresolved transition intervals when the host offers original-video sampling. Map the evidence-based count to an option only at the end.",
+        "Counterfactual question: separate the actually visible motion from the explicitly hypothetical intervention. Compare every claimed consequence in an option; a plausible physical keyword alone is insufficient. Procedure correction: align the described steps to successive visible states and locate the first discrepancy.",
+        "After inspection, select the option supported by the target event and qualifiers. Submit exactly one native action with the answer letter only. Keep the application tool-call contract; do not add narrative output. No helper validates semantic interpretations automatically."
+      ],
+      "successSignals": [
+        "Native objective achieved; actual feedback agrees with the selected action."
+      ],
+      "failureSignals": [
+        "Action repeats a known failure or depends on an unverified observation or model."
+      ],
+      "recovery": [
+        "Re-read the actual public feedback, identify whether perception, model or execution was wrong, and revise only that assumption."
+      ],
+      "invariants": [
+        "No fixed quantities, answer letters, specific objects or coordinates.",
+        "Modules organize evidence; they do not certify image interpretation."
+      ],
+      "sourceGapIds": [
+        "policy-video-evidence-source-v4"
+      ]
+    }
+  ]
+}

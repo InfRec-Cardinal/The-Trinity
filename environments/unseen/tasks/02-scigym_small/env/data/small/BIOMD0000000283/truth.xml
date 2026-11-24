@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" level="2" version="4">
+  <model id="id_6oma">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_hft7">
+        <listOfUnits>
+          <unit kind="dimensionless"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_0cei">
+        <listOfUnits>
+          <unit kind="dimensionless"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_k0pw">
+        <listOfUnits>
+          <unit kind="dimensionless"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_wsy9" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_16te" compartment="id_wsy9" initialConcentration="8"/>
+      <species id="id_7d38" compartment="id_wsy9" initialConcentration="0"/>
+      <species id="id_ve63" compartment="id_wsy9" initialConcentration="1"/>
+      <species id="id_8deg" compartment="id_wsy9" initialConcentration="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_3nzi" value="0" units="dimensionless"/>
+      <parameter id="id_n8fc" value="0.5" units="dimensionless"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_ltat">
+        <listOfReactants>
+          <speciesReference species="id_16te"/>
+          <speciesReference species="id_ve63"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_8deg"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_wsy9 </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_ve63 </ci>
+                  <ci> id_16te </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_3nzi </ci>
+                  <ci> id_8deg </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_spgg" reversible="false">
+        <listOfReactants>
+          <speciesReference species="id_8deg"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_ve63"/>
+          <speciesReference species="id_7d38"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_wsy9 </ci>
+              <ci> id_n8fc </ci>
+              <ci> id_8deg </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

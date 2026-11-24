@@ -48,7 +48,7 @@ def _svg(elements: list[str], w: int, h: int) -> str:
 
 def _card(el, x, y, tasks, colour):
     h = 10 + 20 * len(tasks)
-    w = 24 + max(len(t["name"]) for t in tasks) * 7.2 + 60
+    w = 24 + max(len(f'{t.get("subCategory") or ""} {t["name"]}{" (U)" if t["cohort"] != "train" else ""}') for t in tasks) * 14
     el.append(f'<rect x="{x}" y="{y}" width="{w:.0f}" height="{h}" rx="8" fill="#f7f8fa" stroke="{colour}" stroke-width="1.2"/>')
     for i, t in enumerate(sorted(tasks, key=lambda t: (t["cohort"] != "train", t["name"].lower()))):
         unseen = t["cohort"] != "train"
@@ -63,16 +63,20 @@ def structured_svg(root: dict, order: list[str], names: dict[str, str]) -> str:
     el, X0, COL, y0 = [], 260, 520, 80
     colour = {c: PALETTE[i % len(PALETTE)] for i, c in enumerate(order)}
     edges, tops = [], []
+    right = X0 + 340
 
     def place(node, depth, y):
+        nonlocal right
         x = X0 + (depth - 1) * COL
         c = node["capability"]
+        right = max(right, x + 340, x + 40 + 16 * len(names.get(c, c)))
         el.append(f'<rect x="{x}" y="{y}" width="340" height="34" rx="17" fill="{colour[c]}22" stroke="{colour[c]}" stroke-width="1.6"/>')
         el.append(f'<circle cx="{x + 18}" cy="{y + 17}" r="13" fill="{colour[c]}"/><text x="{x + 18}" y="{y + 22}" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">{c}</text>')
         el.append(f'<text x="{x + 40}" y="{y + 22}" font-size="15" font-weight="bold" fill="#1f2a37">{escape(names.get(c, c))}</text>')
         bottom = y + 34
         if node["tasks"]:
-            _, h = _card(el, x + 20, y + 42, node["tasks"], colour[c])
+            w, h = _card(el, x + 20, y + 42, node["tasks"], colour[c])
+            right = max(right, x + 20 + w)
             bottom = y + 42 + h
         cy = y
         for child in sorted(node["children"].values(), key=lambda n: order.index(n["capability"])):
@@ -89,7 +93,8 @@ def structured_svg(root: dict, order: list[str], names: dict[str, str]) -> str:
     if root["tasks"]:
         tops.append(y)
         el.append(f'<text x="{X0}" y="{y + 18}" font-size="14" font-style="italic" fill="#5b6b7f">No capability gap observed</text>')
-        _, h = _card(el, X0 + 20, y + 30, root["tasks"], "#9aa3b2")
+        w, h = _card(el, X0 + 20, y + 30, root["tasks"], "#9aa3b2")
+        right = max(right, X0 + 20 + w)
         y += 30 + h + 20
     ry = (tops[0] + tops[-1]) / 2 if tops else y0
     el.append(f'<rect x="40" y="{ry - 10}" width="150" height="54" rx="12" fill="#243246"/><text x="115" y="{ry + 14}" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">H0</text>'
@@ -100,11 +105,12 @@ def structured_svg(root: dict, order: list[str], names: dict[str, str]) -> str:
         mx = tx - 24
         el.insert(0, f'<path d="M{sx},{sy} L{mx},{sy} L{mx},{ty} L{tx},{ty}" fill="none" stroke="#97a3b3" stroke-width="1.4"/>')
     el.append(f'<text x="40" y="40" font-size="24" font-weight="bold" fill="#1f2a37">H0 capability tree (structured): order {", ".join(order)}</text>')
-    return _svg(el, X0 + 4 * COL, y + 40)
+    return _svg(el, max(right + 40, 40 + 24 * len("H0 capability tree (structured): order " + ", ".join(order))), y + 40)
 
 
 def flat_svg(records: list[dict], order: list[str], names: dict[str, str]) -> str:
     el, X0, y = [], 260, 80
+    right = X0 + 340
     colour = {c: PALETTE[i % len(PALETTE)] for i, c in enumerate(order)}
     tops = []
     for c in order:
@@ -115,7 +121,8 @@ def flat_svg(records: list[dict], order: list[str], names: dict[str, str]) -> st
         el.append(f'<rect x="{X0}" y="{y}" width="340" height="34" rx="17" fill="{colour[c]}22" stroke="{colour[c]}" stroke-width="1.6"/>')
         el.append(f'<circle cx="{X0 + 18}" cy="{y + 17}" r="13" fill="{colour[c]}"/><text x="{X0 + 18}" y="{y + 22}" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">{c}</text>')
         el.append(f'<text x="{X0 + 40}" y="{y + 22}" font-size="15" font-weight="bold" fill="#1f2a37">{escape(names.get(c, c))}</text>')
-        _, h = _card(el, X0 + 20, y + 42, listed, colour[c])
+        w, h = _card(el, X0 + 20, y + 42, listed, colour[c])
+        right = max(right, X0 + 20 + w, X0 + 40 + 16 * len(names.get(c, c)))
         y += 42 + h + 24
     ry = (tops[0] + tops[-1]) / 2 if tops else 80
     el.append(f'<rect x="40" y="{ry - 10}" width="150" height="54" rx="12" fill="#243246"/><text x="115" y="{ry + 14}" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">H0</text>'
@@ -123,7 +130,7 @@ def flat_svg(records: list[dict], order: list[str], names: dict[str, str]) -> st
     for t in tops:
         el.insert(0, f'<path d="M190,{ry + 17} L225,{ry + 17} L225,{t + 17} L{X0},{t + 17}" fill="none" stroke="#97a3b3" stroke-width="1.4"/>')
     el.append('<text x="40" y="40" font-size="24" font-weight="bold" fill="#1f2a37">H0 flat capability tree: each capability lists every task that requires it</text>')
-    return _svg(el, 1400, y + 40)
+    return _svg(el, max(1400, right + 40), y + 40)
 
 
 def drawio_from_svg(svg: str, name: str) -> str:

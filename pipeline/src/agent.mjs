@@ -1,7 +1,7 @@
 import {modelCall, tokenSummary} from '../../harness/src/metrics.mjs';
 import { assert, now, uid } from './core.mjs';
 import { createHash } from 'node:crypto';
-import { STOP, resolveProfile, canonicalModel, publicAssistantContent } from './model.mjs';
+import { STOP, resolveProfile, canonicalModel, executionProfile, publicAssistantContent } from './model.mjs';
 
 export class AgentError extends Error {
   constructor(message, code, details = {}) {
@@ -21,7 +21,7 @@ const truncationFeedback = maxTokens => `The response reached its ${maxTokens}-t
   + 'Keep all required fields and necessary evidence; use concise statements, quote each source claim once, '
   + 'and reference those claims elsewhere when the schema supports references. Remove repeated quotations and explanations.';
 const NO_PROGRESS_LIMIT = 3;
-const nativeSearchProgress = blocks => (blocks ?? []).some(block => block?.type === 'server_tool_use' && ['web_search', 'openrouter:web_search'].includes(block.name)
+const nativeSearchProgress = blocks => (blocks ?? []).some(block => block?.type === 'server_tool_use' && ['web_search'].includes(block.name)
   || block?.type === 'web_search_tool_result');
 const captureIdFromOutput = output => {
   try {
@@ -120,7 +120,7 @@ async function executeAgent(ctx, spec) {
     + 'Call them directly with complete arguments. Use the provided research and repair tools to resolve outstanding work. '
     + 'Complete the task with an accepted final submission; a text response alone does not submit a result.';
   const provider = resolveProfile(ctx.profile);
-  const contractHash = fingerprint({ system, kickoff, tools, model: canonicalModel(provider.model), effort: provider.effort, version: spec.checkpointVersion ?? 1 });
+  const contractHash = fingerprint({ system, kickoff, tools, executionProfile: executionProfile(provider), model: canonicalModel(provider.model), effort: provider.effort, version: spec.checkpointVersion ?? 1 });
   let run = ctx.store.loadAgent(key);
   let invalidated = null;
   if (run && run.contractHash !== contractHash) {
@@ -135,7 +135,7 @@ async function executeAgent(ctx, spec) {
   }
   const persist = () => ctx.store.saveAgent(checkpointSafe(run, ctx.apiKey));
   const cachedDone = run?.status === 'done';
-  if (!run) run = { key, checkpointVersion: 2, contractHash, purpose: spec.purpose ?? null, status: 'running', profile: ctx.profile, sessionId: uid('session'),
+  if (!run) run = { key, checkpointVersion: 2, contractHash, purpose: spec.purpose ?? null, executionProfile: executionProfile(provider), status: 'running', profile: ctx.profile, sessionId: uid('session'),
     turns: [{ role: 'user', text: kickoff }], turn: 0, searches: 0, searchAttempts: 0, searchResults: 0, searchErrors: [], searchQueries: [],
     usage: { input: 0, output: 0, cachedInput: 0, cacheCreationInput: 0 }, startedAt: now(), log: [], ...(invalidated ? { invalidated } : {}),
     budget: { ...allowed, extensions: 0 }, noProgressConsecutive: 0, noProgressTotal: 0, requireToolChoice: false,
@@ -346,7 +346,7 @@ async function executeAgent(ctx, spec) {
         const message = cleanMessage(error.message ?? error, ctx.apiKey);
         output = JSON.stringify({ ok: false, error: message, ...(error.code ? { code: error.code } : {}) });
         run.log.push({ turn: run.turn, tool: call.name, id: call.id, ok: false, error: message.slice(0, 300), ...(error.code ? { code: error.code } : {}) });
-        if (['budget_exhausted', 'tool_unavailable', 'provider_quota'].includes(error.code)) fatal = error;
+        if (['budget_exhausted', 'tool_unavailable'].includes(error.code) || /^provider_/.test(error.code ?? '')) fatal = error;
       }
       pending.results.push({ id: call.id, output }); pending.nextCall++; pending.inFlight = null;
       delete run.activeToolCall; persist();

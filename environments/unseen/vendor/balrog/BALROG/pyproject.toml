@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=58.0.0", "wheel"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38']                                         
+                                                
+
+[tool.isort]
+profile = "black"
+line_length = 120
+                                                          
+
+[tool.flake8]
+max-line-length = 120
+ignore = [
+    "E501",                                              
+    "F401",                              
+    "E203",                                               
+    "W503",                                                         
+    "E126",                                   
+    "E722"                             
+]
+exclude = [
+    ".git",
+    "__pycache__",
+    "docs/source/conf.py",
+    "old",
+    "build",
+    "dist"
+]

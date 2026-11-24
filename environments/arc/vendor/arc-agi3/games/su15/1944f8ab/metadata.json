@@ -1,0 +1,19 @@
+{
+  "game_id": "su15-1944f8ab",
+  "title": "SU15",
+  "default_fps": 20,
+  "tags": [
+    "click"
+  ],
+  "baseline_actions": [
+    22,
+    42,
+    26,
+    115,
+    36,
+    31,
+    8,
+    40,
+    41
+  ]
+}

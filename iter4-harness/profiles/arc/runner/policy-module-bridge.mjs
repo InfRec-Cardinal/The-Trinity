@@ -1,0 +1,4 @@
+export const isPolicyRegistry=r=>r?.format==='generated-action-policies-v1';
+
+export function policyTool(r){return null;}
+export const policyPatches=r=>Object.values(r.active).map(m=>`${m.interface.description}\n${m.interface.applicability}\nThis executable module runs locally on each proposed environment action. An advice result is shown once before each native step; review it and either keep or revise your proposal. Advisory recommendations are not mandatory and do not certify strategic success. A block reports computed public constraints and executes no world action: correct the proposal using the returned evidence. A pass only certifies the module's stated constraints, not a win or an optimal strategy. Never repeatedly submit the same rejected action. Missing or unsupported input returns unknown; keep public task rules authoritative.`);

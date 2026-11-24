@@ -1,12 +1,15 @@
 {
   "name": "trinity-integrated-code",
-  "version": "1.13.0",
+  "version": "1.17.0",
   "private": true,
   "type": "module",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "cli": "node cli.mjs"
+    "cli": "node cli.mjs",
+    "learn-env": "node cli.mjs learn-env",
+    "build:iter4": "node cli.mjs build-harness --release iter4",
+    "refresh:iter4": "node scripts/refresh-iter4-manifest.mjs"
   }
 }

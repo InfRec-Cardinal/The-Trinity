@@ -1,9 +1,11 @@
+import {bindTaskBudgets, benchmarkBudget} from '../harness/src/execution-policy.mjs';
 import {freezeExplorationInstances} from '../harness/src/exploration-plan.mjs';
 import {stage2Binding, verifyTrainingCompletion} from '../harness/src/protocol-state.mjs';
 import fs from 'node:fs';
 import {modelContent, normalizeMedia} from '../harness/src/media.mjs';
 import {resolveProfile, requireProviderKey, callModel} from '../pipeline/src/model.mjs';
 import path from 'node:path';
+import os from 'node:os';
 import {spawn} from 'node:child_process';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {Agent, CommandAgent} from '../harness/src/agent.mjs';
@@ -16,9 +18,16 @@ export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const write = (file, value) => writeAtomic(file, JSON.stringify(value, null, 2) + '\n');
 
-export function runCommand(command, args, {cwd = ROOT, env = process.env, capture = false} = {}) {
+export function runCommand(command, args, {cwd = ROOT, env = process.env, capture = false, outputFile = null} = {}) {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, {cwd, env, shell: false, stdio: capture ? ['ignore', 'pipe', 'pipe'] : 'inherit'});
+    ensure(!capture || outputFile === null, 'Choose capture or outputFile, not both');
+    const fd = outputFile === null ? null : fs.openSync(outputFile, 'wx', 0o600);
+    let child;
+    try {
+      child = spawn(command, args, {cwd, env, shell: false,
+        stdio: fd !== null ? ['ignore', fd, 'pipe'] : capture ? ['ignore', 'pipe', 'pipe'] : 'inherit'});
+    } finally {if (fd !== null) fs.closeSync(fd);}
+    child.stdout?.setEncoding('utf8'); child.stderr?.setEncoding('utf8');
     let stdout = '', stderr = '', settled = false;
     const finish = (error, value) => {
       if (settled) return;
@@ -27,25 +36,33 @@ export function runCommand(command, args, {cwd = ROOT, env = process.env, captur
     };
     if (capture) {
       child.stdout.on('data', chunk => {
+        if (settled) return;
         stdout += chunk;
-        if (Buffer.byteLength(stdout) > 33554432) {child.kill(); finish(Error('Command output limit exceeded'));}
+        if (Buffer.byteLength(stdout) > 33554432) {child.kill('SIGKILL'); finish(Error('Command output limit exceeded'));}
       });
-      child.stderr.on('data', chunk => {stderr = (stderr + chunk).slice(-4000);});
     }
+    if (capture || fd !== null) child.stderr.on('data', chunk => {stderr = (stderr + chunk).slice(-4000);});
     child.on('error', error => finish(error));
     child.on('close', code => finish(code === 0 ? null : Error('Command failed: ' + (stderr || String(code))), stdout));
   });
 }
 
-export function runStage2(args, {capture = false} = {}) {
+export function runStage2(args, {capture = false, outputFile = null} = {}) {
   const stage = path.join(ROOT, 'stage2');
   const env = {...process.env, PYTHONDONTWRITEBYTECODE: '1', PYTHONPATH: [stage, process.env.PYTHONPATH].filter(Boolean).join(path.delimiter)};
-  return runCommand(process.env.TRINITY_PYTHON || 'python3', ['-B', '-m', 'trinity_stage2.cli', ...args], {cwd: process.cwd(), env, capture});
+  return runCommand(process.env.TRINITY_PYTHON || 'python3', ['-B', '-m', 'trinity_stage2.cli', ...args], {cwd: process.cwd(), env, capture, outputFile});
 }
 
 export class ProviderBackend {
+  constructor() {
+    this.profile = resolveProfile();
+    this.profileDigest = digest(this.profile);
+    this.executionProfile = Object.freeze({provider: this.profile.id, model: this.profile.model,
+      effort: this.profile.effort, maxTokens: 16000, profileDigest: this.profileDigest});
+  }
   async respond(request) {
     const profile = resolveProfile(), apiKey = requireProviderKey(profile);
+    ensure(digest(profile) === this.profileDigest, 'Provider settings changed during a frozen run');
     const result = await callModel({profile: profile.id, apiKey, system: request.system,
       turns: [{role: 'user', text: modelContent({operation: request.operation, context: request.context, outputContract: request.outputContract})}],
       maxTokens: 16000, searchEnabled: false});
@@ -63,8 +80,8 @@ export async function loadAdapter(file) {
   const driverPath = path.resolve(path.dirname(resolved), settings.driverModule);
   const imported = await import(pathToFileURL(driverPath).href);
   ensure(typeof imported.createDriver === 'function', 'Driver module must export createDriver');
-  const driver = await imported.createDriver(clone(settings.driverOptions ?? {}));
   const backend = settings.agentCommand ? new CommandAgent(settings.agentCommand, settings.agentOptions) : new ProviderBackend();
+  const driver = await imported.createDriver(clone(settings.driverOptions ?? {}));
   return {settings, backend, driver};
 }
 
@@ -99,6 +116,7 @@ export function trainingConfig(input, settings = {}) {
   }
   const config = {mode: 'integrated_pipeline', capabilityMode: 'fixed_tree',
     iterations: settings.iterations ?? defaults.iterations, actionBudget: settings.actionBudget ?? defaults.actionBudget,
+    ...(settings.maxFreeActions === undefined ? {} : {maxFreeActions: settings.maxFreeActions}),
     maxBuildAttempts: settings.maxBuildAttempts ?? defaults.maxBuildAttempts,
     screening: clone(settings.screening ?? defaults.screening), trainingTrials: 5, validationTrials: 5,
     taxonomy: clone(input.taxonomy), capabilityDefinitions: capabilityDefinitions(input.taxonomy, input.capabilityDefinitions), assignments, trainingTasks, baselineTasks,
@@ -109,6 +127,8 @@ export function trainingConfig(input, settings = {}) {
     creatorCoding: clone(settings.creatorCoding ?? {}), upstreamDigest: digest(input)};
   const allIds = [...config.trainingTasks, ...config.baselineTasks, ...config.unseenTasks].map(task => task.id);
   ensure(new Set(allIds).size === allIds.length, 'Task cohorts must be disjoint');
+  const budgeted = new Map(bindTaskBudgets([...config.trainingTasks, ...config.baselineTasks, ...config.unseenTasks], settings.taskBudgets).map(task => [task.id, task]));
+  for (const cohort of ['trainingTasks', 'baselineTasks', 'unseenTasks']) config[cohort] = config[cohort].map(task => budgeted.get(task.id));
   buildTree(config.taxonomy, assignments, trainingTasks.map(task => task.id));
   return validateConfig(config);
 }
@@ -129,13 +149,14 @@ export function canonicalEpisode(task, report) {
     source: {format: 'trinity-exploration', harnessId: report.harnessId, worldDigest: report.worldDigest, usage: report.usage, actionCost: report.cost, reward: report.reward, reportedRewardSum: report.reportedRewardSum, missingRewards: report.missingRewards, scoreSource: report.scoreSource, normalizedScore: report.normalizedScore, scoreNormalization: report.scoreNormalization, benchmarkId: report.benchmarkId, split: report.split, protocolId: report.protocolId, success: report.success}};
 }
 
-export async function explore({handoff, backend, driver, directory, budget, cohort = 'train', trainingRun = null}) {
+export async function explore({handoff, backend, driver, directory, budget, maxFreeActions, taskBudgets, cohort = 'train', trainingRun = null}) {
   ensure(handoff.schema === 'trinity-stage2-handoff-v1', 'Unsupported task handoff');
   ensure(['train', 'unseen'].includes(cohort), 'Exploration cohort must be train or unseen');
   ensure(Number.isInteger(budget) && budget > 0, 'Positive action budget required');
   const split = handoff.taskTree?.split;
   ensure(!split?.gaps?.length && !split?.errors?.length, 'Incomplete task split');
-  const selected = handoff.tasks.filter(task => task.set === cohort).map(publicTask);
+  const policies = new Map(bindTaskBudgets(handoff.tasks.map(publicTask), taskBudgets).map(task => [task.id, task]));
+  const selected = handoff.tasks.filter(task => task.set === cohort).map(task => policies.get(task.taskId));
   ensure(selected.length && new Set(selected.map(task => task.id)).size === selected.length, 'Empty or duplicate exploration task list');
   const completed = cohort === 'unseen' ? verifyTrainingCompletion(trainingRun) : null;
   if (completed) {
@@ -153,7 +174,7 @@ export async function explore({handoff, backend, driver, directory, budget, coho
   store.write('initial-instances.json', {schema: 'trinity-exploration-plan-v1', plans: plans.map(({task, plan}) => ({taskId: task.id, ...plan}))});
   for (const {task, world, plan} of plans) {
     const fingerprint = plan.worldDigest;
-    const rows = await runBatch({agent, driver, store, world, modules: [], budget, taskId: task.id, benchmarkId: task.benchmarkId ?? task.id, split: cohort, instances: plan.instances, initialStateHashes: plan.initialStateHashes, instancePlan: plan.event, phase: 'initial_training_exploration', node: 'root'}, 5);
+    const rows = await runBatch({agent, driver, store, world, modules: [], ...benchmarkBudget(task,{actionBudget:budget,maxFreeActions}), taskId: task.id, benchmarkId: task.benchmarkId ?? task.id, split: cohort, instances: plan.instances, initialStateHashes: plan.initialStateHashes, instancePlan: plan.event, phase: 'initial_training_exploration', node: 'root'}, 5);
     ensure(digest(await driver.fingerprint(clone(world))) === fingerprint, 'World changed during initial exploration');
     const episodes = rows.map(row => canonicalEpisode(task, row));
     const relative = 'records/' + task.id + '.json';
@@ -168,13 +189,20 @@ export async function explore({handoff, backend, driver, directory, budget, coho
 }
 
 export async function prepareTraining(stage2, settings = {}) {
-  const input = JSON.parse(await runStage2(['export-training', '--out', path.resolve(stage2)], {capture: true}));
-  input.stage2Binding = stage2Binding(stage2);
-  return trainingConfig(input, settings);
+                                                                               
+                                                                                   
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'trinity-training-export-'));
+  try {
+    const outputFile = path.join(directory, 'training-input.json');
+    await runStage2(['export-training', '--out', path.resolve(stage2)], {outputFile});
+    const input = read(outputFile);
+    input.stage2Binding = stage2Binding(stage2);
+    return trainingConfig(input, settings);
+  } finally {fs.rmSync(directory, {recursive: true, force: true});}
 }
 
-export async function train({config, backend, driver, directory}) {
+export async function train({config, backend, driver, directory,nativeHost}) {
   const store = new Store(directory, config), agent = new Agent(backend, store);
-  try {return await new Trinity({config, backend, agent, driver, store}).run();}
+  try {return await new Trinity({config, backend, agent, driver, store,nativeHost}).run();}
   catch (error) {store.record('run_failed', {message: String(error.message)}); throw error;}
 }

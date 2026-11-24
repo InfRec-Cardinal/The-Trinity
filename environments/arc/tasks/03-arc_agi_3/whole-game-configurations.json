@@ -1,0 +1,264 @@
+{
+  "taskId": "arc_agi_3",
+  "note": "Nine distinct existing official complete games, excluding all three original games. Selection: first nine game IDs in sorted vendored metadata with positive official baselines; no seed-only duplicates. New configurations have not been run by H0.",
+  "configurations": [
+    {
+      "id": "ar25-0c556536",
+      "ordinal": 0,
+      "label": "ar25-0c556536 \u2014 new complete game",
+      "gameId": "ar25-0c556536",
+      "seed": 0,
+      "levelCount": 8,
+      "baselineActions": [
+        32,
+        50,
+        75,
+        37,
+        89,
+        159,
+        233,
+        73
+      ],
+      "gameSourceHash": "b965d2faaa4a4d9119c20eb51af0fb2b657fb52fb9884919863a48f2230c4272",
+      "nativeInstanceFingerprint": "1e5bd2a68bf1d4e02f05a7ceecb594f8ec0fbc527782448ae5f6f43d5d85262b",
+      "selector": {
+        "gameId": "ar25-0c556536",
+        "seed": 0,
+        "scope": "all_original_levels"
+      },
+      "configurationHash": "eb58bc9a543349d0f8ce2572aa4d63c06b3ee0141facdaa8c72c3784ddcbd415",
+      "episodes": 1,
+      "origin": "official_catalog",
+      "refreshBatch": "20261016-new-train"
+    },
+    {
+      "id": "bp35-0a0ad940",
+      "ordinal": 1,
+      "label": "bp35-0a0ad940 \u2014 new complete game",
+      "gameId": "bp35-0a0ad940",
+      "seed": 0,
+      "levelCount": 9,
+      "baselineActions": [
+        21,
+        48,
+        44,
+        38,
+        33,
+        87,
+        86,
+        131,
+        163
+      ],
+      "gameSourceHash": "e9aecb52c629c3e742276c2db04b81f91555051d8617b6cbc58bac410824867f",
+      "nativeInstanceFingerprint": "cfe3d533c72977e9066a9ea19fd71ab68fa425c6da9d324cb399a6d34b7653c7",
+      "selector": {
+        "gameId": "bp35-0a0ad940",
+        "seed": 0,
+        "scope": "all_original_levels"
+      },
+      "configurationHash": "5ca310b0b94fde5fb2c30dc77dc46038757054040e263f37e66bbb70a6552992",
+      "episodes": 1,
+      "origin": "official_catalog",
+      "refreshBatch": "20261016-new-train"
+    },
+    {
+      "id": "cd82-fb555c5d",
+      "ordinal": 2,
+      "label": "cd82-fb555c5d \u2014 new complete game",
+      "gameId": "cd82-fb555c5d",
+      "seed": 0,
+      "levelCount": 6,
+      "baselineActions": [
+        55,
+        8,
+        41,
+        21,
+        23,
+        23
+      ],
+      "gameSourceHash": "dafeabff60a3a99b5c93629f8da0d8f555b873ef16a522247d6197b1b3addbcb",
+      "nativeInstanceFingerprint": "1e9c02cd8a22c0c430a5eb3bafa9c86e5b639f8c356182e7c0895ca2439d2e8e",
+      "selector": {
+        "gameId": "cd82-fb555c5d",
+        "seed": 0,
+        "scope": "all_original_levels"
+      },
+      "configurationHash": "d72813ed4c0fd70a1f72a28bf94aa0aef22e8d60723e1f7561ff893fda4d8324",
+      "episodes": 1,
+      "origin": "official_catalog",
+      "refreshBatch": "20261016-new-train"
+    },
+    {
+      "id": "cn04-2fe56bfb",
+      "ordinal": 3,
+      "label": "cn04-2fe56bfb \u2014 new complete game",
+      "gameId": "cn04-2fe56bfb",
+      "seed": 0,
+      "levelCount": 6,
+      "baselineActions": [
+        29,
+        54,
+        85,
+        300,
+        208,
+        113
+      ],
+      "gameSourceHash": "29977e145a0374b5842d360507f045029c3f4b22373612152e713c14691e01dc",
+      "nativeInstanceFingerprint": "561e78d8aab64845ca4973038395ebe9692c636368208142ae8b5d9d89a04a31",
+      "selector": {
+        "gameId": "cn04-2fe56bfb",
+        "seed": 0,
+        "scope": "all_original_levels"
+      },
+      "configurationHash": "2920d682daf16d60b929326ee77e5468084b0b07bd937bcad977eb431b2e6b9a",
+      "episodes": 1,
+      "origin": "official_catalog",
+      "refreshBatch": "20261016-new-train"
+    },
+    {
+      "id": "dc22-fdcac232",
+      "ordinal": 4,
+      "label": "dc22-fdcac232 \u2014 new complete game",
+      "gameId": "dc22-fdcac232",
+      "seed": 0,
+      "levelCount": 6,
+      "baselineActions": [
+        59,
+        102,
+        67,
+        98,
+        324,
+        578
+      ],
+      "gameSourceHash": "74abe3523bd6bc8a0948991caa0ca71855e38542ba2123653a03485e064f252e",
+      "nativeInstanceFingerprint": "6c5b3024a072c1fb49d49f316f8c709b9d4d6f7184d5285d50922b8526cb764a",
+      "selector": {
+        "gameId": "dc22-fdcac232",
+        "seed": 0,
+        "scope": "all_original_levels"
+      },
+      "configurationHash": "2de6fd4afa19624548ea7665d83b413597a049bd248a3b47ec560de2cbb8dc3a",
+      "episodes": 1,
+      "origin": "official_catalog",
+      "refreshBatch": "20261016-new-train"
+    },
+    {
+      "id": "g50t-5849a774",
+      "ordinal": 5,
+      "label": "g50t-5849a774 \u2014 new complete game",
+      "gameId": "g50t-5849a774",
+      "seed": 0,
+      "levelCount": 7,
+      "baselineActions": [
+        78,
+        175,
+        179,
+        230,
+        96,
+        54,
+        67
+      ],
+      "gameSourceHash": "6f21f2065744e484ac38534f940158034e69f39add3b10a3d9fd258de7293aa9",
+      "nativeInstanceFingerprint": "d88f2aa7c0896912363735491da9392f19260cbfc5e8a4d1b707426782610e8b",
+      "selector": {
+        "gameId": "g50t-5849a774",
+        "seed": 0,
+        "scope": "all_original_levels"
+      },
+      "configurationHash": "53451a06a483491c00dde27608c552a51f30079b9f475c06707e27778243b01d",
+      "episodes": 1,
+      "origin": "official_catalog",
+      "refreshBatch": "20261016-new-train"
+    },
+    {
+      "id": "ka59-38d34dbb",
+      "ordinal": 6,
+      "label": "ka59-38d34dbb \u2014 new complete game",
+      "gameId": "ka59-38d34dbb",
+      "seed": 0,
+      "levelCount": 7,
+      "baselineActions": [
+        28,
+        109,
+        51,
+        51,
+        33,
+        132,
+        326
+      ],
+      "gameSourceHash": "3e8341f4c317ceb9992ca54e8ad453ee4e8a04547b27a907f4a560a9a30d857e",
+      "nativeInstanceFingerprint": "7453f14fa7d92e058c8ef198cec027c57b257f15953ef84f8e10317be2aaa249",
+      "selector": {
+        "gameId": "ka59-38d34dbb",
+        "seed": 0,
+        "scope": "all_original_levels"
+      },
+      "configurationHash": "7f715e50b338422a2fc59a8b331d19836e2e59b53443bb589fd41849f89ce314",
+      "episodes": 1,
+      "origin": "official_catalog",
+      "refreshBatch": "20261016-new-train"
+    },
+    {
+      "id": "lf52-271a04aa",
+      "ordinal": 7,
+      "label": "lf52-271a04aa \u2014 new complete game",
+      "gameId": "lf52-271a04aa",
+      "seed": 0,
+      "levelCount": 10,
+      "baselineActions": [
+        32,
+        81,
+        60,
+        71,
+        205,
+        148,
+        244,
+        109,
+        164,
+        225
+      ],
+      "gameSourceHash": "a6b01973a0905a447f6b92d77745719ebb001f9f94ff5bb0076200ef16839030",
+      "nativeInstanceFingerprint": "b4201ae9e76959ea3680afd9d167c76d9cbd8f4d40c9ee64a0806b6b4ffd2f6f",
+      "selector": {
+        "gameId": "lf52-271a04aa",
+        "seed": 0,
+        "scope": "all_original_levels"
+      },
+      "configurationHash": "fb72f1fd00ed772a755a978b92c8e176f099561d66ea856cf085a56eec68b050",
+      "episodes": 1,
+      "origin": "official_catalog",
+      "refreshBatch": "20261016-new-train"
+    },
+    {
+      "id": "lp85-305b61c3",
+      "ordinal": 8,
+      "label": "lp85-305b61c3 \u2014 new complete game",
+      "gameId": "lp85-305b61c3",
+      "seed": 0,
+      "levelCount": 8,
+      "baselineActions": [
+        17,
+        38,
+        31,
+        16,
+        41,
+        60,
+        26,
+        159
+      ],
+      "gameSourceHash": "7d10baec7dd29d07e574bd47ee1ec7912542a72632077a5446798221f41c4ae9",
+      "nativeInstanceFingerprint": "c8679e7f890eec3076181589208b4fb32e8259cd5f680b4691bf006bf1fd67bd",
+      "selector": {
+        "gameId": "lp85-305b61c3",
+        "seed": 0,
+        "scope": "all_original_levels"
+      },
+      "configurationHash": "60cf06b5ac74fe3d295d5f178cafdaa27f553f3ba50ea360434a288b95bae905",
+      "episodes": 1,
+      "origin": "official_catalog",
+      "refreshBatch": "20261016-new-train"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

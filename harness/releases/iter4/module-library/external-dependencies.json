@@ -1,0 +1,32 @@
+{
+  "optionalByMode": {
+    "semantic_signal": {
+      "runtime": "python3",
+      "packages": [
+        "numpy"
+      ],
+      "variable": "GLOVE_ROOT",
+      "files": [
+        "glove.6B.100d.vocab.json",
+        "glove.6B.100d.f64.npy"
+      ],
+      "sha256": {
+        "glove.6B.100d.vocab.json": "495eb5242173e8967ff241ba5a6e93bf677207d946df69d860252805e777882f",
+        "glove.6B.100d.f64.npy": "167d9dfad441ea35b033618e11f89c21b61b3350e83410ccd8c2407314182f03"
+      }
+    },
+    "public_frame_descriptors": {
+      "runtime": "python3",
+      "packages": [
+        "Pillow",
+        "torch",
+        "transformers"
+      ],
+      "model": {
+        "repository": "google/siglip-base-patch16-224",
+        "revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+        "localFilesOnly": true
+      }
+    }
+  }
+}

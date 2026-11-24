@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="id_e5yt">
+    <listOfCompartments>
+      <compartment id="id_v599" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_u02t" compartment="id_v599" initialConcentration="0"/>
+      <species id="id_kkz6" compartment="id_v599" initialConcentration="0"/>
+      <species id="id_wb7d" compartment="id_v599" initialConcentration="1e-10"/>
+      <species id="id_cc4i" compartment="id_v599" initialConcentration="1e-05"/>
+      <species id="id_076m" compartment="id_v599" initialConcentration="0"/>
+      <species id="id_563s" compartment="id_v599" initialConcentration="0"/>
+      <species id="id_d3bw" compartment="id_v599" initialConcentration="0"/>
+      <species id="id_w3o2" compartment="id_v599" initialConcentration="0"/>
+      <species id="id_fc7k" compartment="id_v599" initialConcentration="1e-06"/>
+      <species id="id_t8f6" compartment="id_v599" initialConcentration="3.1e-05"/>
+    </listOfSpecies>
+  </model>
+</sbml>

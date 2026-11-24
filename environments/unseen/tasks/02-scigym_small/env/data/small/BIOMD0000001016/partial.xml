@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_qj73">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_g1v9">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_8kuv">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_3e18">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_qdo9">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="-3" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_vrub">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-6" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_hiwg">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="-3" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_62jg">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-6" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_4eku">
+        <listOfUnits>
+          <unit kind="mole" exponent="-1" scale="-6" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="-3" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_zyq4">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-6" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="-3" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_pr6u" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_g7mj" compartment="id_pr6u" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_l2xx" compartment="id_pr6u" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_sgod" compartment="id_pr6u" initialConcentration="2" boundaryCondition="false" constant="false"/>
+      <species id="id_jj65" compartment="id_pr6u" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_t6k9" compartment="id_pr6u" initialConcentration="0.08" boundaryCondition="false" constant="false"/>
+      <species id="id_3r8d" compartment="id_pr6u" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_npcr" compartment="id_pr6u" initialConcentration="6" boundaryCondition="false" constant="false"/>
+      <species id="id_0qoe" compartment="id_pr6u" initialConcentration="0" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

@@ -1,0 +1,64 @@
+{
+  "taskId": "euro_ncap_aeb_car_to_car",
+  "name": "Euro NCAP AEB",
+  "fullName": "Euro NCAP AEB Car-to-Car: brake in time to avoid or mitigate a rear-end collision across the standard scenarios",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D3",
+    "domainName": "Perception, Navigation & Control",
+    "subCategoryId": "D3.3",
+    "subCategoryName": "Continuous Control & Physical Intervention"
+  },
+  "assignment": {
+    "actions": {
+      "brake": "Set brake demand from 0 to 1, mapped to a deceleration of up to 9 m/s2 reached after a 0.3 s actuation lag with a jerk limit.",
+      "hold": "Keep the current brake demand for the next 0.1 s."
+    },
+    "evaluation": {
+      "budget": 200,
+      "efficiency": "Relative impact speed reduction against the test speed, the time-to-collision at brake onset, the peak deceleration, and a nuisance flag when braking starts with time-to-collision above 4 s.",
+      "failure": "Contact with the target; the impact speed and relative impact speed are recorded as the outcome.",
+      "success": "No contact: the vehicle under test stops or matches the target speed with a positive gap, so the relative impact speed is zero."
+    },
+    "generation": "Each instance is one grid point: CCRs at 10 to 80 km/h in 5 km/h steps with -50 to 50 percent overlap in 25 percent steps, CCRm at 30 to 80 km/h toward a target travelling at a constant 20 km/h, and CCRb at 50 km/h for both cars with target decelerations of -2 or -6 m/s2 and headways of 12 or 40 m. The test speed and scenario are the difficulty knob: low-speed CCRs is avoided by any timely braking, while 80 km/h CCRs and CCRb at 12 m headway and -6 m/s2 leave almost no margin for late decisions, so outcomes are mixed. Sensor noise uses a stored seed.",
+    "id": "euro-ncap-aeb-car-to-car-braking",
+    "observation": "Every 0.1 s: own speed and longitudinal acceleration, range to the target and range rate from a forward sensor with Gaussian noise and an 80 m maximum range, the lateral overlap of the target as a percentage, the current brake demand and elapsed time. The scenario type and the target's future motion are not given.",
+    "reference": "Self-proposed simulated AEB test on the Euro NCAP AEB Car-to-Car protocol v4.3: the agent is the braking controller of the vehicle under test approaching a target in the CCRs (stationary), CCRm (constant speed) and CCRb (braking target) scenarios on the published speed, overlap, deceleration and headway grids, and the outcome is the impact speed. New designs: the longitudinal vehicle and brake model, the noisy range sensor, the 10 Hz decision interface, the nuisance-braking flag, the scoring and the recorder.",
+    "task": "Act as the automatic emergency braking controller of a car approaching another car in its lane. Decide when and how hard to brake so the collision is avoided or its impact speed is reduced, without braking long before it is needed.",
+    "verification": "The longitudinal model is deterministic given the seed and the brake commands, so the host replays the commands to recompute contact, impact speed and the efficiency terms. Each episode records the grid point, seed, every observation and command, and the terminal outcome."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "totalEpisodes": 9,
+    "plannedEpisodes": 9
+  },
+  "otherModels": [],
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Nine previously unused rows from original buildEuroNCAPPool: three CCRs, three CCRm and the three other CCRb grid points. These are local simulated protocol-grid instances, not official test results.",
+    "Replacement instances are pinned in instances.json; task rules, scoring, action budget, model and rendering logic are preserved. Drivers reject old provider/ID/hash selectors.",
+    "nativeInstanceFingerprint is SHA-256 of recursively key-sorted JSON of the full instance. substantiveIdentityHash omits seed, ID and private witness (chess uses the position and horizon). configurationHash covers taskId, id, selector and nativeInstanceFingerprint."
+  ]
+}

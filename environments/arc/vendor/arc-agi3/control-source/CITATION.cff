@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "ARC-AGI-3 Schema Router and Specialist Solvers"
+message: "If this repository helps your work, please cite it using this metadata."
+type: software
+authors:
+  - name: "AnubhavBharadwaaj"
+date-released: 2026-06-25
+license: MIT-0
+version: 0.1.0

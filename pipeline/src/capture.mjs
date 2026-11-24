@@ -4,6 +4,10 @@ import { isIP } from 'node:net';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFile } from 'node:child_process';
+import http from 'node:http';
+import https from 'node:https';
+import {Readable} from 'node:stream';
+import {createGunzip, createInflate, createBrotliDecompress} from 'node:zlib';
 import { writeJsonAtomic, writeFileAtomic, readJson, now } from './core.mjs';
 
 export const MAX_BYTES = 8 * 1024 * 1024, FETCH_TIMEOUT_MS = 30_000, MAX_QUOTE = 600;
@@ -11,10 +15,20 @@ const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const captureDir = dataDir => join(dataDir, 'capture');
 
 export function isPrivateAddress(ip) {
+  ip = ip.toLowerCase().replace(/^\[|\]$/g, '');
+  if (!isIP(ip)) return true;
+  if (isIP(ip) === 6) {
+    const normalized = new URL('http://[' + ip + ']/').hostname.slice(1, -1);
+    if (normalized.startsWith('::ffff:')) {
+      const parts = normalized.slice(7).split(':').map(v => parseInt(v, 16));
+      return isPrivateAddress([parts[0] >> 8, parts[0] & 255, parts[1] >> 8, parts[1] & 255].join('.'));
+    }
+    return !/^[23][0-9a-f]{3}:/.test(normalized) || normalized.startsWith('2001:db8:') || normalized.startsWith('2002:');
+  }
   if (ip.startsWith('::ffff:')) ip = ip.slice(7);
   if (isIP(ip) === 4) {
     const [a, b] = ip.split('.').map(Number);
-    return a === 10 || a === 127 || a === 0 || (a === 169 && b === 254) || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 100 && b >= 64 && b <= 127);
+    return a === 10 || a === 127 || a === 0 || a >= 224 || (a === 169 && b === 254) || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 100 && b >= 64 && b <= 127) || (a === 198 && (b === 18 || b === 19));
   }
   const low = ip.toLowerCase();
   return low === '::1' || low === '::' || /^f[cd]/.test(low) || /^fe[89ab]/.test(low);
@@ -23,9 +37,12 @@ export function isPrivateAddress(ip) {
 async function assertPublic(url) {
   const u = new URL(url);
   if (!['http:', 'https:'].includes(u.protocol)) throw new Error('only http(s) pages can be captured');
-  if (isIP(u.hostname)) { if (isPrivateAddress(u.hostname)) throw new Error('private addresses cannot be captured'); return; }
-  const addresses = await lookup(u.hostname, { all: true });
+  if (u.username || u.password) throw new Error('URL credentials cannot be captured');
+  const hostname = u.hostname.replace(/^\[|\]$/g, '');
+  if (isIP(hostname)) { if (isPrivateAddress(hostname)) throw new Error('private addresses cannot be captured'); return [{address: hostname, family: isIP(hostname)}]; }
+  const addresses = await lookup(hostname, { all: true });
   if (!addresses.length || addresses.some(a => isPrivateAddress(a.address))) throw new Error(`${u.hostname} does not resolve to a public address`);
+  return addresses;
 }
 
 async function readBounded(res) {
@@ -44,13 +61,40 @@ async function readBounded(res) {
 export async function defaultTransport(url, { signal } = {}) {
   let current = url;
   for (let hop = 0; hop < 5; hop++) {
-    await assertPublic(current);
     const timeout = AbortSignal.timeout(FETCH_TIMEOUT_MS);
-    const res = await fetch(current, { signal: signal ? AbortSignal.any([signal, timeout]) : timeout, redirect: 'manual',
-      headers: { 'user-agent': 'trinity-pipeline/0.1 (research capture)', accept: 'text/html,application/xhtml+xml,application/pdf,text/plain,application/json;q=0.9,*/*;q=0.5' } });
-    if ([301, 302, 303, 307, 308].includes(res.status) && res.headers.get('location')) { current = new URL(res.headers.get('location'), current).href; continue; }
-    const { bytes, truncated } = await readBounded(res);
-    return { status: res.status, contentType: res.headers.get('content-type') ?? '', bytes, truncated, finalUrl: current };
+    const combined = signal ? AbortSignal.any([signal, timeout]) : timeout;
+    combined.throwIfAborted();
+    const addresses = await assertPublic(current);
+    combined.throwIfAborted();
+    const target = new URL(current), pinned = addresses[0];
+    const res = await new Promise((resolve, reject) => {
+      const req = (target.protocol === 'https:' ? https : http).request(target, {
+        agent: false, signal: combined,
+        lookup(hostname, options, callback) {
+          if (typeof options === 'function') {callback = options; options = {};}
+          if (options.all) callback(null, [pinned]); else callback(null, pinned.address, pinned.family);
+        },
+        headers: {'user-agent': 'trinity-pipeline/0.1 (research capture)', 'accept-encoding': 'gzip, deflate, br',
+          accept: 'text/html,application/xhtml+xml,application/pdf,text/plain,application/json;q=0.9,*/*;q=0.5'},
+      }, resolve);
+      req.on('error', reject);
+      req.end();
+    });
+    try {
+      if ([301, 302, 303, 307, 308].includes(res.statusCode) && res.headers.location) {
+        current = new URL(res.headers.location, current).href;
+        continue;
+      }
+      const encoding = String(res.headers['content-encoding'] ?? 'identity').toLowerCase();
+      const decompress = {gzip: createGunzip, deflate: createInflate, br: createBrotliDecompress}[encoding];
+      if (!decompress && encoding !== 'identity') throw Error('Unsupported content encoding');
+      const body = decompress ? decompress() : res;
+      if (body !== res) {res.on('error', error => body.destroy(error)); res.pipe(body);}
+      try {
+        const {bytes, truncated} = await readBounded({body: Readable.toWeb(body)});
+        return {status: res.statusCode, contentType: res.headers['content-type'] ?? '', bytes, truncated, finalUrl: current};
+      } finally {if (body !== res) body.destroy();}
+    } finally {res.destroy();}
   }
   throw new Error('too many redirects');
 }
@@ -71,7 +115,7 @@ export function htmlToText(html) {
 
 function extractWith(command, args, bytes) {
   return new Promise((resolve, reject) => {
-    const child = execFile(command, args, { timeout: FETCH_TIMEOUT_MS, maxBuffer: MAX_BYTES * 2, encoding: 'utf8' }, (error, stdout) => {
+    const child = execFile(command, args, { timeout: FETCH_TIMEOUT_MS, killSignal: 'SIGKILL', maxBuffer: MAX_BYTES * 2, encoding: 'utf8' }, (error, stdout) => {
       if (error) reject(error); else resolve(stdout.trim());
     });
     child.stdin.on('error', () => {});

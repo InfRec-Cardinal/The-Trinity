@@ -1,0 +1,22 @@
+{
+    "model_name": "nvidia/nemotron-3-super-120b-a12b:free",
+    "provider": "openrouter",
+    "settings": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "extra_body": {
+            "provider": {
+                "allow_fallbacks": false,
+                "data_collection": "allow",
+                "order": ["nvidia"],
+                "require_parameters": true
+            },
+            "reasoning": {
+                "enabled": true
+            },
+            "usage": {
+                "include": true
+            }
+        }
+    }
+}

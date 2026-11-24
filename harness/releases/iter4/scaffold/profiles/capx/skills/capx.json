@@ -1,0 +1,81 @@
+{
+  "replaces": [],
+  "proposals": [
+    {
+      "id": "capx_bounded_grasp_and_verify",
+      "title": "CaP-X: cup identity, lift evidence and search completion",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "Goals, search order and preconditions for the CaP-X three-cup search task. Use capx_contact_gate_before_lift for all motion alignment.",
+      "procedure": [
+        "Use the fixed head view to retain the initial numbering and identity of all three cups. Inspect the most accessible cup first; do not fix a cup number or color in advance. After finding the cube, actually lift its associated original cup and answer; there is no need to inspect the remaining empty cups. Seeing the cube does not establish that the cup was lifted. Before finding the cube, switch to another accessible cup after two failures on the same cup. Spend at most about 7 act calls on a cup without a cube clue. Do not spend the entire budget on one cup.",
+        "A historical lift requires consecutive head views showing the same cup moving off the table with the hand, with the cup body still inside the grasp region. A fallen cup, a raised hand, or a changed wrist view is insufficient. If only the wrist view suggests a grasp while the head view still shows the cup on the table, record an empty grasp. After a confirmed lift, return the cup and release it to complete its inspection. Answer none only after all three cups have actually been lifted and inspected. The current pose does not erase an event that demonstrably occurred earlier.",
+        "Host PUBLIC_EXECUTION_RECEIPTS count commands; they are not sensors of contact, position or success. Submit only actual public observations and brief expected observable results of candidate actions, without a continuous reasoning record. Keep predictions separate from completed events. Reserve at least 2 act calls for returning the cup and finishing. Do not begin another grasp when too few actions remain for a complete grasp verification.",
+        "Create only the following four preconditions. Put the budget only in setup.resourceLimit; do not add budget_guard, within_budget or similar requirements. decisionEvidence is an object, not a JSON string. observations and options are arrays. setup is an object on the first submission and null thereafter. Do not repeatedly paste long positive evidence already submitted. When referring to the same event, preserve the same original facts.",
+        "First establish the task preconditions. finish only reports the answer; it does not lift a cup or inspect the table for you. These conditions must therefore use role:precondition, not outcome. A named answer branch (answer != \"none\") requires named_lift and named_colour. The none branch (answer == \"none\") requires all_lift and all_inspected. Use exact quotations from the public instructions for all four; do not paraphrase those quotations or equate an unseen cube with an absent cube.",
+        "On the first action, place setup inside decisionEvidence: {kind:\"act\",moves:[..],answer:\"\",decisionEvidence:{setup:{logicVersion:2,domains:[..],requirements:[..],actions:[..],resourceLimit:30,budgetQuote:\"At most 30 actions per trial.\"},observations:[],options:[]}}. The cups domain must list cup1, cup2 and cup3 in full, with labels \"cup 1\", \"cup 2\" and \"cup 3\", closed:true and expectedCount:3. Copy the initial public sentence specifying three cups numbered 1 to 3 into contractQuote. actions contains only {action:{kind:\"act\"},kind:\"progress\",cost:1} and {action:{kind:\"finish\"},kind:\"confirm\",cost:1}. Use setup:null thereafter.",
+        "The four requirement mappings are: named_lift and all_lift share predicate:\"lifted\", kind:effect, scope:episode, temporal:ever. named_colour uses predicate:\"identified_cube\" and all_inspected uses predicate:\"inspected_footprint\"; both use kind:categorical, scope:episode, temporal:state. Observing a feature is not effect/ever. All four use role:precondition and logic:null. For named_* use coverage={mode:\"single\",domainId:\"cups\",subjectId:null,actionField:\"answer\",minimum:null} and appliesWhen={field:\"answer\",operator:\"neq\",value:\"none\",contractQuote:<exact public answer-branch text mentioning none>}. For all_* use coverage={mode:\"all\",domainId:\"cups\",subjectId:null,actionField:null,minimum:null}, with the same appliesWhen except operator:\"eq\". Supply id, description and contractQuote for each. Check module feedback to confirm all four roles and branches before proceeding. Do not change their meanings merely to remove a warning."
+      ],
+      "successSignals": [
+        "Public images support the historical lift and color association of the answer cup; the native terminal result is successful."
+      ],
+      "failureSignals": [
+        "Claiming a lift while the cup stays on the table; spending the budget on repeated empty grasps; answering none before inspecting every cup."
+      ],
+      "recovery": [
+        "After a confirmed empty grasp, use the motion skill to correct the visible contact relationship; do not fabricate evidence."
+      ],
+      "invariants": [
+        "Use only public task geometry, legal actions and current or historical RGB. Do not use hidden state, fixed scene coordinates, preset colors or cup numbers, or replayed successful action sequences.",
+        "The action ledger is an approximate return aid based on accumulated commands, not an exact measurement. Observation thresholds, movement sizes and retry counts are skill choices; they do not alter native scoring, the 30-act budget or tool limits.",
+        "Module algorithms, task text, physics, layout and scoring remain unchanged. Player uses native adaptive thinking with low effort."
+      ],
+      "sourceGapIds": [
+        "capx-grasp-feedback",
+        "capx-grasp-recovery",
+        "capx-search-and-commit"
+      ],
+      "replaces": []
+    },
+    {
+      "id": "capx_contact_gate_before_lift",
+      "title": "CaP-X: establish sidewall height before wrist-view planar alignment",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "Visual alignment, grasping and empty-grasp recovery for CaP-X cups. This is the sole motion strategy in this harness.",
+      "procedure": [
+        "This is the sole motion strategy. The historical wrist image at the start illustrates a correct grasp; it is not the current scene. Numbers are obscured, and it contains no color, scene-coordinate or action answer. In a correct grasp, the cup wall occupies the space between the fingers near the palm, with the fixed left finger against the left wall and the moving right finger against the right wall. The fingertips do not form an empty closed triangle. The current three camera images remain lossless crops of the public images for this step.",
+        "Establish sidewall grasp height before planar approach. The publicly stated initial fingertip height is about 16 cm and the cup height is 9 cm. With the gripper open and not pressing on the cup, descend a cumulative 9-10 cm, placing the fingertips near the upper sidewall at about 6-7 cm. Do not descend only 4-5 cm and close above the cup top. A justified small lateral motion may share the same action. If feedback says stopped early, height is unknown: stop pressing downward and inspect the image to move away from the obstruction.",
+        "PUBLIC_EXECUTION_RECEIPTS.commandOffsetSinceHomeCm is the net sum of public commands. commandOffsetReliable means the relevant move/home commands reported completion; it is still not a measured pose. Initially or after a successful home, fingertip height is approximately 16 plus the net up command. lastCloseCommandOffsetCm records the command reference at the most recent close. For example, lifting 8 cm then descending 6 cm leaves the hand 2 cm above the original grasp height. Do not treat it as restored. Before the next close, restore the remaining difference or visually re-establish sidewall height. After an obstruction, do not force localization from the command sum.",
+        "Keep approximately 6-7 cm grasp height and use small wrist-guided right/forward translations to place the same cup's narrow outer wall in the reference inter-finger region. If the cup is to the gripper's right, move right; if left, move left. If the cup is ahead of the fingertips in the upper wrist image, move slightly forward. If it is at the bottom edge and occluded by the palm, move slightly backward. Use 1-2 cm steps and inspect actual changes. Do not continue in a direction that increases the error. For a fallen cup, target the narrower closed end and avoid its 7 cm wide mouth.",
+        "If white tabletop remains between the fixed finger's inner surface and the cup wall, the moving finger cannot be expected to grasp a distant cup. First move the fixed finger beside the cup. If both fingers press only the numbered top, align them with the cup sides instead of pressing farther down. After the final translation, obtain an image. When the cup wall is enclosed by both fingers, close and lift purely vertically by 7-8 cm on the next act. If contact is uncertain, close separately and inspect. If the fingers form a pointed triangle while the cup is outside, open and realign instead of making an empty lift.",
+        "Verify a lift only with the fixed head view: the cup must move upward with the hand and leave the table. If it remains on the table, open, use lastCloseCommandOffsetCm and the current image to reverse the executed trial lift, then correct one contact factor. Even if a failed attempt reveals the cube, the original cup must still be lifted. After two failures, actually change the approach direction or arm, or switch cups if the cube has not been found. A 1 cm adjustment alone must not reset the failure counter.",
+        "Finish the attempt when the remaining actions cannot support a complete grasp and confirmation. Do not finish early when the known target cup has not been lifted and sufficient budget remains. Submit only legal actions, public facts and brief expected observations through tools, without a continuous reasoning record."
+      ],
+      "successSignals": [
+        "The cup is between the inner finger surfaces and against the fixed finger, then is actually lifted off the table."
+      ],
+      "failureSignals": [
+        "Closing while the target remains outside both fingers; the hand moves but the cup does not; repeatedly moving forward toward a background cup in the wrist view."
+      ],
+      "recovery": [
+        "Open first, reverse the completed net trial lift, then correct the actual contact relationship between the fixed finger and cup wall."
+      ],
+      "invariants": [
+        "Use only public task geometry, current and historical RGB and legal action feedback. Do not use fixed level coordinates, preset answers, hidden state or past successful action sequences.",
+        "Use the existing tools, actions and scoring conditions within the native 30-act budget.",
+        "Keep observations separate from candidate-action predictions. Submit only necessary public facts and brief observable results; do not output or store a continuous internal reasoning record."
+      ],
+      "sourceGapIds": [
+        "capx-unobserved-contact-transition",
+        "capx-empty-grasp-loop",
+        "capx-wrist-contact-region"
+      ],
+      "replaces": []
+    }
+  ]
+}

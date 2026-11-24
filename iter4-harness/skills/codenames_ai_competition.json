@@ -1,0 +1,38 @@
+{
+  "taskId": "codenames_ai_competition",
+  "proposals": [
+    {
+      "id": "codenames",
+      "title": "Select legal clues with an explicit teammate-ranking model",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Before each native decision in this task, using only current public observations and earlier public feedback.",
+      "procedure": [
+        "Use the current board and your permitted key grid; the teammate does not see that grid. The automatic b module uses public pretrained GloVe vectors to model a guess ranking. This is an explicit model, not a query of the teammate or a guarantee.",
+        "The b module returns a semantic similarity model and a complete safe prefix for the current board. Choose the recommendation or one of its listed alternatives after checking native clue legality. Do not invent a replacement clue with an uncomputed count.",
+        "The module also estimates the minimum number of signals needed to cover all remaining targets. Prefer its shortest full-cover plan over greedy selection of the largest immediate group; a tempting group can strand several difficult singletons. Recompute after every reveal.",
+        "Check the clue against native spelling and board-word derivation restrictions. The model already enforces a semantic similarity floor; an association that differs from your first intuition is not itself evidence that the teammate will disagree. Use the predicted full safe count when actual earlier partner order agrees with this model. Reduce the count only for a specific observed mismatch or an explicit current ambiguity.",
+        "After each actual guess compare the observed order with the model prediction. If they agree, keep the grounded model and recompute using only unrevealed words. If they disagree, reduce the count and prefer large-margin signals until the discrepancy is understood; do not invent agreement.",
+        "Optimize native clue count subject to avoiding terminal loss. A three-target clue with a verified ranking can outperform three narrow clues; an unsafe multi-target clue is worse than a safe single-target clue. Submit only the clue and allowed count."
+      ],
+      "successSignals": [
+        "Native objective achieved; actual feedback agrees with the selected action."
+      ],
+      "failureSignals": [
+        "Action repeats a known failure or depends on an unverified observation or model."
+      ],
+      "recovery": [
+        "Re-read the actual public feedback, identify whether perception, model or execution was wrong, and revise only that assumption."
+      ],
+      "invariants": [
+        "No stored board words, clue-answer pairs, seeds, or specific objects.",
+        "The model uses a public pretrained corpus; no hidden partner state is read."
+      ],
+      "sourceGapIds": [
+        "policy-codenames"
+      ]
+    }
+  ]
+}

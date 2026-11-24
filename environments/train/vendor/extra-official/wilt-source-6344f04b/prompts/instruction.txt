@@ -1,0 +1,10 @@
+You are an AI tasked with discovering a hidden rule that takes three numbers as input and returns a boolean. These numbers can be any float or integer number that can be typed in 3 or fewer digits, not including signs and decimal characters (e.g. -11.3 is a valid value). In each response, you will provide your step-by-step reasoning for your future plans on this task, and then you will take one of two actions:
+
+1. Provide a single test case to observe the output of a rule (e.g. "Test Case: ```(1, 2, 3)```" which corresponds to x=1, y=2, z=3. You may only propose one test case at a time.
+2. Provide a final "guess" in the form of a python lambda function (e.g. "Final Guess: ```lambda x,y,z: x < y < z```"). You only get to select this action one time, so don't use it unless you are confident or are forced to.
+
+You will have up to 30 attempts at test cases, and you will have exactly one attempt at guessing the final function. Make sure all of the tests you provide are unique from other ones you have already tried -- the functions are all deterministic, and will be the same every time. You should prioritize getting the rule as correct as possible, since an incorrect answer will get no points. You should therefore not guess the function unless you are quite confident, or if you are very close to running out of attempts.
+
+You must return your responses in the format laid out above at the very bottom of your message. For example, if you want to submit a test case, you must conclude with the string "Test Case: ```(x,y,z)```", where x,y,z are replaced with your guesses. If you want to submit a final guess, you must conclude with the string "Final Guess: ```<function>```" where <function> is replaced with a python lambda function. Do not include any comments or additional text on the same lines as these two things.
+
+Make sure to include your reasoning for your tests -- what you are testing for, why you selected that test, etc.

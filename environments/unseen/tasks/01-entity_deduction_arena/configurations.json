@@ -1,0 +1,1805 @@
+{
+  "taskId": "entity_deduction_arena",
+  "configurations": [
+    {
+      "id": "eda-things-0",
+      "ordinal": 0,
+      "category": "things",
+      "lineIndex": 0,
+      "item": "Deer",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-1",
+      "ordinal": 1,
+      "category": "things",
+      "lineIndex": 1,
+      "item": "Microphone",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-2",
+      "ordinal": 2,
+      "category": "things",
+      "lineIndex": 2,
+      "item": "Cockpit",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-3",
+      "ordinal": 3,
+      "category": "things",
+      "lineIndex": 3,
+      "item": "Gorilla",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-4",
+      "ordinal": 4,
+      "category": "things",
+      "lineIndex": 4,
+      "item": "Potato chip",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-5",
+      "ordinal": 5,
+      "category": "things",
+      "lineIndex": 5,
+      "item": "Biscotti",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-6",
+      "ordinal": 6,
+      "category": "things",
+      "lineIndex": 6,
+      "item": "Europa",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-7",
+      "ordinal": 7,
+      "category": "things",
+      "lineIndex": 7,
+      "item": "Bagpipe",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-8",
+      "ordinal": 8,
+      "category": "things",
+      "lineIndex": 8,
+      "item": "Billboard",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-9",
+      "ordinal": 9,
+      "category": "things",
+      "lineIndex": 9,
+      "item": "Diadem",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-10",
+      "ordinal": 10,
+      "category": "things",
+      "lineIndex": 10,
+      "item": "Bay leaf",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-11",
+      "ordinal": 11,
+      "category": "things",
+      "lineIndex": 11,
+      "item": "Submarine",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-12",
+      "ordinal": 12,
+      "category": "things",
+      "lineIndex": 12,
+      "item": "Bus",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-13",
+      "ordinal": 13,
+      "category": "things",
+      "lineIndex": 13,
+      "item": "Carrot",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-14",
+      "ordinal": 14,
+      "category": "things",
+      "lineIndex": 14,
+      "item": "Fish",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-15",
+      "ordinal": 15,
+      "category": "things",
+      "lineIndex": 15,
+      "item": "Sweater",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-16",
+      "ordinal": 16,
+      "category": "things",
+      "lineIndex": 16,
+      "item": "Moose",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-17",
+      "ordinal": 17,
+      "category": "things",
+      "lineIndex": 17,
+      "item": "Galaxy",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-18",
+      "ordinal": 18,
+      "category": "things",
+      "lineIndex": 18,
+      "item": "Flintlock",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-19",
+      "ordinal": 19,
+      "category": "things",
+      "lineIndex": 19,
+      "item": "Fan",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-20",
+      "ordinal": 20,
+      "category": "things",
+      "lineIndex": 20,
+      "item": "Foam",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-21",
+      "ordinal": 21,
+      "category": "things",
+      "lineIndex": 21,
+      "item": "Camouflage",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-22",
+      "ordinal": 22,
+      "category": "things",
+      "lineIndex": 22,
+      "item": "Eggplant",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-23",
+      "ordinal": 23,
+      "category": "things",
+      "lineIndex": 23,
+      "item": "Ice",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-24",
+      "ordinal": 24,
+      "category": "things",
+      "lineIndex": 24,
+      "item": "Peppermint",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-25",
+      "ordinal": 25,
+      "category": "things",
+      "lineIndex": 25,
+      "item": "Cot",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-26",
+      "ordinal": 26,
+      "category": "things",
+      "lineIndex": 26,
+      "item": "Shield",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-27",
+      "ordinal": 27,
+      "category": "things",
+      "lineIndex": 27,
+      "item": "Ladle",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-28",
+      "ordinal": 28,
+      "category": "things",
+      "lineIndex": 28,
+      "item": "Fireplace",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-29",
+      "ordinal": 29,
+      "category": "things",
+      "lineIndex": 29,
+      "item": "Walrus",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-30",
+      "ordinal": 30,
+      "category": "things",
+      "lineIndex": 30,
+      "item": "Goose",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-31",
+      "ordinal": 31,
+      "category": "things",
+      "lineIndex": 31,
+      "item": "Anchor",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-32",
+      "ordinal": 32,
+      "category": "things",
+      "lineIndex": 32,
+      "item": "Mango",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-33",
+      "ordinal": 33,
+      "category": "things",
+      "lineIndex": 33,
+      "item": "Mole",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-34",
+      "ordinal": 34,
+      "category": "things",
+      "lineIndex": 34,
+      "item": "Chestnut",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-35",
+      "ordinal": 35,
+      "category": "things",
+      "lineIndex": 35,
+      "item": "Darts",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-36",
+      "ordinal": 36,
+      "category": "things",
+      "lineIndex": 36,
+      "item": "Violin",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-37",
+      "ordinal": 37,
+      "category": "things",
+      "lineIndex": 37,
+      "item": "Kiwi",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-38",
+      "ordinal": 38,
+      "category": "things",
+      "lineIndex": 38,
+      "item": "Pig",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-39",
+      "ordinal": 39,
+      "category": "things",
+      "lineIndex": 39,
+      "item": "Penguin",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-40",
+      "ordinal": 40,
+      "category": "things",
+      "lineIndex": 40,
+      "item": "Chair",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-41",
+      "ordinal": 41,
+      "category": "things",
+      "lineIndex": 41,
+      "item": "Wombat",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-42",
+      "ordinal": 42,
+      "category": "things",
+      "lineIndex": 42,
+      "item": "Dragon",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-43",
+      "ordinal": 43,
+      "category": "things",
+      "lineIndex": 43,
+      "item": "Elf",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-44",
+      "ordinal": 44,
+      "category": "things",
+      "lineIndex": 44,
+      "item": "Pigeon",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-45",
+      "ordinal": 45,
+      "category": "things",
+      "lineIndex": 45,
+      "item": "Dachshund",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-46",
+      "ordinal": 46,
+      "category": "things",
+      "lineIndex": 46,
+      "item": "Dalmatian",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-47",
+      "ordinal": 47,
+      "category": "things",
+      "lineIndex": 47,
+      "item": "Shorts",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-48",
+      "ordinal": 48,
+      "category": "things",
+      "lineIndex": 48,
+      "item": "Smoothie",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-49",
+      "ordinal": 49,
+      "category": "things",
+      "lineIndex": 49,
+      "item": "Black hole",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-50",
+      "ordinal": 50,
+      "category": "things",
+      "lineIndex": 50,
+      "item": "Forester",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-51",
+      "ordinal": 51,
+      "category": "things",
+      "lineIndex": 51,
+      "item": "Gecko",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-52",
+      "ordinal": 52,
+      "category": "things",
+      "lineIndex": 52,
+      "item": "Torch",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-53",
+      "ordinal": 53,
+      "category": "things",
+      "lineIndex": 53,
+      "item": "Frog",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-54",
+      "ordinal": 54,
+      "category": "things",
+      "lineIndex": 54,
+      "item": "Can",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-55",
+      "ordinal": 55,
+      "category": "things",
+      "lineIndex": 55,
+      "item": "Barracuda",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-56",
+      "ordinal": 56,
+      "category": "things",
+      "lineIndex": 56,
+      "item": "Peach",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-57",
+      "ordinal": 57,
+      "category": "things",
+      "lineIndex": 57,
+      "item": "Scarlet",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-58",
+      "ordinal": 58,
+      "category": "things",
+      "lineIndex": 58,
+      "item": "Lilac",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-59",
+      "ordinal": 59,
+      "category": "things",
+      "lineIndex": 59,
+      "item": "Leprechaun",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-60",
+      "ordinal": 60,
+      "category": "things",
+      "lineIndex": 60,
+      "item": "Christmas tree",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-61",
+      "ordinal": 61,
+      "category": "things",
+      "lineIndex": 61,
+      "item": "Spoon",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-62",
+      "ordinal": 62,
+      "category": "things",
+      "lineIndex": 62,
+      "item": "Blackberry",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-63",
+      "ordinal": 63,
+      "category": "things",
+      "lineIndex": 63,
+      "item": "Saxophone",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-64",
+      "ordinal": 64,
+      "category": "things",
+      "lineIndex": 64,
+      "item": "Dancing",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-65",
+      "ordinal": 65,
+      "category": "things",
+      "lineIndex": 65,
+      "item": "Mustard",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-66",
+      "ordinal": 66,
+      "category": "things",
+      "lineIndex": 66,
+      "item": "Colosseum",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-67",
+      "ordinal": 67,
+      "category": "things",
+      "lineIndex": 67,
+      "item": "Piano",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-68",
+      "ordinal": 68,
+      "category": "things",
+      "lineIndex": 68,
+      "item": "Cheese",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-69",
+      "ordinal": 69,
+      "category": "things",
+      "lineIndex": 69,
+      "item": "Clipper",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-70",
+      "ordinal": 70,
+      "category": "things",
+      "lineIndex": 70,
+      "item": "Maple syrup",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-71",
+      "ordinal": 71,
+      "category": "things",
+      "lineIndex": 71,
+      "item": "Nachos",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-72",
+      "ordinal": 72,
+      "category": "things",
+      "lineIndex": 72,
+      "item": "Donkey",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-73",
+      "ordinal": 73,
+      "category": "things",
+      "lineIndex": 73,
+      "item": "Bulldog",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-74",
+      "ordinal": 74,
+      "category": "things",
+      "lineIndex": 74,
+      "item": "Dung beetle",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-75",
+      "ordinal": 75,
+      "category": "things",
+      "lineIndex": 75,
+      "item": "Cap",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-76",
+      "ordinal": 76,
+      "category": "things",
+      "lineIndex": 76,
+      "item": "Beehive",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-77",
+      "ordinal": 77,
+      "category": "things",
+      "lineIndex": 77,
+      "item": "Lemur",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-78",
+      "ordinal": 78,
+      "category": "things",
+      "lineIndex": 78,
+      "item": "Lightning bolt",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-79",
+      "ordinal": 79,
+      "category": "things",
+      "lineIndex": 79,
+      "item": "Puck",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-80",
+      "ordinal": 80,
+      "category": "things",
+      "lineIndex": 80,
+      "item": "Copper",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-81",
+      "ordinal": 81,
+      "category": "things",
+      "lineIndex": 81,
+      "item": "Turkey",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-82",
+      "ordinal": 82,
+      "category": "things",
+      "lineIndex": 82,
+      "item": "Celestial",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-83",
+      "ordinal": 83,
+      "category": "things",
+      "lineIndex": 83,
+      "item": "Deerhound",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-84",
+      "ordinal": 84,
+      "category": "things",
+      "lineIndex": 84,
+      "item": "Mountain",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-85",
+      "ordinal": 85,
+      "category": "things",
+      "lineIndex": 85,
+      "item": "Seashell",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-86",
+      "ordinal": 86,
+      "category": "things",
+      "lineIndex": 86,
+      "item": "Train",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-87",
+      "ordinal": 87,
+      "category": "things",
+      "lineIndex": 87,
+      "item": "Fries",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-88",
+      "ordinal": 88,
+      "category": "things",
+      "lineIndex": 88,
+      "item": "Fandango",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-89",
+      "ordinal": 89,
+      "category": "things",
+      "lineIndex": 89,
+      "item": "Helicopter",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-90",
+      "ordinal": 90,
+      "category": "things",
+      "lineIndex": 90,
+      "item": "Euphonium",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-91",
+      "ordinal": 91,
+      "category": "things",
+      "lineIndex": 91,
+      "item": "Dog",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-92",
+      "ordinal": 92,
+      "category": "things",
+      "lineIndex": 92,
+      "item": "Flag",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-93",
+      "ordinal": 93,
+      "category": "things",
+      "lineIndex": 93,
+      "item": "Megalodon",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-94",
+      "ordinal": 94,
+      "category": "things",
+      "lineIndex": 94,
+      "item": "Vacuum cleaner",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-95",
+      "ordinal": 95,
+      "category": "things",
+      "lineIndex": 95,
+      "item": "Olm",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-96",
+      "ordinal": 96,
+      "category": "things",
+      "lineIndex": 96,
+      "item": "Marshmallow",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-97",
+      "ordinal": 97,
+      "category": "things",
+      "lineIndex": 97,
+      "item": "Cobweb",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-98",
+      "ordinal": 98,
+      "category": "things",
+      "lineIndex": 98,
+      "item": "Barbecue",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-things-99",
+      "ordinal": 99,
+      "category": "things",
+      "lineIndex": 99,
+      "item": "Antelope",
+      "background": "",
+      "sourceList": "data/things/newlist_things.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-0",
+      "ordinal": 100,
+      "category": "celebrities",
+      "lineIndex": 0,
+      "item": "Aishwarya Rai",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-1",
+      "ordinal": 101,
+      "category": "celebrities",
+      "lineIndex": 1,
+      "item": "Kofi Annan",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-2",
+      "ordinal": 102,
+      "category": "celebrities",
+      "lineIndex": 2,
+      "item": "Toni Morrison",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-3",
+      "ordinal": 103,
+      "category": "celebrities",
+      "lineIndex": 3,
+      "item": "Emma Thompson",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-4",
+      "ordinal": 104,
+      "category": "celebrities",
+      "lineIndex": 4,
+      "item": "John D. Rockefeller",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-5",
+      "ordinal": 105,
+      "category": "celebrities",
+      "lineIndex": 5,
+      "item": "Michelangelo",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-6",
+      "ordinal": 106,
+      "category": "celebrities",
+      "lineIndex": 6,
+      "item": "Chris Hemsworth",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-7",
+      "ordinal": 107,
+      "category": "celebrities",
+      "lineIndex": 7,
+      "item": "Alexander Fleming",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-8",
+      "ordinal": 108,
+      "category": "celebrities",
+      "lineIndex": 8,
+      "item": "George Patton",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-9",
+      "ordinal": 109,
+      "category": "celebrities",
+      "lineIndex": 9,
+      "item": "Amy Schumer",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-10",
+      "ordinal": 110,
+      "category": "celebrities",
+      "lineIndex": 10,
+      "item": "Luan Santana",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-11",
+      "ordinal": 111,
+      "category": "celebrities",
+      "lineIndex": 11,
+      "item": "Adriana Lima",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-12",
+      "ordinal": 112,
+      "category": "celebrities",
+      "lineIndex": 12,
+      "item": "Joni Mitchell",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-13",
+      "ordinal": 113,
+      "category": "celebrities",
+      "lineIndex": 13,
+      "item": "Natalia Portman",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-14",
+      "ordinal": 114,
+      "category": "celebrities",
+      "lineIndex": 14,
+      "item": "Sandra Bullock",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-15",
+      "ordinal": 115,
+      "category": "celebrities",
+      "lineIndex": 15,
+      "item": "Shigeru Miyamoto",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-16",
+      "ordinal": 116,
+      "category": "celebrities",
+      "lineIndex": 16,
+      "item": "Tom Cruise",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-17",
+      "ordinal": 117,
+      "category": "celebrities",
+      "lineIndex": 17,
+      "item": "Mindy Kaling",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-18",
+      "ordinal": 118,
+      "category": "celebrities",
+      "lineIndex": 18,
+      "item": "Yao Ming | Ming Yao",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-19",
+      "ordinal": 119,
+      "category": "celebrities",
+      "lineIndex": 19,
+      "item": "Elle Macpherson",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-20",
+      "ordinal": 120,
+      "category": "celebrities",
+      "lineIndex": 20,
+      "item": "Rachel Maddow",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-21",
+      "ordinal": 121,
+      "category": "celebrities",
+      "lineIndex": 21,
+      "item": "Michael B. Jordan",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-22",
+      "ordinal": 122,
+      "category": "celebrities",
+      "lineIndex": 22,
+      "item": "J.R.R. Tolkien",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-23",
+      "ordinal": 123,
+      "category": "celebrities",
+      "lineIndex": 23,
+      "item": "Rachel McAdams",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-24",
+      "ordinal": 124,
+      "category": "celebrities",
+      "lineIndex": 24,
+      "item": "Subhas Chandra Bose",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-25",
+      "ordinal": 125,
+      "category": "celebrities",
+      "lineIndex": 25,
+      "item": "Billie Eilish",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-26",
+      "ordinal": 126,
+      "category": "celebrities",
+      "lineIndex": 26,
+      "item": "Vincent van Gogh",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-27",
+      "ordinal": 127,
+      "category": "celebrities",
+      "lineIndex": 27,
+      "item": "Samuel L. Jackson | Samuel Jackson",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-28",
+      "ordinal": 128,
+      "category": "celebrities",
+      "lineIndex": 28,
+      "item": "Cate Blanchett",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-29",
+      "ordinal": 129,
+      "category": "celebrities",
+      "lineIndex": 29,
+      "item": "Sebastian Martinez",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-30",
+      "ordinal": 130,
+      "category": "celebrities",
+      "lineIndex": 30,
+      "item": "Juan Gabriel",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-31",
+      "ordinal": 131,
+      "category": "celebrities",
+      "lineIndex": 31,
+      "item": "Stephen King",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-32",
+      "ordinal": 132,
+      "category": "celebrities",
+      "lineIndex": 32,
+      "item": "Maria Sharapova",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-33",
+      "ordinal": 133,
+      "category": "celebrities",
+      "lineIndex": 33,
+      "item": "Hideo Kojima",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-34",
+      "ordinal": 134,
+      "category": "celebrities",
+      "lineIndex": 34,
+      "item": "David Beckham",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-35",
+      "ordinal": 135,
+      "category": "celebrities",
+      "lineIndex": 35,
+      "item": "Dwight D. Eisenhower",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-36",
+      "ordinal": 136,
+      "category": "celebrities",
+      "lineIndex": 36,
+      "item": "Trevor Manuel",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-37",
+      "ordinal": 137,
+      "category": "celebrities",
+      "lineIndex": 37,
+      "item": "Penélope Cruz",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-38",
+      "ordinal": 138,
+      "category": "celebrities",
+      "lineIndex": 38,
+      "item": "Heitor Villa-Lobos",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-39",
+      "ordinal": 139,
+      "category": "celebrities",
+      "lineIndex": 39,
+      "item": "Margaret Atwood",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-40",
+      "ordinal": 140,
+      "category": "celebrities",
+      "lineIndex": 40,
+      "item": "Geoffrey Rush",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-41",
+      "ordinal": 141,
+      "category": "celebrities",
+      "lineIndex": 41,
+      "item": "Maya Angelou",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-42",
+      "ordinal": 142,
+      "category": "celebrities",
+      "lineIndex": 42,
+      "item": "Takeshi Kitano",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-43",
+      "ordinal": 143,
+      "category": "celebrities",
+      "lineIndex": 43,
+      "item": "Grace Hopper",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-44",
+      "ordinal": 144,
+      "category": "celebrities",
+      "lineIndex": 44,
+      "item": "Tom Brady",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-45",
+      "ordinal": 145,
+      "category": "celebrities",
+      "lineIndex": 45,
+      "item": "Juan Carlos I",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-46",
+      "ordinal": 146,
+      "category": "celebrities",
+      "lineIndex": 46,
+      "item": "Carmen Miranda",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-47",
+      "ordinal": 147,
+      "category": "celebrities",
+      "lineIndex": 47,
+      "item": "Dante Alighieri",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-48",
+      "ordinal": 148,
+      "category": "celebrities",
+      "lineIndex": 48,
+      "item": "Enrique Iglesias",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-49",
+      "ordinal": 149,
+      "category": "celebrities",
+      "lineIndex": 49,
+      "item": "Ulysses S. Grant",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-50",
+      "ordinal": 150,
+      "category": "celebrities",
+      "lineIndex": 50,
+      "item": "Vicente Guerrero",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-51",
+      "ordinal": 151,
+      "category": "celebrities",
+      "lineIndex": 51,
+      "item": "Adriano Celentano",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-52",
+      "ordinal": 152,
+      "category": "celebrities",
+      "lineIndex": 52,
+      "item": "Richard Branson",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-53",
+      "ordinal": 153,
+      "category": "celebrities",
+      "lineIndex": 53,
+      "item": "Gilberto Gil",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-54",
+      "ordinal": 154,
+      "category": "celebrities",
+      "lineIndex": 54,
+      "item": "Alexander the Great",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-55",
+      "ordinal": 155,
+      "category": "celebrities",
+      "lineIndex": 55,
+      "item": "Anne Hathaway",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-56",
+      "ordinal": 156,
+      "category": "celebrities",
+      "lineIndex": 56,
+      "item": "Jennifer Lopez",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-57",
+      "ordinal": 157,
+      "category": "celebrities",
+      "lineIndex": 57,
+      "item": "Tarsila do Amaral",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-58",
+      "ordinal": 158,
+      "category": "celebrities",
+      "lineIndex": 58,
+      "item": "Usain Bolt",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-59",
+      "ordinal": 159,
+      "category": "celebrities",
+      "lineIndex": 59,
+      "item": "Vladimir Nabokov",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-60",
+      "ordinal": 160,
+      "category": "celebrities",
+      "lineIndex": 60,
+      "item": "Francisco Goya",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-61",
+      "ordinal": 161,
+      "category": "celebrities",
+      "lineIndex": 61,
+      "item": "Marion Cotillard",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-62",
+      "ordinal": 162,
+      "category": "celebrities",
+      "lineIndex": 62,
+      "item": "David Unaipon",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-63",
+      "ordinal": 163,
+      "category": "celebrities",
+      "lineIndex": 63,
+      "item": "Madonna",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-64",
+      "ordinal": 164,
+      "category": "celebrities",
+      "lineIndex": 64,
+      "item": "Ryan Reynolds",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-65",
+      "ordinal": 165,
+      "category": "celebrities",
+      "lineIndex": 65,
+      "item": "Frank Sinatra",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-66",
+      "ordinal": 166,
+      "category": "celebrities",
+      "lineIndex": 66,
+      "item": "Margaret Thatcher",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-67",
+      "ordinal": 167,
+      "category": "celebrities",
+      "lineIndex": 67,
+      "item": "Stephen Curry",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-68",
+      "ordinal": 168,
+      "category": "celebrities",
+      "lineIndex": 68,
+      "item": "Herta Müller",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-69",
+      "ordinal": 169,
+      "category": "celebrities",
+      "lineIndex": 69,
+      "item": "Winston Churchill",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-70",
+      "ordinal": 170,
+      "category": "celebrities",
+      "lineIndex": 70,
+      "item": "Enrico Fermi",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-71",
+      "ordinal": 171,
+      "category": "celebrities",
+      "lineIndex": 71,
+      "item": "David Bowie",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-72",
+      "ordinal": 172,
+      "category": "celebrities",
+      "lineIndex": 72,
+      "item": "Keanu Reeves",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-73",
+      "ordinal": 173,
+      "category": "celebrities",
+      "lineIndex": 73,
+      "item": "Tom Hardy",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-74",
+      "ordinal": 174,
+      "category": "celebrities",
+      "lineIndex": 74,
+      "item": "Albertina Sisulu",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-75",
+      "ordinal": 175,
+      "category": "celebrities",
+      "lineIndex": 75,
+      "item": "Gael García Bernal",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-76",
+      "ordinal": 176,
+      "category": "celebrities",
+      "lineIndex": 76,
+      "item": "Mother Teresa | Teresa",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-77",
+      "ordinal": 177,
+      "category": "celebrities",
+      "lineIndex": 77,
+      "item": "Lata Mangeshkar",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-78",
+      "ordinal": 178,
+      "category": "celebrities",
+      "lineIndex": 78,
+      "item": "Ernest Hemingway",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-79",
+      "ordinal": 179,
+      "category": "celebrities",
+      "lineIndex": 79,
+      "item": "Audrey Hepburn",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-80",
+      "ordinal": 180,
+      "category": "celebrities",
+      "lineIndex": 80,
+      "item": "Shahid Kapoor",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-81",
+      "ordinal": 181,
+      "category": "celebrities",
+      "lineIndex": 81,
+      "item": "Alexander Graham Bell",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-82",
+      "ordinal": 182,
+      "category": "celebrities",
+      "lineIndex": 82,
+      "item": "Kim Kardashian",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-83",
+      "ordinal": 183,
+      "category": "celebrities",
+      "lineIndex": 83,
+      "item": "Max Planck",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-84",
+      "ordinal": 184,
+      "category": "celebrities",
+      "lineIndex": 84,
+      "item": "Brenda Fassie",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-85",
+      "ordinal": 185,
+      "category": "celebrities",
+      "lineIndex": 85,
+      "item": "William Shakespeare",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-86",
+      "ordinal": 186,
+      "category": "celebrities",
+      "lineIndex": 86,
+      "item": "Johann Sebastian Bach",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-87",
+      "ordinal": 187,
+      "category": "celebrities",
+      "lineIndex": 87,
+      "item": "Francisco Franco",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-88",
+      "ordinal": 188,
+      "category": "celebrities",
+      "lineIndex": 88,
+      "item": "Mikhail Baryshnikov",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-89",
+      "ordinal": 189,
+      "category": "celebrities",
+      "lineIndex": 89,
+      "item": "John F. Kennedy",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-90",
+      "ordinal": 190,
+      "category": "celebrities",
+      "lineIndex": 90,
+      "item": "Jackie Chan",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-91",
+      "ordinal": 191,
+      "category": "celebrities",
+      "lineIndex": 91,
+      "item": "Emma Stone",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-92",
+      "ordinal": 192,
+      "category": "celebrities",
+      "lineIndex": 92,
+      "item": "Sigmund Freud",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-93",
+      "ordinal": 193,
+      "category": "celebrities",
+      "lineIndex": 93,
+      "item": "Socrates",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-94",
+      "ordinal": 194,
+      "category": "celebrities",
+      "lineIndex": 94,
+      "item": "Megan Rapinoe",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-95",
+      "ordinal": 195,
+      "category": "celebrities",
+      "lineIndex": 95,
+      "item": "Duke Ellington",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-96",
+      "ordinal": 196,
+      "category": "celebrities",
+      "lineIndex": 96,
+      "item": "Issey Miyake",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-97",
+      "ordinal": 197,
+      "category": "celebrities",
+      "lineIndex": 97,
+      "item": "Queen Elizabeth II",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-98",
+      "ordinal": 198,
+      "category": "celebrities",
+      "lineIndex": 98,
+      "item": "Sergey Brin",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    },
+    {
+      "id": "eda-celebrities-99",
+      "ordinal": 199,
+      "category": "celebrities",
+      "lineIndex": 99,
+      "item": "Shah Rukh Khan",
+      "background": "",
+      "sourceList": "data/celebrities/newlist_celebs.all.rmdup.dev.txt"
+    }
+  ]
+}

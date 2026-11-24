@@ -1,0 +1,70 @@
+{
+  "taskId": "pooltool_billiards_shots",
+  "name": "Pooltool Billiards",
+  "fullName": "Pooltool billiards shot aiming: pot the target ball under legal-contact rules",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D3",
+    "domainName": "Perception, Navigation & Control",
+    "subCategoryId": "D3.3",
+    "subCategoryName": "Continuous Control & Physical Intervention"
+  },
+  "assignment": {
+    "actions": {
+      "shoot": "Submit one shot as a Speed level (Low=2, Medium=5, High=8 m/s V0) plus one of 9 Strikespots mapping to cue offsets (a,b); the harness sets phi via pt.aim.at_ball on the lowest-numbered ball and runs pt.simulate."
+    },
+    "evaluation": {
+      "budget": 15,
+      "efficiency": "Report attempts used on success (lower is better), matching the published Average Attempts metric computed over successful episodes only, plus Pass@K for K up to 15.",
+      "failure": "Failure is exhausting 15 shots without potting the 9-ball, or reaching a state with no numbered balls left on the table while the 9-ball is unpotted. Unparseable actions consume a shot without simulating.",
+      "success": "The episode succeeds when a BALL_POCKET event for ball '9' occurs within the 15-shot budget, as adjudicated by the simulator."
+    },
+    "generation": "Instances are built with pt.get_rack(pt.GameType.NINEBALL, pt.Table.default()) under a recorded RNG seed; episode index 0..99 selects the seed, reproducing the official 100-experiment scale with a logged, replayable rack.",
+    "id": "deepphy-pooltool-nineball-pot-9ball",
+    "observation": "Before each shot the agent receives the 2D top-down render of the current table state (ball positions and identities) plus the textual rules and action-space description. No privileged simulator state, event list or ground-truth trajectory is exposed.",
+    "reference": "DeepPHY's Pooltool benchmark (arXiv:2508.05405, Appendix E) over Kiefl's Pooltool simulator: single-agent nine-ball where the goal is potting the 9-ball while each shot is auto-aimed at the lowest-numbered ball, with discrete Speed and Strikespot choices. New here: a fixed rack seed, retention of per-step observation images, and explicit episode-level scoring thresholds.",
+    "task": "Starting from a Pooltool nine-ball rack, repeatedly strike the cue ball to pot the 9-ball. Every shot is automatically aimed at the lowest-numbered ball remaining, so the agent must choose power and spin that convert that forced contact into a legal pot.",
+    "verification": "A run is valid when the per-episode JSON log records the seed, every shot's Speed/Strikespot and resolved (V0,a,b), the retained observation image, the simulator outcome label and potted-ball list, and the terminal is_solved flag, for both successful and failed episodes; replaying the seed and logged shots must reproduce the same outcome."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "mode": "fixed_configurations_planned_repetitions",
+    "policy": "report-every-result-adaptive-low-v1",
+    "configurations": 9,
+    "repetitions": 3,
+    "totalEpisodes": 27,
+    "actionBudget": 15,
+    "actionBudgetTier": "admitted-action-budget-30-80-v1",
+    "retainEveryOutcome": true,
+    "replacementConfigurations": false,
+    "successRateScreening": false,
+    "allocationNote": "9 configurations x 3 planned repetitions; no runs performed; no success-rate screening.",
+    "episodesPerConfiguration": 3,
+    "plannedEpisodes": 27
+  },
+  "responseBudget": {
+    "maxResponses": 500,
+    "maxOutputTokens": 8192000,
+    "maxResponseTokens": 16384
+  },
+  "otherModels": [],
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "pythonEnv": "pooltool-venv",
+  "notes": [
+    "Environment logic is from the v3 engine and worker (src/h0-pooltool-isolated-v3.mjs, adapters/h0-pooltool-isolated-v3-engine.py and -worker.py): unchanged DeepPHY helper ASTs (04_pooltool_runner setup, cue reposition, potted-ball check; img_utils plot_static_pool_table), seeded nine-ball racks, Pooltool 0.4.4 simulation, observation text, stateHash digest and frame rendering.",
+    "Relocated: pooltool user configuration (CONFIG_DIR/PHYSICS_DIR) points at vendor/pooltool/configuration; only physics/resolver.yaml from pooltool-native-geoffrey-v3 is needed. Matplotlib and numba caches go to a per-episode temporary directory.",
+    "Observations contain publicText, terminal, stateHash, step and frame (media/<stateHash>.png, original top-down RGB). The per-episode instance field of the internal worker is not returned to the Player.",
+    "Player-facing actions: speed Low/Medium/High and one of nine strikespot names; the source runner auto-aims at the lowest-numbered remaining ball.",
+    "Train refresh lifecycle fix: wait for the Python process and stdio to close before removing its temporary HOME/caches; bounded cleanup retries handle delayed filesystem cleanup. Close-request errors remain errors. Native physics, actions and scoring are unchanged."
+  ]
+}

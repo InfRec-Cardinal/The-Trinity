@@ -24,7 +24,7 @@ def capability_definitions(catalogue):
 
 def export_training(work):
     work = Path(work)
-    load = lambda p: json.loads(p.read_text())
+    load = lambda p: json.loads(p.read_text(encoding="utf-8"))
     handoff = load(work / "handoff.json")
     if handoff.get("schema") != "trinity-stage2-handoff-v1":
         raise ValueError("Unsupported task handoff")
@@ -61,7 +61,7 @@ def export_training(work):
         if record.get("cohort") != "train" or record.get("review", {}).get("verdict") != "accept":
             raise ValueError(f"{task_id}: an accepted independent training review is required")
         stats = load(work / "stats" / f"{task_id}.json")
-        analysis = (work / "train" / "analyses" / f"{task_id}.txt").read_text()
+        analysis = (work / "train" / "analyses" / f"{task_id}.txt").read_text(encoding="utf-8")
         errors = verifier.gate(record, stats, analysis, catalogue, order, work_dir=work)
         derived = verifier.derive_placement(record, catalogue, order)
         for field in ("placement", "capabilityPath", "missingCapabilities", "satisfiedCapabilities", "defectTypesObserved"):

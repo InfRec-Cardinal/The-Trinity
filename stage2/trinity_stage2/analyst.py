@@ -126,7 +126,7 @@ def digest_tools(work_dir: Path, task_ids: list[str] | None = None) -> list[Tool
             if not p.exists():
                 raise ValueError(f"unknown task {task_id}")
             full = p.with_suffix(".full.txt")
-            cache[task_id] = (p.read_text().splitlines(), (full.read_text() if full.exists() else p.read_text()).splitlines())
+            cache[task_id] = (p.read_text(encoding="utf-8").splitlines(), (full.read_text(encoding="utf-8") if full.exists() else p.read_text(encoding="utf-8")).splitlines())
         return cache[task_id]
 
     def read_digest(args):
@@ -163,27 +163,25 @@ def digest_tools(work_dir: Path, task_ids: list[str] | None = None) -> list[Tool
 
 
 def check_tool(work_dir: Path, log_path: Path, timeout: int = 120, task_id: str | None = None) -> Tool:
-    import subprocess
-    import sys
+    from .sandbox import run_python_check
 
     def run_check(args):
         code = args["code"]
         before = input_digest(work_dir, task_id) if task_id else None
-        proc = subprocess.run([sys.executable, "-I", "-c", code], cwd=str(work_dir), capture_output=True, text=True, timeout=timeout, env={"PATH": "", "WORK_DIR": str(work_dir)})
-        out = {"name": args["name"], "stdout": proc.stdout[-20000:], "stderr": proc.stderr[-4000:], "returncode": proc.returncode}
+        out = {"name": args["name"], **run_python_check(code, work_dir, timeout)}
         if task_id and input_digest(work_dir, task_id) != before:
             raise ValueError("A rule check modified its frozen evidence inputs")
         return append_check(log_path, {"kind": "execution", "code": code, "inputDigest": before, **out})
 
-    return Tool("run_check", "Run a deterministic rule-based check: Python code (standard library only) that reads the files under the work directory (digests/<task>.txt, stats/<task>.json, records-canonical/<task>.json; the directory is the current directory and WORK_DIR) and prints its result. Use it for candidate-set replays, per-step references, distance-to-goal and budget arithmetic. Name each check; cite its name in the behaviour's `check` field.",
+    return Tool("run_check", "Run a deterministic rule-based check: Python code (standard library only) that reads the files under the work directory (digests/<task>.txt, stats/<task>.json, records-canonical/<task>.json; the directory is read-only at /work and WORK_DIR; use /tmp for temporary calculations; network access is disabled) and prints its result. Use it for candidate-set replays, per-step references, distance-to-goal and budget arithmetic. Name each check; cite its name in the behaviour's `check` field.",
                 {"type": "object", "properties": {"name": {"type": "string", "minLength": 3}, "code": {"type": "string", "minLength": 10}}, "required": ["name", "code"], "additionalProperties": False}, run_check)
 
 
 def analyse_task(*, task: dict, stats: list[dict], digest_path: Path, mode: str, catalogue: dict | None, out_dir: Path, checkpoint_dir: Path,
                  prompt: str, failure_rule: str = "outcome", cohort: str = "train", max_turns: int = 60, work_dir: Path | None = None,
-                 revision: int = 0, objections: list[dict] | None = None, previous_reviews: list[dict] | None = None, log=print) -> dict:
+                 revision: int = 0, objections: list[dict] | None = None, previous_reviews: list[dict] | None = None, force: bool = False, log=print) -> dict:
     task_id = task["taskId"]
-    digest = digest_path.read_text()
+    digest = digest_path.read_text(encoding="utf-8")
     lines = digest.splitlines()
     work_dir = work_dir or digest_path.parent.parent
 
@@ -216,7 +214,7 @@ def analyse_task(*, task: dict, stats: list[dict], digest_path: Path, mode: str,
     fails = failing_episodes(stats, failure_rule)
     kickoff = {"task": {k: task.get(k) for k in ("taskId", "name", "taskTreeOrigin", "summary", "assignment", "inputScope")},
                "episodes": {"total": len(stats), "failures": len(fails), "successes": len(binary_episodes(stats, failure_rule)) - len(fails), "failureRule": failure_rule, "table": stats},
-               "digest": {"lines": len(lines), "note": "read it with read_digest / grep_digest; read_step returns full observations and actual images; inspect images for visual claims"},
+               "digest": {"inputDigest": input_digest(work_dir, task_id), "lines": len(lines), "note": "read it with read_digest / grep_digest; read_step returns full observations and actual images; inspect images for visual claims"},
                "mode": mode, "cohort": cohort}
     if catalogue is not None:
         kickoff["catalogue"] = {"capabilities": catalogue["capabilities"], "defectTypes": catalogue["defectTypes"]}
@@ -226,7 +224,7 @@ def analyse_task(*, task: dict, stats: list[dict], digest_path: Path, mode: str,
         kickoff["instruction"] = ("An independent reviewer rejected the previous analysis with the objections above. Re-read the cited steps, answer every "
                                   "objection in the analysis by keeping, correcting or withdrawing each behaviour with its evidence, and submit again.")
     result = run_agent(key=f"analysis-{cohort}-{mode}-{task_id}" + (f"-r{revision}" if revision else ""), system=prompt, kickoff=json.dumps(kickoff, ensure_ascii=False), tools=tools,
-                       checkpoint_dir=checkpoint_dir, max_turns=max_turns, log=log).result
+                       checkpoint_dir=checkpoint_dir, max_turns=max_turns, force=force, log=log).result
     (out_dir / "analyses").mkdir(parents=True, exist_ok=True)
     (out_dir / "records").mkdir(parents=True, exist_ok=True)
     write_text(out_dir / "analyses" / f"{task_id}.txt", result["analysis"].rstrip() + "\n")

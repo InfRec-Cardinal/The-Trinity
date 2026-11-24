@@ -1,0 +1,63 @@
+{
+  "taskId": "glee_economic_games",
+  "name": "GLEE Persuasion",
+  "fullName": "GLEE persuasion game: repeated seller signalling over privately known product quality",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D4",
+    "domainName": "Multi-Agent Strategy & Social Interaction",
+    "subCategoryId": "D4.3",
+    "subCategoryName": "Repeated Strategic & Economic Games"
+  },
+  "assignment": {
+    "id": "glee-persuasion-seller-signalling",
+    "reference": "Published GLEE persuasion family (arXiv:2410.05254) run through the official eilamshapira/GLEE implementation: seller privately observes each round's quality, sends a message, buyer decides to buy and then learns the realised quality; scored by self-gain plus the published efficiency/fairness formulas implemented in analyze/metrics.py. New design choices: one fixed configuration from the published 360-cell persuasion grid, a pinned LLM buyer opponent, an explicit quality-draw seed, and the numeric success threshold.",
+    "task": "Play Alice, the seller, for 20 rounds of a GLEE persuasion game (long-living buyer, textual seller messages, complete information, p=1/3, v=2, M=10^4, price fixed). Each round, after privately observing the product's true quality, send the buyer a message; maximise the number of rounds in which the buyer buys.",
+    "observation": "Per round the agent receives only its own seller-side text: the game rules and parameters, the round index, this round's true quality (high or low), and after the buyer moves, whether the buyer bought. The full seller-visible interaction history accumulates across rounds. The buyer's prompts, internal reasoning and the quality-draw seed are never shown.",
+    "actions": {
+      "send_message": "Emit the seller's JSON action for the current round, {\"message\": \"<free-text recommendation to the buyer>\"}, which the environment relays verbatim to the buyer before the buyer's buy/no-buy decision."
+    },
+    "evaluation": {
+      "budget": 20,
+      "success": "Episode runs all 20 rounds and the seller's self-gain, recomputed as (number of rounds in which the buyer bought)/20 by the official PersuasionMetrics formula, is at least 0.50.",
+      "failure": "Self-gain below 0.50 after 20 rounds, or an episode aborted by repeated malformed actions (response lacking a parsable JSON object with a \"message\" key).",
+      "efficiency": "Among successful episodes, prefer higher self-gain; report the published outcome metrics efficiency = k_ev/n_ev and fairness = r_ev/(20-n_ev) alongside it as secondary diagnostics."
+    },
+    "generation": "Instance = the fixed JSON config (game_type \"persuasion\"; game_args is_myopic false, total_rounds 20, p 0.3333, v 2, c 0, product_price 10000, is_seller_know_cv true, is_buyer_know_p true, seller_message_type \"text\", allow_buyer_message false) launched with main.py -c, with the Python RNG used by generate_quality seeded per episode (seeds 0..N-1) so the 20 quality draws are reproducible, and a pinned buyer model id.",
+    "verification": "Verify from the official run directory: game.csv (per-round nature quality rows plus both players' actions) and log_player_1.csv / log_player_2.csv (every prompt/response pair), with config.json recording parameters, date and commit. Recompute self-gain, efficiency and fairness with analyze/metrics.py PersuasionMetrics and confirm they match the logged decisions; retain logs for both successful and failed episodes."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": 3,
+    "totalEpisodes": 27,
+    "actionBudget": 20,
+    "allocationNote": "Original configuration episodes vector repeated three times; all episodes are planned, none executed as H0 runs.",
+    "plannedEpisodes": 27
+  },
+  "otherModels": [
+    {
+      "role": "buyer NPC",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "low",
+      "backend": "local Codex CLI (lib/codex-model.mjs, prompt in driver.mjs buyerPrompt)",
+      "sourceDeclared": "claude-opus-5, temperature 0, max_tokens 512 (kept in the configuration objects)"
+    }
+  ],
+  "pythonEnv": "glee-runtime",
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Up to 3 buyer attempts per round; a reply is accepted only if the original GLEE parser (project_buyer) accepts it.",
+    "In the train run the H0 seller answered through a plain-JSON CLI player transport (glee-plain-json-player-v1); the tool contract shown here is the driver contract."
+  ]
+}

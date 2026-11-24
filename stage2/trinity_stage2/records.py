@@ -15,6 +15,53 @@ SAFE_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{0,159}")
 LONE_SURROGATE = re.compile("[\ud800-\udfff]")
 
 
+def verify_terminal_trajectory(start: dict, report: dict, receipt: dict, actions: list) -> None:
+    pass                                                                           
+    budget = start.get("budget")
+    unit = start.get("budgetUnit", "action")
+    limit = start.get("interactionLimit", budget)
+    if (type(budget) is not int or not 0 < budget <= 2**53 - 1
+            or type(limit) is not int or not budget <= limit <= 2**53 - 1
+            or unit not in ("action", "environment_cost")
+            or (unit == "action" and limit != budget)):
+        raise ValueError("Invalid execution budget policy")
+    for source in (start, report, receipt):
+        if (source.get("budgetUnit", "action") != unit
+                or source.get("interactionLimit", budget) != limit
+                or (unit == "environment_cost" and
+                    ("budgetUnit" not in source or "interactionLimit" not in source))):
+            raise ValueError("Execution budget policy binding mismatch")
+    if (not actions or len(actions) != receipt.get("actions")
+            or len(actions) != report.get("actions") or len(actions) > limit):
+        raise ValueError("Incomplete terminal trajectory")
+    spent = 0
+    for i, action in enumerate(actions, 1):
+        result = action["receipt"]
+        cost = result.get("cost")
+        if (action.get("step") != i or type(result.get("done")) is not bool
+                or (i < len(actions) and result["done"])):
+            raise ValueError("Invalid action sequence")
+        if type(cost) not in (int, float) or not math.isfinite(cost) or cost < 0:
+            raise ValueError("Invalid action cost")
+        if unit == "environment_cost" and spent >= budget:
+            raise ValueError("Action after budget exhaustion")
+        spent += cost
+    if unit == "environment_cost" and spent > budget:
+        raise ValueError("Environment cost exceeds budget")
+    last = actions[-1]["receipt"]
+    termination = receipt.get("termination")
+    if termination == "environment":
+        if not last["done"] or last.get("success") != report["success"]:
+            raise ValueError("Environment termination mismatch")
+    else:
+        exhausted = (termination == "host_budget_exhausted" and
+                     (spent == budget if unit == "environment_cost" else len(actions) == budget))
+        capped = (termination == "host_interaction_limit" and unit == "environment_cost"
+                  and len(actions) == limit and spent < budget)
+        if not (exhausted or capped) or last["done"] or report["success"]:
+            raise ValueError("Invalid budget settlement")
+
+
 def safe_id(value) -> str:
     if not isinstance(value, str) or not SAFE_ID.fullmatch(value):
         raise ValueError(f"Invalid task identifier: {value!r}")
@@ -54,7 +101,7 @@ def verify_chain(step_dir: Path) -> dict:
     for name in sorted(os.listdir(step_dir)):
         if not name.endswith(".json"):
             continue
-        e = json.loads((step_dir / name).read_text())
+        e = json.loads((step_dir / name).read_text(encoding="utf-8"))
         if "hash" not in e:
             return {"verified": 0, "mismatched": 0, "breaks": [], "status": "unhashed"}
         digest = hashlib.sha256(canonical({"index": e.get("index"), "previousHash": e.get("previousHash"), "data": e.get("data")}).encode()).hexdigest()
@@ -102,7 +149,7 @@ def _text(observation) -> str:
 
 
 def load_lab_run(run_dir: Path, task_id: str | None = None) -> list[Episode]:
-    checkpoint = json.loads((run_dir / "checkpoint.json").read_text())
+    checkpoint = json.loads((run_dir / "checkpoint.json").read_text(encoding="utf-8"))
     task_id = task_id or checkpoint.get("taskId")
     configurations = checkpoint.get("configurations") or []
     episodes = []
@@ -119,7 +166,7 @@ def load_lab_run(run_dir: Path, task_id: str | None = None) -> list[Episode]:
             for name in sorted(os.listdir(step_dir)):
                 if not name.endswith(".json"):
                     continue
-                d = json.loads((step_dir / name).read_text())
+                d = json.loads((step_dir / name).read_text(encoding="utf-8"))
                 d = d.get("data", d)
                 o = d.get("observation") or {}
                 steps.append(Step(index=d.get("index", len(steps) + 1), action=d.get("action"), observation=_text(o), terminal=o.get("terminal") if isinstance(o, dict) else None, reward=d.get("reward")))
@@ -130,7 +177,7 @@ def load_lab_run(run_dir: Path, task_id: str | None = None) -> list[Episode]:
 
 
 def load_jsonl_episode(record: Path, task_id: str | None = None, episode_id: str | None = None) -> Episode:
-    lines = [json.loads(l) for l in record.read_text().splitlines() if l.strip()]
+    lines = [json.loads(l) for l in record.read_text(encoding="utf-8").splitlines() if l.strip()]
     initial = next((l for l in lines if l.get("kind") == "initial"), {})
     steps, terminal = [], None
     for l in lines:
@@ -146,7 +193,7 @@ def load_jsonl_episode(record: Path, task_id: str | None = None, episode_id: str
 
 
 def load_package_trajectory(path: Path) -> Episode:
-    d = json.loads(path.read_text())
+    d = json.loads(path.read_text(encoding="utf-8"))
     texts = d.get("observations") or {}
     def resolve(ref):
         if not isinstance(ref, dict):
@@ -181,7 +228,7 @@ def verify_exploration_source(src, task_id, rows):
     if not ledger.is_file() or not src.get("ledgerHead"):
         raise ValueError("Canonical H0 import requires a pinned source ledger")
     events, previous = [], None
-    for index, line in enumerate(ledger.read_text().splitlines(), 1):
+    for index, line in enumerate(ledger.read_text(encoding="utf-8").splitlines(), 1):
         event = json.loads(line)
         raw = {k: v for k, v in event.items() if k != "hash"}
         if event.get("sequence") != index or event.get("previous") != previous or content_digest(raw) != event.get("hash"):
@@ -219,7 +266,7 @@ def verify_exploration_source(src, task_id, rows):
         start_event = next(e for e in events if e["hash"] == row["episodeId"])
         if not plan_event or plan_event["sequence"] >= start_event["sequence"]:
             raise ValueError("H0 instances must be fixed before execution")
-        plan = json.loads((ledger.parent / "objects" / (plan_event["payload"]["artifact"] + ".json")).read_text())
+        plan = json.loads((ledger.parent / "objects" / (plan_event["payload"]["artifact"] + ".json")).read_text(encoding="utf-8"))
         if content_digest(plan) != plan_event["payload"]["artifact"] or content_digest(plan) != plan_event["payload"]["planDigest"] or plan["taskId"] != task_id:
             raise ValueError("Invalid initial instance manifest")
         if not any(instance == report.get("instance") and plan["initialStateHashes"][i] == report.get("initialStateHash") for i, instance in enumerate(plan["instances"])):
@@ -234,16 +281,8 @@ def verify_exploration_source(src, task_id, rows):
         if receipt.get("evidenceDigest") != content_digest(report.get("events")) or receipt.get("publicTaskDigest") != content_digest(report.get("publicTask")):
             raise ValueError("Terminal evidence mismatch")
         actions = [e["publicData"] for e in report["events"] if e.get("publicData", {}).get("action")]
-        if not actions or len(actions) != receipt.get("actions") or len(actions) != report.get("actions") or len(actions) > start["budget"]:
-            raise ValueError("Incomplete terminal trajectory")
-        if any(a["step"] != i or a["receipt"].get("done") for i, a in enumerate(actions[:-1], 1)):
-            raise ValueError("Invalid action sequence")
+        verify_terminal_trajectory(start, report, receipt, actions)
         last = actions[-1]["receipt"]
-        if receipt["termination"] == "environment":
-            if not last["done"] or last["success"] != report["success"]:
-                raise ValueError("Environment termination mismatch")
-        elif receipt["termination"] != "host_budget_exhausted" or last["done"] or report["success"] or len(actions) != start["budget"]:
-            raise ValueError("Invalid budget settlement")
         for key in ("success", "score", "cost"):
             if receipt[key] != report[key]:
                 raise ValueError("Terminal outcome mismatch")
@@ -268,7 +307,7 @@ def import_runs(spec: dict) -> dict[str, list[Episode]]:
         safe_id(task_id)
         fmt, path = src["format"], Path(src["path"]).expanduser()
         if fmt == "canonical":
-            rows = json.loads(path.read_text())
+            rows = json.loads(path.read_text(encoding="utf-8"))
             proofs = verify_exploration_source(src, task_id, rows)
             eps = []
             seen = set()
@@ -307,7 +346,7 @@ def read_records(out_dir: Path) -> dict[str, list[Episode]]:
     out = {}
     for p in sorted(d.glob("*.json")):
         eps = []
-        for e in json.loads(p.read_text()):
+        for e in json.loads(p.read_text(encoding="utf-8")):
             steps = [Step(**s) for s in e.pop("steps")]
             eps.append(Episode(steps=steps, **e))
         out[p.stem] = eps

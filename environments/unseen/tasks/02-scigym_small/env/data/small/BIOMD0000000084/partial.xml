@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model>
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_xysp">
+        <listOfUnits>
+          <unit kind="item" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_inhx" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_bctn" compartment="id_inhx" initialAmount="0.5" hasOnlySubstanceUnits="true"/>
+      <species id="id_n7qc" compartment="id_inhx" initialAmount="1" hasOnlySubstanceUnits="true"/>
+      <species id="id_7u44" compartment="id_inhx" initialAmount="1" hasOnlySubstanceUnits="true"/>
+      <species id="id_svcw" compartment="id_inhx" initialAmount="0" hasOnlySubstanceUnits="true"/>
+      <species id="id_9cm7" compartment="id_inhx" initialAmount="0" hasOnlySubstanceUnits="true"/>
+      <species id="id_4pyz" compartment="id_inhx" initialAmount="0" hasOnlySubstanceUnits="true"/>
+      <species id="id_h4kt" compartment="id_inhx" initialAmount="0" hasOnlySubstanceUnits="true"/>
+      <species id="id_02ia" compartment="id_inhx" initialAmount="1" hasOnlySubstanceUnits="true"/>
+    </listOfSpecies>
+  </model>
+</sbml>

@@ -1,0 +1,197 @@
+{
+  "taskId": "among_us_deception_sandbox",
+  "note": "Train refresh 2026-10-16. episodes are planned repetitions; h0Runs=0. The configurations own their runtime instance; fingerprints use canonical sorted-key JSON: nativeInstanceFingerprint hashes instance; configurationHash hashes the configuration excluding configurationHash, episodes and h0Runs. See per-task refresh report in group-b.",
+  "configurations": [
+    {
+      "id": "among_us_deception_sandbox-refresh-0",
+      "ordinal": 0,
+      "selector": {
+        "providerId": "among_us_deception_sandbox-refresh-20261016",
+        "ordinal": 0
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh native initialization from the official engine, with existing seeded heuristic opponents; not a published fixed level.",
+      "instance": {
+        "seed": 101,
+        "seat": 0,
+        "gameConfig": "SEVEN_MEMBER_GAME",
+        "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+        "opponents": "agentb-seeded-heuristic-v1"
+      },
+      "nativeInstanceFingerprint": "f903bc67f4e058ccd4b24a4c92275a00e27279a2220e427e4cb6d1c64ee752eb",
+      "configurationHash": "ae682d9c627ee9a398f77f66ee95b4e62c0c534457064ed0fb76e86cff8fd277"
+    },
+    {
+      "id": "among_us_deception_sandbox-refresh-1",
+      "ordinal": 1,
+      "selector": {
+        "providerId": "among_us_deception_sandbox-refresh-20261016",
+        "ordinal": 1
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh native initialization from the official engine, with existing seeded heuristic opponents; not a published fixed level.",
+      "instance": {
+        "seed": 102,
+        "seat": 2,
+        "gameConfig": "SEVEN_MEMBER_GAME",
+        "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+        "opponents": "agentb-seeded-heuristic-v1"
+      },
+      "nativeInstanceFingerprint": "c478dec23cf7f1a808acedbdd6caf7606b4742274c628c5dc624ab20aa78c352",
+      "configurationHash": "aa71f5aff0bab38d0cffbf25ea763deca265bb561ff87075c05a7abc1df38845"
+    },
+    {
+      "id": "among_us_deception_sandbox-refresh-2",
+      "ordinal": 2,
+      "selector": {
+        "providerId": "among_us_deception_sandbox-refresh-20261016",
+        "ordinal": 2
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh native initialization from the official engine, with existing seeded heuristic opponents; not a published fixed level.",
+      "instance": {
+        "seed": 103,
+        "seat": 3,
+        "gameConfig": "SEVEN_MEMBER_GAME",
+        "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+        "opponents": "agentb-seeded-heuristic-v1"
+      },
+      "nativeInstanceFingerprint": "29ae601d3a6c1d07a2917a7bb3715091aa1beb3bb12ac803309d006990b229c6",
+      "configurationHash": "cfd863b085c78e0ec762d1194d0b6185c56db2d261b50a0deb227bcef8b200e8"
+    },
+    {
+      "id": "among_us_deception_sandbox-refresh-3",
+      "ordinal": 3,
+      "selector": {
+        "providerId": "among_us_deception_sandbox-refresh-20261016",
+        "ordinal": 3
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh native initialization from the official engine, with existing seeded heuristic opponents; not a published fixed level.",
+      "instance": {
+        "seed": 104,
+        "seat": 0,
+        "gameConfig": "SEVEN_MEMBER_GAME",
+        "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+        "opponents": "agentb-seeded-heuristic-v1"
+      },
+      "nativeInstanceFingerprint": "8c45b54160578a3fc325fb8e339855f705186c6e21124c8440339a24c7cd9345",
+      "configurationHash": "1dc95ff950d80c9386781174391bd1b5e9acc147b991465bb0744bde96ffe5e3"
+    },
+    {
+      "id": "among_us_deception_sandbox-refresh-4",
+      "ordinal": 4,
+      "selector": {
+        "providerId": "among_us_deception_sandbox-refresh-20261016",
+        "ordinal": 4
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh native initialization from the official engine, with existing seeded heuristic opponents; not a published fixed level.",
+      "instance": {
+        "seed": 105,
+        "seat": 2,
+        "gameConfig": "SEVEN_MEMBER_GAME",
+        "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+        "opponents": "agentb-seeded-heuristic-v1"
+      },
+      "nativeInstanceFingerprint": "a59b7dc601941c93cced03d8632158ef828dd7b08a17191748eb87b4e2e36e47",
+      "configurationHash": "88f47290f688b562830d3fcf0b40c1e8a0a5d8dfe281b38624b73053491bd154"
+    },
+    {
+      "id": "among_us_deception_sandbox-refresh-5",
+      "ordinal": 5,
+      "selector": {
+        "providerId": "among_us_deception_sandbox-refresh-20261016",
+        "ordinal": 5
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh native initialization from the official engine, with existing seeded heuristic opponents; not a published fixed level.",
+      "instance": {
+        "seed": 106,
+        "seat": 3,
+        "gameConfig": "SEVEN_MEMBER_GAME",
+        "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+        "opponents": "agentb-seeded-heuristic-v1"
+      },
+      "nativeInstanceFingerprint": "294cf375ded4c61549c5aa7aeb490dc93acb32ee8720641e8662aa6871198756",
+      "configurationHash": "dc846866572cca254bb5d43f2ed0ffaf8926d3c9a5a68ebc1582e60aa51735d5"
+    },
+    {
+      "id": "among_us_deception_sandbox-refresh-6",
+      "ordinal": 6,
+      "selector": {
+        "providerId": "among_us_deception_sandbox-refresh-20261016",
+        "ordinal": 6
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh native initialization from the official engine, with existing seeded heuristic opponents; not a published fixed level.",
+      "instance": {
+        "seed": 107,
+        "seat": 0,
+        "gameConfig": "SEVEN_MEMBER_GAME",
+        "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+        "opponents": "agentb-seeded-heuristic-v1"
+      },
+      "nativeInstanceFingerprint": "6001bdb375011e4f313acebcca807f2b407d49035675ad3a44c0cd59c099a5b5",
+      "configurationHash": "bb3bc71c4ec849f31b0e7a55283cc08fac4b9b4ef7a6095ef69a7b9bd929e278"
+    },
+    {
+      "id": "among_us_deception_sandbox-refresh-7",
+      "ordinal": 7,
+      "selector": {
+        "providerId": "among_us_deception_sandbox-refresh-20261016",
+        "ordinal": 7
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh native initialization from the official engine, with existing seeded heuristic opponents; not a published fixed level.",
+      "instance": {
+        "seed": 108,
+        "seat": 2,
+        "gameConfig": "SEVEN_MEMBER_GAME",
+        "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+        "opponents": "agentb-seeded-heuristic-v1"
+      },
+      "nativeInstanceFingerprint": "90715647f34933e5102a6e758323bbbcacac35dcc95acf153b95e6419224bbcc",
+      "configurationHash": "7ef84dffe5d4ce10ce5674e6536604c12a23e36dc1c6ee39477973b89c10da09"
+    },
+    {
+      "id": "among_us_deception_sandbox-refresh-8",
+      "ordinal": 8,
+      "selector": {
+        "providerId": "among_us_deception_sandbox-refresh-20261016",
+        "ordinal": 8
+      },
+      "origin": "synthetic_seeded_native_instance",
+      "episodes": 3,
+      "h0Runs": 0,
+      "provenanceNote": "Fresh native initialization from the official engine, with existing seeded heuristic opponents; not a published fixed level.",
+      "instance": {
+        "seed": 109,
+        "seat": 3,
+        "gameConfig": "SEVEN_MEMBER_GAME",
+        "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+        "opponents": "agentb-seeded-heuristic-v1"
+      },
+      "nativeInstanceFingerprint": "6fcb34520bad2f9511f55c83539a512db14e9e03e65f4cdee6812c7db96e797a",
+      "configurationHash": "dc99225e3646f346bc20d0c04a72a6f3c6344aeb507f267266093b598258103e"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

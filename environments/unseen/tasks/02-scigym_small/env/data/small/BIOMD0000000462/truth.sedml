@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="BIOMD0000000462_url" language="urn:sedml:language:sbml" source="BIOMD0000000462_url.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="auto_ten_seconds" initialTime="0" outputStartTime="0" outputEndTime="10000" numberOfSteps="10000">
+      <algorithm name="ODE solver" kisaoID="KISAO:0000694"/>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="BIOMD0000000462_url" simulationReference="auto_ten_seconds"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="auto_time_for_task1" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_time_for_task1_var </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_time_for_task1_var" symbol="urn:sedml:symbol:time" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Abeta">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Abeta__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Abeta__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Abeta&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_AbDim">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_AbDim__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_AbDim__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;AbDim&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_AbP">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_AbP__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_AbP__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;AbP&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Source">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Source__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Source__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Source&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Sink">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Sink__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Sink__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Sink&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Nep">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Nep__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Nep__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Nep&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kprod">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kprod__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kprod__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kprod&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kdeg">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kdeg__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kdeg__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kdeg&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kdimer">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kdimer__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kdimer__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kdimer&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kdedimer">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kdedimer__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kdedimer__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kdedimer&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kdisagg">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kdisagg__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kdisagg__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kdisagg&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kpf">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kpf__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kpf__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kpf&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kpg">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kpg__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kpg__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kpg&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kpghalf">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kpghalf__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kpghalf__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kpghalf&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_kdegNep">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_kdegNep__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_kdegNep__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;kdegNep&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_cell">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_cell__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_cell__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;cell&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_Abetaproduction">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_Abetaproduction__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_Abetaproduction__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Abetaproduction&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_AbetaDegradation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_AbetaDegradation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_AbetaDegradation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;AbetaDegradation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_AbetaDimerisation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_AbetaDimerisation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_AbetaDimerisation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;AbetaDimerisation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_AbetaDedimerisation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_AbetaDedimerisation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_AbetaDedimerisation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;AbetaDedimerisation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_AbetaPlaqueFormation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_AbetaPlaqueFormation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_AbetaPlaqueFormation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;AbetaPlaqueFormation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_AbetaPlaqueGrowth">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_AbetaPlaqueGrowth__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_AbetaPlaqueGrowth__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;AbetaPlaqueGrowth&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_AbetaDisaggregation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_AbetaDisaggregation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_AbetaDisaggregation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;AbetaDisaggregation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task1_NepDegradation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task1_NepDegradation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task1_NepDegradation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;NepDegradation&apos;]" taskReference="task1"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <report id="autogen_report_for_task1" name="Auto-generated report for task1, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task1" label="Time" dataReference="auto_time_for_task1"/>
+        <dataSet id="autogen_task1_Abeta" label="Abeta" dataReference="auto_dg_for_task1_Abeta"/>
+        <dataSet id="autogen_task1_AbDim" label="AbDim" dataReference="auto_dg_for_task1_AbDim"/>
+        <dataSet id="autogen_task1_AbP" label="AbP" dataReference="auto_dg_for_task1_AbP"/>
+        <dataSet id="autogen_task1_Source" label="Source" dataReference="auto_dg_for_task1_Source"/>
+        <dataSet id="autogen_task1_Sink" label="Sink" dataReference="auto_dg_for_task1_Sink"/>
+        <dataSet id="autogen_task1_Nep" label="Nep" dataReference="auto_dg_for_task1_Nep"/>
+        <dataSet id="autogen_task1_kprod" label="kprod" dataReference="auto_dg_for_task1_kprod"/>
+        <dataSet id="autogen_task1_kdeg" label="kdeg" dataReference="auto_dg_for_task1_kdeg"/>
+        <dataSet id="autogen_task1_kdimer" label="kdimer" dataReference="auto_dg_for_task1_kdimer"/>
+        <dataSet id="autogen_task1_kdedimer" label="kdedimer" dataReference="auto_dg_for_task1_kdedimer"/>
+        <dataSet id="autogen_task1_kdisagg" label="kdisagg" dataReference="auto_dg_for_task1_kdisagg"/>
+        <dataSet id="autogen_task1_kpf" label="kpf" dataReference="auto_dg_for_task1_kpf"/>
+        <dataSet id="autogen_task1_kpg" label="kpg" dataReference="auto_dg_for_task1_kpg"/>
+        <dataSet id="autogen_task1_kpghalf" label="kpghalf" dataReference="auto_dg_for_task1_kpghalf"/>
+        <dataSet id="autogen_task1_kdegNep" label="kdegNep" dataReference="auto_dg_for_task1_kdegNep"/>
+        <dataSet id="autogen_task1_cell" label="cell" dataReference="auto_dg_for_task1_cell"/>
+        <dataSet id="autogen_task1_Abetaproduction" label="Abetaproduction" dataReference="auto_dg_for_task1_Abetaproduction"/>
+        <dataSet id="autogen_task1_AbetaDegradation" label="AbetaDegradation" dataReference="auto_dg_for_task1_AbetaDegradation"/>
+        <dataSet id="autogen_task1_AbetaDimerisation" label="AbetaDimerisation" dataReference="auto_dg_for_task1_AbetaDimerisation"/>
+        <dataSet id="autogen_task1_AbetaDedimerisation" label="AbetaDedimerisation" dataReference="auto_dg_for_task1_AbetaDedimerisation"/>
+        <dataSet id="autogen_task1_AbetaPlaqueFormation" label="AbetaPlaqueFormation" dataReference="auto_dg_for_task1_AbetaPlaqueFormation"/>
+        <dataSet id="autogen_task1_AbetaPlaqueGrowth" label="AbetaPlaqueGrowth" dataReference="auto_dg_for_task1_AbetaPlaqueGrowth"/>
+        <dataSet id="autogen_task1_AbetaDisaggregation" label="AbetaDisaggregation" dataReference="auto_dg_for_task1_AbetaDisaggregation"/>
+        <dataSet id="autogen_task1_NepDegradation" label="NepDegradation" dataReference="auto_dg_for_task1_NepDegradation"/>
+      </listOfDataSets>
+    </report>
+    <plot2D id="autogen_plot_for_task1" name="Auto-generated plot for task1, including all species.">
+      <xAxis name="Time" type="linear"/>
+      <yAxis name="Species" type="linear"/>
+      <listOfCurves>
+        <curve id="autogen_curve_task1_Abeta" name="Abeta" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_Abeta"/>
+        <curve id="autogen_curve_task1_AbDim" name="AbDim" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_AbDim"/>
+        <curve id="autogen_curve_task1_AbP" name="AbP" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_AbP"/>
+        <curve id="autogen_curve_task1_Source" name="Source" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_Source"/>
+        <curve id="autogen_curve_task1_Sink" name="Sink" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_Sink"/>
+        <curve id="autogen_curve_task1_Nep" name="Nep" logX="false" xDataReference="auto_time_for_task1" logY="false" yDataReference="auto_dg_for_task1_Nep"/>
+      </listOfCurves>
+    </plot2D>
+  </listOfOutputs>
+</sedML>

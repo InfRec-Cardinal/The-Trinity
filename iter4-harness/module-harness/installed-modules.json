@@ -1,0 +1,836 @@
+[
+  {
+    "moduleId": "evidenceDiagnosis",
+    "version": 1,
+    "templateId": "attribute_rule_classifier",
+    "protocolClass": "inference",
+    "targetCapabilityNodeId": "a",
+    "prompt": "Object evidence and classification. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "observations"
+      ],
+      "inputModes": {
+        "scalar_threshold": {
+          "required": [
+            "observations"
+          ]
+        },
+        "evidence_ledger": {
+          "required": [
+            "observations"
+          ]
+        }
+      },
+      "defaultInputMode": "evidence_ledger"
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/evidenceDiagnosis.mjs",
+      "sha256": "96fa3d3a47c91a025de18063bb3972068c2a90546258654e349e013d98b80c26",
+      "source": "import {scalarThreshold} from '../src/scalar-threshold.mjs';\n\nimport {facts,equal} from '../src/common.mjs';\nfunction evidenceLedger({observations,entities,requirements=[],rules,epoch,requiredAttributes=['front','back']}) {\n  const ids=entities??[...new Set([...observations.map(o=>o.entity),...requirements.map(r=>r.entity)])];\n  const ledger={},conflicts=[],missing=[];\n  const rows=ids.map(entity=>{\n    const f=facts(observations,entity,epoch);\n    for (const [attribute,value] of Object.entries(f.values)) ledger[JSON.stringify([entity,attribute])]={value,sources:f.sources[attribute],epoch};\n    conflicts.push(...f.conflicts.map(attribute=>({entity,attribute})));\n    const needed=[...new Set([...requirements.filter(r=>r.entity===entity).map(r=>r.attribute),...(rules?[...requiredAttributes,...rules.flatMap(r=>Object.keys(r.when))]:[])])];\n    const absent=needed.filter(k=>!(k in f.values)); missing.push(...absent.map(attribute=>({entity,attribute})));\n    const hits=rules?.filter(r=>Object.entries(r.when).every(([k,v])=>k in f.values && equal(f.values[k],v)));\n    return {entity,...f,missing:absent,diagnosis:!rules || f.conflicts.length || absent.length?null:\n      hits.length===0?'none':hits.length===1?hits[0].label:null,matchedRuleCount:hits?.length??0,ambiguousRule:(hits?.length??0)>1};\n  });\n  return {status:rules?(rows.every(r=>r.diagnosis!==null)?'classified':'needs_evidence'):\n    missing.length||conflicts.length?'needs_evidence':'ledger_ready',facts:ledger,conflicts,missing,rows,\n    reports:rows.filter(r=>r.diagnosis!==null && r.matchedRuleCount===1).map(r=>({entity:r.entity,label:r.diagnosis})),\n    note:'Classification is optional and uses only supplied public rules; unsourced values never become facts.'};\n}\n\nexport default function evidenceDiagnosis(input){return input.mode==='scalar_threshold'?scalarThreshold(input):evidenceLedger(input);}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "inspectionTransaction",
+    "version": 1,
+    "templateId": "report_reconciliation",
+    "protocolClass": "memory",
+    "targetCapabilityNodeId": "a",
+    "prompt": "Inspection coverage and report transactions. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "entities",
+        "observations",
+        "rules",
+        "stations",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/inspectionTransaction.mjs",
+      "sha256": "cd8dd921fe2148887269e93f50fc6e81b67d28601165a3f46a2795020cd2a1dc",
+      "source": "\n\nexport {inspectionTransaction as default} from '../src/inspection.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "crossViewBinding",
+    "version": 1,
+    "templateId": "identity_binding",
+    "protocolClass": "perception",
+    "targetCapabilityNodeId": "a",
+    "prompt": "Cross-view identity binding. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "entities",
+        "frames",
+        "rules"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/crossViewBinding.mjs",
+      "sha256": "40badf86e713e79f0082a476b3ad656f246076993ac24a9267a68c2810a375aa",
+      "source": "\n\nexport {crossViewBinding as default} from '../src/inspection.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "paritySignalChoice",
+    "version": 1,
+    "templateId": "resource_schedule",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "b",
+    "prompt": "Parity and signal selection. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "base",
+        "archives",
+        "history",
+        "total",
+        "t",
+        "signal",
+        "roundsRemaining"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/paritySignalChoice.mjs",
+      "sha256": "7eb29dab2d8efdc9b26cb1a1b2b345064d6b1b57f4472241de8226223cde9bc5",
+      "source": "\n\nexport {paritySignalChoice as default} from '../src/opponent-model.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "endogenousSignalPolicy",
+    "version": 1,
+    "templateId": "resource_schedule",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "b",
+    "prompt": "Endogenous signal policy. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "base",
+        "archives",
+        "history",
+        "total",
+        "t",
+        "signal",
+        "roundsRemaining",
+        "winsSoFar",
+        "requiredWins"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/endogenousSignalPolicy.mjs",
+      "sha256": "b613caa31352b59a97bb4911c0d66bbc1e2d929c1518ca264919bff2104099d2",
+      "source": "\n\nexport {endogenousSignalPolicy as default} from '../src/opponent-model.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "opponentDecision",
+    "version": 1,
+    "templateId": "hypothesis_model",
+    "protocolClass": "inference",
+    "targetCapabilityNodeId": "b",
+    "prompt": "Opponent and public decision models. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "base",
+        "t",
+        "signal"
+      ],
+      "inputModes": {
+        "node_model": {
+          "required": [
+            "base",
+            "t",
+            "signal"
+          ]
+        },
+        "resource_contest": {
+          "required": [
+            "total",
+            "fields",
+            "observations"
+          ]
+        },
+        "consequence_matrix": {
+          "required": [
+            "models",
+            "candidates"
+          ]
+        },
+        "semantic_signal": {
+          "required": [
+            "items",
+            "source"
+          ]
+        },
+        "cooperative_forecast": {
+          "required": [
+            "source",
+            "hands",
+            "progress",
+            "inventory",
+            "legal",
+            "life",
+            "info"
+          ]
+        }
+      },
+      "defaultInputMode": "node_model"
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/opponentDecision.mjs",
+      "sha256": "2a4dbfa6f9d8f791ea2112e411bcd810be34581a80217178280527e89b51e1e6",
+      "source": "import {cooperativeForecast} from '../src/cooperative-forecast.mjs';\nimport {semanticSignal} from '../src/semantic-signals.mjs';\nimport {resourceContest,consequenceMatrix} from '../src/public-decision-models.mjs';\n\nimport {infer,predict,allocations} from '../src/opponent-core.mjs';\nimport {partition} from '../src/common.mjs';\nfunction nodeModelDecision({base,t,signal,archives=[],history=[],total=14,reverseOdd=false,\n  availableArchives=[],budget=0,roundsRemaining=0,objective='guaranteed_win'}) {\n  if (!['guaranteed_win','mean_outcome'].includes(objective)) throw Error('Unknown objective');\n  const survivors=infer({base,archives,history},reverseOdd);\n  if (!survivors.length) return {status:'inconsistent_evidence',survivors};\n  const predictions=survivors.map(h=>predict(base,h,t,signal,reverseOdd));\n  const ranking=allocations(total).map(action=>{\n    const wins=predictions.map(p=>Number(action.filter((v,i)=>v>p[i]).length>=2));\n    const scores=predictions.map(p=>Math.sign(action.reduce((n,v,i)=>n+Math.sign(v-p[i]),0)));\n    return {action,guaranteedWin:Math.min(...wins),modelWinFraction:wins.reduce((a,b)=>a+b,0)/wins.length,\n      mean:scores.reduce((a,b)=>a+b,0)/scores.length,worst:Math.min(...scores)};\n  }).sort((a,b)=>objective==='guaranteed_win'?b.guaranteedWin-a.guaranteedWin||b.modelWinFraction-a.modelWinFraction:\n    b.mean-a.mean||b.worst-a.worst||Math.max(...a.action)-Math.max(...b.action));\n  const archiveRanking=availableArchives.map(q=>({...q,...partition(survivors,q,(h,q)=>predict(base,h,q.t,q.signal,reverseOdd))}))\n    .sort((a,b)=>a.worst-b.worst||b.entropy-a.entropy);\n  const next=ranking[0].guaranteedWin?null:archiveRanking.find(q=>q.worst<survivors.length && q.cost<=budget-roundsRemaining);\n  return {status:next?'inspect_archive':'allocation_ready',survivors,predictions,objective,\n    recommendation:ranking[0],ranking:ranking.slice(0,8),archive:next?.id??null,archiveRanking,\n    reservedBattleActions:roundsRemaining,guaranteedAcrossSurvivors:Boolean(ranking[0].guaranteedWin),\n    note:'Guarantees are conditional on the supplied public 24-hypothesis family. Ranking objective is explicit, not inferred from iteration.'};\n}\n\nexport default function opponentDecision(input){\n if(input.mode==='cooperative_forecast')return cooperativeForecast(input);\n if(input.mode==='semantic_signal')return semanticSignal(input);\n if(input.mode==='resource_contest')return resourceContest(input);\n if(input.mode==='consequence_matrix')return consequenceMatrix(input);\n return nodeModelDecision(input);\n}\n"
+    },
+    "hostCapabilities": [
+      "python-glove"
+    ]
+  },
+  {
+    "moduleId": "gateSchedule",
+    "version": 1,
+    "templateId": "joint_transition_scheduler",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "c",
+    "prompt": "Gate scheduling and action planning. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "config",
+        "budget"
+      ],
+      "inputModes": {
+        "gate": {
+          "required": [
+            "config",
+            "budget"
+          ]
+        },
+        "grid_push": {
+          "required": [
+            "grid",
+            "glyphs",
+            "goalMode",
+            "budget"
+          ]
+        },
+        "reversible_permutation": {
+          "required": [
+            "state",
+            "goal",
+            "operators"
+          ]
+        },
+        "constraint_audit": {
+          "required": [
+            "text",
+            "constraints"
+          ]
+        }
+      },
+      "defaultInputMode": "gate"
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/gateSchedule.mjs",
+      "sha256": "bf5901f4dcbe5d465f29aabb6533fabc94e09fff57e360e8c2ca0fe3658b3356",
+      "source": "import constraintAudit from '../src/constraint-audit.mjs';\n\nimport {step,successors,done} from '../src/gate-core.mjs';\nimport {shortest} from '../src/common.mjs';\nimport gridPush from '../src/grid-push-plan.mjs';\nimport permutationPlan from '../src/permutation-plan.mjs';\nexport default function gateSchedule(input){if(input.mode==='constraint_audit')return constraintAudit(input);if(input.mode==='reversible_permutation')return permutationPlan(input);if(input.mode==='grid_push')return gridPush(input);return gateModel(input);}\nfunction gateModel({config,state={a:0,b:0,pa:0,pb:0},proposed,budget,maxStates=50000}) {\n  if (!Number.isInteger(budget)||budget<0) throw Error('Nonnegative integer budget required');\n  const plan=shortest(state,s=>successors(config,s),s=>done(config,s),budget,maxStates);\n  const validation=proposed?step(config,state,proposed):null;\n  const proposedContinuation=validation?.status==='legal' && budget>0?\n    shortest(validation.state,s=>successors(config,s),s=>done(config,s),budget-1,maxStates):null;\n  let cursor=state;const timeline=[],milestones=[],waits={a:0,b:0};\n  for (const [i,action] of (plan.path??[]).entries()) {\n    const next=step(config,cursor,action).state;\n    if (!action.da) waits.a++;if (!action.db) waits.b++;\n    for (const robot of ['a','b']) {\n      const field=robot==='a'?'pa':'pb',cargo=robot==='a'?config.aCargo:config.bCargo;\n      cargo.forEach((position,bit)=>{if (!(cursor[field]&(1<<bit)) && (next[field]&(1<<bit))) milestones.push({step:i+1,robot,position,cargoIndex:bit});});\n    }\n    timeline.push({step:i+1,action,before:cursor,after:next});cursor=next;\n  }\n  const freeMotionLowerBound=Math.max(...['a','b'].map(robot=>{\n    const cargo=robot==='a'?config.aCargo:config.bCargo,mask=robot==='a'?state.pa:state.pb;\n    const far=Math.max(state[robot],...cargo.filter((_,i)=>!(mask&(1<<i))));return 2*far-state[robot];\n  }));\n  return {status:plan.status,plan,path:plan.path??null,recommendation:plan.path?.[0]??null,validation,\n    proposedContinuation,proposedFitsBudget:proposedContinuation?.status==='planned',timeline,milestones,waits,\n    freeMotionLowerBound,synchronizationOverhead:plan.path?plan.path.length-freeMotionLowerBound:null,\n    spareActions:plan.path?budget-plan.path.length:null,\n    note:'One joint search supplies both the executable route and collection schedule. The free-motion lower bound is not a gate-feasibility proof.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "returnViability",
+    "version": 1,
+    "templateId": "bounded_path_search",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "c",
+    "prompt": "Return viability. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "config",
+        "state",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/returnViability.mjs",
+      "sha256": "f7ea775bb0f1695ba4232f98da8309b560e953483a9f4e5f4dcb0818aeefae39",
+      "source": "\n\nexport {returnViability as default} from '../src/return-plan.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "identityOrderJoin",
+    "version": 1,
+    "templateId": "relation_consistency",
+    "protocolClass": "inference",
+    "targetCapabilityNodeId": "c-a",
+    "prompt": "Identity and order joins. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "observations",
+        "attributes",
+        "orders"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/identityOrderJoin.mjs",
+      "sha256": "da084f7cd289518c0e50ca66230726d8776e8de5245f4f8e6f6a88b3c50a4d89",
+      "source": "\n\nimport {equal} from '../src/common.mjs';\nexport default function identityOrderJoin({observations,attributes,orders,slotTransform,capacity=2}) {\n  if (!Number.isInteger(capacity)||capacity<1) throw Error('Positive capacity required');\n  const entries=new Map(),conflicts=[];\n  for (const row of observations) {\n    if (!row.source || row.visible!==true) continue;\n    const old=entries.get(row.id);\n    if (old && !equal(old.attributes,row.attributes)) {conflicts.push(row.id);continue;}\n    entries.set(row.id,row);\n  }\n  if (conflicts.length) return {status:'conflicting_memory',ids:conflicts};\n  const rows=orders.map((order,index)=>{\n    const resolved=Object.create(null),proof=[],missing=[];\n    for (const [attribute,q] of Object.entries(order)) {\n      if (q===null || typeof q!=='object') {resolved[attribute]=q;continue;}\n      const ref=entries.get(q.ref),value=ref && Object.hasOwn(ref.attributes,attribute)?ref.attributes[attribute]:undefined;\n      if (value===undefined) {missing.push({ref:q.ref,attribute});continue;}\n      if (q.op==='same') resolved[attribute]=value;\n      else if (q.op==='opposite' && [1,2].includes(value)) resolved[attribute]=3-value;\n      else {missing.push({ref:q.ref,attribute,reason:'unsupported_relation'});continue;}\n      proof.push({attribute,reference:q.ref,operation:q.op,observed:value,source:ref.source});\n    }\n    const candidates=missing.length?[]:[...entries.values()].filter(r=>Object.entries(resolved).every(([k,v])=>equal(r.attributes[k],v)))\n      .map(r=>{let slot=r.slot;if(slotTransform){const {slotsPerRoom,shift}=slotTransform;\n        if(!Number.isInteger(slotsPerRoom)||slotsPerRoom<1||!Number.isInteger(shift)||!Number.isInteger(slot)) throw Error('Explicit public integer slot transform required');\n        slot=((slot+shift)%slotsPerRoom+slotsPerRoom)%slotsPerRoom;}\n        return {id:r.id,original:r.id,room:r.room,slot};});\n    return {index,resolved,proof,missing,candidates};\n  });\n  const unique=rows.every(r=>!r.missing.length && r.candidates.length===1),matches=rows.map(r=>r.candidates);\n  return {status:unique?'unique_matches':'needs_reference_or_disambiguation',rows,matches,\n    incomplete:[...entries.values()].filter(r=>attributes.some(k=>!Object.hasOwn(r.attributes,k))).map(r=>r.id),\n    batches:unique?Array.from({length:Math.ceil(rows.length/capacity)},(_,i)=>matches.slice(i*capacity,(i+1)*capacity).flat()):[],\n    note:'References use stable original identities; only explicit public slotTransform changes pickup positions. No invented room topology.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "archiveAndUnorderedTour",
+    "version": 1,
+    "templateId": "entity_state_ledger",
+    "protocolClass": "memory",
+    "targetCapabilityNodeId": "c-a",
+    "prompt": "Archive and unordered tour. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "observations",
+        "expectedIds",
+        "attributes",
+        "startRoom",
+        "depot",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/archiveAndUnorderedTour.mjs",
+      "sha256": "4693d2c4ea05f2e333141c76c152cb87ee9c9553bc128330fd86680650186756",
+      "source": "\n\nexport {archiveAndUnorderedTour as default} from '../src/order-plan.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "orderedBatchPlanner",
+    "version": 1,
+    "templateId": "ordered_capacity_planner",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "c-a",
+    "prompt": "Ordered batch planning. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "targets",
+        "startRoom",
+        "depot",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/orderedBatchPlanner.mjs",
+      "sha256": "43fbf0e1da75e5e75d1ff27332cec165b26d8e45ea6f89063a8548feb8481476",
+      "source": "\n\nexport {orderedBatchPlanner as default} from '../src/order-plan.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "investmentValue",
+    "version": 1,
+    "templateId": "reserve_deadline_planner",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "c-d",
+    "prompt": "Investment value. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "candidates",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/investmentValue.mjs",
+      "sha256": "ea30645af365696c17e91b2a7eb2a032ff67f93cb19ca536ee8e8b6e114e7de5",
+      "source": "\n\nimport {rankValue} from '../src/value-decision.mjs';\nexport default function investmentValue(input){\n  const result=rankValue(input),base=result.ranked.find(r=>r.id===input.baselineId);\n  return {...result,baselineId:input.baselineId??null,\n    comparisons:result.ranked.map(r=>({id:r.id,conservativeValueGain:base?r.utilityLower-base.utilityUpper:null,\n      costDifference:base?r.cost-base.cost:null})),\n    intent:'Compare investment timing against its public scored benefit and action cost; a feasible expansion is not automatically valuable.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "reserveTradeoff",
+    "version": 1,
+    "templateId": "reserve_deadline_planner",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "c-d",
+    "prompt": "Reserve tradeoffs. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "candidates",
+        "budget",
+        "resourceReserve"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/reserveTradeoff.mjs",
+      "sha256": "1263effb22d02fac2dade5f9bbf2cb1a67f38cdff6e0b5203c436b65078d863a",
+      "source": "\n\nimport {rankValue} from '../src/value-decision.mjs';\nexport default function reserveTradeoff(input){\n  if(!input.reserveSource) return {status:'needs_public_reserve_contract',recommendation:null};\n  const result=rankValue(input);\n  return {...result,requiredReserves:input.resourceReserve,reserveSource:input.reserveSource,\n    resourceSlack:result.ranked.map(r=>{const c=input.candidates.find(c=>c.id===r.id);return {id:r.id,\n      slack:Object.fromEntries(Object.entries(input.resourceReserve).map(([k,v])=>[k,c.remainingResources[k].lower-v]))};}),\n    intent:'Preserve required future resources, then compare actual scored delivery opportunities; do not maximize unused stock as a proxy goal.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "goalCommitment",
+    "version": 1,
+    "templateId": "budget_progress_gate",
+    "protocolClass": "loop",
+    "targetCapabilityNodeId": "c-d",
+    "prompt": "Goal commitment. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "candidates",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/goalCommitment.mjs",
+      "sha256": "56025626f882ce8ee8cb3686ef6dcb244b49f474c1aed4875fdddde75db0bb83",
+      "source": "\n\nimport {rankValue} from '../src/value-decision.mjs';\nexport default function goalCommitment(input){\n  const result=rankValue(input),best=result.ranked.find(r=>r.id===result.recommendation);\n  const terminal=result.ranked.filter(r=>['stop','commit'].includes(r.kind));\n  const continuing=result.ranked.filter(r=>!['stop','commit'].includes(r.kind));\n  return {...result,decision:best?(terminal.includes(best)?'commit_goal':'continue_with_value'):'acquire_missing_evidence',\n    canCommit:!!best&&terminal.includes(best),terminalOptions:terminal.map(r=>r.id),continuationOptions:continuing.map(r=>r.id),\n    intent:'Commit only with observed goal evidence; compare stopping against continuing under the public score and remaining action budget.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "executionState",
+    "version": 1,
+    "templateId": "transition_reconciliation",
+    "protocolClass": "feedback",
+    "targetCapabilityNodeId": "c-d-a",
+    "prompt": "Execution state. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "snapshot"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/executionState.mjs",
+      "sha256": "7b49d14fa28cca231c112302502727d0766ca5df5f16c846d69358e901aee7ad",
+      "source": "import {equal} from '../src/common.mjs';\n\n\nimport {auditExecution} from '../src/execution-ledger.mjs';\nimport solve from '../src/constraint-solver-diagnostic.mjs';\nexport default function executionState(input){\n  const initial=auditExecution(input);\n  if(!initial.safeToWrite)return initial;\n  let desired=input.desired??{},diagnostic=null;\n  if(input.constraintDiagnostic){\n    const q=input.constraintDiagnostic;\n    if(q.stage!==input.snapshot.stage||!q.source)return {...initial,status:'needs_current_stage_constraint_source',safeToWrite:false,edits:[]};\n    diagnostic=solve({...q,current:input.snapshot.values,fixed:input.fixed??{}});\n    if(diagnostic.status!=='unique')return {...initial,status:'no_unique_diagnostic_target',safeToWrite:false,edits:[],diagnostic};\n    const conflicts=Object.keys(desired).filter(k=>Object.hasOwn(diagnostic.best.values,k)&&!equal(desired[k],diagnostic.best.values[k]));\n    if(conflicts.length)return {...initial,status:'conflicting_desired_state',safeToWrite:false,edits:[],conflicts,diagnostic};\n    desired={...diagnostic.best.values,...desired};\n  }\n  if(Object.keys(desired).length && (!input.desiredSource||input.desiredStage!==input.snapshot.stage) && !diagnostic)\n    return {...initial,status:'needs_current_stage_desired_state_source',safeToWrite:false,edits:[]};\n  return {...auditExecution({...input,desired}),diagnostic,\n    intent:'Track observed effects, confirmed edits and failed actions. Constraint solving may propose a target, but never substitutes for execution evidence.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "revisionMemory",
+    "version": 1,
+    "templateId": "revision_dependency_memory",
+    "protocolClass": "memory",
+    "targetCapabilityNodeId": "c-d-a",
+    "prompt": "Revision memory. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "snapshot",
+        "activeConstraints",
+        "previousConstraints"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/revisionMemory.mjs",
+      "sha256": "ea121e70f7c459860057e8fb546923e9d965ec4f2cce98088e3a295dfec7f4f9",
+      "source": "\n\nimport executionState from './executionState.mjs';\nimport {equal} from '../src/common.mjs';\nexport default function revisionMemory(input){\n  const {activeConstraints,previousConstraints,previousDeductions=[],snapshot}=input;\n  const byId=new Map(activeConstraints.map(c=>[c.id,c]));\n  if(byId.size!==activeConstraints.length||activeConstraints.some(c=>!c.id||!c.source))\n    return {status:'needs_identified_sourced_constraints',safeToWrite:false,edits:[]};\n  const changed=previousConstraints.filter(c=>!equal(c,byId.get(c.id))).map(c=>c.id);\n  const stageChanged=input.previousSnapshot?.stage!==undefined && input.previousSnapshot.stage!==snapshot?.stage;\n  const invalidated=previousDeductions.filter(d=>!d.source||!Array.isArray(d.dependencies)||\n    d.dependencies.some(id=>!byId.has(id)||changed.includes(id))||d.stageScoped===true&&d.stage!==snapshot?.stage);\n\n  const invalidIds=new Set(invalidated.map(d=>d.id));\n  let changedClosure=true;\n  while(changedClosure){changedClosure=false;for(const d of previousDeductions){\n    if(!invalidIds.has(d.id)&&(d.deductionDependencies??[]).some(id=>invalidIds.has(id))){invalidIds.add(d.id);invalidated.push(d);changedClosure=true;}\n  }}\n  const retained=previousDeductions.filter(d=>!invalidIds.has(d.id));\n  const result=executionState(input);\n  const staleTarget=Object.keys(input.desired??{}).length &&\n    (!Array.isArray(input.desiredConstraintSnapshot)||!input.desiredConstraintSnapshot.length||\n      input.desiredConstraintSnapshot.some(c=>!equal(c,byId.get(c.id))));\n  return {...result,...(staleTarget?{status:'rederive_target_after_revision',safeToWrite:false,edits:[]}:{}),changedConstraintIds:changed,invalidated,retainedDeductions:retained,stageChanged,\n    invalidatedValueFields:[...new Set(invalidated.flatMap(d=>d.fields??[]))],\n    note:'Stage changes retract unsupported beliefs, not physical cell values. Re-read current state; old derived values never become immutable clues.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "evidenceCommit",
+    "version": 1,
+    "templateId": "evidence_commit_gate",
+    "protocolClass": "loop",
+    "targetCapabilityNodeId": "d",
+    "prompt": "Evidence commitment. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "entity",
+        "observations",
+        "requirements",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/evidenceCommit.mjs",
+      "sha256": "d21ebdcb5e3e205fa53159943834a4183b292f05974b55697c092cd502640412",
+      "source": "\n\nimport {facts, cover, equal} from '../src/common.mjs';\n\nexport default function evidenceCommit({entity, observations, requirements, epoch,\n  views = [], budget, submitCost = 1, maxVisits = 100000}) {\n  if (!Number.isFinite(budget) || budget < 0 || !Number.isFinite(submitCost) || submitCost < 0)\n    throw Error('Finite nonnegative budget and submitCost required');\n  const reqs = Array.isArray(requirements) ? requirements.map(r => [r.attribute,r.value]) : Object.entries(requirements);\n  if (reqs.some(([attribute]) => typeof attribute !== 'string') || new Set(reqs.map(r => r[0])).size !== reqs.length)\n    throw Error('Requirements must have unique attribute names');\n  const audit = facts(observations, entity, epoch), missing = [], contradictions = [];\n  for (const [attribute, expected] of reqs) {\n    if (!(attribute in audit.values)) missing.push(attribute);\n    else if (!equal(audit.values[attribute], expected)) contradictions.push({entity,attribute,expected,\n      observed:audit.values[attribute],sources:audit.sources[attribute]});\n  }\n  const relevant = new Set(reqs.map(r => r[0]));\n  const conflicts = audit.conflicts.filter(k => relevant.has(k));\n  const reserve = submitCost, canSpend = Math.max(0,budget-reserve);\n  const base = {entity,missing,conflicts,contradictions,evidence:audit.sources,reserve,canSpend};\n\n  if (contradictions.length) return {...base,status:'reject_with_witness',decision:'reject_with_evidence',\n    witness:contradictions[0],action:{decision:'no',reasonAttribute:contradictions[0].attribute},\n    savedUnnecessaryChecks:missing,canCommit:budget>=reserve};\n  const needs = [...new Set([...missing,...conflicts])];\n  if (!needs.length) return {...base,status:'confirm',decision:'confirm',canCommit:budget>=reserve};\n  for (const v of views) if (!Number.isFinite(v.cost) || v.cost < 0 || !Array.isArray(v.covers))\n    throw Error('Views require nonnegative cost and explicit public covers');\n  const plan = cover(needs,views,canSpend,maxVisits);\n  const ranking = views.map(v => ({...v,newAttributes:[...new Set(v.covers.filter(k=>needs.includes(k)))]}))\n    .filter(v=>v.cost<=canSpend && v.newAttributes.length)\n    .sort((a,b)=>b.newAttributes.length/Math.max(b.cost,1e-9)-a.newAttributes.length/Math.max(a.cost,1e-9));\n  return {...base,status:'need_observation',decision:conflicts.length?'resolve_conflict':'acquire_evidence',\n    canCommit:false,plan,nextView:plan.chosen?.[0] ?? ranking[0]?.id ?? null,viewRanking:ranking,\n    note:'View coverage is a plan, not proof of an unseen value. Commit requires sourced, target-bound evidence.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "frozenObligations",
+    "version": 7,
+    "templateId": "frozen_obligation_gate",
+    "protocolClass": "loop",
+    "targetCapabilityNodeId": "d",
+    "prompt": "Frozen obligations. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "history",
+        "action",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/frozenObligations.mjs",
+      "sha256": "7aba1841bc0abf85b4d9e9a39af15610a28c332cd599cbf217ca3cac6421df5b",
+      "source": "export {reviewCommitment as default} from '../src/commitment-ledger.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "relationalIdentity",
+    "version": 1,
+    "templateId": "relation_consistency",
+    "protocolClass": "inference",
+    "targetCapabilityNodeId": "d",
+    "prompt": "Relational identity. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "entity",
+        "observations",
+        "requirements",
+        "relations",
+        "relationEvidence",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/relationalIdentity.mjs",
+      "sha256": "6868c4a82372ddc64dbbdd8b8ff40fb750059df034772b646720c7bebe422c45",
+      "source": "\n\nexport {relationalIdentity as default} from '../src/identity.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "explorationRoute",
+    "version": 7,
+    "templateId": "bounded_path_search",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "d-a",
+    "prompt": "Exploration route. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "observations",
+        "phase",
+        "start",
+        "goal",
+        "budget"
+      ],
+      "inputModes": {
+        "scene_evidence": {
+          "required": [
+            "frames",
+            "actions",
+            "phases",
+            "epochs",
+            "events"
+          ]
+        },
+        "route": {
+          "required": [
+            "observations",
+            "phase",
+            "start",
+            "goal",
+            "budget"
+          ]
+        },
+        "outcome_memory": {
+          "required": [
+            "current",
+            "transitions"
+          ]
+        }
+      },
+      "defaultInputMode": "route"
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/explorationRoute.mjs",
+      "sha256": "773797d435613d9282bb77b65800443b75da254a3204d2575545abd54ea239e5",
+      "source": "\n\nimport {visualRouteEvidence} from '../src/visual-route-core.mjs';\nimport explorationRoute from '../src/route-planner.mjs';\nimport {outcomeMemory} from '../src/outcome-memory-core.mjs';\nexport default function(input) {\n  if(input.mode==='scene_evidence')return visualRouteEvidence(input);\n  if(input.mode==='outcome_memory')return outcomeMemory(input);\n  if(input.mode!==undefined && input.mode!=='route')throw Error('Use route, outcome_memory or scene_evidence mode');\n  return explorationRoute(input);\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "orderedStampRoute",
+    "version": 1,
+    "templateId": "bounded_path_search",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "d-a",
+    "prompt": "Ordered stamp route. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "observations",
+        "phase",
+        "start",
+        "stampOrder",
+        "stampLocations",
+        "collectedCount",
+        "goal",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/orderedStampRoute.mjs",
+      "sha256": "6ae85a7ffe91ec6135fc2b6d689e1c04c8174fa04f51529d303871240aec6858",
+      "source": "\n\nexport {orderedStampRoute as default} from '../src/navigation.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "phaseEdgeRepair",
+    "version": 1,
+    "templateId": "stale_state_repair",
+    "protocolClass": "feedback",
+    "targetCapabilityNodeId": "d-a",
+    "prompt": "Phase edge repair. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "observations",
+        "oldPhase",
+        "phase",
+        "gates",
+        "current",
+        "home",
+        "budget",
+        "staticUnmarkedGuaranteed"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/phaseEdgeRepair.mjs",
+      "sha256": "5cf80da40694c9c6d086e6b704c63a3a3eeb0637331d9b66ace880900057d41a",
+      "source": "\n\nexport {phaseEdgeRepair as default} from '../src/navigation.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "candidateProbe",
+    "version": 1,
+    "templateId": "feedback_partition_model",
+    "protocolClass": "inference",
+    "targetCapabilityNodeId": "d-b",
+    "prompt": "Candidate probe. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "alphabet",
+        "length"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/candidateProbe.mjs",
+      "sha256": "0f54a9c28d724c50a5a6b0b55224d811e151505caaf3e96b8d6d43c80aa9755b",
+      "source": "\n\nimport {codes,feedback,equal,partition} from '../src/common.mjs';\nexport default function candidateProbe({alphabet,length,archives=[],history=[],proposed,transform='none',\n  objective='entropy',maxCandidates=20000,probeLimit=64}){\n  if(!['none','rotate','alternate'].includes(transform))throw Error('Unknown public transform');\n  if(!['entropy','minimax'].includes(objective))throw Error('Unknown probe objective');\n  if(!Number.isInteger(probeLimit)||probeLimit<1)throw Error('Positive probeLimit required');\n  const domain=codes(alphabet,length,maxCandidates);if(!domain)return {status:'candidate_limit'};\n  let rows=domain.filter(c=>archives.every(r=>equal(feedback(c,r.guess),r.feedback))).map(c=>({initial:c,current:c}));\n  let terminal=false;const audit=[];\n  for(const [i,r] of history.entries()){\n    if(terminal)return {status:'invalid_history',reason:'Action after successful terminal feedback'};\n    if(r.index!==i||!r.evidenceId)return {status:'unknown',reason:'Complete ordered sourced history required'};\n    rows=rows.filter(c=>equal(feedback(c.current,r.guess),r.feedback));terminal=r.feedback[0]===length;\n    const change=terminal?'none':transform==='alternate'?(i%2===0?'rotate':'reverse'):transform;\n    audit.push({evidenceId:r.evidenceId,observationIndex:i,survivors:rows.length,transformApplied:change});\n    if(change!=='none')rows=rows.map(c=>({...c,current:change==='reverse'?[...c.current].reverse():[...c.current.slice(1),c.current[0]]}));\n  }\n  if(!rows.length)return {status:'inconsistent_evidence',audit};\n  const current=rows.map(r=>r.current),stride=Math.max(1,Math.ceil(current.length/probeLimit));\n  const probes=current.filter((_,i)=>i%stride===0);\n  if(proposed){if(proposed.length!==length||proposed.some(v=>!alphabet.includes(v)))throw Error('Proposal outside public domain');\n    if(!probes.some(p=>equal(p,proposed)))probes.push(proposed);}\n  const scores=probes.map(probe=>({probe,...partition(current,probe)}));\n  const byEntropy=[...scores].sort((a,b)=>b.entropy-a.entropy||a.expected-b.expected);\n  const byMinimax=[...scores].sort((a,b)=>a.worst-b.worst||a.expected-b.expected);\n  return {status:terminal?'terminal':current.length===1?'unique_in_complete_domain':'probe',candidateCount:rows.length,\n    candidates:current,initialToCurrent:rows.length<=8?rows:undefined,audit,currentWorldIndex:history.length,\n    objective,recommendation:terminal?null:(objective==='entropy'?byEntropy:byMinimax)[0],\n    bestEntropy:byEntropy[0],bestMinimax:byMinimax[0],original:proposed?scores.find(r=>equal(r.probe,proposed)):null,\n    positionDomains:Array.from({length},(_,i)=>[...new Set(current.map(c=>c[i]))]),\n    proposalIsPossibleAnswerNow:proposed?current.some(c=>equal(c,proposed)):null,probesEvaluated:scores.length,\n    globallyOptimalProbe:false,note:'One candidate history and one feedback partition pass support both ranking objectives. Archives refer to the initial world; transformations occur after nonterminal feedback.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "multiplicityDecomposition",
+    "version": 1,
+    "templateId": "domain_support_propagation",
+    "protocolClass": "inference",
+    "targetCapabilityNodeId": "d-b",
+    "prompt": "Multiplicity decomposition. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "alphabet",
+        "length",
+        "records"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/multiplicityDecomposition.mjs",
+      "sha256": "20730ddd8ccfbfb817e2caff098943ce83b4f38f78b2e7f0ae812d5f66122c2b",
+      "source": "\n\nexport {multiplicityDecomposition as default} from '../src/code-domain.mjs';\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "adaptiveAcquisition",
+    "version": 1,
+    "templateId": "information_acquisition",
+    "protocolClass": "planning",
+    "targetCapabilityNodeId": "e",
+    "prompt": "Adaptive acquisition. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "requirements",
+        "offers",
+        "budget"
+      ],
+      "inputModes": {
+        "plan_acquisition": {
+          "required": [
+            "requirements",
+            "offers",
+            "budget"
+          ]
+        },
+        "select_delivered_frames": {
+          "required": [
+            "source",
+            "frames",
+            "proposed",
+            "limit"
+          ]
+        },
+        "locate_text_scope": {
+          "required": [
+            "source",
+            "query",
+            "rows",
+            "scanGapSeconds",
+            "mediaSha256"
+          ]
+        },
+        "audit_scope_request": {
+          "required": [
+            "scopePlan",
+            "startSeconds",
+            "endSeconds"
+          ]
+        },
+        "plan_actor_focus": {
+          "required": [
+            "frames"
+          ]
+        }
+      },
+      "defaultInputMode": "plan_acquisition"
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/adaptiveAcquisition.mjs",
+      "sha256": "b8183c51f91daa0a75bcb18ef9f3b5d0c50e696ff0969e399ae5d7c12c9439d4",
+      "source": "\n\nimport {planActorFocus} from '../src/actor-focus.mjs';\nimport {locateTextScope,auditScopeRequest} from '../src/text-scope.mjs';\nimport {planAcquisition} from '../src/acquisition-core.mjs';\nimport {selectDeliveredFrames} from '../src/select-delivered-frames.mjs';\nexport default function adaptiveAcquisition(input){\n  if(input.mode==='plan_actor_focus')return planActorFocus(input);\n  if(input.mode==='locate_text_scope')return locateTextScope(input);\n  if(input.mode==='audit_scope_request')return auditScopeRequest(input);\n  if(input.mode==='select_delivered_frames')return {...selectDeliveredFrames(input),intent:'Budget the inspection of already delivered frames across proposed anchors, separated appearance candidates and temporal context. No new frames or semantic labels are acquired.'};\n  return {...planAcquisition(input),intent:'Translate a sourced evidence need into affordable time/frame/region/audio requests using only tools the current host actually offers.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "evidenceCoverage",
+    "version": 1,
+    "templateId": "evidence_coverage",
+    "protocolClass": "perception",
+    "targetCapabilityNodeId": "e",
+    "prompt": "Evidence coverage. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "requirements",
+        "delivered"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/evidenceCoverage.mjs",
+      "sha256": "f41004447eef2255d9d75db1b2a0cb2632386a6388c8f48e8384808ae4a939ff",
+      "source": "\n\nimport {auditCoverage,planAcquisition} from '../src/acquisition-core.mjs';\nexport default function evidenceCoverage(input){\n  const coverage=auditCoverage(input);\n  return {...coverage,status:coverage.complete?'coverage_verified':'evidence_gaps',\n    acquisition:input.offers&&input.budget!==undefined?planAcquisition(input):null,\n    intent:'Audit received temporal coverage, frame density, target detail, legibility and sound; never confuse buying a segment with having sufficient evidence.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "gapAcquisition",
+    "version": 1,
+    "templateId": "ineffective_probe_filter",
+    "protocolClass": "feedback",
+    "targetCapabilityNodeId": "e",
+    "prompt": "Gap acquisition. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "requirements",
+        "offers",
+        "budget"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/gapAcquisition.mjs",
+      "sha256": "97b902a44761070ef5822f5e8e80fe4ac3e422f5b0de19a7bd9f892211619fa5",
+      "source": "\n\nimport {planAcquisition} from '../src/acquisition-core.mjs';\nexport default function gapAcquisition(input){\n  const result=planAcquisition(input);\n  return {...result,stalledRequirements:result.unsupported.map(r=>r.requirementId),\n    intent:'Request missing evidence supplied by the comprehension layer. Suppress identical requests that already failed or added no information; report unresolved gaps rather than infer a hidden transfer.'};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "eventLedger",
+    "version": 1,
+    "templateId": "temporal_event_ledger",
+    "protocolClass": "memory",
+    "targetCapabilityNodeId": "e-f",
+    "prompt": "Event ledger. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "target",
+        "initialHolder"
+      ],
+      "inputModes": {
+        "transfer": {
+          "required": [
+            "target",
+            "initialHolder"
+          ]
+        },
+        "count_repeated_events": {
+          "required": [
+            "source",
+            "frames",
+            "segments"
+          ]
+        },
+        "request_sequence_audit": {
+          "required": [
+            "source",
+            "sequenceId",
+            "sampleCount"
+          ]
+        }
+      },
+      "defaultInputMode": "transfer"
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/eventLedger.mjs",
+      "sha256": "2bf767e8f868b878c93a2e3d082970be5545130a23c44ff480e9b1675282ae69",
+      "source": "\n\nimport {countRepeatedEvents,requestSequenceAudit} from '../src/repeated-event-ledger.mjs';\nimport {equal} from '../src/common.mjs';\n\nexport default function eventLedger(input){\n  if(input.mode==='request_sequence_audit')return requestSequenceAudit(input);\n  if(input.mode==='count_repeated_events')return countRepeatedEvents(input);\n  return transferLedger(input);\n}\nfunction transferLedger({target,initialHolder,events=[],observations=[],endpoint,proposed,coverageComplete=false}) {\n  const episodes=aggregateEpisodes({target,initialHolder,observations});\n  const derived=episodes.events.map(e=>({id:e.id,target,time:e.end,start:e.start,source:e.sources,type:'handoff',\n    from:e.from,to:e.to,releaseObserved:true,receiveObserved:true}));\n\n  events=[...events,...derived];\n  let holder=initialHolder,location=null,lastEnd=-Infinity;\n  const receipts=[],gaps=[...episodes.incomplete],seen=new Set();\n  const ordered=events.filter(e=>e.target===target).sort((a,b)=>a.time-b.time);\n  for (const e of ordered) {\n    if (!e.id || !e.source || !Number.isFinite(e.time) || seen.has(e.id)) {\n      gaps.push({event:e.id??null,reason:'duplicate_or_unsourced_or_untimed_event'}); continue;\n    }\n    seen.add(e.id);\n    if (e.type==='handoff') {\n      if (!e.releaseObserved || !e.receiveObserved || e.from!==holder || e.to==null || e.to===holder || (e.start??e.time)<lastEnd) {\n        gaps.push({event:e.id,reason:'unproved_handoff'}); continue;\n      }\n      holder=e.to; location=null;lastEnd=e.time;\n      receipts.push({id:e.id,time:e.time,recipient:holder});\n    } else if (e.type==='deposit') {\n      if (e.actor!==holder || !e.releaseObserved || e.location==null) {\n        gaps.push({event:e.id,reason:'unproved_deposit'}); continue;\n      }\n      location=e.location;\n    } else if (e.type==='occlusion') {\n\n      const flags=[e.publicNoExchangeGuarantee,e.noExchangeGuaranteed].filter(v=>v!==undefined);\n      if (!flags.length || !flags.every(v=>v===true)) gaps.push({event:e.id,time:e.time,reason:'occlusion'});\n    } else gaps.push({event:e.id,reason:'unsupported_event_type'});\n  }\n  const sequence=receipts.map(r=>r.recipient), answer={count:receipts.length,route:sequence,destination:location};\n  const endpointMatches=Boolean(endpoint?.observed===true && endpoint.source && endpoint.target===target &&\n    endpoint.holder===holder && equal(endpoint.location,location));\n  const canCommit=!gaps.length && location!=null && endpointMatches && coverageComplete===true;\n  return {status:canCommit?'audited':'incomplete',holder,location,sequence,count:receipts.length,receipts,\n    gaps,uncertain:gaps,episodes,answer,endpointMatches,coverageComplete,canCommit,\n    proposalMatches:proposed?equal(proposed,answer):null,\n    note:'Repeated recipients count as separate events. A later handoff clears a previous deposit; missing endpoint or coverage proof blocks final commitment.'};\n}\n\nfunction aggregateEpisodes({target, observations}) {\n  const groups = new Map(), incomplete = [];\n  for (const o of observations) {\n    if (o.target !== target) continue;\n    if (!o.source || !Number.isFinite(o.time)) { incomplete.push({reason:'unsourced_or_untimed_observation'}); continue; }\n    if (!o.episodeId) { incomplete.push({reason: 'missing_episode_identity', source: o.source}); continue; }\n    const xs = groups.get(o.episodeId) || []; xs.push(o); groups.set(o.episodeId, xs);\n  }\n  const events = [];\n  for (const [id, rows] of groups) {\n    const pairs = new Set(rows.map(r => JSON.stringify([r.from, r.to])));\n    const release = rows.filter(r => r.releaseObserved).sort((a, b) => a.time - b.time)[0];\n    const receipt = rows.filter(r => r.receiveObserved).sort((a, b) => a.time - b.time).at(-1);\n    if (pairs.size !== 1 || !release || !receipt || release.time > receipt.time || rows[0].from === rows[0].to) {\n      incomplete.push({episodeId: id, reason: 'unproved_or_conflicting_exchange'}); continue;\n    }\n    events.push({id, from: rows[0].from, to: rows[0].to, start: release.time, end: receipt.time,\n      sources: rows.map(r => r.source)});\n  }\n  return {events, incomplete};\n}\n"
+    },
+    "hostCapabilities": []
+  },
+  {
+    "moduleId": "frameAssociation",
+    "version": 1,
+    "templateId": "motion_candidate_association",
+    "protocolClass": "perception",
+    "targetCapabilityNodeId": "e-f",
+    "prompt": "Frame association. Operate on supplied public evidence; preserve unknown values and enforce the declared input mode.",
+    "interface": {
+      "required": [
+        "frames",
+        "initialDetection",
+        "maxDistance"
+      ]
+    },
+    "function": {
+      "language": "javascript-module",
+      "entry": "modules/frameAssociation.mjs",
+      "sha256": "ffa76f31839a1e3e71d6f58274d53967d2b909222a75e95b880d036f8d424e42",
+      "source": "\n\nexport {frameAssociation as default} from '../src/frame-association.mjs';\n"
+    },
+    "hostCapabilities": []
+  }
+]

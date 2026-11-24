@@ -1,11 +1,11 @@
 import timers from 'node:timers/promises';
 import {readFileSync} from 'node:fs';
-import {randomUUID, createHash} from 'node:crypto';
+import {randomUUID} from 'node:crypto';
 import {tokenUsage, tokenSummary} from '../../harness/src/metrics.mjs';
 
-const CONFIG = JSON.parse(readFileSync(process.env.TRINITY_PROVIDERS_FILE || new URL('../../config/providers.json', import.meta.url), 'utf8'));
+const CONFIG = JSON.parse(readFileSync(process.env.TRINITY_PROVIDERS_FILE || new URL('../../stage2/trinity_stage2/providers.json', import.meta.url), 'utf8'));
 export const PROVIDER_IDS = Object.freeze(Object.keys(CONFIG.providers));
-export const SEARCH_MODES = Object.freeze(['dynamic', 'direct', 'basic', 'openrouter', 'off']);
+export const SEARCH_MODES = Object.freeze(['dynamic', 'direct', 'basic', 'off']);
 const AUTH_MODES = new Set(['x-api-key', 'bearer']);
 
 export class ProviderConfigError extends Error {}
@@ -16,14 +16,16 @@ const flag = (value, name) => {
   if (/^(off|false|0)$/i.test(value)) return false;
   throw new ProviderConfigError(`${name} must be on or off`);
 };
-export const canonicalModel = model => String(model ?? '').split('/').pop().replace(/^~/, '').replace(/\./g, '-');
+export const canonicalModel = model => String(model ?? '').trim();
 export const activeProviderId = (env = process.env) => setting(env, 'TRINITY_PROVIDER') ?? CONFIG.default;
 
 function baseUrlOf(value, id) {
   if (!value) throw new ProviderConfigError(`Set TRINITY_BASE_URL for the ${id} provider`);
-  const url = String(value).trim().replace(/\/+$/, '').replace(/\/v1$/, '');
-  if (!/^https:\/\/[^/\s]+/i.test(url) && !/^http:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?(\/|$)/i.test(url)) throw new ProviderConfigError('The provider base URL must use https');
-  return url;
+  let url;
+  try { url = new URL(String(value).trim()); } catch { throw new ProviderConfigError('Invalid provider base URL'); }
+  if (url.username || url.password || url.search || url.hash || /[\s\\]/.test(String(value).trim())) throw new ProviderConfigError('Invalid provider base URL');
+  if (url.protocol !== 'https:' && !(url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname))) throw new ProviderConfigError('The provider base URL must use https');
+  return url.href.replace(/\/+$/, '').replace(/\/v1$/, '');
 }
 
 export function resolveProfile(id = activeProviderId(), env = process.env) {
@@ -41,15 +43,20 @@ export function resolveProfile(id = activeProviderId(), env = process.env) {
     effort: override('TRINITY_EFFORT', 'PIPELINE_EFFORT') ?? CONFIG.effort,
     apiVersion: override('TRINITY_API_VERSION') ?? preset.apiVersion,
     webSearch: (override('TRINITY_WEB_SEARCH') ?? legacySearch ?? preset.webSearch).toLowerCase(),
-    sessionAffinity: flag(override('TRINITY_SESSION_AFFINITY'), 'TRINITY_SESSION_AFFINITY') ?? preset.sessionAffinity,
   };
+  if (typeof profile.model !== 'string' || !profile.model.trim()) throw new ProviderConfigError('Set TRINITY_MODEL for the selected provider');
+  if (!['low', 'medium', 'high', 'xhigh', 'max'].includes(profile.effort)) throw new ProviderConfigError('Invalid TRINITY_EFFORT');
   if (!AUTH_MODES.has(profile.auth)) throw new ProviderConfigError('TRINITY_AUTH must be x-api-key or bearer');
   if (!SEARCH_MODES.includes(profile.webSearch)) throw new ProviderConfigError(`TRINITY_WEB_SEARCH must be one of ${SEARCH_MODES.join(', ')}`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(profile.apiVersion)) throw new ProviderConfigError('TRINITY_API_VERSION must be a date such as 2023-06-01');
-  profile.forcedToolChoice = flag(override('TRINITY_FORCED_TOOL_CHOICE', 'PIPELINE_FORCED_TOOL_CHOICE'), 'TRINITY_FORCED_TOOL_CHOICE') ?? canonicalModel(profile.model) === 'claude-opus-5';
+  profile.forcedToolChoice = flag(override('TRINITY_FORCED_TOOL_CHOICE', 'PIPELINE_FORCED_TOOL_CHOICE'), 'TRINITY_FORCED_TOOL_CHOICE') ?? (id === 'anthropic' && profile.model === 'claude-opus-5');
   profile.name = `${profile.label}: ${profile.model}, adaptive thinking, ${profile.effort} effort`;
   return profile;
 }
+
+export const executionProfile = profile => Object.fromEntries(
+  ['id', 'baseUrl', 'auth', 'apiVersion', 'model', 'effort', 'webSearch', 'forcedToolChoice'].map(key =>
+    [key, key === 'model' ? canonicalModel(profile[key]) : profile[key]]));
 
 export const providerKey = (profile = resolveProfile(), env = process.env) => setting(env, profile.keyEnv, 'TRINITY_API_KEY') ?? null;
 export function requireProviderKey(profile = resolveProfile(), env = process.env) {
@@ -62,8 +69,8 @@ export const supportsSearch = (profile = activeProviderId()) => resolveProfile(p
 export const STOP = Object.freeze({ done: 'done', paused: 'paused', truncated: 'truncated', refused: 'refused' });
 
 const QUIET_MS = 180_000, TOTAL_MS = 900_000, ATTEMPTS = 4;
-const RETRY_STATUS = new Set([408, 409, 425, 429, 500, 502, 503, 504, 520, 521, 522, 523, 524, 529]);
-const NON_RETRYABLE_CODES = new Set(['provider_quota', 'provider_auth', 'tool_unavailable']);
+const RETRY_STATUS = new Set([408, 409, 425, 429]);
+const NON_RETRYABLE_CODES = new Set(['provider_auth', 'tool_unavailable']);
 
 export class ProviderError extends Error {
   constructor(message, status = null, retryable = false, code = 'provider_error') {
@@ -74,19 +81,15 @@ const redact = (text, key) => (key && String(key).length >= 8 ? String(text ?? '
   .replace(/\bBearer\s+[A-Za-z0-9._~+/=-]+/gi, 'Bearer [redacted]').replace(/\b(?:sk|ak|key)-[A-Za-z0-9_-]{12,}\b/g, '[redacted]').slice(0, 400);
 const stopped = () => new ProviderError('stopped by user', null, false, 'stopped');
 const STREAM_CONNECTION_CODES = new Set(['UND_ERR_SOCKET', 'UND_ERR_BODY_TIMEOUT', 'UND_ERR_CONNECT_TIMEOUT', 'ECONNRESET', 'ECONNABORTED', 'ETIMEDOUT', 'EPIPE', 'ENETRESET']);
-const transientStreamDisconnect = error => !(error instanceof ProviderError) && error?.retryable !== false && error?.code !== 'provider_quota'
+const transientStreamDisconnect = error => !(error instanceof ProviderError) && error?.retryable !== false
   && ((error?.name === 'TypeError' && error.message === 'terminated') || [error?.code, error?.cause?.code].some(code => STREAM_CONNECTION_CODES.has(code)));
 const safeStreamError = (error, apiKey) => new ProviderError(redact(error?.message ?? error, apiKey),
   Number.isInteger(error?.status) && error.status >= 100 && error.status <= 599 ? error.status : null,
   error?.retryable === true || transientStreamDisconnect(error),
   typeof error?.code === 'string' && /^[A-Za-z][A-Za-z0-9_]{0,63}$/.test(error.code) && !(apiKey && error.code.includes(apiKey)) ? error.code : 'provider_error');
-const LOCALIZED_CREDIT_EXHAUSTION = /(?:\u4f59\u989d|\u9918\u984d)\s*(?:\u4e0d\u8db3|(?:\u5df2)?(?:\u7528\u5b8c|\u7528\u5c3d|\u8017\u5c3d))|(?:api\s*key|\u4ee4\u724c|\u8d26\u6237|\u5e33\u6236)\s*(?:\u989d\u5ea6|\u984d\u5ea6)\s*(?:\u4e0d\u8db3|(?:\u5df2)?(?:\u7528\u5b8c|\u7528\u5c3d|\u8017\u5c3d))/i;
-const providerCode = (status, detail) => status === 402 || LOCALIZED_CREDIT_EXHAUSTION.test(detail)
-  || /insufficient.*(?:balance|credit|quota)|(?:balance|credit|quota).*(?:exhaust|deplet|empty)|billing|payment required/i.test(detail) ? 'provider_quota'
-  : status === 401 || status === 403 || /authentication_error|permission_error|invalid.{0,12}(?:api.?key|token)/i.test(detail) ? 'provider_auth'
-  : status === 429 || /rate_limit_error/i.test(detail) ? 'provider_rate_limit'
-  : status === 400 && /organization has been disabled/i.test(detail) ? 'provider_upstream'
-  : /web.?search|server.?tool|allowed_callers|code.?execution/i.test(detail) && /unavailable|unsupported|not supported|not enabled|unknown|invalid.*tool|allowed_callers/i.test(detail) ? 'tool_unavailable' : 'provider_error';
+const providerCode = (status, type = '') => status === 401 || status === 403 || ['authentication_error', 'permission_error'].includes(type) ? 'provider_auth'
+  : status === 429 || type === 'rate_limit_error' ? 'provider_rate_limit'
+  : status >= 500 && status <= 599 || ['api_error', 'overloaded_error'].includes(type) ? 'provider_server_error' : 'provider_error';
 
 const ERROR_BODY_BYTES = 65_536;
 
@@ -96,10 +99,10 @@ async function providerDiagnostic(res, apiKey) {
   try { parsed = text ? JSON.parse(text) : typeof res.json === 'function' ? await res.json() : undefined; } catch {}
   const message = parsed?.error?.message ?? parsed?.message ?? parsed?.error?.type ?? (typeof parsed?.error === 'string' ? parsed.error : text);
   const plain = String(message).replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim();
-  return { raw: plain, detail: redact(plain, apiKey) };
+  return { detail: redact(plain, apiKey) };
 }
 
-const SEARCH_TOOL_NAMES = new Set(['web_search', 'openrouter:web_search']);
+const SEARCH_TOOL_NAMES = new Set(['web_search']);
 const CODE_EXECUTION_TOOL = /^(?:code_execution|bash_code_execution|text_editor_code_execution)$/;
 const serverResult = block => typeof block?.type === 'string' && block.type !== 'tool_result' && block.type.endsWith('_tool_result');
 const resultError = block => {
@@ -198,7 +201,8 @@ const malformed = reason => new ProviderError(`malformed stream: ${reason}`, nul
 export async function assembleStream(body) {
   const reader = body.getReader(), decoder = new TextDecoder();
   const blocks = [], partial = new Map();
-  let buffer = '', stop = null, usage = {}, event = null, data = [];
+  let buffer = '', stop = null, usage = {}, event = null, data = [], ended = false, started = false;
+  const openBlocks = new Set();
   const block = index => { if (!Number.isInteger(index) || !blocks[index]) throw malformed(`event for unknown content block ${index}`); return blocks[index]; };
   const finishInput = (b, json) => {
     const text = json.trim();
@@ -207,15 +211,19 @@ export async function assembleStream(body) {
     catch { b.input = {}; b._input_parse_error = 'the tool arguments were not a valid JSON object'; }
   };
   const handle = (name, payload) => {
+    if (ended && name !== 'ping') throw malformed('event after message_stop');
     switch (name) {
-      case 'message_start': usage = { ...usage, ...(payload.message?.usage ?? {}) }; break;
+      case 'message_start': if (started) throw malformed('duplicate message_start'); started = true; usage = { ...usage, ...(payload.message?.usage ?? {}) }; break;
       case 'content_block_start': {
         if (!Number.isInteger(payload.index) || !plainObject(payload.content_block)) throw malformed('content block without an index');
+        if (!started || blocks[payload.index]) throw malformed('invalid content block order');
+        openBlocks.add(payload.index);
         blocks[payload.index] = { ...payload.content_block };
         if (['tool_use', 'server_tool_use'].includes(payload.content_block.type)) partial.set(payload.index, '');
         break;
       }
       case 'content_block_delta': {
+        if (!openBlocks.has(payload.index)) throw malformed('delta for closed content block');
         const b = block(payload.index), d = payload.delta ?? {};
         if (d.type === 'text_delta') b.text = (b.text ?? '') + d.text;
         else if (d.type === 'thinking_delta') b.thinking = (b.thinking ?? '') + d.thinking;
@@ -227,13 +235,15 @@ export async function assembleStream(body) {
         break;
       }
       case 'content_block_stop': {
+        if (!openBlocks.delete(payload.index)) throw malformed('stop for closed content block');
         const b = block(payload.index);
         if (partial.has(payload.index)) { finishInput(b, partial.get(payload.index)); partial.delete(payload.index); }
         break;
       }
       case 'message_delta': stop = payload.delta?.stop_reason ?? stop; usage = { ...usage, ...(payload.usage ?? {}) }; break;
+      case 'message_stop': if (!started || !stop || openBlocks.size) throw malformed('incomplete message_stop'); ended = true; break;
       case 'error': {
-        const message = payload.error?.message ?? 'stream error', code = providerCode(null, `${payload.error?.type ?? ''} ${message}`);
+        const message = payload.error?.message ?? 'stream error', code = providerCode(null, payload.error?.type);
         throw new ProviderError(message, null, !NON_RETRYABLE_CODES.has(code), code);
       }
       default: break;
@@ -269,6 +279,7 @@ export async function assembleStream(body) {
     flush();
     for (const index of partial.keys()) { blocks[index].input = plainObject(blocks[index].input) ? blocks[index].input : {}; blocks[index]._input_parse_error = 'the tool arguments were incomplete'; }
     if (!stop) throw malformed('the stream ended without a stop reason');
+    if (!ended || openBlocks.size) throw malformed('the stream ended without a complete message_stop');
     return { blocks: blocks.filter(Boolean), stop, usage };
   } catch (error) { error.usage = { ...usage, partial: true }; throw error; }
   finally { try { await reader.cancel(); } catch {} reader.releaseLock(); }
@@ -281,19 +292,10 @@ export function searchTool(mode, remaining) {
   if (mode === 'dynamic') return { type: 'web_search_20260209', name: 'web_search', max_uses };
   if (mode === 'direct') return { type: 'web_search_20260209', name: 'web_search', max_uses, allowed_callers: ['direct'] };
   if (mode === 'basic') return { type: 'web_search_20250305', name: 'web_search', max_uses };
-  if (mode === 'openrouter') return { type: 'openrouter:web_search', parameters: { max_uses } };
   return null;
 }
 
-export function sessionMetadata(sessionId) {
-  const hex = createHash('sha256').update(String(sessionId)).digest('hex').slice(0, 32).split('');
-  hex[12] = '4'; hex[16] = ((parseInt(hex[16], 16) & 3) | 8).toString(16);
-  const id = hex.join('');
-  return { user_id: JSON.stringify({ device_id: createHash('sha256').update('trinity').digest('hex'), account_uuid: '',
-    session_id: `${id.slice(0, 8)}-${id.slice(8, 12)}-${id.slice(12, 16)}-${id.slice(16, 20)}-${id.slice(20)}` }) };
-}
-
-export function requestBody(p, { system, turns, tools = [], searchMode = 'off', searchesRemaining = 0, maxTokens = 12000, toolChoice = null, sessionId = null, recovery = null }) {
+export function requestBody(p, { system, turns, tools = [], searchMode = 'off', searchesRemaining = 0, maxTokens = 12000, toolChoice = null, recovery = null }) {
   const search = searchMode === 'off' ? null : searchTool(searchMode, searchesRemaining);
   const toolList = [...(search ? [search] : []), ...tools.map(t => ({ name: t.name, description: t.description, input_schema: t.parameters }))];
   const messages = recovery ? publicServerToolMessages(toMessages(turns), { reissuePending: recovery.mode === 'reissue' }) : toMessages(turns);
@@ -301,8 +303,7 @@ export function requestBody(p, { system, turns, tools = [], searchMode = 'off', 
     messages: markCache(messages),
     ...(system ? { system: [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }] } : {}),
     ...(toolList.length ? { tools: toolList } : {}),
-    ...(toolList.length && toolChoice === 'required' && p.forcedToolChoice ? { tool_choice: { type: 'any' } } : {}),
-    ...(p.sessionAffinity && sessionId ? { metadata: sessionMetadata(sessionId) } : {}) };
+    ...(toolList.length && toolChoice === 'required' && p.forcedToolChoice ? { tool_choice: { type: 'any' } } : {}) };
 }
 
 export const requestHeaders = (p, apiKey) => ({ 'content-type': 'application/json', accept: 'text/event-stream', 'anthropic-version': p.apiVersion,
@@ -312,17 +313,17 @@ async function once(p, apiKey, body, signal) {
   const total = AbortSignal.timeout(TOTAL_MS);
   let res;
   try {
-    res = await fetch(`${p.baseUrl}/v1/messages`, { method: 'POST', signal: signal ? AbortSignal.any([signal, total]) : total, headers: requestHeaders(p, apiKey), body: JSON.stringify(body) });
+    res = await fetch(`${p.baseUrl}/v1/messages`, { method: 'POST', redirect: 'error', signal: signal ? AbortSignal.any([signal, total]) : total, headers: requestHeaders(p, apiKey), body: JSON.stringify(body) });
   } catch (error) {
     if (signal?.aborted) throw stopped();
-    throw new ProviderError(`transport: ${redact(error.message, apiKey)}`, null, true);
+    throw new ProviderError(`transport: ${redact(error.message, apiKey)}`, null, !/redirect/i.test(error.cause?.message ?? ''), /redirect/i.test(error.cause?.message ?? '') ? 'provider_redirect' : 'provider_error');
   }
   const requestId = res.headers?.get?.('request-id') ?? res.headers?.get?.('x-request-id') ?? null;
   if (res.status !== 200) {
-    const { raw, detail } = await providerDiagnostic(res, apiKey);
-    const code = providerCode(res.status, raw);
+    const { detail } = await providerDiagnostic(res, apiKey);
+    const code = providerCode(res.status);
     const error = new ProviderError(`Provider ${res.status}${detail ? ': ' + detail : ''}${requestId ? ` (request ${requestId})` : ''}`,
-      res.status, !NON_RETRYABLE_CODES.has(code) && (RETRY_STATUS.has(res.status) || code === 'provider_upstream'), code);
+      res.status, !NON_RETRYABLE_CODES.has(code) && (RETRY_STATUS.has(res.status) || res.status >= 500 && res.status <= 599), code);
     error.requestId = requestId;
     throw error;
   }
@@ -334,7 +335,7 @@ async function once(p, apiKey, body, signal) {
   const badCalls = blocks.filter(b => b.type === 'tool_use' && b._input_parse_error).map(b => ({ id: b.id, name: b.name, reason: b._input_parse_error }));
   return { requestId, assistantContent: publicAssistantContent(blocks), text: blocks.filter(b => b.type === 'text').map(b => b.text).join('\n'), toolCalls, badCalls,
     ...searchDiagnostics(blocks, usage),
-    usage: { input: usage.input_tokens ?? null, output: usage.output_tokens ?? null, cachedInput: usage.cache_read_input_tokens ?? null, cacheCreationInput: usage.cache_creation_input_tokens ?? null },
+    usage: { input: usage.input_tokens ?? null, output: usage.output_tokens ?? null, cachedInput: usage.cache_read_input_tokens ?? 0, cacheCreationInput: usage.cache_creation_input_tokens ?? 0 },
     stopReason: normaliseStop(stop), rawStopReason: stop };
 }
 
@@ -343,13 +344,13 @@ const sessionRecovery = new Map();
 const serverHistory = body => body.messages.some(m => m.role === 'assistant' && Array.isArray(m.content)
   && m.content.some(b => b.type === 'server_tool_use' || serverResult(b) || (Array.isArray(b.citations) && b.citations.length)));
 function nextRecovery(error, body, current) {
-  if (error?.status !== 400 || error.code === 'provider_quota' || !RECOVERABLE.test(error.message ?? '') || !serverHistory(body)) return null;
+  if (error?.status !== 400 || !RECOVERABLE.test(error.message ?? '') || !serverHistory(body)) return null;
   if (!current) return { mode: 'replay', reason: redact(error.message, null).slice(0, 200) };
   return current.mode === 'replay' ? { mode: 'reissue', reason: current.reason } : null;
 }
 
-export async function callModel({ profile = activeProviderId(), apiKey, system, turns, tools = [], searchEnabled = false, searchesRemaining = 0, maxTokens = 12000, signal, sessionId = null, toolChoice = null }) {
-  const p = resolveProfile(profile);
+export async function callModel({ profile = activeProviderId(), apiKey, system, turns, tools = [], searchEnabled = false, searchesRemaining = 0, maxTokens = 12000, signal, sessionId = null, toolChoice = null, budget = null, env = process.env }) {
+  const p = resolveProfile(profile, env);
   if (!apiKey) throw new ProviderConfigError(`missing API key for the ${p.id} provider`);
   if (toolChoice != null && toolChoice !== 'required') throw new Error('unsupported tool choice');
   let searchMode = searchEnabled && searchesRemaining > 0 ? p.webSearch : 'off';
@@ -362,8 +363,14 @@ export async function callModel({ profile = activeProviderId(), apiKey, system, 
   for (let failures = 0; ;) {
     if (signal?.aborted) throw attach(stopped());
     const startedAt = new Date().toISOString(), attemptId = randomUUID();
+    let reservation = null;
+    try {reservation = budget ? await budget.reserve({model:p.model,maxTokens:body.max_tokens,signal}) : null;}
+    catch (error) {throw attach(error);}
+    let settled = false;
+    const settle = usage => {if(reservation && !settled){settled=true;budget.settle(reservation,usage);}};
     try {
       const result = await once(p, apiKey, body, signal);
+      settle(result.usage);
       const record = { attemptId, startedAt, finishedAt: new Date().toISOString(), failed: false, requestId: result.requestId, usage: tokenUsage(result.usage) };
       const executionFailure = result.searchErrorDetails.find(error => CODE_EXECUTION_TOOL.test(error.tool));
       if (searchMode === 'dynamic' && !result.searchResults && executionFailure) {
@@ -376,6 +383,7 @@ export async function callModel({ profile = activeProviderId(), apiKey, system, 
       if (recovery && sessionId) sessionRecovery.set(sessionId, recovery);
       return attach(result);
     } catch (error) {
+      settle(error.usage);
       attemptRecords.push({ attemptId, startedAt, finishedAt: new Date().toISOString(), failed: true, requestId: error.requestId ?? null, usage: tokenUsage(error.usage) });
       if (signal?.aborted) throw attach(stopped());
       const next = nextRecovery(error, body, recovery);
@@ -390,7 +398,7 @@ export async function callModel({ profile = activeProviderId(), apiKey, system, 
 const searchHint = (state, errors, fallback) => fallback ? 'Dynamic filtering failed inside code execution and the request fell back to direct search; set TRINITY_WEB_SEARCH=direct to skip the failing step.'
   : state === 'answered' ? null
   : errors.some(code => code.includes(':')) ? 'Dynamic filtering failed inside code execution; set TRINITY_WEB_SEARCH=direct for this provider.'
-  : state === 'unavailable' ? 'The provider rejected the web search tool; try TRINITY_WEB_SEARCH=direct, basic or openrouter.'
+  : state === 'unavailable' ? 'The provider rejected the web search tool; try TRINITY_WEB_SEARCH=direct or basic.'
   : 'No usable search result came back; try another TRINITY_WEB_SEARCH mode for this provider.';
 
 export async function verifyProfile({ profile = activeProviderId(), apiKey, signal }) {
@@ -413,5 +421,5 @@ export async function verifyProfile({ profile = activeProviderId(), apiKey, sign
     search = { ok: false, state: 'unavailable', mode: p.webSearch, note: redact(error.message, apiKey), hint: searchHint('unavailable', [], null) };
   }
   return { provider: p.id, label: p.label, model: p.model, effort: p.effort, baseUrl: p.baseUrl, auth: p.auth, apiVersion: p.apiVersion, webSearch: p.webSearch,
-    sessionAffinity: p.sessionAffinity, reply: base.text.slice(0, 80), usage: base.usage, modelCalls, tokenAccounting: tokenSummary(modelCalls), search };
+    reply: base.text.slice(0, 80), usage: base.usage, modelCalls, tokenAccounting: tokenSummary(modelCalls), search };
 }

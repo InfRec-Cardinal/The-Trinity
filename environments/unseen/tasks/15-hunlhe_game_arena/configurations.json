@@ -1,0 +1,145 @@
+{
+  "taskId": "hunlhe_game_arena",
+  "configurations": [
+    {
+      "id": "episode-00",
+      "index": 0,
+      "pair": 0,
+      "label": "episode 0 · duplicate pair 0 · H0 player 0",
+      "ordinal": 0
+    },
+    {
+      "id": "episode-01",
+      "index": 1,
+      "pair": 0,
+      "label": "episode 1 · duplicate pair 0 · H0 player 1",
+      "ordinal": 1
+    },
+    {
+      "id": "episode-02",
+      "index": 2,
+      "pair": 1,
+      "label": "episode 2 · duplicate pair 1 · H0 player 0",
+      "ordinal": 2
+    },
+    {
+      "id": "episode-03",
+      "index": 3,
+      "pair": 1,
+      "label": "episode 3 · duplicate pair 1 · H0 player 1",
+      "ordinal": 3
+    },
+    {
+      "id": "episode-04",
+      "index": 4,
+      "pair": 2,
+      "label": "episode 4 · duplicate pair 2 · H0 player 0",
+      "ordinal": 4
+    },
+    {
+      "id": "episode-05",
+      "index": 5,
+      "pair": 2,
+      "label": "episode 5 · duplicate pair 2 · H0 player 1",
+      "ordinal": 5
+    },
+    {
+      "id": "episode-06",
+      "index": 6,
+      "pair": 3,
+      "label": "episode 6 · duplicate pair 3 · H0 player 0",
+      "ordinal": 6
+    },
+    {
+      "id": "episode-07",
+      "index": 7,
+      "pair": 3,
+      "label": "episode 7 · duplicate pair 3 · H0 player 1",
+      "ordinal": 7
+    },
+    {
+      "id": "episode-08",
+      "index": 8,
+      "pair": 4,
+      "label": "episode 8 · duplicate pair 4 · H0 player 0",
+      "ordinal": 8
+    },
+    {
+      "id": "episode-09",
+      "index": 9,
+      "pair": 4,
+      "label": "episode 9 · duplicate pair 4 · H0 player 1",
+      "ordinal": 9
+    },
+    {
+      "id": "episode-10",
+      "index": 10,
+      "pair": 5,
+      "label": "episode 10 · duplicate pair 5 · H0 player 0",
+      "ordinal": 10
+    },
+    {
+      "id": "episode-11",
+      "index": 11,
+      "pair": 5,
+      "label": "episode 11 · duplicate pair 5 · H0 player 1",
+      "ordinal": 11
+    },
+    {
+      "id": "episode-12",
+      "index": 12,
+      "pair": 6,
+      "label": "episode 12 · duplicate pair 6 · H0 player 0",
+      "ordinal": 12
+    },
+    {
+      "id": "episode-13",
+      "index": 13,
+      "pair": 6,
+      "label": "episode 13 · duplicate pair 6 · H0 player 1",
+      "ordinal": 13
+    },
+    {
+      "id": "episode-14",
+      "index": 14,
+      "pair": 7,
+      "label": "episode 14 · duplicate pair 7 · H0 player 0",
+      "ordinal": 14
+    },
+    {
+      "id": "episode-15",
+      "index": 15,
+      "pair": 7,
+      "label": "episode 15 · duplicate pair 7 · H0 player 1",
+      "ordinal": 15
+    },
+    {
+      "id": "episode-16",
+      "index": 16,
+      "pair": 8,
+      "label": "episode 16 · duplicate pair 8 · H0 player 0",
+      "ordinal": 16
+    },
+    {
+      "id": "episode-17",
+      "index": 17,
+      "pair": 8,
+      "label": "episode 17 · duplicate pair 8 · H0 player 1",
+      "ordinal": 17
+    },
+    {
+      "id": "episode-18",
+      "index": 18,
+      "pair": 9,
+      "label": "episode 18 · duplicate pair 9 · H0 player 0",
+      "ordinal": 18
+    },
+    {
+      "id": "episode-19",
+      "index": 19,
+      "pair": 9,
+      "label": "episode 19 · duplicate pair 9 · H0 player 1",
+      "ordinal": 19
+    }
+  ]
+}

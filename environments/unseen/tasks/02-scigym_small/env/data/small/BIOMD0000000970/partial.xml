@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1" level="3" version="1" layout:required="false" render:required="false">
+  <model id="id_1noa" substanceUnits="id_3ywo" timeUnits="id_d77q" volumeUnits="id_68qd" areaUnits="id_jg67" lengthUnits="id_zrq5" extentUnits="id_3ywo">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_zrq5">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_jg67">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_68qd">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_d77q">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_3ywo">
+        <listOfUnits>
+          <unit kind="item" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_87kj" spatialDimensions="3" size="1" units="id_68qd" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_8n7o" compartment="id_87kj" initialConcentration="11080778" substanceUnits="id_3ywo" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_caoz" compartment="id_87kj" initialConcentration="193" substanceUnits="id_3ywo" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_ty7g" compartment="id_87kj" initialConcentration="2" substanceUnits="id_3ywo" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="id_250q" compartment="id_87kj" initialConcentration="11081000" substanceUnits="id_3ywo" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="true"/>
+      <species id="id_1wsx" compartment="id_87kj" initialConcentration="27" substanceUnits="id_3ywo" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+  </model>
+</sbml>

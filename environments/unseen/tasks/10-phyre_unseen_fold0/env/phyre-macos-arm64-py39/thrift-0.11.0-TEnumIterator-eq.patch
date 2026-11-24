@@ -1,0 +1,19 @@
+--- src/thrift-0.11.0/lib/cpp/src/thrift/Thrift.h	2017-12-04 03:11:36
++++ thrift/include/thrift/Thrift.h	2026-10-03 01:23:57
+@@ -61,12 +61,15 @@
+ 
+   int operator++() { return ++ii_; }
+ 
+-  bool operator!=(const TEnumIterator& end) {
++  bool operator!=(const TEnumIterator& end) const {
+     THRIFT_UNUSED_VARIABLE(end);
+     assert(end.n_ == -1);
+     return (ii_ != n_);
+   }
+ 
++  // agent-B arm64 build compatibility (as in upstream thrift >= 0.13): libc++ range constructors also need ==.
++  bool operator==(const TEnumIterator& end) const { return !(*this != end); }
++
+   std::pair<int, const char*> operator*() const { return std::make_pair(enums_[ii_], names_[ii_]); }
+ 
+ private:

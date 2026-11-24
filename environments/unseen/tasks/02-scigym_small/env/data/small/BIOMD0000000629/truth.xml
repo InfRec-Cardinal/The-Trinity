@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_05v3">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_y676">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_q10m">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-6" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_satu" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_go1h" compartment="id_satu" initialConcentration="30" boundaryCondition="false" constant="false"/>
+      <species id="id_qmea" compartment="id_satu" initialConcentration="0.0035" boundaryCondition="false" constant="false"/>
+      <species id="id_sisb" compartment="id_satu" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_ymhf" compartment="id_satu" initialConcentration="0" boundaryCondition="false" constant="false"/>
+      <species id="id_3n5j" compartment="id_satu" initialConcentration="0.0005" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_guem" value="0.1"/>
+      <parameter id="id_2a7x" value="0.2"/>
+      <parameter id="id_gh3s" value="0.014"/>
+      <parameter id="id_z9gq" value="0.6"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_obxu" reversible="true">
+        <listOfReactants>
+          <speciesReference species="id_ymhf" stoichiometry="1"/>
+          <speciesReference species="id_go1h" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_sisb" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_satu </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_gh3s </ci>
+                  <ci> id_ymhf </ci>
+                  <ci> id_go1h </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_2a7x </ci>
+                  <ci> id_sisb </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_tucg" reversible="true">
+        <listOfReactants>
+          <speciesReference species="id_3n5j" stoichiometry="1"/>
+          <speciesReference species="id_qmea" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_ymhf" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> id_satu </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_z9gq </ci>
+                  <ci> id_3n5j </ci>
+                  <ci> id_qmea </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> id_guem </ci>
+                  <ci> id_ymhf </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

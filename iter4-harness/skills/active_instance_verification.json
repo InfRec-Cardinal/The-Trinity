@@ -1,0 +1,41 @@
+{
+  "taskId": "active_instance_verification",
+  "proposals": [
+    {
+      "id": "active_instance_verification",
+      "title": "Bind a visible identity before testing a description",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Before each native decision in this task, using only current public observations and earlier public feedback.",
+      "procedure": [
+        "The prerequisite visual module automatically supplies sourced enlargements of the entire anchor frame, or a labelled overview of a long delivered sequence. Read these images before deciding. They are the same pixels at a different scale, not extra observations; use source labels to prevent mixing people, body parts, or timeline positions. If an enlarged region conflicts with the query description, record the visible contradiction instead of copying the description into evidence.",
+        "For a claim about a small surface or construction feature, inspect an enlarged target region once before deciding. Do not fill the evidence form with the query wording unless that exact feature is actually visible. The enlarged region must include sufficient surrounding structure to confirm the same candidate.",
+        "When a distinguishing region in a delivered frame is small or ambiguous, use the selected module evidenceCommit through the branch tool in inspect_public_frame mode before committing. Supply the current obs-N, zero-based delivered frame index and a normalized bounding rectangle inferred from the CURRENT image. Choose the target and its attachment context together; compare with the full frame. This crops existing pixels only, never acquires a new view or verifies a visual claim. Do not use remembered positions.",
+        "Observe the candidate without completing the query in your imagination. Separate what the image resolves from what the description asks for. A requested pattern is not evidence that the pattern is visible.",
+        "Use broad category and shape to locate the candidate, then compare the most distinctive structural and surface attributes. Do not let a matching category or dominant colour erase a clearly contradictory distinctive feature. Conversely, an unresolved decorative adjective is not a visible mismatch.",
+        "For d evidence setup keep the actual query predicates, without inventing extra strictness. Record reliable matches, reliable contradictions and unresolved parts separately. The module verifies consistency and coverage, not visual truth; an allow verdict cannot certify an imagined observation.",
+        "Before a navigation action name the specific unresolved feature and predict which new viewpoint can reveal it. Use observation feedback to identify actual movement. If the view or sector did not change, do not repeat the same action expecting new evidence; choose another legal untried viewpoint while reserving the final answer.",
+        "Preserve clear early evidence across later views. Occlusion or a misleading preview can explain missing detail. Prefer the view where the discriminating part is largest and least occluded; compare the same entity and same part across views.",
+        "Commit to the best supported identity judgment. A clear distinctive mismatch is sufficient for no. A coherent match of distinguishing features with no reliable contradiction supports yes; weak resolution alone must not be converted into a definitive contradiction."
+      ],
+      "successSignals": [
+        "Native objective achieved; actual feedback agrees with the selected action."
+      ],
+      "failureSignals": [
+        "Action repeats a known failure or depends on an unverified observation or model."
+      ],
+      "recovery": [
+        "Re-read the actual public feedback, identify whether perception, model or execution was wrong, and revise only that assumption."
+      ],
+      "invariants": [
+        "No concrete object names, colour combinations, view sequence or case answers are stored.",
+        "Public observation text may establish a view warning; do not invent such warnings."
+      ],
+      "sourceGapIds": [
+        "policy-active_instance_verification"
+      ]
+    }
+  ]
+}

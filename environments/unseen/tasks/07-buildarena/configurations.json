@@ -1,0 +1,105 @@
+{
+ "taskId": "buildarena_1_0",
+ "source": "BuildArena-1.0/levels.yaml (official 9 tasks); 5 samples per task as decided for H0 (paper: 64)",
+ "configurations": [
+  {
+   "id": "transport_soft",
+   "category": "transport",
+   "level": "soft",
+   "samples": 5,
+   "construction": "run_h0.py --model h0-opus-5 --category transport --level soft --n_sample 5 --n_worker 5",
+   "simulationScene": "Barren Expanse sandbox (Free Build Mode on)",
+   "controlGenerations": 3,
+   "passRule": "analyze/sim_transport.py analyze_simulation_transport",
+   "recordingZoom": 3
+  },
+  {
+   "id": "transport_medium",
+   "category": "transport",
+   "level": "medium",
+   "samples": 5,
+   "construction": "run_h0.py --model h0-opus-5 --category transport --level medium --n_sample 5 --n_worker 5",
+   "simulationScene": "Barren Expanse sandbox (Free Build Mode on)",
+   "controlGenerations": 3,
+   "passRule": "analyze/sim_transport.py analyze_simulation_transport",
+   "recordingZoom": 3
+  },
+  {
+   "id": "transport_hard",
+   "category": "transport",
+   "level": "hard",
+   "samples": 5,
+   "construction": "run_h0.py --model h0-opus-5 --category transport --level hard --n_sample 5 --n_worker 5",
+   "simulationScene": "Barren Expanse sandbox (Free Build Mode on)",
+   "controlGenerations": 3,
+   "passRule": "analyze/sim_transport.py analyze_simulation_transport",
+   "recordingZoom": 3
+  },
+  {
+   "id": "support_soft",
+   "category": "support",
+   "level": "soft",
+   "samples": 5,
+   "construction": "run_h0.py --model h0-opus-5 --category support --level soft --n_sample 5 --n_worker 5",
+   "simulationScene": "official custom level support_soft.blv in the multiplayer Level Editor (Free Build Mode on)",
+   "controlGenerations": null,
+   "passRule": "analyze/sim_support.py analyze_simulation_support",
+   "recordingZoom": 6
+  },
+  {
+   "id": "support_medium",
+   "category": "support",
+   "level": "medium",
+   "samples": 5,
+   "construction": "run_h0.py --model h0-opus-5 --category support --level medium --n_sample 5 --n_worker 5",
+   "simulationScene": "official custom level support_medium.blv in the multiplayer Level Editor (Free Build Mode on)",
+   "controlGenerations": null,
+   "passRule": "analyze/sim_support.py analyze_simulation_support",
+   "recordingZoom": 5
+  },
+  {
+   "id": "support_hard",
+   "category": "support",
+   "level": "hard",
+   "samples": 5,
+   "construction": "run_h0.py --model h0-opus-5 --category support --level hard --n_sample 5 --n_worker 5",
+   "simulationScene": "official custom level support_hard.blv in the multiplayer Level Editor (Free Build Mode on)",
+   "controlGenerations": null,
+   "passRule": "analyze/sim_support.py analyze_simulation_support",
+   "recordingZoom": 3
+  },
+  {
+   "id": "lift_soft",
+   "category": "lift",
+   "level": "soft",
+   "samples": 5,
+   "construction": "run_h0.py --model h0-opus-5 --category lift --level soft --n_sample 5 --n_worker 5",
+   "simulationScene": "Barren Expanse sandbox (Free Build Mode on)",
+   "controlGenerations": null,
+   "passRule": "analyze/sim_lift.py analyze_simulation_lift",
+   "recordingZoom": 6
+  },
+  {
+   "id": "lift_medium",
+   "category": "lift",
+   "level": "medium",
+   "samples": 5,
+   "construction": "run_h0.py --model h0-opus-5 --category lift --level medium --n_sample 5 --n_worker 5",
+   "simulationScene": "Barren Expanse sandbox (Free Build Mode on)",
+   "controlGenerations": null,
+   "passRule": "analyze/sim_lift.py analyze_simulation_lift",
+   "recordingZoom": 3
+  },
+  {
+   "id": "lift_hard",
+   "category": "lift",
+   "level": "hard",
+   "samples": 5,
+   "construction": "run_h0.py --model h0-opus-5 --category lift --level hard --n_sample 5 --n_worker 5",
+   "simulationScene": "Barren Expanse sandbox (Free Build Mode on)",
+   "controlGenerations": null,
+   "passRule": "analyze/sim_lift.py analyze_simulation_lift",
+   "recordingZoom": 3
+  }
+ ]
+}

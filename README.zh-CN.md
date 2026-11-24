@@ -47,16 +47,9 @@
 
 ## 🔥 最新动态!!
 
+- **2026-11-24** · 🔥 [v2 完整开源](https://github.com/InfRec-Cardinal/The-Trinity/releases/tag/v2)，本次公开 Trinity Studio、可运行的 iter4 Harness、能力感知 Harness Router、34 项基准集成和 44 个内置仿真关卡实例。此前的代码版本见 [v1](https://github.com/InfRec-Cardinal/The-Trinity/releases/tag/v1)。
 - **2026-10-30：** 🔥 代码已发布！
 - **2026-10-26：** 🤗 论文发布！The Trinity 曾登顶 [Hugging Face Daily Papers](https://huggingface.co/papers/2610.36077)（**#1**）。
-
-## 📑 开源计划
-
-1. [x] 发布代码。
-2. [ ] 发布仿真环境。
-3. [ ] 发布 Harness。
-4. [ ] 发布 Router。
-5. [ ] 准备 [Demo 网站](#try-and-play)。
 
 ## 📖 项目介绍
 
@@ -74,31 +67,35 @@
 
 ## 🕹️ 体验 The Trinity！
 
-我们正在准备交互式 Demo 网站，用于阶段性测试，帮助大家通过实际体验更好地理解 The Trinity 的工作方式。
+在本地启动 Trinity Studio，即可创建和预览关卡、查看能力树并回放运行过程。[快速开始](START-HERE.md)
 
 ## 🗂️ 代码结构与发布范围
 
-本仓库包含任务发现与划分、轨迹分析与能力归纳、Creator–Explorer–Evolver 演化、Harness 路由，以及相关提示词和配置。
+本次发布包含任务发现与划分、轨迹分析与能力归纳、Creator–Explorer–Evolver 演化、Harness 路由，以及相关提示词和配置。各基准的运行依赖和外部资源按需安装。
 
 ```text
 cli.mjs                统一命令行入口
-config/                模型服务配置
+config/providers.json  v1 服务预设，可显式加载
 pipeline/              Stage 1：任务发现、审查、划分与导出
 stage2/                Stage 2：轨迹分析、能力归纳与能力树
 harness/               世界生成、模块演化、验证与路由
 src/                   阶段集成与用量汇总
+environments/          34 项基准的任务定义、驱动、判分与资源清单
+iter4-harness/         由随包源码构建的可运行 Harness
+level-api-44/          44 个内置课程实例及本地渲染 API
+trinity-studio/        用于关卡设计、学习与回放的本地 Web 界面
 assets/                项目标识与概览图
 paper/                 技术报告
 ```
 
 ## 🛠️ 环境要求
 
-- **Node.js 22 或更新版本**。JavaScript 部分仅使用 Node.js 内置模块，无需安装 npm 第三方依赖。
-- **Python 3.10 或更新版本**。Stage 2 声明依赖 `anthropic>=1.0`，使用 setuptools 构建。
+- **Node.js 22 或更新版本**。核心 CLI 使用 Node.js 内置模块。Studio 和 Level API 需要 Playwright 与 Chromium。[浏览器安装](START-HERE.md)
+- **Python 3.10 或更新版本**。Stage 2 依赖 `anthropic>=2.0,<3`，使用 setuptools 构建。
 - 可用的模型服务账号、密钥及网络连接。Stage 1 的任务发现还需要服务支持相应的搜索能力。
 - 完整 Creator 训练需要 **Linux、`/bin/bash`、位于 `/usr/bin/bwrap` 的 Bubblewrap 及可用的用户命名空间**。WSL 环境同样需要满足这些条件。
 - 提取 PDF 来源证据需要 `pdftotext`，或安装了 `pypdf` 的 Python；扫描版 PDF 需要另行进行 OCR。
-- 与目标任务匹配的环境驱动及其运行依赖。
+- 各基准所需的软件、数据和访问权限。经过测试的 Linux x86-64 依赖见[运行时清单](environments/runtime-dependencies.json)。
 
 ## 🚀 安装
 
@@ -114,7 +111,7 @@ export TRINITY_PYTHON="$PWD/.venv/bin/python"
 node cli.mjs stage2 --help
 ```
 
-请保留完整仓库目录结构。Stage 2 会读取相邻的 `config/` 和 `harness/`，可编辑安装适合这一使用方式。
+请保留完整仓库目录结构，便于核心 CLI 联动 Stage 2 和 Harness。Studio 和基准的安装步骤见[快速开始](START-HERE.md)。
 
 设置模型服务。请将占位值替换为账号实际可用的模型和服务支持的 API 版本：
 
@@ -137,6 +134,8 @@ node cli.mjs stage2 --help
 完整 Creator 训练仍需要满足上面的 Linux 运行条件。
 
 ## 🧭 使用流程
+
+运行随包基准时，可先用 `node iter4-harness/run.mjs --list-tasks` 查看任务，按[快速开始](START-HERE.md)准备所需资源。以下流程演示通过自定义[环境适配器](#environment-adapter)开展探索和训练。
 
 ### 1. 发现任务并导出划分
 
@@ -210,6 +209,8 @@ node cli.mjs metrics runs/explore-train runs/train runs/route
 
 这一分析沿用训练时固定的能力目录。训练绑定的任务划分、能力目录及训练分配必须保持不变；旧的未见任务轨迹不能绕过训练完成验证。实现见 [Stage 2 CLI](stage2/trinity_stage2/cli.py) 和 [训练协议验证](harness/src/protocol-state.mjs)。
 
+<a id="environment-adapter"></a>
+
 ## 🔌 环境适配器
 
 自行创建 `local/adapter.json`，最小配置如下。该 JSON 只负责连接你实现的驱动，不能独立提供运行环境：
@@ -242,7 +243,7 @@ node cli.mjs metrics runs/explore-train runs/train runs/route
 
 ## ⚙️ 配置与产物
 
-模型服务预设位于 [config/providers.json](config/providers.json)。支持的配置标识为 `anthropic`、`packy`、`openrouter`、`geili`、`custom`，对应的密钥变量分别为 `ANTHROPIC_API_KEY`、`PACKY_API_KEY`、`OPENROUTER_API_KEY`、`GEILI_API_KEY`、`TRINITY_API_KEY`。
+v2 默认读取 [stage2/trinity_stage2/providers.json](stage2/trinity_stage2/providers.json)，包含 `anthropic` 和 `custom`，对应的密钥变量为 `ANTHROPIC_API_KEY` 和 `TRINITY_API_KEY`。[v1 的服务预设](config/providers.json)仍可通过 `TRINITY_PROVIDERS_FILE` 显式加载。请选用 v2 和服务端均支持的传输与搜索模式。
 
 | 环境变量 | 用途 |
 | --- | --- |
@@ -297,7 +298,7 @@ The Trinity Research Team, 2026.
 
 ## 📄 许可证
 
-本项目源代码采用 [MIT 许可证](LICENSE)。外部基准、数据集与模型服务的使用须遵循各自的许可和条款。
+Trinity 自有源代码采用 [MIT 许可证](LICENSE)。第三方代码、基准材料、数据集和依赖仍遵循各自的许可与条款。[第三方许可与声明](THIRD-PARTY.md)
 
 ## ⭐ Star 增长曲线
 

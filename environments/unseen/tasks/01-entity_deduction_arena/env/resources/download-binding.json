@@ -1,0 +1,9 @@
+{
+  "source": "official Apple repository",
+  "commit": "653aaa9b033897c936ae72d5fac1c2f85ff1d2a9",
+  "url": "https://codeload.github.com/apple-aiml-research/ml-entity-deduction-arena/zip/653aaa9b033897c936ae72d5fac1c2f85ff1d2a9",
+  "sha256": "4a4bc76384d0cb59372e33cf23cadc80657d973accadbcf1d6e83296a7b7fe48",
+  "bytes": 4996727,
+  "packagedSource": "source",
+  "note": "URL and digest describe the upstream archive, not a second file in this distribution."
+}

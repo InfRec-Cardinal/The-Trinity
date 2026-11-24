@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_trya">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_o7sp">
+        <listOfUnits>
+          <unit kind="item"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_4dqy" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_hll8" compartment="id_4dqy" initialAmount="1000" hasOnlySubstanceUnits="true"/>
+      <species id="id_mepg" compartment="id_4dqy" initialAmount="0" hasOnlySubstanceUnits="true"/>
+      <species id="id_uzwd" compartment="id_4dqy" initialAmount="1" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="true"/>
+      <species id="id_xzjj" compartment="id_4dqy" initialAmount="1" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="true"/>
+      <species id="id_ifij" compartment="id_4dqy" initialAmount="0" hasOnlySubstanceUnits="true"/>
+      <species id="id_y8vc" compartment="id_4dqy" initialAmount="0" hasOnlySubstanceUnits="true"/>
+    </listOfSpecies>
+  </model>
+</sbml>

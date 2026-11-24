@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "taskId": "codenames_ai_competition",
+  "note": "Informational source provenance, refreshed native seeded instances; no historical run identity claims.",
+  "upstream": {
+    "framework": {
+      "repo": "https://github.com/stepmat/Codenames_GPT",
+      "commit": "f13d9fcbc6264124f24dc0c41b20255526c9fce4",
+      "files": [
+        "codenames_gpt/game.py",
+        "codenames_gpt/players/codemaster.py",
+        "codenames_gpt/players/guesser.py",
+        "codenames_gpt/players/cm_wordlist.txt"
+      ]
+    },
+    "partner": {
+      "repo": "https://github.com/CodenamesAICompetition/Game",
+      "commit": "1116940767d8e82c339067ef8f522e43e81fdcef",
+      "file": "original/players/guesser_glove.py"
+    },
+    "glove": {
+      "source": "https://nlp.stanford.edu/projects/glove/",
+      "vectors": [
+        "glove.6B.100d.f64.npy",
+        "glove.6B.50d.f64.npy"
+      ],
+      "vocab": "glove.6B.100d.vocab.json",
+      "location": "data/glove (copied from existing local exact-float64 cache)"
+    }
+  },
+  "python": {
+    "envName": "agentb-codenames-ai-competition-venv",
+    "version": "3.11",
+    "requirements": "requirements/agentb-codenames-ai-competition-venv.txt"
+  },
+  "instances": [
+    {
+      "ordinal": 0,
+      "seed": 101,
+      "partner": "glove_100d",
+      "singleTeam": true,
+      "clueBudget": 25,
+      "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+    },
+    {
+      "ordinal": 1,
+      "seed": 102,
+      "partner": "glove_50d",
+      "singleTeam": true,
+      "clueBudget": 25,
+      "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+    },
+    {
+      "ordinal": 2,
+      "seed": 103,
+      "partner": "glove_100d",
+      "singleTeam": true,
+      "clueBudget": 25,
+      "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+    },
+    {
+      "ordinal": 3,
+      "seed": 104,
+      "partner": "glove_100d",
+      "singleTeam": true,
+      "clueBudget": 25,
+      "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+    },
+    {
+      "ordinal": 4,
+      "seed": 105,
+      "partner": "glove_50d",
+      "singleTeam": true,
+      "clueBudget": 25,
+      "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+    },
+    {
+      "ordinal": 5,
+      "seed": 106,
+      "partner": "glove_100d",
+      "singleTeam": true,
+      "clueBudget": 25,
+      "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+    },
+    {
+      "ordinal": 6,
+      "seed": 107,
+      "partner": "glove_100d",
+      "singleTeam": true,
+      "clueBudget": 25,
+      "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+    },
+    {
+      "ordinal": 7,
+      "seed": 108,
+      "partner": "glove_50d",
+      "singleTeam": true,
+      "clueBudget": 25,
+      "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+    },
+    {
+      "ordinal": 8,
+      "seed": 109,
+      "partner": "glove_100d",
+      "singleTeam": true,
+      "clueBudget": 25,
+      "framework": "f13d9fcbc6264124f24dc0c41b20255526c9fce4"
+    }
+  ]
+}

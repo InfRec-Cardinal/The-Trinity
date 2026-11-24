@@ -1,0 +1,51 @@
+{
+ "taskId": "video_index_meta_benchmark",
+ "name": "Video-Index",
+ "fullName": "Video-Index: official multiple-choice video understanding",
+ "kind": "anchor",
+ "taxonomy": {
+  "domainId": "D3",
+  "domainName": "Perception, Navigation & Control",
+  "subCategoryId": "D3.4",
+  "subCategoryName": "Video Understanding"
+ },
+ "assignment": {
+  "task": "Answer one official video_index_meta_benchmark question from the full selected train suite.",
+  "observation": "The current original MP4 is decoded by the H0 video input module into ordered RGB frames. No reference answer, subtitles, audio, other questions or past verdicts are shown.",
+  "actions": {
+   "submit_action": "Choose exactly one letter from the displayed options."
+  },
+  "evaluation": {
+   "success": "The letter matches the official answer key.",
+   "budget": "One response per independent question."
+  }
+ },
+ "player": {
+  "model": "claude-opus-5",
+  "thinking": {
+   "type": "adaptive",
+   "effort": "low",
+   "display": "omitted"
+  },
+  "maxResponseTokens": 16384,
+  "publicHistoryTurns": 64
+ },
+ "evaluation": {
+  "items": 777,
+  "independentItems": true,
+  "actionBudget": 1
+ },
+ "otherModels": [],
+ "frameInput": {
+  "frames": 16,
+  "maxEdge": 512,
+  "audio": false,
+  "subtitles": false
+ },
+ "driver": "driver.mjs",
+ "configurations": "configurations.json",
+ "items": "items.json",
+ "notes": [
+  "Items and answer keys are in items.json: never show the answer to the player."
+ ]
+}

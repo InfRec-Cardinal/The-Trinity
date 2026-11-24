@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "taskId": "among_us_deception_sandbox",
+  "note": "Informational source provenance, refreshed native seeded instances; no historical run identity claims.",
+  "upstream": {
+    "repo": "https://github.com/7vik/AmongUs",
+    "commit": "e4ea002a3617b7d78362e053ab58d37a07abe214",
+    "package": "amongagents",
+    "gameConfig": "SEVEN_MEMBER_GAME",
+    "license": "vendor/among-us/LICENSE"
+  },
+  "python": {
+    "envName": "agentb-among-us-deception-sandbox-venv",
+    "version": "3.11",
+    "requirements": "requirements/agentb-among-us-deception-sandbox-venv.txt"
+  },
+  "instances": [
+    {
+      "ordinal": 0,
+      "seed": 101,
+      "seat": 0,
+      "gameConfig": "SEVEN_MEMBER_GAME",
+      "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+      "opponents": "agentb-seeded-heuristic-v1"
+    },
+    {
+      "ordinal": 1,
+      "seed": 102,
+      "seat": 2,
+      "gameConfig": "SEVEN_MEMBER_GAME",
+      "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+      "opponents": "agentb-seeded-heuristic-v1"
+    },
+    {
+      "ordinal": 2,
+      "seed": 103,
+      "seat": 3,
+      "gameConfig": "SEVEN_MEMBER_GAME",
+      "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+      "opponents": "agentb-seeded-heuristic-v1"
+    },
+    {
+      "ordinal": 3,
+      "seed": 104,
+      "seat": 0,
+      "gameConfig": "SEVEN_MEMBER_GAME",
+      "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+      "opponents": "agentb-seeded-heuristic-v1"
+    },
+    {
+      "ordinal": 4,
+      "seed": 105,
+      "seat": 2,
+      "gameConfig": "SEVEN_MEMBER_GAME",
+      "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+      "opponents": "agentb-seeded-heuristic-v1"
+    },
+    {
+      "ordinal": 5,
+      "seed": 106,
+      "seat": 3,
+      "gameConfig": "SEVEN_MEMBER_GAME",
+      "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+      "opponents": "agentb-seeded-heuristic-v1"
+    },
+    {
+      "ordinal": 6,
+      "seed": 107,
+      "seat": 0,
+      "gameConfig": "SEVEN_MEMBER_GAME",
+      "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+      "opponents": "agentb-seeded-heuristic-v1"
+    },
+    {
+      "ordinal": 7,
+      "seed": 108,
+      "seat": 2,
+      "gameConfig": "SEVEN_MEMBER_GAME",
+      "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+      "opponents": "agentb-seeded-heuristic-v1"
+    },
+    {
+      "ordinal": 8,
+      "seed": 109,
+      "seat": 3,
+      "gameConfig": "SEVEN_MEMBER_GAME",
+      "source": "7vik/AmongUs@e4ea002a3617b7d78362e053ab58d37a07abe214",
+      "opponents": "agentb-seeded-heuristic-v1"
+    }
+  ],
+  "opponents": "agentb-seeded-heuristic-v1 (six non-Player seats; deterministic seeded policies, not the pinned LLM pool)"
+}

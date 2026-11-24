@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_q4ga">
+    <listOfCompartments>
+      <compartment id="id_o0va" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_dlm5" compartment="id_o0va" initialConcentration="0"/>
+      <species id="id_v9bo" compartment="id_o0va" initialConcentration="100" boundaryCondition="true" constant="true"/>
+      <species id="id_acno" compartment="id_o0va" initialConcentration="0"/>
+      <species id="id_wgvc" compartment="id_o0va" initialConcentration="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="id_j3h0" value="0.044"/>
+      <parameter id="id_gohy" value="100"/>
+      <parameter id="id_zli3" value="0.76"/>
+      <parameter id="id_22on" value="0.0004"/>
+      <parameter id="id_4rja" value="0.041"/>
+      <parameter id="id_5sgk" value="9"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="id_m2hl">
+        <listOfReactants>
+          <speciesReference species="id_wgvc"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_acno"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_acno"/>
+          <modifierSpeciesReference species="id_wgvc"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_5sgk </ci>
+                  <ci> id_acno </ci>
+                </apply>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_zli3 </ci>
+                  <ci> id_wgvc </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <ci> id_acno </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_j5kz">
+        <listOfReactants>
+          <speciesReference species="id_wgvc"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_dlm5"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_acno"/>
+          <modifierSpeciesReference species="id_dlm5"/>
+          <modifierSpeciesReference species="id_wgvc"/>
+          <modifierSpeciesReference species="id_acno"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> id_4rja </ci>
+                  <ci> id_dlm5 </ci>
+                </apply>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> id_22on </ci>
+                  <ci> id_wgvc </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <ci> id_acno </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="id_82ul">
+        <listOfReactants>
+          <speciesReference species="id_v9bo"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="id_wgvc"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="id_v9bo"/>
+          <modifierSpeciesReference species="id_wgvc"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> id_v9bo </ci>
+                <ci> id_gohy </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> id_j3h0 </ci>
+                <ci> id_wgvc </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

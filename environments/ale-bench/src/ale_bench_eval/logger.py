@@ -1,0 +1,161 @@
+import base64
+import datetime
+import json
+import logging
+import os
+from decimal import Decimal
+from pathlib import Path
+from typing import Any, Final
+from uuid import uuid4
+
+from pydantic import BaseModel
+from pydantic_ai.run import AgentRunResult
+
+from ale_bench.constants import ALLOW_SCORE_NON_AC_PRIVATE
+from ale_bench.result import CaseResult, ResourceUsage, Result as AleBenchResult
+from ale_bench.schemas import ResultSerializable as AleBenchResultSerializable
+
+UTC: Final[datetime.tzinfo] = getattr(datetime, "UTC", datetime.timezone.utc)
+
+
+def get_now_utc() -> datetime.datetime:
+    return datetime.datetime.now(tz=UTC)
+
+
+def get_now_utc_string() -> str:
+    return get_now_utc().strftime("%Y-%m-%d_%H-%M-%S")
+
+
+class CustomJSONDecoder(json.JSONDecoder):
+    def __init__(self) -> None:
+        super().__init__(object_hook=self.object_hook)
+
+    def object_hook(self, obj: object) -> object:
+        match obj:
+            case {"__type__": "bytes", "encoding": "base64", "data": str(data)}:
+                return base64.b64decode(data)
+            case {"__type__": "datetime", "data": str(data)}:
+                return datetime.datetime.fromisoformat(data)
+            case {"__type__": "decimal", "data": str(data)}:
+                return Decimal(data)
+        return obj
+
+
+class Logger:
+    def __init__(self, path_to_log: str, problem_id: str = "") -> None:
+        base_logger = logging.getLogger(__name__ + "_" + problem_id)
+        if not base_logger.handlers:
+            base_logger.setLevel(logging.INFO)
+
+            formatter = logging.Formatter(
+                "%(asctime)s - %(problem_id)s - %(levelname)s - %(message)s",
+                datefmt="%Y-%m-%d %H:%M:%S",
+            )
+
+            file_handler = logging.FileHandler(path_to_log)
+            file_handler.setFormatter(formatter)
+            base_logger.addHandler(file_handler)
+
+            console_handler = logging.StreamHandler()
+            console_handler.setFormatter(formatter)
+            base_logger.addHandler(console_handler)
+
+            base_logger.propagate = False
+
+        self.logger = logging.LoggerAdapter(base_logger, {"problem_id": problem_id})
+
+    def info(self, message: object, *args: object) -> None:
+        self.logger.info(message, *args)
+
+    def warning(self, message: object, *args: object) -> None:
+        self.logger.warning(message, *args)
+
+    def error(self, message: object, *args: object) -> None:
+        self.logger.error(message, *args)
+
+    def exception(self, message: object, *args: object) -> None:
+        self.logger.exception(message, *args)                
+
+
+                                                                                       
+class AgentRunResultWrapper(BaseModel):
+    value: AgentRunResult
+
+
+def atomic_json_dump(path: Path, data: object) -> None:
+    pass                                                             
+    tmp_path = path.with_name(f".{path.name}.{uuid4().hex[:12]}.tmp")
+    try:
+        with tmp_path.open("w") as f:
+            json.dump(data, f)
+            f.flush()
+            os.fsync(f.fileno())
+        tmp_path.replace(path)
+    finally:
+        if tmp_path.exists():
+            tmp_path.unlink()
+
+
+class SaveInfo:
+    def __init__(self, model_name: str, problem_id: str, root_path: Path | None = None) -> None:
+        self.problem_id = problem_id
+        if root_path is None:
+            self.problem_root = Path.cwd() / f"results/{model_name}_{get_now_utc_string()}" / problem_id
+        else:
+            self.problem_root = root_path / problem_id
+        self.problem_root.mkdir(parents=True, exist_ok=True)
+        self.conversations = self.problem_root / "conversations"
+        self.conversations.mkdir(parents=True, exist_ok=True)
+        self.results = self.problem_root / "results"
+        self.results.mkdir(parents=True, exist_ok=True)
+        self.ale_bench_results = self.problem_root / "ale_bench_results"
+        self.ale_bench_results.mkdir(parents=True, exist_ok=True)
+        self.logger = Logger(str(self.problem_root / "logs.txt"), problem_id=problem_id)
+
+    def save_conversations(self, filename: str, agent_run_result: AgentRunResult) -> None:
+        pass                                  
+        data = AgentRunResultWrapper(value=agent_run_result).model_dump(mode="json", round_trip=True)["value"]
+        atomic_json_dump(
+            self.conversations / filename,
+            data,
+        )
+
+    def load_conversations(self, filename: str) -> AgentRunResult:
+        pass                                    
+        with (self.conversations / filename).open() as f:
+            data = json.load(f, cls=CustomJSONDecoder)
+        return AgentRunResultWrapper.model_validate({"value": data}).value
+
+    def save_results(self, filename: str, results: dict[str, Any]) -> None:
+        pass                            
+        atomic_json_dump(self.results / filename, results)
+
+    def load_results(self, filename: str) -> dict[str, Any]:
+        pass                              
+        with (self.results / filename).open() as f:
+            result = json.load(f)
+        if not isinstance(result, dict):
+            msg = f"Invalid result format: {type(result)}"
+            raise TypeError(msg)
+        return result
+
+    def save_ale_bench_results(self, filename: str, results: AleBenchResult) -> None:
+        pass                            
+        serialized_results = AleBenchResultSerializable.from_result(
+            AleBenchResult(
+                allow_score_non_ac=self.problem_id in ALLOW_SCORE_NON_AC_PRIVATE,
+                resource_usage=results.resource_usage,
+                case_results=results.case_results,
+            )
+        )
+        atomic_json_dump(self.ale_bench_results / filename, serialized_results.model_dump())
+
+    def load_ale_bench_results(self, filename: str) -> AleBenchResult:
+        pass                              
+        with (self.ale_bench_results / filename).open() as f:
+            ale_bench_result = json.load(f)
+        return AleBenchResult(
+            allow_score_non_ac=self.problem_id in ALLOW_SCORE_NON_AC_PRIVATE,
+            resource_usage=ResourceUsage(**ale_bench_result["resource_usage"]),
+            case_results=[CaseResult(**case_result) for case_result in ale_bench_result["case_results"]],
+        )

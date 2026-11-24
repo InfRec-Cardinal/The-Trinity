@@ -1,0 +1,7 @@
+num_evals: 10
+env_name: survival
+goal_name: direct
+com_limit: 200
+env_params:
+  num_patients: 100
+  time_upper_bound: 10

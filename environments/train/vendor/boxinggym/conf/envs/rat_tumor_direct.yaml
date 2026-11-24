@@ -1,0 +1,8 @@
+num_evals: 10
+env_name: rat_tumor
+goal_name: direct
+com_limit: 200
+env_params:
+  alpha: 0.15
+  beta: 0.15
+  max_num_rats: 100

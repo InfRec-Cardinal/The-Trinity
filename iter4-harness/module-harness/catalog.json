@@ -1,0 +1,592 @@
+{
+  "harnessId": "iter4-current",
+  "nodes": [
+    {
+      "node": "a",
+      "moduleId": "evidenceDiagnosis",
+      "entry": "modules/evidenceDiagnosis.mjs",
+      "required": [
+        "observations"
+      ],
+      "inputModes": {
+        "scalar_threshold": {
+          "required": [
+            "observations"
+          ],
+          "publicInputContract": "public-object-v1"
+        },
+        "evidence_ledger": {
+          "required": [
+            "observations"
+          ]
+        }
+      },
+      "defaultInputMode": "evidence_ledger",
+      "title": "Object evidence and classification",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "perception-v1"
+    },
+    {
+      "node": "a",
+      "moduleId": "inspectionTransaction",
+      "entry": "modules/inspectionTransaction.mjs",
+      "required": [
+        "entities",
+        "observations",
+        "rules",
+        "stations",
+        "budget"
+      ],
+      "title": "Inspection coverage and report transactions",
+      "publicInputContract": "perception-v1"
+    },
+    {
+      "node": "a",
+      "moduleId": "crossViewBinding",
+      "entry": "modules/crossViewBinding.mjs",
+      "required": [
+        "entities",
+        "frames",
+        "rules"
+      ],
+      "title": "Cross-view identity binding",
+      "publicInputContract": "perception-v1"
+    },
+    {
+      "node": "b",
+      "moduleId": "paritySignalChoice",
+      "entry": "modules/paritySignalChoice.mjs",
+      "required": [
+        "base",
+        "archives",
+        "history",
+        "total",
+        "t",
+        "signal",
+        "roundsRemaining"
+      ],
+      "title": "Parity and signal selection",
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "The b helpers apply ONLY to an explicitly supplied public three-component allocation model with its 24-hypothesis transform family. base is a three-number vector; t and signal are observed integers; history/archives describe public observations. Never invent this model for a word game or a card game. If the public environment does not define this family, these helpers are inapplicable."
+    },
+    {
+      "node": "b",
+      "moduleId": "endogenousSignalPolicy",
+      "entry": "modules/endogenousSignalPolicy.mjs",
+      "required": [
+        "base",
+        "archives",
+        "history",
+        "total",
+        "t",
+        "signal",
+        "roundsRemaining",
+        "winsSoFar",
+        "requiredWins"
+      ],
+      "title": "Endogenous signal policy",
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "The b helpers apply ONLY to an explicitly supplied public three-component allocation model with its 24-hypothesis transform family. base is a three-number vector; t and signal are observed integers; history/archives describe public observations. Never invent this model for a word game or a card game. If the public environment does not define this family, these helpers are inapplicable."
+    },
+    {
+      "node": "b",
+      "moduleId": "opponentDecision",
+      "entry": "modules/opponentDecision.mjs",
+      "required": [
+        "base",
+        "t",
+        "signal"
+      ],
+      "inputModes": {
+        "node_model": {
+          "required": [
+            "base",
+            "t",
+            "signal"
+          ]
+        },
+        "resource_contest": {
+          "required": [
+            "total",
+            "fields",
+            "observations"
+          ]
+        },
+        "consequence_matrix": {
+          "required": [
+            "models",
+            "candidates"
+          ]
+        },
+        "semantic_signal": {
+          "required": [
+            "items",
+            "source"
+          ]
+        },
+        "cooperative_forecast": {
+          "required": [
+            "source",
+            "hands",
+            "progress",
+            "inventory",
+            "legal",
+            "life",
+            "info"
+          ]
+        }
+      },
+      "defaultInputMode": "node_model",
+      "title": "Opponent and public decision models",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "The b helpers apply ONLY to an explicitly supplied public three-component allocation model with its 24-hypothesis transform family. base is a three-number vector; t and signal are observed integers; history/archives describe public observations. Never invent this model for a word game or a card game. If the public environment does not define this family, these helpers are inapplicable."
+    },
+    {
+      "node": "c",
+      "moduleId": "gateSchedule",
+      "entry": "modules/gateSchedule.mjs",
+      "required": [
+        "config",
+        "budget"
+      ],
+      "inputModes": {
+        "gate": {
+          "required": [
+            "config",
+            "budget"
+          ]
+        },
+        "grid_push": {
+          "required": [
+            "grid",
+            "glyphs",
+            "goalMode",
+            "budget"
+          ]
+        },
+        "reversible_permutation": {
+          "required": [
+            "state",
+            "goal",
+            "operators"
+          ]
+        },
+        "constraint_audit": {
+          "required": [
+            "text",
+            "constraints"
+          ]
+        }
+      },
+      "defaultInputMode": "gate",
+      "title": "Gate scheduling and action planning",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "GateSchedule mode:reversible_permutation accepts state:[labels], goal:[labels], operators:[{id,permutation:[destinationIndexForEachSourceSlot]}], maxDepth and maxStates. It plans only under those supplied public bijections, returns a verified path or bounded-search unknown. GateSchedule additionally supports mode:grid_push with grid:[equal-width strings], glyphs:{wall,floor,box,goal,player,boxOnGoal?,playerOnGoal?} (each is the public character or set of characters), goalMode:consume|occupy, budget. Use ONLY if native public rules define an orthogonal push-only grid. It computes a full native-direction plan and rejects deadlock pushes using supplied geometry; inspect each successor. Unknown cells stay blocked. The original GateSchedule/returnViability modes apply ONLY to a public two-track gate model. config={length,aGates,bGates,aCargo,bCargo}, state={a,b,pa,pb}, proposed={da,db}, budget is remaining public actions. Do not pretend that chess or continuous physics uses this transition model."
+    },
+    {
+      "node": "c",
+      "moduleId": "returnViability",
+      "entry": "modules/returnViability.mjs",
+      "required": [
+        "config",
+        "state",
+        "budget"
+      ],
+      "title": "Return viability",
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "GateSchedule mode:reversible_permutation accepts state:[labels], goal:[labels], operators:[{id,permutation:[destinationIndexForEachSourceSlot]}], maxDepth and maxStates. It plans only under those supplied public bijections, returns a verified path or bounded-search unknown. GateSchedule additionally supports mode:grid_push with grid:[equal-width strings], glyphs:{wall,floor,box,goal,player,boxOnGoal?,playerOnGoal?} (each is the public character or set of characters), goalMode:consume|occupy, budget. Use ONLY if native public rules define an orthogonal push-only grid. It computes a full native-direction plan and rejects deadlock pushes using supplied geometry; inspect each successor. Unknown cells stay blocked. The original GateSchedule/returnViability modes apply ONLY to a public two-track gate model. config={length,aGates,bGates,aCargo,bCargo}, state={a,b,pa,pb}, proposed={da,db}, budget is remaining public actions. Do not pretend that chess or continuous physics uses this transition model."
+    },
+    {
+      "node": "c-a",
+      "moduleId": "identityOrderJoin",
+      "entry": "modules/identityOrderJoin.mjs",
+      "required": [
+        "observations",
+        "attributes",
+        "orders"
+      ],
+      "title": "Identity and order joins",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "IdentityOrderJoin uses observations[{id,source,visible:true,attributes,room,slot}], attributes, orders, capacity. Orders can reference a public relation {ref,op:same|opposite}. Route helpers require the public room/cargo model in their declared fields. Do not invent object properties, mappings, room graphs, or targets."
+    },
+    {
+      "node": "c-a",
+      "moduleId": "archiveAndUnorderedTour",
+      "entry": "modules/archiveAndUnorderedTour.mjs",
+      "required": [
+        "observations",
+        "expectedIds",
+        "attributes",
+        "startRoom",
+        "depot",
+        "budget"
+      ],
+      "title": "Archive and unordered tour",
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "IdentityOrderJoin uses observations[{id,source,visible:true,attributes,room,slot}], attributes, orders, capacity. Orders can reference a public relation {ref,op:same|opposite}. Route helpers require the public room/cargo model in their declared fields. Do not invent object properties, mappings, room graphs, or targets."
+    },
+    {
+      "node": "c-a",
+      "moduleId": "orderedBatchPlanner",
+      "entry": "modules/orderedBatchPlanner.mjs",
+      "required": [
+        "targets",
+        "startRoom",
+        "depot",
+        "budget"
+      ],
+      "title": "Ordered batch planning",
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "IdentityOrderJoin uses observations[{id,source,visible:true,attributes,room,slot}], attributes, orders, capacity. Orders can reference a public relation {ref,op:same|opposite}. Route helpers require the public room/cargo model in their declared fields. Do not invent object properties, mappings, room graphs, or targets."
+    },
+    {
+      "node": "c-d",
+      "moduleId": "investmentValue",
+      "entry": "modules/investmentValue.mjs",
+      "required": [
+        "candidates",
+        "budget"
+      ],
+      "title": "Investment value",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1"
+    },
+    {
+      "node": "c-d",
+      "moduleId": "reserveTradeoff",
+      "entry": "modules/reserveTradeoff.mjs",
+      "required": [
+        "candidates",
+        "budget",
+        "resourceReserve"
+      ],
+      "title": "Reserve tradeoffs",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1"
+    },
+    {
+      "node": "c-d",
+      "moduleId": "goalCommitment",
+      "entry": "modules/goalCommitment.mjs",
+      "required": [
+        "candidates",
+        "budget"
+      ],
+      "title": "Goal commitment",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1"
+    },
+    {
+      "node": "c-d-a",
+      "moduleId": "executionState",
+      "entry": "modules/executionState.mjs",
+      "required": [
+        "snapshot"
+      ],
+      "title": "Execution state",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1"
+    },
+    {
+      "node": "c-d-a",
+      "moduleId": "revisionMemory",
+      "entry": "modules/revisionMemory.mjs",
+      "required": [
+        "snapshot",
+        "activeConstraints",
+        "previousConstraints"
+      ],
+      "title": "Revision memory",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1"
+    },
+    {
+      "node": "d",
+      "moduleId": "evidenceCommit",
+      "entry": "modules/evidenceCommit.mjs",
+      "required": [
+        "entity",
+        "observations",
+        "requirements",
+        "budget"
+      ],
+      "title": "Evidence commitment",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "evidence-route-v1",
+      "publicInputHint": "EvidenceCommit: entity, observations[{entity,attribute,value,visible,source}], requirements:{attribute:requiredValue}, budget, optional views[{id,covers,cost}]. Evidence must describe the same entity. RelationalIdentity requires relationEvidence rows with entity,subject,object,relation,frame,visible,source. Public evidence only; unresolved remains unknown. Automatic d policy uses the native action evidence protocol separately."
+    },
+    {
+      "node": "d",
+      "moduleId": "frozenObligations",
+      "entry": "modules/frozenObligations.mjs",
+      "required": [
+        "history",
+        "action",
+        "budget"
+      ],
+      "title": "Frozen obligations",
+      "bindingId": "bounded_action_policy",
+      "implementationVersion": 7,
+      "nativeAdapterInstalled": true,
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "EvidenceCommit: entity, observations[{entity,attribute,value,visible,source}], requirements:{attribute:requiredValue}, budget, optional views[{id,covers,cost}]. Evidence must describe the same entity. RelationalIdentity requires relationEvidence rows with entity,subject,object,relation,frame,visible,source. Public evidence only; unresolved remains unknown. Automatic d policy uses the native action evidence protocol separately.",
+      "version": 7
+    },
+    {
+      "node": "d",
+      "moduleId": "relationalIdentity",
+      "entry": "modules/relationalIdentity.mjs",
+      "required": [
+        "entity",
+        "observations",
+        "requirements",
+        "relations",
+        "relationEvidence",
+        "budget"
+      ],
+      "title": "Relational identity",
+      "publicInputContract": "evidence-route-v1",
+      "publicInputHint": "EvidenceCommit: entity, observations[{entity,attribute,value,visible,source}], requirements:{attribute:requiredValue}, budget, optional views[{id,covers,cost}]. Evidence must describe the same entity. RelationalIdentity requires relationEvidence rows with entity,subject,object,relation,frame,visible,source. Public evidence only; unresolved remains unknown. Automatic d policy uses the native action evidence protocol separately."
+    },
+    {
+      "node": "d-a",
+      "moduleId": "explorationRoute",
+      "entry": "modules/explorationRoute.mjs",
+      "required": [
+        "observations",
+        "phase",
+        "start",
+        "goal",
+        "budget"
+      ],
+      "inputModes": {
+        "scene_evidence": {
+          "required": [
+            "frames",
+            "actions",
+            "phases",
+            "epochs",
+            "events"
+          ],
+          "publicInputContract": "public-object-v1"
+        },
+        "route": {
+          "required": [
+            "observations",
+            "phase",
+            "start",
+            "goal",
+            "budget"
+          ]
+        },
+        "outcome_memory": {
+          "required": [
+            "current",
+            "transitions"
+          ],
+          "publicInputContract": "public-object-v1"
+        }
+      },
+      "defaultInputMode": "route",
+      "replacement": {
+        "sourceSha256": "3d065da118a594ec65ad102a0a7e2771290e90ec6e26107a6c5730d6a3fa4b16"
+      },
+      "title": "Exploration route",
+      "nativeAdapterInstalled": true,
+      "publicInputContract": "evidence-route-v1",
+      "version": 7
+    },
+    {
+      "node": "d-a",
+      "moduleId": "orderedStampRoute",
+      "entry": "modules/orderedStampRoute.mjs",
+      "required": [
+        "observations",
+        "phase",
+        "start",
+        "stampOrder",
+        "stampLocations",
+        "collectedCount",
+        "goal",
+        "budget"
+      ],
+      "title": "Ordered stamp route",
+      "publicInputContract": "evidence-route-v1"
+    },
+    {
+      "node": "d-a",
+      "moduleId": "phaseEdgeRepair",
+      "entry": "modules/phaseEdgeRepair.mjs",
+      "required": [
+        "observations",
+        "oldPhase",
+        "phase",
+        "gates",
+        "current",
+        "home",
+        "budget",
+        "staticUnmarkedGuaranteed"
+      ],
+      "title": "Phase edge repair",
+      "publicInputContract": "evidence-route-v1"
+    },
+    {
+      "node": "d-b",
+      "moduleId": "candidateProbe",
+      "entry": "modules/candidateProbe.mjs",
+      "required": [
+        "alphabet",
+        "length"
+      ],
+      "title": "Candidate probe",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "CandidateProbe enumerates a public finite code domain: alphabet:[symbols], length:N, archives:[{guess:[symbols],feedback:[exact,misplaced]}], history:[{index:0,evidenceId:\"obs-1\",guess:[symbols],feedback:[exact,misplaced]}], transform:none|rotate|alternate, objective:entropy|minimax, optional proposed:[symbols]. Supply every actual feedback in order. Feedback uses multiplicity-aware matching; apply only if public rules match. It computes a complete surviving set and recommends a probe; no private secret is read. MultiplicityDecomposition requires alphabet,length,records and uses the same feedback convention."
+    },
+    {
+      "node": "d-b",
+      "moduleId": "multiplicityDecomposition",
+      "entry": "modules/multiplicityDecomposition.mjs",
+      "required": [
+        "alphabet",
+        "length",
+        "records"
+      ],
+      "title": "Multiplicity decomposition",
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "CandidateProbe enumerates a public finite code domain: alphabet:[symbols], length:N, archives:[{guess:[symbols],feedback:[exact,misplaced]}], history:[{index:0,evidenceId:\"obs-1\",guess:[symbols],feedback:[exact,misplaced]}], transform:none|rotate|alternate, objective:entropy|minimax, optional proposed:[symbols]. Supply every actual feedback in order. Feedback uses multiplicity-aware matching; apply only if public rules match. It computes a complete surviving set and recommends a probe; no private secret is read. MultiplicityDecomposition requires alphabet,length,records and uses the same feedback convention."
+    },
+    {
+      "node": "e",
+      "moduleId": "adaptiveAcquisition",
+      "entry": "modules/adaptiveAcquisition.mjs",
+      "required": [
+        "requirements",
+        "offers",
+        "budget"
+      ],
+      "inputModes": {
+        "plan_acquisition": {
+          "required": [
+            "requirements",
+            "offers",
+            "budget"
+          ]
+        },
+        "select_delivered_frames": {
+          "required": [
+            "source",
+            "frames",
+            "proposed",
+            "limit"
+          ]
+        },
+        "locate_text_scope": {
+          "required": [
+            "source",
+            "query",
+            "rows",
+            "scanGapSeconds",
+            "mediaSha256"
+          ]
+        },
+        "audit_scope_request": {
+          "required": [
+            "scopePlan",
+            "startSeconds",
+            "endSeconds"
+          ]
+        },
+        "plan_actor_focus": {
+          "required": [
+            "frames"
+          ]
+        }
+      },
+      "defaultInputMode": "plan_acquisition",
+      "title": "Adaptive acquisition",
+      "nativeAdapterInstalled": true,
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "Acquisition helpers operate on public requirements[{id,source,channel:visual|audio,start,end,priority?}], offers[{id,source,tool,channel,start,end,cost}], budget, submitCost, delivered and attempts. Offers must be actually available native tools; if frames are already provided and no acquisition tool exists, do not invent one. Delivered receipts must be actual acquired evidence. Coverage is not answer correctness."
+    },
+    {
+      "node": "e",
+      "moduleId": "evidenceCoverage",
+      "entry": "modules/evidenceCoverage.mjs",
+      "required": [
+        "requirements",
+        "delivered"
+      ],
+      "title": "Evidence coverage",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "Acquisition helpers operate on public requirements[{id,source,channel:visual|audio,start,end,priority?}], offers[{id,source,tool,channel,start,end,cost}], budget, submitCost, delivered and attempts. Offers must be actually available native tools; if frames are already provided and no acquisition tool exists, do not invent one. Delivered receipts must be actual acquired evidence. Coverage is not answer correctness."
+    },
+    {
+      "node": "e",
+      "moduleId": "gapAcquisition",
+      "entry": "modules/gapAcquisition.mjs",
+      "required": [
+        "requirements",
+        "offers",
+        "budget"
+      ],
+      "title": "Gap acquisition",
+      "nativeAdapterInstalled": false,
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "Acquisition helpers operate on public requirements[{id,source,channel:visual|audio,start,end,priority?}], offers[{id,source,tool,channel,start,end,cost}], budget, submitCost, delivered and attempts. Offers must be actually available native tools; if frames are already provided and no acquisition tool exists, do not invent one. Delivered receipts must be actual acquired evidence. Coverage is not answer correctness."
+    },
+    {
+      "node": "e-f",
+      "moduleId": "eventLedger",
+      "entry": "modules/eventLedger.mjs",
+      "required": [
+        "target",
+        "initialHolder"
+      ],
+      "inputModes": {
+        "transfer": {
+          "required": [
+            "target",
+            "initialHolder"
+          ]
+        },
+        "count_repeated_events": {
+          "required": [
+            "source",
+            "frames",
+            "segments"
+          ]
+        },
+        "request_sequence_audit": {
+          "required": [
+            "source",
+            "sequenceId",
+            "sampleCount"
+          ]
+        }
+      },
+      "defaultInputMode": "transfer",
+      "title": "Event ledger",
+      "nativeAdapterInstalled": true,
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "EventLedger: target,initialHolder,events=[],observations=[],endpoint,coverageComplete. Events need id,source,time,target,type; handoff needs from,to,releaseObserved,receiveObserved; deposit needs actor,location,releaseObserved. Multi-view observations need episodeId/source/time/from/to and observed release/receive flags. These default transfer fields apply only to transfer/ownership questions. The separate count_repeated_events mode supports a sourced sequence partition; its host audit_public_sequence mode is described below and does not require target/initialHolder. FrameAssociation needs frames,initialDetection,maxDistance with publicly established coordinates; no guessed pixels."
+    },
+    {
+      "node": "e-f",
+      "moduleId": "frameAssociation",
+      "entry": "modules/frameAssociation.mjs",
+      "required": [
+        "frames",
+        "initialDetection",
+        "maxDistance"
+      ],
+      "title": "Frame association",
+      "publicInputContract": "public-object-v1",
+      "publicInputHint": "EventLedger: target,initialHolder,events=[],observations=[],endpoint,coverageComplete. Events need id,source,time,target,type; handoff needs from,to,releaseObserved,receiveObserved; deposit needs actor,location,releaseObserved. Multi-view observations need episodeId/source/time/from/to and observed release/receive flags. These default transfer fields apply only to transfer/ownership questions. The separate count_repeated_events mode supports a sourced sequence partition; its host audit_public_sequence mode is described below and does not require target/initialHolder. FrameAssociation needs frames,initialDetection,maxDistance with publicly established coordinates; no guessed pixels."
+    }
+  ]
+}

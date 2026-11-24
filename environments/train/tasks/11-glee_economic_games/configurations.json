@@ -1,0 +1,260 @@
+{
+  "taskId": "glee_economic_games",
+  "note": "Train refresh 2026-10-16. episodes are planned repetitions; h0Runs=0. The configurations own their runtime instance; fingerprints use canonical sorted-key JSON: nativeInstanceFingerprint hashes instance; configurationHash hashes the configuration excluding configurationHash, episodes and h0Runs. See per-task refresh report in group-b.",
+  "configurations": [
+    {
+      "id": "glee_economic_games-refresh-0",
+      "label": "Native persuasion quality sequence 101",
+      "seed": 101,
+      "fixedGameArgs": {
+        "is_myopic": false,
+        "total_rounds": 20,
+        "p": 0.3333,
+        "v": 2,
+        "c": 0,
+        "product_price": 10000,
+        "is_seller_know_cv": true,
+        "is_buyer_know_p": true,
+        "seller_message_type": "text",
+        "allow_buyer_message": false
+      },
+      "buyerModel": {
+        "model": "claude-opus-5",
+        "temperature": 0,
+        "maxTokens": 512,
+        "responseProjection": "glee-original-buyer-decision-v1"
+      },
+      "episodes": 3,
+      "h0Runs": 0,
+      "origin": "synthetic_seeded_native_instance",
+      "provenanceNote": "Fresh official PersuasionGame quality draws; unchanged game parameters and buyer model. No recorded buyer trajectory is claimed.",
+      "configurationHash": "6da764ac652dc3c74f4975e2518011415a6e212b8d23b2dcae103c6d95ad5ecd"
+    },
+    {
+      "id": "glee_economic_games-refresh-1",
+      "label": "Native persuasion quality sequence 102",
+      "seed": 102,
+      "fixedGameArgs": {
+        "is_myopic": false,
+        "total_rounds": 20,
+        "p": 0.3333,
+        "v": 2,
+        "c": 0,
+        "product_price": 10000,
+        "is_seller_know_cv": true,
+        "is_buyer_know_p": true,
+        "seller_message_type": "text",
+        "allow_buyer_message": false
+      },
+      "buyerModel": {
+        "model": "claude-opus-5",
+        "temperature": 0,
+        "maxTokens": 512,
+        "responseProjection": "glee-original-buyer-decision-v1"
+      },
+      "episodes": 3,
+      "h0Runs": 0,
+      "origin": "synthetic_seeded_native_instance",
+      "provenanceNote": "Fresh official PersuasionGame quality draws; unchanged game parameters and buyer model. No recorded buyer trajectory is claimed.",
+      "configurationHash": "1b899670c7a35591219942f1fb8eaa961e4902f9fe8d3b9cade5054b9c8f0ac1"
+    },
+    {
+      "id": "glee_economic_games-refresh-2",
+      "label": "Native persuasion quality sequence 103",
+      "seed": 103,
+      "fixedGameArgs": {
+        "is_myopic": false,
+        "total_rounds": 20,
+        "p": 0.3333,
+        "v": 2,
+        "c": 0,
+        "product_price": 10000,
+        "is_seller_know_cv": true,
+        "is_buyer_know_p": true,
+        "seller_message_type": "text",
+        "allow_buyer_message": false
+      },
+      "buyerModel": {
+        "model": "claude-opus-5",
+        "temperature": 0,
+        "maxTokens": 512,
+        "responseProjection": "glee-original-buyer-decision-v1"
+      },
+      "episodes": 3,
+      "h0Runs": 0,
+      "origin": "synthetic_seeded_native_instance",
+      "provenanceNote": "Fresh official PersuasionGame quality draws; unchanged game parameters and buyer model. No recorded buyer trajectory is claimed.",
+      "configurationHash": "9bbd1fa8ed26c1981cb1d368d4502cf6994b8b7072d8a442e1a095dcd62e820d"
+    },
+    {
+      "id": "glee_economic_games-refresh-3",
+      "label": "Native persuasion quality sequence 104",
+      "seed": 104,
+      "fixedGameArgs": {
+        "is_myopic": false,
+        "total_rounds": 20,
+        "p": 0.3333,
+        "v": 2,
+        "c": 0,
+        "product_price": 10000,
+        "is_seller_know_cv": true,
+        "is_buyer_know_p": true,
+        "seller_message_type": "text",
+        "allow_buyer_message": false
+      },
+      "buyerModel": {
+        "model": "claude-opus-5",
+        "temperature": 0,
+        "maxTokens": 512,
+        "responseProjection": "glee-original-buyer-decision-v1"
+      },
+      "episodes": 3,
+      "h0Runs": 0,
+      "origin": "synthetic_seeded_native_instance",
+      "provenanceNote": "Fresh official PersuasionGame quality draws; unchanged game parameters and buyer model. No recorded buyer trajectory is claimed.",
+      "configurationHash": "693625216ab1a5f74160310ccab6406969404048108635774dee339bc224629e"
+    },
+    {
+      "id": "glee_economic_games-refresh-4",
+      "label": "Native persuasion quality sequence 105",
+      "seed": 105,
+      "fixedGameArgs": {
+        "is_myopic": false,
+        "total_rounds": 20,
+        "p": 0.3333,
+        "v": 2,
+        "c": 0,
+        "product_price": 10000,
+        "is_seller_know_cv": true,
+        "is_buyer_know_p": true,
+        "seller_message_type": "text",
+        "allow_buyer_message": false
+      },
+      "buyerModel": {
+        "model": "claude-opus-5",
+        "temperature": 0,
+        "maxTokens": 512,
+        "responseProjection": "glee-original-buyer-decision-v1"
+      },
+      "episodes": 3,
+      "h0Runs": 0,
+      "origin": "synthetic_seeded_native_instance",
+      "provenanceNote": "Fresh official PersuasionGame quality draws; unchanged game parameters and buyer model. No recorded buyer trajectory is claimed.",
+      "configurationHash": "59841e9237e131b26a44c17ef0ac25bbbc291c23a65574e97621ddc5de5086a0"
+    },
+    {
+      "id": "glee_economic_games-refresh-5",
+      "label": "Native persuasion quality sequence 106",
+      "seed": 106,
+      "fixedGameArgs": {
+        "is_myopic": false,
+        "total_rounds": 20,
+        "p": 0.3333,
+        "v": 2,
+        "c": 0,
+        "product_price": 10000,
+        "is_seller_know_cv": true,
+        "is_buyer_know_p": true,
+        "seller_message_type": "text",
+        "allow_buyer_message": false
+      },
+      "buyerModel": {
+        "model": "claude-opus-5",
+        "temperature": 0,
+        "maxTokens": 512,
+        "responseProjection": "glee-original-buyer-decision-v1"
+      },
+      "episodes": 3,
+      "h0Runs": 0,
+      "origin": "synthetic_seeded_native_instance",
+      "provenanceNote": "Fresh official PersuasionGame quality draws; unchanged game parameters and buyer model. No recorded buyer trajectory is claimed.",
+      "configurationHash": "8750c2688a50e19206ec2b48d92b9473eccebac1c4dca9fcb21dd7a49fc9dc66"
+    },
+    {
+      "id": "glee_economic_games-refresh-6",
+      "label": "Native persuasion quality sequence 107",
+      "seed": 107,
+      "fixedGameArgs": {
+        "is_myopic": false,
+        "total_rounds": 20,
+        "p": 0.3333,
+        "v": 2,
+        "c": 0,
+        "product_price": 10000,
+        "is_seller_know_cv": true,
+        "is_buyer_know_p": true,
+        "seller_message_type": "text",
+        "allow_buyer_message": false
+      },
+      "buyerModel": {
+        "model": "claude-opus-5",
+        "temperature": 0,
+        "maxTokens": 512,
+        "responseProjection": "glee-original-buyer-decision-v1"
+      },
+      "episodes": 3,
+      "h0Runs": 0,
+      "origin": "synthetic_seeded_native_instance",
+      "provenanceNote": "Fresh official PersuasionGame quality draws; unchanged game parameters and buyer model. No recorded buyer trajectory is claimed.",
+      "configurationHash": "d7b4b14171ce2bc5d706f3e967f46b9de287af4af3c1517c83c5ef73893e9719"
+    },
+    {
+      "id": "glee_economic_games-refresh-7",
+      "label": "Native persuasion quality sequence 108",
+      "seed": 108,
+      "fixedGameArgs": {
+        "is_myopic": false,
+        "total_rounds": 20,
+        "p": 0.3333,
+        "v": 2,
+        "c": 0,
+        "product_price": 10000,
+        "is_seller_know_cv": true,
+        "is_buyer_know_p": true,
+        "seller_message_type": "text",
+        "allow_buyer_message": false
+      },
+      "buyerModel": {
+        "model": "claude-opus-5",
+        "temperature": 0,
+        "maxTokens": 512,
+        "responseProjection": "glee-original-buyer-decision-v1"
+      },
+      "episodes": 3,
+      "h0Runs": 0,
+      "origin": "synthetic_seeded_native_instance",
+      "provenanceNote": "Fresh official PersuasionGame quality draws; unchanged game parameters and buyer model. No recorded buyer trajectory is claimed.",
+      "configurationHash": "45d7691ca73c72250e3c03361ba4e72155e6df3ff3d059f207179e9ecb210801"
+    },
+    {
+      "id": "glee_economic_games-refresh-8",
+      "label": "Native persuasion quality sequence 109",
+      "seed": 109,
+      "fixedGameArgs": {
+        "is_myopic": false,
+        "total_rounds": 20,
+        "p": 0.3333,
+        "v": 2,
+        "c": 0,
+        "product_price": 10000,
+        "is_seller_know_cv": true,
+        "is_buyer_know_p": true,
+        "seller_message_type": "text",
+        "allow_buyer_message": false
+      },
+      "buyerModel": {
+        "model": "claude-opus-5",
+        "temperature": 0,
+        "maxTokens": 512,
+        "responseProjection": "glee-original-buyer-decision-v1"
+      },
+      "episodes": 3,
+      "h0Runs": 0,
+      "origin": "synthetic_seeded_native_instance",
+      "provenanceNote": "Fresh official PersuasionGame quality draws; unchanged game parameters and buyer model. No recorded buyer trajectory is claimed.",
+      "configurationHash": "1a2e881a645bee494532d3de708596a026e1c7dcaf00c366091305b4539b5fa6"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

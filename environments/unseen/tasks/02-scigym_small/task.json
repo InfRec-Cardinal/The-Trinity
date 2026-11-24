@@ -1,0 +1,77 @@
+{
+  "taskId": "scigym_small",
+  "name": "SciGym (small): discover missing reactions of a biochemical network",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D1",
+    "subCategoryId": "D1.2"
+  },
+  "assignment": {
+    "task": "Official SciGym task. The official system prompt follows verbatim; follow its response format exactly.\n\nYou are a biologist investigating a biological system. Your goal is to discover the biological mechanisms missing from your model by designing experiments and analyzing results. You must ultimately express your findings as a complete SBML model that accurately represents the biological system. Your final model will be evaluated based on how accurately it represents the true biological system.\n\nYour final model will be evaluated by its similarity with the actual system under different perturbations, so discovering the true underlying mechanisms rather than overfitting to observed data is crucial.\n\n# Action\n\nEach time, you can choose one of the three actions:\n\n1. Request Experiments: You can request experiments to gather data from the true biological system you are studying. You can also choose to perturb the system and see how the system responds. This will help you better understand the mechanism of the system.\n\n2. Write Code: You have access to a Python environment to run analysis. You can use several scientific computing libraries and customized functions. Your code is executed as provided, so ensure your syntax is correct.\n\n3. Submit the model: You can choose to submit the model and end the process if you think your hypothesis completely explains the mechanism.\n\n\n## Available Experiment Actions\n\n### Observe\nThis experiment runs the system with default settings.\n\n```json\n{\n   \"action\": \"observe\",\n   \"meta_data\": {}\n}\n```\n\n### change initial concentrations\n\nThis perturbation changes the initial concentrations of the given species. You cannot change the concentration of boundary and constant species.\n\n```json\n{\n    \"action\": \"change_initial_concentration\",\n    \"meta_data\": {\n        \"id_species1\": 0.2, // Set the initial concentration of species id_species1 to 0.2.\n        \"id_species2\": 0.5\n        // Only include the id of the species you want to modify. Any species not listed will keep their default values\n    }\n}\n```\n\n## Code Execution\n\nFor your code, print the results you want to see, and we will provide them for you. However, ensure your print content isn't too large, as large outputs will be truncated. For large variables like long arrays or dataframes, you can store them using the `shared_variables` and access them in future sessions:\n\n* `shared_variables.add(variable_name, val)`: Store a variable for future access\n* `shared_variables.access(variable_name)`: Retrieve a previously stored variable\n\n### Libraries\n\nYou are allowed to import the following libaries in your code: `numpy`, `pandas`, `math`, `scipy`, `sklearn`, `libsbml`\n\n### Global variable access\n\n- input_sbml_string (str): Initial incomplete SBML model\n- experiment_history (Dict[str, pd.DataFrame]): Time-series data for all experiments\n- shared_variables: Storage for all variables you've added in previous code executions\n\n**Important** You can access these variables directly in your code. You can assume they are global variables provided to you.\n\n### Customied Functions\n\nYou can also call the follow functions in your code.\n\n```python\ndef simulate(sbml_string: str) -> pd.DataFrame:\n   \"\"\"\n   Simulates an SBML model and returns time series data.\n\n   You can use this function to run simulations on your hypothesis model and compare it with the data gathered from the experiments.\n\n   Args:\n       sbml_string: an SBML model in xml format\n\n   Returns:\n       - A pandas dataframe of time series data for the given sbml models (with columns 'Time' and the species ID.)\n   \"\"\"\n```\n\n## Add reactions using libsbml\n\n```python\n# Example of adding a reaction to an SBML model using libSBML\nimport libsbml\n\n# Assuming we already have an SBML string loaded\nsbml_doc = libsbml.readSBMLFromString(input_sbml_string)\nmodel = sbml_doc.getModel()\n\n# Create a new reaction\nreaction = model.createReaction()\nreaction.setId(\"reaction1\")\nreaction.setReversible(False)\nreaction.setFast(False)  # Required in SBML Level 3\n\n# Add a reactant\nreactant = reaction.createReactant()\nreactant.setSpecies(\"A\")  # Species ID\nreactant.setStoichiometry(1.0)\nreactant.setConstant(False)  # Required in SBML Level 3\n\n# Add a product\nproduct = reaction.createProduct()\nproduct.setSpecies(\"B\")  # Species ID\nproduct.setStoichiometry(1.0)\nproduct.setConstant(True)  # Required in SBML Level 3\n\n# Write the updated SBML\nwriter = libsbml.SBMLWriter()\nupdated_sbml = writer.writeSBMLToString(sbml_doc)\n```\n\n# Submit the model\n\nIf you want to submit the model and end the process, put your final model as a string variable called `final_sbml` in your python code. It is recommended using libsbml to modify `input_sbml_string` rather than write the entire xml on your own.\n\n# Response Format\n\nYour response should follow thought-action framework in markdown formats. You should have a thoughts section followed by an action section.\n\n\n\"\"\"\n## Thoughts\nwrite down your thoughs here.\n\n## Action\n\n### Code\nInclude this if you want to write codes. Put your code in a python block. You can only include one code block in each response.\n```python\nimport numpy as np\nimport pandas as pd\n```\n\n### Experiment\nInclude this if you want to request experiments. Put your experiment configuration in a json block. You can only include one json block in each response.\n```json\n{\n    \"action\": \"\",\n    \"meta_data\": {}\n}\n```\n\n### Submit\nInclude this if you want to submit the model and end the process. Put your final model as a string variable called `final_sbml` in your python code.\n```python\nimport libsbml\nfinal_sbml=...\n```\n\"\"\"\n",
+    "observation": "Text only: the official SciGym user messages (initial task info and incomplete SBML model; afterwards the official observation feedback with experiment tables, code output, parsing errors and remaining iterations).",
+    "actions": {
+      "response": "Put your complete reply, in the official SciGym markdown format (thoughts plus exactly one experiment JSON block, a Python code block, or a ### Submit section with Python code defining final_sbml), into the response field."
+    },
+    "evaluation": "Official SciGym evaluator on the submitted SBML: observe_smape, reaction precision/recall/F1 with and without modifiers; success means a valid model was submitted."
+  },
+  "tool": {
+    "name": "submit_action",
+    "description": "Submit your complete SciGym reply for this iteration.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "string",
+          "description": "The full reply in the official SciGym markdown format."
+        }
+      },
+      "required": [
+        "response"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "contract": "One response per iteration, in the official SciGym markdown format, placed in the response field. 20 iterations, then 3 debugging rounds for the final submission.",
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "systemPrompt": "interface/prompt.mjs renderFrozenH0(harness, assignment, 'interactive', contract)",
+    "contextPolicy": "last65",
+    "imageOrder": null,
+    "structuredOutput": true,
+    "invalidResponses": "H0 used structured output (one schema-valid submit_action per response); a refusal or a response without an action was retried with the same request, without a reprompt."
+  },
+  "evaluation": {
+    "configurations": 126,
+    "episodesPerConfiguration": 1,
+    "totalEpisodes": 126
+  },
+  "otherModels": [],
+  "environment": {
+    "adapter": "jsonl",
+    "name": "scigym",
+    "envDir": "tasks/02-scigym_small/env",
+    "python": "scigym",
+    "bridge": {
+      "script": "scigym_bridge.py",
+      "args": [
+        "{ENV_DIR}/data/small/{id}",
+        "{EPISODE_DIR}/scigym"
+      ],
+      "reply": "scigym-text",
+      "skipKinds": [
+        "system_prompt"
+      ],
+      "stepTimeoutMs": 660000
+    },
+    "terminal": "scigym",
+    "limits": null
+  },
+  "driverId": "scigym-official-controller-bridge-v1",
+  "notes": []
+}

@@ -1,0 +1,116 @@
+{
+  "taskId": "master_keying_design",
+  "proposals": [
+    {
+      "id": "derive-lock-pinning-from-required-set",
+      "title": "Derive each lock's pinning from the required-key set before spending any check",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "The observation exposes a deterministic derivation from a key's cut vector to a lock's accepted set (a cut lifts the pin stack, interfaces align at the shear plane), and the access table states, per key, which locks must open and which must stay shut. A check is a costly confirmation of an assignment, not a source of information the derivation does not already contain.",
+      "procedure": [
+        "Fix the key cut vectors first. They are the free variables; every lock's open/reject behaviour is a function of them, so choosing them late forces a rebuild of everything downstream.",
+        "For each lock, collect the cut vectors of the keys it must open. That collection is the exact set of bittings its pinning has to accept -- not an approximation to be tuned toward.",
+        "Construct that lock's pinning so every required cut vector is admitted and no non-required key is admitted in every chamber. The accepted set is the product of the per-chamber accepted cuts, so extra unassigned bittings are unavoidable once a lock needs three distinct required keys under a two-shear cap; they are an efficiency cost, not a violation.",
+        "Before committing, test the whole assignment in your head: if any non-required key's cut vector lies in every chamber's accepted set, that pair is open by construction. Change the assignment, do not plan to patch it after a check.",
+        "Derive all locks and all keys to consistency, then issue one check. Treat its report as pass or fail; treat a failure list as a signal that the derivation was wrong, not as a queue of edits."
+      ],
+      "successSignals": [
+        "A single check is issued, after the assignment is complete, and it returns no required failures and no forbidden openings.",
+        "Violation lists, when they exist at all, shrink between revisions rather than moving to different locks.",
+        "A lock's admitted bittings are equal by construction to the set of keys the table requires it to admit."
+      ],
+      "failureSignals": [
+        "Checks are issued while the assignment is still being built, and each check is followed by a small local edit to the pairs it named.",
+        "Forbidden openings reappear scattered across many different locks after each revision -- the signature of patching one pair by breaking another.",
+        "The action budget runs out while the check still reports open forbidden pairs."
+      ],
+      "recovery": [
+        "If a check reports forbidden openings, discard the incremental edits and re-derive the affected keys' cut vectors and the affected locks' pinning from the table in one pass.",
+        "If the derivation cannot satisfy the table, re-examine which keys share locks: a key required by several locks constrains those locks jointly, so its cut vector must be chosen before theirs."
+      ],
+      "invariants": [
+        "Every lock's accepted set is a function of the key cut vectors alone; no world action reveals a pair the derivation cannot already compute.",
+        "A key opens a lock only if it is admitted in every chamber, so a single chamber can carry the whole rejection."
+      ],
+      "sourceGapIds": [
+        "probes-instead-of-deriving",
+        "patches-violations-locally"
+      ]
+    },
+    {
+      "id": "cap-interfaces-when-widening-accept-set",
+      "title": "Count per-chamber interfaces while choosing master wafers, not after the check",
+      "audience": [
+        "playing"
+      ],
+      "capability": "physics",
+      "trigger": "While building a lock's pin stack so that a chamber admits more than one required cut, the stack gains bottom-pin/master-wafer interfaces. The per-chamber shear-point maximum is stated in the model at the start, and it bounds how many interfaces that chamber may carry.",
+      "procedure": [
+        "For each chamber of each lock, count the interfaces the chosen stack creates, and compare that count to the stated per-chamber maximum before committing the stack.",
+        "Prefer the narrowest stack -- fewest wafers -- that still admits every required cut in that chamber; widen only when a required key is otherwise excluded.",
+        "If the required set would force more interfaces than the cap allows, carry the distinction in a different chamber instead of adding a wafer: a lock rejects a key as soon as any one chamber excludes it, so rejection power can be moved freely between chambers while acceptance cannot.",
+        "Recheck the cap across every chamber of every lock as a pre-submit invariant, including the locks nobody flagged, because the same construction habit produces the same overshoot everywhere."
+      ],
+      "successSignals": [
+        "No shear-limit violation is reported on any chamber of any lock.",
+        "Stack widths are chosen deliberately per chamber rather than by a uniform widening rule."
+      ],
+      "failureSignals": [
+        "A check reports a chamber whose shear points exceed the maximum.",
+        "The over-cap chambers belong to the locks built to admit the most keys -- consistent with widening stacks to force acceptance.",
+        "The cap is only mentioned after the verifier reports it, never during construction."
+      ],
+      "recovery": [
+        "When a chamber is over cap, rebuild that chamber's stack minimally and confirm that the required cuts are still admitted before moving to the next lock.",
+        "If the minimum stack still overshoots, redistribute the rejection across chambers rather than accepting the violation."
+      ],
+      "invariants": [
+        "A chamber's shear points equal the number of interfaces in its stack; adding a wafer never reduces them.",
+        "The cap is per chamber, so a wide stack in one chamber is not offset by a narrow stack elsewhere."
+      ],
+      "sourceGapIds": [
+        "overstuffs-pin-stack",
+        "ignores-shear-cap"
+      ]
+    },
+    {
+      "id": "commit-at-first-clean-check",
+      "title": "Submit at the first clean check instead of spending the remaining actions on ghost counts",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "A check returns with no required failures and no forbidden openings, while the environment still shows remaining actions and a nonzero unlisted-ghost count that the task text explicitly calls an efficiency measure rather than a success constraint.",
+      "procedure": [
+        "Submit immediately on a clean check. The assignment that reproduces the table is the deliverable; further checks cannot improve whether it is correct.",
+        "Treat the ghost count as a score tiebreaker only. Never spend a check, and never re-edit an assignment that already reproduces the table, in order to move it.",
+        "If actions remain and no clean check has been reached, spend them on a full re-derivation of the assignment, not on repeated confirmations of the same one.",
+        "Before each check, ask what you would change if it came back clean; if the answer is nothing that affects the access table, the check is not worth its cost."
+      ],
+      "successSignals": [
+        "Exactly one check, followed directly by submission.",
+        "Submission with a large nonzero ghost count, still scored as a correct result.",
+        "Remaining actions left unused after a clean result."
+      ],
+      "failureSignals": [
+        "Checks consume the entire action budget.",
+        "Submission occurs with remaining actions at or near zero and violations still open.",
+        "The same assignment is re-checked without a derived change between checks."
+      ],
+      "recovery": [
+        "Once a clean check has been seen, the next action is submit -- not another check.",
+        "If a check is being used to decide what to edit, the edit should have been derived from the table without it."
+      ],
+      "invariants": [
+        "The success condition is the access table alone; the unlisted-ghost count is not part of it.",
+        "Every check is an action that cannot be recovered, so a check is worth issuing only for a decision it changes."
+      ],
+      "sourceGapIds": [
+        "checks-as-search-oracle",
+        "burns-action-budget"
+      ]
+    }
+  ]
+}

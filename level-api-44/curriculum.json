@@ -1,0 +1,426 @@
+[
+  {
+    "id": "level-a-0",
+    "node": "a",
+    "variant": 0,
+    "budget": 9,
+    "moduleScope": [
+      "a"
+    ]
+  },
+  {
+    "id": "level-a-1",
+    "node": "a",
+    "variant": 1,
+    "budget": 10,
+    "moduleScope": [
+      "a"
+    ]
+  },
+  {
+    "id": "level-a-2",
+    "node": "a",
+    "variant": 2,
+    "budget": 9,
+    "moduleScope": [
+      "a"
+    ]
+  },
+  {
+    "id": "level-a-3",
+    "node": "a",
+    "variant": 3,
+    "budget": 10,
+    "moduleScope": [
+      "a"
+    ]
+  },
+  {
+    "id": "level-b-0",
+    "node": "b",
+    "variant": 0,
+    "budget": 9,
+    "moduleScope": [
+      "b"
+    ]
+  },
+  {
+    "id": "level-b-1",
+    "node": "b",
+    "variant": 1,
+    "budget": 9,
+    "moduleScope": [
+      "b"
+    ]
+  },
+  {
+    "id": "level-b-2",
+    "node": "b",
+    "variant": 2,
+    "budget": 9,
+    "moduleScope": [
+      "b"
+    ]
+  },
+  {
+    "id": "level-b-3",
+    "node": "b",
+    "variant": 3,
+    "budget": 9,
+    "moduleScope": [
+      "b"
+    ]
+  },
+  {
+    "id": "level-c-0",
+    "node": "c",
+    "variant": 0,
+    "budget": 17,
+    "moduleScope": [
+      "c"
+    ]
+  },
+  {
+    "id": "level-c-1",
+    "node": "c",
+    "variant": 1,
+    "budget": 18,
+    "moduleScope": [
+      "c"
+    ]
+  },
+  {
+    "id": "level-c-2",
+    "node": "c",
+    "variant": 2,
+    "budget": 20,
+    "moduleScope": [
+      "c"
+    ]
+  },
+  {
+    "id": "level-c-3",
+    "node": "c",
+    "variant": 3,
+    "budget": 23,
+    "moduleScope": [
+      "c"
+    ]
+  },
+  {
+    "id": "level-c-a-0",
+    "node": "c-a",
+    "variant": 0,
+    "budget": 18,
+    "moduleScope": [
+      "c",
+      "c-a"
+    ]
+  },
+  {
+    "id": "level-c-a-1",
+    "node": "c-a",
+    "variant": 1,
+    "budget": 18,
+    "moduleScope": [
+      "c",
+      "c-a"
+    ]
+  },
+  {
+    "id": "level-c-a-2",
+    "node": "c-a",
+    "variant": 2,
+    "budget": 18,
+    "moduleScope": [
+      "c",
+      "c-a"
+    ]
+  },
+  {
+    "id": "level-c-a-3",
+    "node": "c-a",
+    "variant": 3,
+    "budget": 18,
+    "moduleScope": [
+      "c",
+      "c-a"
+    ]
+  },
+  {
+    "id": "level-c-d-0",
+    "node": "c-d",
+    "variant": 0,
+    "budget": 7,
+    "moduleScope": [
+      "c",
+      "c-d"
+    ]
+  },
+  {
+    "id": "level-c-d-1",
+    "node": "c-d",
+    "variant": 1,
+    "budget": 8,
+    "moduleScope": [
+      "c",
+      "c-d"
+    ]
+  },
+  {
+    "id": "level-c-d-2",
+    "node": "c-d",
+    "variant": 2,
+    "budget": 7,
+    "moduleScope": [
+      "c",
+      "c-d"
+    ]
+  },
+  {
+    "id": "level-c-d-3",
+    "node": "c-d",
+    "variant": 3,
+    "budget": 8,
+    "moduleScope": [
+      "c",
+      "c-d"
+    ]
+  },
+  {
+    "id": "level-c-d-a-0",
+    "node": "c-d-a",
+    "variant": 0,
+    "budget": 14,
+    "moduleScope": [
+      "c",
+      "c-d",
+      "c-d-a"
+    ]
+  },
+  {
+    "id": "level-c-d-a-1",
+    "node": "c-d-a",
+    "variant": 1,
+    "budget": 22,
+    "moduleScope": [
+      "c",
+      "c-d",
+      "c-d-a"
+    ]
+  },
+  {
+    "id": "level-c-d-a-2",
+    "node": "c-d-a",
+    "variant": 2,
+    "budget": 18,
+    "moduleScope": [
+      "c",
+      "c-d",
+      "c-d-a"
+    ]
+  },
+  {
+    "id": "level-c-d-a-3",
+    "node": "c-d-a",
+    "variant": 3,
+    "budget": 33,
+    "moduleScope": [
+      "c",
+      "c-d",
+      "c-d-a"
+    ]
+  },
+  {
+    "id": "level-d-0",
+    "node": "d",
+    "variant": 0,
+    "budget": 5,
+    "moduleScope": [
+      "d"
+    ]
+  },
+  {
+    "id": "level-d-1",
+    "node": "d",
+    "variant": 1,
+    "budget": 5,
+    "moduleScope": [
+      "d"
+    ]
+  },
+  {
+    "id": "level-d-2",
+    "node": "d",
+    "variant": 2,
+    "budget": 5,
+    "moduleScope": [
+      "d"
+    ]
+  },
+  {
+    "id": "level-d-3",
+    "node": "d",
+    "variant": 3,
+    "budget": 5,
+    "moduleScope": [
+      "d"
+    ]
+  },
+  {
+    "id": "level-d-a-0",
+    "node": "d-a",
+    "variant": 0,
+    "budget": 32,
+    "moduleScope": [
+      "d",
+      "d-a"
+    ]
+  },
+  {
+    "id": "level-d-a-1",
+    "node": "d-a",
+    "variant": 1,
+    "budget": 58,
+    "moduleScope": [
+      "d",
+      "d-a"
+    ]
+  },
+  {
+    "id": "level-d-a-2",
+    "node": "d-a",
+    "variant": 2,
+    "budget": 58,
+    "moduleScope": [
+      "d",
+      "d-a"
+    ]
+  },
+  {
+    "id": "level-d-a-3",
+    "node": "d-a",
+    "variant": 3,
+    "budget": 58,
+    "moduleScope": [
+      "d",
+      "d-a"
+    ]
+  },
+  {
+    "id": "level-d-b-0",
+    "node": "d-b",
+    "variant": 0,
+    "budget": 6,
+    "moduleScope": [
+      "d",
+      "d-b"
+    ]
+  },
+  {
+    "id": "level-d-b-1",
+    "node": "d-b",
+    "variant": 1,
+    "budget": 7,
+    "moduleScope": [
+      "d",
+      "d-b"
+    ]
+  },
+  {
+    "id": "level-d-b-2",
+    "node": "d-b",
+    "variant": 2,
+    "budget": 7,
+    "moduleScope": [
+      "d",
+      "d-b"
+    ]
+  },
+  {
+    "id": "level-d-b-3",
+    "node": "d-b",
+    "variant": 3,
+    "budget": 8,
+    "moduleScope": [
+      "d",
+      "d-b"
+    ]
+  },
+  {
+    "id": "level-e-0",
+    "node": "e",
+    "variant": 0,
+    "budget": 8,
+    "moduleScope": [
+      "e"
+    ]
+  },
+  {
+    "id": "level-e-1",
+    "node": "e",
+    "variant": 1,
+    "budget": 8,
+    "moduleScope": [
+      "e"
+    ]
+  },
+  {
+    "id": "level-e-2",
+    "node": "e",
+    "variant": 2,
+    "budget": 8,
+    "moduleScope": [
+      "e"
+    ]
+  },
+  {
+    "id": "level-e-3",
+    "node": "e",
+    "variant": 3,
+    "budget": 8,
+    "moduleScope": [
+      "e"
+    ]
+  },
+  {
+    "id": "level-e-f-0",
+    "node": "e-f",
+    "variant": 0,
+    "budget": 1,
+    "moduleScope": [
+      "e",
+      "e-f"
+    ]
+  },
+  {
+    "id": "level-e-f-1",
+    "node": "e-f",
+    "variant": 1,
+    "budget": 1,
+    "moduleScope": [
+      "e",
+      "e-f"
+    ]
+  },
+  {
+    "id": "level-e-f-2",
+    "node": "e-f",
+    "variant": 2,
+    "budget": 1,
+    "moduleScope": [
+      "e",
+      "e-f"
+    ]
+  },
+  {
+    "id": "level-e-f-3",
+    "node": "e-f",
+    "variant": 3,
+    "budget": 1,
+    "moduleScope": [
+      "e",
+      "e-f"
+    ]
+  }
+]

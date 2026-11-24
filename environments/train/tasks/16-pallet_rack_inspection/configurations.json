@@ -1,0 +1,142 @@
+{
+  "taskId": "pallet_rack_inspection",
+  "configurations": [
+    {
+      "id": "pallet_rack_inspection-refresh-01",
+      "ordinal": 0,
+      "label": "Pallet Rack Inspection: replacement 1",
+      "selector": {
+        "providerId": "pallet_rack_inspection-train-refresh-20261016-v1",
+        "ordinal": 0
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "d9a4b1a4ea4177d1a07fe9f67c81e0dfa142c7bf0167b2dc7dae3c916d7b0644",
+      "substantiveIdentityHash": "5276c55e43185165099279858b5d4545d77affc596252fc7f6c302061476b531",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "2b31e0d26af797b003b55904ba4b78fcfe9371ff294da2edac1b39936ce24a45"
+    },
+    {
+      "id": "pallet_rack_inspection-refresh-02",
+      "ordinal": 1,
+      "label": "Pallet Rack Inspection: replacement 2",
+      "selector": {
+        "providerId": "pallet_rack_inspection-train-refresh-20261016-v1",
+        "ordinal": 1
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "25e02abccfbe444873c871843beff7799578e0cd7e312b9cf057d9a28803f8e7",
+      "substantiveIdentityHash": "29ebe12bf66d54deb285a80f54d3d17ccd84dc28fcec532d86dd4221d6810b73",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "9132dc84200d81930b6c9fb164efb9daf9dfe730a91b86173fac4e92cc85c017"
+    },
+    {
+      "id": "pallet_rack_inspection-refresh-03",
+      "ordinal": 2,
+      "label": "Pallet Rack Inspection: replacement 3",
+      "selector": {
+        "providerId": "pallet_rack_inspection-train-refresh-20261016-v1",
+        "ordinal": 2
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "083bb59793078b04868b5e018a839603c129c9ce5cf743dfb9210eb0462e6969",
+      "substantiveIdentityHash": "66bf6ba5973c03cdbc4a5280a35a5a5cc90ccc5fae37c11a8885bb09facfe4ee",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "eee012ef22deacf5a11d72a1dc26c001736ba1754edd7125ded0ecb72e1363d4"
+    },
+    {
+      "id": "pallet_rack_inspection-refresh-04",
+      "ordinal": 3,
+      "label": "Pallet Rack Inspection: replacement 4",
+      "selector": {
+        "providerId": "pallet_rack_inspection-train-refresh-20261016-v1",
+        "ordinal": 3
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "c213b10435c3439c48ac2be43d2f11746901c8cdd50272c98c2453b8e366c6d9",
+      "substantiveIdentityHash": "cbc6fa5b42c3cad81b76dde0f1d4157f8d18772d2e8af15cd70ffe75d8c0da6b",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "45447ca280eb54c2879d589a48db53f540368ebb28af11512a8856173cbf29cd"
+    },
+    {
+      "id": "pallet_rack_inspection-refresh-05",
+      "ordinal": 4,
+      "label": "Pallet Rack Inspection: replacement 5",
+      "selector": {
+        "providerId": "pallet_rack_inspection-train-refresh-20261016-v1",
+        "ordinal": 4
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "a05f0cb0be7a850fb29ecc07041e3df132cd4ef7cb75360fd5eeae71604726e7",
+      "substantiveIdentityHash": "8a31610187d45dd8f8740ba8de8d907ed19e278b8357e18be19be84d344e7e36",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "dc2e1281c76b0ca25a7a378b7f2d31e209f89d56e07be0db4db110431218aaff"
+    },
+    {
+      "id": "pallet_rack_inspection-refresh-06",
+      "ordinal": 5,
+      "label": "Pallet Rack Inspection: replacement 6",
+      "selector": {
+        "providerId": "pallet_rack_inspection-train-refresh-20261016-v1",
+        "ordinal": 5
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "ee7060490c26774a0e324d177627ae79bbb4641ac5d30e5d578e79e377b3d94c",
+      "substantiveIdentityHash": "18b4078a6fa92c2275b95647978e576961ca272ca301cfd1a09984a2c3d4e1c7",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "e89bc8b6b49b7b8d6b55ae738a76021ccf2982f16529a0f92b32b27ecdc7c8d2"
+    },
+    {
+      "id": "pallet_rack_inspection-refresh-07",
+      "ordinal": 6,
+      "label": "Pallet Rack Inspection: replacement 7",
+      "selector": {
+        "providerId": "pallet_rack_inspection-train-refresh-20261016-v1",
+        "ordinal": 6
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "d64a4d6651c231b719f43aeb7bdc611200f76e10df6e1cabf4c145ef5b20d97a",
+      "substantiveIdentityHash": "76c7d944f37432df7068f41975ab653c2c7ee65844c17d93114811483124ae5a",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "939d1eea8c6c852fa0407438f8429ddf93f59ecd6c561d841c445663187b8cf3"
+    },
+    {
+      "id": "pallet_rack_inspection-refresh-08",
+      "ordinal": 7,
+      "label": "Pallet Rack Inspection: replacement 8",
+      "selector": {
+        "providerId": "pallet_rack_inspection-train-refresh-20261016-v1",
+        "ordinal": 7
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "23df641873434cb8087ec599eb1adb494b0ecfd8cbd4821c36cb912abf9dd362",
+      "substantiveIdentityHash": "d397d7589e54ca08136934cc2b64443006a2b3aaf813b01e8febf7076d8458ba",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "ca0bd54f324d1fd6ddf5114ab78403bbaea3337009cbc5e52ac2bd4b67883221"
+    },
+    {
+      "id": "pallet_rack_inspection-refresh-09",
+      "ordinal": 8,
+      "label": "Pallet Rack Inspection: replacement 9",
+      "selector": {
+        "providerId": "pallet_rack_inspection-train-refresh-20261016-v1",
+        "ordinal": 8
+      },
+      "origin": "declared_reconstruction",
+      "nativeInstanceFingerprint": "25910453fd81a68059d98e839e30c3cbf34dfbf607cbe0191e8e62bbff77a02b",
+      "substantiveIdentityHash": "9e671fbf07932943799e919896ec87f26334ad1d126b0e90dc11841875bcae1c",
+      "episodes": 3,
+      "h0Runs": 0,
+      "configurationHash": "ae088281fb8aecdb667bc1d09d639735a7f922905c55e3590862aca8e5d08a90"
+    }
+  ],
+  "levelSetStatus": "new_unrun_replacement",
+  "refreshBatch": "20261016-new-train"
+}

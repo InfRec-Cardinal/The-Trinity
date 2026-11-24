@@ -1,0 +1,325 @@
+{
+  "taskId": "coup_textarena_4p",
+  "configurations": [
+    {
+      "id": "game-00",
+      "index": 0,
+      "seat": 0,
+      "seed": 2026101100,
+      "label": "game 0 · H0 seat 0",
+      "ordinal": 0
+    },
+    {
+      "id": "game-01",
+      "index": 1,
+      "seat": 1,
+      "seed": 2026101101,
+      "label": "game 1 · H0 seat 1",
+      "ordinal": 1
+    },
+    {
+      "id": "game-02",
+      "index": 2,
+      "seat": 2,
+      "seed": 2026101102,
+      "label": "game 2 · H0 seat 2",
+      "ordinal": 2
+    },
+    {
+      "id": "game-03",
+      "index": 3,
+      "seat": 3,
+      "seed": 2026101103,
+      "label": "game 3 · H0 seat 3",
+      "ordinal": 3
+    },
+    {
+      "id": "game-04",
+      "index": 4,
+      "seat": 0,
+      "seed": 2026101104,
+      "label": "game 4 · H0 seat 0",
+      "ordinal": 4
+    },
+    {
+      "id": "game-05",
+      "index": 5,
+      "seat": 1,
+      "seed": 2026101105,
+      "label": "game 5 · H0 seat 1",
+      "ordinal": 5
+    },
+    {
+      "id": "game-06",
+      "index": 6,
+      "seat": 2,
+      "seed": 2026101106,
+      "label": "game 6 · H0 seat 2",
+      "ordinal": 6
+    },
+    {
+      "id": "game-07",
+      "index": 7,
+      "seat": 3,
+      "seed": 2026101107,
+      "label": "game 7 · H0 seat 3",
+      "ordinal": 7
+    },
+    {
+      "id": "game-08",
+      "index": 8,
+      "seat": 0,
+      "seed": 2026101108,
+      "label": "game 8 · H0 seat 0",
+      "ordinal": 8
+    },
+    {
+      "id": "game-09",
+      "index": 9,
+      "seat": 1,
+      "seed": 2026101109,
+      "label": "game 9 · H0 seat 1",
+      "ordinal": 9
+    },
+    {
+      "id": "game-10",
+      "index": 10,
+      "seat": 2,
+      "seed": 2026101110,
+      "label": "game 10 · H0 seat 2",
+      "ordinal": 10
+    },
+    {
+      "id": "game-11",
+      "index": 11,
+      "seat": 3,
+      "seed": 2026101111,
+      "label": "game 11 · H0 seat 3",
+      "ordinal": 11
+    },
+    {
+      "id": "game-12",
+      "index": 12,
+      "seat": 0,
+      "seed": 2026101112,
+      "label": "game 12 · H0 seat 0",
+      "ordinal": 12
+    },
+    {
+      "id": "game-13",
+      "index": 13,
+      "seat": 1,
+      "seed": 2026101113,
+      "label": "game 13 · H0 seat 1",
+      "ordinal": 13
+    },
+    {
+      "id": "game-14",
+      "index": 14,
+      "seat": 2,
+      "seed": 2026101114,
+      "label": "game 14 · H0 seat 2",
+      "ordinal": 14
+    },
+    {
+      "id": "game-15",
+      "index": 15,
+      "seat": 3,
+      "seed": 2026101115,
+      "label": "game 15 · H0 seat 3",
+      "ordinal": 15
+    },
+    {
+      "id": "game-16",
+      "index": 16,
+      "seat": 0,
+      "seed": 2026101116,
+      "label": "game 16 · H0 seat 0",
+      "ordinal": 16
+    },
+    {
+      "id": "game-17",
+      "index": 17,
+      "seat": 1,
+      "seed": 2026101117,
+      "label": "game 17 · H0 seat 1",
+      "ordinal": 17
+    },
+    {
+      "id": "game-18",
+      "index": 18,
+      "seat": 2,
+      "seed": 2026101118,
+      "label": "game 18 · H0 seat 2",
+      "ordinal": 18
+    },
+    {
+      "id": "game-19",
+      "index": 19,
+      "seat": 3,
+      "seed": 2026101119,
+      "label": "game 19 · H0 seat 3",
+      "ordinal": 19
+    },
+    {
+      "id": "game-20",
+      "index": 20,
+      "seat": 0,
+      "seed": 2026101120,
+      "label": "game 20 · H0 seat 0",
+      "ordinal": 20
+    },
+    {
+      "id": "game-21",
+      "index": 21,
+      "seat": 1,
+      "seed": 2026101121,
+      "label": "game 21 · H0 seat 1",
+      "ordinal": 21
+    },
+    {
+      "id": "game-22",
+      "index": 22,
+      "seat": 2,
+      "seed": 2026101122,
+      "label": "game 22 · H0 seat 2",
+      "ordinal": 22
+    },
+    {
+      "id": "game-23",
+      "index": 23,
+      "seat": 3,
+      "seed": 2026101123,
+      "label": "game 23 · H0 seat 3",
+      "ordinal": 23
+    },
+    {
+      "id": "game-24",
+      "index": 24,
+      "seat": 0,
+      "seed": 2026101124,
+      "label": "game 24 · H0 seat 0",
+      "ordinal": 24
+    },
+    {
+      "id": "game-25",
+      "index": 25,
+      "seat": 1,
+      "seed": 2026101125,
+      "label": "game 25 · H0 seat 1",
+      "ordinal": 25
+    },
+    {
+      "id": "game-26",
+      "index": 26,
+      "seat": 2,
+      "seed": 2026101126,
+      "label": "game 26 · H0 seat 2",
+      "ordinal": 26
+    },
+    {
+      "id": "game-27",
+      "index": 27,
+      "seat": 3,
+      "seed": 2026101127,
+      "label": "game 27 · H0 seat 3",
+      "ordinal": 27
+    },
+    {
+      "id": "game-28",
+      "index": 28,
+      "seat": 0,
+      "seed": 2026101128,
+      "label": "game 28 · H0 seat 0",
+      "ordinal": 28
+    },
+    {
+      "id": "game-29",
+      "index": 29,
+      "seat": 1,
+      "seed": 2026101129,
+      "label": "game 29 · H0 seat 1",
+      "ordinal": 29
+    },
+    {
+      "id": "game-30",
+      "index": 30,
+      "seat": 2,
+      "seed": 2026101130,
+      "label": "game 30 · H0 seat 2",
+      "ordinal": 30
+    },
+    {
+      "id": "game-31",
+      "index": 31,
+      "seat": 3,
+      "seed": 2026101131,
+      "label": "game 31 · H0 seat 3",
+      "ordinal": 31
+    },
+    {
+      "id": "game-32",
+      "index": 32,
+      "seat": 0,
+      "seed": 2026101132,
+      "label": "game 32 · H0 seat 0",
+      "ordinal": 32
+    },
+    {
+      "id": "game-33",
+      "index": 33,
+      "seat": 1,
+      "seed": 2026101133,
+      "label": "game 33 · H0 seat 1",
+      "ordinal": 33
+    },
+    {
+      "id": "game-34",
+      "index": 34,
+      "seat": 2,
+      "seed": 2026101134,
+      "label": "game 34 · H0 seat 2",
+      "ordinal": 34
+    },
+    {
+      "id": "game-35",
+      "index": 35,
+      "seat": 3,
+      "seed": 2026101135,
+      "label": "game 35 · H0 seat 3",
+      "ordinal": 35
+    },
+    {
+      "id": "game-36",
+      "index": 36,
+      "seat": 0,
+      "seed": 2026101136,
+      "label": "game 36 · H0 seat 0",
+      "ordinal": 36
+    },
+    {
+      "id": "game-37",
+      "index": 37,
+      "seat": 1,
+      "seed": 2026101137,
+      "label": "game 37 · H0 seat 1",
+      "ordinal": 37
+    },
+    {
+      "id": "game-38",
+      "index": 38,
+      "seat": 2,
+      "seed": 2026101138,
+      "label": "game 38 · H0 seat 2",
+      "ordinal": 38
+    },
+    {
+      "id": "game-39",
+      "index": 39,
+      "seat": 3,
+      "seed": 2026101139,
+      "label": "game 39 · H0 seat 3",
+      "ordinal": 39
+    }
+  ]
+}

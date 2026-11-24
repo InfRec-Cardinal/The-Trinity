@@ -1,0 +1,107 @@
+{
+  "taskId": "entity_deduction_arena",
+  "proposals": [
+    {
+      "id": "cut-enumeration-after-negative-run",
+      "title": "Abort a member-by-member enumeration after three negatives; ask the complement instead",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "Three or more consecutive questions that each test a single member of the same partition (one occupation, one country, one function class) have all come back negative.",
+      "procedure": [
+        "Stop asking about further individual members of that partition.",
+        "Ask one grouped/complement question that covers the entire remaining block of that partition at once (e.g. 'none of the above kinds — is it in the remaining group?' phrased positively over the residual set).",
+        "If the grouped question returns yes, split the residual block roughly in half next, never one member at a time.",
+        "If the grouped question returns no, treat the partition itself as mis-framed: switch axis (origin, era, size, material, medium) rather than continuing inside it.",
+        "Never ask more than four member-level questions on any one axis in an episode."
+      ],
+      "successSignals": [
+        "A yes arrives within one or two questions after the switch.",
+        "Each negative now eliminates a block rather than a single candidate."
+      ],
+      "failureSignals": [
+        "Four or more negatives in a row on the same axis.",
+        "Turn count past half the cap with the entity's category still unresolved."
+      ],
+      "recovery": [
+        "Re-read the yes answers only, restate the residual set out loud, and pick the next axis that splits it nearest to half."
+      ],
+      "invariants": [
+        "No extra questions are spent; the grouped question replaces the member question that would have been asked."
+      ],
+      "sourceGapIds": [
+        "linear-enumeration-of-partition",
+        "negative-run-not-abandoned"
+      ]
+    },
+    {
+      "id": "name-candidates-before-cap",
+      "title": "Start naming concrete candidates once the residual set is small, not when forced",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "The accumulated yes answers already pin the entity to a recognizable narrow family (a nationality plus a profession, or a material plus a use class), or roughly two-thirds of the turn budget is gone.",
+      "procedure": [
+        "Immediately list internally the 3-5 most probable concrete entities consistent with every yes and no so far.",
+        "If that list is non-empty, spend the next turn naming the single most probable one rather than asking another attribute question.",
+        "On a negative, do not return to broad attribute questions: ask one attribute that splits the remaining named candidates (age band, sub-genre, sub-type), then name the next candidate.",
+        "Keep at least three turns before the cap reserved for named guesses.",
+        "If no concrete name can be generated from the current yes set, that is the signal the last axis was too fine — ask one broad axis question, then re-attempt naming."
+      ],
+      "successSignals": [
+        "A named guess is asked by roughly mid-episode and each later question is chosen to separate named candidates.",
+        "Episode ends on a bingo with turns to spare."
+      ],
+      "failureSignals": [
+        "The answerer issues a forced-guess prompt before any candidate has been named.",
+        "Final turns contain the first and only named guesses."
+      ],
+      "recovery": [
+        "On a forced-guess prompt, name the highest-prior candidate in the residual family rather than a hedged category phrase."
+      ],
+      "invariants": [
+        "Named guesses consume the same turn an attribute question would have; the budget is reallocated, not increased."
+      ],
+      "sourceGapIds": [
+        "commits-too-late",
+        "no-named-candidates-until-forced",
+        "burns-budget-on-attributes"
+      ]
+    },
+    {
+      "id": "treat-yes-as-pivot",
+      "title": "Pivot axis immediately after each yes instead of refining the same axis",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "A question just returned yes, confirming a broad attribute, and the natural next question would subdivide that same attribute further.",
+      "procedure": [
+        "After a yes, check whether the residual set is already small enough to name candidates; if so, name one.",
+        "Otherwise choose the next question on a different, independent axis (origin vs role vs era vs form) so the two constraints multiply rather than nest.",
+        "Only subdivide the just-confirmed attribute when no independent axis would split the residual set near half.",
+        "Re-evaluate after every yes; a yes is the cheapest moment to change direction."
+      ],
+      "successSignals": [
+        "Yes answers accumulate across different axes and the candidate family shrinks fast.",
+        "Few than three questions are spent inside any single confirmed attribute."
+      ],
+      "failureSignals": [
+        "Several questions in a row all drill into the branch opened by one yes while other axes stay unknown.",
+        "Many yes answers but still no concrete candidate in mind."
+      ],
+      "recovery": [
+        "Write out which axes are still completely unconstrained and ask about the most discriminating one next."
+      ],
+      "invariants": [
+        "Uses only evidence already received; no repeated or confirmatory questioning."
+      ],
+      "sourceGapIds": [
+        "over-refines-single-axis",
+        "axes-left-unconstrained"
+      ]
+    }
+  ]
+}

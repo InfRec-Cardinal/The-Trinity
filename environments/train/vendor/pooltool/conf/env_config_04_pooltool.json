@@ -1,0 +1,16 @@
+{
+    "env_name": "Pooltool",
+    "max_attempts_per_game": 15,
+    "speed_mapping": {"Low": 2, "Medium": 5, "High": 8},
+    "strikespot_mapping": {
+        "Top Left Spin": {"a": 0.35, "b": 0.35},
+        "Top Spin": {"a": 0, "b": 0.5},
+        "Top Right Spin": {"a": -0.35, "b": 0.35},
+        "Middle Left Spin": {"a": 0.35, "b": 0},
+        "Middle Spin": {"a": 0, "b": 0},
+        "Middle Right Spin": {"a": -0.35, "b": 0},
+        "Bottom Left Spin": {"a": 0.35, "b": -0.35},
+        "Bottom Spin": {"a": 0, "b": -0.5},
+        "Bottom Right Spin": {"a": -0.35, "b": -0.35}
+    }
+}

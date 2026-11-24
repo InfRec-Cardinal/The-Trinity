@@ -1,0 +1,2264 @@
+{
+  "scene_id": "data/scene_datasets/hm3d/val/00843-DYehNKdT76V/DYehNKdT76V.basis.glb",
+  "scene_key": "00843-DYehNKdT76V",
+  "episode_id": "18",
+  "goal_position_nominal": [
+    -0.8558303117752075,
+    0.903734028339386,
+    -3.7589380741119385
+  ],
+  "final_base_y": 0.1365068554878235,
+  "base_y_source": "snap_goal_y",
+  "object_category": "headphones",
+  "object_id": "821452ba26ca4742b45d0bc4ac9fb9bd",
+  "pin_semantic_id_convention": {
+    "target_semantic_id": 100000,
+    "meaning": "All pixels with this semantic_id correspond to this episode's target object."
+  },
+  "camera_intrinsics": {
+    "width": 360,
+    "height": 640,
+    "hfov_deg": 42.0,
+    "vfov_deg": 68.62120575907826,
+    "K": [
+      [
+        468.9160316448843,
+        0,
+        179.5
+      ],
+      [
+        0,
+        468.91603164488436,
+        319.5
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "sensor_mount_offset_y": 1.31,
+  "n_sectors": 12,
+  "sector_order": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "sector_skip": 1,
+  "ranges": {
+    "near": [
+      0.9,
+      1.2
+    ],
+    "far": [
+      1.4,
+      1.7
+    ]
+  },
+  "look_thresh": 0.3,
+  "category_mask_threshold": 300,
+  "viewpoints": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2786,
+      "mask_bbox_xyxy": [
+        143,
+        170,
+        214,
+        262
+      ],
+      "mask_area_fraction": 0.012092013888888888,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        0.3640909194946289,
+        1.4465067386627197,
+        -3.0677976608276367
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8345432877540588,
+        -0.22361521422863007,
+        0.48636430501937866,
+        0.13032092154026031
+      ],
+      "camera_to_world": [
+        [
+          0.49293243885040283,
+          -1.4901161193847656e-08,
+          -0.8700676560401917,
+          0.0
+        ],
+        [
+          -0.43503379821777344,
+          0.8660253882408142,
+          -0.2464662492275238,
+          0.0
+        ],
+        [
+          0.7535006403923035,
+          0.5,
+          0.4268919825553894,
+          0.0
+        ],
+        [
+          0.3640909194946289,
+          1.4465067386627197,
+          -3.0677976608276367,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.49293243885040283,
+          -0.4350338280200958,
+          0.7535006999969482,
+          -0.0
+        ],
+        [
+          -2.9802322387695312e-08,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.8700675964355469,
+          -0.2464662343263626,
+          0.4268920123577118,
+          -0.0
+        ],
+        [
+          -2.848663568496704,
+          -1.8504283428192139,
+          0.3120221495628357,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7535006403923035,
+        -0.42689207196235657
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.40209945488104
+    },
+    {
+      "tag": "s0_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 3935,
+      "mask_bbox_xyxy": [
+        135,
+        195,
+        221,
+        304
+      ],
+      "mask_area_fraction": 0.017078993055555554,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_near.png",
+      "mask_raw_path": "mask/mask_s0_near.png",
+      "camera_position": [
+        0.12281626462936401,
+        1.4465067386627197,
+        -3.203812599182129
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8346707820892334,
+        -0.22364936769008636,
+        0.4861454665660858,
+        0.13026230037212372
+      ],
+      "camera_to_world": [
+        [
+          0.4933886229991913,
+          1.4901161193847656e-08,
+          -0.8698089718818665,
+          0.0
+        ],
+        [
+          -0.4349045157432556,
+          0.8660253882408142,
+          -0.24669434130191803,
+          0.0
+        ],
+        [
+          0.7532766461372375,
+          0.5000000596046448,
+          0.42728713154792786,
+          0.0
+        ],
+        [
+          0.12281626462936401,
+          1.4465067386627197,
+          -3.203812599182129,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.49338868260383606,
+          -0.434904545545578,
+          0.7532766461372375,
+          -0.0
+        ],
+        [
+          1.4901161193847656e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.8698089718818665,
+          -0.24669432640075684,
+          0.4272870719432831,
+          -0.0
+        ],
+        [
+          -2.8473012447357178,
+          -1.989660620689392,
+          0.5531796813011169,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7532766461372375,
+        -0.42728710174560547
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1251281768867205
+    },
+    {
+      "tag": "s2_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 1870,
+      "mask_bbox_xyxy": [
+        162,
+        152,
+        195,
+        235
+      ],
+      "mask_area_fraction": 0.008116319444444445,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s2_far.png",
+      "mask_raw_path": "mask/mask_s2_far.png",
+      "camera_position": [
+        -0.5233942866325378,
+        1.4465067386627197,
+        -2.127668619155884
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9610500931739807,
+        -0.2575125992298126,
+        0.09692994505167007,
+        0.02597230114042759
+      ],
+      "camera_to_world": [
+        [
+          0.9798600673675537,
+          0.0,
+          -0.1996854543685913,
+          0.0
+        ],
+        [
+          -0.09984272718429565,
+          0.866025447845459,
+          -0.48993003368377686,
+          0.0
+        ],
+        [
+          0.1729326844215393,
+          0.5,
+          0.8485836982727051,
+          0.0
+        ],
+        [
+          -0.5233942866325378,
+          1.4465067386627197,
+          -2.127668619155884,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9798600673675537,
+          -0.09984272718429565,
+          0.1729326844215393,
+          -0.0
+        ],
+        [
+          -7.450580596923828e-09,
+          0.8660253882408142,
+          0.5,
+          0.0
+        ],
+        [
+          -0.1996854692697525,
+          -0.48993003368377686,
+          0.8485837578773499,
+          -0.0
+        ],
+        [
+          0.0879887044429779,
+          -2.3473777770996094,
+          1.1727635860443115,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.1729326844215393,
+        -0.8485836982727051
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6647984098638735
+    },
+    {
+      "tag": "s2_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 2,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s4_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2306,
+      "mask_bbox_xyxy": [
+        157,
+        155,
+        203,
+        240
+      ],
+      "mask_area_fraction": 0.010008680555555555,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s4_far.png",
+      "mask_raw_path": "mask/mask_s4_far.png",
+      "camera_position": [
+        -1.7859091758728027,
+        1.4465067386627197,
+        -2.4423274993896484
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9206143021583557,
+        -0.24667786061763763,
+        -0.2923731505870819,
+        -0.07834114879369736
+      ],
+      "camera_to_world": [
+        [
+          0.8167611956596375,
+          0.0,
+          0.5769758224487305,
+          0.0
+        ],
+        [
+          0.2884879410266876,
+          0.8660253882408142,
+          -0.4083806574344635,
+          0.0
+        ],
+        [
+          -0.4996757209300995,
+          0.5000000596046448,
+          0.7073359489440918,
+          0.0
+        ],
+        [
+          -1.7859091758728027,
+          1.4465067386627197,
+          -2.4423274993896484,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.8167612552642822,
+          0.2884879410266876,
+          -0.4996757209300995,
+          -0.0
+        ],
+        [
+          1.4901161193847656e-08,
+          0.8660253882408142,
+          0.5,
+          -0.0
+        ],
+        [
+          0.5769758224487305,
+          -0.4083806574344635,
+          0.7073359489440918,
+          -0.0
+        ],
+        [
+          2.8678252696990967,
+          -1.7348973751068115,
+          0.11191713809967041,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.4996756911277771,
+        -0.707335889339447
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6119894847397833
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 4018,
+      "mask_bbox_xyxy": [
+        149,
+        193,
+        212,
+        304
+      ],
+      "mask_area_fraction": 0.01743923611111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": "mask/mask_s4_near.png",
+      "camera_position": [
+        -1.5120066404342651,
+        1.4465067386627197,
+        -2.830061197280884
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9206143021583557,
+        -0.24667787551879883,
+        -0.29237309098243713,
+        -0.07834113389253616
+      ],
+      "camera_to_world": [
+        [
+          0.8167612552642822,
+          0.0,
+          0.5769757628440857,
+          0.0
+        ],
+        [
+          0.28848788142204285,
+          0.8660253882408142,
+          -0.4083806872367859,
+          0.0
+        ],
+        [
+          -0.4996756911277771,
+          0.5000000596046448,
+          0.7073360085487366,
+          0.0
+        ],
+        [
+          -1.5120066404342651,
+          1.4465067386627197,
+          -2.830061197280884,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.816761314868927,
+          0.28848791122436523,
+          -0.4996756613254547,
+          -0.0
+        ],
+        [
+          2.9802322387695312e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          0.5769758224487305,
+          -0.4083806872367859,
+          0.7073360085487366,
+          -0.0
+        ],
+        [
+          2.867825508117676,
+          -1.97225821018219,
+          0.523037850856781,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.4996756911277771,
+        -0.7073360681533813
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1372684936301956
+    },
+    {
+      "tag": "s6_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2146,
+      "mask_bbox_xyxy": [
+        148,
+        153,
+        209,
+        235
+      ],
+      "mask_area_fraction": 0.009314236111111112,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s6_far.png",
+      "mask_raw_path": "mask/mask_s6_far.png",
+      "camera_position": [
+        -2.2859091758728027,
+        1.4465067386627197,
+        -4.576831817626953
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.48466864228248596,
+        -0.1298665851354599,
+        -0.8355291485786438,
+        -0.2238793820142746
+      ],
+      "camera_to_world": [
+        [
+          -0.4964618980884552,
+          1.4901161193847656e-08,
+          0.8680585026741028,
+          0.0
+        ],
+        [
+          0.4340292811393738,
+          0.8660253286361694,
+          0.24823097884655,
+          0.0
+        ],
+        [
+          -0.7517606616020203,
+          0.5,
+          -0.429948627948761,
+          0.0
+        ],
+        [
+          -2.2859091758728027,
+          1.4465067386627197,
+          -4.576831817626953,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.4964619278907776,
+          0.4340292811393738,
+          -0.751760721206665,
+          -0.0
+        ],
+        [
+          1.4901162970204496e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          0.8680585026741028,
+          0.2482309490442276,
+          -0.4299485981464386,
+          -0.0
+        ],
+        [
+          2.838090658187866,
+          0.8755512237548828,
+          -4.409512996673584,
+          0.9999999403953552
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.751760721206665,
+        0.4299486577510834
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6474452140267586
+    },
+    {
+      "tag": "s6_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 5305,
+      "mask_bbox_xyxy": [
+        126,
+        222,
+        227,
+        347
+      ],
+      "mask_area_fraction": 0.023025173611111113,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s6_near.png",
+      "mask_raw_path": "mask/mask_s6_near.png",
+      "camera_position": [
+        -1.6559240818023682,
+        1.4465067386627197,
+        -4.216529369354248
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.4846687316894531,
+        -0.1298666000366211,
+        -0.8355291485786438,
+        -0.2238793820142746
+      ],
+      "camera_to_world": [
+        [
+          -0.4964618980884552,
+          -1.4901161193847656e-08,
+          0.8680586218833923,
+          0.0
+        ],
+        [
+          0.43402934074401855,
+          0.8660253286361694,
+          0.2482309341430664,
+          0.0
+        ],
+        [
+          -0.7517607808113098,
+          0.5000000596046448,
+          -0.429948627948761,
+          0.0
+        ],
+        [
+          -1.6559240818023682,
+          1.4465067386627197,
+          -4.216529369354248,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.49646174907684326,
+          0.4340292811393738,
+          -0.7517606019973755,
+          0.0
+        ],
+        [
+          4.470347292340193e-08,
+          0.8660253882408142,
+          0.5,
+          -0.0
+        ],
+        [
+          0.8680583834648132,
+          0.2482309341430664,
+          -0.42994847893714905,
+          -0.0
+        ],
+        [
+          2.838090419769287,
+          0.5126811265945435,
+          -3.7810025215148926,
+          0.9999998807907104
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.7517607808113098,
+        0.42994850873947144
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9217048520637231
+    },
+    {
+      "tag": "s8_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 1443,
+      "mask_bbox_xyxy": [
+        166,
+        150,
+        192,
+        232
+      ],
+      "mask_area_fraction": 0.006263020833333333,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s8_far.png",
+      "mask_raw_path": "mask/mask_s8_far.png",
+      "camera_position": [
+        -0.9242527484893799,
+        1.4465067386627197,
+        -5.454921245574951
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.01947147212922573,
+        -0.005217364989221096,
+        -0.9657295346260071,
+        -0.2587664723396301
+      ],
+      "camera_to_world": [
+        [
+          -0.9991872310638428,
+          -9.313225746154785e-10,
+          0.04030850902199745,
+          0.0
+        ],
+        [
+          0.020154256373643875,
+          0.8660253882408142,
+          0.4995936453342438,
+          0.0
+        ],
+        [
+          -0.034908194094896317,
+          0.5,
+          -0.8653214573860168,
+          0.0
+        ],
+        [
+          -0.9242527484893799,
+          1.4465067386627197,
+          -5.454921245574951,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9991873502731323,
+          0.020154258236289024,
+          -0.034908197820186615,
+          0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.04030852019786835,
+          0.49959370493888855,
+          -0.865321695804596,
+          -0.0
+        ],
+        [
+          -0.7036218643188477,
+          1.491160273551941,
+          -5.475779056549072,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.034908194094896317,
+        0.8653215169906616
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6973628214767884
+    },
+    {
+      "tag": "s8_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 4069,
+      "mask_bbox_xyxy": [
+        151,
+        199,
+        206,
+        314
+      ],
+      "mask_area_fraction": 0.017660590277777777,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s8_near.png",
+      "mask_raw_path": "mask/mask_s8_near.png",
+      "camera_position": [
+        -1.2359094619750977,
+        1.4465067386627197,
+        -4.77683162689209
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.1716771423816681,
+        -0.046000752598047256,
+        -0.9505470395088196,
+        -0.2546983063220978
+      ],
+      "camera_to_world": [
+        [
+          -0.9368217587471008,
+          0.0,
+          0.3498070240020752,
+          0.0
+        ],
+        [
+          0.1749035120010376,
+          0.8660253882408142,
+          0.4684109091758728,
+          0.0
+        ],
+        [
+          -0.30294179916381836,
+          0.5,
+          -0.8113114833831787,
+          0.0
+        ],
+        [
+          -1.2359094619750977,
+          1.4465067386627197,
+          -4.77683162689209,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9368218183517456,
+          0.1749035120010376,
+          -0.30294176936149597,
+          -0.0
+        ],
+        [
+          -1.4901161193847656e-08,
+          0.8660253882408142,
+          0.5,
+          0.0
+        ],
+        [
+          0.3498070538043976,
+          0.4684108793735504,
+          -0.8113114237785339,
+          -0.0
+        ],
+        [
+          0.513142466545105,
+          1.2009732723236084,
+          -4.9731597900390625,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.30294179916381836,
+        0.8113114833831787
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0865392055549903
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2543,
+      "mask_bbox_xyxy": [
+        155,
+        161,
+        205,
+        249
+      ],
+      "mask_area_fraction": 0.011037326388888888,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        0.11517667025327682,
+        1.4465067386627197,
+        -4.937313556671143
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.3263172507286072,
+        -0.08743644505739212,
+        0.9091368317604065,
+        0.24360248446464539
+      ],
+      "camera_to_world": [
+        [
+          -0.7717439532279968,
+          0.0,
+          -0.635933518409729,
+          0.0
+        ],
+        [
+          -0.3179667592048645,
+          0.8660253882408142,
+          0.385871946811676,
+          0.0
+        ],
+        [
+          0.5507346391677856,
+          0.5,
+          -0.6683498620986938,
+          0.0
+        ],
+        [
+          0.11517667025327682,
+          1.4465067386627197,
+          -4.937313556671143,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.7717437744140625,
+          -0.3179667294025421,
+          0.5507345199584961,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5,
+          0.0
+        ],
+        [
+          -0.6359334588050842,
+          0.38587191700935364,
+          -0.6683498024940491,
+          -0.0
+        ],
+        [
+          -3.0509161949157715,
+          0.6890813708305359,
+          -4.086537837982178,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.5507346391677856,
+        0.6683498024940491
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5268999153558933
+    },
+    {
+      "tag": "s10_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 10,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    }
+  ],
+  "episode_result": {
+    "navigable_count": 10,
+    "valid_mask_count": 10,
+    "total_viewpoints": 12,
+    "success": true,
+    "object_category": "headphones"
+  },
+  "captures": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2786,
+      "mask_bbox_xyxy": [
+        143,
+        170,
+        214,
+        262
+      ],
+      "mask_area_fraction": 0.012092013888888888,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        0.3640909194946289,
+        1.4465067386627197,
+        -3.0677976608276367
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8345432877540588,
+        -0.22361521422863007,
+        0.48636430501937866,
+        0.13032092154026031
+      ],
+      "camera_to_world": [
+        [
+          0.49293243885040283,
+          -1.4901161193847656e-08,
+          -0.8700676560401917,
+          0.0
+        ],
+        [
+          -0.43503379821777344,
+          0.8660253882408142,
+          -0.2464662492275238,
+          0.0
+        ],
+        [
+          0.7535006403923035,
+          0.5,
+          0.4268919825553894,
+          0.0
+        ],
+        [
+          0.3640909194946289,
+          1.4465067386627197,
+          -3.0677976608276367,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.49293243885040283,
+          -0.4350338280200958,
+          0.7535006999969482,
+          -0.0
+        ],
+        [
+          -2.9802322387695312e-08,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.8700675964355469,
+          -0.2464662343263626,
+          0.4268920123577118,
+          -0.0
+        ],
+        [
+          -2.848663568496704,
+          -1.8504283428192139,
+          0.3120221495628357,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7535006403923035,
+        -0.42689207196235657
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.40209945488104
+    },
+    {
+      "tag": "s0_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 3935,
+      "mask_bbox_xyxy": [
+        135,
+        195,
+        221,
+        304
+      ],
+      "mask_area_fraction": 0.017078993055555554,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s0_near.png",
+      "mask_raw_path": "mask/mask_s0_near.png",
+      "camera_position": [
+        0.12281626462936401,
+        1.4465067386627197,
+        -3.203812599182129
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8346707820892334,
+        -0.22364936769008636,
+        0.4861454665660858,
+        0.13026230037212372
+      ],
+      "camera_to_world": [
+        [
+          0.4933886229991913,
+          1.4901161193847656e-08,
+          -0.8698089718818665,
+          0.0
+        ],
+        [
+          -0.4349045157432556,
+          0.8660253882408142,
+          -0.24669434130191803,
+          0.0
+        ],
+        [
+          0.7532766461372375,
+          0.5000000596046448,
+          0.42728713154792786,
+          0.0
+        ],
+        [
+          0.12281626462936401,
+          1.4465067386627197,
+          -3.203812599182129,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.49338868260383606,
+          -0.434904545545578,
+          0.7532766461372375,
+          -0.0
+        ],
+        [
+          1.4901161193847656e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.8698089718818665,
+          -0.24669432640075684,
+          0.4272870719432831,
+          -0.0
+        ],
+        [
+          -2.8473012447357178,
+          -1.989660620689392,
+          0.5531796813011169,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7532766461372375,
+        -0.42728710174560547
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1251281768867205
+    },
+    {
+      "tag": "s2_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 1870,
+      "mask_bbox_xyxy": [
+        162,
+        152,
+        195,
+        235
+      ],
+      "mask_area_fraction": 0.008116319444444445,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s2_far.png",
+      "mask_raw_path": "mask/mask_s2_far.png",
+      "camera_position": [
+        -0.5233942866325378,
+        1.4465067386627197,
+        -2.127668619155884
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9610500931739807,
+        -0.2575125992298126,
+        0.09692994505167007,
+        0.02597230114042759
+      ],
+      "camera_to_world": [
+        [
+          0.9798600673675537,
+          0.0,
+          -0.1996854543685913,
+          0.0
+        ],
+        [
+          -0.09984272718429565,
+          0.866025447845459,
+          -0.48993003368377686,
+          0.0
+        ],
+        [
+          0.1729326844215393,
+          0.5,
+          0.8485836982727051,
+          0.0
+        ],
+        [
+          -0.5233942866325378,
+          1.4465067386627197,
+          -2.127668619155884,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9798600673675537,
+          -0.09984272718429565,
+          0.1729326844215393,
+          -0.0
+        ],
+        [
+          -7.450580596923828e-09,
+          0.8660253882408142,
+          0.5,
+          0.0
+        ],
+        [
+          -0.1996854692697525,
+          -0.48993003368377686,
+          0.8485837578773499,
+          -0.0
+        ],
+        [
+          0.0879887044429779,
+          -2.3473777770996094,
+          1.1727635860443115,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.1729326844215393,
+        -0.8485836982727051
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6647984098638735
+    },
+    {
+      "tag": "s4_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2306,
+      "mask_bbox_xyxy": [
+        157,
+        155,
+        203,
+        240
+      ],
+      "mask_area_fraction": 0.010008680555555555,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s4_far.png",
+      "mask_raw_path": "mask/mask_s4_far.png",
+      "camera_position": [
+        -1.7859091758728027,
+        1.4465067386627197,
+        -2.4423274993896484
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9206143021583557,
+        -0.24667786061763763,
+        -0.2923731505870819,
+        -0.07834114879369736
+      ],
+      "camera_to_world": [
+        [
+          0.8167611956596375,
+          0.0,
+          0.5769758224487305,
+          0.0
+        ],
+        [
+          0.2884879410266876,
+          0.8660253882408142,
+          -0.4083806574344635,
+          0.0
+        ],
+        [
+          -0.4996757209300995,
+          0.5000000596046448,
+          0.7073359489440918,
+          0.0
+        ],
+        [
+          -1.7859091758728027,
+          1.4465067386627197,
+          -2.4423274993896484,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.8167612552642822,
+          0.2884879410266876,
+          -0.4996757209300995,
+          -0.0
+        ],
+        [
+          1.4901161193847656e-08,
+          0.8660253882408142,
+          0.5,
+          -0.0
+        ],
+        [
+          0.5769758224487305,
+          -0.4083806574344635,
+          0.7073359489440918,
+          -0.0
+        ],
+        [
+          2.8678252696990967,
+          -1.7348973751068115,
+          0.11191713809967041,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.4996756911277771,
+        -0.707335889339447
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6119894847397833
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 4018,
+      "mask_bbox_xyxy": [
+        149,
+        193,
+        212,
+        304
+      ],
+      "mask_area_fraction": 0.01743923611111111,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": "mask/mask_s4_near.png",
+      "camera_position": [
+        -1.5120066404342651,
+        1.4465067386627197,
+        -2.830061197280884
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9206143021583557,
+        -0.24667787551879883,
+        -0.29237309098243713,
+        -0.07834113389253616
+      ],
+      "camera_to_world": [
+        [
+          0.8167612552642822,
+          0.0,
+          0.5769757628440857,
+          0.0
+        ],
+        [
+          0.28848788142204285,
+          0.8660253882408142,
+          -0.4083806872367859,
+          0.0
+        ],
+        [
+          -0.4996756911277771,
+          0.5000000596046448,
+          0.7073360085487366,
+          0.0
+        ],
+        [
+          -1.5120066404342651,
+          1.4465067386627197,
+          -2.830061197280884,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.816761314868927,
+          0.28848791122436523,
+          -0.4996756613254547,
+          -0.0
+        ],
+        [
+          2.9802322387695312e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          0.5769758224487305,
+          -0.4083806872367859,
+          0.7073360085487366,
+          -0.0
+        ],
+        [
+          2.867825508117676,
+          -1.97225821018219,
+          0.523037850856781,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.4996756911277771,
+        -0.7073360681533813
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1372684936301956
+    },
+    {
+      "tag": "s6_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2146,
+      "mask_bbox_xyxy": [
+        148,
+        153,
+        209,
+        235
+      ],
+      "mask_area_fraction": 0.009314236111111112,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s6_far.png",
+      "mask_raw_path": "mask/mask_s6_far.png",
+      "camera_position": [
+        -2.2859091758728027,
+        1.4465067386627197,
+        -4.576831817626953
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.48466864228248596,
+        -0.1298665851354599,
+        -0.8355291485786438,
+        -0.2238793820142746
+      ],
+      "camera_to_world": [
+        [
+          -0.4964618980884552,
+          1.4901161193847656e-08,
+          0.8680585026741028,
+          0.0
+        ],
+        [
+          0.4340292811393738,
+          0.8660253286361694,
+          0.24823097884655,
+          0.0
+        ],
+        [
+          -0.7517606616020203,
+          0.5,
+          -0.429948627948761,
+          0.0
+        ],
+        [
+          -2.2859091758728027,
+          1.4465067386627197,
+          -4.576831817626953,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.4964619278907776,
+          0.4340292811393738,
+          -0.751760721206665,
+          -0.0
+        ],
+        [
+          1.4901162970204496e-08,
+          0.8660253882408142,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          0.8680585026741028,
+          0.2482309490442276,
+          -0.4299485981464386,
+          -0.0
+        ],
+        [
+          2.838090658187866,
+          0.8755512237548828,
+          -4.409512996673584,
+          0.9999999403953552
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.751760721206665,
+        0.4299486577510834
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6474452140267586
+    },
+    {
+      "tag": "s6_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 5305,
+      "mask_bbox_xyxy": [
+        126,
+        222,
+        227,
+        347
+      ],
+      "mask_area_fraction": 0.023025173611111113,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s6_near.png",
+      "mask_raw_path": "mask/mask_s6_near.png",
+      "camera_position": [
+        -1.6559240818023682,
+        1.4465067386627197,
+        -4.216529369354248
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.4846687316894531,
+        -0.1298666000366211,
+        -0.8355291485786438,
+        -0.2238793820142746
+      ],
+      "camera_to_world": [
+        [
+          -0.4964618980884552,
+          -1.4901161193847656e-08,
+          0.8680586218833923,
+          0.0
+        ],
+        [
+          0.43402934074401855,
+          0.8660253286361694,
+          0.2482309341430664,
+          0.0
+        ],
+        [
+          -0.7517607808113098,
+          0.5000000596046448,
+          -0.429948627948761,
+          0.0
+        ],
+        [
+          -1.6559240818023682,
+          1.4465067386627197,
+          -4.216529369354248,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.49646174907684326,
+          0.4340292811393738,
+          -0.7517606019973755,
+          0.0
+        ],
+        [
+          4.470347292340193e-08,
+          0.8660253882408142,
+          0.5,
+          -0.0
+        ],
+        [
+          0.8680583834648132,
+          0.2482309341430664,
+          -0.42994847893714905,
+          -0.0
+        ],
+        [
+          2.838090419769287,
+          0.5126811265945435,
+          -3.7810025215148926,
+          0.9999998807907104
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.7517607808113098,
+        0.42994850873947144
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 6,
+      "angle_deg_range": [
+        180.0,
+        210.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9217048520637231
+    },
+    {
+      "tag": "s8_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 1443,
+      "mask_bbox_xyxy": [
+        166,
+        150,
+        192,
+        232
+      ],
+      "mask_area_fraction": 0.006263020833333333,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s8_far.png",
+      "mask_raw_path": "mask/mask_s8_far.png",
+      "camera_position": [
+        -0.9242527484893799,
+        1.4465067386627197,
+        -5.454921245574951
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.01947147212922573,
+        -0.005217364989221096,
+        -0.9657295346260071,
+        -0.2587664723396301
+      ],
+      "camera_to_world": [
+        [
+          -0.9991872310638428,
+          -9.313225746154785e-10,
+          0.04030850902199745,
+          0.0
+        ],
+        [
+          0.020154256373643875,
+          0.8660253882408142,
+          0.4995936453342438,
+          0.0
+        ],
+        [
+          -0.034908194094896317,
+          0.5,
+          -0.8653214573860168,
+          0.0
+        ],
+        [
+          -0.9242527484893799,
+          1.4465067386627197,
+          -5.454921245574951,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9991873502731323,
+          0.020154258236289024,
+          -0.034908197820186615,
+          0.0
+        ],
+        [
+          -0.0,
+          0.8660253882408142,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.04030852019786835,
+          0.49959370493888855,
+          -0.865321695804596,
+          -0.0
+        ],
+        [
+          -0.7036218643188477,
+          1.491160273551941,
+          -5.475779056549072,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.034908194094896317,
+        0.8653215169906616
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6973628214767884
+    },
+    {
+      "tag": "s8_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 4069,
+      "mask_bbox_xyxy": [
+        151,
+        199,
+        206,
+        314
+      ],
+      "mask_area_fraction": 0.017660590277777777,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s8_near.png",
+      "mask_raw_path": "mask/mask_s8_near.png",
+      "camera_position": [
+        -1.2359094619750977,
+        1.4465067386627197,
+        -4.77683162689209
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.1716771423816681,
+        -0.046000752598047256,
+        -0.9505470395088196,
+        -0.2546983063220978
+      ],
+      "camera_to_world": [
+        [
+          -0.9368217587471008,
+          0.0,
+          0.3498070240020752,
+          0.0
+        ],
+        [
+          0.1749035120010376,
+          0.8660253882408142,
+          0.4684109091758728,
+          0.0
+        ],
+        [
+          -0.30294179916381836,
+          0.5,
+          -0.8113114833831787,
+          0.0
+        ],
+        [
+          -1.2359094619750977,
+          1.4465067386627197,
+          -4.77683162689209,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.9368218183517456,
+          0.1749035120010376,
+          -0.30294176936149597,
+          -0.0
+        ],
+        [
+          -1.4901161193847656e-08,
+          0.8660253882408142,
+          0.5,
+          0.0
+        ],
+        [
+          0.3498070538043976,
+          0.4684108793735504,
+          -0.8113114237785339,
+          -0.0
+        ],
+        [
+          0.513142466545105,
+          1.2009732723236084,
+          -4.9731597900390625,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.30294179916381836,
+        0.8113114833831787
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 8,
+      "angle_deg_range": [
+        240.0,
+        270.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0865392055549903
+    },
+    {
+      "tag": "s10_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 2543,
+      "mask_bbox_xyxy": [
+        155,
+        161,
+        205,
+        249
+      ],
+      "mask_area_fraction": 0.011037326388888888,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 300,
+      "rgb": "rgb/rgb_s10_far.png",
+      "mask_raw_path": "mask/mask_s10_far.png",
+      "camera_position": [
+        0.11517667025327682,
+        1.4465067386627197,
+        -4.937313556671143
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.3263172507286072,
+        -0.08743644505739212,
+        0.9091368317604065,
+        0.24360248446464539
+      ],
+      "camera_to_world": [
+        [
+          -0.7717439532279968,
+          0.0,
+          -0.635933518409729,
+          0.0
+        ],
+        [
+          -0.3179667592048645,
+          0.8660253882408142,
+          0.385871946811676,
+          0.0
+        ],
+        [
+          0.5507346391677856,
+          0.5,
+          -0.6683498620986938,
+          0.0
+        ],
+        [
+          0.11517667025327682,
+          1.4465067386627197,
+          -4.937313556671143,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          -0.7717437744140625,
+          -0.3179667294025421,
+          0.5507345199584961,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5,
+          0.0
+        ],
+        [
+          -0.6359334588050842,
+          0.38587191700935364,
+          -0.6683498024940491,
+          -0.0
+        ],
+        [
+          -3.0509161949157715,
+          0.6890813708305359,
+          -4.086537837982178,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.5507346391677856,
+        0.6683498024940491
+      ],
+      "goal_position": [
+        -0.8558303117752075,
+        0.903734028339386,
+        -3.7589380741119385
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "821452ba26ca4742b45d0bc4ac9fb9bd",
+      "episode_object_category": "headphones",
+      "floor_y_at_cam": 0.1365068554878235,
+      "base_y_used": 0.1365068554878235,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4465067386627197,
+      "action": "look_down",
+      "sector_index": 10,
+      "angle_deg_range": [
+        300.0,
+        330.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5268999153558933
+    }
+  ],
+  "overview": "overview.png",
+  "regen_info": {
+    "generated_by": "val_verify_capture_v2_distributed.py (episode-level eval)",
+    "time": "2026-02-11 06:46:31"
+  }
+}

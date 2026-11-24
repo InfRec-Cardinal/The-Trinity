@@ -1,0 +1,165 @@
+{
+  "taskId": "balrog_minihack_maze_corridor",
+  "configurations": [
+    {
+      "id": "MiniHack-MazeWalk-9x9-v0-ep1",
+      "label": "MiniHack-MazeWalk-9x9-v0 · seed 2026101100",
+      "ordinal": 0,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-9x9-v0",
+      "seed": 2026101100
+    },
+    {
+      "id": "MiniHack-MazeWalk-9x9-v0-ep2",
+      "label": "MiniHack-MazeWalk-9x9-v0 · seed 2026101101",
+      "ordinal": 1,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-9x9-v0",
+      "seed": 2026101101
+    },
+    {
+      "id": "MiniHack-MazeWalk-9x9-v0-ep3",
+      "label": "MiniHack-MazeWalk-9x9-v0 · seed 2026101102",
+      "ordinal": 2,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-9x9-v0",
+      "seed": 2026101102
+    },
+    {
+      "id": "MiniHack-MazeWalk-9x9-v0-ep4",
+      "label": "MiniHack-MazeWalk-9x9-v0 · seed 2026101103",
+      "ordinal": 3,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-9x9-v0",
+      "seed": 2026101103
+    },
+    {
+      "id": "MiniHack-MazeWalk-9x9-v0-ep5",
+      "label": "MiniHack-MazeWalk-9x9-v0 · seed 2026101104",
+      "ordinal": 4,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-9x9-v0",
+      "seed": 2026101104
+    },
+    {
+      "id": "MiniHack-MazeWalk-15x15-v0-ep1",
+      "label": "MiniHack-MazeWalk-15x15-v0 · seed 2026101200",
+      "ordinal": 5,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-15x15-v0",
+      "seed": 2026101200
+    },
+    {
+      "id": "MiniHack-MazeWalk-15x15-v0-ep2",
+      "label": "MiniHack-MazeWalk-15x15-v0 · seed 2026101201",
+      "ordinal": 6,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-15x15-v0",
+      "seed": 2026101201
+    },
+    {
+      "id": "MiniHack-MazeWalk-15x15-v0-ep3",
+      "label": "MiniHack-MazeWalk-15x15-v0 · seed 2026101202",
+      "ordinal": 7,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-15x15-v0",
+      "seed": 2026101202
+    },
+    {
+      "id": "MiniHack-MazeWalk-15x15-v0-ep4",
+      "label": "MiniHack-MazeWalk-15x15-v0 · seed 2026101203",
+      "ordinal": 8,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-15x15-v0",
+      "seed": 2026101203
+    },
+    {
+      "id": "MiniHack-MazeWalk-15x15-v0-ep5",
+      "label": "MiniHack-MazeWalk-15x15-v0 · seed 2026101204",
+      "ordinal": 9,
+      "envName": "minihack",
+      "task": "MiniHack-MazeWalk-15x15-v0",
+      "seed": 2026101204
+    },
+    {
+      "id": "MiniHack-Corridor-R3-v0-ep1",
+      "label": "MiniHack-Corridor-R3-v0 · seed 2026101300",
+      "ordinal": 10,
+      "envName": "minihack",
+      "task": "MiniHack-Corridor-R3-v0",
+      "seed": 2026101300
+    },
+    {
+      "id": "MiniHack-Corridor-R3-v0-ep2",
+      "label": "MiniHack-Corridor-R3-v0 · seed 2026101301",
+      "ordinal": 11,
+      "envName": "minihack",
+      "task": "MiniHack-Corridor-R3-v0",
+      "seed": 2026101301
+    },
+    {
+      "id": "MiniHack-Corridor-R3-v0-ep3",
+      "label": "MiniHack-Corridor-R3-v0 · seed 2026101302",
+      "ordinal": 12,
+      "envName": "minihack",
+      "task": "MiniHack-Corridor-R3-v0",
+      "seed": 2026101302
+    },
+    {
+      "id": "MiniHack-Corridor-R3-v0-ep4",
+      "label": "MiniHack-Corridor-R3-v0 · seed 2026101303",
+      "ordinal": 13,
+      "envName": "minihack",
+      "task": "MiniHack-Corridor-R3-v0",
+      "seed": 2026101303
+    },
+    {
+      "id": "MiniHack-Corridor-R3-v0-ep5",
+      "label": "MiniHack-Corridor-R3-v0 · seed 2026101304",
+      "ordinal": 14,
+      "envName": "minihack",
+      "task": "MiniHack-Corridor-R3-v0",
+      "seed": 2026101304
+    },
+    {
+      "id": "MiniHack-CorridorBattle-Dark-v0-ep1",
+      "label": "MiniHack-CorridorBattle-Dark-v0 · seed 2026101400",
+      "ordinal": 15,
+      "envName": "minihack",
+      "task": "MiniHack-CorridorBattle-Dark-v0",
+      "seed": 2026101400
+    },
+    {
+      "id": "MiniHack-CorridorBattle-Dark-v0-ep2",
+      "label": "MiniHack-CorridorBattle-Dark-v0 · seed 2026101401",
+      "ordinal": 16,
+      "envName": "minihack",
+      "task": "MiniHack-CorridorBattle-Dark-v0",
+      "seed": 2026101401
+    },
+    {
+      "id": "MiniHack-CorridorBattle-Dark-v0-ep3",
+      "label": "MiniHack-CorridorBattle-Dark-v0 · seed 2026101402",
+      "ordinal": 17,
+      "envName": "minihack",
+      "task": "MiniHack-CorridorBattle-Dark-v0",
+      "seed": 2026101402
+    },
+    {
+      "id": "MiniHack-CorridorBattle-Dark-v0-ep4",
+      "label": "MiniHack-CorridorBattle-Dark-v0 · seed 2026101403",
+      "ordinal": 18,
+      "envName": "minihack",
+      "task": "MiniHack-CorridorBattle-Dark-v0",
+      "seed": 2026101403
+    },
+    {
+      "id": "MiniHack-CorridorBattle-Dark-v0-ep5",
+      "label": "MiniHack-CorridorBattle-Dark-v0 · seed 2026101404",
+      "ordinal": 19,
+      "envName": "minihack",
+      "task": "MiniHack-CorridorBattle-Dark-v0",
+      "seed": 2026101404
+    }
+  ]
+}

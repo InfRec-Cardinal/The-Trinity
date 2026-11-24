@@ -1,0 +1,88 @@
+{
+  "taskId": "discoverphysics",
+  "proposals": [
+    {
+      "id": "emit-bare-parseable-final-law",
+      "title": "Emit the discovered law as a bare, single, parseable expression — never as escaped prose or an explanation string",
+      "audience": [
+        "playing"
+      ],
+      "capability": "coding",
+      "trigger": "The Player is composing its terminal action for the episode (the final-law submission), and the body it is about to emit was carried over from prose, LaTeX, a quoted explanation block, or a string that already went through an escaping/JSON layer — i.e. the draft contains escaped newlines, backslash line-continuation characters, or surrounding wrapper text.",
+      "procedure": [
+        "Before spending the terminal action, look at the exact bytes you are about to emit, not at the physics you mean to express.",
+        "Inside <final_law> keep only Python source defining discovered_law (plus fit_parameters if used): no prose preamble, no Markdown fences, no enclosing quotes, no trailing sentence. Keep the <explanation> block -- it is graded against the world rubric and a score of at least 0.9 is half the pass criterion, so stripping it fails the episode even when the law is right.",
+        "Remove any backslash-newline line continuations, un-escape any literal backslash sequences left over from an explanation or JSON-in-string context, and collapse accidental multi-line constructs into one logical expression.",
+        "Emit a Python function named discovered_law, with its fitted parameters declared (and fit_parameters if the earlier rounds used it), in the same form the harness already fitted in this episode. A bare expression is not loadable: the evaluator looks up the function by name.",
+        "Keep the scientific content identical when you re-format: formatting the payload is not a reason to change the hypothesis, the coupling identification, or the force law you already verified.",
+        "If a previous action in the episode was rejected with a parse error, treat that as proof the harness is byte-sensitive and re-check the terminal payload character by character before sending.",
+        "Commit the formatted law rather than spending another round re-deriving what you already concluded — the payload fix is free and does not require new evidence."
+      ],
+      "successSignals": [
+        "The terminal action returns an evaluated result: a normalized MSE value and a judge score, rather than a law_error reason.",
+        "The episode terminates with the success reason rather than law_error.",
+        "The emitted law text contains no backslash continuations, no escaped quotes, and no wrapper prose.",
+        "The law is expressed in the same interface form the harness fitted in earlier rounds of this episode."
+      ],
+      "failureSignals": [
+        "Terminal reason law_error with a syntax error reported against the discovered-law payload, especially an error on line 1.",
+        "The submitted law text contains backslash-n or backslash line-continuation artifacts because it was copied out of an explanation or escaped string.",
+        "The final payload is wrapped in prose, a fence, or an explanation block instead of being the bare expression.",
+        "No MSE and no explanation score are produced — evidence the law never reached the evaluator, not that it was wrong."
+      ],
+      "recovery": [
+        "If the terminal submission is rejected as unparseable, immediately re-emit the same scientific content as a discovered_law function definition, keeping the <explanation> block; do not re-run experiments or revise the hypothesis.",
+        "If you notice the defect before submitting, fix the payload in place and commit; the fix consumes no probe, no observation, and no world action."
+      ],
+      "invariants": [
+        "A law that cannot be parsed scores zero regardless of how correct its physics is, and an episode passes only on BOTH a normalized MSE below 0.1 and an explanation score of at least 0.9; parseability is a precondition, not the whole gate.",
+        "Re-formatting a payload never changes what the episode has observed or how much budget remains.",
+        "The same interface form that was accepted for experiments is the safe form for the terminal payload."
+      ],
+      "sourceGapIds": [
+        "unparseable-final-law-payload",
+        "escaped-newline-artifact",
+        "law-error-no-evaluation"
+      ]
+    },
+    {
+      "id": "normalize-escaped-action-payloads",
+      "title": "Un-escape action payloads before sending them, and read a parse error as an encoding bug rather than a scientific one",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "An action payload is being assembled from text that has passed through an escaping layer — a quoted explanation block, a JSON-in-string, or model-authored LaTeX — so it contains literal backslash sequences (backslash-n, backslash-quote, doubled backslashes) or spans multiple raw lines; or a previous round returned a generic parse error at the start of the request body.",
+      "procedure": [
+        "Normalize the payload immediately before sending: un-escape literal backslash sequences, drop line continuations, and reduce the body to the fields the harness expects.",
+        "Send the same experiment you intended, with the same inputs, once the encoding is clean — a malformed request is a transport failure, not a refuted hypothesis.",
+        "Do not redesign the scientific question in response to a parse error; treat it as budget spent on a retry, and make the retry count.",
+        "Keep the count of distinct probes you have actually received in mind: rounds lost to malformed requests are rounds you cannot re-buy, so prefer committing on the evidence already in hand over opening a new question after an encoding failure."
+      ],
+      "successSignals": [
+        "Experiment rounds return structured results instead of a parse error.",
+        "No round in the episode is consumed by a request the harness cannot read.",
+        "The inputs observed across rounds vary along the axes you intended, with no duplicated or dropped probes."
+      ],
+      "failureSignals": [
+        "Repeated parse errors on experiment rounds, clustered across several rounds of one episode.",
+        "An action payload that visibly contains escaped newlines or backslash sequences rather than raw fields.",
+        "New questions opened after a request that failed only at the parsing stage."
+      ],
+      "recovery": [
+        "After a parse error, resend the identical inputs in clean form rather than treating the round as a failed experiment.",
+        "If more than one round in an episode has been lost this way, treat remaining budget as scarce and move toward committing the current best hypothesis."
+      ],
+      "invariants": [
+        "A parse error carries no information about the hidden law; it only indicates the request body could not be read.",
+        "Escaping artifacts survive copy-and-adapt loops, so each new payload must be re-checked rather than assumed clean.",
+        "Budget spent on an unreadable request yields no observation and is not recoverable."
+      ],
+      "sourceGapIds": [
+        "malformed-request-payload",
+        "parse-error-treated-as-failure",
+        "budget-lost-to-encoding"
+      ]
+    }
+  ]
+}

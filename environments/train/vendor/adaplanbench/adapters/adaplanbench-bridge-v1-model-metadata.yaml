@@ -1,0 +1,16 @@
+version: 1
+providers:
+  - name: trinity-h0-player
+    base_url: h0-player://submit_action
+    api_key_env: EMPTY
+    models:
+      - name: h0-player
+        id: h0-player
+  - name: trinity-h0-environment-model-bridge
+    base_url: h0-bridge://source-environment-model
+    api_key_env: EMPTY
+    models:
+      - name: claude-sonnet-5
+        id: claude-sonnet-5
+      - name: claude-haiku-4-5-20251001
+        id: claude-haiku-4-5-20251001

@@ -2,13 +2,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {clone, digest, ensure, snapshot, verifyLedger} from './core.mjs';
 
-export function sealTerminalReceipt(report, {decisionId = null, budget, termination}) {
+export function sealTerminalReceipt(report, {decisionId = null, budget, termination, budgetUnit = 'action', interactionLimit = budget}) {
   ensure(!report.technicalFailure, 'Technical failures have no verified terminal receipt');
   if (report.phase === 'initial_training_exploration') ensure(report.instance !== null && typeof report.instancePlan === 'string' &&
     typeof report.initialStateHash === 'string' && report.initialStateHash === report.expectedInitialStateHash, 'Initial exploration must match its frozen state');
   const actions = report.events.filter(event => event.publicData?.action).map(event => event.publicData);
   ensure(actions.length === report.actions && actions.length > 0, 'Incomplete execution evidence');
-  ensure(Number.isInteger(budget) && budget > 0 && actions.length <= budget, 'Terminal execution exceeds its committed budget');
+  ensure(['action', 'environment_cost'].includes(budgetUnit), 'Invalid budget unit');
+  const costBudget = budgetUnit === 'environment_cost';
+  const cost = actions.reduce((sum, step) => sum + step.receipt.cost, 0);
+  ensure(!costBudget || report.budgetUnit === budgetUnit && report.interactionLimit === interactionLimit, 'Cost budget binding mismatch');
+  ensure(Number.isInteger(budget) && budget > 0 && (costBudget ? cost <= budget && actions.length <= interactionLimit : actions.length <= budget), 'Terminal execution exceeds its committed budget');
   ensure(actions.every((step, index) => step.step === index + 1 && Number.isFinite(step.receipt.cost) && step.receipt.cost >= 0), 'Invalid execution evidence');
   ensure(actions.slice(0, -1).every(step => step.receipt.done === false), 'Execution continued after termination');
   const last = actions.at(-1).receipt;
@@ -16,15 +20,14 @@ export function sealTerminalReceipt(report, {decisionId = null, budget, terminat
     ensure(last.done === true && last.success === report.success, 'Missing environment terminal receipt');
     ensure((last.score ?? null) === report.score, 'Terminal score mismatch');
   } else {
-    ensure(termination === 'host_budget_exhausted' && actions.length === budget && last.done === false && report.success === false,
+    ensure(((termination === 'host_budget_exhausted' && (costBudget ? cost === budget : actions.length === budget)) || (termination === 'host_interaction_limit' && costBudget && actions.length === interactionLimit && cost < budget)) && last.done === false && report.success === false,
       'Invalid host budget settlement');
 
 
     ensure((last.score ?? null) === report.score, 'Budget settlement score mismatch');
   }
-  const cost = actions.reduce((sum, step) => sum + step.receipt.cost, 0);
   ensure(cost === report.cost, 'Terminal cost mismatch');
-  const receipt = {schema: 'trinity-terminal-v1', episodeId: report.episodeId, decisionId,
+  const receipt = {schema: 'trinity-terminal-v1', ...(report.learningContract ? {learningContractDigest: digest(report.learningContract)} : {}), ...(costBudget ? {budgetUnit, interactionLimit} : {}), episodeId: report.episodeId, decisionId,
     harnessId: report.harnessId, worldDigest: report.worldDigest, budget, termination,
     actions: report.actions, success: report.success, score: report.score, cost,
     instanceDigest: digest(report.instance ?? null), initialStateHash: report.initialStateHash ?? null,
@@ -54,6 +57,11 @@ export function verifyRoutedReceipt(report, {store, decisionId, harnessId, world
   ensure(event?.type === 'episode_started' && event.payload.decisionId === decisionId &&
     event.payload.harnessId === harnessId && event.payload.worldDigest === worldDigest && event.payload.budget === budget,
     'Episode does not belong to the committed execution');
+  for (const field of ['budgetUnit', 'interactionLimit']) {
+    const fallback = field === 'budgetUnit' ? 'action' : budget;
+    ensure((report[field] ?? fallback) === (decision.payload[field] ?? fallback) &&
+      (report[field] ?? fallback) === (event.payload[field] ?? fallback), 'Routing execution policy mismatch: ' + field);
+  }
   ensure(digest(report.publicTask) === digest(decision.payload.publicTask), 'Routing public context mismatch');
   return verifyTerminalReceipt(report, {episodeId: report.episodeId, decisionId, harnessId, worldDigest, budget});
 }

@@ -1,0 +1,119 @@
+[
+  {
+    "seed": 2610162101,
+    "agentSeat": 1,
+    "botSkill": 0,
+    "players": 5,
+    "rounds": 3,
+    "roleCards": {
+      "saboteur": 2,
+      "goldMiner": 4
+    },
+    "handSize": 6,
+    "firstPlayer": 0
+  },
+  {
+    "seed": 2610162138,
+    "agentSeat": 3,
+    "botSkill": 1,
+    "players": 5,
+    "rounds": 3,
+    "roleCards": {
+      "saboteur": 2,
+      "goldMiner": 4
+    },
+    "handSize": 6,
+    "firstPlayer": 4
+  },
+  {
+    "seed": 2610162175,
+    "agentSeat": 0,
+    "botSkill": 0,
+    "players": 5,
+    "rounds": 3,
+    "roleCards": {
+      "saboteur": 2,
+      "goldMiner": 4
+    },
+    "handSize": 6,
+    "firstPlayer": 3
+  },
+  {
+    "seed": 2610162212,
+    "agentSeat": 2,
+    "botSkill": 1,
+    "players": 5,
+    "rounds": 3,
+    "roleCards": {
+      "saboteur": 2,
+      "goldMiner": 4
+    },
+    "handSize": 6,
+    "firstPlayer": 2
+  },
+  {
+    "seed": 2610162249,
+    "agentSeat": 4,
+    "botSkill": 0,
+    "players": 5,
+    "rounds": 3,
+    "roleCards": {
+      "saboteur": 2,
+      "goldMiner": 4
+    },
+    "handSize": 6,
+    "firstPlayer": 1
+  },
+  {
+    "seed": 2610162286,
+    "agentSeat": 1,
+    "botSkill": 1,
+    "players": 5,
+    "rounds": 3,
+    "roleCards": {
+      "saboteur": 2,
+      "goldMiner": 4
+    },
+    "handSize": 6,
+    "firstPlayer": 0
+  },
+  {
+    "seed": 2610162323,
+    "agentSeat": 3,
+    "botSkill": 0,
+    "players": 5,
+    "rounds": 3,
+    "roleCards": {
+      "saboteur": 2,
+      "goldMiner": 4
+    },
+    "handSize": 6,
+    "firstPlayer": 4
+  },
+  {
+    "seed": 2610162360,
+    "agentSeat": 0,
+    "botSkill": 1,
+    "players": 5,
+    "rounds": 3,
+    "roleCards": {
+      "saboteur": 2,
+      "goldMiner": 4
+    },
+    "handSize": 6,
+    "firstPlayer": 3
+  },
+  {
+    "seed": 2610162397,
+    "agentSeat": 2,
+    "botSkill": 0,
+    "players": 5,
+    "rounds": 3,
+    "roleCards": {
+      "saboteur": 2,
+      "goldMiner": 4
+    },
+    "handSize": 6,
+    "firstPlayer": 2
+  }
+]

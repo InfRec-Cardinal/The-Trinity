@@ -376,7 +376,7 @@ export async function runSearch(ctx) {
     if (s.status === 'incomplete') { s.errorCode = 'library_incomplete'; s.error = `${gaps.length} split gap(s), ${errors.length} error(s) remain after the supplemental search budget; progress is saved`; }
   } catch (error) {
     const failure = ctx.signal?.aborted ? new AgentError('stopped by user', 'stopped', { key: error.agentKey ?? error.key }) : error;
-    s.status = failure.code === 'stopped' ? 'stopped' : ['budget_exhausted', 'provider_quota'].includes(failure.code) ? failure.code : 'error';
+    s.status = failure.code === 'stopped' ? 'stopped' : failure.code === 'budget_exhausted' ? failure.code : 'error';
     s.errorCode = failure.code ?? 'search_error'; s.activeAgentKey = failure.agentKey ?? null;
     s.error = String(failure.message ?? failure).slice(0, 500); throw failure;
   } finally { s.focus = searchFocusSummary(s); s.finishedAt = now(); store.save(); ctx.emit?.('search_end', { runId: s.runId, status: s.status }); }

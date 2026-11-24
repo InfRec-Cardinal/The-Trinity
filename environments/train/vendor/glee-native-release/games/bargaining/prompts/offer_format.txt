@@ -1,0 +1,3 @@
+Send your offer to divide {{money_to_divide}}${{add_message1}} in the JSON format:
+{"{{player_name_lower}}_gain": The part that you will receive in your offer,
+"{{rival_name_lower}}_gain": The part that {{rival_name}} will receive in your offer{{add_message2}}}

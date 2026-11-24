@@ -1,0 +1,54 @@
+{
+  "taskId": "colonel_blotto",
+  "name": "Colonel Blotto",
+  "fullName": "Colonel Blotto: repeated simultaneous budget allocation across contested fields with no communication",
+  "kind": "interactive",
+  "taxonomy": {
+    "domainId": "D4",
+    "domainName": "Multi-Agent Strategy & Social Interaction",
+    "subCategoryId": "D4.3",
+    "subCategoryName": "Repeated Strategic & Economic Games"
+  },
+  "assignment": {
+    "actions": {
+      "allocate": "Submit one bracketed allocation over fields A, B, C with non-negative integer values summing exactly to 20, e.g. [A7 B7 C6]; omitted fields default to 0 units."
+    },
+    "evaluation": {
+      "budget": 18,
+      "efficiency": "Fewer actions for the same terminal reward is better: each round should resolve in one valid allocation, and every invalid allocation costs an extra action because its retry is drawn from the same 18-action budget.",
+      "failure": "Terminal reward -1 when the opponent wins more rounds, 0 for an overall round-tie, or a self-forfeit loss after two consecutive invalid allocations; a single invalid allocation is retried once within the same round's action allowance.",
+      "success": "Terminal reward +1 from the environment: the agent wins strictly more rounds than the opponent over the 9-round match, including an early win on reaching 5 round wins."
+    },
+    "generation": "Instances use the official ColonelBlotto-v0 configuration (3 fields, 20 units, 9 rounds) via ta.make(env_id=\"ColonelBlotto-v0\") and env.reset(num_players=2, seed=s) for a fixed published list of integer seeds; for each seed the two player seats are swapped across paired matches so that commander role advantage does not confound the recorded outcome.",
+    "id": "colonel-blotto-opponent-modeling",
+    "observation": "Text only. The agent receives an initial role prompt naming its commander role, the field list and the exactly-20-units allocation format, then a per-round game-board line giving the round index out of 9, cumulative rounds won by both commanders, the field names and its remaining units, and after each resolution a battle message revealing both players' allocations and the round verdict. The opponent's current-round allocation is never visible before both commit, and no other channel exists.",
+    "reference": "Admitted published protocol: TextArena/MindGames ColonelBlotto-v0 - 3 battlefields A-C, 20 units per player per round, 9 rounds, simultaneous hidden allocation, no communication, round won on field majority, match won on round majority with early win at 5. New designs are limited to a fixed seed list with seat swapping for reproducible instances and a local run-recording wrapper; no published rule, observation or constraint is altered.",
+    "task": "Each episode is one 9-round match against a single fixed opponent. Every round the agent submits one public action allocating exactly 20 integer units across fields A, B, C; both allocations are revealed only after both players have committed. A field goes to the strictly higher allocation (a tie awards nothing) and the round goes to the player taking more fields. The agent must finish with more round wins than the opponent, or reach 5 round wins for an early victory.",
+    "verification": "The verdict is the terminal reward mapping returned by env.close() ({\"Player 0\": r0, \"Player 1\": r1} in {-1,0,1}), recomputable by exact integer arithmetic from the recorded revealed allocations: field winners by strict comparison, round winner by field majority, early win at 5 rounds, and the published fatal rule for consecutive invalid allocations. Each episode persists every turn's observation text and emitted action, the per-round revealed allocations and round verdict, and the terminal status and reason, so winning, losing, drawn and forfeited runs can all be replayed and re-adjudicated."
+  },
+  "player": {
+    "model": "claude-opus-5",
+    "thinking": {
+      "type": "adaptive",
+      "effort": "low",
+      "display": "omitted"
+    },
+    "maxResponseTokens": 16384,
+    "publicHistoryTurns": 64
+  },
+  "evaluation": {
+    "configurations": 9,
+    "episodesPerConfiguration": 3,
+    "totalEpisodes": 27,
+    "actionBudget": 18,
+    "plannedEpisodes": 27
+  },
+  "otherModels": [],
+  "pythonEnv": "textarena-geoffrey-venv-v2",
+  "driver": "driver.mjs",
+  "configurations": "configurations.json",
+  "notes": [
+    "Driver ported from the original pipeline src/h0-textarena-relocated-v5.mjs (colonel_blotto descriptor, textarena-colonel_blotto-public-driver v3) and adapters/h0-textarena-relocated-v5-worker.py. The driver is self-contained (driver.mjs); worker.py sits in this folder and is started with -I -B under pythonFor(root, 'textarena-geoffrey-venv-v2') (env TRAIN_PY_TEXTARENA_GEOFFREY_VENV_V2).",
+    "The shared bundled engine is environments/vendor/TextArena (Coup snapshot 1e3160de). The ColonelBlotto implementation, default wrappers and task registration match the earlier 6dfb577c slice. The worker requires the local bundled module, not a separate installed copy."
+  ]
+}

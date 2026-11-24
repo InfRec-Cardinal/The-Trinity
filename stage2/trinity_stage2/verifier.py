@@ -25,7 +25,7 @@ def review_task(*, record: dict, analysis: str, stats: list[dict], digest_path: 
     evidence_errors = verify_checks(record, digest_path.parent.parent) + coverage_errors(record)
     if evidence_errors:
         raise ValueError("; ".join(evidence_errors))
-    digest = digest_path.read_text()
+    digest = digest_path.read_text(encoding="utf-8")
     lines = digest.splitlines()
     steps_text = {}
     header = None

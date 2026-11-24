@@ -1,0 +1,5 @@
+                                                    
+
+
+class AleBenchError(Exception):
+    pass                                                     

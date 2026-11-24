@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Hou2020.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="183" numberOfSteps="183">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="100000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+    <repeatedTask id="task2" range="range0" resetModel="true">
+      <listOfRanges>
+        <vectorRange id="range0">
+          <value> 6 </value>
+          <value> 7 </value>
+          <value> 8 </value>
+          <value> 9 </value>
+          <value> 10 </value>
+          <value> 11 </value>
+          <value> 12 </value>
+          <value> 13 </value>
+          <value> 14 </value>
+          <value> 15 </value>
+          <value> 16 </value>
+          <value> 17 </value>
+          <value> 18 </value>
+        </vectorRange>
+      </listOfRanges>
+      <listOfChanges>
+        <setValue modelReference="model" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;r_2&apos;]" range="range0">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> range0 </ci>
+          </math>
+        </setValue>
+      </listOfChanges>
+      <listOfSubTasks>
+        <subTask order="1" task="task1"/>
+      </listOfSubTasks>
+    </repeatedTask>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task2" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task2 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task2" name="Time" symbol="urn:sedml:symbol:time" taskReference="task2" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Susceptible_1_task2" name="[Susceptible]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_Susceptible_1_task2 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_Susceptible_1_task2" name="[Susceptible]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Susceptible&apos;]" taskReference="task2" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Exposed_1_task2" name="[Exposed]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p2_Exposed_1_task2 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p2_Exposed_1_task2" name="[Exposed]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Exposed&apos;]" taskReference="task2" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Infected_1_task2" name="[Infected]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p3_Infected_1_task2 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p3_Infected_1_task2" name="[Infected]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Infected&apos;]" taskReference="task2" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="Recovered_1_task2" name="[Recovered]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p4_Recovered_1_task2 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p4_Recovered_1_task2" name="[Recovered]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Recovered&apos;]" taskReference="task2" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_Total_Population">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_Total_Population__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_Total_Population__x" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;Total_Population&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_r_1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_r_1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_r_1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;r_1&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_r_2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_r_2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_r_2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;r_2&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_beta_1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_beta_1__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_beta_1__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;beta_1&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_beta_2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_beta_2__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_beta_2__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;beta_2&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_alpha">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_alpha__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_alpha__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_gamma">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_gamma__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_gamma__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;gamma&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_Wuhan">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_Wuhan__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_Wuhan__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Wuhan&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_Susceptible_to_Exposed">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_Susceptible_to_Exposed__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_Susceptible_to_Exposed__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Susceptible_to_Exposed&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_Exposed_to_Infected">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_Exposed_to_Infected__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_Exposed_to_Infected__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Exposed_to_Infected&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task2_Infected_to_Recovered">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task2_Infected_to_Recovered__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task2_Infected_to_Recovered__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Infected_to_Recovered&apos;]" taskReference="task2"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_5_task2" name="Figure 2 (1)">
+      <listOfCurves>
+        <curve id="p1_curve_1_task2" name="[Susceptible]" logX="false" style="style1" xDataReference="_1_task2" logY="false" yDataReference="Susceptible_1_task2"/>
+      </listOfCurves>
+    </plot2D>
+    <plot2D id="plot_6_task2" name="Figure 2 (2)">
+      <listOfCurves>
+        <curve id="p2_curve_1_task2" name="[Exposed]" logX="false" style="style1" xDataReference="_1_task2" logY="false" yDataReference="Exposed_1_task2"/>
+      </listOfCurves>
+    </plot2D>
+    <plot2D id="plot_7_task2" name="Figure 2 (3)">
+      <listOfCurves>
+        <curve id="p3_curve_1_task2" name="[Infected]" logX="false" style="style1" xDataReference="_1_task2" logY="false" yDataReference="Infected_1_task2"/>
+      </listOfCurves>
+    </plot2D>
+    <plot2D id="plot_8_task2" name="Figure 2 (4)">
+      <listOfCurves>
+        <curve id="p4_curve_1_task2" name="[Recovered]" logX="false" style="style1" xDataReference="_1_task2" logY="false" yDataReference="Recovered_1_task2"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task2" name="Auto-generated report for task2, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task2" label="Time" dataReference="_1_task2"/>
+        <dataSet id="autogen_task2_Susceptible" label="Susceptible" dataReference="Susceptible_1_task2"/>
+        <dataSet id="autogen_task2_Exposed" label="Exposed" dataReference="Exposed_1_task2"/>
+        <dataSet id="autogen_task2_Infected" label="Infected" dataReference="Infected_1_task2"/>
+        <dataSet id="autogen_task2_Recovered" label="Recovered" dataReference="Recovered_1_task2"/>
+        <dataSet id="autogen_task2_Total_Population" label="Total_Population" dataReference="auto_dg_for_task2_Total_Population"/>
+        <dataSet id="autogen_task2_r_1" label="r_1" dataReference="auto_dg_for_task2_r_1"/>
+        <dataSet id="autogen_task2_r_2" label="r_2" dataReference="auto_dg_for_task2_r_2"/>
+        <dataSet id="autogen_task2_beta_1" label="beta_1" dataReference="auto_dg_for_task2_beta_1"/>
+        <dataSet id="autogen_task2_beta_2" label="beta_2" dataReference="auto_dg_for_task2_beta_2"/>
+        <dataSet id="autogen_task2_alpha" label="alpha" dataReference="auto_dg_for_task2_alpha"/>
+        <dataSet id="autogen_task2_gamma" label="gamma" dataReference="auto_dg_for_task2_gamma"/>
+        <dataSet id="autogen_task2_Wuhan" label="Wuhan" dataReference="auto_dg_for_task2_Wuhan"/>
+        <dataSet id="autogen_task2_Susceptible_to_Exposed" label="Susceptible_to_Exposed" dataReference="auto_dg_for_task2_Susceptible_to_Exposed"/>
+        <dataSet id="autogen_task2_Exposed_to_Infected" label="Exposed_to_Infected" dataReference="auto_dg_for_task2_Exposed_to_Infected"/>
+        <dataSet id="autogen_task2_Infected_to_Recovered" label="Infected_to_Recovered" dataReference="auto_dg_for_task2_Infected_to_Recovered"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

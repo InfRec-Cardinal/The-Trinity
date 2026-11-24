@@ -1,0 +1,116 @@
+{
+  "taskId": "the_long_dark_survival",
+  "proposals": [
+    {
+      "id": "zero-meter-triage-switch",
+      "title": "When a need meter reaches zero, switch from yield-seeking to shelter-bound recovery in the highest-shelterQuality location already occupied",
+      "audience": [
+        "playing"
+      ],
+      "capability": "control",
+      "trigger": "The current observation shows any need meter (warmth, calories, thirst, rest) at zero, or a projected time-to-zero for that meter, under the currently repeated action's observed per-hour drain, that is shorter than the hours remaining until the rescue deadline computed from day, hour and rescueDay.",
+      "procedure": [
+        "Treat rescue as arriving some time on rescueDay and keep a margin: the exact rescue hour is not published, so any closed form derived from day and hour alone under-reports the time you must survive.",
+        "If any need meter reads zero while hours-to-rescue is still positive, prioritise the shortest action that can raise it -- including search, forage or boiling on a fire. Resting does not slow the drain, so a zeroed meter cannot recover while you conserve.",
+        "Choose the action whose observed effect on the zeroed meter is largest among actions you have already performed at least once this episode; do not trial an untried action class while a meter is pinned at zero.",
+        "If no inventory item can raise the zeroed meter, take the shortest action that PRODUCES one (forage for fuel, search for supplies, boil on a fire) and return to shelter after it; holding in place at a zeroed meter accrues damage every hour and ends in permanent death.",
+        "Re-check after every returned observation: the triage ends only when the meter is strictly above zero, never on a projected recovery that has not yet appeared in an observation."
+      ],
+      "successSignals": [
+        "No need meter shows a sustained zero across consecutive observations while hours-to-rescue remains positive.",
+        "Condition stays in the high band because zero-meter hours were spent in shelter rather than in the field.",
+        "The last action before rescue is a conserving action, not a yield-seeking one."
+      ],
+      "failureSignals": [
+        "Two or more need meters read zero simultaneously in the same observation while hours-to-rescue is still positive.",
+        "Yield-seeking actions continue to be issued after a meter has already read zero, with the feedback stream still showing no gain.",
+        "Condition has decayed noticeably below its maximum while the player is still spending hour-blocks away from shelter."
+      ],
+      "recovery": [
+        "On the first observation showing a zeroed meter, immediately reallocate the next block to whichever action in hand restores it; abandon any in-progress yield strategy."
+      ],
+      "invariants": [
+        "Condition damage accrues as a function of hours spent with a meter at zero, not as a function of the absolute lowest meter reading at the terminal step.",
+        "The rescue day is fixed, but the rescue hour is not published, so hours-to-rescue is a bound to keep a margin against rather than an exact figure."
+      ],
+      "sourceGapIds": [
+        "meters-zero-before-rescue",
+        "yield-seeking-under-deficit"
+      ]
+    },
+    {
+      "id": "stop-reprobing-depleted-node",
+      "title": "After a probe at the current location returns nothing, do not repeat the same action class there; change action class or location",
+      "audience": [
+        "playing"
+      ],
+      "capability": "causal",
+      "trigger": "A probe action (search or forage) at the current location returns an empty or negligible yield in its feedback string, and the Player is about to select the same action class at the same location again.",
+      "procedure": [
+        "Read the feedback string of the last observation before choosing the next action; treat a no-yield result as evidence about this location under this action class, not as bad luck to be retried.",
+        "Change exactly one variable: either the action class at the same location, or the location via a travel action to a known location not yet probed.",
+        "Prefer the unprobed location whose travelHoursFromHere is smallest when several known locations remain unprobed.",
+        "Never spend two consecutive hour-blocks on the same action class at a location whose last identical probe returned nothing, while the hours-to-rescue budget is finite."
+      ],
+      "successSignals": [
+        "Consecutive observations show changing feedback strings rather than a repeated empty-yield string.",
+        "Inventory of at least one consumable class rises over the episode rather than staying flat while hours are spent.",
+        "Explored-location count grows instead of the same location being re-probed."
+      ],
+      "failureSignals": [
+        "The same empty-yield feedback string appears in two or more consecutive observations.",
+        "Actions used keeps rising while no inventory line changes except downward.",
+        "The player is still probing at a location it has already fully depleted while unprobed known locations remain on the list."
+      ],
+      "recovery": [
+        "On the first repeated empty-yield feedback, immediately swap action class or move to the nearest unprobed known location on the next block.",
+        "If no unprobed known location is reachable within a reasonable share of remaining hours, stop probing entirely and fall back to shelter-bound conservation."
+      ],
+      "invariants": [
+        "A no-yield probe is information about the location-action pair, and repeating it reproduces the same result.",
+        "Each probe consumes an hour-block whether or not it yields anything, so repeated empty probes are pure loss against a fixed deadline."
+      ],
+      "sourceGapIds": [
+        "reprobes-depleted-node",
+        "repeats-refuted-outcome"
+      ]
+    },
+    {
+      "id": "no-shelter-downgrade-under-deficit",
+      "title": "Do not relocate to a location with lower shelter quality while a need meter is below its floor",
+      "audience": [
+        "playing"
+      ],
+      "capability": "planning",
+      "trigger": "The Player is choosing a travel action to a known location whose shelterQuality is lower than the shelterQuality of the location currently occupied, and at least one need meter is already low or falling.",
+      "procedure": [
+        "Judge travel on the current location's shelterQuality and the hours the trip costs; a destination's shelter value is not exposed before you arrive, so an unknown shelter is not a reason to stay put when a need meter is draining.",
+        "If the candidate is lower, require an explicit reason to move that is worth more than the warmth the downgrade costs — an unprobed resource node, or a required item only obtainable there.",
+        "When no such reason exists, stay put and spend the block on recovery or on a same-location action class that has not yet been tried.",
+        "If travel is nonetheless required, minimize travelHoursFromHere among equally useful destinations, and return to the higher-shelterQuality location for any sleep or rest block."
+      ],
+      "successSignals": [
+        "The occupied location at the terminal observation has shelterQuality at least as high as any location occupied earlier in the episode.",
+        "Warmth meter stays in the high band across the episode.",
+        "Rest blocks are taken at the highest-shelterQuality location the player has access to."
+      ],
+      "failureSignals": [
+        "The terminal location has strictly lower shelterQuality than a location occupied earlier in the same episode.",
+        "Warmth declines in the observations immediately following a relocation.",
+        "The player sleeps or rests at the lower-quality location while a better one is one short travel action away."
+      ],
+      "recovery": [
+        "On the next block after noticing a shelter downgrade, travel back to the higher-shelterQuality location and take the next recovery block there.",
+        "If warmth is already low, prefer the immediate recovery block at the current location over the travel, then relocate once the meter is off its floor."
+      ],
+      "invariants": [
+        "Warmth drain is a function of the occupied location's shelterQuality and the clothing insulation carried; a downgrade raises passive drain without any compensating gain unless the destination yields something.",
+        "A recovery block is worth more at a higher-shelterQuality location than at a lower one, for the same hour cost."
+      ],
+      "sourceGapIds": [
+        "downgrades-shelter-under-deficit",
+        "shelter-quality-ignored"
+      ]
+    }
+  ]
+}

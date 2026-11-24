@@ -1,0 +1,15 @@
+{
+  "moduleId": "explorationRoute",
+  "policyId": "controlCalibration",
+  "version": 7,
+  "policySourceSha256": "3d065da118a594ec65ad102a0a7e2771290e90ec6e26107a6c5730d6a3fa4b16",
+  "files": {
+    "../../module-harness/src/visual-route-core.mjs": "6b7c2a636a5717f052a1e9fbd104d698779a2ed8b360d2d99fc04b489890aebc",
+    "../../module-harness/src/outcome-memory-core.mjs": "24512ba0f12515758c4e43d15aa23bda741c50fa18221933682d3f1055deeccf",
+    "../../module-harness/modules/explorationRoute.mjs": "773797d435613d9282bb77b65800443b75da254a3204d2575545abd54ea239e5",
+    "../../module-harness/src/route-planner.mjs": "58671217c12dc4b385fb7ef1a916cb1f2c958a51a7c8d8d37814f5c7288b443f",
+    "src/arc-policy.mjs": "4f7e11ae5fe32709386e2787305741a6e4ea994d9632a2e8866a811c531780db",
+    "src/policy-source.mjs": "f6148749808fdf46159d7915f0a826c050926cd3628824504815804eb8d2749e",
+    "../../module-harness/src/common.mjs": "2ffbed451328da19576fbb77c0c5cff94fea61054e58ab97aed7c48c164412f1"
+  }
+}

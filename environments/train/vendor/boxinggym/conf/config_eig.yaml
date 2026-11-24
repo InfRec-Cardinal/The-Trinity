@@ -1,0 +1,10 @@
+defaults:
+- _self_
+- llms: openai
+- exp: oed
+- envs: hyperbolic_direct
+seed: 1
+include_prior: true
+num_random: 100
+redo: true
+box: false

@@ -1,0 +1,355 @@
+{
+  "taskId": "phyre_unseen_fold0",
+  "configurations": [
+    {
+      "id": "00000:059",
+      "label": "template 00000 · task 00000:059",
+      "ordinal": 0,
+      "taskId": "00000:059",
+      "template": "00000"
+    },
+    {
+      "id": "00000:071",
+      "label": "template 00000 · task 00000:071",
+      "ordinal": 1,
+      "taskId": "00000:071",
+      "template": "00000"
+    },
+    {
+      "id": "00001:044",
+      "label": "template 00001 · task 00001:044",
+      "ordinal": 2,
+      "taskId": "00001:044",
+      "template": "00001"
+    },
+    {
+      "id": "00001:067",
+      "label": "template 00001 · task 00001:067",
+      "ordinal": 3,
+      "taskId": "00001:067",
+      "template": "00001"
+    },
+    {
+      "id": "00002:017",
+      "label": "template 00002 · task 00002:017",
+      "ordinal": 4,
+      "taskId": "00002:017",
+      "template": "00002"
+    },
+    {
+      "id": "00002:110",
+      "label": "template 00002 · task 00002:110",
+      "ordinal": 5,
+      "taskId": "00002:110",
+      "template": "00002"
+    },
+    {
+      "id": "00003:007",
+      "label": "template 00003 · task 00003:007",
+      "ordinal": 6,
+      "taskId": "00003:007",
+      "template": "00003"
+    },
+    {
+      "id": "00003:063",
+      "label": "template 00003 · task 00003:063",
+      "ordinal": 7,
+      "taskId": "00003:063",
+      "template": "00003"
+    },
+    {
+      "id": "00004:095",
+      "label": "template 00004 · task 00004:095",
+      "ordinal": 8,
+      "taskId": "00004:095",
+      "template": "00004"
+    },
+    {
+      "id": "00004:858",
+      "label": "template 00004 · task 00004:858",
+      "ordinal": 9,
+      "taskId": "00004:858",
+      "template": "00004"
+    },
+    {
+      "id": "00005:014",
+      "label": "template 00005 · task 00005:014",
+      "ordinal": 10,
+      "taskId": "00005:014",
+      "template": "00005"
+    },
+    {
+      "id": "00005:091",
+      "label": "template 00005 · task 00005:091",
+      "ordinal": 11,
+      "taskId": "00005:091",
+      "template": "00005"
+    },
+    {
+      "id": "00006:087",
+      "label": "template 00006 · task 00006:087",
+      "ordinal": 12,
+      "taskId": "00006:087",
+      "template": "00006"
+    },
+    {
+      "id": "00006:174",
+      "label": "template 00006 · task 00006:174",
+      "ordinal": 13,
+      "taskId": "00006:174",
+      "template": "00006"
+    },
+    {
+      "id": "00007:092",
+      "label": "template 00007 · task 00007:092",
+      "ordinal": 14,
+      "taskId": "00007:092",
+      "template": "00007"
+    },
+    {
+      "id": "00007:307",
+      "label": "template 00007 · task 00007:307",
+      "ordinal": 15,
+      "taskId": "00007:307",
+      "template": "00007"
+    },
+    {
+      "id": "00008:070",
+      "label": "template 00008 · task 00008:070",
+      "ordinal": 16,
+      "taskId": "00008:070",
+      "template": "00008"
+    },
+    {
+      "id": "00008:627",
+      "label": "template 00008 · task 00008:627",
+      "ordinal": 17,
+      "taskId": "00008:627",
+      "template": "00008"
+    },
+    {
+      "id": "00009:693",
+      "label": "template 00009 · task 00009:693",
+      "ordinal": 18,
+      "taskId": "00009:693",
+      "template": "00009"
+    },
+    {
+      "id": "00009:985",
+      "label": "template 00009 · task 00009:985",
+      "ordinal": 19,
+      "taskId": "00009:985",
+      "template": "00009"
+    },
+    {
+      "id": "00010:272",
+      "label": "template 00010 · task 00010:272",
+      "ordinal": 20,
+      "taskId": "00010:272",
+      "template": "00010"
+    },
+    {
+      "id": "00010:301",
+      "label": "template 00010 · task 00010:301",
+      "ordinal": 21,
+      "taskId": "00010:301",
+      "template": "00010"
+    },
+    {
+      "id": "00011:822",
+      "label": "template 00011 · task 00011:822",
+      "ordinal": 22,
+      "taskId": "00011:822",
+      "template": "00011"
+    },
+    {
+      "id": "00011:872",
+      "label": "template 00011 · task 00011:872",
+      "ordinal": 23,
+      "taskId": "00011:872",
+      "template": "00011"
+    },
+    {
+      "id": "00012:105",
+      "label": "template 00012 · task 00012:105",
+      "ordinal": 24,
+      "taskId": "00012:105",
+      "template": "00012"
+    },
+    {
+      "id": "00012:221",
+      "label": "template 00012 · task 00012:221",
+      "ordinal": 25,
+      "taskId": "00012:221",
+      "template": "00012"
+    },
+    {
+      "id": "00013:011",
+      "label": "template 00013 · task 00013:011",
+      "ordinal": 26,
+      "taskId": "00013:011",
+      "template": "00013"
+    },
+    {
+      "id": "00013:097",
+      "label": "template 00013 · task 00013:097",
+      "ordinal": 27,
+      "taskId": "00013:097",
+      "template": "00013"
+    },
+    {
+      "id": "00014:454",
+      "label": "template 00014 · task 00014:454",
+      "ordinal": 28,
+      "taskId": "00014:454",
+      "template": "00014"
+    },
+    {
+      "id": "00014:577",
+      "label": "template 00014 · task 00014:577",
+      "ordinal": 29,
+      "taskId": "00014:577",
+      "template": "00014"
+    },
+    {
+      "id": "00015:263",
+      "label": "template 00015 · task 00015:263",
+      "ordinal": 30,
+      "taskId": "00015:263",
+      "template": "00015"
+    },
+    {
+      "id": "00015:349",
+      "label": "template 00015 · task 00015:349",
+      "ordinal": 31,
+      "taskId": "00015:349",
+      "template": "00015"
+    },
+    {
+      "id": "00016:563",
+      "label": "template 00016 · task 00016:563",
+      "ordinal": 32,
+      "taskId": "00016:563",
+      "template": "00016"
+    },
+    {
+      "id": "00016:610",
+      "label": "template 00016 · task 00016:610",
+      "ordinal": 33,
+      "taskId": "00016:610",
+      "template": "00016"
+    },
+    {
+      "id": "00017:153",
+      "label": "template 00017 · task 00017:153",
+      "ordinal": 34,
+      "taskId": "00017:153",
+      "template": "00017"
+    },
+    {
+      "id": "00017:176",
+      "label": "template 00017 · task 00017:176",
+      "ordinal": 35,
+      "taskId": "00017:176",
+      "template": "00017"
+    },
+    {
+      "id": "00018:052",
+      "label": "template 00018 · task 00018:052",
+      "ordinal": 36,
+      "taskId": "00018:052",
+      "template": "00018"
+    },
+    {
+      "id": "00018:070",
+      "label": "template 00018 · task 00018:070",
+      "ordinal": 37,
+      "taskId": "00018:070",
+      "template": "00018"
+    },
+    {
+      "id": "00019:244",
+      "label": "template 00019 · task 00019:244",
+      "ordinal": 38,
+      "taskId": "00019:244",
+      "template": "00019"
+    },
+    {
+      "id": "00019:879",
+      "label": "template 00019 · task 00019:879",
+      "ordinal": 39,
+      "taskId": "00019:879",
+      "template": "00019"
+    },
+    {
+      "id": "00020:050",
+      "label": "template 00020 · task 00020:050",
+      "ordinal": 40,
+      "taskId": "00020:050",
+      "template": "00020"
+    },
+    {
+      "id": "00020:066",
+      "label": "template 00020 · task 00020:066",
+      "ordinal": 41,
+      "taskId": "00020:066",
+      "template": "00020"
+    },
+    {
+      "id": "00021:063",
+      "label": "template 00021 · task 00021:063",
+      "ordinal": 42,
+      "taskId": "00021:063",
+      "template": "00021"
+    },
+    {
+      "id": "00021:067",
+      "label": "template 00021 · task 00021:067",
+      "ordinal": 43,
+      "taskId": "00021:067",
+      "template": "00021"
+    },
+    {
+      "id": "00022:638",
+      "label": "template 00022 · task 00022:638",
+      "ordinal": 44,
+      "taskId": "00022:638",
+      "template": "00022"
+    },
+    {
+      "id": "00022:649",
+      "label": "template 00022 · task 00022:649",
+      "ordinal": 45,
+      "taskId": "00022:649",
+      "template": "00022"
+    },
+    {
+      "id": "00023:490",
+      "label": "template 00023 · task 00023:490",
+      "ordinal": 46,
+      "taskId": "00023:490",
+      "template": "00023"
+    },
+    {
+      "id": "00023:771",
+      "label": "template 00023 · task 00023:771",
+      "ordinal": 47,
+      "taskId": "00023:771",
+      "template": "00023"
+    },
+    {
+      "id": "00024:078",
+      "label": "template 00024 · task 00024:078",
+      "ordinal": 48,
+      "taskId": "00024:078",
+      "template": "00024"
+    },
+    {
+      "id": "00024:222",
+      "label": "template 00024 · task 00024:222",
+      "ordinal": 49,
+      "taskId": "00024:222",
+      "template": "00024"
+    }
+  ]
+}

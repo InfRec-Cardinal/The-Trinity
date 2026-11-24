@@ -1,0 +1,87 @@
+[project]
+                                                     
+                                                                                  
+name = "game_arena"
+description = ""
+readme = {text = "", content-type = "text/plain"}
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "game_arena authors", email="game_arena@google.com"}]
+classifiers = [                                         
+    "License :: OSI Approved :: Apache Software License",
+    "Intended Audience :: Science/Research",
+]
+keywords = []
+
+                                 
+                                           
+dependencies = [
+                     
+  "aiohttp",
+  "anthropic",
+  "chess",
+  "dataclasses-json",
+  "google-genai",
+  "immutabledict",
+  "open_spiel",
+  "openai",
+  "pillow",
+  "requests",
+  "tenacity",
+                   
+]
+
+                                                                        
+dynamic = ["version"]
+
+[project.urls]
+homepage = "https://github.com/google-deepmind/game_arena"
+repository = "https://github.com/google-deepmind/game_arena"
+changelog = "https://github.com/google-deepmind/game_arena/blob/main/CHANGELOG.md"
+                    
+
+[project.optional-dependencies]
+                                                     
+                                           
+dev = [
+                                 
+  "absl-py",
+  "termcolor",
+                
+  "pylint>=2.6.0",
+  "pyink",
+]
+
+[tool.pyink]
+                                                       
+line-length = 80
+unstable = true
+pyink-indentation = 2
+pyink-use-majority-quotes = true
+
+[build-system]
+                                                                                
+                                                                      
+requires = ["flit_core >=3.8,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.sdist]
+                                                                 
+                                                                          
+          
+exclude = [
+                                      
+  "**/*_test.py",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 80
+indent-width = 2
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

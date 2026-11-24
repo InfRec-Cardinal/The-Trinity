@@ -1,0 +1,1544 @@
+{
+  "scene_id": "data/scene_datasets/hm3d/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+  "scene_key": "00800-TEEsavR23oF",
+  "episode_id": "25",
+  "goal_position_nominal": [
+    0.07490000128746033,
+    0.8202999830245972,
+    -8.40310001373291
+  ],
+  "final_base_y": 0.16337794065475464,
+  "base_y_source": "snap_goal_y",
+  "object_category": "laptop",
+  "object_id": "8dac2731fff9431399c01ee114e5e002",
+  "pin_semantic_id_convention": {
+    "target_semantic_id": 100000,
+    "meaning": "All pixels with this semantic_id correspond to this episode's target object."
+  },
+  "camera_intrinsics": {
+    "width": 360,
+    "height": 640,
+    "hfov_deg": 42.0,
+    "vfov_deg": 68.62120575907826,
+    "K": [
+      [
+        468.9160316448843,
+        0,
+        179.5
+      ],
+      [
+        0,
+        468.91603164488436,
+        319.5
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "sensor_mount_offset_y": 1.31,
+  "n_sectors": 12,
+  "sector_order": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "sector_skip": 1,
+  "ranges": {
+    "near": [
+      0.9,
+      1.2
+    ],
+    "far": [
+      1.4,
+      1.7
+    ]
+  },
+  "look_thresh": 0.3,
+  "category_mask_threshold": 500,
+  "viewpoints": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 5218,
+      "mask_bbox_xyxy": [
+        107,
+        186,
+        253,
+        293
+      ],
+      "mask_area_fraction": 0.022647569444444446,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        1.4618847370147705,
+        1.4733779430389404,
+        -7.610171794891357
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8354871273040771,
+        -0.22386811673641205,
+        0.48474106192588806,
+        0.12988600134849548
+      ],
+      "camera_to_world": [
+        [
+          0.4963114261627197,
+          1.4901161193847656e-08,
+          -0.8681444525718689,
+          0.0
+        ],
+        [
+          -0.4340723156929016,
+          0.8660253882408142,
+          -0.24815569818019867,
+          0.0
+        ],
+        [
+          0.7518351674079895,
+          0.5,
+          0.42981836199760437,
+          0.0
+        ],
+        [
+          1.4618847370147705,
+          1.4733779430389404,
+          -7.610171794891357,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.4963115453720093,
+          -0.4340723156929016,
+          0.7518352270126343,
+          -0.0
+        ],
+        [
+          7.4505820180093e-08,
+          0.8660255074501038,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.868144690990448,
+          -0.24815574288368225,
+          0.42981839179992676,
+          -0.0
+        ],
+        [
+          -7.332280158996582,
+          -2.5299270153045654,
+          1.4352059364318848,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7518351674079895,
+        -0.4298183023929596
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5976425553624511
+    },
+    {
+      "tag": "s0_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 10443,
+      "mask_bbox_xyxy": [
+        77,
+        241,
+        283,
+        405
+      ],
+      "mask_area_fraction": 0.045325520833333334,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s0_near.png",
+      "mask_raw_path": "mask/mask_s0_near.png",
+      "camera_position": [
+        1.0018141269683838,
+        1.4733779430389404,
+        -7.873190402984619
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8354871273040771,
+        -0.22386811673641205,
+        0.48474106192588806,
+        0.12988600134849548
+      ],
+      "camera_to_world": [
+        [
+          0.4963114261627197,
+          1.4901161193847656e-08,
+          -0.8681444525718689,
+          0.0
+        ],
+        [
+          -0.4340723156929016,
+          0.8660253882408142,
+          -0.24815569818019867,
+          0.0
+        ],
+        [
+          0.7518351674079895,
+          0.5,
+          0.42981836199760437,
+          0.0
+        ],
+        [
+          1.0018141269683838,
+          1.4733779430389404,
+          -7.873190402984619,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.4963115453720093,
+          -0.4340723156929016,
+          0.7518352270126343,
+          -0.0
+        ],
+        [
+          7.4505820180093e-08,
+          0.8660255074501038,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.868144690990448,
+          -0.24815574288368225,
+          0.42981839179992676,
+          -0.0
+        ],
+        [
+          -7.332280158996582,
+          -2.794900417327881,
+          1.8941534757614136,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7518351674079895,
+        -0.4298183023929596
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0676956198757444
+    },
+    {
+      "tag": "s2_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 7905,
+      "mask_bbox_xyxy": [
+        135,
+        197,
+        258,
+        267
+      ],
+      "mask_area_fraction": 0.03430989583333333,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s2_far.png",
+      "mask_raw_path": "mask/mask_s2_far.png",
+      "camera_position": [
+        0.1864793300628662,
+        1.4733779430389404,
+        -6.748341083526611
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9653785824775696,
+        -0.25867241621017456,
+        0.032510511577129364,
+        0.008711165748536587
+      ],
+      "camera_to_world": [
+        [
+          0.9977343678474426,
+          0.0,
+          -0.06727658212184906,
+          0.0
+        ],
+        [
+          -0.03363829106092453,
+          0.8660253882408142,
+          -0.4988671839237213,
+          0.0
+        ],
+        [
+          0.058263227343559265,
+          0.5,
+          0.8640632629394531,
+          0.0
+        ],
+        [
+          0.1864793300628662,
+          1.4733779430389404,
+          -6.748341083526611,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9977343678474426,
+          -0.03363829478621483,
+          0.058263231068849564,
+          -0.0
+        ],
+        [
+          -1.862645371275562e-09,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.06727658957242966,
+          -0.4988672137260437,
+          0.8640633821487427,
+          -0.0
+        ],
+        [
+          -0.6400622129440308,
+          -4.636236667633057,
+          5.08344030380249,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.058263227343559265,
+        -0.8640633225440979
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6585165250028306
+    },
+    {
+      "tag": "s2_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 13928,
+      "mask_bbox_xyxy": [
+        114,
+        268,
+        296,
+        355
+      ],
+      "mask_area_fraction": 0.06045138888888889,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s2_near.png",
+      "mask_raw_path": "mask/mask_s2_near.png",
+      "camera_position": [
+        0.149838387966156,
+        1.4733779430389404,
+        -7.291738510131836
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9653785824775696,
+        -0.25867241621017456,
+        0.032510511577129364,
+        0.008711165748536587
+      ],
+      "camera_to_world": [
+        [
+          0.9977343678474426,
+          0.0,
+          -0.06727658212184906,
+          0.0
+        ],
+        [
+          -0.03363829106092453,
+          0.8660253882408142,
+          -0.4988671839237213,
+          0.0
+        ],
+        [
+          0.058263227343559265,
+          0.5,
+          0.8640632629394531,
+          0.0
+        ],
+        [
+          0.149838387966156,
+          1.4733779430389404,
+          -7.291738510131836,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9977343678474426,
+          -0.03363829478621483,
+          0.058263231068849564,
+          -0.0
+        ],
+        [
+          -1.862645371275562e-09,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.06727658957242966,
+          -0.4988672137260437,
+          0.8640633821487427,
+          -0.0
+        ],
+        [
+          -0.6400622129440308,
+          -4.9085516929626465,
+          5.555105209350586,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.058263227343559265,
+        -0.8640633225440979
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1138851617130225
+    },
+    {
+      "tag": "s4_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 326,
+      "mask_bbox_xyxy": [
+        255,
+        179,
+        273,
+        226
+      ],
+      "mask_area_fraction": 0.0014149305555555556,
+      "mask_meets_threshold": false,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s4_far.png",
+      "mask_raw_path": "mask/mask_s4_far.png",
+      "camera_position": [
+        -1.0815746784210205,
+        1.4733779430389404,
+        -7.205094337463379
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8956241011619568,
+        -0.2399817705154419,
+        -0.3617597818374634,
+        -0.09693324565887451
+      ],
+      "camera_to_world": [
+        [
+          0.7194676399230957,
+          0.0,
+          0.694525957107544,
+          0.0
+        ],
+        [
+          0.34726300835609436,
+          0.8660253882408142,
+          -0.35973381996154785,
+          0.0
+        ],
+        [
+          -0.6014771461486816,
+          0.5,
+          0.6230772137641907,
+          0.0
+        ],
+        [
+          -1.0815746784210205,
+          1.4733779430389404,
+          -7.205094337463379,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.7194676399230957,
+          0.34726300835609436,
+          -0.6014771461486816,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.6945260167121887,
+          -0.35973384976387024,
+          0.6230772733688354,
+          -0.0
+        ],
+        [
+          5.782283782958984,
+          -3.4923086166381836,
+          3.1020989418029785,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.6014772057533264,
+        -0.6230772733688354
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6651280293455257
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 14543,
+      "mask_bbox_xyxy": [
+        106,
+        279,
+        343,
+        422
+      ],
+      "mask_area_fraction": 0.06312065972222222,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": "mask/mask_s4_near.png",
+      "camera_position": [
+        -0.4053724706172943,
+        1.4733779430389404,
+        -7.640303611755371
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9280521869659424,
+        -0.24867084622383118,
+        -0.26782792806625366,
+        -0.07176428288221359
+      ],
+      "camera_to_world": [
+        [
+          0.8462361693382263,
+          0.0,
+          0.5328079462051392,
+          0.0
+        ],
+        [
+          0.26640400290489197,
+          0.8660253882408142,
+          -0.42311811447143555,
+          0.0
+        ],
+        [
+          -0.46142521500587463,
+          0.5,
+          0.7328619956970215,
+          0.0
+        ],
+        [
+          -0.4053724706172943,
+          1.4733779430389404,
+          -7.640303611755371,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.8462362289428711,
+          0.26640400290489197,
+          -0.461425244808197,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.5328080058097839,
+          -0.42311811447143555,
+          0.7328620553016663,
+          -0.0
+        ],
+        [
+          4.413856029510498,
+          -4.400741100311279,
+          4.67555046081543,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.461425244808197,
+        -0.7328620553016663
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9013989117695798
+    },
+    {
+      "tag": "s6_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 6,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s6_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 6,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s8_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 8,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s8_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 8,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s10_far",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 10,
+      "range_label": "far",
+      "radius_m": null,
+      "angle_deg_range": null
+    },
+    {
+      "tag": "s10_near",
+      "navigable": false,
+      "in_frustum": false,
+      "has_mask": false,
+      "mask_area_px": 0,
+      "mask_bbox_xyxy": null,
+      "mask_area_fraction": 0.0,
+      "mask_meets_threshold": false,
+      "category_threshold_used": null,
+      "rgb": null,
+      "mask_raw_path": null,
+      "camera_position": null,
+      "camera_rotation_quat_wxyz": null,
+      "camera_to_world": null,
+      "world_to_camera": null,
+      "camera_fwd_xz": null,
+      "goal_position": null,
+      "goal_position_mode": null,
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": null,
+      "episode_object_category": null,
+      "floor_y_at_cam": null,
+      "base_y_used": null,
+      "base_y_source": null,
+      "cam_y_world": null,
+      "action": null,
+      "sector_index": 10,
+      "range_label": "near",
+      "radius_m": null,
+      "angle_deg_range": null
+    }
+  ],
+  "episode_result": {
+    "navigable_count": 6,
+    "valid_mask_count": 5,
+    "total_viewpoints": 12,
+    "success": true,
+    "object_category": "laptop"
+  },
+  "captures": [
+    {
+      "tag": "s0_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 5218,
+      "mask_bbox_xyxy": [
+        107,
+        186,
+        253,
+        293
+      ],
+      "mask_area_fraction": 0.022647569444444446,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s0_far.png",
+      "mask_raw_path": "mask/mask_s0_far.png",
+      "camera_position": [
+        1.4618847370147705,
+        1.4733779430389404,
+        -7.610171794891357
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8354871273040771,
+        -0.22386811673641205,
+        0.48474106192588806,
+        0.12988600134849548
+      ],
+      "camera_to_world": [
+        [
+          0.4963114261627197,
+          1.4901161193847656e-08,
+          -0.8681444525718689,
+          0.0
+        ],
+        [
+          -0.4340723156929016,
+          0.8660253882408142,
+          -0.24815569818019867,
+          0.0
+        ],
+        [
+          0.7518351674079895,
+          0.5,
+          0.42981836199760437,
+          0.0
+        ],
+        [
+          1.4618847370147705,
+          1.4733779430389404,
+          -7.610171794891357,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.4963115453720093,
+          -0.4340723156929016,
+          0.7518352270126343,
+          -0.0
+        ],
+        [
+          7.4505820180093e-08,
+          0.8660255074501038,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.868144690990448,
+          -0.24815574288368225,
+          0.42981839179992676,
+          -0.0
+        ],
+        [
+          -7.332280158996582,
+          -2.5299270153045654,
+          1.4352059364318848,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7518351674079895,
+        -0.4298183023929596
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.5976425553624511
+    },
+    {
+      "tag": "s0_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 10443,
+      "mask_bbox_xyxy": [
+        77,
+        241,
+        283,
+        405
+      ],
+      "mask_area_fraction": 0.045325520833333334,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s0_near.png",
+      "mask_raw_path": "mask/mask_s0_near.png",
+      "camera_position": [
+        1.0018141269683838,
+        1.4733779430389404,
+        -7.873190402984619
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8354871273040771,
+        -0.22386811673641205,
+        0.48474106192588806,
+        0.12988600134849548
+      ],
+      "camera_to_world": [
+        [
+          0.4963114261627197,
+          1.4901161193847656e-08,
+          -0.8681444525718689,
+          0.0
+        ],
+        [
+          -0.4340723156929016,
+          0.8660253882408142,
+          -0.24815569818019867,
+          0.0
+        ],
+        [
+          0.7518351674079895,
+          0.5,
+          0.42981836199760437,
+          0.0
+        ],
+        [
+          1.0018141269683838,
+          1.4733779430389404,
+          -7.873190402984619,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.4963115453720093,
+          -0.4340723156929016,
+          0.7518352270126343,
+          -0.0
+        ],
+        [
+          7.4505820180093e-08,
+          0.8660255074501038,
+          0.5000000596046448,
+          -0.0
+        ],
+        [
+          -0.868144690990448,
+          -0.24815574288368225,
+          0.42981839179992676,
+          -0.0
+        ],
+        [
+          -7.332280158996582,
+          -2.794900417327881,
+          1.8941534757614136,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.7518351674079895,
+        -0.4298183023929596
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 0,
+      "angle_deg_range": [
+        0.0,
+        30.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.0676956198757444
+    },
+    {
+      "tag": "s2_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 7905,
+      "mask_bbox_xyxy": [
+        135,
+        197,
+        258,
+        267
+      ],
+      "mask_area_fraction": 0.03430989583333333,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s2_far.png",
+      "mask_raw_path": "mask/mask_s2_far.png",
+      "camera_position": [
+        0.1864793300628662,
+        1.4733779430389404,
+        -6.748341083526611
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9653785824775696,
+        -0.25867241621017456,
+        0.032510511577129364,
+        0.008711165748536587
+      ],
+      "camera_to_world": [
+        [
+          0.9977343678474426,
+          0.0,
+          -0.06727658212184906,
+          0.0
+        ],
+        [
+          -0.03363829106092453,
+          0.8660253882408142,
+          -0.4988671839237213,
+          0.0
+        ],
+        [
+          0.058263227343559265,
+          0.5,
+          0.8640632629394531,
+          0.0
+        ],
+        [
+          0.1864793300628662,
+          1.4733779430389404,
+          -6.748341083526611,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9977343678474426,
+          -0.03363829478621483,
+          0.058263231068849564,
+          -0.0
+        ],
+        [
+          -1.862645371275562e-09,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.06727658957242966,
+          -0.4988672137260437,
+          0.8640633821487427,
+          -0.0
+        ],
+        [
+          -0.6400622129440308,
+          -4.636236667633057,
+          5.08344030380249,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.058263227343559265,
+        -0.8640633225440979
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6585165250028306
+    },
+    {
+      "tag": "s2_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 13928,
+      "mask_bbox_xyxy": [
+        114,
+        268,
+        296,
+        355
+      ],
+      "mask_area_fraction": 0.06045138888888889,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s2_near.png",
+      "mask_raw_path": "mask/mask_s2_near.png",
+      "camera_position": [
+        0.149838387966156,
+        1.4733779430389404,
+        -7.291738510131836
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9653785824775696,
+        -0.25867241621017456,
+        0.032510511577129364,
+        0.008711165748536587
+      ],
+      "camera_to_world": [
+        [
+          0.9977343678474426,
+          0.0,
+          -0.06727658212184906,
+          0.0
+        ],
+        [
+          -0.03363829106092453,
+          0.8660253882408142,
+          -0.4988671839237213,
+          0.0
+        ],
+        [
+          0.058263227343559265,
+          0.5,
+          0.8640632629394531,
+          0.0
+        ],
+        [
+          0.149838387966156,
+          1.4733779430389404,
+          -7.291738510131836,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.9977343678474426,
+          -0.03363829478621483,
+          0.058263231068849564,
+          -0.0
+        ],
+        [
+          -1.862645371275562e-09,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          -0.06727658957242966,
+          -0.4988672137260437,
+          0.8640633821487427,
+          -0.0
+        ],
+        [
+          -0.6400622129440308,
+          -4.9085516929626465,
+          5.555105209350586,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        -0.058263227343559265,
+        -0.8640633225440979
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 2,
+      "angle_deg_range": [
+        60.0,
+        90.0
+      ],
+      "range_label": "near",
+      "radius_m": 1.1138851617130225
+    },
+    {
+      "tag": "s4_far",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 326,
+      "mask_bbox_xyxy": [
+        255,
+        179,
+        273,
+        226
+      ],
+      "mask_area_fraction": 0.0014149305555555556,
+      "mask_meets_threshold": false,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s4_far.png",
+      "mask_raw_path": "mask/mask_s4_far.png",
+      "camera_position": [
+        -1.0815746784210205,
+        1.4733779430389404,
+        -7.205094337463379
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.8956241011619568,
+        -0.2399817705154419,
+        -0.3617597818374634,
+        -0.09693324565887451
+      ],
+      "camera_to_world": [
+        [
+          0.7194676399230957,
+          0.0,
+          0.694525957107544,
+          0.0
+        ],
+        [
+          0.34726300835609436,
+          0.8660253882408142,
+          -0.35973381996154785,
+          0.0
+        ],
+        [
+          -0.6014771461486816,
+          0.5,
+          0.6230772137641907,
+          0.0
+        ],
+        [
+          -1.0815746784210205,
+          1.4733779430389404,
+          -7.205094337463379,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.7194676399230957,
+          0.34726300835609436,
+          -0.6014771461486816,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.6945260167121887,
+          -0.35973384976387024,
+          0.6230772733688354,
+          -0.0
+        ],
+        [
+          5.782283782958984,
+          -3.4923086166381836,
+          3.1020989418029785,
+          1.0
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.6014772057533264,
+        -0.6230772733688354
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "far",
+      "radius_m": 1.6651280293455257
+    },
+    {
+      "tag": "s4_near",
+      "navigable": true,
+      "in_frustum": true,
+      "has_mask": true,
+      "mask_area_px": 14543,
+      "mask_bbox_xyxy": [
+        106,
+        279,
+        343,
+        422
+      ],
+      "mask_area_fraction": 0.06312065972222222,
+      "mask_meets_threshold": true,
+      "category_threshold_used": 500,
+      "rgb": "rgb/rgb_s4_near.png",
+      "mask_raw_path": "mask/mask_s4_near.png",
+      "camera_position": [
+        -0.4053724706172943,
+        1.4733779430389404,
+        -7.640303611755371
+      ],
+      "camera_rotation_quat_wxyz": [
+        0.9280521869659424,
+        -0.24867084622383118,
+        -0.26782792806625366,
+        -0.07176428288221359
+      ],
+      "camera_to_world": [
+        [
+          0.8462361693382263,
+          0.0,
+          0.5328079462051392,
+          0.0
+        ],
+        [
+          0.26640400290489197,
+          0.8660253882408142,
+          -0.42311811447143555,
+          0.0
+        ],
+        [
+          -0.46142521500587463,
+          0.5,
+          0.7328619956970215,
+          0.0
+        ],
+        [
+          -0.4053724706172943,
+          1.4733779430389404,
+          -7.640303611755371,
+          1.0
+        ]
+      ],
+      "world_to_camera": [
+        [
+          0.8462362289428711,
+          0.26640400290489197,
+          -0.461425244808197,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.866025447845459,
+          0.5000000596046448,
+          0.0
+        ],
+        [
+          0.5328080058097839,
+          -0.42311811447143555,
+          0.7328620553016663,
+          -0.0
+        ],
+        [
+          4.413856029510498,
+          -4.400741100311279,
+          4.67555046081543,
+          1.0000001192092896
+        ]
+      ],
+      "camera_fwd_xz": [
+        0.461425244808197,
+        -0.7328620553016663
+      ],
+      "goal_position": [
+        0.07490000128746033,
+        0.8202999830245972,
+        -8.40310001373291
+      ],
+      "goal_position_mode": "canonical",
+      "target_object_id_runtime_int": null,
+      "episode_object_id_str": "8dac2731fff9431399c01ee114e5e002",
+      "episode_object_category": "laptop",
+      "floor_y_at_cam": 0.16337794065475464,
+      "base_y_used": 0.16337794065475464,
+      "base_y_source": "snap_goal_y",
+      "cam_y_world": 1.4733779430389404,
+      "action": "look_down",
+      "sector_index": 4,
+      "angle_deg_range": [
+        120.0,
+        150.0
+      ],
+      "range_label": "near",
+      "radius_m": 0.9013989117695798
+    }
+  ],
+  "overview": "overview.png",
+  "regen_info": {
+    "generated_by": "val_verify_capture_v2_distributed.py (episode-level eval)",
+    "time": "2026-02-11 06:47:57"
+  }
+}

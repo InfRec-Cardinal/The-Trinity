@@ -1,0 +1,21 @@
+{
+  "model_name": "google/gemma-4-31B-it",
+  "provider": "vllm-chat",
+  "base_url": "http://localhost:18765/v1",
+  "settings": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "extra_body": {
+      "top_k": 64,
+      "chat_template_kwargs": {
+        "enable_thinking": true
+      },
+      "reasoning": {
+        "enabled": true
+      },
+      "usage": {
+        "include": true
+      }
+    }
+  }
+}

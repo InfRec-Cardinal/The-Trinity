@@ -1,0 +1,63 @@
+version: 1
+
+defaults:
+  timeout_s: 60
+  max_retries: 2
+
+providers:
+  - name: openai
+    base_url: https://api.openai.com/v1
+    api_key_env: OPENAI_API_KEY
+    models:
+      - name: gpt-4.1
+        id: gpt-4.1
+      - name: gpt-5-nano
+        id: gpt-5-nano
+      - name: gpt-5-mini
+        id: gpt-5-mini
+      - name: gpt-5
+        id: gpt-5
+
+
+  - name: openrouter
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_KEY
+    models:
+      - name: DeepSeek-v4-Flash
+        id: deepseek/deepseek-v4-flash
+      - name: Qwen3.6-Flash
+        id: qwen/qwen3.6-flash
+      - name: Kimi-k2.5
+        id: moonshotai/kimi-k2.5
+      - name: DeepSeek-v4-Pro
+        id: deepseek/deepseek-v4-pro
+      - name: MiniMax-M2.7
+        id: minimax/minimax-m2.7
+        
+  - name: Qwen3-8B
+    base_url: <your_local_base_url>
+    api_key_env: EMPTY
+    models:
+      - name: Qwen3-8B
+        id: Qwen3-8B
+
+  - name: Qwen3-14B
+    base_url: <your_local_base_url>
+    api_key_env: EMPTY
+    models:
+      - name: Qwen3-14B
+        id: Qwen/Qwen3-14B
+
+  - name: Qwen3-32B
+    base_url: <your_local_base_url>
+    api_key_env: EMPTY
+    models:
+      - name: Qwen3-32B
+        id: Qwen3-32B
+
+  - name: Llama-3.3-70B
+    base_url: <your_local_base_url>
+    api_key_env: EMPTY
+    models:
+      - name: Llama-3.3-70B
+        id: meta-llama/Llama-3.3-70B-Instruct

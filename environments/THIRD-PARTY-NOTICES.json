@@ -1,0 +1,736 @@
+{
+  "notices": [
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/clean_all.sh",
+      "notice": "# Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/clean_all.sh",
+      "notice": "# Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/clean_all.sh",
+      "notice": "# you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/clean_all.sh",
+      "notice": "# You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/clean_all.sh",
+      "notice": "#    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/clean_all.sh",
+      "notice": "# distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/clean_all.sh",
+      "notice": "# See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/clean_all.sh",
+      "notice": "# limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/pyhanabi.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_move.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/observation_encoder.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/observation_encoder.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/observation_encoder.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/observation_encoder.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/observation_encoder.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/observation_encoder.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/observation_encoder.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/observation_encoder.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_observation.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/util.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_hand.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.h",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.h",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.h",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.h",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.h",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.h",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.h",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_history_item.h",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/canonical_encoders.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.cc",
+      "notice": "// Copyright 2018 Google LLC"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.cc",
+      "notice": "// Licensed under the Apache License, Version 2.0 (the \"License\");"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.cc",
+      "notice": "// you may not use this file except in compliance with the License."
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.cc",
+      "notice": "// You may obtain a copy of the License at"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.cc",
+      "notice": "//    https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.cc",
+      "notice": "// distributed under the License is distributed on an \"AS IS\" BASIS,"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.cc",
+      "notice": "// See the License for the specific language governing permissions and"
+    },
+    {
+      "file": "unseen/tasks/14-hanabi_hle_unseen/env/hanabi-source/hanabi_learning_environment/hanabi_lib/hanabi_card.cc",
+      "notice": "// limitations under the License."
+    },
+    {
+      "path": "capx/vendor/three.core.js",
+      "text": "*\n * @license\n * Copyright 2010-2026 Three.js Authors\n * SPDX-License-Identifier: MIT\n "
+    },
+    {
+      "path": "capx/vendor/three.module.js",
+      "text": "*\n * @license\n * Copyright 2010-2026 Three.js Authors\n * SPDX-License-Identifier: MIT\n "
+    },
+    {
+      "path": "unseen/tasks/10-phyre_unseen_fold0/env/phyre-macos-arm64-py39/phyre/viz_static_file/phyre_config.js",
+      "text": " Copyright (c) Facebook, Inc. and its affiliates."
+    },
+    {
+      "path": "unseen/tasks/10-phyre_unseen_fold0/env/phyre-macos-arm64-py39/phyre/viz_static_file/thrift.js",
+      "text": "\n * Licensed to the Apache Software Foundation (ASF) under one\n * or more contributor license agreements. See the NOTICE file\n * distributed with this work for additional information\n * regarding copyright ownership. The ASF licenses this file\n * to you under the Apache License, Version 2.0 (the\n * \"License\"); you may not use this file except in compliance\n * with the License. You may obtain a copy of the License at\n *\n *   http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing,\n * software distributed under the License is distributed on an\n * \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n * KIND, either express or implied. See the License for the\n * specific language governing permissions and limitations\n * under the License.\n "
+    },
+    {
+      "path": "vendor/TextArena/textarena/envs/Diplomacy/prompts",
+      "text": "This folder contains the prompts for the Diplomacy environment, which are mainly adapted from the [AI_Diplomacy](https://github.com/Alx-AI/AI_Diplomacy) GitHub repository. We appreciate their work and the community that has built up around it."
+    },
+    {
+      "path": "capx/vendor/aloha",
+      "text": "Source: github.com/google-deepmind/mujoco_menagerie/aloha @ 71f066ad0be9cd271f7ed58c030243ef157af9f4 (downloaded 2026-10-15). BSD-3-Clause.\n"
+    },
+    {
+      "path": "capx/vendor/alohamini2",
+      "text": "AlohaMini2 robot model.\nSource: https://github.com/liyiteng/AlohaMini  commit 17c6a98d79881a45ab869c1f392ed89c0723a298\n        AlohaMini2/urdf/alohamini2/urdf/alohamini2.urdf + alohamini2_meshes/*.STL   (Apache-2.0, LICENSE in this folder)\nConverted with trinity-work/vendor-alohamini2/tools/urdf_to_mjcf.py:\n  - meshes reduced by vertex clustering (2 mm cells, tools/stl_decimate.py) for rendering speed;\n  - planar base joints (root_x/root_y/root_z_rotation) removed: base_link is the fixed root (the base does not drive);\n  - implausible inertias of the camera and wheel links in the export (10 kg / 1.27 kg) set to 50 g.\nKinematics (joint origins and axes) are unchanged. Scene-level changes (lift height, actuators, gripper pads, collision\nclasses) are made by capxi/physics.py at load time.\n"
+    }
+  ]
+}

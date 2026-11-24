@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" xmlns:sbml="http://www.sbml.org/sbml/level2/version4" level="1" version="4">
+  <listOfModels>
+    <model id="model" language="urn:sedml:language:sbml" source="Creemers2021.xml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="796" numberOfSteps="10000">
+      <algorithm name="ODE solver" kisaoID="KISAO_0000694">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="Relative Tolerance" kisaoID="KISAO:0000209" value="1e-06"/>
+          <algorithmParameter name="Absolute tolerance adjustment factor" kisaoID="KISAO:0000571" value="1e-12"/>
+          <algorithmParameter name="Integrate Reduced Model" kisaoID="KISAO:0000216" value="false"/>
+          <algorithmParameter name="Max Internal Steps" kisaoID="KISAO:0000415" value="100000"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task1" modelReference="model" simulationReference="sim1"/>
+    <repeatedTask id="task2" range="range0" resetModel="true">
+      <listOfRanges>
+        <uniformRange id="range0" start="0.0005" end="0.001" numberOfSteps="5" type="linear"/>
+      </listOfRanges>
+      <listOfChanges>
+        <setValue modelReference="model" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;xi&apos;]" range="range0">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> range0 </ci>
+          </math>
+        </setValue>
+      </listOfChanges>
+      <listOfSubTasks>
+        <subTask order="1" task="task1"/>
+      </listOfSubTasks>
+    </repeatedTask>
+    <repeatedTask id="task3" range="range02" resetModel="true">
+      <listOfRanges>
+        <uniformRange id="range02" start="0.5" end="1" numberOfSteps="5" type="linear"/>
+      </listOfRanges>
+      <listOfChanges>
+        <setValue modelReference="model" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;rho&apos;]" range="range02">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> range02 </ci>
+          </math>
+        </setValue>
+      </listOfChanges>
+      <listOfSubTasks>
+        <subTask order="1" task="task2"/>
+      </listOfSubTasks>
+    </repeatedTask>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="_1_task3" name="Time">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1__1_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1__1_task3" name="Time" symbol="urn:sedml:symbol:time" taskReference="task3" term="KISAO:0000832"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="T_1_task3" name="[Tumor_cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_T_1_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_T_1_task3" name="[Tumor_cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;T&apos;]" taskReference="task3" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="I_2_task3" name="[Intratumoral_T_cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_I_2_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_I_2_task3" name="[Intratumoral_T_cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;I&apos;]" taskReference="task3" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="S_3_task3" name="[Specific_T_cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_S_3_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_S_3_task3" name="[Specific_T_cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;S&apos;]" taskReference="task3" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="N_4_task3" name="[Naive_T_cells]">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> p1_N_4_task3 </ci>
+      </math>
+      <listOfVariables>
+        <variable id="p1_N_4_task3" name="[Naive_T_cells]" target="/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;N&apos;]" taskReference="task3" term="KISAO:0000838"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_rho">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_rho__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_rho__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;rho&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_xi">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_xi__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_xi__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;xi&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_h">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_h__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_h__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;h&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_delta">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_delta__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_delta__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;delta&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_alpha">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_alpha__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_alpha__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;alpha&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_p_s">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_p_s__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_p_s__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;p_s&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_m_s">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_m_s__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_m_s__x" target="/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id=&apos;m_s&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_Tumor">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_Tumor__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_Tumor__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Tumor&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_Lymph_node">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_Lymph_node__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_Lymph_node__x" target="/sbml:sbml/sbml:model/sbml:listOfCompartments/sbml:compartment[@id=&apos;Lymph_node&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_Tumor_growth">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_Tumor_growth__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_Tumor_growth__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Tumor_growth&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_T_cell_mediated_tumor_cell_killing">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_T_cell_mediated_tumor_cell_killing__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_T_cell_mediated_tumor_cell_killing__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;T_cell_mediated_tumor_cell_killing&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_Lymph_node_resident_T_cell_migration">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_Lymph_node_resident_T_cell_migration__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_Lymph_node_resident_T_cell_migration__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Lymph_node_resident_T_cell_migration&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_Intratumoral_T_cell_death">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_Intratumoral_T_cell_death__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_Intratumoral_T_cell_death__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Intratumoral_T_cell_death&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_Lymph_node_resident_T_cell_conversion">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_Lymph_node_resident_T_cell_conversion__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_Lymph_node_resident_T_cell_conversion__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Lymph_node_resident_T_cell_conversion&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+    <dataGenerator id="auto_dg_for_task3_Effector_T_cell_proliferation">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> auto_dg_for_task3_Effector_T_cell_proliferation__x </ci>
+      </math>
+      <listOfVariables>
+        <variable id="auto_dg_for_task3_Effector_T_cell_proliferation__x" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id=&apos;Effector_T_cell_proliferation&apos;]" taskReference="task3"/>
+      </listOfVariables>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <plot2D id="plot_2_task3" name="Concentrations, Volumes, and Global Quantity Values">
+      <listOfCurves>
+        <curve id="p1_curve_1_task3" name="[T]" logX="false" style="style1" xDataReference="_1_task3" logY="true" yDataReference="T_1_task3"/>
+        <curve id="p1_curve_2_task3" name="[I]" logX="false" style="style1" xDataReference="_1_task3" logY="true" yDataReference="I_2_task3"/>
+        <curve id="p1_curve_3_task3" name="[S]" logX="false" style="style2" xDataReference="_1_task3" logY="true" yDataReference="S_3_task3"/>
+        <curve id="p1_curve_4_task3" name="[N]" logX="false" style="style3" xDataReference="_1_task3" logY="true" yDataReference="N_4_task3"/>
+      </listOfCurves>
+    </plot2D>
+    <report id="autogen_report_for_task3" name="Auto-generated report for task3, including all symbols in SBML with mathematical meaning, both constant and variable.">
+      <listOfDataSets>
+        <dataSet id="autogen_time_for_task3" label="Time" dataReference="_1_task3"/>
+        <dataSet id="autogen_task3_T" label="T" dataReference="T_1_task3"/>
+        <dataSet id="autogen_task3_I" label="I" dataReference="I_2_task3"/>
+        <dataSet id="autogen_task3_S" label="S" dataReference="S_3_task3"/>
+        <dataSet id="autogen_task3_N" label="N" dataReference="N_4_task3"/>
+        <dataSet id="autogen_task3_rho" label="rho" dataReference="auto_dg_for_task3_rho"/>
+        <dataSet id="autogen_task3_xi" label="xi" dataReference="auto_dg_for_task3_xi"/>
+        <dataSet id="autogen_task3_h" label="h" dataReference="auto_dg_for_task3_h"/>
+        <dataSet id="autogen_task3_delta" label="delta" dataReference="auto_dg_for_task3_delta"/>
+        <dataSet id="autogen_task3_alpha" label="alpha" dataReference="auto_dg_for_task3_alpha"/>
+        <dataSet id="autogen_task3_p_s" label="p_s" dataReference="auto_dg_for_task3_p_s"/>
+        <dataSet id="autogen_task3_m_s" label="m_s" dataReference="auto_dg_for_task3_m_s"/>
+        <dataSet id="autogen_task3_Tumor" label="Tumor" dataReference="auto_dg_for_task3_Tumor"/>
+        <dataSet id="autogen_task3_Lymph_node" label="Lymph_node" dataReference="auto_dg_for_task3_Lymph_node"/>
+        <dataSet id="autogen_task3_Tumor_growth" label="Tumor_growth" dataReference="auto_dg_for_task3_Tumor_growth"/>
+        <dataSet id="autogen_task3_T_cell_mediated_tumor_cell_killing" label="T_cell_mediated_tumor_cell_killing" dataReference="auto_dg_for_task3_T_cell_mediated_tumor_cell_killing"/>
+        <dataSet id="autogen_task3_Lymph_node_resident_T_cell_migration" label="Lymph_node_resident_T_cell_migration" dataReference="auto_dg_for_task3_Lymph_node_resident_T_cell_migration"/>
+        <dataSet id="autogen_task3_Intratumoral_T_cell_death" label="Intratumoral_T_cell_death" dataReference="auto_dg_for_task3_Intratumoral_T_cell_death"/>
+        <dataSet id="autogen_task3_Lymph_node_resident_T_cell_conversion" label="Lymph_node_resident_T_cell_conversion" dataReference="auto_dg_for_task3_Lymph_node_resident_T_cell_conversion"/>
+        <dataSet id="autogen_task3_Effector_T_cell_proliferation" label="Effector_T_cell_proliferation" dataReference="auto_dg_for_task3_Effector_T_cell_proliferation"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+  <listOfStyles>
+    <style id="style1">
+      <line type="solid" thickness="1"/>
+      <marker type="none"/>
+    </style>
+    <style id="style2">
+      <line type="dot" color="00BEF0" thickness="1"/>
+      <marker type="none"/>
+    </style>
+    <style id="style3">
+      <line type="dot" color="00E600" thickness="1"/>
+      <marker type="none"/>
+    </style>
+  </listOfStyles>
+</sedML>

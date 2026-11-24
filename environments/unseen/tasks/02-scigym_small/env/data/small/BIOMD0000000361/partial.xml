@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="id_y0yy">
+    <listOfUnitDefinitions>
+      <unitDefinition id="id_7955">
+        <listOfUnits>
+          <unit kind="second" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="id_dw4q">
+        <listOfUnits>
+          <unit kind="mole" scale="-9"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="id_h1tr" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="id_noeo" compartment="id_h1tr" initialConcentration="0"/>
+      <species id="id_p3gy" compartment="id_h1tr" initialConcentration="0"/>
+      <species id="id_cvc1" compartment="id_h1tr" initialConcentration="0"/>
+      <species id="id_3i7y" compartment="id_h1tr" initialConcentration="0.9999997"/>
+      <species id="id_96z7" compartment="id_h1tr" initialConcentration="2.399999"/>
+      <species id="id_itde" compartment="id_h1tr" initialConcentration="0"/>
+      <species id="id_pfsr" compartment="id_h1tr" initialConcentration="169.9999"/>
+      <species id="id_ykzq" compartment="id_h1tr" initialConcentration="0"/>
+    </listOfSpecies>
+  </model>
+</sbml>
