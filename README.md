@@ -51,15 +51,21 @@
 - **Oct 30, 2026:** 🔥 Codes released!
 - **Oct 26, 2026:** 🤗 Paper release! The Trinity reached **#1** on [Hugging Face Daily Papers](https://huggingface.co/papers/2610.36077).
 
+## Abstract
+
+Extending recursive self-improvement (RSI) to long-horizon multimodal agents faces two bottlenecks: constructing heterogeneous, verifiable environments is costly, and manual Harness iteration cannot keep pace with task complexity. Yet automating per-task refinement does not guarantee cumulative improvement. How should experience be organized? Task-specific refinement overfits and limits transfer, while a unified Harness suffers interference across heterogeneous demands. How should improvements evolve? Existing gains must be retained, inherited, and refined across iterations rather than diluted by increasing task volume. We argue that scalable RSI requires **agent–environment co-evolution**, coupling adaptive worlds with Harness updates, and **shared capability requirements**, organizing dispersed feedback into transferable learning signals.
+
+We introduce **The Trinity**, an RSI framework coupling world generation with Harness evolution through Creator, Explorer, and Evolver. From verified trajectories, Evolver reorganizes tasks into a hierarchical capability tree based on shared requirements. Through Capability-Driven Real2Sim2Real, Creator abstracts node-level requirements into simplified, verifiable simulated worlds for capability learning, while original-task evaluation measures transfer. Along this tree, Explorer selectively inherits and refines reusable modules, forming a specialized Harness tree that accumulates validated improvements within a fixed topology. A **Capability-Aware Harness Router** selects compatible module configurations using public task information and verified experience. We further introduce **Trinity Studio**, an open-source platform enabling user-defined capability nodes, tree structures, and verifiable environments for customizable RSI workflows.
+
+Our evolved Harnesses improve mean performance by 34 points across 28 training benchmarks and 26 points across 18 unseen benchmarks, including two real-world embodied tasks.
+
 ## 📖 Introduction
 
-**The Trinity** is a recursive self-improvement framework that couples world generation with agent Harness evolution. It organizes heterogeneous multimodal tasks by shared capability requirements and connects three roles through verified execution feedback:
+Recursive self-improvement has shown promise in text-based tasks, where an agent can execute a task, diagnose a failure, and revise how it works. In long-horizon multimodal tasks, observations and rules vary widely. Building and validating each environment is costly, as is tuning prompts, tools, and protocols by hand. Tasks with different rules can still require the same underlying ability, such as perception or state tracking. The Trinity organizes experience around these shared capabilities so that an improvement learned on one task can be retained, refined, and transferred to another.
 
-- **Creator** builds simplified, verifiable worlds for capability learning.
-- **Explorer** interacts with worlds and evolves reusable capability modules through selective inheritance.
-- **Evolver** organizes task requirements into a hierarchical capability tree.
+**Evolver** uses verified execution trajectories to reorganize the task tree into a capability tree. Branches can share the first part of a capability path, and tasks at the same node share a learning objective. Through **Capability-Driven Real2Sim2Real**, **Creator** builds simplified, verifiable worlds around that objective and adjusts their difficulty to **Explorer**’s current ability. Explorer selectively inherits and refines reusable Harness modules along each branch. When a verifier detects a failure, Creator refines its own Harness at the corresponding node. At the end of each iteration, it merges complementary modules and removes near-duplicates to form its next Base Harness.
 
-**Capability-Driven Real2Sim2Real** connects learning in generated worlds with evaluation on original tasks. A **Capability-Aware Harness Router** selects compatible module configurations for each task. See the [technical report](paper/The-Trinity.pdf) for the method, experiments, and reported results.
+The **Capability-Aware Harness Router** uses public task information and verified execution experience to select a compatible Harness for each task. Evaluation on the original tasks measures how well the capabilities learned in simulation transfer. In **Trinity Studio**, users can define capability nodes, arrange them into trees, and build verifiable environments of their own. See the [technical report](paper/The-Trinity.pdf) for the experimental setup and results.
 
 ![Overview of The Trinity: Creator, Explorer, and Evolver connect multimodal task-space expansion with capability-driven Harness evolution.](assets/overview.png)
 
