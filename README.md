@@ -27,18 +27,18 @@
 
 <table>
   <tr>
-    <td align="center" width="33%">
-      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-en.mp4"><img src="assets/videos/previews/overview.gif" alt="Creator, Explorer and Evolver working together" width="300"></a><br>
+    <td align="center" valign="top" width="33%">
+      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-en.mp4"><img src="assets/videos/previews/overview.gif" alt="Creator, Explorer and Evolver working together"></a><br>
       <strong>Overview</strong><br>
       <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-en.mp4">Full video (1:46)</a> · <a href="assets/videos/the-trinity-en.mp4?raw=true">Download</a>
     </td>
-    <td align="center" width="33%">
-      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/previews/examples.gif" alt="Side-by-side comparison of two CaP-X robot runs" width="300"></a><br>
+    <td align="center" valign="top" width="33%">
+      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-explainer.mp4"><img src="assets/videos/previews/examples.gif" alt="Side-by-side comparison of two CaP-X robot runs"></a><br>
       <strong>Task examples</strong><br>
       <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/the-trinity-explainer.mp4">Full video (1:57)</a> · <a href="assets/videos/the-trinity-explainer.mp4?raw=true">Download</a>
     </td>
-    <td align="center" width="33%">
-      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/trinity-studio.mp4"><img src="assets/videos/previews/trinity-studio.gif" alt="Stepping through a level replay in Trinity Studio" width="300"></a><br>
+    <td align="center" valign="top" width="33%">
+      <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/trinity-studio.mp4"><img src="assets/videos/previews/trinity-studio.gif" alt="Stepping through a level replay in Trinity Studio"></a><br>
       <strong>Trinity Studio</strong><br>
       <a href="https://cdn.jsdelivr.net/gh/InfRec-Cardinal/The-Trinity@5d4ecdb37d4a7496403a8139c4f5662c98abc631/assets/videos/trinity-studio.mp4">Full video (1:43)</a> · <a href="assets/videos/trinity-studio.mp4?raw=true">Download</a>
     </td>
